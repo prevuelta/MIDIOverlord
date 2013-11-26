@@ -10,9 +10,26 @@
 
 @implementation AppDelegate
 
+@synthesize textField;
+@synthesize slider;
+
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     // Insert code here to initialize your application
 }
 
+- (IBAction)mute:(id)sender {
+    NSLog(@"Received a mute: message");
+}
+
+- (IBAction)takeFloatValueForVolumeFrom:(id)sender {
+    NSString *senderName = nil;
+    if(sender == self.textField) {
+        senderName = @"textField";
+        
+    } else {
+        senderName= @"slider";
+    }
+    NSLog(@"%@ sent takeFloatValueForVolumeFrom: with vluae %1.2f", senderName, [sender floatValue]);
+}
 @end

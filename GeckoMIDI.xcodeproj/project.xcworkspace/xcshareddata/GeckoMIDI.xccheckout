@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>62D5DB27-3E9C-4844-994D-04DCED6A9ED4</string>
+	<key>IDESourceControlProjectName</key>
+	<string>GeckoMIDI</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>9B3DD270-5EBD-4C04-960C-2FF3DBE583AF</key>
+		<string>suspekt007@suspekt007.webfactional.com:~/webapps/git/repos/GeckoMIDI.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>GeckoMIDI.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>9B3DD270-5EBD-4C04-960C-2FF3DBE583AF</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>suspekt007@suspekt007.webfactional.com:~/webapps/git/repos/GeckoMIDI.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>9B3DD270-5EBD-4C04-960C-2FF3DBE583AF</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>9B3DD270-5EBD-4C04-960C-2FF3DBE583AF</string>
+			<key>IDESourceControlWCCName</key>
+			<string>GeckoMIDI</string>
+		</dict>
+	</array>
+</dict>
+</plist>
