@@ -7,17 +7,26 @@
 //
 
 #import "AppDelegate.h"
+#import "Grid.h"
 
 @implementation AppDelegate
 
 @synthesize textField;
 @synthesize slider;
 
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification
-{
+- (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Insert code here to initialize your application
+    // Change window color to white
+    // self.window.backgroundColor = [NSColor whiteColor];
+    // Trying to add custom view
+    Grid *mainGrid = [[Grid alloc] init];
+    
+    mainGrid.XDivisions = 10;
+    mainGrid.YDivisions = 10;
+    
 }
 
+    
 - (IBAction)mute:(id)sender {
     NSLog(@"Received a mute: message");
 }

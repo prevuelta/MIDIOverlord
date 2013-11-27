@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E0C896218443C3F00EA97D0 /* Grid.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0C896118443C3F00EA97D0 /* Grid.m */; };
 		6E5A63E7184417F700C1CD8E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E5A63E6184417F600C1CD8E /* Cocoa.framework */; };
 		6E5A63F1184417F700C1CD8E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6E5A63EF184417F700C1CD8E /* InfoPlist.strings */; };
 		6E5A63F3184417F700C1CD8E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5A63F2184417F700C1CD8E /* main.m */; };
@@ -31,6 +32,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6E0C896018443C3F00EA97D0 /* Grid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Grid.h; sourceTree = "<group>"; };
+		6E0C896118443C3F00EA97D0 /* Grid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Grid.m; sourceTree = "<group>"; };
 		6E5A63E3184417F600C1CD8E /* GeckoMIDI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeckoMIDI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E5A63E6184417F600C1CD8E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		6E5A63E9184417F700C1CD8E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -117,6 +120,8 @@
 			children = (
 				6E5A63F8184417F700C1CD8E /* AppDelegate.h */,
 				6E5A63F9184417F700C1CD8E /* AppDelegate.m */,
+				6E0C896018443C3F00EA97D0 /* Grid.h */,
+				6E0C896118443C3F00EA97D0 /* Grid.m */,
 				6E5A63FB184417F700C1CD8E /* MainMenu.xib */,
 				6E5A63FE184417F700C1CD8E /* Images.xcassets */,
 				6E5A63ED184417F700C1CD8E /* Supporting Files */,
@@ -252,6 +257,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E0C896218443C3F00EA97D0 /* Grid.m in Sources */,
 				6E5A63FA184417F700C1CD8E /* AppDelegate.m in Sources */,
 				6E5A63F3184417F700C1CD8E /* main.m in Sources */,
 			);
@@ -464,6 +470,7 @@
 				6E5A6416184417F700C1CD8E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6E5A6417184417F700C1CD8E /* Build configuration list for PBXNativeTarget "GeckoMIDITests" */ = {
 			isa = XCConfigurationList;
@@ -472,6 +479,7 @@
 				6E5A6419184417F700C1CD8E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
