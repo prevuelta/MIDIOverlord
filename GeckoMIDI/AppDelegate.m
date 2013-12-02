@@ -7,38 +7,29 @@
 //
 
 #import "AppDelegate.h"
-#import "Grid.h"
+#import "gmGrid.h"
 
 @implementation AppDelegate
 
-@synthesize textField;
-@synthesize slider;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+
     // Insert code here to initialize your application
     // Change window color to white
-    // self.window.backgroundColor = [NSColor whiteColor];
+   
     // Trying to add custom view
-    Grid *mainGrid = [[Grid alloc] init];
+    gmGrid *mainGrid = [[gmGrid alloc] init];
     
-    mainGrid.XDivisions = 10;
-    mainGrid.YDivisions = 10;
+    self.mainWin.backgroundColor = [NSColor whiteColor];
     
+    [self.mainWin setContentView: mainGrid];
+    
+
 }
 
-    
-- (IBAction)mute:(id)sender {
-    NSLog(@"Received a mute: message");
+- (IBAction)makeView:(id)sender {
+    NSLog(@"Making view...");
 }
 
-- (IBAction)takeFloatValueForVolumeFrom:(id)sender {
-    NSString *senderName = nil;
-    if(sender == self.textField) {
-        senderName = @"textField";
-        
-    } else {
-        senderName= @"slider";
-    }
-    NSLog(@"%@ sent takeFloatValueForVolumeFrom: with vluae %1.2f", senderName, [sender floatValue]);
-}
+
 @end

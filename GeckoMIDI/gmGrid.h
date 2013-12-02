@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface Grid : NSView {
+@interface gmGrid : NSView {
 
 
 }
@@ -19,7 +19,7 @@
 - (id)initWithFrame:(NSRect)frame;
 - (void)drawRect:(NSRect)frame;
 
-- (void)setItemColor:(NSColor *)aColor;
-- (NSColor *)itemColor;
+//- (void)setItemColor:(NSColor *)aColor;
+//- (NSColor *)itemColor;
 
 @end
