@@ -11,7 +11,9 @@
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
 @property (assign) IBOutlet NSWindow *mainWin;
+@property float windowPadding;
 
 - (IBAction)makeView:(id)sender;
+- (void)resizeWin:(NSPoint)size;
 
 @end

@@ -8,21 +8,55 @@
 
 #import "gmSlider.h"
 
-@implementation gmSlider {
-    
-}
+static int height = 100;
+static int width = 30;
+
+//static NSPoint rbackgroundRect[] = { 0, 0, 0, height, width, height, width, 0 };
+
+
+@implementation gmSlider 
 
 - (id)initWithFrame:(NSRect)frame {
-     self = [super initWithFrame:frame];
+    self = [super initWithFrame:frame];
     
-    NSSlider *slider = [[NSSlider alloc] init];
+//    _height = 100;
+//    _width = 30;
+    
+//    backgroundRect = [0, 0, 0, _height, _width, _height, _width, 0];
+
+//    NSLog((__bridge id)(backgroundRect));
+    
+    NSSlider *slider = [[NSSlider alloc] initWithFrame: NSMakeRect(10.0, 10.0, width, height)];
     
     [self addSubview: slider];
     
-    NSLog(@"initWithFrame");
+    NSLog(@"initGMSlider");
+
+
     
     return self;
+
 }
 
+
+
+
+- (void)drawRect:(NSRect)frame {
+    
+    NSLog(@"Drawing slider...");
+    
+    [[NSColor redColor] set];
+    
+     NSBezierPath* path = [NSBezierPath bezierPath];
+    
+//	[path moveToPoint:backgroundRect[0]];
+//	[path lineToPoint:backgroundRect[1]];
+//	[path lineToPoint:backgroundRect[2]];
+//    [path lineToPoint:backgroundRect[3]];
+    [path closePath];
+    [[NSColor brownColor] set];
+    [path fill];
+
+}
 
 @end

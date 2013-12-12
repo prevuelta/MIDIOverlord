@@ -8,10 +8,13 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface gmSlider : NSView {
-
-}
+@interface gmSlider : NSView
 
 @property NSSlider *slider;
+//@property int height;
+//@property int width;
+
+- (id)initWithFrame:(NSRect)frame;
+- (void)drawRect:(NSRect)frame;
 
 @end;

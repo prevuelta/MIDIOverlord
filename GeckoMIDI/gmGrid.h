@@ -8,16 +8,19 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface gmGrid : NSView {
+@interface gmGrid : NSView
 
+@property int colWidth;
+@property int rowHeight;
+@property int uiWidth;
+@property int uiHeight;
 
-}
-
-@property int XDivisions;
-@property int YDivisions;
+extern int rows;
+extern int cols;
 
 - (id)initWithFrame:(NSRect)frame;
 - (void)drawRect:(NSRect)frame;
+- (NSPoint)getSize;
 
 //- (void)setItemColor:(NSColor *)aColor;
 //- (NSColor *)itemColor;

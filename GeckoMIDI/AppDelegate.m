@@ -8,27 +8,52 @@
 
 #import "AppDelegate.h"
 #import "gmGrid.h"
+#import "gmSlider.h"
 
 @implementation AppDelegate
 
-
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-
-    // Insert code here to initialize your application
-    // Change window color to white
-   
-    // Trying to add custom view
+    
+    _windowPadding = 20;
+    
     gmGrid *mainGrid = [[gmGrid alloc] init];
     
-    self.mainWin.backgroundColor = [NSColor whiteColor];
+    // Set window size
     
-    [self.mainWin setContentView: mainGrid];
+    NSPoint gridSize = mainGrid.getSize;
+    [self resizeWin: gridSize];
     
+    // Set grey background
+    
+    float greyVal = 0.70;
+    NSColor *grey = [NSColor colorWithDeviceRed:greyVal green:greyVal blue:greyVal alpha: (float)1];
+    _mainWin.backgroundColor = grey;
+    
+    // Add grid view
+    
+    [_mainWin setContentView: mainGrid];
+    
+    // Set grid origins
+    
+    CGRect frame = mainGrid.frame;
+    frame.origin = CGPointMake(_windowPadding, _windowPadding);
+    mainGrid.frame = frame;
 
 }
 
 - (IBAction)makeView:(id)sender {
     NSLog(@"Making view...");
+
+  }
+
+- (void)resizeWin:(NSPoint)size {
+    
+    NSRect frame = [_mainWin frame];
+    
+    frame.size.width = size.x + (_windowPadding * 2);
+    frame.size.height = size.y + (_windowPadding * 2) + 20;
+    
+    [_mainWin setFrame: frame display:YES animate:NO];
 }
 
 
