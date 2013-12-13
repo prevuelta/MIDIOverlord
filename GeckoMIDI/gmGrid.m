@@ -8,6 +8,7 @@
 
 #import "gmGrid.h"
 #import "gmSlider.h"
+#import "gmUIElement.h";
 
 int cols = 4;
 int rows = 2;
@@ -50,7 +51,7 @@ int rows = 2;
     NSBezierPath* bgPath = [NSBezierPath bezierPath];
     
     NSPoint bgPoints[] = {0, 0, 0, bgSize.y, bgSize.x, bgSize.y, bgSize.x, 0};
-        
+    
     [bgPath moveToPoint:bgPoints[0]];
     [bgPath lineToPoint: bgPoints[1]];
     [bgPath lineToPoint: bgPoints[2]];
@@ -67,9 +68,14 @@ int rows = 2;
     [path setLineWidth: 0.5];
     
     // Set line dash
-    float lineDash[2] = {4, 6};
-    [path setLineDash:lineDash count:2 phase: 0.0];
+//    float lineDash[2] = {4, 6};
+//    [path setLineDash:lineDash count:2 phase: 0.0];
     
+    // UI Elements
+    NSPoint colUIArr[] = {0, 50, 50, 50, 50, 0};
+    
+    gmUIElement* colUI = [[gmUIElement alloc] init:colUIArr];
+    xs
     int i = 0;
     
     while(i <= cols) {

@@ -8,13 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@interface gmUIElement : NSObject
+@interface gmUIElement : NSView
 
 @property NSPointArray pointArr;
-@property NSBezierPath *path;
-@property NSColor *bg;
+@property NSBezierPath* path;
+@property NSColor* bg;
 
-- (id)init;
+- (id)initWithFrame:(NSRect)frame;
 - (void)drawBox;
 
 
