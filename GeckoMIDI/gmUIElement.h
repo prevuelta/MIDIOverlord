@@ -10,11 +10,12 @@
 
 @interface gmUIElement : NSView
 
-@property NSPointArray pointArr;
 @property NSBezierPath* path;
 @property NSColor* bg;
+@property int size;
+@property NSPoint offset;
 
-- (id)initWithFrame:(NSRect)frame;
+- (id)initWithFrame:(NSRect)frame:(int)size:(NSPoint)offset;
 - (void)drawBox;
 
 

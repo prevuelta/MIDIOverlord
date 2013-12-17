@@ -72,10 +72,13 @@ int rows = 2;
 //    [path setLineDash:lineDash count:2 phase: 0.0];
     
     // UI Elements
-    NSPoint colUIArr[] = {0, 50, 50, 50, 50, 0};
     
-    gmUIElement* colUI = [[gmUIElement alloc] init:colUIArr];
-    xs
+    NSPoint colUIOffset = {((bgSize.x-_uiWidth)/2) - (_uiWidth/2), 0};
+    gmUIElement* colUI = [[gmUIElement alloc] initWithFrame:frame:_uiWidth:colUIOffset];
+    
+    NSPoint rowUIOffset = {bgSize.x-_uiWidth, ((bgSize.y-_uiHeight)/2) + (_uiHeight/2)};
+    gmUIElement* rowUI = [[gmUIElement alloc] initWithFrame:frame:_uiWidth:rowUIOffset];
+    
     int i = 0;
     
     while(i <= cols) {
