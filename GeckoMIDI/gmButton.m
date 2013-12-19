@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 Midnight City. All rights reserved.
 //
 
-#import "gmUIElement.h"
+#import "gmButton.h"
 
-@implementation gmUIElement
+@implementation gmButton
 
 - (id)initWithFrame:(NSRect)frame:(int)size:(NSPoint)offset {
     self = [super initWithFrame:frame];

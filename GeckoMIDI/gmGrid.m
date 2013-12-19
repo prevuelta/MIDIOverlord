@@ -8,7 +8,7 @@
 
 #import "gmGrid.h"
 #import "gmSlider.h"
-#import "gmUIElement.h";
+#import "gmButton.h";
 
 int cols = 4;
 int rows = 2;
@@ -74,10 +74,10 @@ int rows = 2;
     // UI Elements
     
     NSPoint colUIOffset = {((bgSize.x-_uiWidth)/2) - (_uiWidth/2), 0};
-    gmUIElement* colUI = [[gmUIElement alloc] initWithFrame:frame:_uiWidth:colUIOffset];
+    gmButton* colUI = [[gmButton alloc] initWithFrame:frame:_uiWidth:colUIOffset];
     
     NSPoint rowUIOffset = {bgSize.x-_uiWidth, ((bgSize.y-_uiHeight)/2) + (_uiHeight/2)};
-    gmUIElement* rowUI = [[gmUIElement alloc] initWithFrame:frame:_uiWidth:rowUIOffset];
+    gmButton* rowUI = [[gmButton alloc] initWithFrame:frame:_uiWidth:rowUIOffset];
     
     int i = 0;
     

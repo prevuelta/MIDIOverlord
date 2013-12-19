@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6E0B857C184EAB93001BD1D4 /* elementData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0B857B184EAB93001BD1D4 /* elementData.m */; };
 		6E0C896218443C3F00EA97D0 /* gmGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0C896118443C3F00EA97D0 /* gmGrid.m */; };
+		6E0DCAF1186270630017187C /* dataState.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0DCAF0186270630017187C /* dataState.m */; };
+		6E0DCAF6186271450017187C /* dataElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0DCAF5186271450017187C /* dataElement.m */; };
+		6E0DCAF9186271560017187C /* dataApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0DCAF8186271560017187C /* dataApp.m */; };
+		6E0DCAFE18627B980017187C /* state.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E0DCAFD18627B980017187C /* state.json */; };
 		6E0DF0E8184C17F8007C7A3A /* gmSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0DF0E7184C17F8007C7A3A /* gmSlider.m */; };
-		6E0DF0EE184C4663007C7A3A /* dataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0DF0ED184C4663007C7A3A /* dataModel.m */; };
 		6E5A63E7184417F700C1CD8E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E5A63E6184417F600C1CD8E /* Cocoa.framework */; };
 		6E5A63F1184417F700C1CD8E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6E5A63EF184417F700C1CD8E /* InfoPlist.strings */; };
 		6E5A63F3184417F700C1CD8E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5A63F2184417F700C1CD8E /* main.m */; };
@@ -22,7 +24,7 @@
 		6E5A6407184417F700C1CD8E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E5A63E6184417F600C1CD8E /* Cocoa.framework */; };
 		6E5A640F184417F700C1CD8E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6E5A640D184417F700C1CD8E /* InfoPlist.strings */; };
 		6E5A6411184417F700C1CD8E /* GeckoMIDITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5A6410184417F700C1CD8E /* GeckoMIDITests.m */; };
-		6EABE340185A7BD600433ACE /* gmUIElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EABE33F185A7BD600433ACE /* gmUIElement.m */; };
+		6EABE340185A7BD600433ACE /* gmButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EABE33F185A7BD600433ACE /* gmButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,14 +38,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		6E0B857A184EAB93001BD1D4 /* elementData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = elementData.h; sourceTree = "<group>"; };
-		6E0B857B184EAB93001BD1D4 /* elementData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = elementData.m; sourceTree = "<group>"; };
 		6E0C896018443C3F00EA97D0 /* gmGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gmGrid.h; sourceTree = "<group>"; };
 		6E0C896118443C3F00EA97D0 /* gmGrid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = gmGrid.m; sourceTree = "<group>"; };
+		6E0DCAEF186270630017187C /* dataState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dataState.h; sourceTree = "<group>"; };
+		6E0DCAF0186270630017187C /* dataState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dataState.m; sourceTree = "<group>"; };
+		6E0DCAF4186271450017187C /* dataElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dataElement.h; sourceTree = "<group>"; };
+		6E0DCAF5186271450017187C /* dataElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dataElement.m; sourceTree = "<group>"; };
+		6E0DCAF7186271560017187C /* dataApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dataApp.h; sourceTree = "<group>"; };
+		6E0DCAF8186271560017187C /* dataApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dataApp.m; sourceTree = "<group>"; };
+		6E0DCAFD18627B980017187C /* state.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = state.json; sourceTree = "<group>"; };
 		6E0DF0E6184C17F8007C7A3A /* gmSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gmSlider.h; sourceTree = "<group>"; };
 		6E0DF0E7184C17F8007C7A3A /* gmSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = gmSlider.m; sourceTree = "<group>"; };
-		6E0DF0EC184C4663007C7A3A /* dataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = dataModel.h; path = ../dataModel.h; sourceTree = "<group>"; };
-		6E0DF0ED184C4663007C7A3A /* dataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = dataModel.m; path = ../dataModel.m; sourceTree = "<group>"; };
 		6E5A63E3184417F600C1CD8E /* GeckoMIDI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeckoMIDI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E5A63E6184417F600C1CD8E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		6E5A63E9184417F700C1CD8E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -63,8 +68,8 @@
 		6E5A640C184417F700C1CD8E /* GeckoMIDITests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GeckoMIDITests-Info.plist"; sourceTree = "<group>"; };
 		6E5A640E184417F700C1CD8E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6E5A6410184417F700C1CD8E /* GeckoMIDITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GeckoMIDITests.m; sourceTree = "<group>"; };
-		6EABE33E185A7BD600433ACE /* gmUIElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gmUIElement.h; sourceTree = "<group>"; };
-		6EABE33F185A7BD600433ACE /* gmUIElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = gmUIElement.m; sourceTree = "<group>"; };
+		6EABE33E185A7BD600433ACE /* gmButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gmButton.h; sourceTree = "<group>"; };
+		6EABE33F185A7BD600433ACE /* gmButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = gmButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,9 +93,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6E0DCAF2186270760017187C /* modelControllers */ = {
+			isa = PBXGroup;
+			children = (
+				6E0DCAEF186270630017187C /* dataState.h */,
+				6E0DCAF0186270630017187C /* dataState.m */,
+				6E0DCAF4186271450017187C /* dataElement.h */,
+				6E0DCAF5186271450017187C /* dataElement.m */,
+				6E0DCAF7186271560017187C /* dataApp.h */,
+				6E0DCAF8186271560017187C /* dataApp.m */,
+			);
+			name = modelControllers;
+			sourceTree = "<group>";
+		};
+		6E0DCAF3186270820017187C /* views */ = {
+			isa = PBXGroup;
+			children = (
+				6EABE33E185A7BD600433ACE /* gmButton.h */,
+				6EABE33F185A7BD600433ACE /* gmButton.m */,
+				6E0DF0E6184C17F8007C7A3A /* gmSlider.h */,
+				6E0DF0E7184C17F8007C7A3A /* gmSlider.m */,
+				6E0C896018443C3F00EA97D0 /* gmGrid.h */,
+				6E0C896118443C3F00EA97D0 /* gmGrid.m */,
+			);
+			name = views;
+			sourceTree = "<group>";
+		};
+		6E0DCAFC186277210017187C /* resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = resources;
+			sourceTree = "<group>";
+		};
 		6E5A63DA184417F600C1CD8E = {
 			isa = PBXGroup;
 			children = (
+				6E0DCAFD18627B980017187C /* state.json */,
 				6E5A63EC184417F700C1CD8E /* GeckoMIDI */,
 				6E5A640A184417F700C1CD8E /* GeckoMIDITests */,
 				6E5A63E5184417F600C1CD8E /* Frameworks */,
@@ -130,18 +169,11 @@
 		6E5A63EC184417F700C1CD8E /* GeckoMIDI */ = {
 			isa = PBXGroup;
 			children = (
-				6E0DF0EC184C4663007C7A3A /* dataModel.h */,
-				6E0DF0ED184C4663007C7A3A /* dataModel.m */,
-				6E0B857A184EAB93001BD1D4 /* elementData.h */,
-				6E0B857B184EAB93001BD1D4 /* elementData.m */,
+				6E0DCAFC186277210017187C /* resources */,
+				6E0DCAF3186270820017187C /* views */,
+				6E0DCAF2186270760017187C /* modelControllers */,
 				6E5A63F8184417F700C1CD8E /* AppDelegate.h */,
 				6E5A63F9184417F700C1CD8E /* AppDelegate.m */,
-				6E0C896018443C3F00EA97D0 /* gmGrid.h */,
-				6E0C896118443C3F00EA97D0 /* gmGrid.m */,
-				6EABE33E185A7BD600433ACE /* gmUIElement.h */,
-				6EABE33F185A7BD600433ACE /* gmUIElement.m */,
-				6E0DF0E6184C17F8007C7A3A /* gmSlider.h */,
-				6E0DF0E7184C17F8007C7A3A /* gmSlider.m */,
 				6E5A63FB184417F700C1CD8E /* MainMenu.xib */,
 				6E5A63FE184417F700C1CD8E /* Images.xcassets */,
 				6E5A63ED184417F700C1CD8E /* Supporting Files */,
@@ -259,6 +291,7 @@
 				6E5A63FF184417F700C1CD8E /* Images.xcassets in Resources */,
 				6E5A63F7184417F700C1CD8E /* Credits.rtf in Resources */,
 				6E5A63FD184417F700C1CD8E /* MainMenu.xib in Resources */,
+				6E0DCAFE18627B980017187C /* state.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,13 +310,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E0DCAF6186271450017187C /* dataElement.m in Sources */,
+				6E0DCAF1186270630017187C /* dataState.m in Sources */,
 				6E0DF0E8184C17F8007C7A3A /* gmSlider.m in Sources */,
-				6E0DF0EE184C4663007C7A3A /* dataModel.m in Sources */,
-				6EABE340185A7BD600433ACE /* gmUIElement.m in Sources */,
+				6EABE340185A7BD600433ACE /* gmButton.m in Sources */,
 				6E0C896218443C3F00EA97D0 /* gmGrid.m in Sources */,
 				6E5A63FA184417F700C1CD8E /* AppDelegate.m in Sources */,
-				6E0B857C184EAB93001BD1D4 /* elementData.m in Sources */,
 				6E5A63F3184417F700C1CD8E /* main.m in Sources */,
+				6E0DCAF9186271560017187C /* dataApp.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

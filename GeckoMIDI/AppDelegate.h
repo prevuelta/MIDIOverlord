@@ -7,9 +7,15 @@
 //
 
 #import <Cocoa/Cocoa.h>
+//Data
+#import "dataState.h"
+//UI
+#import "gmGrid.h"
+#import "gmSlider.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
+@property dataState* state;
 @property (assign) IBOutlet NSWindow *mainWin;
 @property float windowPadding;
 

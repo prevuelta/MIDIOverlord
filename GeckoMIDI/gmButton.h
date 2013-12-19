@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface gmUIElement : NSView
+@interface gmButton : NSView
 
 @property NSBezierPath* path;
 @property NSColor* bg;

@@ -7,13 +7,17 @@
 //
 
 #import "AppDelegate.h"
-#import "gmGrid.h"
-#import "gmSlider.h"
 
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     
+    // Setup app data
+    _state = [[dataState alloc] init];
+    [_state setData:@"state"];
+    
+    
+    // UI
     _windowPadding = 20;
     
     gmGrid *mainGrid = [[gmGrid alloc] init];
@@ -30,14 +34,13 @@
     _mainWin.backgroundColor = grey;
     
     // Add grid view
-    
     [_mainWin setContentView: mainGrid];
     
     // Set grid origins
-    
     CGRect frame = mainGrid.frame;
     frame.origin = CGPointMake(_windowPadding, _windowPadding);
     mainGrid.frame = frame;
+    
 
 }
 
