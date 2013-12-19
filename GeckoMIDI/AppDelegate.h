@@ -10,7 +10,7 @@
 //Data
 #import "dataState.h"
 //UI
-#import "gmGrid.h"
+#import "viewApp.h"
 #import "gmSlider.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>

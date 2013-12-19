@@ -14,7 +14,7 @@
 @property NSDictionary* layout;
 
 - (id)init;
--(NSDictionary*)loadFile;
+- (NSDictionary*)loadFile;
 - (void)setData:(NSString*)path;
 
 @end

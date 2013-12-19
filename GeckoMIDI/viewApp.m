@@ -6,14 +6,14 @@
 //  Copyright (c) 2013 Midnight City. All rights reserved.
 //
 
-#import "gmGrid.h"
+#import "viewApp.h"
 #import "gmSlider.h"
 #import "gmButton.h";
 
-int cols = 4;
-int rows = 2;
+int cols = 0;
+int rows = 0;
 
-@implementation gmGrid
+@implementation viewApp
 
 - (id)initWithFrame:(NSRect)frame {
     self = [super initWithFrame:frame];

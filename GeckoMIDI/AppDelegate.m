@@ -16,15 +16,19 @@
     _state = [[dataState alloc] init];
     [_state setData:@"state"];
     
-    
     // UI
     _windowPadding = 20;
     
-    gmGrid *mainGrid = [[gmGrid alloc] init];
+    viewApp *mainView = [[viewApp alloc] init];
+    
+    NSLog(@"%@", _state.layout);
+    
+//    mainView.rows = _state.block.rows;
+//    mainView.cols = _state.block.cols;
     
     // Set window size
     
-    NSPoint gridSize = mainGrid.getSize;
+    NSPoint gridSize = mainView.getSize;
     [self resizeWin: gridSize];
     
     // Set grey background
@@ -34,14 +38,13 @@
     _mainWin.backgroundColor = grey;
     
     // Add grid view
-    [_mainWin setContentView: mainGrid];
+    [_mainWin setContentView: mainView];
     
     // Set grid origins
-    CGRect frame = mainGrid.frame;
+    CGRect frame = mainView.frame;
     frame.origin = CGPointMake(_windowPadding, _windowPadding);
-    mainGrid.frame = frame;
+    mainView.frame = frame;
     
-
 }
 
 - (IBAction)makeView:(id)sender {

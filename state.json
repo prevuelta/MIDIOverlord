@@ -1,14 +1,32 @@
 {
-    "title" : "State test",
-    "layout" : {
-        "blocks" : [
-            [
-                1,
-                4,
-                [
-                    [1, 1, 1]
-                ]
+    "title": "state example",
+	"block": {
+        "rows" : 3,
+        "cols" : 4,
+        "els" : [
+                [ 1, 1, 1 ]
             ]
-        ]
-    }
+    },
+	"elData" : [
+                {
+                "id" : 1,
+                "label" : "Resonance",
+                "type" : 0,
+                "val" : 50,
+                "min" : 0,
+                "max" : 127,
+                "midi" : [
+                          {
+                          "devices": [],
+                          "note": 2,
+                          "state": 0
+                          },
+                          {
+                          "devices": [],
+                          "note": 2,
+                          "state": 0
+                          }
+                          ]
+                }
+            ]
 }

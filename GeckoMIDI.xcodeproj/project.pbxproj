@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6E0C896218443C3F00EA97D0 /* gmGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0C896118443C3F00EA97D0 /* gmGrid.m */; };
+		6E0C896218443C3F00EA97D0 /* viewApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0C896118443C3F00EA97D0 /* viewApp.m */; };
 		6E0DCAF1186270630017187C /* dataState.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0DCAF0186270630017187C /* dataState.m */; };
 		6E0DCAF6186271450017187C /* dataElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0DCAF5186271450017187C /* dataElement.m */; };
 		6E0DCAF9186271560017187C /* dataApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0DCAF8186271560017187C /* dataApp.m */; };
@@ -38,8 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		6E0C896018443C3F00EA97D0 /* gmGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gmGrid.h; sourceTree = "<group>"; };
-		6E0C896118443C3F00EA97D0 /* gmGrid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = gmGrid.m; sourceTree = "<group>"; };
+		6E0C896018443C3F00EA97D0 /* viewApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = viewApp.h; sourceTree = "<group>"; };
+		6E0C896118443C3F00EA97D0 /* viewApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = viewApp.m; sourceTree = "<group>"; };
 		6E0DCAEF186270630017187C /* dataState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dataState.h; sourceTree = "<group>"; };
 		6E0DCAF0186270630017187C /* dataState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dataState.m; sourceTree = "<group>"; };
 		6E0DCAF4186271450017187C /* dataElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dataElement.h; sourceTree = "<group>"; };
@@ -113,8 +113,8 @@
 				6EABE33F185A7BD600433ACE /* gmButton.m */,
 				6E0DF0E6184C17F8007C7A3A /* gmSlider.h */,
 				6E0DF0E7184C17F8007C7A3A /* gmSlider.m */,
-				6E0C896018443C3F00EA97D0 /* gmGrid.h */,
-				6E0C896118443C3F00EA97D0 /* gmGrid.m */,
+				6E0C896018443C3F00EA97D0 /* viewApp.h */,
+				6E0C896118443C3F00EA97D0 /* viewApp.m */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -314,7 +314,7 @@
 				6E0DCAF1186270630017187C /* dataState.m in Sources */,
 				6E0DF0E8184C17F8007C7A3A /* gmSlider.m in Sources */,
 				6EABE340185A7BD600433ACE /* gmButton.m in Sources */,
-				6E0C896218443C3F00EA97D0 /* gmGrid.m in Sources */,
+				6E0C896218443C3F00EA97D0 /* viewApp.m in Sources */,
 				6E5A63FA184417F700C1CD8E /* AppDelegate.m in Sources */,
 				6E5A63F3184417F700C1CD8E /* main.m in Sources */,
 				6E0DCAF9186271560017187C /* dataApp.m in Sources */,

@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface gmGrid : NSView
+@interface viewApp : NSView
 
 @property int colWidth;
 @property int rowHeight;
