@@ -10,9 +10,6 @@
 #import "gmSlider.h"
 #import "gmButton.h";
 
-int cols = 0;
-int rows = 0;
-
 @implementation viewApp
 
 - (id)initWithFrame:(NSRect)frame {
@@ -23,6 +20,9 @@ int rows = 0;
     _uiHeight = 40;
     _uiWidth = 40;
     
+    _rows = 0;
+    _cols = 0;
+    
 //    self.setBackgroundj([NSColor whiteColor]);
     NSLog(@"initGMGrid");
 
@@ -31,8 +31,8 @@ int rows = 0;
 
 - (NSPoint)getSize {
     NSPoint size = {
-       (float) ( (_colWidth * cols) + _uiWidth),
-       (float) ( (_rowHeight * rows) + _uiHeight)
+       (float) ( (_colWidth * _cols) + _uiWidth),
+       (float) ( (_rowHeight * _rows) + _uiHeight)
     };
     return size;
 }
@@ -81,20 +81,20 @@ int rows = 0;
     
     int i = 0;
     
-    while(i <= cols) {
+    while(i <= _cols) {
         int i2 = 0;
         
         NSPoint colOrigin = {i * _colWidth + 0.5, 0.5};
-        NSPoint colDestination = {i * _colWidth + 0.5, rows * _rowHeight + 0.5};
+        NSPoint colDestination = {i * _colWidth + 0.5, _rows * _rowHeight + 0.5};
 
         [path moveToPoint: colOrigin ];
         [path lineToPoint: colDestination ];
         
         // Draw Row Lines
-        while(i2 <= rows) {
+        while(i2 <= _rows) {
             // Draw Column lines
             NSPoint origin = { 0.5 , i2 * _rowHeight + 0.5};
-            NSPoint destination = {cols * _colWidth + 0.5, i2 * _rowHeight + 0.5};
+            NSPoint destination = {_cols * _colWidth + 0.5, i2 * _rowHeight + 0.5};
             [path moveToPoint: origin ];
             [path lineToPoint: destination ];
             i2++;

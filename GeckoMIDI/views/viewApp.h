@@ -10,13 +10,13 @@
 
 @interface viewApp : NSView
 
+@property int cols;
+@property int rows;
+
 @property int colWidth;
 @property int rowHeight;
 @property int uiWidth;
 @property int uiHeight;
-
-extern int rows;
-extern int cols;
 
 - (id)initWithFrame:(NSRect)frame;
 - (void)drawRect:(NSRect)frame;

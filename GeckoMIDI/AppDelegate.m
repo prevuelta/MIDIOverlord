@@ -23,8 +23,11 @@
     
     NSLog(@"%@", _state.layout);
     
-//    mainView.rows = _state.block.rows;
-//    mainView.cols = _state.block.cols;
+    NSDictionary* block = [_state.layout objectForKey: @"block"];
+    
+//    NSLog(@"%@", );
+    [mainView setRows: [block objectForKey: @"rows"]];
+    [mainView setCols: [block objectForKey: @"cols"]];
     
     // Set window size
     

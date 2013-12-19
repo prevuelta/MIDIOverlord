@@ -7,12 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6E0C896218443C3F00EA97D0 /* viewApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0C896118443C3F00EA97D0 /* viewApp.m */; };
-		6E0DCAF1186270630017187C /* dataState.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0DCAF0186270630017187C /* dataState.m */; };
-		6E0DCAF6186271450017187C /* dataElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0DCAF5186271450017187C /* dataElement.m */; };
-		6E0DCAF9186271560017187C /* dataApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0DCAF8186271560017187C /* dataApp.m */; };
 		6E0DCAFE18627B980017187C /* state.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E0DCAFD18627B980017187C /* state.json */; };
-		6E0DF0E8184C17F8007C7A3A /* gmSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0DF0E7184C17F8007C7A3A /* gmSlider.m */; };
 		6E5A63E7184417F700C1CD8E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E5A63E6184417F600C1CD8E /* Cocoa.framework */; };
 		6E5A63F1184417F700C1CD8E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6E5A63EF184417F700C1CD8E /* InfoPlist.strings */; };
 		6E5A63F3184417F700C1CD8E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5A63F2184417F700C1CD8E /* main.m */; };
@@ -24,7 +19,12 @@
 		6E5A6407184417F700C1CD8E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E5A63E6184417F600C1CD8E /* Cocoa.framework */; };
 		6E5A640F184417F700C1CD8E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6E5A640D184417F700C1CD8E /* InfoPlist.strings */; };
 		6E5A6411184417F700C1CD8E /* GeckoMIDITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5A6410184417F700C1CD8E /* GeckoMIDITests.m */; };
-		6EABE340185A7BD600433ACE /* gmButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EABE33F185A7BD600433ACE /* gmButton.m */; };
+		6E8235D718629EE000A1CBBB /* dataApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8235C918629EE000A1CBBB /* dataApp.m */; };
+		6E8235D818629EE000A1CBBB /* dataElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8235CB18629EE000A1CBBB /* dataElement.m */; };
+		6E8235D918629EE000A1CBBB /* dataState.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8235CD18629EE000A1CBBB /* dataState.m */; };
+		6E8235DB18629EE000A1CBBB /* gmButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8235D218629EE000A1CBBB /* gmButton.m */; };
+		6E8235DC18629EE000A1CBBB /* gmSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8235D418629EE000A1CBBB /* gmSlider.m */; };
+		6E8235DD18629EE000A1CBBB /* viewApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8235D618629EE000A1CBBB /* viewApp.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,17 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		6E0C896018443C3F00EA97D0 /* viewApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = viewApp.h; sourceTree = "<group>"; };
-		6E0C896118443C3F00EA97D0 /* viewApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = viewApp.m; sourceTree = "<group>"; };
-		6E0DCAEF186270630017187C /* dataState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dataState.h; sourceTree = "<group>"; };
-		6E0DCAF0186270630017187C /* dataState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dataState.m; sourceTree = "<group>"; };
-		6E0DCAF4186271450017187C /* dataElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dataElement.h; sourceTree = "<group>"; };
-		6E0DCAF5186271450017187C /* dataElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dataElement.m; sourceTree = "<group>"; };
-		6E0DCAF7186271560017187C /* dataApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dataApp.h; sourceTree = "<group>"; };
-		6E0DCAF8186271560017187C /* dataApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dataApp.m; sourceTree = "<group>"; };
-		6E0DCAFD18627B980017187C /* state.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = state.json; sourceTree = "<group>"; };
-		6E0DF0E6184C17F8007C7A3A /* gmSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gmSlider.h; sourceTree = "<group>"; };
-		6E0DF0E7184C17F8007C7A3A /* gmSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = gmSlider.m; sourceTree = "<group>"; };
+		6E0DCAFD18627B980017187C /* state.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = state.json; path = GeckoMIDI/resources/state.json; sourceTree = SOURCE_ROOT; };
 		6E5A63E3184417F600C1CD8E /* GeckoMIDI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeckoMIDI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E5A63E6184417F600C1CD8E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		6E5A63E9184417F700C1CD8E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -68,8 +58,18 @@
 		6E5A640C184417F700C1CD8E /* GeckoMIDITests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GeckoMIDITests-Info.plist"; sourceTree = "<group>"; };
 		6E5A640E184417F700C1CD8E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6E5A6410184417F700C1CD8E /* GeckoMIDITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GeckoMIDITests.m; sourceTree = "<group>"; };
-		6EABE33E185A7BD600433ACE /* gmButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gmButton.h; sourceTree = "<group>"; };
-		6EABE33F185A7BD600433ACE /* gmButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = gmButton.m; sourceTree = "<group>"; };
+		6E8235C818629EE000A1CBBB /* dataApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dataApp.h; sourceTree = "<group>"; };
+		6E8235C918629EE000A1CBBB /* dataApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dataApp.m; sourceTree = "<group>"; };
+		6E8235CA18629EE000A1CBBB /* dataElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dataElement.h; sourceTree = "<group>"; };
+		6E8235CB18629EE000A1CBBB /* dataElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dataElement.m; sourceTree = "<group>"; };
+		6E8235CC18629EE000A1CBBB /* dataState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dataState.h; sourceTree = "<group>"; };
+		6E8235CD18629EE000A1CBBB /* dataState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dataState.m; sourceTree = "<group>"; };
+		6E8235D118629EE000A1CBBB /* gmButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gmButton.h; sourceTree = "<group>"; };
+		6E8235D218629EE000A1CBBB /* gmButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = gmButton.m; sourceTree = "<group>"; };
+		6E8235D318629EE000A1CBBB /* gmSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gmSlider.h; sourceTree = "<group>"; };
+		6E8235D418629EE000A1CBBB /* gmSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = gmSlider.m; sourceTree = "<group>"; };
+		6E8235D518629EE000A1CBBB /* viewApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = viewApp.h; sourceTree = "<group>"; };
+		6E8235D618629EE000A1CBBB /* viewApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = viewApp.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,43 +93,9 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6E0DCAF2186270760017187C /* modelControllers */ = {
-			isa = PBXGroup;
-			children = (
-				6E0DCAEF186270630017187C /* dataState.h */,
-				6E0DCAF0186270630017187C /* dataState.m */,
-				6E0DCAF4186271450017187C /* dataElement.h */,
-				6E0DCAF5186271450017187C /* dataElement.m */,
-				6E0DCAF7186271560017187C /* dataApp.h */,
-				6E0DCAF8186271560017187C /* dataApp.m */,
-			);
-			name = modelControllers;
-			sourceTree = "<group>";
-		};
-		6E0DCAF3186270820017187C /* views */ = {
-			isa = PBXGroup;
-			children = (
-				6EABE33E185A7BD600433ACE /* gmButton.h */,
-				6EABE33F185A7BD600433ACE /* gmButton.m */,
-				6E0DF0E6184C17F8007C7A3A /* gmSlider.h */,
-				6E0DF0E7184C17F8007C7A3A /* gmSlider.m */,
-				6E0C896018443C3F00EA97D0 /* viewApp.h */,
-				6E0C896118443C3F00EA97D0 /* viewApp.m */,
-			);
-			name = views;
-			sourceTree = "<group>";
-		};
-		6E0DCAFC186277210017187C /* resources */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = resources;
-			sourceTree = "<group>";
-		};
 		6E5A63DA184417F600C1CD8E = {
 			isa = PBXGroup;
 			children = (
-				6E0DCAFD18627B980017187C /* state.json */,
 				6E5A63EC184417F700C1CD8E /* GeckoMIDI */,
 				6E5A640A184417F700C1CD8E /* GeckoMIDITests */,
 				6E5A63E5184417F600C1CD8E /* Frameworks */,
@@ -169,9 +135,9 @@
 		6E5A63EC184417F700C1CD8E /* GeckoMIDI */ = {
 			isa = PBXGroup;
 			children = (
-				6E0DCAFC186277210017187C /* resources */,
-				6E0DCAF3186270820017187C /* views */,
-				6E0DCAF2186270760017187C /* modelControllers */,
+				6E8235C718629EE000A1CBBB /* modelControllers */,
+				6E8235CE18629EE000A1CBBB /* resources */,
+				6E8235D018629EE000A1CBBB /* views */,
 				6E5A63F8184417F700C1CD8E /* AppDelegate.h */,
 				6E5A63F9184417F700C1CD8E /* AppDelegate.m */,
 				6E5A63FB184417F700C1CD8E /* MainMenu.xib */,
@@ -209,6 +175,40 @@
 				6E5A640D184417F700C1CD8E /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6E8235C718629EE000A1CBBB /* modelControllers */ = {
+			isa = PBXGroup;
+			children = (
+				6E8235C818629EE000A1CBBB /* dataApp.h */,
+				6E8235C918629EE000A1CBBB /* dataApp.m */,
+				6E8235CA18629EE000A1CBBB /* dataElement.h */,
+				6E8235CB18629EE000A1CBBB /* dataElement.m */,
+				6E8235CC18629EE000A1CBBB /* dataState.h */,
+				6E8235CD18629EE000A1CBBB /* dataState.m */,
+			);
+			path = modelControllers;
+			sourceTree = "<group>";
+		};
+		6E8235CE18629EE000A1CBBB /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				6E0DCAFD18627B980017187C /* state.json */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
+		6E8235D018629EE000A1CBBB /* views */ = {
+			isa = PBXGroup;
+			children = (
+				6E8235D118629EE000A1CBBB /* gmButton.h */,
+				6E8235D218629EE000A1CBBB /* gmButton.m */,
+				6E8235D318629EE000A1CBBB /* gmSlider.h */,
+				6E8235D418629EE000A1CBBB /* gmSlider.m */,
+				6E8235D518629EE000A1CBBB /* viewApp.h */,
+				6E8235D618629EE000A1CBBB /* viewApp.m */,
+			);
+			path = views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -310,14 +310,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6E0DCAF6186271450017187C /* dataElement.m in Sources */,
-				6E0DCAF1186270630017187C /* dataState.m in Sources */,
-				6E0DF0E8184C17F8007C7A3A /* gmSlider.m in Sources */,
-				6EABE340185A7BD600433ACE /* gmButton.m in Sources */,
-				6E0C896218443C3F00EA97D0 /* viewApp.m in Sources */,
+				6E8235DD18629EE000A1CBBB /* viewApp.m in Sources */,
+				6E8235D818629EE000A1CBBB /* dataElement.m in Sources */,
 				6E5A63FA184417F700C1CD8E /* AppDelegate.m in Sources */,
+				6E8235D918629EE000A1CBBB /* dataState.m in Sources */,
+				6E8235DB18629EE000A1CBBB /* gmButton.m in Sources */,
+				6E8235DC18629EE000A1CBBB /* gmSlider.m in Sources */,
+				6E8235D718629EE000A1CBBB /* dataApp.m in Sources */,
 				6E5A63F3184417F700C1CD8E /* main.m in Sources */,
-				6E0DCAF9186271560017187C /* dataApp.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

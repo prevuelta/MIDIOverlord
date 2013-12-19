@@ -1,11 +1,11 @@
 {
     "title": "state example",
 	"block": {
-        "rows" : 3,
-        "cols" : 4,
+        "rows" : 1,
+        "cols" : 2,
         "els" : [
-                [ 1, 1, 1 ]
-            ]
+                 [ 1, 1, 1 ]
+                 ]
     },
 	"elData" : [
                 {
@@ -28,5 +28,5 @@
                           }
                           ]
                 }
-            ]
+    ]
 }
