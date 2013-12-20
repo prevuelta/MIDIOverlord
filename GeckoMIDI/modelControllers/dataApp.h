@@ -1,5 +1,5 @@
 //
-//  dataApp.h
+//  dataState.h
 //  GeckoMIDI
 //
 //  Created by Pablo Revuelta on 19/12/13.
@@ -10,8 +10,17 @@
 
 @interface dataApp : NSObject
 
-@property int clock;
-// Patch
-// Devices in & out
+@property NSString* title;
+@property NSDictionary* global;
+@property NSDictionary* state;
+
+// Data object
+
+@property int cols;
+@property int rows;
+
+- (id)init;
+- (NSDictionary*)loadFile;
+- (void)setData:(NSString*)path;
 
 @end

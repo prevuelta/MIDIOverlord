@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 Midnight City. All rights reserved.
 //
 
-#import "gmButton.h"
+#import "uiButton.h"
 
-@implementation gmButton
+@implementation uiButton
 
 - (id)initWithFrame:(NSRect)frame:(int)size:(NSPoint)offset {
     self = [super initWithFrame:frame];
@@ -40,9 +40,7 @@
     [_path closePath];
     
     [[NSColor redColor] set];
-    [_path fill];
-
-    
+    [_path fill];    
 }
 
 @end

@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface gmSlider : NSView
+@interface controlSlider : NSView
 
 @property NSSlider *slider;
 //@property int height;

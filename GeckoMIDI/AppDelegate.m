@@ -13,7 +13,7 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     
     // Setup app data
-    _state = [[dataState alloc] init];
+    _state = [[dataApp alloc] init];
     [_state setData:@"state"];
     
     // UI
@@ -21,13 +21,10 @@
     
     viewApp *mainView = [[viewApp alloc] init];
     
-    NSLog(@"%@", _state.layout);
-    
-    NSDictionary* block = [_state.layout objectForKey: @"block"];
-    
-//    NSLog(@"%@", );
-    [mainView setRows: [block objectForKey: @"rows"]];
-    [mainView setCols: [block objectForKey: @"cols"]];
+//    NSLog(@"%@", _state.layout);
+
+    [mainView setRows: [_state rows]];
+    [mainView setCols: [_state cols]];
     
     // Set window size
     

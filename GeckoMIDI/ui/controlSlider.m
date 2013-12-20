@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Midnight City. All rights reserved.
 //
 
-#import "gmSlider.h"
+#import "controlSlider.h"
 
 static int height = 100;
 static int width = 30;
@@ -14,7 +14,7 @@ static int width = 30;
 //static NSPoint rbackgroundRect[] = { 0, 0, 0, height, width, height, width, 0 };
 
 
-@implementation gmSlider 
+@implementation controlSlider
 
 - (id)initWithFrame:(NSRect)frame {
     self = [super initWithFrame:frame];
@@ -31,15 +31,10 @@ static int width = 30;
     [self addSubview: slider];
     
     NSLog(@"initGMSlider");
-
-
     
     return self;
 
 }
-
-
-
 
 - (void)drawRect:(NSRect)frame {
     

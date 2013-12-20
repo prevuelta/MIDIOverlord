@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface gmButton : NSView
+@interface uiButton : NSView
 
 @property NSBezierPath* path;
 @property NSColor* bg;
@@ -17,6 +17,5 @@
 
 - (id)initWithFrame:(NSRect)frame:(int)size:(NSPoint)offset;
 - (void)drawBox;
-
 
 @end

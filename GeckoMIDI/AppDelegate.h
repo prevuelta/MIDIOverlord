@@ -8,14 +8,14 @@
 
 #import <Cocoa/Cocoa.h>
 //Data
-#import "dataState.h"
+#import "dataApp.h"
 //UI
 #import "viewApp.h"
-#import "gmSlider.h"
+#import "controlSlider.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
-@property dataState* state;
+@property dataApp* state;
 @property (assign) IBOutlet NSWindow *mainWin;
 @property float windowPadding;
 

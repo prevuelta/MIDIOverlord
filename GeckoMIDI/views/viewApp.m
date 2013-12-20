@@ -7,43 +7,36 @@
 //
 
 #import "viewApp.h"
-#import "gmSlider.h"
-#import "gmButton.h";
+#import "uiButton.h"
 
 @implementation viewApp
 
 - (id)initWithFrame:(NSRect)frame {
     self = [super initWithFrame:frame];
     
-    _colWidth = 100;
-    _rowHeight = 200;
-    _uiHeight = 40;
-    _uiWidth = 40;
+    _colWidth = 120;
+    _rowHeight = 240;
+    _uiHeight = 36;
+    _uiWidth = 36;
     
-    _rows = 0;
-    _cols = 0;
-    
-//    self.setBackgroundj([NSColor whiteColor]);
-    NSLog(@"initGMGrid");
+    _rows = 2;
+    _cols = 1;
 
     return self;
 }
 
 - (NSPoint)getSize {
     NSPoint size = {
-       (float) ( (_colWidth * _cols) + _uiWidth),
-       (float) ( (_rowHeight * _rows) + _uiHeight)
+       ((_colWidth * _cols) + _uiWidth),
+       ((_rowHeight * _rows) + _uiHeight)
     };
+    NSLog(@"x: %f, y: %f", size.x, size.y);
     return size;
 }
 
 - (void)drawRect:(NSRect)frame {
     
     NSLog(@"Drawing grid...");
-    
-//    [[NSColor redColor] set];
-    
-//
     
     // Draw border & bg
     NSPoint bgSize = self.getSize;
@@ -67,23 +60,19 @@
     NSBezierPath* path = [NSBezierPath bezierPath];
     [path setLineWidth: 0.5];
     
-    // Set line dash
-//    float lineDash[2] = {4, 6};
-//    [path setLineDash:lineDash count:2 phase: 0.0];
-    
     // UI Elements
     
     NSPoint colUIOffset = {((bgSize.x-_uiWidth)/2) - (_uiWidth/2), 0};
-    gmButton* colUI = [[gmButton alloc] initWithFrame:frame:_uiWidth:colUIOffset];
+    uiButton* colUI = [[uiButton alloc] initWithFrame:frame:_uiWidth:colUIOffset];
     
     NSPoint rowUIOffset = {bgSize.x-_uiWidth, ((bgSize.y-_uiHeight)/2) + (_uiHeight/2)};
-    gmButton* rowUI = [[gmButton alloc] initWithFrame:frame:_uiWidth:rowUIOffset];
+    uiButton* rowUI = [[uiButton alloc] initWithFrame:frame:_uiWidth:rowUIOffset];
     
     int i = 0;
     
     while(i <= _cols) {
         int i2 = 0;
-        
+        NSLog(@"go %i cols: %i", i, _cols);
         NSPoint colOrigin = {i * _colWidth + 0.5, 0.5};
         NSPoint colDestination = {i * _colWidth + 0.5, _rows * _rowHeight + 0.5};
 
@@ -100,6 +89,7 @@
             i2++;
         }
         i++;
+        
     }
 
     // Translate
@@ -111,7 +101,6 @@
     [[NSColor blackColor] set];
     [path stroke];
     
-
 }
 
 @end
