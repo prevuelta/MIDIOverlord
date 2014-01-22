@@ -12,9 +12,15 @@
 
 - (id)initWithFrame:(NSRect)frame {
     self = [super initWithFrame:frame];
-    
+
     
     return self;
+}
+
+- (void)drawRect:(NSRect)frame {
+    NSBezierPath* path = [NSBezierPath new];
+    int count = (sizeof _pointArray);// count];
+    [path appendBezierPathWithPoints:_pointArray count:count];
 }
 
 @end

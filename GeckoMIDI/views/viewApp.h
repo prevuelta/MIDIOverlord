@@ -19,10 +19,9 @@
 @property int uiHeight;
 
 - (id)initWithFrame:(NSRect)frame;
-- (void)drawRect:(NSRect)frame;
 - (NSPoint)getSize;
-
-//- (void)setItemColor:(NSColor *)aColor;
-//- (NSColor *)itemColor;
+- (void)drawRect:(NSRect)frame;
+- (void)drawGrid;
+- (void)drawControls:(NSMutableDictionary*)controlData;
 
 @end

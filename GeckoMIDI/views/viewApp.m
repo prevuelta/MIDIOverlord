@@ -15,7 +15,7 @@
     self = [super initWithFrame:frame];
     
     _colWidth = 120;
-    _rowHeight = 240;
+    _rowHeight = 120;
     _uiHeight = 36;
     _uiWidth = 36;
     
@@ -34,8 +34,14 @@
     return size;
 }
 
-- (void)drawRect:(NSRect)frame {
+-(void)drawRect:(NSRect)frame {
+    [self drawGrid];
+}
+
+-(void)drawGrid{
     
+    CGRect frame = self.frame;
+
     NSLog(@"Drawing grid...");
     
     // Draw border & bg
@@ -72,7 +78,7 @@
     
     while(i <= _cols) {
         int i2 = 0;
-        NSLog(@"go %i cols: %i", i, _cols);
+//        NSLog(@"go %i cols: %i", i, _cols);
         NSPoint colOrigin = {i * _colWidth + 0.5, 0.5};
         NSPoint colDestination = {i * _colWidth + 0.5, _rows * _rowHeight + 0.5};
 
@@ -102,5 +108,20 @@
     [path stroke];
     
 }
+
+- (void)drawControls:(NSMutableDictionary*)controlData {
+    for(int i = 0; i < [controlData count]; i++) {
+        NSLog(@"%@", controlData);
+        int type = [[controlData objectForKey:@"type"] integerValue];
+        switch(type) {
+            case 0:
+                // Draw Pad
+                
+            break;
+        }
+    }
+}
+
+
 
 @end

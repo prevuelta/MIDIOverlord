@@ -15,7 +15,7 @@
                      [ 1, 1, 1 ]
                      ]
         },
-        "elData" : [
+        "controls" : [
                     {
                     "id" : 1,
                     "label" : "Resonance",

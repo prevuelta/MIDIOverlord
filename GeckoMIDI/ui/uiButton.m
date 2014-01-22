@@ -40,7 +40,8 @@
     [_path closePath];
     
     [[NSColor redColor] set];
-    [_path fill];    
+    [_path fill];
+    
 }
 
 @end

@@ -10,8 +10,14 @@
 
 @implementation controlPad
 
--(void)drawRect:(NSRect)frame {
-    NSPoint pointArr[] = {0, 60, 60, 60, 60, 0};
+- (id)initWithFrame:(NSRect)frame {
+    self = [super initWithFrame:frame];
+    
+    NSPoint p[] = {6, 6, 6, 54, 114, 54, 114, 6};
+    
+    self.pointArray = p;
+    
+    return self;
 }
 
 @end

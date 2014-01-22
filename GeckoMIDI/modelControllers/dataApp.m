@@ -22,11 +22,12 @@
     _global = [appData objectForKey: @"global"];
     _state = [appData objectForKey: @"state"];
     
-     NSMutableDictionary* block = [_state objectForKey: @"block"];
+    NSMutableDictionary* block = [_state objectForKey: @"block"];
     
-//    _cols = [[block objectForKey: @"cols"] intValue];
     _cols = [self getInt:block:@"cols"];
     _rows = [self getInt:block:@"rows"];
+    
+    _controls = [_state objectForKey: @"controls"];
 }
 
 - (NSMutableDictionary*)loadFile:(NSString*)path {

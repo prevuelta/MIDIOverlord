@@ -19,6 +19,8 @@
 @property int cols;
 @property int rows;
 
+@property NSMutableDictionary* controls;
+
 - (id)init;
 - (NSDictionary*)loadFile;
 - (void)setData:(NSString*)path;

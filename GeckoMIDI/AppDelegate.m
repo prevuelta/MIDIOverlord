@@ -20,11 +20,11 @@
     _windowPadding = 20;
     
     viewApp *mainView = [[viewApp alloc] init];
-    
-//    NSLog(@"%@", _state.layout);
 
     [mainView setRows: [_state rows]];
     [mainView setCols: [_state cols]];
+    
+    [mainView drawGrid];
     
     // Set window size
     
@@ -37,13 +37,17 @@
     NSColor *grey = [NSColor colorWithDeviceRed:greyVal green:greyVal blue:greyVal alpha: (float)1];
     _mainWin.backgroundColor = grey;
     
-    // Add grid view
+    // Add grid
+    
     [_mainWin setContentView: mainView];
     
     // Set grid origins
     CGRect frame = mainView.frame;
     frame.origin = CGPointMake(_windowPadding, _windowPadding);
     mainView.frame = frame;
+    
+    // Render controls
+    [mainView drawControls: [_state controls]];
     
 }
 
