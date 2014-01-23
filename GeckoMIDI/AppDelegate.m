@@ -49,6 +49,8 @@
     // Render controls
     [mainView drawControls: [_state controls]];
     
+    NSLog(@"Running");
+    
 }
 
 - (IBAction)makeView:(id)sender {

@@ -8,6 +8,7 @@
 
 #import "viewApp.h"
 #import "uiButton.h"
+#import "controlPad.h"
 
 @implementation viewApp
 
@@ -110,16 +111,21 @@
 }
 
 - (void)drawControls:(NSMutableDictionary*)controlData {
+    
     for(int i = 0; i < [controlData count]; i++) {
         NSLog(@"%@", controlData);
-        int type = [[controlData objectForKey:@"type"] integerValue];
+//        int type = [[controlData objectForKey:@"type"] integerValue];
+        int type = [controlData getInt:@"type"];
+        NSLog(@"Type:%i", type);
         switch(type) {
             case 0:
                 // Draw Pad
-                
+                NSLog(@"Rendering controls");
+                //controlPad* pad = [[controlPad alloc] initWithFrame:frame];
             break;
         }
     }
+    
 }
 
 
