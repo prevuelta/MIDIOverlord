@@ -19,7 +19,8 @@
 @property int cols;
 @property int rows;
 
-@property NSMutableDictionary* controls;
+@property NSArray* controlData;
+@property NSMutableArray* controlObjects;
 
 - (id)init;
 - (NSDictionary*)loadFile;

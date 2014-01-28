@@ -24,7 +24,7 @@
     [mainView setRows: [_state rows]];
     [mainView setCols: [_state cols]];
     
-    [mainView drawGrid];
+    [mainView setControls: [_state controlData]];
     
     // Set window size
     
@@ -45,11 +45,6 @@
     CGRect frame = mainView.frame;
     frame.origin = CGPointMake(_windowPadding, _windowPadding);
     mainView.frame = frame;
-    
-    // Render controls
-    [mainView drawControls: [_state controls]];
-    
-    NSLog(@"Running");
     
 }
 

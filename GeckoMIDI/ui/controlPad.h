@@ -10,5 +10,6 @@
 
 @interface controlPad : controlClass
 
+- (void)drawRect:(NSRect)frame;
 
 @end

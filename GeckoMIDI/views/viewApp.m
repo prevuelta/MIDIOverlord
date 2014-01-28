@@ -12,6 +12,8 @@
 
 @implementation viewApp
 
+@synthesize controls = _controls;
+
 - (id)initWithFrame:(NSRect)frame {
     self = [super initWithFrame:frame];
     
@@ -23,6 +25,8 @@
     _rows = 2;
     _cols = 1;
 
+    [self setNeedsDisplay:YES];
+    
     return self;
 }
 
@@ -31,19 +35,56 @@
        ((_colWidth * _cols) + _uiWidth),
        ((_rowHeight * _rows) + _uiHeight)
     };
-    NSLog(@"x: %f, y: %f", size.x, size.y);
+//    NSLog(@"x: %f, y: %f", size.x, size.y);
     return size;
+}
+
+-(void)setControls:(NSArray *)controlData {
+    
+    NSMutableArray *controls = [[NSMutableArray alloc ] init];
+    
+    // Create control objects
+    for(int i = 0; i < [controlData count]; i++) {
+//        NSLog(@"%@", controlData);
+        
+        int type = [[[controlData objectAtIndex:i] objectForKey:@"type"] intValue];
+        NSLog(@"Type:%i", type);
+        switch(type) {
+            case 0:
+                // Draw Pad
+                [controls addObject:[[controlPad alloc] initWithFrame:[self frame]]];
+//              [self addSubview:[controlPad alloc] initWithFrame:[self frame];
+//
+                NSLog(@"Adding pad object");
+                break;
+        }
+    }
+    
+    
+    for(int i = 0; i < [controls count]; i++) {
+        NSView* view = [controls objectAtIndex:i];
+//        view.frame = [self frame];
+        [self addSubview:view];
+    }
+//    NSLog(@"%@", [self s]);
+//    NSLog(@"%@", controls);
+    _controls = controls;
+}
+
+- (NSMutableArray*) controls {
+    return _controls;
 }
 
 -(void)drawRect:(NSRect)frame {
     [self drawGrid];
+//    [self drawControls];
 }
 
 -(void)drawGrid{
     
-    CGRect frame = self.frame;
+    NSRect frame = self.frame;
 
-    NSLog(@"Drawing grid...");
+//    NSLog(@"Drawing grid...");
     
     // Draw border & bg
     NSPoint bgSize = self.getSize;
@@ -60,8 +101,8 @@
     [bgPath closePath];
     
     // Set fill
-    [[NSColor whiteColor] set];
-    [bgPath fill];
+//    [[NSColor whiteColor] set];
+//    [bgPath fill];
     
     // Draw Grid
     NSBezierPath* path = [NSBezierPath bezierPath];
@@ -107,24 +148,6 @@
     [path closePath];
     [[NSColor blackColor] set];
     [path stroke];
-    
-}
-
-- (void)drawControls:(NSMutableDictionary*)controlData {
-    
-    for(int i = 0; i < [controlData count]; i++) {
-        NSLog(@"%@", controlData);
-//        int type = [[controlData objectForKey:@"type"] integerValue];
-        int type = [controlData getInt:@"type"];
-        NSLog(@"Type:%i", type);
-        switch(type) {
-            case 0:
-                // Draw Pad
-                NSLog(@"Rendering controls");
-                //controlPad* pad = [[controlPad alloc] initWithFrame:frame];
-            break;
-        }
-    }
     
 }
 
