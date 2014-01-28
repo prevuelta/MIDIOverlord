@@ -19,7 +19,7 @@
     return self;
 }
 
-- (void)drawRect:(NSRect)frame {
+- (void)drawRect:(NSRect)rect {
     
     NSBezierPath* path = [NSBezierPath new];
     [path setLineWidth: 0.5];

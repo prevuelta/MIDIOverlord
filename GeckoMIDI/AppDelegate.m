@@ -19,7 +19,7 @@
     // UI
     _windowPadding = 20;
     
-    viewApp *mainView = [[viewApp alloc] init];
+    viewApp *mainView = [[viewApp alloc] initWithFrame:[_mainWin frame] andData:[_state controlData]];
 
     [mainView setRows: [_state rows]];
     [mainView setCols: [_state cols]];

@@ -17,19 +17,20 @@
     
     self.pointArray = p;
     
-    NSLog(@"Init");
+    NSLog(@"Init pad");
     
     return self;
 }
 
-- (void)drawRect:(NSRect)frame {
+- (void)drawRect:(NSRect)rect {
     
     NSBezierPath* path = [NSBezierPath new];
     [path setLineWidth: 0.5];
     
+    
 //    int count = (sizeof _pointArray);// count];
     
-//    NSLog(@"Rendering %i", count);
+    NSLog(@"Rendering pad %i");
     NSPoint test1 = {0, 0};
     NSPoint test = {50, 50};
     [path moveToPoint:test1];

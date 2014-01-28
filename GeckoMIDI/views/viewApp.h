@@ -19,9 +19,9 @@
 @property int uiHeight;
 @property NSMutableArray* controls;
 
-- (id)initWithFrame:(NSRect)frame;
+- (id)initWithFrame:(NSRect)frame andData:(NSArray*)controlData;
 - (NSPoint)getSize;
-- (void)drawRect:(NSRect)frame;
+- (void)drawRect:(NSRect)rect;
 - (void)drawGrid;
 
 @end
