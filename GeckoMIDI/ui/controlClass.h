@@ -15,7 +15,6 @@
 
 @property int padding;
 @property int cWidth;
-@property NSPointArray pointArray;
 
 - (id)initWithFrame:(NSRect)frame;
 - (void)drawRect:(NSRect)frame;
