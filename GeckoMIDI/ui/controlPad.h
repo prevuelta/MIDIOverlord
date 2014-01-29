@@ -10,6 +10,5 @@
 
 @interface controlPad : controlClass
 
-- (id)initWithFrame:(NSRect)frame;
 
 @end
