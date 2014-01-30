@@ -19,12 +19,10 @@
     // UI
     _windowPadding = 20;
     
-    viewApp *mainView = [[viewApp alloc] initWithFrame:[_mainWin frame] andData:[_state controlData]];
+    viewApp *mainView = [[viewApp alloc] initWithFrame:[_mainWin frame] andData:[_state controlData] andLayout:[_state layout]];
 
     [mainView setRows: [_state rows]];
     [mainView setCols: [_state cols]];
-    
-    [mainView setControls: [_state controlData]];
     
     // Set window size
     

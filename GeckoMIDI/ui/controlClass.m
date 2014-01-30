@@ -13,9 +13,16 @@
 - (id)initWithFrame:(NSRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        // setup the initial properties of the
+       
     }
+    
     return self;
+}
+
+-(void)setOrigin:(NSPoint)origin {
+    NSRect f = self.frame;
+    f.origin = origin;
+    [self setFrame:f];
 }
 
 @end

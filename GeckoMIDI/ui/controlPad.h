@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Midnight City. All rights reserved.
 //
 
-#import "controlClass.h";
+#import "controlClass.h"
 
 @interface controlPad : controlClass
 

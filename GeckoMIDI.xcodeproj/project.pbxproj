@@ -17,7 +17,6 @@
 		6EEDA16D1863DC6500BEECDE /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EEDA14F1863DC6500BEECDE /* MainMenu.xib */; };
 		6EEDA16E1863DC6500BEECDE /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 6EEDA1511863DC6500BEECDE /* Credits.rtf */; };
 		6EEDA16F1863DC6500BEECDE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6EEDA1531863DC6500BEECDE /* InfoPlist.strings */; };
-		6EEDA1701863DC6500BEECDE /* GeckoMIDI-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6EEDA1551863DC6500BEECDE /* GeckoMIDI-Info.plist */; };
 		6EEDA1711863DC6500BEECDE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EEDA1571863DC6500BEECDE /* Images.xcassets */; };
 		6EEDA1721863DC6500BEECDE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EEDA1581863DC6500BEECDE /* main.m */; };
 		6EEDA1751863DC6500BEECDE /* dataApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EEDA15F1863DC6500BEECDE /* dataApp.m */; };
@@ -315,7 +314,6 @@
 				6EEDA16F1863DC6500BEECDE /* InfoPlist.strings in Resources */,
 				6EEDA1821863EAF800BEECDE /* skin.json in Resources */,
 				6EEDA16E1863DC6500BEECDE /* Credits.rtf in Resources */,
-				6EEDA1701863DC6500BEECDE /* GeckoMIDI-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

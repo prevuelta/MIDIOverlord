@@ -12,9 +12,7 @@
 
 @implementation viewApp
 
-@synthesize controls = _controls;
-
-- (id)initWithFrame:(NSRect)frame andData:(NSArray*)controlData {
+- (id)initWithFrame:(NSRect)frame andData:(NSDictionary*)controlData andLayout:(NSMutableArray*)layout {
     self = [super initWithFrame:frame];
     
     if(self) {
@@ -27,36 +25,42 @@
         _uiWidth = 36;
         
         _rows = 2;
-        _cols = 1;    
+        _cols = 1;
         
-        _controls = [NSMutableArray new];
-        
-        controlPad* cPad = [[controlPad alloc] initWithFrame:self.frame];
-    //    //    [cPad setFrame:[super frame]];
-        [self addSubview:cPad];
+//        _controls = [NSMutableDictionary new];
+        _layout = layout;
+        _controlData = controlData;
 
         // Create control objects
-        for(int i = 0; i < [controlData count]; i++) {
-            //        NSLog(@"%@", controlData);
+        
+        for(int row = 0; row < [_layout count]; row++) {
             
-            int type = [[[controlData objectAtIndex:i] objectForKey:@"type"] intValue];
-            NSLog(@"Type:%i", type);
-            switch(type) {
-                case 0:
-                    // Draw Pad
-                   [_controls addObject:[[controlPad alloc] initWithFrame:self.frame]];
-                    
-                    NSLog(@"Adding pad object");
-                    break;
+            NSLog(@"rows");
+            
+            for(int col = 0; col < [_layout[row] count]; col++) {
+    
+                int cID = (int)[_layout[row][col] integerValue];
+                
+                if(cID) {
+                    NSString* cID = _layout[row][col];
+                    [self addControlWithId: cID andRow: row andCol: col];
+
+                }
             }
         }
+            
+//            int type = [[[controlData objectAtIndex:i] objectForKey:@"type"] intValue];
+//            int padId = [[[controlData objectAtIndex:i] objectForKey:@"id"] intValue];
+            
+//            NSLog(@"Type:%i", type);
+            
+
         
-        
-        for(int i = 0; i < [_controls count]; i++) {
-            NSView* view = [_controls objectAtIndex:i];
-            [self addSubview:view];
-        
-        }
+//        for(int i = 0; i < [_controls count]; i++) {
+//            NSView* view = [_controls objectAtIndex:i];
+//            [self addSubview:view];
+//        
+//        }
     }
     
     return self;
@@ -67,16 +71,31 @@
        ((_colWidth * _cols) + _uiWidth),
        ((_rowHeight * _rows) + _uiHeight)
     };
-//    NSLog(@"x: %f, y: %f", size.x, size.y);
     return size;
 }
 
--(void)setControls:(NSArray *)controlData {
+-(void)addControlWithId:(NSString*)cID andRow:(int)row andCol:(int)col {
+    NSDictionary* control = [_controlData objectForKey: cID];
+    int type = [[control objectForKey: @"type"] intValue];
     
-}
+    switch(type) {
+        case 0: {
+            controlPad* cPad = [[controlPad alloc] initWithFrame: NSMakeRect(0, 0, 120, 120)];
+            
+            CGFloat xLoc = (col-- * _colWidth);
+            CGFloat yLoc = (row-- * _rowHeight) + _uiHeight;
+            
+            NSLog(@"%f %f", xLoc, yLoc);
+            
+            [cPad  setOrigin: NSMakePoint(xLoc + 0.5, yLoc + 0.5)];
+            
+            [self addSubview:cPad];
+            
+            [_controls setObject: cPad forKey: cID];
 
-- (NSMutableArray*) controls {
-    return _controls;
+            NSLog(@"Adding pad object");
+        } break;
+    }
 }
 
 -(void)drawRect:(NSRect)rect {

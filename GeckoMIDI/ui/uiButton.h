@@ -15,7 +15,7 @@
 @property int size;
 @property NSPoint offset;
 
-- (id)initWithFrame:(NSRect)frame:(int)size:(NSPoint)offset;
+- (id)initWithFrame:(NSRect)frame :(int)size :(NSPoint)offset;
 - (void)drawBox;
 
 @end

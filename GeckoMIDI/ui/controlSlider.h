@@ -11,8 +11,6 @@
 @interface controlSlider : NSView
 
 @property NSSlider *slider;
-//@property int height;
-//@property int width;
 
 - (id)initWithFrame:(NSRect)frame;
 - (void)drawRect:(NSRect)frame;

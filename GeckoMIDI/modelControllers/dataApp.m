@@ -18,8 +18,10 @@
 }
 
 - (void)setData:(NSString*)path {
-     NSDictionary* appData = [self loadFile:path];
     
+    NSLog(@"Setting up data...");
+    
+     NSDictionary* appData = [self loadFile:path];
     
     _global = [appData objectForKey: @"global"];
     _state = [appData objectForKey: @"state"];
@@ -28,27 +30,16 @@
     
     NSDictionary* block = [_state objectForKey: @"block"];
     
-    _cols = [self getInt:block:@"cols"];
-    _rows = [self getInt:block:@"rows"];
+    _layout = [block objectForKey: @"layout"];
+    
+//    NSLog(@"%@", _layout);
+    
+    _cols = (int)[_layout[0] count];
+    _rows = (int)[_layout count];
     
     _controlData = [_state objectForKey: @"controls"];
     
-//    // Create control objects
-//    for(int i = 0; i < [_controlData count]; i++) {
-//        NSLog(@"%@", _controlData);
-//        
-//        int type = [[[_controlData objectAtIndex:i] objectForKey:@"type"] intValue];
-//        NSLog(@"Type:%i", type);
-//        switch(type) {
-//            case 0:
-//                // Draw Pad
-//                [_controlObjects addObject:[controlPad new]];
-//                NSLog(@"Adding pad object");
-//            break;
-//        }
-//    }
-    
-    NSLog(@"%@", [_controlObjects description]);
+//    NSLog(@"%@", [_controlObjects description]);
 
 }
 
@@ -65,8 +56,22 @@
     return [NSJSONSerialization JSONObjectWithData:jsonData options:kNilOptions error:&error];
 }
 
-- (int)getInt:(NSDictionary*)dictionary:(NSString*)key {
+- (int)getIntFrom:(NSDictionary*)dictionary withKey:(NSString*)key {
     return [[dictionary objectForKey: key] intValue];
 }
+
+//- (NSArray*)getLocation:(int)controlId {
+//    NSArray loc[2];
+//    int x;
+//    for(int i = 0; i < [_layout count]; i++) {
+//        x = Array.indexOf(_layout[i], id);
+//        if(x){
+//            break;
+//        }
+//    }
+//    loc[0] = x;
+//    loc[1] = i;
+//    return
+//}
 
 @end

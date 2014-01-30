@@ -17,11 +17,14 @@
 @property int rowHeight;
 @property int uiWidth;
 @property int uiHeight;
-@property NSMutableArray* controls;
+@property NSMutableArray* layout;
+@property NSMutableDictionary* controls;
+@property NSDictionary* controlData;
 
-- (id)initWithFrame:(NSRect)frame andData:(NSArray*)controlData;
+- (id)initWithFrame:(NSRect)frame andData:(NSArray*)controlData andLayout:(NSMutableArray*)layout;
 - (NSPoint)getSize;
 - (void)drawRect:(NSRect)rect;
 - (void)drawGrid;
+-(void)addControlWithId:(NSString*)cID andRow:(int)row andCol:(int)col;
 
 @end

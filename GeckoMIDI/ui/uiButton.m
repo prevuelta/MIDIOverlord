@@ -10,7 +10,7 @@
 
 @implementation uiButton
 
-- (id)initWithFrame:(NSRect)frame:(int)size:(NSPoint)offset {
+- (id)initWithFrame:(NSRect)frame :(int)size :(NSPoint)offset {
     self = [super initWithFrame:frame];
     
     _path = [NSBezierPath bezierPath];

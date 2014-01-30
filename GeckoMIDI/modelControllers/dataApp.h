@@ -19,11 +19,12 @@
 @property int cols;
 @property int rows;
 
-@property NSArray* controlData;
+@property NSDictionary* controlData;
+@property NSMutableArray* layout;
 @property NSMutableArray* controlObjects;
 
 - (id)init;
-- (NSDictionary*)loadFile;
+- (NSDictionary*)loadFile:(NSString*)path;
 - (void)setData:(NSString*)path;
 
 @end

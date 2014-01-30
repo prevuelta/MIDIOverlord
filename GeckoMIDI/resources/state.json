@@ -9,33 +9,32 @@
     "state": {
         "title": "state example",
         "block": {
-            "rows" : 3,
-            "cols" : 8,
-            "els" : [
-                     [ 1, 1, 1 ]
+            "layout" : [
+                     [0, 0, 0, 0, 0, 1],
+                     [0, 1, 1, 0, 0, 0],
+                     [0, 0, 0, 1, 1, 0]
                      ]
         },
-        "controls" : [
-                    {
-                    "id" : 1,
-                    "label" : "Resonance",
-                    "type" : 0,
-                    "val" : 50,
-                    "min" : 0,
-                    "max" : 127,
-                    "midi" : [
-                              {
-                              "devices": [],
-                              "note": 2,
-                              "state": 0
-                              },
-                              {
-                              "devices": [],
-                              "note": 2,
-                              "state": 0
-                              }
-                              ]
-                    }
-        ]
+        "controls" : {
+          "1" : {
+            "label" : "Resonance",
+            "type" : 0,
+            "val" : 50,
+            "min" : 0,
+            "max" : 127,
+            "midi" : [
+                      {
+                      "devices": [],
+                      "note": 2,
+                      "state": 0
+                      },
+                      {
+                      "devices": [],
+                      "note": 2,
+                      "state": 0
+                      }
+                ]
+            }
+        }
     }
 }

@@ -8,50 +8,51 @@
 
 #import "controlPad.h"
 
-@implementation controlPad {
-     NSPointArray pointArray;
-}
+@implementation controlPad
 
 - (id)initWithFrame:(NSRect)frame {
     self = [super initWithFrame:frame];
     
-
-//    NSPoint p[] = {6, 6, 6, 54, 114, 54, 114, 6};
+    self.gridX = 2;
+    self.gridY = 1;
     
-//    pointArray = p;
-
-    pointArray[0] = NSMakePoint(0, 0);
-    pointArray[1] = NSMakePoint(50, 20);
-    pointArray[2] = NSMakePoint(50, 100);
-    
-    
-    NSLog(@"Init pad");
+//    [self setBounds:NSMakeRect(0, 0, 120, 120)];
     
     return self;
 }
 
 - (void)drawRect:(NSRect)rect {
     
-
-    
     NSBezierPath* path = [NSBezierPath new];
-    
+
     [path setLineWidth: 0.5];
-
-    int count = (sizeof pointArray);// count];
     
-    NSLog(@"Rendering pad %@", pointArray);
-
-//    NSPointArray pointArray = [self getPath]
+    [[NSColor whiteColor] set];
     
-    [path appendBezierPathWithPoints:pointArray count:count];
+    [path appendBezierPathWithRect:NSMakeRect(0, 0, 120, 120)];
+
+    [path fill];
+//    NSPoint pointArray[8] = {6, 6, 6, 54, 114, 54, 114, 6};
+
+   NSLog(@"Rendering pad");
+    
+//    NSPoint pointArray[3];
+//    
+//    pointArray[0] = NSMakePoint(0, 0);
+//    pointArray[1] = NSMakePoint(50, 20);
+//    pointArray[2] = NSMakePoint(50, 100);
+//
+//    int count = [pointArray count];
+    
+    [path appendBezierPathWithRect:NSMakeRect(6, 6, 108, 48)];
+//    [path appendBezierPathWithPoints:pointArray count:count];
 
     [path closePath];
 
     [[NSColor blackColor] set];
 
     [path stroke];
-}
+    }
 
 //- (NSPointArray)getPath {
 //

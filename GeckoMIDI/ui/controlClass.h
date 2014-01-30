@@ -15,8 +15,10 @@
 
 @property int padding;
 @property int cWidth;
+@property int gridX;
+@property int gridY;
 
 - (id)initWithFrame:(NSRect)frame;
-- (void)drawRect:(NSRect)frame;
+- (void)setOrigin:(NSPoint)origin;
 
 @end
