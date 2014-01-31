@@ -12,12 +12,14 @@
 //UI
 #import "viewApp.h"
 #import "controlSlider.h"
+#import "eventHandler.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
 @property dataApp* state;
 @property (assign) IBOutlet NSWindow *mainWin;
 @property float windowPadding;
+@property eventHandler* events;
 
 - (IBAction)makeView:(id)sender;
 - (void)resizeWin:(NSPoint)size;

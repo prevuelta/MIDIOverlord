@@ -10,9 +10,9 @@
         "title": "state example",
         "block": {
             "layout" : [
-                     [0, 0, 0, 0, 0, 1],
-                     [0, 1, 1, 0, 0, 0],
-                     [0, 0, 0, 1, 1, 0]
+                     [0, 0, 1, 0, 1, 0],
+                     [0, 0, 0, 0, 0, 0],
+                     [1, 2, 3, 0, 0, 0]
                      ]
         },
         "controls" : {
@@ -34,6 +34,44 @@
                       "state": 0
                       }
                 ]
+            },
+            "2" : {
+                "label" : "Resonance",
+                "type" : 0,
+                "val" : 50,
+                "min" : 0,
+                "max" : 127,
+                "midi" : [
+                          {
+                          "devices": [],
+                          "note": 2,
+                          "state": 0
+                          },
+                          {
+                          "devices": [],
+                          "note": 2,
+                          "state": 0
+                          }
+                          ]
+            },
+            "3" : {
+                "label" : "Resonance",
+                "type" : 0,
+                "val" : 50,
+                "min" : 0,
+                "max" : 127,
+                "midi" : [
+                          {
+                          "devices": [],
+                          "note": 2,
+                          "state": 0
+                          },
+                          {
+                          "devices": [],
+                          "note": 2,
+                          "state": 0
+                          }
+                          ]
             }
         }
     }

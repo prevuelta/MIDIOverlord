@@ -23,15 +23,21 @@
 
 - (void)drawRect:(NSRect)rect {
     
-    NSBezierPath* path = [NSBezierPath new];
-
-    [path setLineWidth: 0.5];
-    
+    NSBezierPath* bgPath = [NSBezierPath new];
     [[NSColor whiteColor] set];
+    [bgPath appendBezierPathWithRect:NSMakeRect(0, 0, 120, 120)];
+    [bgPath closePath];
+    [bgPath fill];
     
-    [path appendBezierPathWithRect:NSMakeRect(0, 0, 120, 120)];
+    NSBezierPath* padPath = [NSBezierPath new];
 
-    [path fill];
+    [padPath setLineWidth: 0.5];
+    
+//
+    
+//
+
+//
 //    NSPoint pointArray[8] = {6, 6, 6, 54, 114, 54, 114, 6};
 
    NSLog(@"Rendering pad");
@@ -44,14 +50,15 @@
 //
 //    int count = [pointArray count];
     
-    [path appendBezierPathWithRect:NSMakeRect(6, 6, 108, 48)];
+    [padPath appendBezierPathWithRect:NSMakeRect(6, 6, 108, 48)];
 //    [path appendBezierPathWithPoints:pointArray count:count];
 
-    [path closePath];
+    [padPath closePath];
 
     [[NSColor blackColor] set];
 
-    [path stroke];
+    [padPath fill];
+    
     }
 
 //- (NSPointArray)getPath {

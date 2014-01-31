@@ -18,7 +18,9 @@
 @property int gridX;
 @property int gridY;
 
+
 - (id)initWithFrame:(NSRect)frame;
 - (void)setOrigin:(NSPoint)origin;
+-(void)mouseDown:(NSEvent *)theEvent;
 
 @end

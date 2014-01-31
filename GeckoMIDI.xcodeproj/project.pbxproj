@@ -13,6 +13,7 @@
 		6E5A640F184417F700C1CD8E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6E5A640D184417F700C1CD8E /* InfoPlist.strings */; };
 		6E5A6411184417F700C1CD8E /* GeckoMIDITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5A6410184417F700C1CD8E /* GeckoMIDITests.m */; };
 		6E8CD4801869495100EA1ADE /* utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8CD47F1869495100EA1ADE /* utilities.m */; };
+		6EDE20CA189B4C6800BCCECD /* eventHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EDE20C9189B4C6800BCCECD /* eventHandler.m */; };
 		6EEDA16C1863DC6500BEECDE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EEDA14E1863DC6500BEECDE /* AppDelegate.m */; };
 		6EEDA16D1863DC6500BEECDE /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EEDA14F1863DC6500BEECDE /* MainMenu.xib */; };
 		6EEDA16E1863DC6500BEECDE /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 6EEDA1511863DC6500BEECDE /* Credits.rtf */; };
@@ -53,6 +54,8 @@
 		6E5A6410184417F700C1CD8E /* GeckoMIDITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GeckoMIDITests.m; sourceTree = "<group>"; };
 		6E8CD47E1869495100EA1ADE /* utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utilities.h; sourceTree = "<group>"; };
 		6E8CD47F1869495100EA1ADE /* utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = utilities.m; sourceTree = "<group>"; };
+		6EDE20C8189B4C6800BCCECD /* eventHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eventHandler.h; sourceTree = "<group>"; };
+		6EDE20C9189B4C6800BCCECD /* eventHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = eventHandler.m; sourceTree = "<group>"; };
 		6EEDA14D1863DC6500BEECDE /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6EEDA14E1863DC6500BEECDE /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		6EEDA1501863DC6500BEECDE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -167,6 +170,15 @@
 			path = utilities;
 			sourceTree = "<group>";
 		};
+		6EDE20C7189B4C6800BCCECD /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6EDE20C8189B4C6800BCCECD /* eventHandler.h */,
+				6EDE20C9189B4C6800BCCECD /* eventHandler.m */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
 		6EEDA14C1863DC6500BEECDE /* GeckoMIDI */ = {
 			isa = PBXGroup;
 			children = (
@@ -184,6 +196,7 @@
 				6EEDA1601863DC6500BEECDE /* resources */,
 				6EEDA1621863DC6500BEECDE /* ui */,
 				6EEDA1691863DC6500BEECDE /* views */,
+				6EDE20C7189B4C6800BCCECD /* controllers */,
 			);
 			path = GeckoMIDI;
 			sourceTree = "<group>";
@@ -336,6 +349,7 @@
 				6EEDA17D1863DFE400BEECDE /* controlClass.m in Sources */,
 				6EEDA1721863DC6500BEECDE /* main.m in Sources */,
 				6EEDA1751863DC6500BEECDE /* dataApp.m in Sources */,
+				6EDE20CA189B4C6800BCCECD /* eventHandler.m in Sources */,
 				6EEDA17A1863DC6500BEECDE /* viewApp.m in Sources */,
 				6EEDA1781863DC6500BEECDE /* controlSlider.m in Sources */,
 				6E8CD4801869495100EA1ADE /* utilities.m in Sources */,

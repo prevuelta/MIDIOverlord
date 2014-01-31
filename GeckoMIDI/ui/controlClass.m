@@ -12,9 +12,8 @@
 
 - (id)initWithFrame:(NSRect)frame {
     self = [super initWithFrame:frame];
-    if (self) {
-       
-    }
+    if (!self) return nil;
+
     
     return self;
 }
@@ -24,5 +23,19 @@
     f.origin = origin;
     [self setFrame:f];
 }
+
+-(void)mouseDown:(NSEvent *)theEvent {
+    NSLog(@"Clicked");
+    [self notify];
+   
+}
+
+// Posts a MyNotification message whenever called
+- (void)notify {
+    NSLog(@"Notify");
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"MyNotification" object:self];
+}
+
+
 
 @end

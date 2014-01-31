@@ -16,6 +16,9 @@
     _state = [[dataApp alloc] init];
     [_state setData:@"state"];
     
+    // Add event handler
+    _events = [eventHandler new];
+    
     // UI
     _windowPadding = 20;
     
@@ -43,6 +46,8 @@
     CGRect frame = mainView.frame;
     frame.origin = CGPointMake(_windowPadding, _windowPadding);
     mainView.frame = frame;
+    
+    
     
 }
 

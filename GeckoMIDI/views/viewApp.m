@@ -68,8 +68,8 @@
 
 - (NSPoint)getSize {
     NSPoint size = {
-       ((_colWidth * _cols) + _uiWidth),
-       ((_rowHeight * _rows) + _uiHeight)
+         _colWidth * _cols,
+         _rowHeight * _rows
     };
     return size;
 }
@@ -83,7 +83,7 @@
             controlPad* cPad = [[controlPad alloc] initWithFrame: NSMakeRect(0, 0, 120, 120)];
             
             CGFloat xLoc = (col-- * _colWidth);
-            CGFloat yLoc = (row-- * _rowHeight) + _uiHeight;
+            CGFloat yLoc = (row-- * _rowHeight);
             
             NSLog(@"%f %f", xLoc, yLoc);
             
@@ -133,11 +133,11 @@
     
     // UI Elements
     
-    NSPoint colUIOffset = {((bgSize.x-_uiWidth)/2) - (_uiWidth/2), 0};
-    uiButton* colUI = [[uiButton alloc] initWithFrame:frame:_uiWidth:colUIOffset];
+//    NSPoint colUIOffset = {((bgSize.x-_uiWidth)/2) - (_uiWidth/2), 0};
+//    uiButton* colUI = [[uiButton alloc] initWithFrame:frame:_uiWidth:colUIOffset];
     
-    NSPoint rowUIOffset = {bgSize.x-_uiWidth, ((bgSize.y-_uiHeight)/2) + (_uiHeight/2)};
-    uiButton* rowUI = [[uiButton alloc] initWithFrame:frame:_uiWidth:rowUIOffset];
+//    NSPoint rowUIOffset = {bgSize.x-_uiWidth, ((bgSize.y-_uiHeight)/2) + (_uiHeight/2)};
+//    uiButton* rowUI = [[uiButton alloc] initWithFrame:frame:_uiWidth:rowUIOffset];
     
     int i = 0;
     
@@ -165,7 +165,7 @@
 
     // Translate
     NSAffineTransform *translateTransform = [NSAffineTransform transform];
-    [translateTransform translateXBy: 0 yBy:_uiHeight];
+    [translateTransform translateXBy: 0 yBy:0];
     [path transformUsingAffineTransform: translateTransform];
     
     [path closePath];
