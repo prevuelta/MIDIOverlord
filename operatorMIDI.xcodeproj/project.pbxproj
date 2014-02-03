@@ -1,0 +1,585 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6E5A63E7184417F700C1CD8E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E5A63E6184417F600C1CD8E /* Cocoa.framework */; };
+		6E5A6406184417F700C1CD8E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E5A6405184417F700C1CD8E /* XCTest.framework */; };
+		6E5A6407184417F700C1CD8E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E5A63E6184417F600C1CD8E /* Cocoa.framework */; };
+		6E5A640F184417F700C1CD8E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6E5A640D184417F700C1CD8E /* InfoPlist.strings */; };
+		6E5A6411184417F700C1CD8E /* GeckoMIDITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5A6410184417F700C1CD8E /* GeckoMIDITests.m */; };
+		6EF69C6B189F27AF00A88726 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF69C46189F27AF00A88726 /* AppDelegate.m */; };
+		6EF69C6C189F27AF00A88726 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EF69C47189F27AF00A88726 /* MainMenu.xib */; };
+		6EF69C6D189F27AF00A88726 /* eventHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF69C4B189F27AF00A88726 /* eventHandler.m */; };
+		6EF69C6E189F27AF00A88726 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 6EF69C4C189F27AF00A88726 /* Credits.rtf */; };
+		6EF69C6F189F27AF00A88726 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6EF69C4E189F27AF00A88726 /* InfoPlist.strings */; };
+		6EF69C70189F27AF00A88726 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EF69C50189F27AF00A88726 /* Images.xcassets */; };
+		6EF69C71189F27AF00A88726 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF69C51189F27AF00A88726 /* main.m */; };
+		6EF69C72189F27AF00A88726 /* dataApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF69C54189F27AF00A88726 /* dataApp.m */; };
+		6EF69C73189F27AF00A88726 /* operatorMIDI-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6EF69C55189F27AF00A88726 /* operatorMIDI-Info.plist */; };
+		6EF69C74189F27AF00A88726 /* skin.json in Resources */ = {isa = PBXBuildFile; fileRef = 6EF69C58189F27AF00A88726 /* skin.json */; };
+		6EF69C75189F27AF00A88726 /* state.json in Resources */ = {isa = PBXBuildFile; fileRef = 6EF69C59189F27AF00A88726 /* state.json */; };
+		6EF69C76189F27AF00A88726 /* controlClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF69C5C189F27AF00A88726 /* controlClass.m */; };
+		6EF69C77189F27AF00A88726 /* controlPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF69C5E189F27AF00A88726 /* controlPad.m */; };
+		6EF69C78189F27AF00A88726 /* controlSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF69C60189F27AF00A88726 /* controlSlider.m */; };
+		6EF69C79189F27AF00A88726 /* controlUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF69C62189F27AF00A88726 /* controlUI.m */; };
+		6EF69C7A189F27AF00A88726 /* uiButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF69C64189F27AF00A88726 /* uiButton.m */; };
+		6EF69C7B189F27AF00A88726 /* utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF69C67189F27AF00A88726 /* utilities.m */; };
+		6EF69C7C189F27AF00A88726 /* viewApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF69C6A189F27AF00A88726 /* viewApp.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6E5A6408184417F700C1CD8E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6E5A63DB184417F600C1CD8E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6E5A63E2184417F600C1CD8E;
+			remoteInfo = GeckoMIDI;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		6E5A63E3184417F600C1CD8E /* operatorMIDI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = operatorMIDI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E5A63E6184417F600C1CD8E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		6E5A63E9184417F700C1CD8E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		6E5A63EA184417F700C1CD8E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		6E5A63EB184417F700C1CD8E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		6E5A6404184417F700C1CD8E /* operatorMIDITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = operatorMIDITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E5A6405184417F700C1CD8E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		6E5A640C184417F700C1CD8E /* operatorMIDITests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "operatorMIDITests-Info.plist"; sourceTree = "<group>"; };
+		6E5A640E184417F700C1CD8E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6E5A6410184417F700C1CD8E /* GeckoMIDITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GeckoMIDITests.m; sourceTree = "<group>"; };
+		6EF69C45189F27AF00A88726 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		6EF69C46189F27AF00A88726 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		6EF69C48189F27AF00A88726 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		6EF69C4A189F27AF00A88726 /* eventHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eventHandler.h; sourceTree = "<group>"; };
+		6EF69C4B189F27AF00A88726 /* eventHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = eventHandler.m; sourceTree = "<group>"; };
+		6EF69C4D189F27AF00A88726 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		6EF69C4F189F27AF00A88726 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6EF69C50189F27AF00A88726 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		6EF69C51189F27AF00A88726 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6EF69C53189F27AF00A88726 /* dataApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dataApp.h; sourceTree = "<group>"; };
+		6EF69C54189F27AF00A88726 /* dataApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dataApp.m; sourceTree = "<group>"; };
+		6EF69C55189F27AF00A88726 /* operatorMIDI-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "operatorMIDI-Info.plist"; sourceTree = "<group>"; };
+		6EF69C56189F27AF00A88726 /* operatorMIDI-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "operatorMIDI-Prefix.pch"; sourceTree = "<group>"; };
+		6EF69C58189F27AF00A88726 /* skin.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = skin.json; sourceTree = "<group>"; };
+		6EF69C59189F27AF00A88726 /* state.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = state.json; sourceTree = "<group>"; };
+		6EF69C5B189F27AF00A88726 /* controlClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = controlClass.h; sourceTree = "<group>"; };
+		6EF69C5C189F27AF00A88726 /* controlClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = controlClass.m; sourceTree = "<group>"; };
+		6EF69C5D189F27AF00A88726 /* controlPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = controlPad.h; sourceTree = "<group>"; };
+		6EF69C5E189F27AF00A88726 /* controlPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = controlPad.m; sourceTree = "<group>"; };
+		6EF69C5F189F27AF00A88726 /* controlSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = controlSlider.h; sourceTree = "<group>"; };
+		6EF69C60189F27AF00A88726 /* controlSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = controlSlider.m; sourceTree = "<group>"; };
+		6EF69C61189F27AF00A88726 /* controlUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = controlUI.h; sourceTree = "<group>"; };
+		6EF69C62189F27AF00A88726 /* controlUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = controlUI.m; sourceTree = "<group>"; };
+		6EF69C63189F27AF00A88726 /* uiButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uiButton.h; sourceTree = "<group>"; };
+		6EF69C64189F27AF00A88726 /* uiButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uiButton.m; sourceTree = "<group>"; };
+		6EF69C66189F27AF00A88726 /* utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utilities.h; sourceTree = "<group>"; };
+		6EF69C67189F27AF00A88726 /* utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = utilities.m; sourceTree = "<group>"; };
+		6EF69C69189F27AF00A88726 /* viewApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = viewApp.h; sourceTree = "<group>"; };
+		6EF69C6A189F27AF00A88726 /* viewApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = viewApp.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6E5A63E0184417F600C1CD8E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E5A63E7184417F700C1CD8E /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E5A6401184417F700C1CD8E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E5A6407184417F700C1CD8E /* Cocoa.framework in Frameworks */,
+				6E5A6406184417F700C1CD8E /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6E5A63DA184417F600C1CD8E = {
+			isa = PBXGroup;
+			children = (
+				6EF69C44189F27AF00A88726 /* operatorMIDI */,
+				6E5A640A184417F700C1CD8E /* GeckoMIDITests */,
+				6E5A63E5184417F600C1CD8E /* Frameworks */,
+				6E5A63E4184417F600C1CD8E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6E5A63E4184417F600C1CD8E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6E5A63E3184417F600C1CD8E /* operatorMIDI.app */,
+				6E5A6404184417F700C1CD8E /* operatorMIDITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6E5A63E5184417F600C1CD8E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6E5A63E6184417F600C1CD8E /* Cocoa.framework */,
+				6E5A6405184417F700C1CD8E /* XCTest.framework */,
+				6E5A63E8184417F700C1CD8E /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6E5A63E8184417F700C1CD8E /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6E5A63E9184417F700C1CD8E /* AppKit.framework */,
+				6E5A63EA184417F700C1CD8E /* CoreData.framework */,
+				6E5A63EB184417F700C1CD8E /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		6E5A640A184417F700C1CD8E /* GeckoMIDITests */ = {
+			isa = PBXGroup;
+			children = (
+				6E5A6410184417F700C1CD8E /* GeckoMIDITests.m */,
+				6E5A640B184417F700C1CD8E /* Supporting Files */,
+			);
+			path = GeckoMIDITests;
+			sourceTree = "<group>";
+		};
+		6E5A640B184417F700C1CD8E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6E5A640C184417F700C1CD8E /* operatorMIDITests-Info.plist */,
+				6E5A640D184417F700C1CD8E /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6EF69C44189F27AF00A88726 /* operatorMIDI */ = {
+			isa = PBXGroup;
+			children = (
+				6EF69C45189F27AF00A88726 /* AppDelegate.h */,
+				6EF69C46189F27AF00A88726 /* AppDelegate.m */,
+				6EF69C47189F27AF00A88726 /* MainMenu.xib */,
+				6EF69C49189F27AF00A88726 /* controllers */,
+				6EF69C4C189F27AF00A88726 /* Credits.rtf */,
+				6EF69C4E189F27AF00A88726 /* InfoPlist.strings */,
+				6EF69C50189F27AF00A88726 /* Images.xcassets */,
+				6EF69C51189F27AF00A88726 /* main.m */,
+				6EF69C52189F27AF00A88726 /* modelControllers */,
+				6EF69C55189F27AF00A88726 /* operatorMIDI-Info.plist */,
+				6EF69C56189F27AF00A88726 /* operatorMIDI-Prefix.pch */,
+				6EF69C57189F27AF00A88726 /* resources */,
+				6EF69C5A189F27AF00A88726 /* ui */,
+				6EF69C65189F27AF00A88726 /* utilities */,
+				6EF69C68189F27AF00A88726 /* views */,
+			);
+			path = operatorMIDI;
+			sourceTree = "<group>";
+		};
+		6EF69C49189F27AF00A88726 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6EF69C4A189F27AF00A88726 /* eventHandler.h */,
+				6EF69C4B189F27AF00A88726 /* eventHandler.m */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		6EF69C52189F27AF00A88726 /* modelControllers */ = {
+			isa = PBXGroup;
+			children = (
+				6EF69C53189F27AF00A88726 /* dataApp.h */,
+				6EF69C54189F27AF00A88726 /* dataApp.m */,
+			);
+			path = modelControllers;
+			sourceTree = "<group>";
+		};
+		6EF69C57189F27AF00A88726 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				6EF69C58189F27AF00A88726 /* skin.json */,
+				6EF69C59189F27AF00A88726 /* state.json */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
+		6EF69C5A189F27AF00A88726 /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				6EF69C5B189F27AF00A88726 /* controlClass.h */,
+				6EF69C5C189F27AF00A88726 /* controlClass.m */,
+				6EF69C5D189F27AF00A88726 /* controlPad.h */,
+				6EF69C5E189F27AF00A88726 /* controlPad.m */,
+				6EF69C5F189F27AF00A88726 /* controlSlider.h */,
+				6EF69C60189F27AF00A88726 /* controlSlider.m */,
+				6EF69C61189F27AF00A88726 /* controlUI.h */,
+				6EF69C62189F27AF00A88726 /* controlUI.m */,
+				6EF69C63189F27AF00A88726 /* uiButton.h */,
+				6EF69C64189F27AF00A88726 /* uiButton.m */,
+			);
+			path = ui;
+			sourceTree = "<group>";
+		};
+		6EF69C65189F27AF00A88726 /* utilities */ = {
+			isa = PBXGroup;
+			children = (
+				6EF69C66189F27AF00A88726 /* utilities.h */,
+				6EF69C67189F27AF00A88726 /* utilities.m */,
+			);
+			path = utilities;
+			sourceTree = "<group>";
+		};
+		6EF69C68189F27AF00A88726 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				6EF69C69189F27AF00A88726 /* viewApp.h */,
+				6EF69C6A189F27AF00A88726 /* viewApp.m */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6E5A63E2184417F600C1CD8E /* operatorMIDI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6E5A6414184417F700C1CD8E /* Build configuration list for PBXNativeTarget "operatorMIDI" */;
+			buildPhases = (
+				6E5A63DF184417F600C1CD8E /* Sources */,
+				6E5A63E0184417F600C1CD8E /* Frameworks */,
+				6E5A63E1184417F600C1CD8E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = operatorMIDI;
+			productName = GeckoMIDI;
+			productReference = 6E5A63E3184417F600C1CD8E /* operatorMIDI.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6E5A6403184417F700C1CD8E /* operatorMIDITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6E5A6417184417F700C1CD8E /* Build configuration list for PBXNativeTarget "operatorMIDITests" */;
+			buildPhases = (
+				6E5A6400184417F700C1CD8E /* Sources */,
+				6E5A6401184417F700C1CD8E /* Frameworks */,
+				6E5A6402184417F700C1CD8E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6E5A6409184417F700C1CD8E /* PBXTargetDependency */,
+			);
+			name = operatorMIDITests;
+			productName = GeckoMIDITests;
+			productReference = 6E5A6404184417F700C1CD8E /* operatorMIDITests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6E5A63DB184417F600C1CD8E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Midnight City";
+				TargetAttributes = {
+					6E5A6403184417F700C1CD8E = {
+						TestTargetID = 6E5A63E2184417F600C1CD8E;
+					};
+				};
+			};
+			buildConfigurationList = 6E5A63DE184417F600C1CD8E /* Build configuration list for PBXProject "operatorMIDI" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6E5A63DA184417F600C1CD8E;
+			productRefGroup = 6E5A63E4184417F600C1CD8E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6E5A63E2184417F600C1CD8E /* operatorMIDI */,
+				6E5A6403184417F700C1CD8E /* operatorMIDITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6E5A63E1184417F600C1CD8E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6EF69C75189F27AF00A88726 /* state.json in Resources */,
+				6EF69C6C189F27AF00A88726 /* MainMenu.xib in Resources */,
+				6EF69C73189F27AF00A88726 /* operatorMIDI-Info.plist in Resources */,
+				6EF69C70189F27AF00A88726 /* Images.xcassets in Resources */,
+				6EF69C6F189F27AF00A88726 /* InfoPlist.strings in Resources */,
+				6EF69C74189F27AF00A88726 /* skin.json in Resources */,
+				6EF69C6E189F27AF00A88726 /* Credits.rtf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E5A6402184417F700C1CD8E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E5A640F184417F700C1CD8E /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6E5A63DF184417F600C1CD8E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6EF69C6B189F27AF00A88726 /* AppDelegate.m in Sources */,
+				6EF69C77189F27AF00A88726 /* controlPad.m in Sources */,
+				6EF69C71189F27AF00A88726 /* main.m in Sources */,
+				6EF69C76189F27AF00A88726 /* controlClass.m in Sources */,
+				6EF69C78189F27AF00A88726 /* controlSlider.m in Sources */,
+				6EF69C79189F27AF00A88726 /* controlUI.m in Sources */,
+				6EF69C6D189F27AF00A88726 /* eventHandler.m in Sources */,
+				6EF69C7A189F27AF00A88726 /* uiButton.m in Sources */,
+				6EF69C7C189F27AF00A88726 /* viewApp.m in Sources */,
+				6EF69C7B189F27AF00A88726 /* utilities.m in Sources */,
+				6EF69C72189F27AF00A88726 /* dataApp.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E5A6400184417F700C1CD8E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E5A6411184417F700C1CD8E /* GeckoMIDITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6E5A6409184417F700C1CD8E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6E5A63E2184417F600C1CD8E /* operatorMIDI */;
+			targetProxy = 6E5A6408184417F700C1CD8E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		6E5A640D184417F700C1CD8E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6E5A640E184417F700C1CD8E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		6EF69C47189F27AF00A88726 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6EF69C48189F27AF00A88726 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		6EF69C4C189F27AF00A88726 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6EF69C4D189F27AF00A88726 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		6EF69C4E189F27AF00A88726 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6EF69C4F189F27AF00A88726 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6E5A6412184417F700C1CD8E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		6E5A6413184417F700C1CD8E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		6E5A6415184417F700C1CD8E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GeckoMIDI/operatorMIDI-Prefix.pch";
+				INFOPLIST_FILE = "GeckoMIDI/operatorMIDI-Info.plist";
+				PRODUCT_NAME = operatorMIDI;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		6E5A6416184417F700C1CD8E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GeckoMIDI/operatorMIDI-Prefix.pch";
+				INFOPLIST_FILE = "GeckoMIDI/operatorMIDI-Info.plist";
+				PRODUCT_NAME = operatorMIDI;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		6E5A6418184417F700C1CD8E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/GeckoMIDI.app/Contents/MacOS/GeckoMIDI";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GeckoMIDI/GeckoMIDI-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "GeckoMIDITests/operatorMIDITests-Info.plist";
+				PRODUCT_NAME = operatorMIDITests;
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		6E5A6419184417F700C1CD8E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/GeckoMIDI.app/Contents/MacOS/GeckoMIDI";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GeckoMIDI/GeckoMIDI-Prefix.pch";
+				INFOPLIST_FILE = "GeckoMIDITests/operatorMIDITests-Info.plist";
+				PRODUCT_NAME = operatorMIDITests;
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6E5A63DE184417F600C1CD8E /* Build configuration list for PBXProject "operatorMIDI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E5A6412184417F700C1CD8E /* Debug */,
+				6E5A6413184417F700C1CD8E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6E5A6414184417F700C1CD8E /* Build configuration list for PBXNativeTarget "operatorMIDI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E5A6415184417F700C1CD8E /* Debug */,
+				6E5A6416184417F700C1CD8E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6E5A6417184417F700C1CD8E /* Build configuration list for PBXNativeTarget "operatorMIDITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E5A6418184417F700C1CD8E /* Debug */,
+				6E5A6419184417F700C1CD8E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6E5A63DB184417F600C1CD8E /* Project object */;
+}
