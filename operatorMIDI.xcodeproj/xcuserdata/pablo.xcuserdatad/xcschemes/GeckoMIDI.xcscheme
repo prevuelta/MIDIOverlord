@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6E5A63E2184417F600C1CD8E"
-               BuildableName = "GeckoMIDI.app"
+               BuildableName = "operatorMIDI.app"
                BlueprintName = "operatorMIDI"
                ReferencedContainer = "container:operatorMIDI.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6E5A6403184417F700C1CD8E"
-               BuildableName = "GeckoMIDITests.xctest"
+               BuildableName = "operatorMIDITests.xctest"
                BlueprintName = "operatorMIDITests"
                ReferencedContainer = "container:operatorMIDI.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6E5A63E2184417F600C1CD8E"
-            BuildableName = "GeckoMIDI.app"
+            BuildableName = "operatorMIDI.app"
             BlueprintName = "operatorMIDI"
             ReferencedContainer = "container:operatorMIDI.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6E5A63E2184417F600C1CD8E"
-            BuildableName = "GeckoMIDI.app"
+            BuildableName = "operatorMIDI.app"
             BlueprintName = "operatorMIDI"
             ReferencedContainer = "container:operatorMIDI.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6E5A63E2184417F600C1CD8E"
-            BuildableName = "GeckoMIDI.app"
+            BuildableName = "operatorMIDI.app"
             BlueprintName = "operatorMIDI"
             ReferencedContainer = "container:operatorMIDI.xcodeproj">
          </BuildableReference>

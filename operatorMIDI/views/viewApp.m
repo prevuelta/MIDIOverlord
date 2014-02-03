@@ -19,10 +19,9 @@
     
         NSLog(@"Init main view");
         
-        _colWidth = 120;
-        _rowHeight = 120;
-        _uiHeight = 36;
-        _uiWidth = 36;
+        _unitSize = 128;
+        
+        _toolbarHeight = 32;
         
         _rows = 2;
         _cols = 1;
@@ -68,8 +67,8 @@
 
 - (NSPoint)getSize {
     NSPoint size = {
-         _colWidth * _cols,
-         _rowHeight * _rows
+         _unitSize * _cols,
+        ( _unitSize * _rows ) + _toolbarHeight
     };
     return size;
 }
@@ -80,10 +79,10 @@
     
     switch(type) {
         case 0: {
-            controlPad* cPad = [[controlPad alloc] initWithFrame: NSMakeRect(0, 0, 120, 120)];
+            controlPad* cPad = [[controlPad alloc] initWithFrame: NSMakeRect(0, 0, _unitSize, _unitSize)];
             
-            CGFloat xLoc = (col-- * _colWidth);
-            CGFloat yLoc = (row-- * _rowHeight);
+            CGFloat xLoc = (col-- * _unitSize);
+            CGFloat yLoc = (row-- * _unitSize);
             
             NSLog(@"%f %f", xLoc, yLoc);
             
@@ -144,8 +143,8 @@
     while(i <= _cols) {
         int i2 = 0;
 //        NSLog(@"go %i cols: %i", i, _cols);
-        NSPoint colOrigin = {i * _colWidth + 0.5, 0.5};
-        NSPoint colDestination = {i * _colWidth + 0.5, _rows * _rowHeight + 0.5};
+        NSPoint colOrigin = {i * _unitSize + 0.5, 0.5};
+        NSPoint colDestination = {i * _unitSize + 0.5, _rows * _unitSize + 0.5};
 
         [path moveToPoint: colOrigin ];
         [path lineToPoint: colDestination ];
@@ -153,8 +152,8 @@
         // Draw Row Lines
         while(i2 <= _rows) {
             // Draw Column lines
-            NSPoint origin = { 0.5 , i2 * _rowHeight + 0.5};
-            NSPoint destination = {_cols * _colWidth + 0.5, i2 * _rowHeight + 0.5};
+            NSPoint origin = { 0.5 , i2 * _unitSize + 0.5};
+            NSPoint destination = {_cols * _unitSize+ 0.5, i2 * _unitSize + 0.5};
             [path moveToPoint: origin ];
             [path lineToPoint: destination ];
             i2++;

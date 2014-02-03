@@ -8,7 +8,6 @@
 
 #import "utilities.h"
 
-
 @implementation utilities
 
 +(void)notify:(int)type {

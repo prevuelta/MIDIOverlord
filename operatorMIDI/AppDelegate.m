@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "midiUtilities.h"
 
 @implementation AppDelegate
 
@@ -47,7 +48,8 @@
     frame.origin = CGPointMake(_windowPadding, _windowPadding);
     mainView.frame = frame;
     
-    
+    // Get midi data
+    [midiUtilities getDestinations];
     
 }
 

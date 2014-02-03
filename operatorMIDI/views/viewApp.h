@@ -13,10 +13,8 @@
 @property int cols;
 @property int rows;
 
-@property int colWidth;
-@property int rowHeight;
-@property int uiWidth;
-@property int uiHeight;
+@property int unitSize;
+@property int toolbarHeight;
 @property NSMutableArray* layout;
 @property NSMutableDictionary* controls;
 @property NSDictionary* controlData;

@@ -7,11 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6E5A63E7184417F700C1CD8E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E5A63E6184417F600C1CD8E /* Cocoa.framework */; };
+		6E5A63E7184417F700C1CD8E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E5A63E6184417F600C1CD8E /* Cocoa.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		6E5A6406184417F700C1CD8E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E5A6405184417F700C1CD8E /* XCTest.framework */; };
 		6E5A6407184417F700C1CD8E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E5A63E6184417F600C1CD8E /* Cocoa.framework */; };
-		6E5A640F184417F700C1CD8E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6E5A640D184417F700C1CD8E /* InfoPlist.strings */; };
-		6E5A6411184417F700C1CD8E /* GeckoMIDITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5A6410184417F700C1CD8E /* GeckoMIDITests.m */; };
 		6EF69C6B189F27AF00A88726 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF69C46189F27AF00A88726 /* AppDelegate.m */; };
 		6EF69C6C189F27AF00A88726 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EF69C47189F27AF00A88726 /* MainMenu.xib */; };
 		6EF69C6D189F27AF00A88726 /* eventHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF69C4B189F27AF00A88726 /* eventHandler.m */; };
@@ -20,7 +18,6 @@
 		6EF69C70189F27AF00A88726 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EF69C50189F27AF00A88726 /* Images.xcassets */; };
 		6EF69C71189F27AF00A88726 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF69C51189F27AF00A88726 /* main.m */; };
 		6EF69C72189F27AF00A88726 /* dataApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF69C54189F27AF00A88726 /* dataApp.m */; };
-		6EF69C73189F27AF00A88726 /* operatorMIDI-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6EF69C55189F27AF00A88726 /* operatorMIDI-Info.plist */; };
 		6EF69C74189F27AF00A88726 /* skin.json in Resources */ = {isa = PBXBuildFile; fileRef = 6EF69C58189F27AF00A88726 /* skin.json */; };
 		6EF69C75189F27AF00A88726 /* state.json in Resources */ = {isa = PBXBuildFile; fileRef = 6EF69C59189F27AF00A88726 /* state.json */; };
 		6EF69C76189F27AF00A88726 /* controlClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF69C5C189F27AF00A88726 /* controlClass.m */; };
@@ -30,6 +27,8 @@
 		6EF69C7A189F27AF00A88726 /* uiButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF69C64189F27AF00A88726 /* uiButton.m */; };
 		6EF69C7B189F27AF00A88726 /* utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF69C67189F27AF00A88726 /* utilities.m */; };
 		6EF69C7C189F27AF00A88726 /* viewApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF69C6A189F27AF00A88726 /* viewApp.m */; };
+		6EF69C7E189F2B1B00A88726 /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EF69C7D189F2B1B00A88726 /* CoreMIDI.framework */; };
+		6EF69C81189F2C9600A88726 /* midiUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF69C80189F2C9600A88726 /* midiUtilities.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,9 +49,6 @@
 		6E5A63EB184417F700C1CD8E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6E5A6404184417F700C1CD8E /* operatorMIDITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = operatorMIDITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E5A6405184417F700C1CD8E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		6E5A640C184417F700C1CD8E /* operatorMIDITests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "operatorMIDITests-Info.plist"; sourceTree = "<group>"; };
-		6E5A640E184417F700C1CD8E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		6E5A6410184417F700C1CD8E /* GeckoMIDITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GeckoMIDITests.m; sourceTree = "<group>"; };
 		6EF69C45189F27AF00A88726 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6EF69C46189F27AF00A88726 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		6EF69C48189F27AF00A88726 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -82,6 +78,9 @@
 		6EF69C67189F27AF00A88726 /* utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = utilities.m; sourceTree = "<group>"; };
 		6EF69C69189F27AF00A88726 /* viewApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = viewApp.h; sourceTree = "<group>"; };
 		6EF69C6A189F27AF00A88726 /* viewApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = viewApp.m; sourceTree = "<group>"; };
+		6EF69C7D189F2B1B00A88726 /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
+		6EF69C7F189F2C9600A88726 /* midiUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = midiUtilities.h; sourceTree = "<group>"; };
+		6EF69C80189F2C9600A88726 /* midiUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = midiUtilities.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6EF69C7E189F2B1B00A88726 /* CoreMIDI.framework in Frameworks */,
 				6E5A63E7184417F700C1CD8E /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -109,7 +109,6 @@
 			isa = PBXGroup;
 			children = (
 				6EF69C44189F27AF00A88726 /* operatorMIDI */,
-				6E5A640A184417F700C1CD8E /* GeckoMIDITests */,
 				6E5A63E5184417F600C1CD8E /* Frameworks */,
 				6E5A63E4184417F600C1CD8E /* Products */,
 			);
@@ -127,6 +126,7 @@
 		6E5A63E5184417F600C1CD8E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6EF69C7D189F2B1B00A88726 /* CoreMIDI.framework */,
 				6E5A63E6184417F600C1CD8E /* Cocoa.framework */,
 				6E5A6405184417F700C1CD8E /* XCTest.framework */,
 				6E5A63E8184417F700C1CD8E /* Other Frameworks */,
@@ -142,24 +142,6 @@
 				6E5A63EB184417F700C1CD8E /* Foundation.framework */,
 			);
 			name = "Other Frameworks";
-			sourceTree = "<group>";
-		};
-		6E5A640A184417F700C1CD8E /* GeckoMIDITests */ = {
-			isa = PBXGroup;
-			children = (
-				6E5A6410184417F700C1CD8E /* GeckoMIDITests.m */,
-				6E5A640B184417F700C1CD8E /* Supporting Files */,
-			);
-			path = GeckoMIDITests;
-			sourceTree = "<group>";
-		};
-		6E5A640B184417F700C1CD8E /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				6E5A640C184417F700C1CD8E /* operatorMIDITests-Info.plist */,
-				6E5A640D184417F700C1CD8E /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		6EF69C44189F27AF00A88726 /* operatorMIDI */ = {
@@ -233,6 +215,8 @@
 			children = (
 				6EF69C66189F27AF00A88726 /* utilities.h */,
 				6EF69C67189F27AF00A88726 /* utilities.m */,
+				6EF69C7F189F2C9600A88726 /* midiUtilities.h */,
+				6EF69C80189F2C9600A88726 /* midiUtilities.m */,
 			);
 			path = utilities;
 			sourceTree = "<group>";
@@ -324,7 +308,6 @@
 			files = (
 				6EF69C75189F27AF00A88726 /* state.json in Resources */,
 				6EF69C6C189F27AF00A88726 /* MainMenu.xib in Resources */,
-				6EF69C73189F27AF00A88726 /* operatorMIDI-Info.plist in Resources */,
 				6EF69C70189F27AF00A88726 /* Images.xcassets in Resources */,
 				6EF69C6F189F27AF00A88726 /* InfoPlist.strings in Resources */,
 				6EF69C74189F27AF00A88726 /* skin.json in Resources */,
@@ -336,7 +319,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6E5A640F184417F700C1CD8E /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,6 +330,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6EF69C6B189F27AF00A88726 /* AppDelegate.m in Sources */,
+				6EF69C81189F2C9600A88726 /* midiUtilities.m in Sources */,
 				6EF69C77189F27AF00A88726 /* controlPad.m in Sources */,
 				6EF69C71189F27AF00A88726 /* main.m in Sources */,
 				6EF69C76189F27AF00A88726 /* controlClass.m in Sources */,
@@ -365,7 +348,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6E5A6411184417F700C1CD8E /* GeckoMIDITests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,14 +362,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		6E5A640D184417F700C1CD8E /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6E5A640E184417F700C1CD8E /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 		6EF69C47189F27AF00A88726 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -489,8 +463,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "GeckoMIDI/operatorMIDI-Prefix.pch";
-				INFOPLIST_FILE = "GeckoMIDI/operatorMIDI-Info.plist";
+				GCC_PREFIX_HEADER = "operatorMIDI/operatorMIDI-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/operatorMIDI/operatorMIDI-Info.plist";
 				PRODUCT_NAME = operatorMIDI;
 				WRAPPER_EXTENSION = app;
 			};
@@ -502,8 +476,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "GeckoMIDI/operatorMIDI-Prefix.pch";
-				INFOPLIST_FILE = "GeckoMIDI/operatorMIDI-Info.plist";
+				GCC_PREFIX_HEADER = "operatorMIDI/operatorMIDI-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/operatorMIDI/operatorMIDI-Info.plist";
 				PRODUCT_NAME = operatorMIDI;
 				WRAPPER_EXTENSION = app;
 			};

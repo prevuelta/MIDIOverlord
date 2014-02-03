@@ -25,7 +25,7 @@
     
     NSBezierPath* bgPath = [NSBezierPath new];
     [[NSColor whiteColor] set];
-    [bgPath appendBezierPathWithRect:NSMakeRect(0, 0, 120, 120)];
+    [bgPath appendBezierPathWithRect:NSMakeRect(0, 0, 128, 128)];
     [bgPath closePath];
     [bgPath fill];
     
@@ -50,7 +50,7 @@
 //
 //    int count = [pointArray count];
     
-    [padPath appendBezierPathWithRect:NSMakeRect(6, 6, 108, 48)];
+    [padPath appendBezierPathWithRect:NSMakeRect(8, 8, 112, 52)];
 //    [path appendBezierPathWithPoints:pointArray count:count];
 
     [padPath closePath];
