@@ -13,10 +13,10 @@
 - (id)initWithFrame:(NSRect)frame {
     self = [super initWithFrame:frame];
     
+    if(!self) return nil;
+    
     self.gridX = 2;
     self.gridY = 1;
-    
-//    [self setBounds:NSMakeRect(0, 0, 120, 120)];
     
     return self;
 }
@@ -33,25 +33,10 @@
 
     [padPath setLineWidth: 0.5];
     
-//
-    
-//
-
-//
-//    NSPoint pointArray[8] = {6, 6, 6, 54, 114, 54, 114, 6};
 
    NSLog(@"Rendering pad");
     
-//    NSPoint pointArray[3];
-//    
-//    pointArray[0] = NSMakePoint(0, 0);
-//    pointArray[1] = NSMakePoint(50, 20);
-//    pointArray[2] = NSMakePoint(50, 100);
-//
-//    int count = [pointArray count];
-    
     [padPath appendBezierPathWithRect:NSMakeRect(8, 8, 112, 52)];
-//    [path appendBezierPathWithPoints:pointArray count:count];
 
     [padPath closePath];
 
@@ -60,12 +45,6 @@
     [padPath fill];
     
     }
-
-//- (NSPointArray)getPath {
-//
-//    
-////        return pointArray;
-//}
 
 @end
  

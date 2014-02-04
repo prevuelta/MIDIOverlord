@@ -7,8 +7,11 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "uiButton.h"
 
-@interface controlClass : NSView
+@interface controlClass : NSView {
+    @p
+}
 
 @property NSDictionary* elData;
 // Canvas properties
@@ -17,7 +20,6 @@
 @property int cWidth;
 @property int gridX;
 @property int gridY;
-
 
 - (id)initWithFrame:(NSRect)frame;
 - (void)setOrigin:(NSPoint)origin;

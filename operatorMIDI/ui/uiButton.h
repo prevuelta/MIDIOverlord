@@ -8,14 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
-@interface uiButton : NSView
+@interface uiButton : NSView {
+    id<subViewDelegate> delegate;
+}
+
+@property (nonatomic, assign) id<subViewDelegate> delegate;
 
 @property NSBezierPath* path;
 @property NSColor* bg;
-@property int size;
+@property NSPoint size;
 @property NSPoint offset;
 
-- (id)initWithFrame:(NSRect)frame :(int)size :(NSPoint)offset;
-- (void)drawBox;
+- (id)initWithFrame:(NSRect)frame :(NSPoint)size :(NSPoint)offset;
+- (void)drawRect:(NSRect)rect;
 
 @end

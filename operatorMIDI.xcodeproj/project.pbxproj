@@ -49,6 +49,7 @@
 		6E5A63EB184417F700C1CD8E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6E5A6404184417F700C1CD8E /* operatorMIDITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = operatorMIDITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E5A6405184417F700C1CD8E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		6E8D3A9718A06525007D00CA /* constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
 		6EF69C45189F27AF00A88726 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6EF69C46189F27AF00A88726 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		6EF69C48189F27AF00A88726 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -147,6 +148,7 @@
 		6EF69C44189F27AF00A88726 /* operatorMIDI */ = {
 			isa = PBXGroup;
 			children = (
+				6E8D3A9718A06525007D00CA /* constants.h */,
 				6EF69C45189F27AF00A88726 /* AppDelegate.h */,
 				6EF69C46189F27AF00A88726 /* AppDelegate.m */,
 				6EF69C47189F27AF00A88726 /* MainMenu.xib */,

@@ -10,38 +10,34 @@
 
 @implementation uiButton
 
-- (id)initWithFrame:(NSRect)frame :(int)size :(NSPoint)offset {
+- (id)initWithFrame:(NSRect)frame :(NSPoint)size :(NSPoint)offset {
     self = [super initWithFrame:frame];
+    if(!self) return nil;
     
     _path = [NSBezierPath bezierPath];
     _size = size;
     _offset = offset;
-    _bg = [NSColor blackColor];
-    
-    [self drawBox];
+    _bg = SKIN_BTN;
     
     return self;
 }
 
-- (void)drawBox {
+- (void)drawRect:(NSRect)rect {
     
-    NSPoint origin = {0, 0};
-    NSPoint pointArr[] = {0, _size, _size, _size, _size, 0};
+    NSBezierPath* btnPath = [NSBezierPath new];
     
-    [_path moveToPoint: origin];
-    [_path lineToPoint:pointArr[0]];
-    [_path lineToPoint:pointArr[1]];
-    [_path lineToPoint:pointArr[2]];
+    [btnPath appendBezierPathWithRect:NSMakeRect(_offset.x, _offset.y, _size.x, _size.y)];
     
-    NSAffineTransform *translateTransform = [NSAffineTransform transform];
-    [translateTransform translateXBy:_offset.x yBy:_offset.y ];
-    [_path transformUsingAffineTransform: translateTransform];
+    [btnPath closePath];
     
-    [_path closePath];
+    [[NSColor blackColor] set];
     
-    [[NSColor redColor] set];
-    [_path fill];
+    [btnPath fill];
     
+}
+
+-(void)mouseDown:(NSEvent *)theEvent {
+    [self.delegate s]
 }
 
 @end
