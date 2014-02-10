@@ -33,4 +33,41 @@
     return (NSString*)CFBridgingRelease(name);
 }
 
++(void)createVirtualDeviceWithClient:(MIDIClientRef)client andOutput:(MIDIEndpointRef)output {
+    
+    OSStatus result;
+    
+    // Create virtual source
+    result = MIDISourceCreate(client, CFSTR("Op source"), &output);
+    
+    if(result != noErr) {
+        NSLog(@"Error creating MIDI client: %s - %s",
+              GetMacOSStatusErrorString(result),
+              GetMacOSStatusCommentString(result));
+        return;
+    }
+    
+    //    result = MIDIClientCreate(CFSTR("Operator Midi Client"), NULL, NULL, &midiClient);
+    //
+    //
+    //    MIDIPortRef inputPort;
+    //
+    //
+    
+    //    result = MIDIInputPortCreate(midiClient, CFSTR("Input"), NULL, NULL, &inputPort);
+    //    MIDIPortRef outPort;
+    
+    //    MIDIClientCreate(@"Operator Client", NULL, NULL, testClient);
+    //    MIDICl
+    
+    //    MIDIOutputPortCreate(testClient, @"Operator Output", outPort);
+    
+    //    MIDISourceCreate(testClient, @"Operator MIDI", outSrc);
+}
+
+
++(void)sendNote {
+    
+}
+
 @end

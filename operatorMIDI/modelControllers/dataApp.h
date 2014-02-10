@@ -16,8 +16,7 @@
 
 // Data object
 
-@property int cols;
-@property int rows;
+@property int racks;
 
 @property NSDictionary* controlData;
 @property NSMutableArray* layout;

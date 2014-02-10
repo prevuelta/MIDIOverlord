@@ -34,8 +34,7 @@
     
 //    NSLog(@"%@", _layout);
     
-    _cols = (int)[_layout[0] count];
-    _rows = (int)[_layout count];
+    _racks = (int)[_layout count];
     
     _controlData = [_state objectForKey: @"controls"];
     
@@ -60,18 +59,5 @@
     return [[dictionary objectForKey: key] intValue];
 }
 
-//- (NSArray*)getLocation:(int)controlId {
-//    NSArray loc[2];
-//    int x;
-//    for(int i = 0; i < [_layout count]; i++) {
-//        x = Array.indexOf(_layout[i], id);
-//        if(x){
-//            break;
-//        }
-//    }
-//    loc[0] = x;
-//    loc[1] = i;
-//    return
-//}
 
 @end

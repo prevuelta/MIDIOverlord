@@ -10,4 +10,6 @@
 
 @interface controlPad : controlClass
 
+- (id)initWithFrame;
+
 @end

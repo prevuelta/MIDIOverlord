@@ -10,7 +10,10 @@
 
 @implementation controlPad
 
-- (id)initWithFrame:(NSRect)frame {
+- (id)initWithFrame{
+    
+    NSRect frame = NSMakeRect(0, 0, 64, RACK_HEIGHT );
+    
     self = [super initWithFrame:frame];
     
     if(!self) return nil;
@@ -18,14 +21,16 @@
     self.gridX = 2;
     self.gridY = 1;
     
+    self.width = 64;
+    
     return self;
 }
 
 - (void)drawRect:(NSRect)rect {
     
     NSBezierPath* bgPath = [NSBezierPath new];
-    [[NSColor whiteColor] set];
-    [bgPath appendBezierPathWithRect:NSMakeRect(0, 0, 128, 128)];
+    [[NSColor grayColor] set];
+    [bgPath appendBezierPathWithRect:NSMakeRect(0, 0, self.width, RACK_HEIGHT)];
     [bgPath closePath];
     [bgPath fill];
     
@@ -36,7 +41,7 @@
 
    NSLog(@"Rendering pad");
     
-    [padPath appendBezierPathWithRect:NSMakeRect(8, 8, 112, 52)];
+    [padPath appendBezierPathWithRect:NSMakeRect(8, 8, self.width - 16, 52)];
 
     [padPath closePath];
 

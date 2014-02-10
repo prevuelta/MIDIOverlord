@@ -37,7 +37,7 @@
 }
 
 -(void)mouseDown:(NSEvent *)theEvent {
-    [self.delegate s]
+//    [self.delegate s]
 }
 
 @end

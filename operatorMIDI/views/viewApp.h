@@ -10,19 +10,16 @@
 
 @interface viewApp : NSView
 
-@property int cols;
-@property int rows;
+@property int racks;
 
-@property int unitSize;
-@property int toolbarHeight;
 @property NSMutableArray* layout;
 @property NSMutableDictionary* controls;
 @property NSDictionary* controlData;
 
-- (id)initWithFrame:(NSRect)frame andData:(NSArray*)controlData andLayout:(NSMutableArray*)layout;
-- (NSPoint)getSize;
-- (void)drawRect:(NSRect)rect;
-- (void)drawGrid;
+-(id)initWithFrame:(NSRect)frame andData:(NSArray*)controlData andLayout:(NSMutableArray*)layout;
+-(NSPoint)getSize;
+-(void)drawRect:(NSRect)rect;
+-(void)drawGrid;
 -(void)addControlWithId:(NSString*)cID andRow:(int)row andCol:(int)col;
 
 @end

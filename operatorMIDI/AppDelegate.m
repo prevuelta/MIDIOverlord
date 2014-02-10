@@ -7,50 +7,49 @@
 //
 
 #import "AppDelegate.h"
-#import "midiUtilities.h"
 
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     
-    // Setup app data
-    _state = [[dataApp alloc] init];
-    [_state setData:@"state"];
+    // APP
+    _stateData = [[dataApp alloc] init];
+    [_stateData setData:@"state"];
     
-    // Add event handler
+    // MIDI
+    _midiData = [[dataMIDI alloc] init];
+    
+    [midiUtilities createVirtualDeviceWithClient:_midiData.appClient andOutput:_midiData.appOutput];
+    
+    [midiUtilities getDestinations];
+    
+    // EVENTS
     _events = [eventHandler new];
     
     // UI
-    _windowPadding = 20;
+//    _windowPadding = 20;
     
-    viewApp *mainView = [[viewApp alloc] initWithFrame:[_mainWin frame] andData:[_state controlData] andLayout:[_state layout]];
+    viewApp *mainView = [[viewApp alloc] initWithFrame:[_mainWin frame] andData:[_stateData controlData] andLayout:[_stateData layout]];
 
-    [mainView setRows: [_state rows]];
-    [mainView setCols: [_state cols]];
+    [mainView setRacks: [_stateData racks]];
     
     // Set window size
-    
     NSPoint gridSize = mainView.getSize;
     [self resizeWin: gridSize];
     
     // Set grey background
-    
     float greyVal = 0.70;
     NSColor *grey = [NSColor colorWithDeviceRed:greyVal green:greyVal blue:greyVal alpha: (float)1];
     _mainWin.backgroundColor = grey;
     
     // Add grid
-    
     [_mainWin setContentView: mainView];
     
     // Set grid origins
-    CGRect frame = mainView.frame;
-    frame.origin = CGPointMake(_windowPadding, _windowPadding);
-    mainView.frame = frame;
-    
-    // Get midi data
-    [midiUtilities getDestinations];
-    
+//    CGRect frame = mainView.frame;
+//    frame.origin = CGPointMake(_windowPadding, _windowPadding);
+//    mainView.frame = frame;
+
 }
 
 - (IBAction)makeView:(id)sender {

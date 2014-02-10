@@ -9,10 +9,10 @@
 #import <Foundation/Foundation.h>
 
 @interface uiButton : NSView {
-    id<subViewDelegate> delegate;
+//    id<subViewDelegate> delegate;
 }
 
-@property (nonatomic, assign) id<subViewDelegate> delegate;
+//@property (nonatomic, assign) id<subViewDelegate> delegate;
 
 @property NSBezierPath* path;
 @property NSColor* bg;

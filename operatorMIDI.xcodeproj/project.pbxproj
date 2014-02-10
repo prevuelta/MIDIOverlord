@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E231B5618A8544D006715C8 /* uiGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E231B5518A8544D006715C8 /* uiGlobal.m */; };
+		6E231B5918A8623B006715C8 /* dataMIDI.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E231B5818A8623B006715C8 /* dataMIDI.m */; };
 		6E5A63E7184417F700C1CD8E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E5A63E6184417F600C1CD8E /* Cocoa.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		6E5A6406184417F700C1CD8E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E5A6405184417F700C1CD8E /* XCTest.framework */; };
 		6E5A6407184417F700C1CD8E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E5A63E6184417F600C1CD8E /* Cocoa.framework */; };
@@ -23,7 +25,6 @@
 		6EF69C76189F27AF00A88726 /* controlClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF69C5C189F27AF00A88726 /* controlClass.m */; };
 		6EF69C77189F27AF00A88726 /* controlPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF69C5E189F27AF00A88726 /* controlPad.m */; };
 		6EF69C78189F27AF00A88726 /* controlSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF69C60189F27AF00A88726 /* controlSlider.m */; };
-		6EF69C79189F27AF00A88726 /* controlUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF69C62189F27AF00A88726 /* controlUI.m */; };
 		6EF69C7A189F27AF00A88726 /* uiButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF69C64189F27AF00A88726 /* uiButton.m */; };
 		6EF69C7B189F27AF00A88726 /* utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF69C67189F27AF00A88726 /* utilities.m */; };
 		6EF69C7C189F27AF00A88726 /* viewApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF69C6A189F27AF00A88726 /* viewApp.m */; };
@@ -42,6 +43,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6E231B5418A8544D006715C8 /* uiGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = uiGlobal.h; path = operatorMIDI/ui/uiGlobal.h; sourceTree = SOURCE_ROOT; };
+		6E231B5518A8544D006715C8 /* uiGlobal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = uiGlobal.m; path = operatorMIDI/ui/uiGlobal.m; sourceTree = SOURCE_ROOT; };
+		6E231B5718A8623B006715C8 /* dataMIDI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dataMIDI.h; sourceTree = "<group>"; };
+		6E231B5818A8623B006715C8 /* dataMIDI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dataMIDI.m; sourceTree = "<group>"; };
 		6E5A63E3184417F600C1CD8E /* operatorMIDI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = operatorMIDI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E5A63E6184417F600C1CD8E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		6E5A63E9184417F700C1CD8E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -71,8 +76,6 @@
 		6EF69C5E189F27AF00A88726 /* controlPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = controlPad.m; sourceTree = "<group>"; };
 		6EF69C5F189F27AF00A88726 /* controlSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = controlSlider.h; sourceTree = "<group>"; };
 		6EF69C60189F27AF00A88726 /* controlSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = controlSlider.m; sourceTree = "<group>"; };
-		6EF69C61189F27AF00A88726 /* controlUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = controlUI.h; sourceTree = "<group>"; };
-		6EF69C62189F27AF00A88726 /* controlUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = controlUI.m; sourceTree = "<group>"; };
 		6EF69C63189F27AF00A88726 /* uiButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uiButton.h; sourceTree = "<group>"; };
 		6EF69C64189F27AF00A88726 /* uiButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uiButton.m; sourceTree = "<group>"; };
 		6EF69C66189F27AF00A88726 /* utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utilities.h; sourceTree = "<group>"; };
@@ -182,6 +185,8 @@
 			children = (
 				6EF69C53189F27AF00A88726 /* dataApp.h */,
 				6EF69C54189F27AF00A88726 /* dataApp.m */,
+				6E231B5718A8623B006715C8 /* dataMIDI.h */,
+				6E231B5818A8623B006715C8 /* dataMIDI.m */,
 			);
 			path = modelControllers;
 			sourceTree = "<group>";
@@ -200,12 +205,12 @@
 			children = (
 				6EF69C5B189F27AF00A88726 /* controlClass.h */,
 				6EF69C5C189F27AF00A88726 /* controlClass.m */,
+				6E231B5418A8544D006715C8 /* uiGlobal.h */,
+				6E231B5518A8544D006715C8 /* uiGlobal.m */,
 				6EF69C5D189F27AF00A88726 /* controlPad.h */,
 				6EF69C5E189F27AF00A88726 /* controlPad.m */,
 				6EF69C5F189F27AF00A88726 /* controlSlider.h */,
 				6EF69C60189F27AF00A88726 /* controlSlider.m */,
-				6EF69C61189F27AF00A88726 /* controlUI.h */,
-				6EF69C62189F27AF00A88726 /* controlUI.m */,
 				6EF69C63189F27AF00A88726 /* uiButton.h */,
 				6EF69C64189F27AF00A88726 /* uiButton.m */,
 			);
@@ -337,10 +342,11 @@
 				6EF69C71189F27AF00A88726 /* main.m in Sources */,
 				6EF69C76189F27AF00A88726 /* controlClass.m in Sources */,
 				6EF69C78189F27AF00A88726 /* controlSlider.m in Sources */,
-				6EF69C79189F27AF00A88726 /* controlUI.m in Sources */,
 				6EF69C6D189F27AF00A88726 /* eventHandler.m in Sources */,
 				6EF69C7A189F27AF00A88726 /* uiButton.m in Sources */,
+				6E231B5918A8623B006715C8 /* dataMIDI.m in Sources */,
 				6EF69C7C189F27AF00A88726 /* viewApp.m in Sources */,
+				6E231B5618A8544D006715C8 /* uiGlobal.m in Sources */,
 				6EF69C7B189F27AF00A88726 /* utilities.m in Sources */,
 				6EF69C72189F27AF00A88726 /* dataApp.m in Sources */,
 			);

@@ -10,14 +10,14 @@
 #import "uiButton.h"
 
 @interface controlClass : NSView {
-    @p
+//    @p
 }
 
 @property NSDictionary* elData;
 // Canvas properties
 
 @property int padding;
-@property int cWidth;
+@property int width;
 @property int gridX;
 @property int gridY;
 

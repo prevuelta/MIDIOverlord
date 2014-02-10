@@ -7,7 +7,10 @@
 //
 
 // Skins
-#define SKIN_BTN [NSColor colorWithDeviceRed:144 green:144 blue:144 alpha:144];
+#define SKIN_BTN [NSColor colorWithDeviceRed:144 green:144 blue:144 alpha:144]
+#define RACK_HEIGHT 128
+#define TOOLBAR_HEIGHT 64
+#define WINDOW_WIDTH 1024
 
 //@interface constants
 
