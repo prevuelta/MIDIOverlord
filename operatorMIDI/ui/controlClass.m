@@ -15,7 +15,6 @@
     self = [super initWithFrame:frame];
     if (!self) return nil;
 
-    
     return self;
 }
 
@@ -34,10 +33,17 @@
 // Posts a MyNotification message whenever called
 - (void)notify {
     NSLog(@"Notify");
-    NSDictionary* data = [NSDictionary new];
+    NSArray* data = [NSArray new];
     [utilities notifyWithData:0:data];
 }
 
+-(void)setControlLabel:(NSString*)text {
+    self.label = [[NSTextField alloc] initWithFrame:NSMakeRect(64, 20, 0, 0)];
+    [self.label setEditable:false];
+    [self.label setStringValue: text];
+    [self addSubview: self.label];
+    
+}
 
 
 @end

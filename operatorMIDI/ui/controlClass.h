@@ -9,20 +9,24 @@
 #import <Cocoa/Cocoa.h>
 #import "uiButton.h"
 
-@interface controlClass : NSView {
-//    @p
-}
+@interface controlClass : NSView
 
+//Data
 @property NSDictionary* elData;
-// Canvas properties
 
+// Canvas properties
 @property int padding;
 @property int width;
 @property int gridX;
 @property int gridY;
 
+// UI
+
+@property NSTextField* label;
+
 - (id)initWithFrame:(NSRect)frame;
 - (void)setOrigin:(NSPoint)origin;
 -(void)mouseDown:(NSEvent *)theEvent;
+-(void)setLabel:(NSString*)text;
 
 @end
