@@ -22,7 +22,7 @@
 -(void)drawRect:(NSRect)dirtyRect {
     
     NSBezierPath* bgPath = [NSBezierPath new];
-    [[NSColor blackColor] set];
+    [[NSColor colorWithDeviceRed:83 green:83 blue:84 alpha:255] set];
     [bgPath appendBezierPathWithRect:NSMakeRect(0, 0, WINDOW_WIDTH, TOOLBAR_HEIGHT)];
     [bgPath closePath];
     [bgPath fill];

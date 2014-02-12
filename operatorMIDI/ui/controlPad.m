@@ -29,7 +29,7 @@
 - (void)drawRect:(NSRect)rect {
     
     NSBezierPath* bgPath = [NSBezierPath new];
-    [[NSColor grayColor] set];
+    [SKIN_CTL_BG set];
     [bgPath appendBezierPathWithRect:NSMakeRect(0, 0, self.width, RACK_HEIGHT)];
     [bgPath closePath];
     [bgPath fill];
