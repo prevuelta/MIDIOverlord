@@ -13,5 +13,7 @@
 +(void)notify:(int)type;
 +(void)notifyWithData:(int)type :(NSArray*)data;
 
++(NSColor*)getNSColorFromRGB:(float[])colors;
+
 
 @end

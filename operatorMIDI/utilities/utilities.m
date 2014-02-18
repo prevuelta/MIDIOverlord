@@ -24,4 +24,14 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:typeAsString object:self userInfo: data];
 }
 
++(NSColor*)getNSColorFromRGB:(float[])colors {
+    
+    float red = colors[0] / 255;
+    float green = colors[1] / 255;
+    float blue = colors[2] / 255;
+    float alpha = colors[3] / 255;
+    
+    return [NSColor colorWithDeviceRed:red green:green blue:blue alpha:alpha];
+}
+
 @end

@@ -10,14 +10,14 @@
 
 @implementation uiButton
 
-- (id)initWithFrame:(NSRect)frame :(NSPoint)size :(NSPoint)offset {
-    self = [super initWithFrame:frame];
+- (id)initWithFrame:(NSPoint)size :(NSPoint)offset :(NSColor*)bg {
+    self = [super initWithFrame:NSMakeRect(offset.x, offset.y, size.x, size.y)];
     if(!self) return nil;
     
     _path = [NSBezierPath bezierPath];
     _size = size;
     _offset = offset;
-    _bg = SKIN_BTN;
+    _bg = bg;
     
     return self;
 }
@@ -26,18 +26,19 @@
     
     NSBezierPath* btnPath = [NSBezierPath new];
     
-    [btnPath appendBezierPathWithRect:NSMakeRect(_offset.x, _offset.y, _size.x, _size.y)];
+    [btnPath appendBezierPathWithRect:NSMakeRect(0, 0, _size.x, _size.y)];
     
     [btnPath closePath];
-    
-    [[NSColor blackColor] set];
+
+    [_bg set];
     
     [btnPath fill];
     
 }
 
 -(void)mouseDown:(NSEvent *)theEvent {
-//    [self.delegate s]
+    NSLog(@"Clicked");
+    [self delegate];
 }
 
 @end

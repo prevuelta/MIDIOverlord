@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "uiButton.h"
+#import "utilities.h"
 
 @interface controlClass : NSView
 

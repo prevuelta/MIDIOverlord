@@ -23,31 +23,32 @@
     
     self.width = 64;
     
+    // Add UI buttons
+    float padRGBA[] = DARK_GREY;
+    NSColor* padColor = [utilities getNSColorFromRGB:padRGBA];
+    
+    uiButton *pad = [[uiButton alloc] initWithFrame:NSMakePoint(self.width - 16, self.width - 16): NSMakePoint(8, 8): padColor ];
+    
+    [self addSubview: pad];
+    
     return self;
 }
 
 - (void)drawRect:(NSRect)rect {
     
     NSBezierPath* bgPath = [NSBezierPath new];
-    [SKIN_CTL_BG set];
+    
+    float bgRGBA[] = LIGHT_OLIVE;
+    
+
+    NSColor* bgColor = [utilities getNSColorFromRGB:bgRGBA];
+    
+    
+    [bgColor set];
+    
     [bgPath appendBezierPathWithRect:NSMakeRect(0, 0, self.width, RACK_HEIGHT)];
     [bgPath closePath];
     [bgPath fill];
-    
-    NSBezierPath* padPath = [NSBezierPath new];
-
-    [padPath setLineWidth: 0.5];
-    
-
-   NSLog(@"Rendering pad");
-    
-    [padPath appendBezierPathWithRect:NSMakeRect(8, 8, self.width - 16, 52)];
-
-    [padPath closePath];
-
-    [[NSColor blackColor] set];
-
-    [padPath fill];
     
     }
 

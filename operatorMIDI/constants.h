@@ -7,9 +7,8 @@
 //
 
 // Skins
-#define APP_BG [NSColor colorWithDeviceRed:83 green:83 blue:84 alpha:255]
-#define SKIN_BTN [NSColor colorWithDeviceRed:144 green:144 blue:144 alpha:144]
-#define SKIN_CTL_BG [NSColor colorWithDeviceRed:244 green:244 blue:233 alpha:255]
+#define LIGHT_OLIVE {244, 244, 233, 255}
+#define DARK_GREY {81, 86, 86, 255}
 
 // Layout
 #define RACK_HEIGHT 128

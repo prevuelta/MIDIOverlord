@@ -7,7 +7,6 @@
 //
 
 #import "controlClass.h"
-#import "utilities.h"
 
 @implementation controlClass
 
@@ -24,11 +23,11 @@
     [self setFrame:f];
 }
 
--(void)mouseDown:(NSEvent *)theEvent {
-    NSLog(@"Clicked");
-    [self notify];
-   
-}
+//-(void)mouseDown:(NSEvent *)theEvent {
+//    NSLog(@"Clicked");
+//    [self notify];
+//   
+//}
 
 // Posts a MyNotification message whenever called
 - (void)notify {

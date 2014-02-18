@@ -19,7 +19,7 @@
 @property NSPoint size;
 @property NSPoint offset;
 
-- (id)initWithFrame:(NSRect)frame :(NSPoint)size :(NSPoint)offset;
+- (id)initWithFrame:(NSPoint)size :(NSPoint)offset :(NSColor*)bg;
 - (void)drawRect:(NSRect)rect;
 
 @end
