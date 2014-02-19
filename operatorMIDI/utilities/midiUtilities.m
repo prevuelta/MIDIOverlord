@@ -13,6 +13,8 @@
 
 +(void)getDestinations {
     ItemCount destCount = MIDIGetNumberOfDestinations();
+    ItemCount sourceCount = MIDIGetNumberOfSources();
+    NSLog(@"sources: %i", (int)sourceCount);
     NSLog(@"Destinationcount: %i", (int)destCount);
     for (ItemCount i = 0 ; i < destCount ; ++i) {
         
@@ -37,6 +39,11 @@
     
     OSStatus result;
     
+    // Create midi client
+    
+    MIDIClientCreate(CFSTR("Operator Midi Client"), NULL, NULL, &client);
+    
+    
     // Create virtual source
     result = MIDISourceCreate(client, CFSTR("Op source"), &output);
     
@@ -47,7 +54,11 @@
         return;
     }
     
-    //    result = MIDIClientCreate(CFSTR("Operator Midi Client"), NULL, NULL, &midiClient);
+    MIDIPacketList packetList = [self getMidiNoteOnPacket:124];
+
+    MIDIReceived(output, &packetList);
+    
+//      result = MIDIClientCreate(CFSTR("Operator Midi Client"), NULL, NULL, &midiClient);
     //
     //
     //    MIDIPortRef inputPort;
@@ -55,6 +66,7 @@
     //
     
     //    result = MIDIInputPortCreate(midiClient, CFSTR("Input"), NULL, NULL, &inputPort);
+    
     //    MIDIPortRef outPort;
     
     //    MIDIClientCreate(@"Operator Client", NULL, NULL, testClient);
@@ -99,7 +111,12 @@
 +(void)sendNote:(float)noteValue {
     // Note on
     
-    MIDIPacketList packetData = [self getMidiNoteOnPacket:124];
+//    MIDIEndpointRef midiOut;
+//    
+//    MIDIPacketList* packetList = [self getMidiNoteOnPacket:124];
+//    
+//
+//    MIDIReceived(midiOut, packetList);
     
     // Note off
 }
