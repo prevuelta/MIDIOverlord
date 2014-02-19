@@ -80,8 +80,6 @@ int _xLoc;
             
             CGFloat yLoc = (row-- * RACK_HEIGHT);
             
-            NSLog(@"%f %f", _xLoc, yLoc);
-            
             [cPad setOrigin: NSMakePoint(_xLoc + 0.5, yLoc + 0.5)];
             
             [self addSubview:cPad];

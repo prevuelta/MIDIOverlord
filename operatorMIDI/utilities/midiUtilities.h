@@ -15,7 +15,8 @@
 +(void)getDestinations;
 +(NSString*)getDisplayName:(MIDIObjectRef)object;
 +(void)createVirtualDeviceWithClient:(MIDIClientRef)client andOutput:(MIDIEndpointRef)output;
-+(void)sendNote;
++(void)sendNote:(float)value;
++(MIDIPacketList)getMidiNoteOnPacket:(int)value;
 
 // TODO: Create MIDI source - allows other programs to receive messages
 // MIDISourceCreate()

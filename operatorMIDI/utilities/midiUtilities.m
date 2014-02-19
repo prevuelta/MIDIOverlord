@@ -18,7 +18,7 @@
         
         // Grab a reference to a destination endpoint
         MIDIEndpointRef dest = MIDIGetDestination(i);
-        if (dest != NULL) {
+        if (dest) {
             NSLog(@"  Destination: %@", [self getDisplayName:dest]);
         }
     }
@@ -66,8 +66,42 @@
 }
 
 
-+(void)sendNote {
++(MIDIPacketList)getMidiNoteOnPacket:(int)value {
     
+    MIDIPacketList packetList;
+    
+    packetList.numPackets = 1;
+    
+    MIDIPacket* firstPacket = &packetList.packet[0];
+    
+    firstPacket->timeStamp = 0; // send immediately
+    
+    firstPacket->length = 3;
+    
+    // Type: note
+    firstPacket->data[0] = 0x90;
+    
+//    char hexStr[2];
+    NSString* hex = [NSString stringWithFormat:@"%x", value];
+    
+    NSLog(@"Hex value: %@", hex);
+    
+    // Note
+    firstPacket->data[1] = hex;
+    
+    // Velocity
+    firstPacket->data[2] = 127;
+    
+    return packetList;
+
+}
+
++(void)sendNote:(float)noteValue {
+    // Note on
+    
+    MIDIPacketList packetData = [self getMidiNoteOnPacket:124];
+    
+    // Note off
 }
 
 @end

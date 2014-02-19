@@ -8,11 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-@interface uiButton : NSView {
-//    id<subViewDelegate> delegate;
-}
+@class uiButton;
 
-//@property (nonatomic, assign) id<subViewDelegate> delegate;
+@protocol uiButtonDelegate
+    -(void)handleTrigger:(uiButton *)uiButton;
+@end
+
+@interface uiButton : NSView
+
+@property (nonatomic, assign) id delegate;
 
 @property NSBezierPath* path;
 @property NSColor* bg;

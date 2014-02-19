@@ -23,11 +23,15 @@
     
     self.width = 64;
     
+    _midiNote = 122;
+    
     // Add UI buttons
     float padRGBA[] = DARK_GREY;
     NSColor* padColor = [utilities getNSColorFromRGB:padRGBA];
     
     uiButton *pad = [[uiButton alloc] initWithFrame:NSMakePoint(self.width - 16, self.width - 16): NSMakePoint(8, 8): padColor ];
+    
+    pad.delegate = self;
     
     [self addSubview: pad];
     
@@ -39,10 +43,8 @@
     NSBezierPath* bgPath = [NSBezierPath new];
     
     float bgRGBA[] = LIGHT_OLIVE;
-    
 
     NSColor* bgColor = [utilities getNSColorFromRGB:bgRGBA];
-    
     
     [bgColor set];
     
@@ -50,7 +52,11 @@
     [bgPath closePath];
     [bgPath fill];
     
-    }
+}
+
+-(void)handleTrigger:(uiButton *)uiButton {
+    [midiUtilities sendNote:_midiNote];
+}
 
 @end
  

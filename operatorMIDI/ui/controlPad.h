@@ -10,6 +10,9 @@
 
 @interface controlPad : controlClass
 
+@property int midiNote;
+
 - (id)initWithFrame;
+- (void)handleTrigger:(uiButton *)uiButton;
 
 @end

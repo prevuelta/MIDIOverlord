@@ -14,8 +14,8 @@
 @property MIDIDeviceListRef midiDevices;
 
 @property MIDIClientRef appClient;
+
 @property MIDIEndpointRef appOutput;
 
--(void)createVirtualDevice;
 
 @end

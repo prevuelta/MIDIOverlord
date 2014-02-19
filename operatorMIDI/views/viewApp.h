@@ -16,7 +16,7 @@
 @property NSMutableDictionary* controls;
 @property NSDictionary* controlData;
 
--(id)initWithFrame:(NSRect)frame andData:(NSArray*)controlData andLayout:(NSMutableArray*)layout;
+-(id)initWithFrame:(NSRect)frame andData:(NSDictionary*)controlData andLayout:(NSMutableArray*)layout;
 -(NSPoint)getSize;
 -(void)drawRect:(NSRect)rect;
 -(void)drawGrid;

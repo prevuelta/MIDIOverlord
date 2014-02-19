@@ -9,8 +9,9 @@
 #import <Cocoa/Cocoa.h>
 #import "uiButton.h"
 #import "utilities.h"
+#import "midiUtilities.h"
 
-@interface controlClass : NSView
+@interface controlClass : NSView <uiButtonDelegate>
 
 //Data
 @property NSDictionary* elData;
@@ -28,6 +29,6 @@
 - (id)initWithFrame:(NSRect)frame;
 - (void)setOrigin:(NSPoint)origin;
 -(void)mouseDown:(NSEvent *)theEvent;
--(void)setLabel:(NSString*)text;
+-(void)setControlLabel:(NSString*)text;
 
 @end
