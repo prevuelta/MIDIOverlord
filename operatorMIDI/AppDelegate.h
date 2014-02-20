@@ -15,13 +15,13 @@
 #import "viewApp.h"
 #import "controlSlider.h"
 #import "eventHandler.h"
+
 // Utilites
-#import "midiUtilities.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
 @property dataApp* stateData;
-@property dataMIDI* midiData;
+@property dataMIDI* midiController;
 @property (assign) IBOutlet NSWindow *mainWin;
 @property float windowPadding;
 @property eventHandler* events;

@@ -17,14 +17,12 @@
     [_stateData setData:@"state"];
     
     // MIDI
-    _midiData = [[dataMIDI alloc] init];
-    
-    [midiUtilities createVirtualDeviceWithClient:_midiData.appClient andOutput:_midiData.appOutput];
-    
-    [midiUtilities getDestinations];
+    _midiController = [[dataMIDI alloc] init];
     
     // EVENTS
     _events = [eventHandler new];
+    
+    _events.delegate = _midiController;
     
     // UI
 //    _windowPadding = 20;

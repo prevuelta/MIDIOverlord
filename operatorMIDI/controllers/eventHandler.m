@@ -14,20 +14,23 @@
 - (id)init {
     if (!self) return nil;
         NSLog(@"Event handler init");
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotification:) name:@"controlChange" object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(midiNotification:) name:@"midiNote" object:nil];
     
     return self;
 }
 
 // Prints a message whenever a MyNotification is received
-- (void)handleNotification:(NSNotification*)notification {
+- (void)midiNotification:(NSNotification*)notification {
     NSLog(@"Got notified: %@", notification);
+    if(notification.name == @"midiNote") {
+        [_delegate sendNote:124];
+    }
+    
 }
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     NSLog(@"Observer removed");
-    // [super dealloc]; <<== Compiler inserts this for you
 }
 
 @end

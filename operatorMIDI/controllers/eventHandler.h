@@ -8,12 +8,21 @@
 
 #import <Foundation/Foundation.h>
 
+@class eventHandler;
+
+@protocol eventHandlerDelegate
+-(void)sendNote:(int)note;//(eventHandler*)eventHandler;
+@end
+
 @interface eventHandler : NSObject
+
+@property (nonatomic, assign) id delegate;
 
 @property NSObject* observer;
 @property NSNotificationCenter* center;
 
 -(id)init;
-- (void)handleNotification:(NSNotification*)notification;
+-(void)midiNotification:(NSNotification*)notification;
+-(void)dealloc;
 
 @end

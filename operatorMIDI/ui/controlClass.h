@@ -9,7 +9,6 @@
 #import <Cocoa/Cocoa.h>
 #import "uiButton.h"
 #import "utilities.h"
-#import "midiUtilities.h"
 
 @interface controlClass : NSView <uiButtonDelegate>
 
@@ -26,9 +25,10 @@
 
 @property NSTextField* label;
 
-- (id)initWithFrame:(NSRect)frame;
-- (void)setOrigin:(NSPoint)origin;
+-(id)initWithFrame:(NSRect)frame;
+-(void)setOrigin:(NSPoint)origin;
 -(void)mouseDown:(NSEvent *)theEvent;
 -(void)setControlLabel:(NSString*)text;
+-(void)sendNote:(int)value;
 
 @end

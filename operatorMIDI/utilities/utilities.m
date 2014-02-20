@@ -15,13 +15,16 @@
 }
 
 +(void)notifyWithData:(int)type :(NSDictionary*)data {
-    NSString* typeAsString = [NSString new];
-    switch(type) {
-        case 0:
-            typeAsString = @"controlChange";
-        break;
-    }
-    [[NSNotificationCenter defaultCenter] postNotificationName:typeAsString object:self userInfo: data];
+    //Types:
+    //0 : MidiNote
+    NSArray* types = @[@"midiNote"];
+//    NSString* typeAsString = [NSString new];
+//    switch(type) {
+//        case 0:
+//            typeAsString = @"midiNote";
+//        break;
+//    }
+    [[NSNotificationCenter defaultCenter] postNotificationName:types[type] object:self userInfo: data];
 }
 
 +(NSColor*)getNSColorFromRGB:(float[])colors {

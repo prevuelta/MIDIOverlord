@@ -11,7 +11,7 @@
 @interface utilities : NSObject
 
 +(void)notify:(int)type;
-+(void)notifyWithData:(int)type :(NSArray*)data;
++(void)notifyWithData:(int)type :(NSDictionary*)data;
 
 +(NSColor*)getNSColorFromRGB:(float[])colors;
 

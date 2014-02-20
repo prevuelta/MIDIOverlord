@@ -10,7 +10,6 @@
 
 @implementation uiButton
 
-//@synthesize delegate;
 
 - (id)initWithFrame:(NSPoint)size :(NSPoint)offset :(NSColor*)bg {
     self = [super initWithFrame:NSMakeRect(offset.x, offset.y, size.x, size.y)];

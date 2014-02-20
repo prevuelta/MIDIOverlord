@@ -71,14 +71,14 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "operatorMIDI/utilities/midiUtilities.m"
-            timestampString = "414478496.274383"
+            filePath = "operatorMIDI/modelControllers/dataMIDI.h"
+            timestampString = "414562332.353137"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
-            landmarkName = "+createVirtualDeviceWithClient:andOutput:"
-            landmarkType = "5">
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "appOutput"
+            landmarkType = "19">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -55,7 +55,7 @@
 }
 
 -(void)handleTrigger:(uiButton *)uiButton {
-    [midiUtilities sendNote:_midiNote];
+    [self sendNote:_midiNote];
 }
 
 @end

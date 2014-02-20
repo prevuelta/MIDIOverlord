@@ -8,14 +8,19 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreMIDI/CoreMIDI.h>
+#import "eventHandler.h"
 
-@interface dataMIDI : NSObject
+@interface dataMIDI : NSObject <eventHandlerDelegate>
 
+@property NSMutableArray* hexValues;
 @property MIDIDeviceListRef midiDevices;
-
 @property MIDIClientRef appClient;
-
 @property MIDIEndpointRef appOutput;
 
+-(void)getDestinations;
+-(NSString*)getDisplayName:(MIDIObjectRef)object;
+-(void)createVirtualDeviceWithClient;
+-(void)sendNote:(int)value;
+-(MIDIPacketList*)getMidiNotePacket:(BOOL)on:(int)value;
 
 @end

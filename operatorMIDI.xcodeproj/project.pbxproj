@@ -29,7 +29,6 @@
 		6EF69C7B189F27AF00A88726 /* utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF69C67189F27AF00A88726 /* utilities.m */; };
 		6EF69C7C189F27AF00A88726 /* viewApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF69C6A189F27AF00A88726 /* viewApp.m */; };
 		6EF69C7E189F2B1B00A88726 /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EF69C7D189F2B1B00A88726 /* CoreMIDI.framework */; };
-		6EF69C81189F2C9600A88726 /* midiUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF69C80189F2C9600A88726 /* midiUtilities.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,8 +82,6 @@
 		6EF69C69189F27AF00A88726 /* viewApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = viewApp.h; sourceTree = "<group>"; };
 		6EF69C6A189F27AF00A88726 /* viewApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = viewApp.m; sourceTree = "<group>"; };
 		6EF69C7D189F2B1B00A88726 /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
-		6EF69C7F189F2C9600A88726 /* midiUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = midiUtilities.h; sourceTree = "<group>"; };
-		6EF69C80189F2C9600A88726 /* midiUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = midiUtilities.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,8 +219,6 @@
 			children = (
 				6EF69C66189F27AF00A88726 /* utilities.h */,
 				6EF69C67189F27AF00A88726 /* utilities.m */,
-				6EF69C7F189F2C9600A88726 /* midiUtilities.h */,
-				6EF69C80189F2C9600A88726 /* midiUtilities.m */,
 			);
 			path = utilities;
 			sourceTree = "<group>";
@@ -337,7 +332,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6EF69C6B189F27AF00A88726 /* AppDelegate.m in Sources */,
-				6EF69C81189F2C9600A88726 /* midiUtilities.m in Sources */,
 				6EF69C77189F27AF00A88726 /* controlPad.m in Sources */,
 				6EF69C71189F27AF00A88726 /* main.m in Sources */,
 				6EF69C76189F27AF00A88726 /* controlClass.m in Sources */,
