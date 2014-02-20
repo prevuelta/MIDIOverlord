@@ -13,6 +13,6 @@
 @property int midiNote;
 
 - (id)initWithFrame;
-- (void)handleTrigger:(uiButton *)uiButton;
+- (void)trigger:(int)type;
 
 @end

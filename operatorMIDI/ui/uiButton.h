@@ -11,7 +11,7 @@
 @class uiButton;
 
 @protocol uiButtonDelegate
-    -(void)handleTrigger:(uiButton *)uiButton;
+    -(void)trigger:(int)type;
 @end
 
 @interface uiButton : NSView

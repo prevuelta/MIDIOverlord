@@ -38,10 +38,9 @@
     
 }
 
-- (void)sendNote:(int)value {
-    NSLog(@"Notify");
+- (void)sendTrigger:(int)type :(int)value {;
     NSDictionary* data = @{@"note": [NSNumber numberWithInt:value]};
-    [utilities notifyWithData:0:data];
+    [utilities notifyWithData:type:data];
 }
 
 

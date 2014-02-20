@@ -14,7 +14,8 @@
 - (id)init {
     if (!self) return nil;
         NSLog(@"Event handler init");
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(midiNotification:) name:@"midiNote" object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(midiNotification:) name:@"noteOn" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(midiNotification:) name:@"noteOff" object:nil];
     
     return self;
 }
@@ -22,8 +23,13 @@
 // Prints a message whenever a MyNotification is received
 - (void)midiNotification:(NSNotification*)notification {
     NSLog(@"Got notified: %@", notification);
-    if(notification.name == @"midiNote") {
-        [_delegate sendNote:124];
+    int note = [[notification.userInfo objectForKey:@"note"] intValue];
+    if(notification.name == @"noteOn") {
+        [_delegate sendNote:true:note];
+    }
+    
+    if(notification.name == @"noteOff") {
+        [_delegate sendNote:false:note];
     }
     
 }

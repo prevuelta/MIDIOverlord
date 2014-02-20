@@ -17,7 +17,7 @@
 +(void)notifyWithData:(int)type :(NSDictionary*)data {
     //Types:
     //0 : MidiNote
-    NSArray* types = @[@"midiNote"];
+    NSArray* types = @[@"noteOn", @"noteOff"];
 //    NSString* typeAsString = [NSString new];
 //    switch(type) {
 //        case 0:

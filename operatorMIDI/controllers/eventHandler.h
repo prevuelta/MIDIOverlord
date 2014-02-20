@@ -11,7 +11,7 @@
 @class eventHandler;
 
 @protocol eventHandlerDelegate
--(void)sendNote:(int)note;//(eventHandler*)eventHandler;
+-(void)sendNote:(BOOL)on :(int)note;
 @end
 
 @interface eventHandler : NSObject

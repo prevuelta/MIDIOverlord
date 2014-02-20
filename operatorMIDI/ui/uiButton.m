@@ -38,7 +38,10 @@
 }
 
 -(void)mouseDown:(NSEvent *)theEvent {
-    [_delegate handleTrigger:self];
+    [_delegate trigger:1];
+}
+-(void)mouseUp:(NSEvent *)theEvent {
+    [_delegate trigger:0];
 }
 
 @end

@@ -29,6 +29,6 @@
 -(void)setOrigin:(NSPoint)origin;
 -(void)mouseDown:(NSEvent *)theEvent;
 -(void)setControlLabel:(NSString*)text;
--(void)sendNote:(int)value;
+-(void)sendTrigger:(int)type:(int)data;
 
 @end

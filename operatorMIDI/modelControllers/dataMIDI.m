@@ -20,13 +20,6 @@ Byte packetBuffer[128];
     [self createVirtualDeviceWithClient];
     [self getDestinations];
     
-    _hexValues = [NSMutableArray new];
-    
-    for(int i = 0; i < 128; i++) {
-        [_hexValues addObject:[NSString stringWithFormat:@"0x%02x", i]];
-        
-    }
-    NSLog(@"Hex value: %@",_hexValues);
      return self;
 }
 
@@ -83,7 +76,7 @@ Byte packetBuffer[128];
     
     char status = on ? 0x80 : 0x90;
     
-    Byte msg[3] = {status, (Byte)[_hexValues objectAtIndex:value], 0x40};
+    Byte msg[3] = {status, (Byte)value, 0x40};
     
     packet = MIDIPacketListInit(packetList);
     packet = MIDIPacketListAdd(packetList, 1024, packet, 0, 3, msg);
@@ -94,18 +87,18 @@ Byte packetBuffer[128];
     
 }
 
--(void)sendNote:(int)noteValue {
+-(void)sendNote:(BOOL)on :(int)noteValue {
     NSLog(@"Send note: %d", noteValue);
    
-    // Note on
-    MIDIPacketList *packetList = [self getMidiNotePacket:true :noteValue];
-    MIDIReceived(_appOutput, packetList);
-    
-    // Note off
-    packetList = [self getMidiNotePacket:false :noteValue];
-    MIDIReceived(_appOutput, packetList);
-    
-    
+    if(on){
+        // Note on
+        MIDIPacketList *packetList = [self getMidiNotePacket:true :noteValue];
+        MIDIReceived(_appOutput, packetList);
+    } else {
+        MIDIPacketList *packetList = [self getMidiNotePacket:false :noteValue];
+        MIDIReceived(_appOutput, packetList);
+    }
+
  
 }
 
