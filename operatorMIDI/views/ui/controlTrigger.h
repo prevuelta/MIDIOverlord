@@ -7,23 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "controlBase.h"
 
-@class uiButton;
+@interface controlTrigger : controlBase
 
-@protocol uiButtonDelegate
-    -(void)trigger:(int)type;
-@end
-
-@interface uiButton : NSView
-
-@property (nonatomic, assign) id delegate;
-
-@property NSBezierPath* path;
 @property NSColor* bg;
 @property NSPoint size;
 @property NSPoint offset;
 
 - (id)initWithFrame:(NSPoint)size :(NSPoint)offset :(NSColor*)bg;
-- (void)drawRect:(NSRect)rect;
 
 @end

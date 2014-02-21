@@ -6,16 +6,14 @@
 //  Copyright (c) 2013 Midnight City. All rights reserved.
 //
 
-#import "uiButton.h"
+#import "controlTrigger.h"
 
-@implementation uiButton
-
+@implementation controlTrigger
 
 - (id)initWithFrame:(NSPoint)size :(NSPoint)offset :(NSColor*)bg {
     self = [super initWithFrame:NSMakeRect(offset.x, offset.y, size.x, size.y)];
     if(!self) return nil;
-    
-    _path = [NSBezierPath bezierPath];
+
     _size = size;
     _offset = offset;
     _bg = bg;
@@ -38,10 +36,11 @@
 }
 
 -(void)mouseDown:(NSEvent *)theEvent {
-    [_delegate trigger:1];
+    [self.delegate uiEvent:"noteOn"];
 }
+
 -(void)mouseUp:(NSEvent *)theEvent {
-    [_delegate trigger:0];
+    [self.delegate uiEvent:"noteOff"];
 }
 
 @end

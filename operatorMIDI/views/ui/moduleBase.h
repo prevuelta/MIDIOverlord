@@ -1,5 +1,5 @@
 //
-//  controlClass.h
+//  moduleBase.h
 //  operatorMIDI
 //
 //  Created by Pablo Revuelta on 20/12/13.
@@ -7,10 +7,10 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "uiButton.h"
+#import "controlTrigger.h"
 #import "utilities.h"
 
-@interface controlClass : NSView <uiButtonDelegate>
+@interface moduleBase : NSView <controlBaseDelegate>
 
 //Data
 @property NSDictionary* elData;
@@ -29,6 +29,7 @@
 -(void)setOrigin:(NSPoint)origin;
 -(void)mouseDown:(NSEvent *)theEvent;
 -(void)setControlLabel:(NSString*)text;
--(void)sendTrigger:(int)type:(int)data;
+
+-(void)trigger:(int)type;
 
 @end

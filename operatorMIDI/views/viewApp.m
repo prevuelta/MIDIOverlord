@@ -7,9 +7,9 @@
 //
 
 #import "viewApp.h"
-#import "uiButton.h"
-#import "controlPad.h"
-#import "uiGlobal.h"
+#import "controlTrigger.h"
+#import "modulePad.h"
+#import "uiApp.h"
 
 int _xLoc;
 
@@ -31,7 +31,7 @@ int _xLoc;
         int rackCount = (int) [_layout count];
         
         // Setup main interface
-        uiGlobal* globalUI = [[uiGlobal alloc ] initWithFrame: frame];
+        uiApp* globalUI = [[uiApp alloc ] initWithFrame: frame];
         
         [globalUI setOrigin: NSMakePoint(0, rackCount * RACK_HEIGHT)];
         
@@ -74,7 +74,7 @@ int _xLoc;
     
     switch(type) {
         case 0: {
-            controlPad* cPad = [[controlPad alloc] initWithFrame];
+            modulePad* cPad = [[modulePad alloc] initWithFrame];
             
             // Set x y location
             

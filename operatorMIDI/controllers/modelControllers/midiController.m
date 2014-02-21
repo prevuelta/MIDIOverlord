@@ -1,17 +1,17 @@
 //
-//  dataMIDI.m
+//  midiController.m
 //  operatorMIDI
 //
 //  Created by Pablo Revuelta on 10/02/14.
 //  Copyright (c) 2014 Midnight City. All rights reserved.
 //
 
-#import "dataMIDI.h"
+#import "midiController.h"
 
 
 Byte packetBuffer[128];
 
-@implementation dataMIDI
+@implementation midiController
 
 -(id)init {
     self = [super init];
@@ -19,6 +19,10 @@ Byte packetBuffer[128];
 
     [self createVirtualDeviceWithClient];
     [self getDestinations];
+    
+    // Setup notifications
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotifications:) name:@"noteOn" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotifications:) name:@"noteOff" object:nil];
     
      return self;
 }
@@ -84,6 +88,19 @@ Byte packetBuffer[128];
    
     
     return packetList;
+    
+}
+
+- (void)handleNotifications:(NSNotification*)notification {
+    NSLog(@"Got notified: %@", notification);
+    int note = [[notification.userInfo objectForKey:@"note"] intValue];
+    if(notification.name == @"noteOn") {
+
+    }
+    
+    if(notification.name == @"noteOff") {
+
+    }
     
 }
 

@@ -17,7 +17,7 @@
     [_stateData setData:@"state"];
     
     // MIDI
-    _midiController = [[dataMIDI alloc] init];
+    _midiController = [[midiController alloc] init];
     
     // EVENTS
     _events = [eventHandler new];

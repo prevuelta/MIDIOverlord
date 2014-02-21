@@ -1,19 +1,21 @@
 //
-//  controlClass.m
+//  moduleBase.m
 //  operatorMIDI
 //
 //  Created by Pablo Revuelta on 20/12/13.
 //  Copyright (c) 2013 Midnight City. All rights reserved.
 //
 
-#import "controlClass.h"
+#import "moduleBase.h"
 
-@implementation controlClass
+@implementation moduleBase
 
 - (id)initWithFrame:(NSRect)frame {
     self = [super initWithFrame:frame];
     if (!self) return nil;
 
+    _triggerTypes = [NSArray arrayWithObject: @{@"",@""}];
+    
     return self;
 }
 
@@ -38,10 +40,10 @@
     
 }
 
-- (void)sendTrigger:(int)type :(int)value {;
-    NSDictionary* data = @{@"note": [NSNumber numberWithInt:value]};
-    [utilities notifyWithData:type:data];
-}
 
+// Event handlers
+-(void)uiEvent:(char*)type {
+    
+}
 
 @end

@@ -10,10 +10,9 @@
 
 //Data
 #import "dataApp.h"
-#import "dataMIDI.h"
+#import "midiController.h"
 //UI
-#import "viewApp.h"
-#import "controlSlider.h"
+#import "viewApp.h"3
 #import "eventHandler.h"
 
 // Utilites
@@ -21,7 +20,7 @@
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
 @property dataApp* stateData;
-@property dataMIDI* midiController;
+@property midiController* midiController;
 @property (assign) IBOutlet NSWindow *mainWin;
 @property float windowPadding;
 @property eventHandler* events;

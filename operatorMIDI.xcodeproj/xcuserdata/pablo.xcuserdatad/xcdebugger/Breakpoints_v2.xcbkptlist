@@ -71,14 +71,14 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "operatorMIDI/modelControllers/dataMIDI.h"
-            timestampString = "414584504.260994"
+            filePath = "operatorMIDI/modelControllers/midiController.h"
+            timestampString = "414649665.514598"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
-            landmarkName = "appOutput"
-            landmarkType = "19">
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "@interface midiController"
+            landmarkType = "2">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

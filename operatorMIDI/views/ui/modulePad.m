@@ -1,14 +1,14 @@
 //
-//  controlPad.m
+//  modulePad.m
 //  operatorMIDI
 //
 //  Created by Pablo Revuelta on 20/12/13.
 //  Copyright (c) 2013 Midnight City. All rights reserved.
 //
 
-#import "controlPad.h"
+#import "modulePad.h"
 
-@implementation controlPad
+@implementation modulePad
 
 - (id)initWithFrame{
     
@@ -29,7 +29,7 @@
     float padRGBA[] = DARK_GREY;
     NSColor* padColor = [utilities getNSColorFromRGB:padRGBA];
     
-    uiButton *pad = [[uiButton alloc] initWithFrame:NSMakePoint(self.width - 16, self.width - 16): NSMakePoint(8, 8): padColor ];
+    controlTrigger *pad = [[controlTrigger alloc] initWithFrame:NSMakePoint(self.width - 16, self.width - 16): NSMakePoint(8, 8): padColor ];
     
     pad.delegate = self;
     
@@ -52,10 +52,6 @@
     [bgPath closePath];
     [bgPath fill];
     
-}
-
--(void)trigger:(int)type {
-    [self sendTrigger:type:_midiNote];
 }
 
 @end

@@ -1,5 +1,5 @@
 //
-//  uiGlobal.h
+//  uiApp.h
 //  operatorMIDI
 //
 //  Created by Pablo Revuelta on 10/02/14.
@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface uiGlobal : NSView
+@interface uiApp : NSView
 
 - (id)initWithFrame:(NSRect)frame;
 -(void)drawRect:(NSRect)dirtyRect;

@@ -1,18 +1,17 @@
 //
-//  controlPad.h
+//  modulePad.h
 //  operatorMIDI
 //
 //  Created by Pablo Revuelta on 20/12/13.
 //  Copyright (c) 2013 Midnight City. All rights reserved.
 //
 
-#import "controlClass.h"
+#import "moduleBase.h"
 
-@interface controlPad : controlClass
+@interface modulePad : moduleBase
 
 @property int midiNote;
 
 - (id)initWithFrame;
-- (void)trigger:(int)type;
 
 @end
