@@ -11,7 +11,7 @@
 #define DARK_GREY {81, 86, 86, 255}
 
 // Layout
-#define RACK_HEIGHT 128
+#define RACK_HEIGHT 144
 #define TOOLBAR_HEIGHT 64
 #define WINDOW_WIDTH 1024
 

@@ -12,7 +12,7 @@
 
 - (id)initWithFrame{
     
-    NSRect frame = NSMakeRect(0, 0, 64, RACK_HEIGHT );
+    NSRect frame = NSMakeRect(0, 0, 80, RACK_HEIGHT );
     
     self = [super initWithFrame:frame];
     
@@ -21,7 +21,7 @@
     self.gridX = 2;
     self.gridY = 1;
     
-    self.width = 64;
+    self.width = 80;
     
     _midiNote = 122;
     

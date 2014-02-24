@@ -14,7 +14,7 @@
     self = [super initWithFrame:frame];
     if (!self) return nil;
 
-    _triggerTypes = [NSArray arrayWithObject: @{@"",@""}];
+//    _triggerTypes = [NSArray arrayWithObject: @{@"",@""}];
     
     return self;
 }
