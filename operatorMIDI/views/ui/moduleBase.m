@@ -13,8 +13,8 @@
 - (id)initWithFrame:(NSRect)frame {
     self = [super initWithFrame:frame];
     if (!self) return nil;
-
-//    _triggerTypes = [NSArray arrayWithObject: @{@"",@""}];
+    
+    
     
     return self;
 }
@@ -25,25 +25,9 @@
     [self setFrame:f];
 }
 
-//-(void)mouseDown:(NSEvent *)theEvent {
-//    NSLog(@"Clicked");
-//    [self notify];
-//   
-//}
-
-
--(void)setControlLabel:(NSString*)text {
-    self.label = [[NSTextField alloc] initWithFrame:NSMakeRect(64, 20, 0, 0)];
-    [self.label setEditable:false];
-    [self.label setStringValue: text];
-    [self addSubview: self.label];
-    
-}
-
-
 // Event handlers
 -(void)uiEvent:(char*)type {
-    
+    NSLog(@"UI Event:");
 }
 
 @end

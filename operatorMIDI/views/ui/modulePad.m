@@ -12,7 +12,9 @@
 
 - (id)initWithFrame{
     
-    NSRect frame = NSMakeRect(0, 0, 80, RACK_HEIGHT );
+    int width = 80;
+    
+    NSRect frame = NSMakeRect(0, 0, width, RACK_HEIGHT );
     
     self = [super initWithFrame:frame];
     
@@ -21,7 +23,7 @@
     self.gridX = 2;
     self.gridY = 1;
     
-    self.width = 80;
+    self.width = width;
     
     _midiNote = 122;
     
@@ -34,6 +36,13 @@
     pad.delegate = self;
     
     [self addSubview: pad];
+    
+    controlText *midiNoteValue = [[controlText alloc] initWithFrame:NSMakeRect(8, 96, 48, 32):_midiNote];
+    
+    
+    [midiNoteValue bind:@"midNote" toObject:self withKeyPath:@"selection.midiNote" options:nil];
+    
+    [self addSubview:midiNoteValue];
     
     return self;
 }

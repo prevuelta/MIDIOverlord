@@ -28,8 +28,6 @@
 -(id)initWithFrame:(NSRect)frame;
 -(void)setOrigin:(NSPoint)origin;
 -(void)mouseDown:(NSEvent *)theEvent;
--(void)setControlLabel:(NSString*)text;
-
--(void)trigger:(int)type;
+-(void)setControlLabel:(NSRect)frame:(NSString*)text;
 
 @end

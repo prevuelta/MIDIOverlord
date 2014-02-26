@@ -7,6 +7,7 @@
 //
 
 #import "moduleBase.h"
+#import "controlText.h"
 
 @interface modulePad : moduleBase
 
