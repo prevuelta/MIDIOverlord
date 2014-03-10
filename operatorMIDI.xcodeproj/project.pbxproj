@@ -19,6 +19,7 @@
 		6EC3ADC418B7118800B002EC /* midiController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC3ADBF18B7118800B002EC /* midiController.m */; };
 		6EC3ADC518B7118800B002EC /* utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC3ADC218B7118800B002EC /* utilities.m */; };
 		6EE3518B18BD5AB000C8F4B9 /* controlText.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE3518A18BD5AB000C8F4B9 /* controlText.m */; };
+		6EE9D62418CD42DA00FA76B8 /* controlSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE9D62318CD42DA00FA76B8 /* controlSlider.m */; };
 		6EF69C6B189F27AF00A88726 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF69C46189F27AF00A88726 /* AppDelegate.m */; };
 		6EF69C6C189F27AF00A88726 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EF69C47189F27AF00A88726 /* MainMenu.xib */; };
 		6EF69C6D189F27AF00A88726 /* eventHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF69C4B189F27AF00A88726 /* eventHandler.m */; };
@@ -69,6 +70,8 @@
 		6EC3ADC218B7118800B002EC /* utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = utilities.m; sourceTree = "<group>"; };
 		6EE3518918BD5AB000C8F4B9 /* controlText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = controlText.h; sourceTree = "<group>"; };
 		6EE3518A18BD5AB000C8F4B9 /* controlText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = controlText.m; sourceTree = "<group>"; };
+		6EE9D62218CD42DA00FA76B8 /* controlSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = controlSlider.h; sourceTree = "<group>"; };
+		6EE9D62318CD42DA00FA76B8 /* controlSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = controlSlider.m; sourceTree = "<group>"; };
 		6EF69C45189F27AF00A88726 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6EF69C46189F27AF00A88726 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		6EF69C48189F27AF00A88726 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -155,6 +158,8 @@
 				6EC3ADAD18B7117D00B002EC /* controlBase.m */,
 				6EC3ADAE18B7117D00B002EC /* controlTrigger.h */,
 				6EC3ADAF18B7117D00B002EC /* controlTrigger.m */,
+				6EE9D62218CD42DA00FA76B8 /* controlSlider.h */,
+				6EE9D62318CD42DA00FA76B8 /* controlSlider.m */,
 				6EE3518918BD5AB000C8F4B9 /* controlText.h */,
 				6EE3518A18BD5AB000C8F4B9 /* controlText.m */,
 				6EC3ADB018B7117D00B002EC /* moduleBase.h */,
@@ -340,6 +345,7 @@
 				6EF69C6B189F27AF00A88726 /* AppDelegate.m in Sources */,
 				6EC3ADBA18B7117D00B002EC /* uiAppl.m in Sources */,
 				6EF69C71189F27AF00A88726 /* main.m in Sources */,
+				6EE9D62418CD42DA00FA76B8 /* controlSlider.m in Sources */,
 				6EF69C6D189F27AF00A88726 /* eventHandler.m in Sources */,
 				6EC3ADC318B7118800B002EC /* dataApp.m in Sources */,
 				6EE3518B18BD5AB000C8F4B9 /* controlText.m in Sources */,

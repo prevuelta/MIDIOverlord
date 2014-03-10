@@ -9,6 +9,7 @@
 // Skins
 #define LIGHT_OLIVE {244, 244, 233, 255}
 #define DARK_GREY {81, 86, 86, 255}
+#define DARK_GREY_ALT {60, 77, 78, 255}
 
 // Layout
 #define RACK_HEIGHT 144

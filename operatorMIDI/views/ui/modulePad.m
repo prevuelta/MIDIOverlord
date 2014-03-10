@@ -28,7 +28,7 @@
     _midiNote = 122;
     
     // Add UI buttons
-    float padRGBA[] = DARK_GREY;
+    float padRGBA[] = DARK_GREY_ALT;
     NSColor* padColor = [utilities getNSColorFromRGB:padRGBA];
     
     controlTrigger *pad = [[controlTrigger alloc] initWithFrame:NSMakePoint(self.width - 16, self.width - 16): NSMakePoint(8, 8): padColor ];
@@ -39,8 +39,7 @@
     
     controlText *midiNoteValue = [[controlText alloc] initWithFrame:NSMakeRect(8, 96, 48, 32):_midiNote];
     
-    
-    [midiNoteValue bind:@"midNote" toObject:self withKeyPath:@"selection.midiNote" options:nil];
+//    [midiNoteValue bind:@"midNote" toObject:self withKeyPath:@"selection.midiNote" options:nil];
     
     [self addSubview:midiNoteValue];
     
@@ -51,7 +50,7 @@
     
     NSBezierPath* bgPath = [NSBezierPath new];
     
-    float bgRGBA[] = LIGHT_OLIVE;
+    float bgRGBA[] = DARK_GREY;
 
     NSColor* bgColor = [utilities getNSColorFromRGB:bgRGBA];
     
