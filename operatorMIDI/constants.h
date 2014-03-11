@@ -11,16 +11,11 @@
 #define DARK_GREY {81, 86, 86, 255}
 #define DARK_GREY_ALT {60, 77, 78, 255}
 
+#define UI_COLOR_PROT_1 {60, 60, 60, 255}
+#define UI_COLOR_PROT_2 {80, 80, 80, 255}
+#define UI_COLOR_PROT_3 {120, 120, 120, 255}
+
 // Layout
 #define RACK_HEIGHT 144
 #define TOOLBAR_HEIGHT 64
 #define WINDOW_WIDTH 1024
-
-
-//@interface constants
-
-//-(NScolor)getRGBA:(NSArray)values {
-//    return [NSColor colorWithDeviceRed:values[0] green:values[1] blue:[values[2] alpha:values[3]]
-//            }
-
-//@end

@@ -7,15 +7,12 @@
 //
 
 #import "viewApp.h"
-#import "controlTrigger.h"
-#import "modulePad.h"
-#import "uiApp.h"
 
 int _xLoc;
 
 @implementation viewApp
 
-- (id)initWithFrame:(NSRect)frame andData:(NSDictionary*)controlData andLayout:(NSMutableArray*)layout {
+- (id)initWithFrame:(NSRect)frame andData:(NSDictionary*)moduleData andLayout:(NSMutableArray*)layout {
     self = [super initWithFrame:frame];
     
     if(self) {
@@ -24,9 +21,9 @@ int _xLoc;
         
         _racks = 2;
         
-//        _controls = [NSMutableDictionary new];
+//        _modules = [NSMutableDictionary new];
         _layout = layout;
-        _controlData = controlData;
+        _moduleData = moduleData;
         
         int rackCount = (int) [_layout count];
         
@@ -37,7 +34,7 @@ int _xLoc;
         
         [self addSubview:globalUI];
         
-        // Create control objects
+        // Create module objects
         
         for(int row = 0; row < rackCount; row++) {
             
@@ -45,12 +42,14 @@ int _xLoc;
             
             for(int col = 0; col < [_layout[row] count]; col++) {
     
-                int cID = (int)[_layout[row][col] integerValue];
+                NSString* mID = [_layout[row][col] stringValue];
                 
-                if(cID) {
-                    NSString* cID = _layout[row][col];
-                    [self addControlWithId: cID andRow: row andCol: col];
-
+                if(mID) {
+                    NSString* mIDStr = (NSString*)mID;
+//                    NSLog(@"%@", [_moduleData objectForKey: mIDStr]);
+                    if([_moduleData objectForKey: mID]) {
+                        [self addModuleWithId: mID andRow: row andCol: col];
+                    }
                 }
             }
             _xLoc = 0;
@@ -68,35 +67,45 @@ int _xLoc;
     return size;
 }
 
--(void)addControlWithId:(NSString*)cID andRow:(int)row andCol:(int)col {
-    NSDictionary* control = [_controlData objectForKey: cID];
-    int type = [[control objectForKey: @"type"] intValue];
+-(void)addModuleWithId:(NSString*)mID andRow:(int)row andCol:(int)col {
+    NSDictionary* moduleData = [_moduleData objectForKey: mID];
+    int type = [[moduleData objectForKey: @"type"] intValue];
+    
+    NSLog(@"%i", type);
+    
+    moduleBase *module;
     
     switch(type) {
         case 0: {
-            modulePad* cPad = [[modulePad alloc] initWithFrame];
+            module = [[modulePad alloc] initWithFrame];
             
             // Set x y location
-            
-            CGFloat yLoc = (row-- * RACK_HEIGHT);
-            
-            [cPad setOrigin: NSMakePoint(_xLoc + 0.5, yLoc + 0.5)];
-            
-            [self addSubview:cPad];
-            
-            [_controls setObject: cPad forKey: cID];
-            
-            _xLoc += cPad.width;
             
 
             NSLog(@"Adding pad object at x:%i", _xLoc);
         } break;
+        case 1: {
+            
+            module = [[moduleSlider alloc] initWithFrame];
+            
+            NSLog(@"Adding slider object");
+        } break;
     }
+    
+    CGFloat yLoc = (row-- * RACK_HEIGHT);
+    
+    [module setOrigin: NSMakePoint(_xLoc + 0.5, yLoc + 0.5)];
+    
+    [self addSubview:module];
+    
+    [_modules setObject: module forKey: mID];
+    
+    _xLoc += module.width;
 }
 
 -(void)drawRect:(NSRect)rect {
     [self drawGrid];
-//    [self drawControls];
+//    [self drawmodules];
 }
 
 -(void)drawGrid{

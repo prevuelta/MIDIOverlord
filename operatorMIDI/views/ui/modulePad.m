@@ -20,15 +20,12 @@
     
     if(!self) return nil;
     
-    self.gridX = 2;
-    self.gridY = 1;
-    
     self.width = width;
     
     _midiNote = 122;
     
     // Add UI buttons
-    float padRGBA[] = DARK_GREY_ALT;
+    float padRGBA[] = UI_COLOR_PROT_3;
     NSColor* padColor = [utilities getNSColorFromRGB:padRGBA];
     
     controlTrigger *pad = [[controlTrigger alloc] initWithFrame:NSMakePoint(self.width - 16, self.width - 16): NSMakePoint(8, 8): padColor ];
@@ -50,7 +47,7 @@
     
     NSBezierPath* bgPath = [NSBezierPath new];
     
-    float bgRGBA[] = DARK_GREY;
+    float bgRGBA[] = UI_COLOR_PROT_1;
 
     NSColor* bgColor = [utilities getNSColorFromRGB:bgRGBA];
     

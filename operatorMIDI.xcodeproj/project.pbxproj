@@ -10,6 +10,7 @@
 		6E5A63E7184417F700C1CD8E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E5A63E6184417F600C1CD8E /* Cocoa.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		6E5A6406184417F700C1CD8E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E5A6405184417F700C1CD8E /* XCTest.framework */; };
 		6E5A6407184417F700C1CD8E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E5A63E6184417F600C1CD8E /* Cocoa.framework */; };
+		6E91589718CE887300C6B11C /* moduleSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E91589618CE887300C6B11C /* moduleSlider.m */; };
 		6EC3ADB618B7117D00B002EC /* controlBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC3ADAD18B7117D00B002EC /* controlBase.m */; };
 		6EC3ADB718B7117D00B002EC /* controlTrigger.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC3ADAF18B7117D00B002EC /* controlTrigger.m */; };
 		6EC3ADB818B7117D00B002EC /* moduleBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC3ADB118B7117D00B002EC /* moduleBase.m */; };
@@ -52,6 +53,8 @@
 		6E5A6404184417F700C1CD8E /* operatorMIDITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = operatorMIDITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E5A6405184417F700C1CD8E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		6E8D3A9718A06525007D00CA /* constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
+		6E91589518CE887300C6B11C /* moduleSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = moduleSlider.h; sourceTree = "<group>"; };
+		6E91589618CE887300C6B11C /* moduleSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = moduleSlider.m; sourceTree = "<group>"; };
 		6EC3ADAC18B7117D00B002EC /* controlBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = controlBase.h; sourceTree = "<group>"; };
 		6EC3ADAD18B7117D00B002EC /* controlBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = controlBase.m; sourceTree = "<group>"; };
 		6EC3ADAE18B7117D00B002EC /* controlTrigger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = controlTrigger.h; sourceTree = "<group>"; };
@@ -166,6 +169,8 @@
 				6EC3ADB118B7117D00B002EC /* moduleBase.m */,
 				6EC3ADB218B7117D00B002EC /* modulePad.h */,
 				6EC3ADB318B7117D00B002EC /* modulePad.m */,
+				6E91589518CE887300C6B11C /* moduleSlider.h */,
+				6E91589618CE887300C6B11C /* moduleSlider.m */,
 				6EC3ADB418B7117D00B002EC /* uiApp.h */,
 				6EC3ADB518B7117D00B002EC /* uiAppl.m */,
 			);
@@ -346,6 +351,7 @@
 				6EC3ADBA18B7117D00B002EC /* uiAppl.m in Sources */,
 				6EF69C71189F27AF00A88726 /* main.m in Sources */,
 				6EE9D62418CD42DA00FA76B8 /* controlSlider.m in Sources */,
+				6E91589718CE887300C6B11C /* moduleSlider.m in Sources */,
 				6EF69C6D189F27AF00A88726 /* eventHandler.m in Sources */,
 				6EC3ADC318B7118800B002EC /* dataApp.m in Sources */,
 				6EE3518B18BD5AB000C8F4B9 /* controlText.m in Sources */,

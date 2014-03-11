@@ -7,19 +7,23 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "controlTrigger.h"
+#import "modulePad.h"
+#import "uiApp.h"
+#import "moduleSlider.h"
 
 @interface viewApp : NSView
 
 @property int racks;
 
 @property NSMutableArray* layout;
-@property NSMutableDictionary* controls;
-@property NSDictionary* controlData;
+@property NSMutableDictionary* modules;
+@property NSDictionary* moduleData;
 
--(id)initWithFrame:(NSRect)frame andData:(NSDictionary*)controlData andLayout:(NSMutableArray*)layout;
+-(id)initWithFrame:(NSRect)frame andData:(NSDictionary*)moduleData andLayout:(NSMutableArray*)layout;
 -(NSPoint)getSize;
 -(void)drawRect:(NSRect)rect;
 -(void)drawGrid;
--(void)addControlWithId:(NSString*)cID andRow:(int)row andCol:(int)col;
+-(void)addModuleWithId:(NSString*)mID andRow:(int)row andCol:(int)col;
 
 @end

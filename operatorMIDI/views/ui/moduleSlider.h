@@ -1,0 +1,18 @@
+//
+//  moduleSlider.h
+//  operatorMIDI
+//
+//  Created by Pablo Revuelta on 11/03/14.
+//  Copyright (c) 2014 Midnight City. All rights reserved.
+//
+
+#import "moduleBase.h"
+#import "controlSlider.h"
+
+@interface moduleSlider : moduleBase
+
+-(id)initWithFrame;
+
+@property int value;
+
+@end

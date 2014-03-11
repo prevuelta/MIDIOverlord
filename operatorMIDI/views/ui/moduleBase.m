@@ -30,4 +30,8 @@
     NSLog(@"UI Event:");
 }
 
+-(void)uiEvent:(char*)type withInt:(int)value {
+    NSLog(@"Ui event with int: %d", value);
+}
+
 @end

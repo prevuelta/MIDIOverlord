@@ -10,13 +10,17 @@
 
 @interface controlSlider : controlBase
 
-@property int value;
+@property (nonatomic) int value;
 @property int max;
 @property int min;
+@property int range;
+@property bool active;
+@property int marker;
 
 @property NSPoint size;
 @property NSPoint offset;
 
--(id)initWithFrame:(NSRect)frame :(NSPoint)size :(NSPoint)offset :(int)min :(int)max;
+-(id)initWithFrame:(NSPoint)size :(NSPoint)offset :(NSColor*)sliderBg :(int)min :(int)max;
+-(void)updateControlFromEvent:(NSEvent*)e;
 
 @end

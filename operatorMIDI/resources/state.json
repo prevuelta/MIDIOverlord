@@ -10,15 +10,15 @@
         "title": "state example",
         "block": {
             "layout" : [
-                     [1, 2, 3, 4, 5, 6],
+                     [4, 5, 6],
                      [],
-                     [7, 8, 9]
+                     [1, 2, 3, 1, 2, 2]
                      ]
         },
         "controls" : {
           "1" : {
             "label" : "Resonance",
-            "type" : 0,
+            "type" : 1,
             "val" : 50,
             "min" : 0,
             "max" : 127,
@@ -37,7 +37,7 @@
             },
             "2" : {
                 "label" : "Resonance",
-                "type" : 0,
+                "type" : 1,
                 "val" : 50,
                 "min" : 0,
                 "max" : 127,

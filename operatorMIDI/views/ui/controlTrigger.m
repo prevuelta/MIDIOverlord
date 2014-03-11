@@ -11,6 +11,7 @@
 @implementation controlTrigger
 
 - (id)initWithFrame:(NSPoint)size :(NSPoint)offset :(NSColor*)bg {
+    
     self = [super initWithFrame:NSMakeRect(offset.x, offset.y, size.x, size.y)];
     if(!self) return nil;
 
