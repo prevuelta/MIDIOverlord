@@ -8,13 +8,18 @@
 
 #import "moduleBase.h"
 
+
 @implementation moduleBase
 
 - (id)initWithFrame:(NSRect)frame {
     self = [super initWithFrame:frame];
     if (!self) return nil;
     
+    controlText *midiValueText = [[controlText alloc] initWithFrame:NSMakeRect(8, 96, 48, 32): _midiValue];
     
+    [midiValueText bind:@"value" toObject:self withKeyPath:@"self.midiValue" options:nil];
+    
+    [self addSubview:midiValueText];
     
     return self;
 }

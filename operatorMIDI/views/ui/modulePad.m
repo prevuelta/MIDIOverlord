@@ -10,6 +10,8 @@
 
 @implementation modulePad
 
+@synthesize midiValue = _midiValue;
+
 - (id)initWithFrame{
     
     int width = 80;
@@ -22,28 +24,26 @@
     
     self.width = width;
     
-    _midiNote = 122;
+    _midiValue = 122;
     
-    // Add UI buttons
-    float padRGBA[] = UI_COLOR_PROT_3;
-    NSColor* padColor = [utilities getNSColorFromRGB:padRGBA];
-    
-    controlTrigger *pad = [[controlTrigger alloc] initWithFrame:NSMakePoint(self.width - 16, self.width - 16): NSMakePoint(8, 8): padColor ];
+    controlTrigger *pad = [[controlTrigger alloc] initWithFrame:NSMakePoint(self.width - 16, self.width - 16): NSMakePoint(8, 8)];
     
     pad.delegate = self;
     
     [self addSubview: pad];
     
-    controlText *midiNoteValue = [[controlText alloc] initWithFrame:NSMakeRect(8, 96, 48, 32):_midiNote];
+    controlText *midiValueText = [[controlText alloc] initWithFrame:NSMakeRect(8, 96, 48, 32):_midiValue];
     
-//    [midiNoteValue bind:@"midNote" toObject:self withKeyPath:@"selection.midiNote" options:nil];
+    [midiValueText bind:@"value" toObject:self withKeyPath:@"self.midiValue" options:nil];
     
-    [self addSubview:midiNoteValue];
+    [self addSubview:midiValueText];
     
     return self;
 }
 
 - (void)drawRect:(NSRect)rect {
+    
+    NSLog(@"%d", _midiValue);
     
     NSBezierPath* bgPath = [NSBezierPath new];
     

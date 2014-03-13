@@ -14,11 +14,12 @@
 @property int max;
 @property int min;
 @property int range;
-@property bool active;
 @property int marker;
 
 @property NSPoint size;
 @property NSPoint offset;
+
+@property NSTextField *textVal;
 
 -(id)initWithFrame:(NSPoint)size :(NSPoint)offset :(NSColor*)sliderBg :(int)min :(int)max;
 -(void)updateControlFromEvent:(NSEvent*)e;

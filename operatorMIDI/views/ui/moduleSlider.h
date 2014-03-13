@@ -7,7 +7,6 @@
 //
 
 #import "moduleBase.h"
-#import "controlSlider.h"
 
 @interface moduleSlider : moduleBase
 

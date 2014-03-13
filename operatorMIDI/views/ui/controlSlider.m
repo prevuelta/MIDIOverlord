@@ -22,13 +22,24 @@
     _min = min;
     _max = max;
     _range = max - min;
-    _active = false;
+    self.active = false;
     
     _value = _min;
     
-    _marker = 20;
+    _marker = _value;
     
-     return self;
+    _textVal = [[NSTextField alloc] initWithFrame:NSMakeRect(0, 0 , 48, 32)];
+    
+    [_textVal setBezeled:NO];
+    [_textVal setDrawsBackground:NO];
+    [_textVal setEditable:NO];
+    [_textVal setSelectable:NO];
+    
+    [_textVal setIntValue: _value];
+    
+    [self addSubview: _textVal];
+    
+    return self;
     
 }
 
@@ -55,15 +66,13 @@
     [markerPath closePath];
     [markerPath fill];
     
-
 }
 
 -(void)setValue:(int)yLoc {
-    
-    int percent = yLoc / _size.y;
-    
-    NSLog(@"Set val raw: %d", _size.y);
-    _value = _range * percent;
+    float percent = yLoc / _size.y;
+    _value = percent < 0 ? _min : percent > 1 ? _max : (int) _range * percent;
+    [self.delegate uiEvent:"sliderVal" withInt:(int)_value];
+    [self.textVal setIntValue: _value];
 }
 
 -(int)value {
@@ -90,8 +99,7 @@
      NSPoint location = [self convertPoint:[e locationInWindow] fromView:nil];
      self.marker = location.y;
      [self setNeedsDisplay:YES];
-     [self setValue:location.y];
-     [self.delegate uiEvent:"sliderVal" withInt:_value];
+     [self setValue:(int)location.y];
  }
 
 

@@ -20,6 +20,8 @@
 
 @property (nonatomic, assign) id delegate;
 
+@property BOOL active;
+
 -(void)drawRect:(NSRect)rect;
 -(void)uiEvent:(char*)type;
 -(void)uiEvent:(char*)type withInt:(int)val;

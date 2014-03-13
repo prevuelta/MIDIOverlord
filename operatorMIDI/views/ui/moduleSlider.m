@@ -10,6 +10,8 @@
 
 @implementation moduleSlider
 
+@synthesize midiValue = _midiValue;
+
 -(id)initWithFrame{
     
     int width = 80;
@@ -21,7 +23,6 @@
     if(!self) return nil;
     
     self.value = 0;
-    
     self.width = width;
     
     // Add UI buttons
@@ -32,20 +33,16 @@
     
     controlSlider *slider = [[controlSlider alloc] initWithFrame:NSMakePoint(self.width - 16, self.width - 16): NSMakePoint(8, 8): sliderColor :0 :127 ];
     
-   slider.delegate = self;
+    slider.delegate = self;
     
     [self addSubview: slider];
-    
-//    controlText *midiNoteValue = [[controlText alloc] initWithFrame:NSMakeRect(8, 96, 48, 32):_midiNote];
-    
-    //    [midiNoteValue bind:@"midNote" toObject:self withKeyPath:@"selection.midiNote" options:nil];
-    
-//    [self addSubview:midiNoteValue];
     
     return self;
 }
 
 -(void)drawRect:(NSRect)rect {
+    
+    NSLog(@"%d", _midiValue);
     
     NSBezierPath* bgPath = [NSBezierPath new];
     

@@ -11,10 +11,11 @@
 
 @interface controlTrigger : controlBase
 
-@property NSColor* bg;
+@property NSColor* upColor;
+@property NSColor* downColor;
 @property NSPoint size;
 @property NSPoint offset;
 
-- (id)initWithFrame:(NSPoint)size :(NSPoint)offset :(NSColor*)bg;
+- (id)initWithFrame:(NSPoint)size :(NSPoint)offset;
 
 @end

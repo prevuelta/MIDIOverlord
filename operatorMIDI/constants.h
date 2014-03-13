@@ -13,7 +13,7 @@
 
 #define UI_COLOR_PROT_1 {60, 60, 60, 255}
 #define UI_COLOR_PROT_2 {80, 80, 80, 255}
-#define UI_COLOR_PROT_3 {120, 120, 120, 255}
+#define UI_COLOR_PROT_3 {120, 120, 120, 150}
 
 // Layout
 #define RACK_HEIGHT 144

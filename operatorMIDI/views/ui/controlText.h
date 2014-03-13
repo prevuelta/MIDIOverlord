@@ -10,6 +10,8 @@
 
 @interface controlText : NSTextField
 
--(id)initWithFrame:(NSRect)frame :(int)text;
+-(id)initWithFrame:(NSRect)frame :(int)value;
+
+@property int value;
 
 @end

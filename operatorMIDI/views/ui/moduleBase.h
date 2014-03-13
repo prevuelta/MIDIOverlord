@@ -8,6 +8,8 @@
 
 #import <Cocoa/Cocoa.h>
 #import "controlTrigger.h"
+#import "controlText.h"
+#import "controlSlider.h"
 #import "utilities.h"
 
 @interface moduleBase : NSView <controlBaseDelegate>
@@ -20,6 +22,9 @@
 @property int width;
 @property int gridX;
 @property int gridY;
+
+// Midi properties
+@property int midiValue;
 
 // UI
 

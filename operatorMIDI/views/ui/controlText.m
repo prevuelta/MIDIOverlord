@@ -17,6 +17,8 @@
     //    [self.label setEditable:false];
     [self setIntValue:value];
     
+    _value = 13;
+    
     return self;
 }
 
