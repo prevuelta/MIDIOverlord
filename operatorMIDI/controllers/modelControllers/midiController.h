@@ -23,9 +23,10 @@
 -(NSString*)getDisplayName:(MIDIObjectRef)object;
 -(void)createVirtualDeviceWithClient;
 
--(MIDIPacketList*)getMidiNotePacket:(BOOL)on :(int)value;
+-(MIDIPacketList*)getMidiPacket:(char*)status :(int)v2 :(int)v3;
 
 -(void)handleNotifications:(NSNotification*)notification;
 -(void)sendNote:(BOOL)on :(int)value;
+-(void)sendControlChange:(int)cc :(int)value;
 
 @end

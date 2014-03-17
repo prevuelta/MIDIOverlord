@@ -21,9 +21,7 @@ Byte packetBuffer[128];
     [self getDestinations];
     
     // Setup notifications
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotifications:) name:@"noteOn" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotifications:) name:@"noteOff" object:nil];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotifications:) name:@"midiMessage" object:nil];
      return self;
 }
 
@@ -73,19 +71,16 @@ Byte packetBuffer[128];
 }
 
 
--(MIDIPacketList*)getMidiNotePacket:(BOOL)on :(int)value {
+-(MIDIPacketList*)getMidiPacket:(char*)status :(int)value2 :(int)value3 {
     
     MIDIPacketList* packetList = (MIDIPacketList*)packetBuffer;
     MIDIPacket *packet;
     
-    char status = on ? 0x80 : 0x90;
-    
-    Byte msg[3] = {status, (Byte)value, 0x40};
+    Byte msg[3] = {status, (Byte)value2, (Byte)value3};
     
     packet = MIDIPacketListInit(packetList);
     packet = MIDIPacketListAdd(packetList, 1024, packet, 0, 3, msg);
     
-   
     
     return packetList;
     
@@ -93,31 +88,28 @@ Byte packetBuffer[128];
 
 - (void)handleNotifications:(NSNotification*)notification {
     NSLog(@"Got notified: %@", notification);
-    int note = [[notification.userInfo objectForKey:@"note"] intValue];
-    if(notification.name == @"noteOn") {
-
-    }
     
-    if(notification.name == @"noteOff") {
-
-    }
+    char status = [[notification.userInfo objectForKey:@"status"] charValue];
+    int v2 = (int)[[notification.userInfo objectForKey:@"v2"] integerValue];
+    int v3 = (int)[[notification.userInfo objectForKey:@"v3"] integerValue];
+    
+    [self sendMidiMessage: status: v2: v3];
     
 }
 
--(void)sendNote:(BOOL)on :(int)noteValue {
-    NSLog(@"Send note: %d", noteValue);
-   
-    if(on){
-        // Note on
-        MIDIPacketList *packetList = [self getMidiNotePacket:true :noteValue];
-        MIDIReceived(_appOutput, packetList);
-    } else {
-        MIDIPacketList *packetList = [self getMidiNotePacket:false :noteValue];
-        MIDIReceived(_appOutput, packetList);
-    }
-
- 
+-(void)sendMidiMessage: (char*)v1 :(int)v2 :(int)v3 {
+    NSLog(@"Sending midi...");
+    MIDIPacketList *packetList = [self getMidiPacket: v1 : v2 : v3 ];
+    MIDIReceived(_appOutput, packetList);
 }
+
+// Midi beat clock - 24 times per quarter note
+
+// clock 0xF8
+// start 0xFA
+// stop 0xFC
+// continue 0xFB
+
 
 
 @end

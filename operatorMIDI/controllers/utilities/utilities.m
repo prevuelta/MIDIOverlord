@@ -27,6 +27,15 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:types[type] object:self userInfo: data];
 }
 
++(void)midiNotification:(char*)status :(int)v2 :(int)v3{
+    NSDictionary *data =@{
+        @"status" : [NSNumber numberWithInt:status],
+        @"v2" : [NSNumber numberWithInt:v2],
+        @"v3" : [NSNumber numberWithInt:v3]
+    };
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"midiMessage" object:self userInfo: data];
+}
+
 +(NSColor*)getNSColorFromRGB:(float[])colors {
     
     float red = colors[0] / 255;

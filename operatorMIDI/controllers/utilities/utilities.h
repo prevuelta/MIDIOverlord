@@ -11,7 +11,8 @@
 @interface utilities : NSObject
 
 +(void)notify:(int)type;
-+(void)notifyWithData:(int)type :(NSDictionary*)data;
+
++(void)midiNotification:(char*)status :(int)v2 :(int)v3;
 
 +(NSColor*)getNSColorFromRGB:(float[])colors;
 

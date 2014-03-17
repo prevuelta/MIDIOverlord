@@ -32,11 +32,23 @@
 
 // Event handlers
 -(void)uiEvent:(char*)type {
-    NSLog(@"UI Event:");
+    [self uiEvent:type withInt:0];
 }
 
 -(void)uiEvent:(char*)type withInt:(int)value {
     NSLog(@"Ui event with int: %d", value);
+    
+    if(strncmp(type, "noteOn", 6) == 0) {
+        NSLog(@"Note on trigger");
+        [utilities midiNotification: 0x90 : self.midiValue : 127 ];
+    }
+    if(strncmp(type, "noteOff", 6) == 0) {
+        NSLog(@"Note off trigger");
+        [utilities midiNotification: 0x80 : self.midiValue : 127 ];
+    }
+    if(strncmp(type, "sliderVal", 9) == 0) {
+        [utilities midiNotification: 0xB0 : self.midiValue :value];
+    }
 }
 
 @end
