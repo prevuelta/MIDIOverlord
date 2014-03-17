@@ -117,21 +117,6 @@ int _xLoc;
     // Draw border & bg
     NSPoint bgSize = self.getSize;
     
-//    NSBezierPath* bgPath = [NSBezierPath bezierPath];
-//    
-//    NSPoint bgPoints[] = {0, 0, 0, bgSize.y, bgSize.x, bgSize.y, bgSize.x, 0};
-//    
-//    [bgPath moveToPoint:bgPoints[0]];
-//    [bgPath lineToPoint: bgPoints[1]];
-//    [bgPath lineToPoint: bgPoints[2]];
-//    [bgPath lineToPoint: bgPoints[3]];
-//    
-//    [bgPath closePath];
-    
-    // Set fill
-//    [[NSColor whiteColor] set];
-//    [bgPath fill];
-    
     // Draw Grid
     NSBezierPath* path = [NSBezierPath bezierPath];
     [path setLineWidth: 0.5];
