@@ -40,21 +40,9 @@
     return self;
 }
 
--(void)drawRect:(NSRect)rect {
+-(void)drawModule:(NSRect)rect {
     
     NSLog(@"%d", _midiValue);
-    
-    NSBezierPath* bgPath = [NSBezierPath new];
-    
-    float bgRGBA[] = UI_COLOR_PROT_1;
-    
-    NSColor* bgColor = [utilities getNSColorFromRGB:bgRGBA];
-    
-    [bgColor set];
-    
-    [bgPath appendBezierPathWithRect:NSMakeRect(0, 0, self.width, RACK_HEIGHT)];
-    [bgPath closePath];
-    [bgPath fill];
     
 }
 

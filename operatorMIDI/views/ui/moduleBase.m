@@ -21,6 +21,8 @@
     
     [self addSubview:midiValueText];
     
+    [self showOutputPanel];
+    
     return self;
 }
 
@@ -49,6 +51,48 @@
     if(strncmp(type, "sliderVal", 9) == 0) {
         [utilities midiNotification: 0xB0 : self.midiValue :value];
     }
+}
+
+-(void)drawRect:(NSRect)rect {
+    
+    // Draw background
+    
+    NSBezierPath* bgPath = [NSBezierPath new];
+    
+    float bgRGBA[] = UI_COLOR_PROT_1;
+    
+    NSColor* bgColor = [utilities getNSColorFromRGB:bgRGBA];
+    
+    [bgColor set];
+    
+    [bgPath appendBezierPathWithRect:NSMakeRect(0, 0, self.width, RACK_HEIGHT)];
+    [bgPath closePath];
+    [bgPath fill];
+    
+    switch(_displayPanel) {
+        case 0 :
+            [self drawModule:rect];
+        break;
+        case 1 :
+        break;
+        case 2 :
+//
+        break;
+    }
+    
+    NSLog(@"Drawing");
+}
+
+-(void)showOutputPanel {
+    
+    NSMutableArray* destinations = [utilities getMidiDestinations];
+    
+    controlDeviceList *midiOutput = [[controlDeviceList alloc] initWithFrame: NSMakeRect(0, 80, self.width, RACK_HEIGHT) :destinations];
+    
+    [self addSubview: midiOutput];
+    
+    [self setNeedsDisplay:YES];
+    
 }
 
 @end

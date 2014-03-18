@@ -10,5 +10,8 @@
 
 @implementation controlBase
 
+-(void)remove {
+    NSLog(@"remove function");
+}
 
 @end

@@ -10,6 +10,8 @@
 #import "controlTrigger.h"
 #import "controlText.h"
 #import "controlSlider.h"
+#import "controlSwitch.h"
+#import "controlDeviceList.h"
 #import "utilities.h"
 
 @interface moduleBase : NSView <controlBaseDelegate>
@@ -26,6 +28,11 @@
 // Midi properties
 @property int midiValue;
 
+
+// Display options
+
+@property int displayPanel; // 0: main, 1: input, 2: output
+
 // UI
 
 @property NSTextField* label;
@@ -33,6 +40,10 @@
 -(id)initWithFrame:(NSRect)frame;
 -(void)setOrigin:(NSPoint)origin;
 -(void)mouseDown:(NSEvent *)theEvent;
--(void)setControlLabel:(NSRect)frame:(NSString*)text;
+-(void)setControlLabel:(NSRect)frame :(NSString*)text;
+-(void)drawRect:(NSRect)rect;
+-(void)drawModule:(NSRect)rect;
+
+-(void)showOutputPanel;
 
 @end

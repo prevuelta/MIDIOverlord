@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreMIDI/CoreMIDI.h>
 #import "eventHandler.h"
+#import "utilities.h"
 
 @interface midiController : NSObject
 
@@ -19,8 +20,6 @@
 @property MIDIClientRef appClient;
 @property MIDIEndpointRef appOutput;
 
--(void)getDestinations;
--(NSString*)getDisplayName:(MIDIObjectRef)object;
 -(void)createVirtualDeviceWithClient;
 
 -(MIDIPacketList*)getMidiPacket:(char*)status :(int)v2 :(int)v3;

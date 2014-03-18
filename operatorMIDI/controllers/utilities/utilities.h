@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreMIDI/CoreMIDI.h>
 
 @interface utilities : NSObject
 
@@ -16,5 +17,7 @@
 
 +(NSColor*)getNSColorFromRGB:(float[])colors;
 
++(NSMutableArray*)getMidiDestinations;
++(NSString*)getDisplayName:(MIDIObjectRef)object;
 
 @end

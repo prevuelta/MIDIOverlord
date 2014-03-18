@@ -46,4 +46,36 @@
     return [NSColor colorWithDeviceRed:red green:green blue:blue alpha:alpha];
 }
 
++(NSMutableArray*)getMidiDestinations {
+    
+    NSMutableArray *destinations = [NSMutableArray new];
+    
+    ItemCount destCount = MIDIGetNumberOfDestinations();
+    
+    ItemCount sourceCount = MIDIGetNumberOfSources();
+    
+    NSLog(@"sources: %i", (int)sourceCount);
+    NSLog(@"Destinationcount: %i", (int)destCount);
+    for (ItemCount i = 0 ; i < destCount ; ++i) {
+        
+        // Grab a reference to a destination endpoint
+        MIDIEndpointRef dest = MIDIGetDestination(i);
+        if (dest) {
+            [destinations addObject:[self getDisplayName:dest]];
+            NSLog(@"  Destination: %@", [self getDisplayName:dest]);
+        }
+    }
+    
+    return destinations;
+}
+
++(NSString*)getDisplayName:(MIDIObjectRef)object{
+    // Returns the display name of a given MIDIObjectRef as an NSString
+    CFStringRef name = nil;
+    if (noErr != MIDIObjectGetStringProperty(object, kMIDIPropertyDisplayName, &name)) {
+        return nil;
+    }
+    return (NSString*)CFBridgingRelease(name);
+}
+
 @end
