@@ -184,9 +184,9 @@
 				6EC3ADB118B7117D00B002EC /* moduleBase.m */,
 				6EC3ADB218B7117D00B002EC /* modulePad.h */,
 				6EC3ADB318B7117D00B002EC /* modulePad.m */,
-				6E91589518CE887300C6B11C /* moduleSlider.h */,
 				6E91589618CE887300C6B11C /* moduleSlider.m */,
 				6EC3ADB418B7117D00B002EC /* uiApp.h */,
+				6E91589518CE887300C6B11C /* moduleSlider.h */,
 				6EC3ADB518B7117D00B002EC /* uiAppl.m */,
 			);
 			path = ui;

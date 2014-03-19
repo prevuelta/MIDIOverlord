@@ -65,20 +65,20 @@
     
     [bgColor set];
     
-    [bgPath appendBezierPathWithRect:NSMakeRect(0, 0, self.width, RACK_HEIGHT)];
+    [bgPath appendBezierPathWithRect:NSMakeRect(0, 0, self.width, MODULE_HEIGHT)];
     [bgPath closePath];
     [bgPath fill];
     
-    switch(_displayPanel) {
-        case 0 :
-            [self drawModule:rect];
-        break;
-        case 1 :
-        break;
-        case 2 :
-//
-        break;
-    }
+//    switch(_displayPanel) {
+//        case 0 :
+//            [self drawModule:rect];
+//        break;
+//        case 1 :
+//        break;
+//        case 2 :
+////
+//        break;
+//    }
     
     NSLog(@"Drawing");
 }

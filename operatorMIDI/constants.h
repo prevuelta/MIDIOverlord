@@ -15,7 +15,8 @@
 #define UI_COLOR_PROT_2 {80, 80, 80, 255}
 #define UI_COLOR_PROT_3 {120, 120, 120, 150}
 
-// Layout
-#define RACK_HEIGHT 288
+// Rack vars
+#define MODULE_HEIGHT 144
+#define RACK_HEIGHT 160
 #define TOOLBAR_HEIGHT 64
 #define WINDOW_WIDTH 1024

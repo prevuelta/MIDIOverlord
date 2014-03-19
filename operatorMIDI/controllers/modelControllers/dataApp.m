@@ -26,17 +26,18 @@
     _global = [appData objectForKey: @"global"];
     _state = [appData objectForKey: @"state"];
     
-    _controlObjects = [[NSMutableArray alloc ] init];
+//    _moduleObjects = [[NSMutableArray alloc ] init];
     
-    NSDictionary* block = [_state objectForKey: @"block"];
+    NSDictionary* page = [_state objectForKey: @"page"];
     
-    _layout = [block objectForKey: @"layout"];
+    _layout = [page objectForKey: @"layout"];
+    _rackData = [page objectForKey: @"racks"];
     
 //    NSLog(@"%@", _layout);
     
-    _racks = (int)[_layout count];
+    _rackCount = (int)[_layout count];
     
-    _controlData = [_state objectForKey: @"controls"];
+    _moduleData = [_state objectForKey: @"controls"];
     
 //    NSLog(@"%@", [_controlObjects description]);
 

@@ -16,11 +16,12 @@
 
 // Data object
 
-@property int racks;
+@property int rackCount;
 
-@property NSDictionary* controlData;
+@property NSDictionary* moduleData;
+@property NSMutableArray* moduleObjects;
 @property NSMutableArray* layout;
-@property NSMutableArray* controlObjects;
+@property NSMutableArray* rackData;
 
 - (id)init;
 - (NSDictionary*)loadFile:(NSString*)path;

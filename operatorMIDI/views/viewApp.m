@@ -12,18 +12,20 @@ int _xLoc;
 
 @implementation viewApp
 
-- (id)initWithFrame:(NSRect)frame andData:(NSDictionary*)moduleData andLayout:(NSMutableArray*)layout {
+- (id)initWithFrame:(NSRect)frame andRackData:(NSMutableArray*)rackData andModuleData:(NSDictionary*)moduleData andLayout:(NSMutableArray*)layout {
     self = [super initWithFrame:frame];
     
     if(self) {
     
         NSLog(@"Init main view");
         
-        _racks = 2;
+        _rackCount = 0;
         
-//        _modules = [NSMutableDictionary new];
         _layout = layout;
+        
         _moduleData = moduleData;
+        
+        _rackData = rackData;
         
         int rackCount = (int) [_layout count];
         
@@ -34,11 +36,13 @@ int _xLoc;
         
         [self addSubview:globalUI];
         
-        // Create module objects
+        
+        // Create app view
         
         for(int row = 0; row < rackCount; row++) {
             
             NSLog(@"rows");
+            [self addRackTitle: _rackData[row]];
             
             for(int col = 0; col < [_layout[row] count]; col++) {
     
@@ -62,9 +66,13 @@ int _xLoc;
 - (NSPoint)getSize {
     NSPoint size = {
         1024,
-        ( RACK_HEIGHT * _racks ) + TOOLBAR_HEIGHT
+        (RACK_HEIGHT * _rackCount ) + TOOLBAR_HEIGHT
     };
     return size;
+}
+
+-(void)addRackTitle:(NSDictionary*)rackData {
+    
 }
 
 -(void)addModuleWithId:(NSString*)mID andRow:(int)row andCol:(int)col {
@@ -81,7 +89,6 @@ int _xLoc;
             
             // Set x y location
             
-
             NSLog(@"Adding pad object at x:%i", _xLoc);
         } break;
         case 1: {
@@ -123,7 +130,7 @@ int _xLoc;
     
     int i = 0;
     
-    while(i <= _racks) {
+    while(i <= _rackCount) {
 
 //        NSLog(@"go %i cols: %i", i, _cols);
         NSPoint colOrigin = {0.5, i * RACK_HEIGHT + 0.5};

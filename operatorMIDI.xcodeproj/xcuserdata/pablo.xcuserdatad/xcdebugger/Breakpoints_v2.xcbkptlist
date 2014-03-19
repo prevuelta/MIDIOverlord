@@ -88,11 +88,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "operatorMIDI/views/viewApp.m"
-            timestampString = "416190647.888714"
+            timestampString = "416894410.671728"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
             landmarkName = "-addModuleWithId:andRow:andCol:"
             landmarkType = "5">
          </BreakpointContent>
@@ -104,11 +104,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "operatorMIDI/views/viewApp.m"
-            timestampString = "416190647.888714"
+            timestampString = "416894410.671728"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
             landmarkName = "-addModuleWithId:andRow:andCol:"
             landmarkType = "5">
          </BreakpointContent>

@@ -18,18 +18,17 @@
     
     // MIDI
     _midiController = [[midiController alloc] init];
-    
-    // EVENTS
-    _events = [eventHandler new];
-    
-    _events.delegate = _midiController;
+
     
     // UI
 //    _windowPadding = 20;
     
-    viewApp *mainView = [[viewApp alloc] initWithFrame:[_mainWin frame] andData:[_stateData controlData] andLayout:[_stateData layout]];
+    viewApp *mainView = [[viewApp alloc] initWithFrame:[_mainWin frame]
+    andRackData: [_stateData rackData]
+    andModuleData:[_stateData moduleData]
+    andLayout:[_stateData layout]];
 
-    [mainView setRacks: [_stateData racks]];
+    [mainView setRackCount: [_stateData rackCount]];
     
     // Set window size
     NSPoint gridSize = mainView.getSize;

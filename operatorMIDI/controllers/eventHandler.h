@@ -22,7 +22,4 @@
 @property NSNotificationCenter* center;
 
 -(id)init;
--(void)midiNotification:(NSNotification*)notification;
--(void)dealloc;
-
 @end
