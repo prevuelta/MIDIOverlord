@@ -42,6 +42,7 @@
 -(void)mouseDown:(NSEvent *)theEvent;
 -(void)setControlLabel:(NSRect)frame :(NSString*)text;
 -(void)drawRect:(NSRect)rect;
+-(void)drawBg:(NSRect)rect;
 -(void)drawModule:(NSRect)rect;
 
 -(void)showOutputPanel;

@@ -7,10 +7,12 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "controlTrigger.h"
+#import "moduleRack.h"
+#import "moduleBase.h"
+#import "moduleSlider.h"
 #import "modulePad.h"
 #import "uiApp.h"
-#import "moduleSlider.h"
+
 
 @interface viewApp : NSView
 
@@ -23,8 +25,10 @@
 
 -(id)initWithFrame:(NSRect)frame andRackData:(NSMutableArray*)rackData andModuleData:(NSDictionary*)moduleData andLayout:(NSMutableArray*)layout;
 -(NSPoint)getSize;
+
 -(void)drawRect:(NSRect)rect;
+
 -(void)drawGrid;
--(void)addModuleWithId:(NSString*)mID andRow:(int)row andCol:(int)col;
--(void)addRackTitles;
+
+-(moduleBase*)getModuleWithId:(NSString*)mID;
 @end

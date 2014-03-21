@@ -19,43 +19,63 @@ int _xLoc;
     
         NSLog(@"Init main view");
         
-        _rackCount = 0;
-        
         _layout = layout;
+        
+        _rackCount = (int) [_layout count];
+        
+        NSLog(@"Rack count: %d", _rackCount);
         
         _moduleData = moduleData;
         
         _rackData = rackData;
         
-        int rackCount = (int) [_layout count];
-        
         // Setup main interface
         uiApp* globalUI = [[uiApp alloc ] initWithFrame: frame];
         
-        [globalUI setOrigin: NSMakePoint(0, rackCount * RACK_HEIGHT)];
+        [globalUI setOrigin: NSMakePoint(0, _rackCount * RACK_HEIGHT)];
         
         [self addSubview:globalUI];
         
         
         // Create app view
         
-        for(int row = 0; row < rackCount; row++) {
+        for(int row = 0; row < _rackCount; row++) {
             
-            NSLog(@"rows");
-            [self addRackTitle: _rackData[row]];
+            // Create rack
+            moduleBase *rack = [[moduleRack alloc] initWithFrame: NSMakeRect(0, 0, RACK_HEIGHT, 400)];
             
+            int position = row - 1;
+            
+            // Add modules to rack
             for(int col = 0; col < [_layout[row] count]; col++) {
     
                 NSString* mID = [_layout[row][col] stringValue];
                 
-                if(mID) {
-                    NSString* mIDStr = (NSString*)mID;
-//                    NSLog(@"%@", [_moduleData objectForKey: mIDStr]);
-                    if([_moduleData objectForKey: mID]) {
-                        [self addModuleWithId: mID andRow: row andCol: col];
-                    }
-                }
+                moduleBase *module = [self getModuleWithId: mID];
+                
+                [module setOrigin: NSMakePoint(_xLoc + 0.5, 0)];
+                
+                [rack addSubview: module];
+                
+                [rack setOrigin:NSMakePoint(0, position * RACK_HEIGHT)];
+                
+                // Add data
+//                [_modules setObject: module forKey: mID];
+                
+                _xLoc += module.width;
+                
+//                if(mID) {
+//                    NSString* mIDStr = (NSString*)mID;
+////                    NSLog(@"%@", [_moduleData objectForKey: mIDStr]);
+//                    if([_moduleData objectForKey: mID]) {
+////                        [self addModuleWithId: mID andRow: row andCol: col];
+//                    }
+//                }
             }
+            
+            [self addSubview: rack];
+            
+            
             _xLoc = 0;
         }
     }
@@ -70,44 +90,25 @@ int _xLoc;
     };
     return size;
 }
-
--(void)addRackTitle:(NSDictionary*)rackData {
+                            
+-(moduleBase*)getModuleWithId:(NSString*)mID {
     
-}
-
--(void)addModuleWithId:(NSString*)mID andRow:(int)row andCol:(int)col {
     NSDictionary* moduleData = [_moduleData objectForKey: mID];
     int type = [[moduleData objectForKey: @"type"] intValue];
     
-    NSLog(@"%i", type);
-    
     moduleBase *module;
-    
+
     switch(type) {
         case 0: {
             module = [[modulePad alloc] initWithFrame];
-            
-            // Set x y location
-            
-            NSLog(@"Adding pad object at x:%i", _xLoc);
         } break;
         case 1: {
-            
             module = [[moduleSlider alloc] initWithFrame];
-            
-            NSLog(@"Adding slider object");
         } break;
     }
     
-    CGFloat yLoc = (row-- * RACK_HEIGHT);
+    return module;
     
-    [module setOrigin: NSMakePoint(_xLoc + 0.5, yLoc + 0.5)];
-    
-    [self addSubview:module];
-    
-    [_modules setObject: module forKey: mID];
-    
-    _xLoc += module.width;
 }
 
 -(void)drawRect:(NSRect)rect {
