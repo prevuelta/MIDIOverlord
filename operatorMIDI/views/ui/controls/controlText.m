@@ -19,6 +19,8 @@
     
     _value = 13;
     
+    [self setFont: [NSFont fontWithName: @"Arial" size: 10]];
+    
     return self;
 }
 

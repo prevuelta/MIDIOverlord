@@ -11,6 +11,8 @@
 #define DARK_GREY {81, 86, 86, 255}
 #define DARK_GREY_ALT {60, 77, 78, 255}
 
+#define UI_COLOR_PROT_0 {20, 20, 20, 255}
+
 #define UI_COLOR_PROT_1 {60, 60, 60, 255}
 #define UI_COLOR_PROT_2 {80, 80, 80, 255}
 #define UI_COLOR_PROT_3 {120, 120, 120, 150}

@@ -10,4 +10,8 @@
 
 @interface moduleRack : moduleBase
 
+@property NSDictionary* data;
+
+-(void)addRackTitle;
+
 @end

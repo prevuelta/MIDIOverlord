@@ -30,9 +30,7 @@ int _xLoc;
         _rackData = rackData;
         
         // Setup main interface
-        uiApp* globalUI = [[uiApp alloc ] initWithFrame: frame];
-        
-        [globalUI setOrigin: NSMakePoint(0, _rackCount * RACK_HEIGHT)];
+        uiApp* globalUI = [[uiApp alloc ] initWithFrame: NSMakeRect(0, _rackCount * RACK_HEIGHT, WINDOW_WIDTH , TOOLBAR_HEIGHT )];
         
         [self addSubview:globalUI];
         
@@ -42,9 +40,13 @@ int _xLoc;
         for(int row = 0; row < _rackCount; row++) {
             
             // Create rack
-            moduleBase *rack = [[moduleRack alloc] initWithFrame: NSMakeRect(0, 0, RACK_HEIGHT, 400)];
+            moduleRack *rack = [[moduleRack alloc] initWithFrame: NSMakeRect(0, 0, WINDOW_WIDTH, RACK_HEIGHT)];
             
-            int position = row - 1;
+            [rack setOrigin:NSMakePoint(0, row * RACK_HEIGHT)];
+            
+            [rack setData: _rackData[row]];
+            
+            _xLoc = 0;
             
             // Add modules to rack
             for(int col = 0; col < [_layout[row] count]; col++) {
@@ -55,9 +57,11 @@ int _xLoc;
                 
                 [module setOrigin: NSMakePoint(_xLoc + 0.5, 0)];
                 
+                NSLog(@"Module: %d", _xLoc);
+                
                 [rack addSubview: module];
                 
-                [rack setOrigin:NSMakePoint(0, position * RACK_HEIGHT)];
+                
                 
                 // Add data
 //                [_modules setObject: module forKey: mID];
@@ -76,7 +80,7 @@ int _xLoc;
             [self addSubview: rack];
             
             
-            _xLoc = 0;
+            
         }
     }
     
@@ -85,7 +89,7 @@ int _xLoc;
 
 - (NSPoint)getSize {
     NSPoint size = {
-        1024,
+        WINDOW_WIDTH,
         (RACK_HEIGHT * _rackCount ) + TOOLBAR_HEIGHT
     };
     return size;
@@ -135,7 +139,7 @@ int _xLoc;
 
 //        NSLog(@"go %i cols: %i", i, _cols);
         NSPoint colOrigin = {0.5, i * RACK_HEIGHT + 0.5};
-        NSPoint colDestination = {1024, i * RACK_HEIGHT + 0.5};
+        NSPoint colDestination = {WINDOW_WIDTH, i * RACK_HEIGHT + 0.5};
 
         [path moveToPoint: colOrigin ];
         [path lineToPoint: colDestination ];

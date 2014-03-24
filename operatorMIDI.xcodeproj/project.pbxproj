@@ -18,11 +18,12 @@
 		6E30A00118DBF4160087EFBA /* modulePad.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E309FF018DBF4160087EFBA /* modulePad.m */; };
 		6E30A00218DBF4160087EFBA /* moduleRack.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E309FF218DBF4160087EFBA /* moduleRack.m */; };
 		6E30A00318DBF4160087EFBA /* moduleSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E309FF418DBF4160087EFBA /* moduleSlider.m */; };
-		6E30A00418DBF4160087EFBA /* uiAppl.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E309FF618DBF4160087EFBA /* uiAppl.m */; };
+		6E30A00418DBF4160087EFBA /* uiApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E309FF618DBF4160087EFBA /* uiApp.m */; };
 		6E30A00518DBF4160087EFBA /* viewApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E309FF818DBF4160087EFBA /* viewApp.m */; };
 		6E5A63E7184417F700C1CD8E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E5A63E6184417F600C1CD8E /* Cocoa.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		6E5A6406184417F700C1CD8E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E5A6405184417F700C1CD8E /* XCTest.framework */; };
 		6E5A6407184417F700C1CD8E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E5A63E6184417F600C1CD8E /* Cocoa.framework */; };
+		6EABAB0518DFAE020071DE40 /* uiLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EABAB0418DFAE020071DE40 /* uiLabel.m */; };
 		6EC3ADC318B7118800B002EC /* dataApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC3ADBD18B7118800B002EC /* dataApp.m */; };
 		6EC3ADC418B7118800B002EC /* midiController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC3ADBF18B7118800B002EC /* midiController.m */; };
 		6EC3ADC518B7118800B002EC /* utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC3ADC218B7118800B002EC /* utilities.m */; };
@@ -72,7 +73,7 @@
 		6E309FF318DBF4160087EFBA /* moduleSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = moduleSlider.h; sourceTree = "<group>"; };
 		6E309FF418DBF4160087EFBA /* moduleSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = moduleSlider.m; sourceTree = "<group>"; };
 		6E309FF518DBF4160087EFBA /* uiApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uiApp.h; sourceTree = "<group>"; };
-		6E309FF618DBF4160087EFBA /* uiAppl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uiAppl.m; sourceTree = "<group>"; };
+		6E309FF618DBF4160087EFBA /* uiApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uiApp.m; sourceTree = "<group>"; };
 		6E309FF718DBF4160087EFBA /* viewApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = viewApp.h; sourceTree = "<group>"; };
 		6E309FF818DBF4160087EFBA /* viewApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = viewApp.m; sourceTree = "<group>"; };
 		6E5A63E3184417F600C1CD8E /* operatorMIDI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = operatorMIDI.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -83,6 +84,8 @@
 		6E5A6404184417F700C1CD8E /* operatorMIDITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = operatorMIDITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E5A6405184417F700C1CD8E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		6E8D3A9718A06525007D00CA /* constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
+		6EABAB0318DFAE020071DE40 /* uiLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uiLabel.h; sourceTree = "<group>"; };
+		6EABAB0418DFAE020071DE40 /* uiLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uiLabel.m; sourceTree = "<group>"; };
 		6EC3ADBC18B7118800B002EC /* dataApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dataApp.h; sourceTree = "<group>"; };
 		6EC3ADBD18B7118800B002EC /* dataApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dataApp.m; sourceTree = "<group>"; };
 		6EC3ADBE18B7118800B002EC /* midiController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = midiController.h; sourceTree = "<group>"; };
@@ -144,7 +147,9 @@
 				6E309FDD18DBF4160087EFBA /* controls */,
 				6E309FEC18DBF4160087EFBA /* modules */,
 				6E309FF518DBF4160087EFBA /* uiApp.h */,
-				6E309FF618DBF4160087EFBA /* uiAppl.m */,
+				6E309FF618DBF4160087EFBA /* uiApp.m */,
+				6EABAB0318DFAE020071DE40 /* uiLabel.h */,
+				6EABAB0418DFAE020071DE40 /* uiLabel.m */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -397,10 +402,11 @@
 				6EC3ADC518B7118800B002EC /* utilities.m in Sources */,
 				6E30A00018DBF4160087EFBA /* moduleBase.m in Sources */,
 				6E309FFB18DBF4160087EFBA /* controlList.m in Sources */,
-				6E30A00418DBF4160087EFBA /* uiAppl.m in Sources */,
+				6E30A00418DBF4160087EFBA /* uiApp.m in Sources */,
 				6E309FFE18DBF4160087EFBA /* controlText.m in Sources */,
 				6E30A00518DBF4160087EFBA /* viewApp.m in Sources */,
 				6E30A00218DBF4160087EFBA /* moduleRack.m in Sources */,
+				6EABAB0518DFAE020071DE40 /* uiLabel.m in Sources */,
 				6EC3ADC418B7118800B002EC /* midiController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

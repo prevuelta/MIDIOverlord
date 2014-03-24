@@ -8,6 +8,7 @@
 
 #import "moduleBase.h"
 
+float bgColor;
 
 @implementation moduleBase
 
@@ -20,8 +21,10 @@
     [midiValueText bind:@"value" toObject:self withKeyPath:@"self.midiValue" options:nil];
     
     [self addSubview:midiValueText];
+
+    self.height = MODULE_HEIGHT;
     
-    [self showOutputPanel];
+    bgColor[] = UI_COLOR_PROT_1;
     
     return self;
 }
@@ -54,45 +57,33 @@
 }
 
 -(void)drawRect:(NSRect)rect {
+    [self drawModule:rect];
+    [self drawBg:rect];
+}
+
+-(void)drawModule:(NSRect)rect {
+    // Overwritten
+}
+
+-(void)drawBg:(NSRect)rect {
     
     // Draw background
     
     NSBezierPath* bgPath = [NSBezierPath new];
     
-    float bgRGBA[] = UI_COLOR_PROT_1;
+    float bgRGBA[] = bgColor;
     
     NSColor* bgColor = [utilities getNSColorFromRGB:bgRGBA];
     
     [bgColor set];
     
-    [bgPath appendBezierPathWithRect:NSMakeRect(0, 0, self.width, MODULE_HEIGHT)];
+    [bgPath appendBezierPathWithRect:NSMakeRect(0, 0, self.width, self.height)];
     [bgPath closePath];
     [bgPath fill];
     
-//    switch(_displayPanel) {
-//        case 0 :
-//            [self drawModule:rect];
-//        break;
-//        case 1 :
-//        break;
-//        case 2 :
-////
-//        break;
-//    }
     
     NSLog(@"Drawing");
 }
 
--(void)showOutputPanel {
-    
-    NSMutableArray* destinations = [utilities getMidiDestinations];
-    
-    controlDeviceList *midiOutput = [[controlDeviceList alloc] initWithFrame: NSMakeRect(0, 80, self.width, RACK_HEIGHT) :destinations];
-    
-    [self addSubview: midiOutput];
-    
-    [self setNeedsDisplay:YES];
-    
-}
 
 @end

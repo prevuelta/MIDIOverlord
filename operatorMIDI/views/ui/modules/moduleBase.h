@@ -12,6 +12,7 @@
 #import "controlSlider.h"
 #import "controlSwitch.h"
 #import "controlDeviceList.h"
+#import "uiLabel.h"
 #import "utilities.h"
 
 @interface moduleBase : NSView <controlBaseDelegate>
@@ -22,6 +23,7 @@
 // Canvas properties
 @property int padding;
 @property int width;
+@property int height;
 @property int gridX;
 @property int gridY;
 
@@ -30,12 +32,10 @@
 
 
 // Display options
-
 @property int displayPanel; // 0: main, 1: input, 2: output
 
 // UI
-
-@property NSTextField* label;
+@property uiLabel* label;
 
 -(id)initWithFrame:(NSRect)frame;
 -(void)setOrigin:(NSPoint)origin;
@@ -44,7 +44,5 @@
 -(void)drawRect:(NSRect)rect;
 -(void)drawBg:(NSRect)rect;
 -(void)drawModule:(NSRect)rect;
-
--(void)showOutputPanel;
 
 @end
