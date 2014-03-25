@@ -32,12 +32,6 @@
     
     [self addSubview: pad];
     
-    controlText *midiValueText = [[controlText alloc] initWithFrame:NSMakeRect(8, 96, 48, 32):_midiValue];
-    
-    [midiValueText bind:@"value" toObject:self withKeyPath:@"self.midiValue" options:nil];
-    
-    [self addSubview:midiValueText];
-    
     return self;
 }
 

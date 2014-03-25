@@ -10,8 +10,7 @@
 #import "controlTrigger.h"
 #import "controlText.h"
 #import "controlSlider.h"
-#import "controlSwitch.h"
-#import "controlDeviceList.h"
+#import "controlList.h"
 #import "uiLabel.h"
 #import "utilities.h"
 
@@ -35,12 +34,13 @@
 @property int displayPanel; // 0: main, 1: input, 2: output
 
 // UI
-@property uiLabel* label;
+@property uiLabel *label;
+@property NSString *labelText;
+@property NSColor *bgColor;
 
 -(id)initWithFrame:(NSRect)frame;
 -(void)setOrigin:(NSPoint)origin;
 -(void)mouseDown:(NSEvent *)theEvent;
--(void)setControlLabel:(NSRect)frame :(NSString*)text;
 -(void)drawRect:(NSRect)rect;
 -(void)drawBg:(NSRect)rect;
 -(void)drawModule:(NSRect)rect;

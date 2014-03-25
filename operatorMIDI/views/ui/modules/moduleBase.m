@@ -8,9 +8,9 @@
 
 #import "moduleBase.h"
 
-float bgColor;
-
 @implementation moduleBase
+
+@synthesize labelText = _labelText;
 
 - (id)initWithFrame:(NSRect)frame {
     self = [super initWithFrame:frame];
@@ -24,7 +24,11 @@ float bgColor;
 
     self.height = MODULE_HEIGHT;
     
-    bgColor[] = UI_COLOR_PROT_1;
+    float bgRGBA[] = UI_COLOR_PROT_1;
+    
+    self.bgColor = [utilities getNSColorFromRGB: bgRGBA];
+    
+    self.labelText = @"Untitled";
     
     return self;
 }
@@ -71,11 +75,8 @@ float bgColor;
     
     NSBezierPath* bgPath = [NSBezierPath new];
     
-    float bgRGBA[] = bgColor;
     
-    NSColor* bgColor = [utilities getNSColorFromRGB:bgRGBA];
-    
-    [bgColor set];
+    [self.bgColor set];
     
     [bgPath appendBezierPathWithRect:NSMakeRect(0, 0, self.width, self.height)];
     [bgPath closePath];
@@ -83,6 +84,16 @@ float bgColor;
     
     
     NSLog(@"Drawing");
+}
+
+-(NSString*)labelText {
+    return _labelText;
+}
+
+-(void)setLabelText:(NSString*)labelText {
+    [self.label setStringValue: labelText];
+    [self.label setNeedsDisplay:YES];
+    _labelText = labelText;
 }
 
 

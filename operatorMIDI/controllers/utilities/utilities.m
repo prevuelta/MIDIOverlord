@@ -56,26 +56,38 @@
     
     NSLog(@"sources: %i", (int)sourceCount);
     NSLog(@"Destinationcount: %i", (int)destCount);
+    
     for (ItemCount i = 0 ; i < destCount ; ++i) {
         
         // Grab a reference to a destination endpoint
         MIDIEndpointRef dest = MIDIGetDestination(i);
         if (dest) {
-            [destinations addObject:[self getDisplayName:dest]];
-            NSLog(@"  Destination: %@", [self getDisplayName:dest]);
+            NSNumber *deviceID = [NSNumber numberWithInt: [self getDeviceID:dest]];
+//            [destinations setValue:deviceID forKey:[self getDeviceName:dest] ];
+            
+            [destinations addObject:[self getDeviceName:dest]];
+            [destinations addObject: deviceID];
         }
     }
     
     return destinations;
 }
 
-+(NSString*)getDisplayName:(MIDIObjectRef)object{
++(NSString*)getDeviceName:(MIDIObjectRef)object{
     // Returns the display name of a given MIDIObjectRef as an NSString
     CFStringRef name = nil;
     if (noErr != MIDIObjectGetStringProperty(object, kMIDIPropertyDisplayName, &name)) {
         return nil;
     }
     return (NSString*)CFBridgingRelease(name);
+}
+
++(int)getDeviceID:(MIDIObjectRef)object {
+    int deviceID;
+    if(noErr != MIDIObjectGetIntegerProperty(object, kMIDIPropertyUniqueID, &deviceID)) {
+        return nil;
+    }
+    return deviceID;
 }
 
 @end

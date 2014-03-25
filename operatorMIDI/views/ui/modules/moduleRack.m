@@ -20,27 +20,28 @@
     
     self.height = RACK_HEIGHT;
     
-    self.bgColor = UI_COLOR_PROT_0;
-    
     [self addRackTitle];
     
+    float bgRGBA[] = UI_COLOR_PROT_0;
+    
+    self.bgColor = [utilities getNSColorFromRGB: bgRGBA];
     
     return self;
 }
 
 -(void)addRackTitle {
 
-    self.label = [[uiLabel alloc] initWithFrame:NSMakeRect(0, RACK_HEIGHT, 20, 80)];
+    self.label = [[uiLabel alloc] initWithFrame:self.frame];
     
-    [self.label setStringValue: @"Untitled"];
+    [self.label setStringValue: self.labelText];
     
     [self addSubview: self.label];
     
     NSMutableArray* destinations = [utilities getMidiDestinations];
     
-    controlDeviceList *midiOutput = [[controlDeviceList alloc] initWithFrame: NSMakeRect(0, 0, self.width, RACK_HEIGHT) :destinations];
+    controlList *midiOutput = [[controlList alloc] initWithFrame: NSMakeRect(0, 0, 600, 200): destinations];
     
-//    [self addSubview: midiOutput];
+    [self addSubview: midiOutput];
     
     [self setNeedsDisplay:YES];
     
@@ -51,11 +52,9 @@
 }
 
 -(void)setData:(NSDictionary*)data {
-    self.label = [data objectForKey: @"label"];
+    self.labelText = [data objectForKey: @"label"];
     _data = data;
 }
-
-
 
 
 @end

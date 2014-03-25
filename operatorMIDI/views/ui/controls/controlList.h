@@ -10,4 +10,8 @@
 
 @interface controlList : controlBase
 
+@property int width;
+
+-(id)initWithFrame:(NSRect)frame :(NSMutableArray*)keyValues;
+
 @end

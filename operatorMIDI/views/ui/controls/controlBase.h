@@ -7,6 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "uiLabel.h"
 #import "utilities.h"
 
 @class controlBase;

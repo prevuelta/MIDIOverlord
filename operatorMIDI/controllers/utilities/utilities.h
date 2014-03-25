@@ -18,6 +18,6 @@
 +(NSColor*)getNSColorFromRGB:(float[])colors;
 
 +(NSMutableArray*)getMidiDestinations;
-+(NSString*)getDisplayName:(MIDIObjectRef)object;
++(NSString*)getDeviceName:(MIDIObjectRef)object;
 
 @end

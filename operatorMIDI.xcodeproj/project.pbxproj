@@ -8,10 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		6E309FF918DBF4160087EFBA /* controlBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E309FDF18DBF4160087EFBA /* controlBase.m */; };
-		6E309FFA18DBF4160087EFBA /* controlDeviceList.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E309FE118DBF4160087EFBA /* controlDeviceList.m */; };
 		6E309FFB18DBF4160087EFBA /* controlList.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E309FE318DBF4160087EFBA /* controlList.m */; };
 		6E309FFC18DBF4160087EFBA /* controlSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E309FE518DBF4160087EFBA /* controlSlider.m */; };
-		6E309FFD18DBF4160087EFBA /* controlSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E309FE718DBF4160087EFBA /* controlSwitch.m */; };
 		6E309FFE18DBF4160087EFBA /* controlText.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E309FE918DBF4160087EFBA /* controlText.m */; };
 		6E309FFF18DBF4160087EFBA /* controlTrigger.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E309FEB18DBF4160087EFBA /* controlTrigger.m */; };
 		6E30A00018DBF4160087EFBA /* moduleBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E309FEE18DBF4160087EFBA /* moduleBase.m */; };
@@ -52,14 +50,10 @@
 /* Begin PBXFileReference section */
 		6E309FDE18DBF4160087EFBA /* controlBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = controlBase.h; sourceTree = "<group>"; };
 		6E309FDF18DBF4160087EFBA /* controlBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = controlBase.m; sourceTree = "<group>"; };
-		6E309FE018DBF4160087EFBA /* controlDeviceList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = controlDeviceList.h; sourceTree = "<group>"; };
-		6E309FE118DBF4160087EFBA /* controlDeviceList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = controlDeviceList.m; sourceTree = "<group>"; };
 		6E309FE218DBF4160087EFBA /* controlList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = controlList.h; sourceTree = "<group>"; };
 		6E309FE318DBF4160087EFBA /* controlList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = controlList.m; sourceTree = "<group>"; };
 		6E309FE418DBF4160087EFBA /* controlSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = controlSlider.h; sourceTree = "<group>"; };
 		6E309FE518DBF4160087EFBA /* controlSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = controlSlider.m; sourceTree = "<group>"; };
-		6E309FE618DBF4160087EFBA /* controlSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = controlSwitch.h; sourceTree = "<group>"; };
-		6E309FE718DBF4160087EFBA /* controlSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = controlSwitch.m; sourceTree = "<group>"; };
 		6E309FE818DBF4160087EFBA /* controlText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = controlText.h; sourceTree = "<group>"; };
 		6E309FE918DBF4160087EFBA /* controlText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = controlText.m; sourceTree = "<group>"; };
 		6E309FEA18DBF4160087EFBA /* controlTrigger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = controlTrigger.h; sourceTree = "<group>"; };
@@ -159,14 +153,10 @@
 			children = (
 				6E309FDE18DBF4160087EFBA /* controlBase.h */,
 				6E309FDF18DBF4160087EFBA /* controlBase.m */,
-				6E309FE018DBF4160087EFBA /* controlDeviceList.h */,
-				6E309FE118DBF4160087EFBA /* controlDeviceList.m */,
 				6E309FE218DBF4160087EFBA /* controlList.h */,
 				6E309FE318DBF4160087EFBA /* controlList.m */,
 				6E309FE418DBF4160087EFBA /* controlSlider.h */,
 				6E309FE518DBF4160087EFBA /* controlSlider.m */,
-				6E309FE618DBF4160087EFBA /* controlSwitch.h */,
-				6E309FE718DBF4160087EFBA /* controlSwitch.m */,
 				6E309FE818DBF4160087EFBA /* controlText.h */,
 				6E309FE918DBF4160087EFBA /* controlText.m */,
 				6E309FEA18DBF4160087EFBA /* controlTrigger.h */,
@@ -390,10 +380,8 @@
 			files = (
 				6EF69C6B189F27AF00A88726 /* AppDelegate.m in Sources */,
 				6E309FF918DBF4160087EFBA /* controlBase.m in Sources */,
-				6E309FFD18DBF4160087EFBA /* controlSwitch.m in Sources */,
 				6E309FFC18DBF4160087EFBA /* controlSlider.m in Sources */,
 				6EF69C71189F27AF00A88726 /* main.m in Sources */,
-				6E309FFA18DBF4160087EFBA /* controlDeviceList.m in Sources */,
 				6EF69C6D189F27AF00A88726 /* eventHandler.m in Sources */,
 				6E309FFF18DBF4160087EFBA /* controlTrigger.m in Sources */,
 				6E30A00118DBF4160087EFBA /* modulePad.m in Sources */,
