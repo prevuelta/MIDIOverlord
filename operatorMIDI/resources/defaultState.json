@@ -1,0 +1,20 @@
+{
+    "global": {
+        "clock" : 120,
+        "devices" : []
+    },
+    "state": {
+        "title": "state example",
+        "pages": [
+            {
+                  "title" : "untitled",
+                  "layout" : []
+            }
+        ],
+        "racks" : {
+            
+        },
+        "controls" : {
+        }
+    }
+}

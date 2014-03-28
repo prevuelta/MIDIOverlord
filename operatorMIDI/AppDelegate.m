@@ -13,8 +13,10 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     
     // APP
-    _stateData = [[dataApp alloc] init];
-    [_stateData setData:@"state"];
+    _appData = [[dataApp alloc] init];
+    
+    [_appData setCurrentFile:@"defaultState"];
+    [_appData setupData];
     
     // MIDI
     _midiController = [[midiController alloc] init];
@@ -24,11 +26,11 @@
 //    _windowPadding = 20;
     
     viewApp *mainView = [[viewApp alloc] initWithFrame:[_mainWin frame]
-    andRackData: [_stateData rackData]
-    andModuleData:[_stateData moduleData]
-    andLayout:[_stateData layout]];
+    andRackData: [_appData rackData]
+    andModuleData:[_appData moduleData]
+    andLayout:[_appData layout]];
 
-    [mainView setRackCount: [_stateData rackCount]];
+    [mainView setRackCount: [_appData rackCount]];
     
     // Set window size
     NSPoint gridSize = mainView.getSize;

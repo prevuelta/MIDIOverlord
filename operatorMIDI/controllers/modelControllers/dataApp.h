@@ -11,20 +11,28 @@
 @interface dataApp : NSObject
 
 @property NSString* title;
-@property NSDictionary* global;
-@property NSDictionary* state;
+@property NSMutableDictionary* global;
+@property NSMutableDictionary* state;
+
+@property NSString* currentFile;
+@property NSDictionary* currentPage;
 
 // Data object
 
 @property int rackCount;
 
-@property NSDictionary* moduleData;
-@property NSMutableArray* moduleObjects;
+@property NSMutableDictionary* appData;
+@property NSMutableDictionary* moduleData;
 @property NSMutableArray* layout;
 @property NSMutableArray* rackData;
 
-- (id)init;
-- (NSDictionary*)loadFile:(NSString*)path;
-- (void)setData:(NSString*)path;
+-(id)init;
+-(void)setupData;
+
+-(void)newJSON;
+-(NSMutableDictionary*)loadJSON:(NSString*)path;
+-(void)saveJSON;
+
+
 
 @end

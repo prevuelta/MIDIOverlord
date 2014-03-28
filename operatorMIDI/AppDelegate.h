@@ -12,14 +12,14 @@
 #import "dataApp.h"
 #import "midiController.h"
 //UI
-#import "viewApp.h"3
+#import "viewApp.h"
 #import "eventHandler.h"
 
 // Utilites
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
-@property dataApp* stateData;
+@property dataApp* appData;
 @property midiController* midiController;
 @property (assign) IBOutlet NSWindow *mainWin;
 @property float windowPadding;

@@ -8,7 +8,7 @@
     },
     "state": {
         "title": "state example",
-        "page": {
+        "pages": [{
             "racks" : [
                 {
                 "label": "Rack 1",
@@ -16,6 +16,9 @@
                 "channel": 0,
                 "input": null,
                 "output": null
+                "layout" : [
+                   [4, 5, 6],
+                ]
                 },
                {
                "label": "Rack 2",
@@ -32,12 +35,11 @@
                "output": null
                }
             ],
-            "layout" : [
-                [4, 5, 6],
+           
                 [],
                 [1, 2, 3, 1, 2, 2]
             ]
-        },
+        }],
         "controls" : {
           "1" : {
             "label" : "Resonance",
