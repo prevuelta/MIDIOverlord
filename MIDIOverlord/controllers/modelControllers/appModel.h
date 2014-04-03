@@ -23,8 +23,9 @@
 
 @property NSMutableDictionary* appData;
 @property NSMutableDictionary* moduleData;
-@property NSMutableArray* layout;
 @property NSMutableArray* rackData;
+@property NSMutableArray* layout;
+
 
 -(id)init;
 -(void)setupData;

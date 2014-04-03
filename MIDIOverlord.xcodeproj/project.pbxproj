@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		6E7C562318EB94B30002F09B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C55EA18EB94B30002F09B /* AppDelegate.m */; };
-		6E7C562418EB94B30002F09B /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E7C55EB18EB94B30002F09B /* MainMenu.xib */; };
 		6E7C562518EB94B30002F09B /* appViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C55F018EB94B30002F09B /* appViewController.m */; };
 		6E7C562618EB94B30002F09B /* eventHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C55F218EB94B30002F09B /* eventHandler.m */; };
 		6E7C562718EB94B30002F09B /* appModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C55F518EB94B30002F09B /* appModel.m */; };
@@ -18,7 +17,6 @@
 		6E7C562B18EB94B30002F09B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6E7C55FD18EB94B30002F09B /* InfoPlist.strings */; };
 		6E7C562C18EB94B30002F09B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E7C55FF18EB94B30002F09B /* Images.xcassets */; };
 		6E7C562D18EB94B30002F09B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C560018EB94B30002F09B /* main.m */; };
-		6E7C562E18EB94B30002F09B /* MIDIOverlord-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6E7C560118EB94B30002F09B /* MIDIOverlord-Info.plist */; };
 		6E7C562F18EB94B30002F09B /* defaultState.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E7C560418EB94B30002F09B /* defaultState.json */; };
 		6E7C563018EB94B30002F09B /* skin.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E7C560518EB94B30002F09B /* skin.json */; };
 		6E7C563118EB94B30002F09B /* state.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E7C560618EB94B30002F09B /* state.json */; };
@@ -34,6 +32,9 @@
 		6E7C563B18EB94B30002F09B /* moduleSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C561E18EB94B30002F09B /* moduleSlider.m */; };
 		6E7C563C18EB94B30002F09B /* uiApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C562018EB94B30002F09B /* uiApp.m */; };
 		6E7C563D18EB94B30002F09B /* uiLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C562218EB94B30002F09B /* uiLabel.m */; };
+		6E7C564018ED04A80002F09B /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7C563F18ED04A80002F09B /* CoreMIDI.framework */; };
+		6E7C564218ED04C10002F09B /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7C564118ED04C10002F09B /* Cocoa.framework */; };
+		6E7C564518ED04E60002F09B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7C564318ED04C60002F09B /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,9 @@
 		6E7C562118EB94B30002F09B /* uiLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uiLabel.h; sourceTree = "<group>"; };
 		6E7C562218EB94B30002F09B /* uiLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uiLabel.m; sourceTree = "<group>"; };
 		6E7C563E18EB94EC0002F09B /* MIDIOverlord.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MIDIOverlord.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E7C563F18ED04A80002F09B /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
+		6E7C564118ED04C10002F09B /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		6E7C564318ED04C60002F09B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E7C564518ED04E60002F09B /* Foundation.framework in Frameworks */,
+				6E7C564218ED04C10002F09B /* Cocoa.framework in Frameworks */,
+				6E7C564018ED04A80002F09B /* CoreMIDI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +126,9 @@
 		6E5A63DA184417F600C1CD8E = {
 			isa = PBXGroup;
 			children = (
+				6E7C564318ED04C60002F09B /* Foundation.framework */,
+				6E7C564118ED04C10002F09B /* Cocoa.framework */,
+				6E7C563F18ED04A80002F09B /* CoreMIDI.framework */,
 				6E7C55E818EB94B30002F09B /* MIDIOverlord */,
 				6E7C563E18EB94EC0002F09B /* MIDIOverlord.app */,
 			);
@@ -318,8 +328,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6E7C562418EB94B30002F09B /* MainMenu.xib in Resources */,
-				6E7C562E18EB94B30002F09B /* MIDIOverlord-Info.plist in Resources */,
 				6E7C562C18EB94B30002F09B /* Images.xcassets in Resources */,
 				6E7C563118EB94B30002F09B /* state.json in Resources */,
 				6E7C562B18EB94B30002F09B /* InfoPlist.strings in Resources */,
@@ -485,7 +493,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MIDIOverlord/MIDIOverlord-Prefix.pch";
-				INFOPLIST_FILE = "MIDIOverlord/MIDI Overlord-Info.plist";
+				INFOPLIST_FILE = "MIDIOverlord/MIDIOverlord-Info.plist";
 				PRODUCT_NAME = MIDIOverlord;
 				WRAPPER_EXTENSION = app;
 			};
@@ -498,7 +506,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MIDIOverlord/MIDIOverlord-Prefix.pch";
-				INFOPLIST_FILE = "MIDIOverlord/MIDI Overlord-Info.plist";
+				INFOPLIST_FILE = "MIDIOverlord/MIDIOverlord-Info.plist";
 				PRODUCT_NAME = MIDIOverlord;
 				WRAPPER_EXTENSION = app;
 			};

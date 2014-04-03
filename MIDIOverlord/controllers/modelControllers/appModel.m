@@ -44,8 +44,7 @@
     _moduleData = [_state objectForKey: @"controls"];
     
 //    NSLog(@"%@", [_controlObjects description]);
-    
-    [self addRack];
+
 
 }
 
@@ -89,6 +88,11 @@
         error:&writeError];
     NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     NSLog(@"JSON output: %@", jsonString);
+    
+    if(!_currentFile) {
+        _currentFile = [utilities getSaveFileUrl];
+    }
+    
     [jsonString writeToFile: _currentFile atomically: YES encoding:NSUTF8StringEncoding error:nil];
 }
 

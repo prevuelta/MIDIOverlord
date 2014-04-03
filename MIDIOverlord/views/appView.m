@@ -12,24 +12,24 @@ int _xLoc;
 
 @implementation appView
 
-- (id)initWithFrame:(NSRect)frame andRackData:(NSMutableArray*)rackData andModuleData:(NSDictionary*)moduleData andLayout:(NSMutableArray*)layout {
+- (id)initWithFrame:(NSRect)frame {
+    
+//}andRackData:(NSMutableArray*)rackData andModuleData:(NSDictionary*)moduleData andLayout:(NSMutableArray*)layout {
     self = [super initWithFrame:frame];
     
     if(!self) return nil;
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateRacks:) name:@"updateRacks" object:nil];
-    
     NSLog(@"Init main view");
 
-    _layout = layout;
+//    _layout = layout;
+//
+//    _rackCount = (int) [_layout count];
 
-    _rackCount = (int) [_layout count];
+//    NSLog(@"Rack count: %d", _rackCount);
 
-    NSLog(@"Rack count: %d", _rackCount);
+//    _moduleData = moduleData;
 
-    _moduleData = moduleData;
-
-    _rackData = rackData;
+//    _rackData = rackData;
 
     // Setup main interface
     uiApp* globalUI = [[uiApp alloc ] initWithFrame: NSMakeRect(0, _rackCount * RACK_HEIGHT, WINDOW_WIDTH , TOOLBAR_HEIGHT )];
@@ -39,28 +39,28 @@ int _xLoc;
 
     // Create app view
 
-    for(int row = 0; row < _rackCount; row++) {
-        
-        // Create rack
-        moduleRack *rack = [[moduleRack alloc] initWithFrame: NSMakeRect(0, 0, WINDOW_WIDTH, RACK_HEIGHT)];
-        
-        [rack setOrigin:NSMakePoint(0, row * RACK_HEIGHT)];
-        
-        [rack setData: _rackData[row]];
-        
-        _xLoc = 0;
-        
+//    for(int row = 0; row < _rackCount; row++) {
+//        
+//        // Create rack
+//        moduleRack *rack = [[moduleRack alloc] initWithFrame: NSMakeRect(0, 0, WINDOW_WIDTH, RACK_HEIGHT)];
+//        
+//        [rack setOrigin:NSMakePoint(0, row * RACK_HEIGHT)];
+//        
+//        [rack setData: _rackData[row]];
+//        
+//        _xLoc = 0;
+//        
         // Add modules to rack
-        for(int col = 0; col < [_layout[row] count]; col++) {
-
-            NSString* mID = [_layout[row][col] stringValue];
-            
-            moduleBase *module = [self getModuleWithId: mID];
-            
-            [module setOrigin: NSMakePoint(_xLoc + 0.5, 0)];
-            
-            NSLog(@"Module: %d", _xLoc);
-            
+//        for(int col = 0; col < [_layout[row] count]; col++) {
+//
+//            NSString* mID = [_layout[row][col] stringValue];
+//            
+//            moduleBase *module = [self getModuleWithId: mID];
+//            
+//            [module setOrigin: NSMakePoint(_xLoc + 0.5, 0)];
+//            
+//            NSLog(@"Module: %d", _xLoc);
+    
 //            [rack addSubview: module];
             
             
@@ -68,27 +68,38 @@ int _xLoc;
             // Add data
     //                [_modules setObject: module forKey: mID];
             
-            _xLoc += module.width;
-            
+//            _xLoc += module.width;
+    
     //                if(mID) {
     //                    NSString* mIDStr = (NSString*)mID;
     ////                    NSLog(@"%@", [_moduleData objectForKey: mIDStr]);
     //                    if([_moduleData objectForKey: mID]) {
     ////                        [self addModuleWithId: mID andRow: row andCol: col];
     //                    }
-    //                }
-        }
-        
-        [self addSubview: rack];
+//    //                }
+//        }/
     
-    }
+//        [self addSubview: rack];
+    
+//    }
     
     return self;
 }
 
--(void)updateRacks(NSNotification*)notification {
-    NSDictionary* rackData = notification.userInfo;
-    
+-(void)updateRacks:(NSMutableArray*)rackData :(NSArray*)layout {
+
+    for(int row = 0; row < [layout count]; row++) {
+        
+        // Create rack
+        moduleRack *rack = [[moduleRack alloc] initWithFrame: NSMakeRect(0, 0, WINDOW_WIDTH, RACK_HEIGHT)];
+        
+        [rack setOrigin:NSMakePoint(0, row * RACK_HEIGHT)];
+        
+        [rack setData: rackData[row]];
+        
+        [self addSubview: rack];
+
+    }
 }
 
 - (NSPoint)getSize {

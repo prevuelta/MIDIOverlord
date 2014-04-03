@@ -90,7 +90,19 @@
     return deviceID;
 }
 
++(NSString*)getSaveFileUrl {
+    
+    NSSavePanel* saver = [NSSavePanel savePanel];
+    [saver setPrompt:@"Save file as..."];
+    [saver setCanCreateDirectories:YES];
+    
+    [saver runModal];
+    
+    return [saver URL];
+}
+
 +(void)selectFileDialogue {
+   
     NSOpenPanel* openDlg = [NSOpenPanel openPanel];
     
     [openDlg setPrompt:@"Select"];

@@ -28,12 +28,13 @@
 
 @property int rackCount;
 
-@property NSMutableArray* layout;
+//@property NSMutableArray* layout;
 @property NSMutableDictionary* modules;
 @property NSDictionary* moduleData;
-@property NSMutableArray* rackData;
+//@property NSMutableArray* rackData;
 
--(id)initWithFrame:(NSRect)frame andRackData:(NSMutableArray*)rackData andModuleData:(NSDictionary*)moduleData andLayout:(NSMutableArray*)layout;
+-(id)initWithFrame:(NSRect)frame;
+//andRackData:(NSMutableArray*)rackData andModuleData:(NSDictionary*)moduleData andLayout:(NSMutableArray*)layout;
 -(NSPoint)getSize;
 
 -(void)drawRect:(NSRect)rect;
@@ -41,5 +42,7 @@
 -(void)drawGrid;
 
 -(moduleBase*)getModuleWithId:(NSString*)mID;
+
+-(void)updateRacks:(NSDictionary*)rackData :(NSArray*)layout;
 
 @end

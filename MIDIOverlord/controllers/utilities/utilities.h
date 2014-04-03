@@ -21,6 +21,6 @@
 +(NSString*)getDeviceName:(MIDIObjectRef)object;
 
 // App file handling
-+(void)selectFileDialogue;
++(NSString*)getSaveFileUrl;
 
 @end

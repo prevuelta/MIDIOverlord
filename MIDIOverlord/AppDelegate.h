@@ -19,7 +19,10 @@
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
-@property appModel* data;
+//@property appModel* data;
+
+@property appViewController *appViewControl;
+
 @property midiController* midiController;
 @property (assign) IBOutlet NSWindow *mainWin;
 @property float windowPadding;
