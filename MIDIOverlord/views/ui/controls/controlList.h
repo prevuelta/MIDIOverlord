@@ -14,4 +14,7 @@
 
 -(id)initWithFrame:(NSRect)frame :(NSMutableArray*)keyValues;
 
+@property NSMutableArray * selected;
+@property int height;
+
 @end

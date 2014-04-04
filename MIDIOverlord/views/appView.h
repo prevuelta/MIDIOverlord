@@ -16,7 +16,7 @@
 @class appView;
 
 @protocol appViewDelegate
-    -(void)addRack;
+    -(void)addRack:(int)pageIndex;
     -(void)updateRack;
     -(void)removeRack:(int)ID;
     -(void)addModule;
@@ -27,22 +27,25 @@
 @interface appView: NSView
 
 @property int rackCount;
+@property NSWindow *mainWin;
 
 //@property NSMutableArray* layout;
-@property NSMutableDictionary* modules;
-@property NSDictionary* moduleData;
+//@property NSMutableDictionary* modules;
+//@property NSDictionary* moduleData;
 //@property NSMutableArray* rackData;
 
--(id)initWithFrame:(NSRect)frame;
+-(id)initWithWin:(NSWindow*)mainWin;
 //andRackData:(NSMutableArray*)rackData andModuleData:(NSDictionary*)moduleData andLayout:(NSMutableArray*)layout;
--(NSPoint)getSize;
+
+-(void)resizeWin:(int)rackCount;
 
 -(void)drawRect:(NSRect)rect;
 
 -(void)drawGrid;
 
--(moduleBase*)getModuleWithId:(NSString*)mID;
-
 -(void)updateRacks:(NSDictionary*)rackData :(NSArray*)layout;
+
+-(void)updateRackModules:(NSString*)rackID :(NSMutableArray*)moduleData;
+
 
 @end

@@ -12,14 +12,16 @@ int _xLoc;
 
 @implementation appView
 
-- (id)initWithFrame:(NSRect)frame {
+- (id)initWithWin:(NSWindow*)mainWin {
     
 //}andRackData:(NSMutableArray*)rackData andModuleData:(NSDictionary*)moduleData andLayout:(NSMutableArray*)layout {
-    self = [super initWithFrame:frame];
+    self = [super initWithFrame:[mainWin frame]];
     
     if(!self) return nil;
     
     NSLog(@"Init main view");
+    
+    _mainWin = mainWin;
 
 //    _layout = layout;
 //
@@ -32,88 +34,73 @@ int _xLoc;
 //    _rackData = rackData;
 
     // Setup main interface
-    uiApp* globalUI = [[uiApp alloc ] initWithFrame: NSMakeRect(0, _rackCount * RACK_HEIGHT, WINDOW_WIDTH , TOOLBAR_HEIGHT )];
+    uiApp* globalUI = [[uiApp alloc ] initWithFrame: NSMakeRect(0, 0, WINDOW_WIDTH, TOOLBAR_HEIGHT )];
 
     [self addSubview:globalUI];
-
-
-    // Create app view
-
-//    for(int row = 0; row < _rackCount; row++) {
-//        
-//        // Create rack
-//        moduleRack *rack = [[moduleRack alloc] initWithFrame: NSMakeRect(0, 0, WINDOW_WIDTH, RACK_HEIGHT)];
-//        
-//        [rack setOrigin:NSMakePoint(0, row * RACK_HEIGHT)];
-//        
-//        [rack setData: _rackData[row]];
-//        
-//        _xLoc = 0;
-//        
-        // Add modules to rack
-//        for(int col = 0; col < [_layout[row] count]; col++) {
-//
-//            NSString* mID = [_layout[row][col] stringValue];
-//            
-//            moduleBase *module = [self getModuleWithId: mID];
-//            
-//            [module setOrigin: NSMakePoint(_xLoc + 0.5, 0)];
-//            
-//            NSLog(@"Module: %d", _xLoc);
     
-//            [rack addSubview: module];
-            
-            
-            
-            // Add data
-    //                [_modules setObject: module forKey: mID];
-            
-//            _xLoc += module.width;
-    
-    //                if(mID) {
-    //                    NSString* mIDStr = (NSString*)mID;
-    ////                    NSLog(@"%@", [_moduleData objectForKey: mIDStr]);
-    //                    if([_moduleData objectForKey: mID]) {
-    ////                        [self addModuleWithId: mID andRow: row andCol: col];
-    //                    }
-//    //                }
-//        }/
-    
-//        [self addSubview: rack];
-    
-//    }
+    // Set grey background
+    float greyVal = 0.70;
+    NSColor *grey = [NSColor colorWithDeviceRed:greyVal green:greyVal blue:greyVal alpha: (float)1];
+    _mainWin.backgroundColor = grey;
+     
+     // Add grid
+    [_mainWin setContentView: self];
     
     return self;
 }
 
--(void)updateRacks:(NSMutableArray*)rackData :(NSArray*)layout {
 
+-(void)resizeWin:(int)rackCount{
+    
+    NSRect frame = [_mainWin frame];
+    
+    frame.size.width = WINDOW_WIDTH;
+    frame.size.height = (RACK_HEIGHT * rackCount ) + TOOLBAR_HEIGHT;
+    
+    [_mainWin setFrame: frame display:YES animate:NO];
+    
+}
+
+-(void)updateRacks:(NSMutableArray*)rackData :(NSArray*)layout {
+    
     for(int row = 0; row < [layout count]; row++) {
         
         // Create rack
         moduleRack *rack = [[moduleRack alloc] initWithFrame: NSMakeRect(0, 0, WINDOW_WIDTH, RACK_HEIGHT)];
         
-        [rack setOrigin:NSMakePoint(0, row * RACK_HEIGHT)];
+        [rack setOrigin:NSMakePoint(0, (row * RACK_HEIGHT) + TOOLBAR_HEIGHT)];
         
         [rack setData: rackData[row]];
         
+        [rack setTag: 3];
+        
         [self addSubview: rack];
-
+        
     }
 }
 
-- (NSPoint)getSize {
-    NSPoint size = {
-        WINDOW_WIDTH,
-        (RACK_HEIGHT * _rackCount ) + TOOLBAR_HEIGHT
-    };
-    return size;
+-(void)updateRackModules:(NSString*)rackID :(NSMutableArray*)moduleData {
+  
+         NSLog(@"Updating module");
+    
+         _xLoc = 0;
+    
+        NSView *rack = [self viewWithTag: (int)rackID];
+        
+        for(int i = 0; i < [moduleData count]; i++) {
+            NSLog(@"Updating modul");
+            int type = (int)[moduleData[i] objectForKey:@"type"];
+            moduleBase *module = [self getModuleOfType:type];
+            [module setData: moduleData[i]];
+            [module setOrigin: NSMakePoint(_xLoc + 0.5, 0)];
+             _xLoc += module.width;
+            [rack addSubview: module];
+        }
+  
+        [rack setNeedsDisplay:YES];
 }
                             
--(moduleBase*)getModuleWithId:(NSString*)mID {
-    
-    NSDictionary* moduleData = [_moduleData objectForKey: mID];
-    int type = [[moduleData objectForKey: @"type"] intValue];
+-(moduleBase*)getModuleOfType:(int)type {
     
     moduleBase *module;
 
@@ -131,49 +118,51 @@ int _xLoc;
 }
 
 -(void)drawRect:(NSRect)rect {
-    [self drawGrid];
+//    [self drawGrid];
 //    [self drawmodules];
 }
 
--(void)drawGrid{
-    
-    NSRect frame = self.frame;
+//-(void)drawGrid{
+//    
+//    NSRect frame = self.frame;
+//
+////    NSLog(@"Drawing grid...");
+//    
+//    // Draw border & bg
+//    NSPoint bgSize = self.getSize;
+//    
+//    // Draw Grid
+//    NSBezierPath* path = [NSBezierPath bezierPath];
+//    [path setLineWidth: 0.5];
+//    
+//    int i = 0;
+//    
+//    while(i <= _rackCount) {
+//
+////        NSLog(@"go %i cols: %i", i, _cols);
+//        NSPoint colOrigin = {0.5, i * RACK_HEIGHT + 0.5};
+//        NSPoint colDestination = {WINDOW_WIDTH, i * RACK_HEIGHT + 0.5};
+//
+//        [path moveToPoint: colOrigin ];
+//        [path lineToPoint: colDestination ];
+//        
+//        i++;
+//        
+//    }
+//
+//    // Translate
+//    NSAffineTransform *translateTransform = [NSAffineTransform transform];
+//    [translateTransform translateXBy: 0 yBy:0];
+//    [path transformUsingAffineTransform: translateTransform];
+//    
+//    [path closePath];
+//    [[NSColor blackColor] set];
+//    [path stroke];
+//    
+//}
 
-//    NSLog(@"Drawing grid...");
-    
-    // Draw border & bg
-    NSPoint bgSize = self.getSize;
-    
-    // Draw Grid
-    NSBezierPath* path = [NSBezierPath bezierPath];
-    [path setLineWidth: 0.5];
-    
-    int i = 0;
-    
-    while(i <= _rackCount) {
-
-//        NSLog(@"go %i cols: %i", i, _cols);
-        NSPoint colOrigin = {0.5, i * RACK_HEIGHT + 0.5};
-        NSPoint colDestination = {WINDOW_WIDTH, i * RACK_HEIGHT + 0.5};
-
-        [path moveToPoint: colOrigin ];
-        [path lineToPoint: colDestination ];
-        
-        i++;
-        
-    }
-
-    // Translate
-    NSAffineTransform *translateTransform = [NSAffineTransform transform];
-    [translateTransform translateXBy: 0 yBy:0];
-    [path transformUsingAffineTransform: translateTransform];
-    
-    [path closePath];
-    [[NSColor blackColor] set];
-    [path stroke];
-    
+-(BOOL)isFlipped {
+    return YES;
 }
-
-
 
 @end

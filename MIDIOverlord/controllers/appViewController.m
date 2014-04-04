@@ -14,29 +14,27 @@
     self = [super init];
     if(!self) return nil;
     
-    _mainWin = mainWin;
-    
     _data = [[appModel alloc] init];
     
-    [_data loadDefaultState];
+    _mainView = [[appView alloc] initWithWin:mainWin];
     
-    _mainView = [[appView alloc] initWithFrame:[_mainWin frame]];
+    [_data addRack: 0];
     
-    [_mainView updateRacks:[_data rackData]:[_data layout]];
+    [_data addModule: 0 :0 :1 ];
+    [_data addModule: 0 :0 :1 ];
+    [_data addModule: 0 :0 :1 ];
     
-    [_mainView setRackCount: [_data rackCount]];
+    NSLog(@"New data: %@", [_data rackData]);
     
-    // Set window size
-    NSPoint gridSize = _mainView.getSize;
-    [self resizeWin: gridSize];
+    [_mainView updateRacks: _data.rackData :_data.layout];
     
-    // Set grey background
-    float greyVal = 0.70;
-    NSColor *grey = [NSColor colorWithDeviceRed:greyVal green:greyVal blue:greyVal alpha: (float)1];
-    _mainWin.backgroundColor = grey;
+    [_mainView updateRackModules:[_data getRackID:0] : [_data getRackModules:0]];
     
-    // Add grid
-    [_mainWin setContentView: _mainView];
+//    [_mainView updateRackModules [_data getRackModules:rackData[0]]:[data layout[0]];
+    
+//    [_mainView updateModules:[_data moduleData]:[_data layout]];
+    
+    [_mainView resizeWin: [_data.layout count]];
     
     // Set grid origins
     //    CGRect frame = mainView.frame;
@@ -47,15 +45,6 @@
     return self;
 }
 
-- (void)resizeWin:(NSPoint)size {
-    
-    NSRect frame = [_mainWin frame];
-    
-    frame.size.width = size.x;
-    frame.size.height = size.y + 20;
-    
-    [_mainWin setFrame: frame display:YES animate:NO];
-}
 
 
 @end

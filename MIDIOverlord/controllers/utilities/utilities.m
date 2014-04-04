@@ -27,7 +27,7 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:types[type] object:self userInfo: data];
 }
 
-+(void)midiNotification:(char*)status :(int)v2 :(int)v3{
++(void)midiNotification:(int)status :(int)v2 :(int)v3{
     NSDictionary *data =@{
         @"status" : [NSNumber numberWithInt:status],
         @"v2" : [NSNumber numberWithInt:v2],

@@ -5,16 +5,18 @@
     },
     "state": {
         "title": "state example",
+        "moduleID": 0,
+        "rackID": 0,
         "pages": [
             {
                   "title" : "untitled",
-                  "layout" : []
+                  "layout" : [[]];
             }
         ],
-        "racks" : {
+        "racks" : [
             
-        },
-        "controls" : {
+        ],
+        "modules" : {
         }
     }
 }

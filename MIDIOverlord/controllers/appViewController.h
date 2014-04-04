@@ -15,8 +15,6 @@
 @property (strong, atomic) appView *mainView;
 @property (strong, atomic) appModel *data;
 
-@property NSWindow* mainWin;
-
--(id)initWithWin:(NSWindow*)mainWin ;
+-(id)initWithWin:(NSWindow*)mainWin;
 
 @end

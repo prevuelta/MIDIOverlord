@@ -12,18 +12,30 @@
 
 
 -(id)initWithFrame:(NSRect)frame :(NSMutableArray*)keyValues{
-    
-    self.width = 800;
-    
     self = [super initWithFrame:frame];
     
     if(!self) return nil;
-
     
+    _selected = [NSMutableArray arrayWithObjects:@"None", @0, nil];
+    
+    _height = RACK_HEIGHT - MODULE_HEIGHT;
+    
+    uiLabel *label = [[uiLabel alloc] initWithFrame: NSMakeRect(40, 0, 150, _height)];
+    [label setStringValue: @"Midi Output: "];
+    [self addSubview:label];
+    
+    label = [[uiLabel alloc] initWithFrame: NSMakeRect(100, 0, 150, _height)];
+    [label setStringValue: _selected[0]];
+    [self addSubview:label];
+    
+    
+    NSLog(@"Key values: %@", keyValues);
+
+
     for(int i = 0; i < [keyValues count]; i++ ) {
         
         if(i % 2 == 0) {
-            uiLabel *label = [[uiLabel alloc] initWithFrame: NSMakeRect(100, 50, 100, 30)];
+            uiLabel *label = [[uiLabel alloc] initWithFrame: NSMakeRect(100, (i+1) * _height , 150, _height)];
             [label setStringValue: keyValues[i]];
             [self addSubview:label];
         
@@ -31,8 +43,6 @@
         
         }
     }
-    
-    [self setNeedsDisplay:YES];
     
     return self;
 }
@@ -46,13 +56,9 @@
     
     [bgColor set];
     
-    [bgPath appendBezierPathWithRect:NSMakeRect(100, 0, self.width, 300)];
+    [bgPath appendBezierPathWithRect:NSMakeRect(100, 0, 150, _height)];
     [bgPath closePath];
     [bgPath fill];
-}
-
--(BOOL)isFlipped {
-    return YES;
 }
 
 @end

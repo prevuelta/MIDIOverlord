@@ -13,7 +13,7 @@
 
 +(void)notify:(int)type;
 
-+(void)midiNotification:(char*)status :(int)v2 :(int)v3;
++(void)midiNotification:(int)status :(int)v2 :(int)v3;
 
 +(NSColor*)getNSColorFromRGB:(float[])colors;
 

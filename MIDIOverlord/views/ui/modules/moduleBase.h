@@ -17,7 +17,7 @@
 @interface moduleBase : NSView <controlBaseDelegate>
 
 //Data
-@property NSDictionary* elData;
+@property NSDictionary* data;
 
 // Canvas properties
 @property int padding;
@@ -31,12 +31,15 @@
 
 
 // Display options
-@property int displayPanel; // 0: main, 1: input, 2: output
+@property BOOL selected;
+@property NSInteger tag;
 
 // UI
 @property uiLabel *label;
 @property NSString *labelText;
+
 @property NSColor *bgColor;
+@property NSColor *selectedColor;
 
 -(id)initWithFrame:(NSRect)frame;
 -(void)setOrigin:(NSPoint)origin;

@@ -14,4 +14,8 @@
     NSLog(@"remove function");
 }
 
+-(BOOL)isFlipped {
+    return YES;
+}
+
 @end

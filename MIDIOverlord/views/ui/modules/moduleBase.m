@@ -11,12 +11,14 @@
 @implementation moduleBase
 
 @synthesize labelText = _labelText;
+@synthesize tag = _tag;
+@synthesize data = _data;
 
 - (id)initWithFrame:(NSRect)frame {
     self = [super initWithFrame:frame];
     if (!self) return nil;
     
-    controlText *midiValueText = [[controlText alloc] initWithFrame:NSMakeRect(8, 96, 48, 32): _midiValue];
+    controlText *midiValueText = [[controlText alloc] initWithFrame:NSMakeRect(8, 96, 48, 20): _midiValue];
     
     [midiValueText bind:@"value" toObject:self withKeyPath:@"self.midiValue" options:nil];
     
@@ -25,8 +27,12 @@
     self.height = MODULE_HEIGHT;
     
     float bgRGBA[] = UI_COLOR_PROT_1;
+    float selectedRGBA[] = UI_COLOR_HIGHLIGHT;
     
     self.bgColor = [utilities getNSColorFromRGB: bgRGBA];
+    self.selectedColor = [utilities getNSColorFromRGB: selectedRGBA];
+    
+    _selected = NO;
     
     self.labelText = @"Untitled";
     
@@ -37,6 +43,21 @@
     NSRect f = self.frame;
     f.origin = origin;
     [self setFrame:f];
+}
+
+-(NSDictionary*)data {
+    return _data;
+}
+
+-(void)setData:(NSDictionary*)data {
+    
+    _data = data;
+}
+
+-(void)mouseDown:(NSEvent *)theEvent {
+   _selected = !_selected;
+    NSLog(@"CLIKE");
+    [self setNeedsDisplay:YES];
 }
 
 // Event handlers
@@ -65,6 +86,14 @@
     [self drawBg:rect];
 }
 
+-(NSInteger)tag {
+    return _tag;
+}
+
+-(void)setTag:(NSInteger)tag {
+    _tag = tag;
+}
+
 -(void)drawModule:(NSRect)rect {
     // Overwritten
 }
@@ -75,9 +104,11 @@
     
     NSBezierPath* bgPath = [NSBezierPath new];
     
-    
-    [self.bgColor set];
-    
+    if(_selected) {
+         [self.selectedColor set];
+    } else {
+        [self.bgColor set];
+    }
     [bgPath appendBezierPathWithRect:NSMakeRect(0, 0, self.width, self.height)];
     [bgPath closePath];
     [bgPath fill];
@@ -96,5 +127,8 @@
     _labelText = labelText;
 }
 
+-(BOOL)isFlipped {
+    return YES;
+}
 
 @end

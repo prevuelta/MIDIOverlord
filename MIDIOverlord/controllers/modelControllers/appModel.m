@@ -14,7 +14,7 @@
 - (id)init {
     self = [super init];
     
-//    _appData = [NSMutableDictionary* alloc];
+    [self setupData];
     
     return self;
 }
@@ -35,13 +35,11 @@
     
     NSDictionary* page = [[_state objectForKey: @"pages"] objectAtIndex: 0];
     
-    _layout = [page objectForKey: @"layout"];
+    _layout = [NSMutableArray arrayWithObjects: [page objectForKey: @"layout"], nil];
     
     _rackData = [NSMutableArray arrayWithObjects: [page objectForKey: @"racks"], nil];
     
-    _rackCount = (int)[_layout count];
-    
-    _moduleData = [_state objectForKey: @"controls"];
+    _moduleData = [NSMutableDictionary dictionaryWithDictionary:[_state objectForKey: @"modules"]];
     
 //    NSLog(@"%@", [_controlObjects description]);
 
@@ -98,7 +96,7 @@
 
 -(void)addPage {
     NSDictionary* page = @{
-      @"id" : @1,
+      @"ID" : @1,
       @"title" : @"Untitled",
       @"layout" : [NSMutableArray new]
     };
@@ -106,10 +104,13 @@
     _currentPage = page;
 }
 
--(void)addRack {
+-(void)addRack:(int)pageIndex {
+
+    _rackID++;
+    
     NSDictionary* rack = @{
-        @"id" : @1,
-        @"page" : @1,
+        @"ID" : [NSNumber numberWithInt:_rackID],
+        @"page" : [NSNumber numberWithInt:pageIndex],
         @"label": @"Rack 1",
         @"size": @0,
         @"channel": @0,
@@ -118,7 +119,52 @@
     };
     
     [_rackData addObject:rack];
+
+    NSMutableArray *newLayout = [[NSMutableArray alloc] init];
+    
+    [_layout addObject: newLayout];
+    
 }
 
+-(NSString*)getRackID:(int)index {
+    return [_rackData[index] objectForKey:@"ID"];
+}
+
+-(void)addModule:(int)pageIndex :(int)rackIndex :(int)type {
+    
+    _moduleID++;
+    
+    NSDictionary* module = @{
+         @"label" : @"Untitled",
+         @"type" : @1,
+         @"val" : @60,
+         @"min" : @0,
+         @"max" : @127,
+         @"midiIN" : @0,
+         @"midiOUT" : @24
+    };
+    
+    [_moduleData setObject: module forKey: [NSNumber numberWithInt: _moduleID]];
+    
+    [_layout[rackIndex] addObject:[NSNumber numberWithInt: _moduleID]];
+    
+    NSLog(@"Layout %@", _layout);
+    NSLog(@"Layout %@", _moduleData);
+}
+
+-(NSMutableArray*)getRackModules: (int)layoutIndex {
+    
+    NSMutableArray* modules = [NSMutableArray new];
+    
+    for(NSMutableDictionary* module in _moduleData) {
+        NSString* ID = [module objectForKey:@"ID"];
+        if([_layout[layoutIndex] containsObject: ID]) {
+            [modules addObject:[module objectForKey:ID]];
+        }
+    }
+             
+    return modules;
+
+}
 
 @end

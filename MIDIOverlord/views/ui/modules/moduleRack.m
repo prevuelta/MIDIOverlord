@@ -39,7 +39,7 @@
     
     NSMutableArray* destinations = [utilities getMidiDestinations];
     
-    controlList *midiOutput = [[controlList alloc] initWithFrame: NSMakeRect(0, 0, 600, 200): destinations];
+    controlList *midiOutput = [[controlList alloc] initWithFrame: self.frame : destinations];
     
     [self addSubview: midiOutput];
     
@@ -53,6 +53,7 @@
 
 -(void)setData:(NSDictionary*)data {
     self.labelText = [data objectForKey: @"label"];
+    self.tag = [data objectForKey:@"id"];
     _data = data;
 }
 

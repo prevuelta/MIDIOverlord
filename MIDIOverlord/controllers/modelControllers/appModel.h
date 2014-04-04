@@ -19,7 +19,8 @@
 
 // Data object
 
-@property int rackCount;
+@property int moduleID;
+@property int rackID;
 
 @property NSMutableDictionary* appData;
 @property NSMutableDictionary* moduleData;
@@ -36,6 +37,12 @@
 -(void)openFile;
 -(void)saveFile;
 
+// Public function
+-(void)addRack:(int)pageIndex;
+-(void)addModule:(int)pageIndex :(int)rackIndex :(int)type;
 
+-(NSMutableArray*)getRackModules: (int)layoutIndex;
+
+-(NSString*)getRackID:(int)index;
 
 @end
