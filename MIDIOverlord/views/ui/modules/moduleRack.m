@@ -75,6 +75,7 @@
     // Draw background
     
     NSBezierPath* bgPath = [NSBezierPath new];
+    NSBezierPath* fgPath = [NSBezierPath new];
     
     int strokeWidth = 4;
     
@@ -83,19 +84,20 @@
     } else {
         [self.bgColor set];
     }
+    
     [bgPath appendBezierPathWithRect:NSMakeRect(0, 0, self.width, RACK_HEIGHT - MODULE_HEIGHT)];
     
-    [bgPath fill];
-    [bgPath moveToPoint:NSMakePoint(self.width - (strokeWidth/2), RACK_HEIGHT - MODULE_HEIGHT)];
-    [bgPath lineToPoint:NSMakePoint(self.width - (strokeWidth/2), RACK_HEIGHT - (strokeWidth/2))];
-    [bgPath lineToPoint:NSMakePoint(strokeWidth / 2, RACK_HEIGHT - (strokeWidth/2))];
-    [bgPath lineToPoint:NSMakePoint(strokeWidth / 2, RACK_HEIGHT - MODULE_HEIGHT)];
-    
     [bgPath closePath];
+    [bgPath fill];
     
-    [bgPath setLineWidth: strokeWidth];
+    [fgPath moveToPoint:NSMakePoint(self.width - (strokeWidth/2), RACK_HEIGHT - MODULE_HEIGHT)];
+    [fgPath lineToPoint:NSMakePoint(self.width - (strokeWidth/2), RACK_HEIGHT - (strokeWidth/2))];
+    [fgPath lineToPoint:NSMakePoint(strokeWidth / 2, RACK_HEIGHT - (strokeWidth/2))];
+    [fgPath lineToPoint:NSMakePoint(strokeWidth / 2, RACK_HEIGHT - MODULE_HEIGHT)];
     
-    [bgPath stroke];
+    [fgPath setLineWidth: strokeWidth];
+    
+    [fgPath stroke];
     
     NSLog(@"Drawing");
 }

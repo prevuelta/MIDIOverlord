@@ -107,10 +107,8 @@ int _xLoc;
             
             _xLoc += module.width;
             
-            [rack.subViews addObject: module];
+            [rack addSubview: module];
         }
-
-    [rack addSubview: rack.subViews];
     
 //        [rack setSubviews: rack.subViews];
     

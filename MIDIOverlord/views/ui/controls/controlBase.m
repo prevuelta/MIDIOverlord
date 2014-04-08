@@ -15,7 +15,7 @@
     NSLog(@"Control init");
     
     float defaultRGBA[] = UI_COLOR_PROT_3;
-    float markerRGBA[] = UI_COLOR_PROT_4;
+    float markerRGBA[] = UI_COLOR_HIGHLIGHT;
     float activeRGBA[] = UI_COLOR_HIGHLIGHT;
     
     _defaultColor = [utilities getNSColorFromRGB:defaultRGBA];

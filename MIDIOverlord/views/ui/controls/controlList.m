@@ -16,15 +16,13 @@
     self.width = 120;
     self.height = RACK_HEIGHT - MODULE_HEIGHT;
     
-    NSRect frame = NSMakeRect(0, 0, self.width, self.height * ([keyValues count]+1));
+    NSRect frame = NSMakeRect(0, 0, self.width, self.height * ([keyValues count]+4));
     
     self = [super initWithFrame:frame];
     
     if(!self) return nil;
 
     _selected = [NSMutableArray arrayWithObjects:@"None", @0, nil];
-    
-    _height = RACK_HEIGHT - MODULE_HEIGHT;
     
     float bgRGBA[] = UI_COLOR_PROT_2;
     float activeBgRGBA[] = UI_COLOR_PROT_3;
@@ -38,26 +36,38 @@
     [label setStringValue: labelText];
     [self addSubview:label];
     
-    label = [[uiLabel alloc] initWithFrame: NSMakeRect(60, 0, 150, _height)];
+    label = [[uiLabel alloc] initWithFrame: NSMakeRect(60, 0, self.width, _height)];
     [label setStringValue: _selected[0]];
     [self addSubview:label];
+
+    label = [[uiLabel alloc] initWithFrame: NSMakeRect(60, self.height, self.width, self.height)];
+    [label setDrawsBackground:YES];
+    [label setStringValue: @"None"];
+    [label setHidden:YES];
+    [self addSubview:label];
     
+    label = [[uiLabel alloc] initWithFrame: NSMakeRect(60, 2 * self.height, self.width, self.height)];
+    [label setDrawsBackground:YES];
+    [label setStringValue: @"All"];
+    [label setHidden:YES];
+    [self addSubview:label];
     
     NSLog(@"Key values: %@", keyValues);
 
+    if([keyValues count] > 0){
+        for(int i = 0; i < [keyValues count]; i++ ) {
+            
+            if(i % 2 == 0) {
+                label = [[uiLabel alloc] initWithFrame: NSMakeRect(60, (i+3) * self.height , self.width, self.height)];
+                [label setDrawsBackground:YES];
+                [label setStringValue: keyValues[i]];
+                [label setTag: 5];
+                [label setHidden:YES];
+                [self addSubview:label];
+            
+            } else {
 
-    for(int i = 0; i < [keyValues count]; i++ ) {
-        
-        if(i % 2 == 0) {
-            uiLabel *label = [[uiLabel alloc] initWithFrame: NSMakeRect(60, (i+1) * self.height , self.width, self.height)];
-            [label setDrawsBackground:YES];
-            [label setStringValue: keyValues[i]];
-            [label setTag: 5];
-            [label setHidden:YES];
-            [self addSubview:label];
-        
-        } else {
-        
+            }
         }
     }
     
@@ -100,13 +110,19 @@
         NSLog(@"active");
 //            [self removeFromSuperview];
 //        [self.superview addSubview:self];
-        [self.superview addSubview:self positioned:NSWindowAbove relativeTo:nil];
+//        [self.superview.subViews removeObject: self];
+//        [self.superview addSubview:self positioned:NSWindowAbove relativeTo:nil];
     } else {
-                NSLog(@"Notactive");
+           NSLog(@"Notactive");
         //        [self.superview addSubview:self];
 //        [self.superview addSubview:self positioned:NSWindowBelow relativeTo:nil];
     }
-    [[self viewWithTag: 5] setHidden: !self.active];
+    
+    for(NSView *view in self.subviews) {
+        [view setHidden: !self.active];
+    }
+//    [[self viewWithTag: 5] setHidden: !self.active];
+    
     [self setNeedsDisplay:YES];
 }
 
