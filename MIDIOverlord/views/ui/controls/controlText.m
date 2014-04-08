@@ -14,7 +14,7 @@
     self = [super initWithFrame:frame];
     if(!self) return nil;
     
-    //    [self.label setEditable:false];
+//    //    [self.label setEditable:false];
     [self setIntValue:value];
     
     _value = 13;
@@ -23,6 +23,10 @@
     
     return self;
 }
+
+//-(void)mouseDown:(NSEvent *)theEvent {
+//    [self setEditable:YES];
+//}
 
 
 

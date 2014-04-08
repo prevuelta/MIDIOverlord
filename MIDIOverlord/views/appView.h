@@ -26,7 +26,6 @@
 
 @interface appView: NSView
 
-@property int rackCount;
 @property NSWindow *mainWin;
 
 //@property NSMutableArray* layout;
@@ -37,15 +36,15 @@
 -(id)initWithWin:(NSWindow*)mainWin;
 //andRackData:(NSMutableArray*)rackData andModuleData:(NSDictionary*)moduleData andLayout:(NSMutableArray*)layout;
 
--(void)resizeWin:(int)rackCount;
+-(void)resizeWin:(NSInteger)rackCount;
 
 -(void)drawRect:(NSRect)rect;
 
 -(void)drawGrid;
 
--(void)updateRacks:(NSDictionary*)rackData :(NSArray*)layout;
+-(void)updateRacks:(NSMutableArray*)rackData :(NSMutableArray*)layout;
 
--(void)updateRackModules:(NSString*)rackID :(NSMutableArray*)moduleData;
+-(void)updateRackModules:(NSInteger)rackID :(NSMutableArray*)moduleData;
 
 
 @end

@@ -12,9 +12,14 @@
 
 @property int width;
 
--(id)initWithFrame:(NSRect)frame :(NSMutableArray*)keyValues;
+-(id)initWithFrame: (NSMutableArray*)keyValues andLabel:(NSString*)labelText andDefault:(NSString*)defaultText;
 
-@property NSMutableArray * selected;
+@property NSMutableArray *selected;
 @property int height;
+@property BOOL state;
+
+@property NSColor* bgColor;
+@property NSColor* activeBgColor;
+@property NSColor* fgColor;
 
 @end

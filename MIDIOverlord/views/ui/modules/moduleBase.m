@@ -18,9 +18,13 @@
     self = [super initWithFrame:frame];
     if (!self) return nil;
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deselect:) name:@"deselectAll" object:nil];
+    
     controlText *midiValueText = [[controlText alloc] initWithFrame:NSMakeRect(8, 96, 48, 20): _midiValue];
     
     [midiValueText bind:@"value" toObject:self withKeyPath:@"self.midiValue" options:nil];
+    
+    [midiValueText setTag: 0];
     
     [self addSubview:midiValueText];
 
@@ -39,6 +43,11 @@
     return self;
 }
 
+-(void)deselect:(NSNotification*)notification  {
+    _selected = NO;
+    [self setNeedsDisplay:YES];
+}
+
 -(void)setOrigin:(NSPoint)origin {
     NSRect f = self.frame;
     f.origin = origin;
@@ -50,13 +59,12 @@
 }
 
 -(void)setData:(NSDictionary*)data {
-    
     _data = data;
 }
 
 -(void)mouseDown:(NSEvent *)theEvent {
-   _selected = !_selected;
-    NSLog(@"CLIKE");
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"deselectAll" object:self userInfo: nil];
+    _selected = YES;
     [self setNeedsDisplay:YES];
 }
 
@@ -125,10 +133,6 @@
     [self.label setStringValue: labelText];
     [self.label setNeedsDisplay:YES];
     _labelText = labelText;
-}
-
--(BOOL)isFlipped {
-    return YES;
 }
 
 @end

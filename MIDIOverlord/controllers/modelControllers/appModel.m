@@ -35,14 +35,15 @@
     
     NSDictionary* page = [[_state objectForKey: @"pages"] objectAtIndex: 0];
     
-    _layout = [NSMutableArray arrayWithObjects: [page objectForKey: @"layout"], nil];
+    _layout = [NSMutableArray arrayWithArray: [page objectForKey: @"layout"]];
     
-    _rackData = [NSMutableArray arrayWithObjects: [page objectForKey: @"racks"], nil];
+    _rackData = [NSMutableArray arrayWithArray: [page objectForKey: @"racks"]];
+    
+    _moduleID =  [[_state objectForKey: @"moduleID"] integerValue];
+    
+    _rackID = [[_state objectForKey: @"rackID"] integerValue];
     
     _moduleData = [NSMutableDictionary dictionaryWithDictionary:[_state objectForKey: @"modules"]];
-    
-//    NSLog(@"%@", [_controlObjects description]);
-
 
 }
 
@@ -69,7 +70,7 @@
     
     NSStringEncoding encoding = NSUTF8StringEncoding;
     NSData * jsonData = [jsonString dataUsingEncoding:encoding];
-    NSError * error=nil;
+    NSError * error = nil;
     
     return (NSMutableDictionary*)[NSJSONSerialization JSONObjectWithData:jsonData options:kNilOptions error:&error];
 }
@@ -109,7 +110,7 @@
     _rackID++;
     
     NSDictionary* rack = @{
-        @"ID" : [NSNumber numberWithInt:_rackID],
+        @"ID" : [NSNumber numberWithInteger:_rackID],
         @"page" : [NSNumber numberWithInt:pageIndex],
         @"label": @"Rack 1",
         @"size": @0,
@@ -120,23 +121,23 @@
     
     [_rackData addObject:rack];
 
-    NSMutableArray *newLayout = [[NSMutableArray alloc] init];
+    NSMutableArray *newLayout = [NSMutableArray new];
     
     [_layout addObject: newLayout];
     
 }
 
--(NSString*)getRackID:(int)index {
-    return [_rackData[index] objectForKey:@"ID"];
+-(NSInteger)getRackID:(int)index {
+    return [[_rackData[index] objectForKey:@"ID"] integerValue];
 }
 
 -(void)addModule:(int)pageIndex :(int)rackIndex :(int)type {
     
-    _moduleID++;
+    _moduleID = _moduleID + 1;
     
     NSDictionary* module = @{
          @"label" : @"Untitled",
-         @"type" : @1,
+         @"type" : [NSNumber numberWithInt:type],
          @"val" : @60,
          @"min" : @0,
          @"max" : @127,
@@ -144,25 +145,39 @@
          @"midiOUT" : @24
     };
     
-    [_moduleData setObject: module forKey: [NSNumber numberWithInt: _moduleID]];
+    [_moduleData setObject: module forKey: [NSNumber numberWithInteger: _moduleID]];
     
-    [_layout[rackIndex] addObject:[NSNumber numberWithInt: _moduleID]];
+//    NSLog(@"Layout: %@", _layout);
     
-    NSLog(@"Layout %@", _layout);
-    NSLog(@"Layout %@", _moduleData);
+    [_layout[rackIndex] addObject:[NSNumber numberWithInteger: _moduleID]];
+    
+    NSLog(@"Layout: %@", _layout);
+//    NSLog(@"M DTA: %@", _moduleData);
 }
 
 -(NSMutableArray*)getRackModules: (int)layoutIndex {
     
     NSMutableArray* modules = [NSMutableArray new];
     
-    for(NSMutableDictionary* module in _moduleData) {
-        NSString* ID = [module objectForKey:@"ID"];
-        if([_layout[layoutIndex] containsObject: ID]) {
-            [modules addObject:[module objectForKey:ID]];
-        }
+    for(id index in _layout[layoutIndex]) {
+        [modules addObject:_moduleData[index]];
+        
+        
+//        NSMutableDictionary *module = _moduleData[index];
+//        NSLog(@"Module: %@", module);
+//        NSNumber *ID = [module objectForKey:@"ID"];
+//        
+//        NSLog(@"%@, %@", _layout[layoutIndex], ID);
+//        NSLog([_layout[layoutIndex] containsObject: ID] ? @"YES" : @"NO");
+        
+//        if([_layout[layoutIndex] indexOfObject: ID]) {
+//            [modules addObject:module];
+//            NSLog(@"Done added module");
+//        }
     }
-             
+    
+//    NSLog(@"Mdousldsd: %@", modules);
+    
     return modules;
 
 }

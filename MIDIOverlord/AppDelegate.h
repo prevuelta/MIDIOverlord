@@ -29,6 +29,5 @@
 @property eventHandler* events;
 
 - (IBAction)makeView:(id)sender;
-- (void)resizeWin:(NSPoint)size;
 
 @end

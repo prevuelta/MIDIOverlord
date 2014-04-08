@@ -46,15 +46,27 @@
     return [NSColor colorWithDeviceRed:red green:green blue:blue alpha:alpha];
 }
 
++(NSMutableArray*)getMidiSources {
+    
+    NSMutableArray *sources = [NSMutableArray new];
+    
+    ItemCount sourceCount = MIDIGetNumberOfSources();
+    
+    NSLog(@"sources: %i", (int)sourceCount);
+    
+    for (ItemCount i = 0 ; i < sourceCount ; ++i) {
+        
+    }
+    
+    return sources;
+}
+
 +(NSMutableArray*)getMidiDestinations {
     
     NSMutableArray *destinations = [NSMutableArray new];
     
     ItemCount destCount = MIDIGetNumberOfDestinations();
     
-    ItemCount sourceCount = MIDIGetNumberOfSources();
-    
-    NSLog(@"sources: %i", (int)sourceCount);
     NSLog(@"Destinationcount: %i", (int)destCount);
     
     for (ItemCount i = 0 ; i < destCount ; ++i) {

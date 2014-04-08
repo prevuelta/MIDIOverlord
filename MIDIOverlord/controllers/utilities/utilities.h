@@ -18,6 +18,8 @@
 +(NSColor*)getNSColorFromRGB:(float[])colors;
 
 +(NSMutableArray*)getMidiDestinations;
++(NSMutableArray*)getMidiSources;
+
 +(NSString*)getDeviceName:(MIDIObjectRef)object;
 
 // App file handling

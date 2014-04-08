@@ -15,15 +15,10 @@
     self = [super initWithFrame:NSMakeRect(offset.x, offset.y, size.x, size.y)];
     if(!self) return nil;
 
+    [self setDefaults];
+    
     _size = size;
     _offset = offset;
-
-    // Setup colors
-    float upRGBA[] = UI_COLOR_PROT_2;
-    _upColor = [utilities getNSColorFromRGB:upRGBA];
-
-    float downRGBA[] = UI_COLOR_PROT_3;
-    _downColor = [utilities getNSColorFromRGB:downRGBA];
     
     return self;
 }
@@ -37,9 +32,9 @@
     [btnPath closePath];
     
     if(self.active) {
-        [self.downColor set];
+        [self.activeColor set];
     } else {
-        [self.upColor set];
+        [self.defaultColor set];
     }
     
     [btnPath fill];
@@ -47,13 +42,13 @@
 }
 
 -(void)mouseDown:(NSEvent *)theEvent {
-    self.active = true;
+    self.active = YES;
     [self setNeedsDisplay:YES];
     [self.delegate uiEvent:"noteOn"];
 }
 
 -(void)mouseUp:(NSEvent *)theEvent {
-    self.active = false;
+    self.active = NO;
     [self setNeedsDisplay:YES];
     [self.delegate uiEvent:"noteOff"];
 }

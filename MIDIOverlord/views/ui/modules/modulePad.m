@@ -16,7 +16,7 @@
     
     int width = 80;
     
-    NSRect frame = NSMakeRect(0, 0, width, RACK_HEIGHT );
+    NSRect frame = NSMakeRect(0, 0, width, MODULE_HEIGHT);
     
     self = [super initWithFrame:frame];
     

@@ -11,6 +11,7 @@
 @implementation moduleRack
 
 @synthesize data = _data;
+@synthesize subViews;
 
 -(id)initWithFrame:(NSRect)frame {
     self = [super initWithFrame:frame];
@@ -26,6 +27,8 @@
     
     self.bgColor = [utilities getNSColorFromRGB: bgRGBA];
     
+    self.subViews = [NSMutableArray new];
+    
     return self;
 }
 
@@ -37,11 +40,17 @@
     
     [self addSubview: self.label];
     
+    // Destinations
     NSMutableArray* destinations = [utilities getMidiDestinations];
+    controlList *midiOutput = [[controlList alloc] initWithFrame: destinations andLabel: @"Midi OUT" andDefault: @"None"];
+    [midiOutput setOrigin: NSMakePoint(100, 0)];
+    [self addSubview: midiOutput positioned:NSWindowAbove relativeTo:nil];
     
-    controlList *midiOutput = [[controlList alloc] initWithFrame: self.frame : destinations];
-    
-    [self addSubview: midiOutput];
+    // Origins
+    NSMutableArray* sources = [utilities getMidiSources];
+    controlList *midiInput = [[controlList alloc] initWithFrame:sources andLabel: @"Midi IN" andDefault: @"None"];
+    [midiInput setOrigin: NSMakePoint(240, 0)];
+    [self addSubview: midiInput positioned:NSWindowAbove relativeTo:nil];
     
     [self setNeedsDisplay:YES];
     
@@ -53,8 +62,42 @@
 
 -(void)setData:(NSDictionary*)data {
     self.labelText = [data objectForKey: @"label"];
-    self.tag = [data objectForKey:@"id"];
+    self.tag = [[data objectForKey:@"ID"] integerValue];
     _data = data;
+}
+
+-(BOOL)isFlipped {
+    return YES;
+}
+
+-(void)drawBg:(NSRect)rect {
+    
+    // Draw background
+    
+    NSBezierPath* bgPath = [NSBezierPath new];
+    
+    int strokeWidth = 4;
+    
+    if(self.selected) {
+        [self.selectedColor set];
+    } else {
+        [self.bgColor set];
+    }
+    [bgPath appendBezierPathWithRect:NSMakeRect(0, 0, self.width, RACK_HEIGHT - MODULE_HEIGHT)];
+    
+    [bgPath fill];
+    [bgPath moveToPoint:NSMakePoint(self.width - (strokeWidth/2), RACK_HEIGHT - MODULE_HEIGHT)];
+    [bgPath lineToPoint:NSMakePoint(self.width - (strokeWidth/2), RACK_HEIGHT - (strokeWidth/2))];
+    [bgPath lineToPoint:NSMakePoint(strokeWidth / 2, RACK_HEIGHT - (strokeWidth/2))];
+    [bgPath lineToPoint:NSMakePoint(strokeWidth / 2, RACK_HEIGHT - MODULE_HEIGHT)];
+    
+    [bgPath closePath];
+    
+    [bgPath setLineWidth: strokeWidth];
+    
+    [bgPath stroke];
+    
+    NSLog(@"Drawing");
 }
 
 

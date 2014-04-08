@@ -12,6 +12,8 @@
 
 @property NSDictionary* data;
 
+@property NSMutableArray* subViews;
+
 -(void)addRackTitle;
 
 @end

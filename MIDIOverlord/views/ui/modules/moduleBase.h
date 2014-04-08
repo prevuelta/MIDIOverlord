@@ -48,4 +48,6 @@
 -(void)drawBg:(NSRect)rect;
 -(void)drawModule:(NSRect)rect;
 
+-(void)deselect:(NSNotification*)notification ;
+
 @end

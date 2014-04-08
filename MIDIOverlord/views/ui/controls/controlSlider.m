@@ -17,6 +17,8 @@
     self = [super initWithFrame:NSMakeRect(offset.x, offset.y, size.x, size.y)];
     if(!self) return nil;
     
+    [self setDefaults];
+    
     _size = size;
     _offset = offset;
     _min = min;
@@ -48,19 +50,13 @@
     NSBezierPath* bgPath = [NSBezierPath new];
     NSBezierPath* markerPath = [NSBezierPath new];
     
-    float bgRGBA[] = UI_COLOR_PROT_2;
-    float markerRGBA[] = UI_COLOR_PROT_3;
-    
-    NSColor* bgColor = [utilities getNSColorFromRGB:bgRGBA];
-    NSColor* markerColor = [utilities getNSColorFromRGB:markerRGBA];
-    
-    [bgColor set];
+    [self.defaultColor set];
     
     [bgPath appendBezierPathWithRect:NSMakeRect(0, 0, self.size.x, self.size.y)];
     [bgPath closePath];
     [bgPath fill];
     
-    [markerColor set];
+    [self.markerColor set];
     
     [markerPath appendBezierPathWithRect:NSMakeRect(0, 0, self.size.x, self.marker)];
     [markerPath closePath];

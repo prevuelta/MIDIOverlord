@@ -12,6 +12,7 @@
 #define UI_COLOR_PROT_1 {60, 60, 60, 255}
 #define UI_COLOR_PROT_2 {80, 80, 80, 255}
 #define UI_COLOR_PROT_3 {120, 120, 120, 150}
+#define UI_COLOR_PROT_4 {200, 200, 200, 255}
 
 #define UI_COLOR_HIGHLIGHT {241, 61, 57, 255}
 

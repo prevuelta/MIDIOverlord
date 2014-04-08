@@ -11,22 +11,24 @@
 @interface appModel : NSObject
 
 @property NSString* title;
+
 @property NSMutableDictionary* global;
 @property NSMutableDictionary* state;
-
-@property NSString* currentFile;
-@property NSDictionary* currentPage;
-
-// Data object
-
-@property int moduleID;
-@property int rackID;
-
 @property NSMutableDictionary* appData;
 @property NSMutableDictionary* moduleData;
 @property NSMutableArray* rackData;
 @property NSMutableArray* layout;
 
+@property NSString* currentFile;
+@property NSDictionary* currentPage;
+
+// MidiData
+@property NSMutableArray* midiSources;
+@property NSMutableArray* midiDestinations;
+
+// Data object
+@property NSInteger moduleID;
+@property NSInteger rackID;
 
 -(id)init;
 -(void)setupData;
@@ -43,6 +45,6 @@
 
 -(NSMutableArray*)getRackModules: (int)layoutIndex;
 
--(NSString*)getRackID:(int)index;
+-(NSInteger)getRackID:(int)index;
 
 @end

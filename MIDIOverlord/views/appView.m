@@ -50,18 +50,20 @@ int _xLoc;
 }
 
 
--(void)resizeWin:(int)rackCount{
+-(void)resizeWin:(NSInteger)rackCount{
     
     NSRect frame = [_mainWin frame];
     
     frame.size.width = WINDOW_WIDTH;
-    frame.size.height = (RACK_HEIGHT * rackCount ) + TOOLBAR_HEIGHT;
+    frame.size.height = (RACK_HEIGHT * rackCount) + TOOLBAR_HEIGHT + 22;
     
-    [_mainWin setFrame: frame display:YES animate:NO];
+    NSLog(@"Frame height: %@", [NSNumber numberWithInt:frame.size.height]);
+    
+    [_mainWin setFrame: frame display:YES animate:YES];
     
 }
 
--(void)updateRacks:(NSMutableArray*)rackData :(NSArray*)layout {
+-(void)updateRacks:(NSMutableArray*)rackData :(NSMutableArray*)layout {
     
     for(int row = 0; row < [layout count]; row++) {
         
@@ -72,44 +74,61 @@ int _xLoc;
         
         [rack setData: rackData[row]];
         
-        [rack setTag: 3];
+        NSInteger rackID = [[rackData[row] objectForKey:@"ID"] integerValue];
         
-        [self addSubview: rack];
+        [rack setTag: rackID];
+        
+        [self addSubview:rack];
         
     }
 }
 
--(void)updateRackModules:(NSString*)rackID :(NSMutableArray*)moduleData {
+-(void)updateRackModules:(NSInteger)rackID :(NSMutableArray*)moduleData {
   
-         NSLog(@"Updating module");
+         NSLog(@"Updating module: %@", moduleData);
     
          _xLoc = 0;
     
-        NSView *rack = [self viewWithTag: (int)rackID];
-        
+        moduleRack *rack = [self viewWithTag: rackID];
+    
+        NSLog(@"Rack: %@", rack);
+    
         for(int i = 0; i < [moduleData count]; i++) {
+            
             NSLog(@"Updating modul");
-            int type = (int)[moduleData[i] objectForKey:@"type"];
+            
+            NSInteger type = [[moduleData[i] objectForKey:@"type"] integerValue];
+            
             moduleBase *module = [self getModuleOfType:type];
+            
             [module setData: moduleData[i]];
-            [module setOrigin: NSMakePoint(_xLoc + 0.5, 0)];
-             _xLoc += module.width;
-            [rack addSubview: module];
+            
+            [module setOrigin: NSMakePoint(_xLoc, RACK_HEIGHT - MODULE_HEIGHT)];
+            
+            _xLoc += module.width;
+            
+            [rack.subViews addObject: module];
         }
-  
+
+    [rack addSubview: rack.subViews];
+    
+//        [rack setSubviews: rack.subViews];
+    
         [rack setNeedsDisplay:YES];
 }
                             
--(moduleBase*)getModuleOfType:(int)type {
+-(moduleBase*)getModuleOfType:(NSInteger)type {
     
     moduleBase *module;
 
     switch(type) {
-        case 0: {
-            module = [[modulePad alloc] initWithFrame];
-        } break;
         case 1: {
+            module = [[modulePad alloc] initWithFrame];
+            NSLog(@"added pad");
+        } break;
+        case 2: {
             module = [[moduleSlider alloc] initWithFrame];
+            NSLog(@"added slider");
         } break;
     }
     

@@ -22,9 +22,16 @@
 @property (nonatomic, assign) id delegate;
 
 @property BOOL active;
+@property NSColor *defaultColor;
+@property NSColor *markerColor;
+@property NSColor *activeColor;
 
+
+-(void)setDefaults;
 -(void)drawRect:(NSRect)rect;
 -(void)uiEvent:(char*)type;
 -(void)uiEvent:(char*)type withInt:(int)val;
+
+-(void)setOrigin:(NSPoint)origin;
 
 @end
