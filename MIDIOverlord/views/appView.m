@@ -85,11 +85,11 @@ int _xLoc;
 
 -(void)updateRackModules:(NSInteger)rackID :(NSMutableArray*)moduleData {
   
-         NSLog(@"Updating module: %@", moduleData);
-    
-         _xLoc = 0;
+        NSLog(@"Updating module: %@", moduleData);
     
         moduleRack *rack = [self viewWithTag: rackID];
+    
+        _xLoc = rack.headerWidth;
     
         NSLog(@"Rack: %@", rack);
     
@@ -106,7 +106,7 @@ int _xLoc;
             [module setOrigin: NSMakePoint(_xLoc, RACK_HEIGHT - MODULE_HEIGHT)];
             
             _xLoc += module.width;
-            
+//            
             [rack addSubview: module];
         }
     
@@ -180,6 +180,11 @@ int _xLoc;
 
 -(BOOL)isFlipped {
     return YES;
+}
+
+-(void)mouseDown:(NSEvent *)theEvent {
+    NSLog(@"Mainview clicked");
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"closeOpen" object:self userInfo: nil];
 }
 
 @end

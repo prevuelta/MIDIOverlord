@@ -7,19 +7,22 @@
 //
 
 #import "controlBase.h"
+#import "controlOption.h"
 
 @interface controlList : controlBase
 
 @property int width;
 
--(id)initWithFrame: (NSMutableArray*)keyValues andLabel:(NSString*)labelText andDefault:(NSString*)defaultText;
-
-@property NSMutableArray *selected;
+@property NSMutableArray *activeOption;
 @property int height;
 @property BOOL state;
-
+@property int optionCount;
 @property NSColor* bgColor;
 @property NSColor* activeBgColor;
 @property NSColor* fgColor;
+
+-(id)initWithFrame: (NSMutableArray*)keyValues andLabel:(NSString*)labelText;
+-(void)deselect:(NSNotification*)notification;
+-(void)showHideOptions;
 
 @end

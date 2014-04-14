@@ -21,6 +21,8 @@
     
     self.height = RACK_HEIGHT;
     
+    self.headerWidth = 100;
+    
     [self addRackTitle];
     
     float bgRGBA[] = UI_COLOR_PROT_0;
@@ -35,22 +37,23 @@
 -(void)addRackTitle {
 
     self.label = [[uiLabel alloc] initWithFrame:self.frame];
-    
     [self.label setStringValue: self.labelText];
     
     [self addSubview: self.label];
     
     // Destinations
     NSMutableArray* destinations = [utilities getMidiDestinations];
-    controlList *midiOutput = [[controlList alloc] initWithFrame: destinations andLabel: @"Midi OUT" andDefault: @"None"];
-    [midiOutput setOrigin: NSMakePoint(100, 0)];
+    deviceList *midiOutput = [[deviceList alloc] initWithFrame: destinations andLabel: @"MIDI OUT"];
+    [midiOutput setOrigin: NSMakePoint(5, 20)];
     [self addSubview: midiOutput positioned:NSWindowAbove relativeTo:nil];
     
     // Origins
     NSMutableArray* sources = [utilities getMidiSources];
-    controlList *midiInput = [[controlList alloc] initWithFrame:sources andLabel: @"Midi IN" andDefault: @"None"];
-    [midiInput setOrigin: NSMakePoint(240, 0)];
+    deviceList *midiInput = [[deviceList alloc] initWithFrame:sources andLabel: @"MIDI IN"];
+    [midiInput setOrigin: NSMakePoint(5, 40)];
     [self addSubview: midiInput positioned:NSWindowAbove relativeTo:nil];
+    
+//    [self addSubview:rackHeader];
     
     [self setNeedsDisplay:YES];
     
@@ -78,6 +81,7 @@
     NSBezierPath* fgPath = [NSBezierPath new];
     
     int strokeWidth = 4;
+    int halfStrokeWidth = strokeWidth / 2;
     
     if(self.selected) {
         [self.selectedColor set];
@@ -85,15 +89,18 @@
         [self.bgColor set];
     }
     
-    [bgPath appendBezierPathWithRect:NSMakeRect(0, 0, self.width, RACK_HEIGHT - MODULE_HEIGHT)];
+    [bgPath appendBezierPathWithRect:NSMakeRect(0, 0, self.headerWidth, RACK_HEIGHT)];
     
     [bgPath closePath];
     [bgPath fill];
     
-    [fgPath moveToPoint:NSMakePoint(self.width - (strokeWidth/2), RACK_HEIGHT - MODULE_HEIGHT)];
-    [fgPath lineToPoint:NSMakePoint(self.width - (strokeWidth/2), RACK_HEIGHT - (strokeWidth/2))];
-    [fgPath lineToPoint:NSMakePoint(strokeWidth / 2, RACK_HEIGHT - (strokeWidth/2))];
-    [fgPath lineToPoint:NSMakePoint(strokeWidth / 2, RACK_HEIGHT - MODULE_HEIGHT)];
+    [fgPath moveToPoint:NSMakePoint(halfStrokeWidth, halfStrokeWidth)];
+    [fgPath lineToPoint:NSMakePoint(self.width - halfStrokeWidth, halfStrokeWidth)];
+    [fgPath lineToPoint:NSMakePoint(self.width - halfStrokeWidth, RACK_HEIGHT - halfStrokeWidth)];
+    [fgPath lineToPoint:NSMakePoint(halfStrokeWidth, RACK_HEIGHT - halfStrokeWidth)];
+    [fgPath lineToPoint:NSMakePoint(halfStrokeWidth, halfStrokeWidth)];
+    
+    [fgPath closePath];
     
     [fgPath setLineWidth: strokeWidth];
     

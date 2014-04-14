@@ -35,6 +35,8 @@
 		6E7C564018ED04A80002F09B /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7C563F18ED04A80002F09B /* CoreMIDI.framework */; };
 		6E7C564218ED04C10002F09B /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7C564118ED04C10002F09B /* Cocoa.framework */; };
 		6E7C564518ED04E60002F09B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7C564318ED04C60002F09B /* Foundation.framework */; };
+		6ECE40EF18FBA1C700E89424 /* deviceList.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECE40EE18FBA1C700E89424 /* deviceList.m */; };
+		6ECE40F218FBA40100E89424 /* controlOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECE40F118FBA40100E89424 /* controlOption.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +50,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		6E5A6404184417F700C1CD8E /* MIDIOverlordTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = MIDIOverlordTests.xctest; path = /Users/pablo/MIDIOverlord/build/Debug/MIDIOverlordTests.xctest; sourceTree = "<absolute>"; };
 		6E7C55E918EB94B30002F09B /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6E7C55EA18EB94B30002F09B /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		6E7C55EC18EB94B30002F09B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -100,6 +101,11 @@
 		6E7C563F18ED04A80002F09B /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
 		6E7C564118ED04C10002F09B /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		6E7C564318ED04C60002F09B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		6ECE40EC18FB9B2900E89424 /* MIDIOverlordTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MIDIOverlordTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6ECE40ED18FBA1C700E89424 /* deviceList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = deviceList.h; path = MIDIOverlord/views/ui/controls/deviceList.h; sourceTree = SOURCE_ROOT; };
+		6ECE40EE18FBA1C700E89424 /* deviceList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = deviceList.m; path = MIDIOverlord/views/ui/controls/deviceList.m; sourceTree = SOURCE_ROOT; };
+		6ECE40F018FBA40100E89424 /* controlOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = controlOption.h; sourceTree = "<group>"; };
+		6ECE40F118FBA40100E89424 /* controlOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = controlOption.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +137,7 @@
 				6E7C563F18ED04A80002F09B /* CoreMIDI.framework */,
 				6E7C55E818EB94B30002F09B /* MIDIOverlord */,
 				6E7C563E18EB94EC0002F09B /* MIDIOverlord.app */,
+				6ECE40EC18FB9B2900E89424 /* MIDIOverlordTests.xctest */,
 			);
 			sourceTree = "<group>";
 		};
@@ -225,6 +232,10 @@
 			children = (
 				6E7C560C18EB94B30002F09B /* controlBase.h */,
 				6E7C560D18EB94B30002F09B /* controlBase.m */,
+				6ECE40F018FBA40100E89424 /* controlOption.h */,
+				6ECE40F118FBA40100E89424 /* controlOption.m */,
+				6ECE40ED18FBA1C700E89424 /* deviceList.h */,
+				6ECE40EE18FBA1C700E89424 /* deviceList.m */,
 				6E7C560E18EB94B30002F09B /* controlList.h */,
 				6E7C560F18EB94B30002F09B /* controlList.m */,
 				6E7C561018EB94B30002F09B /* controlSlider.h */,
@@ -287,7 +298,7 @@
 			);
 			name = MIDIOverlordTests;
 			productName = GeckoMIDITests;
-			productReference = 6E5A6404184417F700C1CD8E /* MIDIOverlordTests.xctest */;
+			productReference = 6ECE40EC18FB9B2900E89424 /* MIDIOverlordTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -351,6 +362,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6ECE40F218FBA40100E89424 /* controlOption.m in Sources */,
 				6E7C563D18EB94B30002F09B /* uiLabel.m in Sources */,
 				6E7C563218EB94B30002F09B /* appView.m in Sources */,
 				6E7C563318EB94B30002F09B /* controlBase.m in Sources */,
@@ -362,6 +374,7 @@
 				6E7C563718EB94B30002F09B /* controlTrigger.m in Sources */,
 				6E7C563918EB94B30002F09B /* modulePad.m in Sources */,
 				6E7C563B18EB94B30002F09B /* moduleSlider.m in Sources */,
+				6ECE40EF18FBA1C700E89424 /* deviceList.m in Sources */,
 				6E7C562318EB94B30002F09B /* AppDelegate.m in Sources */,
 				6E7C562618EB94B30002F09B /* eventHandler.m in Sources */,
 				6E7C563818EB94B30002F09B /* moduleBase.m in Sources */,

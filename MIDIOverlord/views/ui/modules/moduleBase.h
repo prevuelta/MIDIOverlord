@@ -11,6 +11,7 @@
 #import "controlText.h"
 #import "controlSlider.h"
 #import "controlList.h"
+#import "deviceList.h"
 #import "uiLabel.h"
 #import "utilities.h"
 

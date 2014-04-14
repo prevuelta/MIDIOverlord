@@ -22,10 +22,15 @@
 @property (nonatomic, assign) id delegate;
 
 @property BOOL active;
+@property BOOL selected;
+
+@property NSInteger tag;
+
 @property NSColor *defaultColor;
 @property NSColor *markerColor;
 @property NSColor *activeColor;
 
+-(void)deselect:(NSNotification*)notification;
 
 -(void)setDefaults;
 -(void)drawRect:(NSRect)rect;

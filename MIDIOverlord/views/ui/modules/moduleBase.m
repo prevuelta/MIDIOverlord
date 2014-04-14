@@ -64,6 +64,7 @@
 
 -(void)mouseDown:(NSEvent *)theEvent {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"deselectAll" object:self userInfo: nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"closeOpen" object:self userInfo: nil];
     _selected = YES;
     [self setNeedsDisplay:YES];
 }

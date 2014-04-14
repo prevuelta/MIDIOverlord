@@ -16,4 +16,6 @@
 
 -(void)addRackTitle;
 
+@property int headerWidth;
+
 @end

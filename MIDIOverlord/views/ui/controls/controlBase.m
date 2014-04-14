@@ -9,6 +9,7 @@
 #import "controlBase.h"
 
 @implementation controlBase
+@synthesize tag = _tag;
 
 -(void)setDefaults {
     
@@ -39,6 +40,14 @@
     [self setFrame:f];
 }
 
+//-(void)deselect:(NSNotification*)notification  {
+//    NSLog(@"THISHAPE");
+//    _selected = NO;
+//    [self setNeedsDisplay:YES];
+//}
+//
+//
 
 
 @end
+
