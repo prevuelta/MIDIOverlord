@@ -18,8 +18,12 @@
     
     [self setDefaults];
     
+    _value = 0;
+    
     _label = [[uiLabel alloc] initWithFrame: frame];
+    [_label setBackgroundColor:self.defaultColor];
     [_label setDrawsBackground:YES];
+    
     [self addSubview:_label];
     
     NSTrackingAreaOptions mouseEnterExitOptions = NSTrackingActiveInActiveApp;
@@ -29,34 +33,37 @@
     [self addTrackingArea: trackRect ];
     
     
-    
     return self;
 }
 
 - (void)drawRect:(NSRect)dirtyRect{
-//    [[NSColor whiteColor] setFill];
-//     NSRectFill(dirtyRect);
-//	[super drawRect:dirtyRect];
-	
+    [[NSColor whiteColor] setFill];
+     NSRectFill(dirtyRect);
+    [super drawRect:dirtyRect];
+
     // Drawing code here.
 }
 
 -(void)mouseEntered:(NSEvent *)theEvent{
-    NSLog(@"Mouse entered");
-//  [_label setBackgroundColor:self.markerColor];
-    [_label setTextColor:self.activeColor];
+  [_label setBackgroundColor:self.markerColor];
 //    [_label setNeedsDisplay:YES];
 }
 
 -(void)mouseExited:(NSEvent *)theEvent {
-    NSLog(@"Mouse exited");
-    [_label setBackgroundColor: self.activeColor];
+    [_label setBackgroundColor: self.defaultColor];
     [_label setTextColor:self.markerColor];
 //    [_label setNeedsDisplay:YES];
 }
 
+-(void)mouseDown:(NSEvent *)theEvent {
+    NSLog(@"Option clicked");
+    [self.delegate uiEvent:"optionSelected" withInt: _value];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"closeOpen" object:self userInfo: nil];
+}
+
 -(void)setStringValue:(NSString*)str {
-    [_label setStringValue: str];
+//    NSLog("%@", str);
+    [_label setStringValue: @"dsdfSF"];
 }
 
 @end

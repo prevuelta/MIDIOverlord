@@ -8,6 +8,8 @@
 
 #import "controlList.h"
 
-@interface deviceList : controlList
+@interface deviceList : controlList 
+
+-(void)addOptions;
 
 @end

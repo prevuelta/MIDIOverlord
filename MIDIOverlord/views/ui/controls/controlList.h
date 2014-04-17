@@ -13,10 +13,11 @@
 
 @property int width;
 
-@property NSMutableArray *activeOption;
+@property int activeOption;
+@property int optionCount;
+@property NSMutableArray *optionData;
 @property int height;
 @property BOOL state;
-@property int optionCount;
 @property NSColor* bgColor;
 @property NSColor* activeBgColor;
 @property NSColor* fgColor;
@@ -24,5 +25,6 @@
 -(id)initWithFrame: (NSMutableArray*)keyValues andLabel:(NSString*)labelText;
 -(void)deselect:(NSNotification*)notification;
 -(void)showHideOptions;
+-(void)updateValues;
 
 @end

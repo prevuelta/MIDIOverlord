@@ -11,7 +11,7 @@
 @implementation controlList
 
 
--(id)initWithFrame: (NSMutableArray*)keyValues andLabel:(NSString*)labelText{
+-(id)initWithFrame: (NSMutableArray*)keyValues andLabel:(NSString*)labelText {
     
     self.width = 90;
     self.height = 15;
@@ -22,8 +22,12 @@
     
     if(!self) return nil;
     
-    _optionCount = [keyValues count];
+    _optionData = keyValues;
+    
+    [self addOptions];
 
+    _optionCount = [_optionData count] / 2;
+    
     _activeOption = [NSMutableArray arrayWithObjects:labelText, @0, nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deselect:) name:@"closeOpen" object:nil];
@@ -40,25 +44,22 @@
     [label setStringValue: labelText];
     [label setDrawsBackground: NO];
     [self addSubview:label];
-
-    controlOption *optionNone = [[controlOption alloc] initWithFrame: NSMakeRect(0, 0, self.width, self.height)];
-    [optionNone setOrigin:NSMakePoint(0, self.height)];
-    [optionNone setStringValue: @"None"];
-    [self addSubview:optionNone];
     
-    controlOption *optionAll = [[controlOption alloc] initWithFrame: NSMakeRect(0, 0, self.width, self.height)];
-    [optionAll setOrigin:NSMakePoint(0, self.height * 2)];
-    [optionAll setStringValue: @"All"];
-    [self addSubview:optionAll];
+//    controlOption *option = [[controlOption alloc] initWithFrame: NSMakeRect(0, self.height , self.width, self.height)];
+//    [option setStringValue: @"1"];
+//    [option setValue: @"VFSDSD"];
+//    [self addSubview:option];
+    
     
     NSLog(@"Key values: %@", keyValues);
 
-    if([keyValues count] > 0){
-        for(int i = 0; i < [keyValues count]; i++ ) {
-            
+    if([_optionData count] > 0){
+        for(int i = 0; i < [_optionData count]; i++ ) {
+            NSLog(@"Optiond ata: %@", _optionData[i]);
             if(i % 2 == 0) {
-                controlOption *option = [[controlOption alloc] initWithFrame: NSMakeRect(0, (i+3) * self.height , self.width, self.height)];
-                [option setStringValue: keyValues[i]];
+                controlOption *option = [[controlOption alloc] initWithFrame: NSMakeRect(0, (i+1) * self.height , self.width, self.height)];
+                [option setStringValue: _optionData[i]];
+                [option setValue: _optionData[i+1]];
                 [option setTag: 5];
                 [self addSubview:option];
             
@@ -97,6 +98,11 @@
     [fgPath fill];
 }
 
+-(void)uiEvent:(char*)type {
+    NSLog(@"uievetb");
+    //   [self uiEvent:type withInt:0];
+}
+
 -(BOOL)isFlipped {
     return YES;
 }
@@ -110,35 +116,18 @@
         self.selected = !self.selected;
         [self setTag: 20];
         NSRect f = self.frame;
-        f.size.height = self.height * (_optionCount + 3);
+        f.size.height = self.height * _optionCount;
         self.frame = f;
-        
-//        [self.superview.layer setZPosition:10];
     }
-        
-//        [self.superview.superview ]
-        
-       
-        
-//        [self removeFromSuperview];
-//        [self.superview addSubview:self];
-//        [self.superview.subViews removeObject: self];
-//        [self.superview addSubview:self positioned:NSWindowAbove relativeTo:nil];
-//    } else {
-//           NSLog(@"Notactive");
-        //        [self.superview addSubview:self];
-//        [self.superview addSubview:self positioned:NSWindowBelow relativeTo:nil];
-//    }
+
+    [self updateValues];
     
     [self.superview sortSubviewsUsingFunction: compareViews context: NULL];
-//    NSLog(@"Tag: %@", [NSNumber numberWithInt:[self tag]]);
-//    [self showHideOptions];
-    
     [self setNeedsDisplay:YES];
 }
 
 -(void)deselect:(NSNotification*)notification {
-    NSLog(@"Close notifcation received");
+//    NSLog(@"Close notifcation received");
     self.selected = NO;
     [self setTag: 0];
     NSRect f = self.frame;
@@ -162,6 +151,16 @@ NSComparisonResult compareViews(id firstView, id secondView, void *context) {
         }
     }
 }
+
+// Hooks
+-(void)updateValues {
+    
+}
+
+-(void)addOptions {
+    
+}
+
 
 
 @end

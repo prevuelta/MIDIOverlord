@@ -10,24 +10,16 @@
 
 @implementation deviceList
 
-//- (id)initWithFrame:(NSRect)frame
-//{
-//    self = [super initWithFrame:frame];
-//    if (self) {
-//        // Initialization code here.
-//    }
-//    return self;
-//}
-//
-//- (void)drawRect:(NSRect)dirtyRect
-//{
-//	[super drawRect:dirtyRect];
-//	
-//    // Drawing code here.
-//}
-//
-//-(void)mouseDown:(NSEvent*)theEvent {
-//    
-//}
+-(void)addOptions {
+    NSLog(@"Options data: %@", self.optionData);
+    
+    NSArray *extraOptions = @[@"None", @"0", @"All", @"1"];
+    
+    NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange: NSMakeRange(0, 4)];
+    
+    [self.optionData insertObjects: extraOptions atIndexes:indexSet];
+
+    NSLog(@"Options data: %@", self.optionData);
+}
 
 @end

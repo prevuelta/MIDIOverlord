@@ -12,6 +12,7 @@
 @interface controlOption : controlBase;
 
 @property uiLabel *label;
+@property int value;
 
 -(void)setStringValue:(NSString*)str;
 

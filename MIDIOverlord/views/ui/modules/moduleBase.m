@@ -123,7 +123,7 @@
     [bgPath fill];
     
     
-    NSLog(@"Drawing");
+//    NSLog(@"Drawing");
 }
 
 -(NSString*)labelText {
