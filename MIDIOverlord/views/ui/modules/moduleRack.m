@@ -36,7 +36,7 @@
 
 -(void)addRackTitle {
 
-    self.label = [[uiLabel alloc] initWithFrame:self.frame];
+    self.label = [[uiLabel alloc] initWithFrame:NSMakeRect(0, 0, self.headerWidth, 15)];
     [self.label setStringValue: self.labelText];
     
     [self addSubview: self.label];
@@ -45,15 +45,14 @@
     NSMutableArray* destinations = [utilities getMidiDestinations];
     deviceList *midiOutput = [[deviceList alloc] initWithFrame: destinations andLabel: @"MIDI OUT"];
     [midiOutput setOrigin: NSMakePoint(5, 20)];
-    [self addSubview: midiOutput positioned:NSWindowAbove relativeTo:nil];
+    [self addSubview: midiOutput];
     
     // Origins
     NSMutableArray* sources = [utilities getMidiSources];
     deviceList *midiInput = [[deviceList alloc] initWithFrame:sources andLabel: @"MIDI IN"];
     [midiInput setOrigin: NSMakePoint(5, 40)];
-    [self addSubview: midiInput positioned:NSWindowAbove relativeTo:nil];
+    [self addSubview: midiInput];
     
-//    [self addSubview:rackHeader];
     
     [self setNeedsDisplay:YES];
     

@@ -16,35 +16,47 @@
     if (!self) return nil;
         // Initialization code here.
     
-    uiLabel = [uiLabel alloc] init
+    [self setDefaults];
+    
+    _label = [[uiLabel alloc] initWithFrame: frame];
+    [_label setDrawsBackground:YES];
+    [self addSubview:_label];
+    
+    NSTrackingAreaOptions mouseEnterExitOptions = NSTrackingActiveInActiveApp;
+    mouseEnterExitOptions |= NSTrackingMouseEnteredAndExited;
+    
+    NSTrackingArea *trackRect = [[NSTrackingArea alloc] initWithRect:frame options:mouseEnterExitOptions owner:self userInfo: nil];
+    [self addTrackingArea: trackRect ];
+    
     
     
     return self;
 }
 
-- (void)drawRect:(NSRect)dirtyRect
-{
-	[super drawRect:dirtyRect];
+- (void)drawRect:(NSRect)dirtyRect{
+//    [[NSColor whiteColor] setFill];
+//     NSRectFill(dirtyRect);
+//	[super drawRect:dirtyRect];
 	
     // Drawing code here.
 }
 
--(void)mouseMoved:(NSEvent *)theEvent{
+-(void)mouseEntered:(NSEvent *)theEvent{
     NSLog(@"Mouse entered");
-    [self setBackgroundColor: _markerColor];
-    [self setTextColor:_activeColor];
-    [self setNeedsDisplay:YES];
+//  [_label setBackgroundColor:self.markerColor];
+    [_label setTextColor:self.activeColor];
+//    [_label setNeedsDisplay:YES];
 }
 
 -(void)mouseExited:(NSEvent *)theEvent {
-    [self setBackgroundColor: _defaultColor];
-    [self setNeedsDisplay:YES];
+    NSLog(@"Mouse exited");
+    [_label setBackgroundColor: self.activeColor];
+    [_label setTextColor:self.markerColor];
+//    [_label setNeedsDisplay:YES];
 }
 
--(void)setStringValue {
-    label = [[controlOption alloc] initWithFrame: NSMakeRect(0, 2 * self.height, self.width, self.height)];
-    [label setStringValue: @"All"];
-    [self addSubview:label];
+-(void)setStringValue:(NSString*)str {
+    [_label setStringValue: str];
 }
 
 @end

@@ -38,20 +38,18 @@
     
     uiLabel *label = [[uiLabel alloc] initWithFrame: NSMakeRect(0, 0, self.width, self.height)];
     [label setStringValue: labelText];
-    [self addSubview:label];
-    
-    label = [[uiLabel alloc] initWithFrame: NSMakeRect(0, 0, self.width, _height)];
-    [label setStringValue: _activeOption[0]];
+    [label setDrawsBackground: NO];
     [self addSubview:label];
 
-    label = [[controlOption alloc] initWithFrame: NSMakeRect(0, self.height, self.width, self.height)];
-
-    [label setStringValue: @"None"];
-    [self addSubview:label];
+    controlOption *optionNone = [[controlOption alloc] initWithFrame: NSMakeRect(0, 0, self.width, self.height)];
+    [optionNone setOrigin:NSMakePoint(0, self.height)];
+    [optionNone setStringValue: @"None"];
+    [self addSubview:optionNone];
     
-    label = [[controlOption alloc] initWithFrame: NSMakeRect(0, 2 * self.height, self.width, self.height)];
-    [label setStringValue: @"All"];
-    [self addSubview:label];
+    controlOption *optionAll = [[controlOption alloc] initWithFrame: NSMakeRect(0, 0, self.width, self.height)];
+    [optionAll setOrigin:NSMakePoint(0, self.height * 2)];
+    [optionAll setStringValue: @"All"];
+    [self addSubview:optionAll];
     
     NSLog(@"Key values: %@", keyValues);
 
@@ -59,10 +57,10 @@
         for(int i = 0; i < [keyValues count]; i++ ) {
             
             if(i % 2 == 0) {
-                label = [[controlOption alloc] initWithFrame: NSMakeRect(0, (i+3) * self.height , self.width, self.height)];
-                [label setStringValue: keyValues[i]];
-                [label setTag: 5];
-                [self addSubview:label];
+                controlOption *option = [[controlOption alloc] initWithFrame: NSMakeRect(0, (i+3) * self.height , self.width, self.height)];
+                [option setStringValue: keyValues[i]];
+                [option setTag: 5];
+                [self addSubview:option];
             
             } else {
 
@@ -90,6 +88,7 @@
     
     [_fgColor set];
     
+    // Draw triangles
     [fgPath moveToPoint:NSMakePoint(self.width-15, 5)];
     [fgPath lineToPoint:NSMakePoint(self.width-5, 5)];
     [fgPath lineToPoint:NSMakePoint(self.width-10, 10)];
@@ -111,7 +110,7 @@
         self.selected = !self.selected;
         [self setTag: 20];
         NSRect f = self.frame;
-        f.size.height = self.height * (_optionCount + 2);
+        f.size.height = self.height * (_optionCount + 3);
         self.frame = f;
         
 //        [self.superview.layer setZPosition:10];
@@ -132,14 +131,14 @@
 //    }
     
     [self.superview sortSubviewsUsingFunction: compareViews context: NULL];
-    NSLog(@"Tag: %@", [NSNumber numberWithInt:[self tag]]);
+//    NSLog(@"Tag: %@", [NSNumber numberWithInt:[self tag]]);
 //    [self showHideOptions];
     
     [self setNeedsDisplay:YES];
 }
 
 -(void)deselect:(NSNotification*)notification {
-    NSLog(@"Close notifcation receivef");
+    NSLog(@"Close notifcation received");
     self.selected = NO;
     [self setTag: 0];
     NSRect f = self.frame;
@@ -153,21 +152,12 @@ NSComparisonResult compareViews(id firstView, id secondView, void *context) {
     NSInteger firstTag = [firstView tag];
     NSInteger secondTag = [secondView tag];
     
-    NSLog(@"%@", firstView);
-    NSLog(@"%@", secondView);
-    
-     NSLog(@"%i", firstTag);
-     NSLog(@"%i", secondTag);
-    
     if (firstTag == secondTag) {
-        NSLog(@"Nochange");
         return NSOrderedSame;
     } else {
         if (firstTag < secondTag) {
-            NSLog(@"asc");
             return NSOrderedAscending;
         } else {
-            NSLog(@"desc");
             return NSOrderedDescending;
         }
     }

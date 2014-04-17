@@ -109,10 +109,12 @@
 
     _rackID++;
     
+    NSNumber *ID = [NSNumber numberWithInteger:_rackID];
+    
     NSDictionary* rack = @{
-        @"ID" : [NSNumber numberWithInteger:_rackID],
+        @"ID" : ID,
         @"page" : [NSNumber numberWithInt:pageIndex],
-        @"label": @"Rack 1",
+        @"label": [NSString stringWithFormat: @"Rack %@", ID],
         @"size": @0,
         @"channel": @0,
         @"input": @0,

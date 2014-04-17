@@ -17,7 +17,7 @@
     if(!self) return nil;
     
     [self setBezeled:NO];
-    [self setDrawsBackground:NO];
+//    [self setDrawsBackground:NO];
     [self setEditable:NO];
     [self setSelectable:NO];
     

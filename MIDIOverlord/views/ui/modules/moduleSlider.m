@@ -14,16 +14,12 @@
 
 -(id)initWithFrame{
     
-    int width = 80;
+    self.value = 0;
+    self.width = 80;
     
-    NSRect frame = NSMakeRect(0, 0, width, MODULE_HEIGHT);
-    
-    self = [super initWithFrame:frame];
+    self = [super initWithFrame:NSMakeRect(0, 0, self.width, MODULE_HEIGHT)];
     
     if(!self) return nil;
-    
-    self.value = 0;
-    self.width = width;
     
     // Add UI buttons
     

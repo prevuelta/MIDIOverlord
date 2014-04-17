@@ -39,4 +39,6 @@
 
 -(void)setOrigin:(NSPoint)origin;
 
+- (void)mouseEntered:(NSEvent *)theEvent;
+
 @end
