@@ -8,7 +8,7 @@
 
 #import "controlList.h"
 
-@interface deviceList : controlList 
+@interface deviceList : controlList <controlOptionDelegate>
 
 -(void)addOptions;
 

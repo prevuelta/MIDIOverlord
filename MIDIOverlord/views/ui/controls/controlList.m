@@ -10,6 +10,8 @@
 
 @implementation controlList
 
+@synthesize selectedValue = _selectedValue;
+
 
 -(id)initWithFrame: (NSMutableArray*)keyValues andLabel:(NSString*)labelText {
     
@@ -40,28 +42,28 @@
     _activeBgColor = [utilities getNSColorFromRGB:activeBgRGBA];
     _fgColor = [utilities getNSColorFromRGB:fgRGBA];
     
-    uiLabel *label = [[uiLabel alloc] initWithFrame: NSMakeRect(0, 0, self.width, self.height)];
-    [label setStringValue: labelText];
-    [label setDrawsBackground: NO];
-    [self addSubview:label];
-    
-//    controlOption *option = [[controlOption alloc] initWithFrame: NSMakeRect(0, self.height , self.width, self.height)];
-//    [option setStringValue: @"1"];
-//    [option setValue: @"VFSDSD"];
-//    [self addSubview:option];
-    
+    _selectedLabel = [[uiLabel alloc] initWithFrame: NSMakeRect(0, 0, self.width, self.height)];
+    [_selectedLabel setStringValue: labelText];
+    [_selectedLabel setDrawsBackground: NO];
+    [self addSubview:_selectedLabel];
     
     NSLog(@"Key values: %@", keyValues);
 
+    NSInteger currentOptionY = self.height;
+    
     if([_optionData count] > 0){
         for(int i = 0; i < [_optionData count]; i++ ) {
-            NSLog(@"Optiond ata: %@", _optionData[i]);
+            NSLog(@"Option data: %@", _optionData[i]);
             if(i % 2 == 0) {
-                controlOption *option = [[controlOption alloc] initWithFrame: NSMakeRect(0, (i+1) * self.height , self.width, self.height)];
-                [option setStringValue: _optionData[i]];
-                [option setValue: _optionData[i+1]];
-                [option setTag: 5];
+                NSLog(@"OPtion added");
+                NSArray *optionData = @[ _optionData[i], _optionData[i+1]];
+                controlOption *option = [[controlOption alloc] initWithFrame: NSMakeRect(0, 0, self.width, self.height)];
+                [option setOrigin:NSMakePoint(0, currentOptionY)];
+                [option setKeyValue:optionData];
+                option.delegate = self;
                 [self addSubview:option];
+                currentOptionY += self.height;
+                NSLog(@"Current height: %d", currentOptionY);
             
             } else {
 
@@ -116,7 +118,7 @@
         self.selected = !self.selected;
         [self setTag: 20];
         NSRect f = self.frame;
-        f.size.height = self.height * _optionCount;
+        f.size.height = self.height * (_optionCount + 1);
         self.frame = f;
     }
 
@@ -152,6 +154,17 @@ NSComparisonResult compareViews(id firstView, id secondView, void *context) {
     }
 }
 
+-(NSArray*)selectedValue {
+    return _selectedValue;
+}
+
+-(void)setSelectedValue:(NSArray*)selectedValue {
+    NSLog(@"Option sected %@", selectedValue);
+    [_selectedLabel setStringValue: selectedValue[0]];
+    [_selectedLabel setNeedsDisplay: YES];
+    _selectedValue = selectedValue;
+}
+
 // Hooks
 -(void)updateValues {
     
@@ -161,6 +174,10 @@ NSComparisonResult compareViews(id firstView, id secondView, void *context) {
     
 }
 
+-(void)optionSelectedWithKeyValue: (NSArray*)keyValue andTag: (NSInteger)tag {
+    NSLog(@"Delegate recieved");
+    [self setSelectedValue: keyValue];
+}
 
 
 @end

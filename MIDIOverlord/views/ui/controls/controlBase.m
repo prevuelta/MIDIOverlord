@@ -40,6 +40,15 @@
     [self setFrame:f];
 }
 
+//-(NSInteger)tag {
+//    return _tag;
+//}
+//
+//-(void)setTag:(NSInteger)tag {
+//    _tag = tag;
+//}
+
+
 //-(void)deselect:(NSNotification*)notification  {
 //    NSLog(@"THISHAPE");
 //    _selected = NO;

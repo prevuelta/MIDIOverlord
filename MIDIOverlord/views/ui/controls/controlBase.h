@@ -34,8 +34,6 @@
 
 -(void)setDefaults;
 -(void)drawRect:(NSRect)rect;
--(void)uiEvent:(char*)type;
--(void)uiEvent:(char*)type withInt:(int)val;
 
 -(void)setOrigin:(NSPoint)origin;
 

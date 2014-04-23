@@ -9,18 +9,22 @@
 #import "controlBase.h"
 #import "controlOption.h"
 
-@interface controlList : controlBase
+@interface controlList : controlBase <controlOptionDelegate>
 
 @property int width;
 
 @property int activeOption;
-@property int optionCount;
+@property NSInteger optionCount;
 @property NSMutableArray *optionData;
 @property int height;
 @property BOOL state;
 @property NSColor* bgColor;
 @property NSColor* activeBgColor;
 @property NSColor* fgColor;
+
+@property uiLabel *selectedLabel;
+
+@property NSArray* selectedValue;
 
 -(id)initWithFrame: (NSMutableArray*)keyValues andLabel:(NSString*)labelText;
 -(void)deselect:(NSNotification*)notification;

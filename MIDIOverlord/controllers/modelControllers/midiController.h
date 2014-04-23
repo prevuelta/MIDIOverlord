@@ -20,6 +20,8 @@
 @property MIDIClientRef appClient;
 @property MIDIEndpointRef appOutput;
 
+@property NSMutableDictionary* devices;
+
 -(void)createVirtualDeviceWithClient;
 
 -(MIDIPacketList*)getMidiPacket:(char*)status :(int)v2 :(int)v3;
@@ -27,5 +29,10 @@
 -(void)handleNotifications:(NSNotification*)notification;
 -(void)sendNote:(BOOL)on :(int)value;
 -(void)sendControlChange:(int)cc :(int)value;
+
++(void)midiNotification:(int)status :(int)v2 :(int)v3: (NSInteger)deviceID;
++(NSMutableArray*)getMidiDestinations;
++(NSMutableArray*)getMidiSources;
++(NSString*)getDeviceName:(MIDIObjectRef)object;
 
 @end

@@ -11,16 +11,9 @@
 
 @interface utilities : NSObject
 
-+(void)notify:(int)type;
-
-+(void)midiNotification:(int)status :(int)v2 :(int)v3;
+//+(void)notify:(int)type;
 
 +(NSColor*)getNSColorFromRGB:(float[])colors;
-
-+(NSMutableArray*)getMidiDestinations;
-+(NSMutableArray*)getMidiSources;
-
-+(NSString*)getDeviceName:(MIDIObjectRef)object;
 
 // App file handling
 +(NSString*)getSaveFileUrl;

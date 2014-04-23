@@ -9,11 +9,19 @@
 #import "controlBase.h"
 #import "uiLabel.h"
 
+@class controlOption;
+
+@protocol controlOptionDelegate
+-(void)optionSelectedWithKeyValue: (NSArray*)keyValue andTag: (NSInteger)tag;
+@end
+
 @interface controlOption : controlBase;
 
-@property uiLabel *label;
-@property int value;
+@property (nonatomic, assign) id delegate;
 
--(void)setStringValue:(NSString*)str;
+@property uiLabel *label;
+@property NSArray* keyValue;
+
+-(void)setKeyValue:(NSArray*)arr;
 
 @end

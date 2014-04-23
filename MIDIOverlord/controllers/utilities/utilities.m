@@ -10,31 +10,23 @@
 
 @implementation utilities
 
-+(void)notify:(int)type {
-    [self notifyWithData:type:nil];
-}
-
-+(void)notifyWithData:(int)type :(NSDictionary*)data {
-    //Types:
-    //0 : MidiNote
-    NSArray* types = @[@"noteOn", @"noteOff"];
-//    NSString* typeAsString = [NSString new];
-//    switch(type) {
-//        case 0:
-//            typeAsString = @"midiNote";
-//        break;
-//    }
-    [[NSNotificationCenter defaultCenter] postNotificationName:types[type] object:self userInfo: data];
-}
-
-+(void)midiNotification:(int)status :(int)v2 :(int)v3{
-    NSDictionary *data =@{
-        @"status" : [NSNumber numberWithInt:status],
-        @"v2" : [NSNumber numberWithInt:v2],
-        @"v3" : [NSNumber numberWithInt:v3]
-    };
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"midiMessage" object:self userInfo: data];
-}
+//+(void)notify:(int)type {
+//    [self notifyWithData:type:nil];
+//}
+//
+//+(void)notifyWithData:(int)type :(NSDictionary*)data {
+//    //Types:
+//    //0 : MidiNote
+//    NSArray* types = @[@"noteOn", @"noteOff"];
+////    NSString* typeAsString = [NSString new];
+////    switch(type) {
+////        case 0:
+////            typeAsString = @"midiNote";
+////        break;
+////    }
+//    [[NSNotificationCenter defaultCenter] postNotificationName:types[type] object:self userInfo: data];
+//}
+//
 
 +(NSColor*)getNSColorFromRGB:(float[])colors {
     
@@ -45,63 +37,6 @@
     
     return [NSColor colorWithDeviceRed:red green:green blue:blue alpha:alpha];
 }
-
-+(NSMutableArray*)getMidiSources {
-    
-    NSMutableArray *sources = [NSMutableArray new];
-    
-    ItemCount sourceCount = MIDIGetNumberOfSources();
-    
-    NSLog(@"sources: %i", (int)sourceCount);
-    
-    for (ItemCount i = 0 ; i < sourceCount ; ++i) {
-        
-    }
-    
-    return sources;
-}
-
-+(NSMutableArray*)getMidiDestinations {
-    
-    NSMutableArray *destinations = [NSMutableArray new];
-    
-    ItemCount destCount = MIDIGetNumberOfDestinations();
-    
-    NSLog(@"Destinationcount: %i", (int)destCount);
-    
-    for (ItemCount i = 0 ; i < destCount ; ++i) {
-        
-        // Grab a reference to a destination endpoint
-        MIDIEndpointRef dest = MIDIGetDestination(i);
-        if (dest) {
-            NSNumber *deviceID = [NSNumber numberWithInt: [self getDeviceID:dest]];
-//            [destinations setValue:deviceID forKey:[self getDeviceName:dest] ];
-            
-            [destinations addObject:[self getDeviceName:dest]];
-            [destinations addObject: deviceID];
-        }
-    }
-    
-    return destinations;
-}
-
-+(NSString*)getDeviceName:(MIDIObjectRef)object{
-    // Returns the display name of a given MIDIObjectRef as an NSString
-    CFStringRef name = nil;
-    if (noErr != MIDIObjectGetStringProperty(object, kMIDIPropertyDisplayName, &name)) {
-        return nil;
-    }
-    return (NSString*)CFBridgingRelease(name);
-}
-
-+(int)getDeviceID:(MIDIObjectRef)object {
-    int deviceID;
-    if(noErr != MIDIObjectGetIntegerProperty(object, kMIDIPropertyUniqueID, &deviceID)) {
-        return nil;
-    }
-    return deviceID;
-}
-
 +(NSString*)getSaveFileUrl {
     
     NSSavePanel* saver = [NSSavePanel savePanel];

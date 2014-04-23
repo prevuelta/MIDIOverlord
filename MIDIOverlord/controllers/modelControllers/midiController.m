@@ -18,7 +18,7 @@ Byte packetBuffer[128];
     if(!self) return nil;
 
     [self createVirtualDeviceWithClient];
-    [utilities getMidiDestinations];
+    [self getMidiDestinations];
     
     // Setup notifications
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotifications:) name:@"midiMessage" object:nil];
@@ -77,6 +77,89 @@ Byte packetBuffer[128];
     NSLog(@"Sending midi...");
     MIDIPacketList *packetList = [self getMidiPacket: v1 : v2 : v3 ];
     MIDIReceived(_appOutput, packetList);
+}
+
++(NSMutableArray*)getMidiSources {
+    
+    NSMutableArray *sources = [NSMutableArray new];
+    
+    ItemCount sourceCount = MIDIGetNumberOfSources();
+    
+    NSLog(@"sources: %i", (int)sourceCount);
+    
+    for (ItemCount i = 0 ; i < sourceCount ; ++i) {
+        
+    }
+    
+    return sources;
+}
+
+-(NSMutableArray*)getMidiDestinations {
+    
+//    NSMutableArray *destinations = [NSMutableArray new];
+    
+    ItemCount destCount = MIDIGetNumberOfDestinations();
+    
+    NSLog(@"Destinationcount: %i", (int)destCount);
+    
+    for (ItemCount i = 0 ; i < destCount ; ++i) {
+        
+        // Grab a reference to a destination endpoint
+        
+        MIDIEndpointRef dest = MIDIGetDestination(i);
+        if (dest) {
+            NSNumber *deviceID = [NSNumber numberWithInt: [self getDeviceID:dest]];
+            //            [destinations setValue:deviceID forKey:[self getDeviceName:dest] ];
+            
+            
+            [destinations addObject:[self getDeviceName:dest]];
+            [destinations addObject: deviceID];
+        
+            
+            MIDIPortRef outPort;
+        
+            MIDIOutputPortCreate(&_appClient, <#CFStringRef portName#>, <#MIDIPortRef *outPort#>)
+        }
+        
+        NSArray *device = @[endPointRef, outputPort];
+        [_devices setObject: device forKey: deviceID];
+    }
+    
+    return destinations;
+}
+
+-(NSString*)getDeviceName:(MIDIObjectRef)object{
+    // Returns the display name of a given MIDIObjectRef as an NSString
+    CFStringRef name = nil;
+    if (noErr != MIDIObjectGetStringProperty(object, kMIDIPropertyDisplayName, &name)) {
+        return nil;
+    }
+    return (NSString*)CFBridgingRelease(name);
+}
+
+-(int)getDeviceID:(MIDIObjectRef)object {
+    int deviceID;
+    if(noErr != MIDIObjectGetIntegerProperty(object, kMIDIPropertyUniqueID, &deviceID)) {
+        return nil;
+    }
+    return deviceID;
+}
+
+
+-(void)midiNotification:(int)status :(int)v2 :(int)v3: (NSInteger)deviceID {
+    NSDictionary *data =@{
+                          @"status" : [NSNumber numberWithInt:status],
+                          @"v2" : [NSNumber numberWithInt:v2],
+                          @"v3" : [NSNumber numberWithInt:v3]
+                          };
+    
+    if(!deviceID) {
+        
+    } else if(deviceID == 1) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"midiMessage" object:self userInfo: data];
+    } else {
+        //        [self.devices objectFm: deviceID];
+    }
 }
 
 // Midi beat clock - 24 times per quarter note

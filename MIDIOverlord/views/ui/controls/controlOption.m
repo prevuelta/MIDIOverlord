@@ -10,6 +10,8 @@
 
 @implementation controlOption
 
+@synthesize keyValue = _keyValue;
+
 - (id)initWithFrame:(NSRect)frame
 {
     self = [super initWithFrame:frame];
@@ -18,9 +20,7 @@
     
     [self setDefaults];
     
-    _value = 0;
-    
-    _label = [[uiLabel alloc] initWithFrame: frame];
+    _label = [[uiLabel alloc] initWithFrame:frame];
     [_label setBackgroundColor:self.defaultColor];
     [_label setDrawsBackground:YES];
     
@@ -37,33 +37,48 @@
 }
 
 - (void)drawRect:(NSRect)dirtyRect{
-    [[NSColor whiteColor] setFill];
-     NSRectFill(dirtyRect);
-    [super drawRect:dirtyRect];
+//    [[NSColor whiteColor] setFill];
+//     NSRectFill(dirtyRect);
+//    [super drawRect:dirtyRect];
+    if(self.selected) {
+        [_label setBackgroundColor: self.activeColor];
+    }
 
     // Drawing code here.
 }
 
 -(void)mouseEntered:(NSEvent *)theEvent{
-  [_label setBackgroundColor:self.markerColor];
-//    [_label setNeedsDisplay:YES];
+//  [_label setBackgroundColor:self.activeColor];
+  [_label setNeedsDisplay:YES];
 }
 
 -(void)mouseExited:(NSEvent *)theEvent {
-    [_label setBackgroundColor: self.defaultColor];
-    [_label setTextColor:self.markerColor];
-//    [_label setNeedsDisplay:YES];
+//    [_label setBackgroundColor: self.defaultColor];
+//    [_label setTextColor:self.markerColor];
+    [_label setNeedsDisplay:YES];
 }
 
 -(void)mouseDown:(NSEvent *)theEvent {
-    NSLog(@"Option clicked");
-    [self.delegate uiEvent:"optionSelected" withInt: _value];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"closeOpen" object:self userInfo: nil];
+    [_label setBackgroundColor:self.activeColor];
+    [self performSelector:@selector(selectOption) withObject:self afterDelay:0.150];
 }
 
--(void)setStringValue:(NSString*)str {
+-(void)selectOption {
+    NSLog(@"Sending dlegate...");
+    [_label setBackgroundColor:self.defaultColor];
+    [self.delegate optionSelectedWithKeyValue:self.keyValue andTag: self.tag];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"closeOpen" object:self userInfo: nil];
+   
+}
+
+-(NSArray*)keyValue {
+    return _keyValue;
+}
+
+-(void)setKeyValue:(NSArray*)keyValue{
 //    NSLog("%@", str);
-    [_label setStringValue: @"dsdfSF"];
+    _keyValue = keyValue;
+    [_label setStringValue: keyValue[0]];
 }
 
 @end
