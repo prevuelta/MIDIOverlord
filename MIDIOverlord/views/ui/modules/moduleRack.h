@@ -11,11 +11,15 @@
 @interface moduleRack : moduleBase
 
 @property NSDictionary* data;
-
 @property NSMutableArray* subViews;
+@property int headerWidth;
+
+// Notifications
+@property NSNotificationCenter* center;
 
 -(void)addRackTitle;
+-(void)createMidiDestinationsDeviceList:(NSNotification*)notification;
 
-@property int headerWidth;
+
 
 @end

@@ -41,23 +41,30 @@
     
     [self addSubview: self.label];
     
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"getMidiDestinations" object:self userInfo:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createMidiDestinationsDeviceList:) name:@"midiDestinations" object:nil];
     // Destinations
-    NSMutableArray* destinations = [utilities getMidiDestinations];
-    deviceList *midiOutput = [[deviceList alloc] initWithFrame: destinations andLabel: @"MIDI OUT"];
-    [midiOutput setOrigin: NSMakePoint(5, 20)];
-    [self addSubview: midiOutput];
+//    NSMutableArray* destinations = [utilities getMidiDestinations];
+//    deviceList *midiOutput = [[deviceList alloc] initWithFrame: destinations andLabel: @"MIDI OUT"];
+//    [midiOutput setOrigin: NSMakePoint(5, 20)];
+//    [self addSubview: midiOutput];
     
     // Origins
-    NSMutableArray* sources = [utilities getMidiSources];
-    deviceList *midiInput = [[deviceList alloc] initWithFrame:sources andLabel: @"MIDI IN"];
-    [midiInput setOrigin: NSMakePoint(5, 40)];
-    [self addSubview: midiInput];
+//    NSMutableArray* sources = [utilities getMidiSources];
+//    deviceList *midiInput = [[deviceList alloc] initWithFrame:sources andLabel: @"MIDI IN"];
+//    [midiInput setOrigin: NSMakePoint(5, 40)];
+//    [self addSubview: midiInput];
     
     
     [self setNeedsDisplay:YES];
     
 }
-//
+
+
+-(void)createMidiDestinationsDeviceList:(NSNotification*)notification {
+  NSLog(@"Devices: %@", notification);
+}
+
 -(NSDictionary*)data {
     return _data;
 }
@@ -105,7 +112,7 @@
     
     [fgPath stroke];
     
-    NSLog(@"Drawing");
+//    NSLog(@"Drawing");
 }
 
 

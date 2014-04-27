@@ -22,6 +22,9 @@
 
 @property NSMutableDictionary* devices;
 
+@property MIDIEndpointRef *endPointRefs;
+@property MIDIEndpointRef *portRefs;
+
 -(void)createVirtualDeviceWithClient;
 
 -(MIDIPacketList*)getMidiPacket:(char*)status :(int)v2 :(int)v3;
@@ -30,9 +33,10 @@
 -(void)sendNote:(BOOL)on :(int)value;
 -(void)sendControlChange:(int)cc :(int)value;
 
-+(void)midiNotification:(int)status :(int)v2 :(int)v3: (NSInteger)deviceID;
-+(NSMutableArray*)getMidiDestinations;
-+(NSMutableArray*)getMidiSources;
-+(NSString*)getDeviceName:(MIDIObjectRef)object;
+-(void)midiNotification:(int)status :(int)v2 :(int)v3 :(NSInteger)deviceID;
+-(void)returnMidiDestinations:(NSNotification*)notification;
+-(void)getMidiDestinations;
+-(NSMutableArray*)getMidiSource;
+-(NSString*)getDeviceName:(MIDIObjectRef)object;
 
 @end

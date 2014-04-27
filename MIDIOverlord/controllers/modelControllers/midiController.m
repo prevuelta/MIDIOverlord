@@ -18,11 +18,15 @@ Byte packetBuffer[128];
     if(!self) return nil;
 
     [self createVirtualDeviceWithClient];
-    [self getMidiDestinations];
+    
+//    [self getMidiDestinations];
     
     // Setup notifications
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotifications:) name:@"midiMessage" object:nil];
-     return self;
+    // Receive request for destinations
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(returnMidiDestinations:) name:@"getMidiDestinations" object:nil];
+    
+    return self;
 }
 
 -(void)createVirtualDeviceWithClient {
@@ -31,11 +35,10 @@ Byte packetBuffer[128];
     
     // Create midi client
     
-    MIDIClientCreate(CFSTR("Operator Midi Client"), NULL, NULL, &_appClient);
-    
+    MIDIClientCreate(CFSTR("MIDI Overlord Client"), NULL, NULL, &_appClient);
     
     // Create virtual source
-    result = MIDISourceCreate(_appClient, CFSTR("Op source"), &_appOutput);
+    result = MIDISourceCreate(_appClient, CFSTR("MIDI Overlord Source"), &_appOutput);
     
     if(result != noErr) {
         NSLog(@"Error creating MIDI client: %s - %s",
@@ -94,7 +97,22 @@ Byte packetBuffer[128];
     return sources;
 }
 
--(NSMutableArray*)getMidiDestinations {
+-(MIDIClientRef)newClient: (CFStringRef)outPortName {
+    
+    MIDIClientRef midiClient;
+    
+    MIDIClientCreate(outPortName, NULL, NULL, &midiClient);
+    
+    return midiClient;
+}
+
+-(void)returnMidiDestinations:(NSNotification*)notification {
+    NSLog(@"Returning destinations");
+    [self getMidiDestinations];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"midiDestinations" object:self userInfo: _devices];
+}
+
+-(void)getMidiDestinations {
     
 //    NSMutableArray *destinations = [NSMutableArray new];
     
@@ -102,30 +120,41 @@ Byte packetBuffer[128];
     
     NSLog(@"Destinationcount: %i", (int)destCount);
     
+    MIDIEndpointRef endPointRefs[destCount];
+    MIDIPortRef portRefs[destCount];
+    
     for (ItemCount i = 0 ; i < destCount ; ++i) {
         
         // Grab a reference to a destination endpoint
         
-        MIDIEndpointRef dest = MIDIGetDestination(i);
-        if (dest) {
-            NSNumber *deviceID = [NSNumber numberWithInt: [self getDeviceID:dest]];
-            //            [destinations setValue:deviceID forKey:[self getDeviceName:dest] ];
-            
-            
-            [destinations addObject:[self getDeviceName:dest]];
-            [destinations addObject: deviceID];
+        MIDIEndpointRef endPointRef = MIDIGetDestination(i);
         
+        if (endPointRef) {
+            
+            NSNumber *deviceID = [NSNumber numberWithInt: [self getDeviceID: endPointRef]];
+            
+            NSString *deviceName = [self getDeviceName: endPointRef];
             
             MIDIPortRef outPort;
+            
+            CFStringRef outPortName = (__bridge CFStringRef)[deviceName stringByAppendingFormat:@"%@", deviceName];
         
-            MIDIOutputPortCreate(&_appClient, <#CFStringRef portName#>, <#MIDIPortRef *outPort#>)
+            MIDIOutputPortCreate([self newClient:outPortName], outPortName, &outPort);
+            
+            endPointRefs[i] = endPointRef;
+            portRefs[i] = outPort;
+            
+            NSArray *device = @[deviceName, [NSNumber numberWithInteger: i]];
+            
+            [_devices setObject: device forKey: deviceID];
+            
         }
-        
-        NSArray *device = @[endPointRef, outputPort];
-        [_devices setObject: device forKey: deviceID];
+
     }
     
-    return destinations;
+    _endPointRefs = endPointRefs;
+    _portRefs = portRefs;
+    
 }
 
 -(NSString*)getDeviceName:(MIDIObjectRef)object{
@@ -146,7 +175,7 @@ Byte packetBuffer[128];
 }
 
 
--(void)midiNotification:(int)status :(int)v2 :(int)v3: (NSInteger)deviceID {
+-(void)midiNotification:(int)status :(int)v2 :(int)v3 :(NSInteger)deviceID {
     NSDictionary *data =@{
                           @"status" : [NSNumber numberWithInt:status],
                           @"v2" : [NSNumber numberWithInt:v2],
