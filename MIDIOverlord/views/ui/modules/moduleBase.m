@@ -20,11 +20,12 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deselect:) name:@"deselectAll" object:nil];
     
-    controlText *midiValueText = [[controlText alloc] initWithFrame:NSMakeRect(8, 96, 48, 20): _midiValue];
+    
+    controlText *midiValueText = [[controlText alloc] initWithFrame: _midiValue andLabel: @"CC"];
+    
+    [midiValueText setOrigin:NSMakePoint(0, 100)];
     
     [midiValueText bind:@"value" toObject:self withKeyPath:@"self.midiValue" options:nil];
-    
-    [midiValueText setTag: 0];
     
     [self addSubview:midiValueText];
 

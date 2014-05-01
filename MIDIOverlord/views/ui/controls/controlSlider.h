@@ -7,6 +7,7 @@
 //
 
 #import "controlBase.h"
+#import "controlText.h"
 
 @interface controlSlider : controlBase
 
@@ -19,7 +20,7 @@
 @property NSPoint size;
 @property NSPoint offset;
 
-@property NSTextField *textVal;
+@property controlText *textVal;
 
 -(id)initWithFrame:(NSPoint)size :(NSPoint)offset :(NSColor*)sliderBg :(int)min :(int)max;
 -(void)updateControlFromEvent:(NSEvent*)e;

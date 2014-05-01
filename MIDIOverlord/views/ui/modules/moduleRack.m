@@ -31,6 +31,20 @@
     
     self.subViews = [NSMutableArray new];
     
+    self.midiChannel = 10;
+    
+    NSLog(@"Sending");
+    
+    _midiChannelText = [[controlText alloc] initWithFrame: _midiChannel andLabel: @"CH"];
+    
+    [_midiChannelText setOrigin:NSMakePoint(0, 120)];
+    
+    [_midiChannelText bind:@"value" toObject:self withKeyPath:@"self.midiChannel" options:nil];
+    
+    [self addSubview: _midiChannelText];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createMidiDestinationsDeviceList:) name:@"updateMidiDestinations" object:nil];
+    
     return self;
 }
 
@@ -41,20 +55,18 @@
     
     [self addSubview: self.label];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"getMidiDestinations" object:self userInfo:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createMidiDestinationsDeviceList:) name:@"midiDestinations" object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createMidiDestinationsDeviceList:) name:@"midiDestinations" object:nil];
     // Destinations
 //    NSMutableArray* destinations = [utilities getMidiDestinations];
-//    deviceList *midiOutput = [[deviceList alloc] initWithFrame: destinations andLabel: @"MIDI OUT"];
-//    [midiOutput setOrigin: NSMakePoint(5, 20)];
-//    [self addSubview: midiOutput];
+    _midiOutput = [[deviceList alloc] initWithFrame: @"MIDI OUT"];
+    [_midiOutput setOrigin: NSMakePoint(5, 20)];
+    [self addSubview: _midiOutput];
     
     // Origins
 //    NSMutableArray* sources = [utilities getMidiSources];
-//    deviceList *midiInput = [[deviceList alloc] initWithFrame:sources andLabel: @"MIDI IN"];
-//    [midiInput setOrigin: NSMakePoint(5, 40)];
-//    [self addSubview: midiInput];
-    
+    _midiInput = [[deviceList alloc] initWithFrame: @"MIDI IN"];
+    [_midiInput setOrigin: NSMakePoint(5, 40)];
+    [self addSubview: _midiInput];
     
     [self setNeedsDisplay:YES];
     
@@ -63,6 +75,15 @@
 
 -(void)createMidiDestinationsDeviceList:(NSNotification*)notification {
   NSLog(@"Devices: %@", notification);
+    NSLog(@"%@", notification.userInfo);
+    //    NSDictionary data = @{notification.object[0]}
+    NSMutableArray *keyValues = [NSMutableArray new];
+    for(NSString* key in notification.userInfo) {
+        [keyValues addObject: [notification.userInfo objectForKey: key][0]];
+        [keyValues addObject: key];
+    }
+    NSLog(@"New device array %@", keyValues);
+    [_midiOutput updateValues: keyValues];
 }
 
 -(NSDictionary*)data {

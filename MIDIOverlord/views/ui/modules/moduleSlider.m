@@ -15,8 +15,8 @@
 -(id)initWithFrame{
     
     self.value = 0;
-    self.width = 80;
-    
+    self.width = 60;
+
     self = [super initWithFrame:NSMakeRect(0, 0, self.width, MODULE_HEIGHT)];
     
     if(!self) return nil;
@@ -27,7 +27,7 @@
     float sliderRGBA[] = UI_COLOR_PROT_3;
     NSColor* sliderColor = [utilities getNSColorFromRGB:sliderRGBA];
     
-    controlSlider *slider = [[controlSlider alloc] initWithFrame:NSMakePoint(self.width - 16, self.width - 16): NSMakePoint(8, 8): sliderColor :0 :127 ];
+    controlSlider *slider = [[controlSlider alloc] initWithFrame:NSMakePoint(self.width - 16, 80): NSMakePoint(8, 8): sliderColor :0 :127 ];
     
     slider.delegate = self;
     

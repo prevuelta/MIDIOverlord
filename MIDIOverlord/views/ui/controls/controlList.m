@@ -13,7 +13,7 @@
 @synthesize selectedValue = _selectedValue;
 
 
--(id)initWithFrame: (NSMutableArray*)keyValues andLabel:(NSString*)labelText {
+-(id)initWithFrame: (NSString*)labelText {
     
     self.width = 90;
     self.height = 15;
@@ -23,8 +23,14 @@
     self = [super initWithFrame:frame];
     
     if(!self) return nil;
+
+    _labelText = labelText;
     
-    _optionData = keyValues;
+    [self setDefaults];
+    
+//    _optionData = keyValues;
+
+    _optionData = [NSMutableArray new];
     
     [self addOptions];
 
@@ -34,42 +40,16 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deselect:) name:@"closeOpen" object:nil];
     
-    float bgRGBA[] = UI_COLOR_PROT_2;
-    float activeBgRGBA[] = UI_COLOR_PROT_3;
-    float fgRGBA[] = UI_COLOR_PROT_4;
-    
-    _bgColor = [utilities getNSColorFromRGB:bgRGBA];
-    _activeBgColor = [utilities getNSColorFromRGB:activeBgRGBA];
-    _fgColor = [utilities getNSColorFromRGB:fgRGBA];
-    
-    _selectedLabel = [[uiLabel alloc] initWithFrame: NSMakeRect(0, 0, self.width, self.height)];
-    [_selectedLabel setStringValue: labelText];
-    [_selectedLabel setDrawsBackground: NO];
-    [self addSubview:_selectedLabel];
-    
-    NSLog(@"Key values: %@", keyValues);
+//    float bgRGBA[] = UI_COLOR_PROT_2;
+//    float activeBgRGBA[] = UI_COLOR_PROT_3;
+//    float fgRGBA[] = UI_COLOR_PROT_4;
+//    
+//    _bgColor = [utilities getNSColorFromRGB:bgRGBA];
+//    _activeBgColor = [utilities getNSColorFromRGB:activeBgRGBA];
+//    _fgColor = [utilities getNSColorFromRGB:fgRGBA];
+//
 
-    NSInteger currentOptionY = self.height;
-    
-    if([_optionData count] > 0){
-        for(int i = 0; i < [_optionData count]; i++ ) {
-            NSLog(@"Option data: %@", _optionData[i]);
-            if(i % 2 == 0) {
-                NSLog(@"OPtion added");
-                NSArray *optionData = @[ _optionData[i], _optionData[i+1]];
-                controlOption *option = [[controlOption alloc] initWithFrame: NSMakeRect(0, 0, self.width, self.height)];
-                [option setOrigin:NSMakePoint(0, currentOptionY)];
-                [option setKeyValue:optionData];
-                option.delegate = self;
-                [self addSubview:option];
-                currentOptionY += self.height;
-                NSLog(@"Current height: %d", currentOptionY);
-            
-            } else {
-
-            }
-        }
-    }
+    [self updateValues: _optionData];
     
     return self;
 }
@@ -80,16 +60,16 @@
     NSBezierPath* fgPath = [NSBezierPath new];
     
     if(self.active) {
-        [_activeBgColor set];
+        [self.activeColor set];
     } else {
-        [_bgColor set];
+        [self.defaultColor set];
     }
     
     [bgPath appendBezierPathWithRect:NSMakeRect(0, 0, self.width, self.height)];
     [bgPath closePath];
     [bgPath fill];
     
-    [_fgColor set];
+    [self.markerColor set];
     
     // Draw triangles
     [fgPath moveToPoint:NSMakePoint(self.width-15, 5)];
@@ -122,7 +102,7 @@
         self.frame = f;
     }
 
-    [self updateValues];
+//    [self updateValues];
     
     [self.superview sortSubviewsUsingFunction: compareViews context: NULL];
     [self setNeedsDisplay:YES];
@@ -166,8 +146,36 @@ NSComparisonResult compareViews(id firstView, id secondView, void *context) {
 }
 
 // Hooks
--(void)updateValues {
+-(void)updateValues:(NSMutableArray*)keyValues {
     
+    _selectedLabel = [[uiLabel alloc] initWithFrame: NSMakeRect(0, 0, self.width, self.height)];
+    [_selectedLabel setStringValue: _labelText];
+    [_selectedLabel setDrawsBackground: NO];
+    [self addSubview:_selectedLabel];
+    
+    NSInteger currentOptionY = self.height;
+    
+    if([_optionData count] > 0){
+        for(int i = 0; i < [_optionData count]; i++ ) {
+            NSLog(@"Option data: %@", _optionData[i]);
+            if(i % 2 == 0) {
+                NSLog(@"OPtion added");
+                NSArray *optionData = @[ _optionData[i], _optionData[i+1]];
+                controlOption *option = [[controlOption alloc] initWithFrame: NSMakeRect(0, 0, self.width, self.height)];
+                [option setOrigin:NSMakePoint(0, currentOptionY)];
+                [option setKeyValue:optionData];
+                option.delegate = self;
+                [self addSubview:option];
+                currentOptionY += self.height;
+                NSLog(@"Current height: %d", currentOptionY);
+                
+            } else {
+                
+            }
+        }
+    }
+    
+    [self setNeedsDisplay: YES];
 }
 
 -(void)addOptions {

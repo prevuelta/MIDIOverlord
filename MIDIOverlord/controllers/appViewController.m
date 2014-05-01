@@ -23,10 +23,10 @@
     
     [_data addModule: 0 :0 :1 ];
     [_data addModule: 0 :0 :2 ];
-    [_data addModule: 1 :1 :1 ];
-    [_data addModule: 1 :1 :1 ];
-    [_data addModule: 1 :1 :1 ];
-    [_data addModule: 1 :1 :1 ];
+    [_data addModule: 1 :1 :2 ];
+    [_data addModule: 1 :1 :2 ];
+    [_data addModule: 1 :1 :2 ];
+    [_data addModule: 1 :1 :2 ];
     
     NSLog(@"New data: %@", [_data rackData]);
     

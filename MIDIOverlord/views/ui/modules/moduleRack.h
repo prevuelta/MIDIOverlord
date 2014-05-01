@@ -14,12 +14,17 @@
 @property NSMutableArray* subViews;
 @property int headerWidth;
 
+@property deviceList *midiInput;
+@property deviceList *midiOutput;
+
+@property controlText *midiChannelText;
+@property int midiChannel;
+
 // Notifications
-@property NSNotificationCenter* center;
+//@property NSNotificationCenter* center;
 
 -(void)addRackTitle;
 -(void)createMidiDestinationsDeviceList:(NSNotification*)notification;
-
 
 
 @end

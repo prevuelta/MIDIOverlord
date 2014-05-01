@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreMIDI/CoreMIDI.h>
-#import "eventHandler.h"
+//#import "eventHandler.h"
 #import "utilities.h"
 
 @interface midiController : NSObject

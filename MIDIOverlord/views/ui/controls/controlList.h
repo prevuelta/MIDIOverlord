@@ -21,14 +21,15 @@
 @property NSColor* bgColor;
 @property NSColor* activeBgColor;
 @property NSColor* fgColor;
+@property NSString *labelText;
 
 @property uiLabel *selectedLabel;
 
 @property NSArray* selectedValue;
 
--(id)initWithFrame: (NSMutableArray*)keyValues andLabel:(NSString*)labelText;
+-(id)initWithFrame: (NSString*)labelText;
 -(void)deselect:(NSNotification*)notification;
 -(void)showHideOptions;
--(void)updateValues;
+-(void)updateValues:(NSMutableArray*)keyValues;
 
 @end

@@ -25,6 +25,12 @@
     [bgPath closePath];
     [bgPath fill];
     
+    controlText *appTitle = [[controlText alloc] initWithFrame: -1 andLabel: @"MIDI OVERLORD"];
+    
+    [appTitle setOrigin:NSMakePoint(0, 30)];
+    
+    [self addSubview: appTitle];
+    
 }
 
 -(void)setOrigin:(NSPoint)origin {

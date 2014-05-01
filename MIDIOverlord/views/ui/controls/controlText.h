@@ -7,11 +7,27 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "controlBase.h"
 
-@interface controlText : NSTextField
+@interface controlText : controlBase
 
--(id)initWithFrame:(NSRect)frame :(int)value;
-
+@property NSString *label;
 @property int value;
+
+@property int gridCellSizeX;
+@property int gridCellSizeY;
+@property int gridPad;
+@property int gridPad2;
+@property int gridCols;
+@property int gridRows;
+@property NSDictionary *letters;
+@property NSArray *numbers;
+
+@property int charCount;
+@property int valueCount;
+@property int charSizeX;
+@property int charSizeY;
+
+-(id)initWithFrame:(int)value andLabel:(NSString*)label;
 
 @end

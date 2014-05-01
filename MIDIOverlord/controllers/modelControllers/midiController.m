@@ -24,7 +24,9 @@ Byte packetBuffer[128];
     // Setup notifications
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotifications:) name:@"midiMessage" object:nil];
     // Receive request for destinations
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(returnMidiDestinations:) name:@"getMidiDestinations" object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(returnMidiDestinations:) name:@"getMidiDestinations" object:nil];
+    
+    [self returnMidiDestinations];
     
     return self;
 }
@@ -106,10 +108,11 @@ Byte packetBuffer[128];
     return midiClient;
 }
 
--(void)returnMidiDestinations:(NSNotification*)notification {
+-(void)returnMidiDestinations {
     NSLog(@"Returning destinations");
     [self getMidiDestinations];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"midiDestinations" object:self userInfo: _devices];
+   
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"updateMidiDestinations" object:self userInfo: _devices];
 }
 
 -(void)getMidiDestinations {
@@ -126,6 +129,8 @@ Byte packetBuffer[128];
     for (ItemCount i = 0 ; i < destCount ; ++i) {
         
         // Grab a reference to a destination endpoint
+        
+        _devices = [NSMutableDictionary new];
         
         MIDIEndpointRef endPointRef = MIDIGetDestination(i);
         
