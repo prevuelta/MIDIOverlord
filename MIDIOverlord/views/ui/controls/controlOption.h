@@ -8,11 +8,12 @@
 
 #import "controlBase.h"
 #import "uiLabel.h"
+#import "controlText.h"
 
 @class controlOption;
 
 @protocol controlOptionDelegate
--(void)optionSelectedWithKeyValue: (NSArray*)keyValue andTag: (NSInteger)tag;
+-(void)optionSelectedWithKeyValue: (NSArray*)keyValue;
 @end
 
 @interface controlOption : controlBase;

@@ -10,6 +10,6 @@
 
 @interface deviceList : controlList <controlOptionDelegate>
 
--(void)addOptions;
+//-(void)addOptions:(NSArray*)keyValues;
 
 @end

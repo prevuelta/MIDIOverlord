@@ -22,7 +22,7 @@
     _defaultColor = [utilities getNSColorFromRGB:defaultRGBA];
     _markerColor = [utilities getNSColorFromRGB:markerRGBA];
     _activeColor = [utilities getNSColorFromRGB:activeRGBA];
-
+    
 }
 
 
@@ -49,11 +49,11 @@
 //}
 
 
-//-(void)deselect:(NSNotification*)notification  {
-//    NSLog(@"THISHAPE");
-//    _selected = NO;
-//    [self setNeedsDisplay:YES];
-//}
+-(void)deselect:(NSNotification*)notification  {
+    NSLog(@"THISHAPE");
+    _selected = NO;
+    [self setNeedsDisplay:YES];
+}
 //
 //
 

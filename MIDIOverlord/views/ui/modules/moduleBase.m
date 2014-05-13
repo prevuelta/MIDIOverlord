@@ -14,6 +14,8 @@
 @synthesize tag = _tag;
 @synthesize data = _data;
 
+@synthesize midiV2 = _midiV2;
+
 - (id)initWithFrame:(NSRect)frame {
     self = [super initWithFrame:frame];
     if (!self) return nil;
@@ -21,11 +23,11 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deselect:) name:@"deselectAll" object:nil];
     
     
-    controlText *midiValueText = [[controlText alloc] initWithFrame: _midiValue andLabel: @"CC"];
+    controlText *midiValueText = [[controlText alloc] initWithFrame: _midiV1 andLabel: @"CC"];
     
     [midiValueText setOrigin:NSMakePoint(0, 100)];
     
-    [midiValueText bind:@"value" toObject:self withKeyPath:@"self.midiValue" options:nil];
+//    [midiValueText bind:@"value" toObject:self withKeyPath:@"self.midiV1" options:nil];
     
     [self addSubview:midiValueText];
 
@@ -72,24 +74,25 @@
 
 // Event handlers
 -(void)uiEvent:(char*)type {
-    [self uiEvent:type withInt:0];
+//    [self uiEvent:type withInt:0];
 }
 
--(void)uiEvent:(char*)type withInt:(int)value {
-    NSLog(@"Ui event with int: %d", value);
-    
-    if(strncmp(type, "noteOn", 6) == 0) {
-        NSLog(@"Note on trigger");
-//        [utilities midiNotification: 0x90 : self.midiValue : 127 ];
-    }
-    if(strncmp(type, "noteOff", 6) == 0) {
-        NSLog(@"Note off trigger");
-//        [utilities midiNotification: 0x80 : self.midiValue : 127 ];
-    }
-    if(strncmp(type, "sliderVal", 9) == 0) {
-//        [utilities midiNotification: 0xB0 : self.midiValue :value];
-    }
-}
+//-(void)uiEvent:(char*)type withInt:(int)value {
+////    NSLog(@"Ui event with int: %d", value);
+//    
+//    if(strncmp(type, "noteOn", 6) == 0) {
+//        NSLog(@"Note on trigger");
+//        
+////        [utilities midiNotification: 0x90 : self.midiValue : 127 ];
+//    }
+//    if(strncmp(type, "noteOff", 6) == 0) {
+//        NSLog(@"Note off trigger");
+////        [utilities midiNotification: 0x80 : self.midiValue : 127 ];
+//    }
+//    if(strncmp(type, "sliderVal", 9) == 0) {
+//        [self.delegate midiData: @[@"0xB0", [NSNumber numberWithInt: self.midiValue], [NSNumber numberWithInt: value]]];
+//    }
+//}
 
 -(void)drawRect:(NSRect)rect {
     [self drawModule:rect];
@@ -135,6 +138,16 @@
     [self.label setStringValue: labelText];
     [self.label setNeedsDisplay:YES];
     _labelText = labelText;
+}
+
+-(int)midiV2 {
+    return _midiV2;
+}
+
+-(void)setMidiV2:(int)midiV2 {
+//    NSLog(@"Set midiv2 %@", [NSNumber numberWithInt:midiV2]);
+    [self.delegate midiData: @[self.midiStatus, [NSNumber numberWithInt: self.midiV1], [NSNumber numberWithInt: self.midiV2]]];
+    _midiV2 = midiV2;
 }
 
 @end

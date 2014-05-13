@@ -32,6 +32,7 @@
                 
     _textVal = [[controlText alloc] initWithFrame: _value andLabel: @""];
     
+    [_textVal bind:@"value" toObject:self withKeyPath:@"self.value" options: nil];
 //    _textVal = [[NSTextField alloc] initWithFrame:NSMakeRect(0, 0 , 48, 32)];
 //    
 //    [_textVal setBezeled:NO];
@@ -69,8 +70,8 @@
 -(void)setValue:(int)yLoc {
     float percent = yLoc / _size.y;
     _value = percent < 0 ? _min : percent > 1 ? _max : (int) _range * percent;
-    [self.delegate uiEvent:"sliderVal" withInt:(int)_value];
-    [self.textVal setValue: _value];
+//    [self.delegate uiEvent:"sliderVal" withInt:(int)_value];
+//    [self.textVal setValue: _value];
 }
 
 -(int)value {

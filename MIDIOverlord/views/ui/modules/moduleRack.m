@@ -55,18 +55,17 @@
     
     [self addSubview: self.label];
     
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createMidiDestinationsDeviceList:) name:@"midiDestinations" object:nil];
-    // Destinations
-//    NSMutableArray* destinations = [utilities getMidiDestinations];
-    _midiOutput = [[deviceList alloc] initWithFrame: @"MIDI OUT"];
-    [_midiOutput setOrigin: NSMakePoint(5, 20)];
-    [self addSubview: _midiOutput];
-    
-    // Origins
-//    NSMutableArray* sources = [utilities getMidiSources];
     _midiInput = [[deviceList alloc] initWithFrame: @"MIDI IN"];
-    [_midiInput setOrigin: NSMakePoint(5, 40)];
+    [_midiInput setOrigin: NSMakePoint(5, 20)];
+    
     [self addSubview: _midiInput];
+    
+    _midiOutput = [[deviceList alloc] initWithFrame: @"MIDI OUT"];
+    [_midiOutput setOrigin: NSMakePoint(5, 40)];
+    
+    [self bind:@"deviceOut" toObject:_midiOutput withKeyPath:@"selectedValue" options:nil];
+    
+    [self addSubview: _midiOutput];
     
     [self setNeedsDisplay:YES];
     
@@ -83,7 +82,8 @@
         [keyValues addObject: key];
     }
     NSLog(@"New device array %@", keyValues);
-    [_midiOutput updateValues: keyValues];
+    
+    [_midiOutput addOptions: keyValues];
 }
 
 -(NSDictionary*)data {
@@ -134,6 +134,13 @@
     [fgPath stroke];
     
 //    NSLog(@"Drawing");
+}
+
+-(void)midiData:(NSDictionary*)data {
+    NSDictionary *newData = @{@"device": [NSNumber numberWithInt: self.deviceOut], @"data" : data};
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"midiMessage" object:self userInfo: data];
+     [[NSNotificationCenter defaultCenter] postNotificationName:@"midiMessageToDevice" object:self userInfo: newData];
+        //        [utilities midiNotification: 0xB0 : self.midiValue :value];
 }
 
 

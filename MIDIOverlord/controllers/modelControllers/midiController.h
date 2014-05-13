@@ -27,15 +27,20 @@
 
 -(void)createVirtualDeviceWithClient;
 
--(MIDIPacketList*)getMidiPacket:(char*)status :(int)v2 :(int)v3;
+
 
 -(void)handleNotifications:(NSNotification*)notification;
 -(void)sendNote:(BOOL)on :(int)value;
 -(void)sendControlChange:(int)cc :(int)value;
 
 -(void)midiNotification:(int)status :(int)v2 :(int)v3 :(NSInteger)deviceID;
+-(MIDIPacketList*)getMidiPacket:(char)status :(int)v2 :(int)v3;
+-(void)sendMidiMessage: (char)v1 :(int)v2 :(int)v3;
+-(void)sendMidiMessageToDevice: (char)v1 :(int)v2 :(int)v3 :(NSArray*)device;
+
 -(void)returnMidiDestinations:(NSNotification*)notification;
 -(void)getMidiDestinations;
+
 -(NSMutableArray*)getMidiSource;
 -(NSString*)getDeviceName:(MIDIObjectRef)object;
 

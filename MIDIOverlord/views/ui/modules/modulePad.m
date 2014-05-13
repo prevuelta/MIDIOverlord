@@ -10,7 +10,7 @@
 
 @implementation modulePad
 
-@synthesize midiValue = _midiValue;
+@synthesize midiV1= _midiV1;
 
 - (id)initWithFrame{
     
@@ -24,11 +24,11 @@
     
     self.width = width;
     
-    _midiValue = 122;
+    _midiV1 = 122;
     
     controlTrigger *pad = [[controlTrigger alloc] initWithFrame:NSMakePoint(self.width - 16, self.width - 16): NSMakePoint(8, 8)];
     
-    pad.delegate = self;
+//    pad.delegate = self;
     
     [self addSubview: pad];
     

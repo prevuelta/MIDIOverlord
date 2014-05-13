@@ -17,7 +17,10 @@
 //    
 //    [_data loadDefaultState];
     
-    _appViewControl = [[appViewController alloc] initWithWin:_mainWin];
+    [_mainWin setHasShadow: NO];
+//    [_mainWin setStyleMask: NSBorderlessWindowMask];
+
+    _appViewControl = [[appViewController alloc] initWithWin: _mainWin];
     
 
     // MIDI

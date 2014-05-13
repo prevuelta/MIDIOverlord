@@ -15,10 +15,18 @@
 #import "uiLabel.h"
 #import "utilities.h"
 
-@interface moduleBase : NSView <controlBaseDelegate>
+@class moduleBase;
+
+@protocol moduleBaseDelegate
+-(void)midiData:(NSDictionary*)data;
+@end
+
+@interface moduleBase : NSView
 
 //Data
 @property NSDictionary* data;
+
+@property (nonatomic, assign) id delegate;
 
 // Canvas properties
 @property int padding;
@@ -28,8 +36,9 @@
 @property int gridY;
 
 // Midi properties
-@property int midiValue;
-
+@property NSString *midiStatus;
+@property int midiV1;
+@property int midiV2;
 
 // Display options
 @property BOOL selected;

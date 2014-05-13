@@ -59,7 +59,7 @@ int _xLoc;
     
     NSLog(@"Frame height: %@", [NSNumber numberWithInt:frame.size.height]);
     
-    [_mainWin setFrame: frame display:YES animate:YES];
+    [_mainWin setFrame:frame display:NO animate:NO];
     
 }
 
@@ -106,6 +106,8 @@ int _xLoc;
             [module setOrigin: NSMakePoint(_xLoc, RACK_HEIGHT - MODULE_HEIGHT)];
             
             _xLoc += module.width;
+            
+            module.delegate = rack;
 //            
             [rack addSubview: module];
         }

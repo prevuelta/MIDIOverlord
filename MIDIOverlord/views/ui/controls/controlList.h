@@ -25,11 +25,15 @@
 
 @property uiLabel *selectedLabel;
 
-@property NSArray* selectedValue;
+@property int selectedValue;
 
 -(id)initWithFrame: (NSString*)labelText;
 -(void)deselect:(NSNotification*)notification;
--(void)showHideOptions;
--(void)updateValues:(NSMutableArray*)keyValues;
+
+-(void)addOptions:(NSArray*)keyValues;
+
+-(void)updateValues;
+
+-(void)setSelectedlabel:(NSString*)selectedLabel;
 
 @end

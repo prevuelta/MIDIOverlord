@@ -44,13 +44,13 @@
 -(void)mouseDown:(NSEvent *)theEvent {
     self.active = YES;
     [self setNeedsDisplay:YES];
-    [self.delegate uiEvent:"noteOn"];
+//    [self.delegate uiEvent:"noteOn"];
 }
 
 -(void)mouseUp:(NSEvent *)theEvent {
     self.active = NO;
     [self setNeedsDisplay:YES];
-    [self.delegate uiEvent:"noteOff"];
+//    [self.delegate uiEvent:"noteOff"];
 }
 
 @end

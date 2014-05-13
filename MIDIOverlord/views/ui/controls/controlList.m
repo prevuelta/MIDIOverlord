@@ -12,7 +12,6 @@
 
 @synthesize selectedValue = _selectedValue;
 
-
 -(id)initWithFrame: (NSString*)labelText {
     
     self.width = 90;
@@ -33,10 +32,17 @@
     _optionData = [NSMutableArray new];
     
     [self addOptions];
+    
+    _selectedLabel = [[uiLabel alloc] initWithFrame: NSMakeRect(0, 0, self.width, self.height)];
+    [_selectedLabel setStringValue: _labelText];
+    [_selectedLabel setDrawsBackground: NO];
+    [self addSubview:_selectedLabel];
 
     _optionCount = [_optionData count] / 2;
     
     _activeOption = [NSMutableArray arrayWithObjects:labelText, @0, nil];
+    
+    _selectedValue = 0;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deselect:) name:@"closeOpen" object:nil];
     
@@ -49,7 +55,7 @@
 //    _fgColor = [utilities getNSColorFromRGB:fgRGBA];
 //
 
-    [self updateValues: _optionData];
+    [self updateValues];
     
     return self;
 }
@@ -134,25 +140,29 @@ NSComparisonResult compareViews(id firstView, id secondView, void *context) {
     }
 }
 
--(NSArray*)selectedValue {
+-(int)selectedValue {
     return _selectedValue;
 }
 
--(void)setSelectedValue:(NSArray*)selectedValue {
-    NSLog(@"Option sected %@", selectedValue);
-    [_selectedLabel setStringValue: selectedValue[0]];
-    [_selectedLabel setNeedsDisplay: YES];
+
+-(void)setSelectedLabel:(NSString*)selectedLabel {
+// _selectedLabel = selectedLabel
+     [_selectedLabel setStringValue: selectedLabel];
+     [_selectedLabel setNeedsDisplay: YES];
+    ;
+}
+
+-(void)setSelectedValue:(int)selectedValue {
     _selectedValue = selectedValue;
 }
 
 // Hooks
--(void)updateValues:(NSMutableArray*)keyValues {
+-(void)updateValues {
     
-    _selectedLabel = [[uiLabel alloc] initWithFrame: NSMakeRect(0, 0, self.width, self.height)];
-    [_selectedLabel setStringValue: _labelText];
-    [_selectedLabel setDrawsBackground: NO];
-    [self addSubview:_selectedLabel];
+//    [_selectedLabel setStringValue: _labelText];
     
+    _optionCount = [_optionData count] / 2;
+
     NSInteger currentOptionY = self.height;
     
     if([_optionData count] > 0){
@@ -168,7 +178,6 @@ NSComparisonResult compareViews(id firstView, id secondView, void *context) {
                 [self addSubview:option];
                 currentOptionY += self.height;
                 NSLog(@"Current height: %d", currentOptionY);
-                
             } else {
                 
             }
@@ -179,12 +188,14 @@ NSComparisonResult compareViews(id firstView, id secondView, void *context) {
 }
 
 -(void)addOptions {
-    
+    // Add options hook
 }
 
--(void)optionSelectedWithKeyValue: (NSArray*)keyValue andTag: (NSInteger)tag {
-    NSLog(@"Delegate recieved");
-    [self setSelectedValue: keyValue];
+-(void)optionSelectedWithKeyValue: (NSArray*)keyValue {
+    NSLog(@"Delegate Received %@", keyValue);
+   [self setSelectedLabel: keyValue[0]];
+   [self setSelectedValue: (int)[keyValue[1] integerValue]];
+    NSLog(@"keyValue: %@", keyValue[1]);
 }
 
 

@@ -8,7 +8,7 @@
 
 #import "moduleBase.h"
 
-@interface moduleRack : moduleBase
+@interface moduleRack : moduleBase <moduleBaseDelegate>
 
 @property NSDictionary* data;
 @property NSMutableArray* subViews;
@@ -16,6 +16,9 @@
 
 @property deviceList *midiInput;
 @property deviceList *midiOutput;
+
+@property int deviceIn;
+@property int deviceOut;
 
 @property controlText *midiChannelText;
 @property int midiChannel;

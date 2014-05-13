@@ -37,9 +37,9 @@
 }
 
 - (void)drawRect:(NSRect)dirtyRect{
-//    [[NSColor whiteColor] setFill];
-//     NSRectFill(dirtyRect);
-//    [super drawRect:dirtyRect];
+//   [[NSColor whiteColor] setFill];
+//   NSRectFill(dirtyRect);
+//  [super drawRect:dirtyRect];
     if(self.selected) {
         [_label setBackgroundColor: self.activeColor];
     }
@@ -64,9 +64,9 @@
 }
 
 -(void)selectOption {
-    NSLog(@"Sending dlegate...");
-    [_label setBackgroundColor:self.defaultColor];
-    [self.delegate optionSelectedWithKeyValue:self.keyValue andTag: self.tag];
+    NSLog(@"Sending delegate...");
+    [_label setBackgroundColor:self.activeColor];
+    [self.delegate optionSelectedWithKeyValue:self.keyValue];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"closeOpen" object:self userInfo: nil];
    
 }

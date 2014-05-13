@@ -10,16 +10,22 @@
 
 @implementation deviceList
 
--(void)addOptions {
-    NSLog(@"Options data: %@", self.optionData);
+-(void)addOptions:(NSArray*)newOptions {
     
-    NSArray *extraOptions = @[@"None", @"0", @"All", @"1"];
+    NSLog(@"Updating options...");
     
-    NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange: NSMakeRange(0, 4)];
+    self.optionData = [NSMutableArray new];
     
-    [self.optionData insertObjects: extraOptions atIndexes:indexSet];
+    NSArray *extraOptions = @[@"None", @"0"];
+    
+    NSIndexSet *extraIndexSet = [NSIndexSet indexSetWithIndexesInRange: NSMakeRange(0, 2)];
+    [self.optionData insertObjects: extraOptions atIndexes: extraIndexSet];
 
-    NSLog(@"Options data: %@", self.optionData);
+    NSIndexSet *newIndexSet = [NSIndexSet indexSetWithIndexesInRange: NSMakeRange(0, [newOptions count])];
+    [self.optionData insertObjects: newOptions atIndexes: newIndexSet];
+    
+    [self updateValues];
+    
 }
 
 //-(void)updateOptions {

@@ -10,8 +10,6 @@
 
 @implementation moduleSlider
 
-@synthesize midiValue = _midiValue;
-
 -(id)initWithFrame{
     
     self.value = 0;
@@ -21,6 +19,8 @@
     
     if(!self) return nil;
     
+    self.midiStatus = @"0xB0";
+    
     // Add UI buttons
     
     // Add UI buttons
@@ -29,7 +29,8 @@
     
     controlSlider *slider = [[controlSlider alloc] initWithFrame:NSMakePoint(self.width - 16, 80): NSMakePoint(8, 8): sliderColor :0 :127 ];
     
-    slider.delegate = self;
+//      [_midiOutput bind:@"selectedValue" toObject:self withKeyPath:@"self.deviceOut" options:nil];
+    [self bind:@"midiV2" toObject:slider withKeyPath:@"value" options:nil];
     
     [self addSubview: slider];
     
@@ -38,8 +39,9 @@
 
 -(void)drawModule:(NSRect)rect {
     
-    NSLog(@"%d", _midiValue);
+//    NSLog(@"Slide val: %@", [NSNumber numberWithInt:self.midiV2]);
     
 }
+
 
 @end

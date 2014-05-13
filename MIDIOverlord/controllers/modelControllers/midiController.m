@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Midnight City. All rights reserved.
 //
 
+
 #import "midiController.h"
 
 
@@ -23,11 +24,15 @@ Byte packetBuffer[128];
     
     // Setup notifications
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotifications:) name:@"midiMessage" object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotifications:) name:@"midiMessageToDevice" object:nil];
     // Receive request for destinations
 //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(returnMidiDestinations:) name:@"getMidiDestinations" object:nil];
     
     [self returnMidiDestinations];
-    
+
+//    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:2.000 target:self selector:@selector(returnMidiDestinations) userInfo:nil repeats:YES];
+//    
     return self;
 }
 
@@ -52,7 +57,7 @@ Byte packetBuffer[128];
 }
 
 
--(MIDIPacketList*)getMidiPacket:(char*)status :(int)value2 :(int)value3 {
+-(MIDIPacketList*)getMidiPacket:(char)status :(int)value2 :(int)value3 {
     
     MIDIPacketList* packetList = (MIDIPacketList*)packetBuffer;
     MIDIPacket *packet;
@@ -70,15 +75,24 @@ Byte packetBuffer[128];
 - (void)handleNotifications:(NSNotification*)notification {
     NSLog(@"Got notified: %@", notification);
     
-    char status = [[notification.userInfo objectForKey:@"status"] charValue];
-    int v2 = (int)[[notification.userInfo objectForKey:@"v2"] integerValue];
-    int v3 = (int)[[notification.userInfo objectForKey:@"v3"] integerValue];
+//    char status = [[notification.userInfo objectForKey:@"status"] charValue];
+//    int v2 = (int)[[notification.userInfo objectForKey:@"v2"] integerValue];
+//    int v3 = (int)[[notification.userInfo objectForKey:@"v3"] integerValue];
     
-    [self sendMidiMessage: status: v2: v3];
+//    [self sendMidiMessage: status: v2: v3];
     
 }
 
--(void)sendMidiMessage: (char*)v1 :(int)v2 :(int)v3 {
+-(void)sendMidiMessageToDevice: (char)v1 :(int)v2 :(int)v3 :(NSArray*)device {
+    
+    int dIndex = (int)[[device objectAtIndex:1] integerValue];
+    
+    MIDIPacketList *packetList = [self getMidiPacket: v1 : v2 : v3 ];
+    
+    MIDISend(_portRefs[dIndex], _endPointRefs[dIndex], packetList);
+}
+
+-(void)sendMidiMessage: (char)v1 :(int)v2 :(int)v3 {
     NSLog(@"Sending midi...");
     MIDIPacketList *packetList = [self getMidiPacket: v1 : v2 : v3 ];
     MIDIReceived(_appOutput, packetList);
@@ -126,11 +140,11 @@ Byte packetBuffer[128];
     MIDIEndpointRef endPointRefs[destCount];
     MIDIPortRef portRefs[destCount];
     
+    _devices = [NSMutableDictionary new];
+    
     for (ItemCount i = 0 ; i < destCount ; ++i) {
         
         // Grab a reference to a destination endpoint
-        
-        _devices = [NSMutableDictionary new];
         
         MIDIEndpointRef endPointRef = MIDIGetDestination(i);
         
@@ -182,10 +196,10 @@ Byte packetBuffer[128];
 
 -(void)midiNotification:(int)status :(int)v2 :(int)v3 :(NSInteger)deviceID {
     NSDictionary *data =@{
-                          @"status" : [NSNumber numberWithInt:status],
-                          @"v2" : [NSNumber numberWithInt:v2],
-                          @"v3" : [NSNumber numberWithInt:v3]
-                          };
+        @"status" : [NSNumber numberWithInt:status],
+        @"v2" : [NSNumber numberWithInt:v2],
+        @"v3" : [NSNumber numberWithInt:v3]
+    };
     
     if(!deviceID) {
         

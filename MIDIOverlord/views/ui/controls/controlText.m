@@ -25,14 +25,14 @@ static NSPoint gridSystem[25];
     _label = label;
     _value = value;
     _valueCount = _value < 0 ? 0 : 3;
-    NSLog(@"value count: %@", [NSNumber numberWithInt: _valueCount]);
+//    NSLog(@"value count: %@", [NSNumber numberWithInt: _valueCount]);
     _charCount = (int)[_label length];
     _charSizeX = (_gridCellSizeX * _gridCols ) + _gridPad2;
     _charSizeY = (_gridCellSizeY * _gridRows ) + _gridPad2;
     
     [self setDefaults];
     
-    NSLog(@"Char count: %@", [NSNumber numberWithInt:_charCount]);
+//    NSLog(@"Char count: %@", [NSNumber numberWithInt:_charCount]);
     
     int width = _charSizeX * (_valueCount + _charCount);
     
@@ -99,14 +99,13 @@ static NSPoint gridSystem[25];
     [letterPath setLineWidth: 1];
     [numberPath setLineWidth: 1];
     
-   
 
     int charOffset = 0;//_charSizeX * ((_charCount * _valueCount)-1);
     
     for(int c = 0; c < _charCount; c++) {
         NSString *key = [NSString stringWithFormat: @"%c", [_label characterAtIndex:c]];
         NSArray *letterArr = [_letters objectForKey: key];
-        NSLog(@"Letter array: %@", letterArr);
+//        NSLog(@"Letter array: %@", letterArr);
         for(int l = 0; l < [letterArr count]; l++) {
             
             NSNumber *index = letterArr[l];
