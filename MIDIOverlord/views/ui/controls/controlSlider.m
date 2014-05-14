@@ -80,18 +80,18 @@
 
 -(void)mouseDown:(NSEvent *)e {
     self.active = true;
-    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:2.000 target:self selector:@selector(timerFireMethod:) userInfo:@{@"data":e} repeats:YES];
+ [self updateControlFromEvent:e];
 }
 
 - (void)timerFireMethod:(NSTimer *)timer {
 //      [self updateControlFromEvent:e];
 }
 
-//- (void)mouseDragged:(NSEvent*)e {
-//    if(self.active){
-//        [self updateControlFromEvent:e];
-//    }
-//}
+- (void)mouseDragged:(NSEvent*)e {
+    if(self.active){
+        [self updateControlFromEvent:e];
+    }
+}
 
 -(void)mouseUp:(NSEvent *)e {
     self.active = false;
@@ -100,11 +100,11 @@
      
  -(void)updateControlFromEvent:(NSEvent*)e {
      NSPoint location = [self convertPoint:[e locationInWindow] fromView:nil];
-//     self.marker = location.y;
+     self.marker = location.y;
      int newValue = location.y > 0 ? _marker + 1 : _marker - 1;
      [self setMarker: newValue];
      [self setNeedsDisplay:YES];
-     [self setValue:(int)location.y];
+     [self setValue: newValue];
  }
 
 
