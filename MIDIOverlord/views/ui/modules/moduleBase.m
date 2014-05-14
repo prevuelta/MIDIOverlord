@@ -43,7 +43,7 @@
     
     _selected = NO;
     
-    self.labelText = @"Untitled";
+    self.labelText = @"UNTITLED";
     
     return self;
 }
@@ -137,8 +137,8 @@
 }
 
 -(void)setLabelText:(NSString*)labelText {
-    [self.label setStringValue: labelText];
-    [self.label setNeedsDisplay:YES];
+//    [self.label setStringValue: labelText];
+//    [self.label setNeedsDisplay:YES];
     _labelText = labelText;
 }
 

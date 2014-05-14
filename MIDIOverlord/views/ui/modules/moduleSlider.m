@@ -29,7 +29,7 @@
     float sliderRGBA[] = UI_COLOR_PROT_3;
     NSColor* sliderColor = [utilities getNSColorFromRGB:sliderRGBA];
     
-    controlSlider *slider = [[controlSlider alloc] initWithFrame:NSMakePoint(self.width - 16, 128): NSMakePoint(8, 8): sliderColor :0 :127 ];
+    controlSlider *slider = [[controlSlider alloc] initWithFrame:NSMakePoint(self.width, 128): NSMakePoint(0, 0): sliderColor :0 :127 ];
 
     [self bind:@"midiV3" toObject:slider withKeyPath:@"value" options:nil];
     

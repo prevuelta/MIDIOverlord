@@ -45,7 +45,7 @@
 @property NSInteger tag;
 
 // UI
-@property uiLabel *label;
+@property controlText *label;
 @property NSString *labelText;
 
 @property NSColor *bgColor;

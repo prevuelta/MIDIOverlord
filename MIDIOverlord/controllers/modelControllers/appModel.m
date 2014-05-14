@@ -114,7 +114,7 @@
     NSDictionary* rack = @{
         @"ID" : ID,
         @"page" : [NSNumber numberWithInt:pageIndex],
-        @"label": [NSString stringWithFormat: @"Rack %@", ID],
+        @"label": [NSString stringWithFormat: @"RACK %@", ID],
         @"size": @0,
         @"channel": @0,
         @"input": @0,

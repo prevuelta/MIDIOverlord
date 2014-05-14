@@ -11,7 +11,7 @@
         "pages": [{
             "racks" : [
                 {
-                "label": "Rack 1",
+                "label": "RACK 1",
                 "size": 0,
                 "channel": 0,
                 "input": null,
@@ -21,7 +21,7 @@
                 ]
                 },
                {
-               "label": "Rack 2",
+               "label": "RACK 2",
                "size": 0,
                "channel": 0,
                "input": null,

@@ -50,18 +50,17 @@
 
 -(void)addRackTitle {
 
-    self.label = [[uiLabel alloc] initWithFrame:NSMakeRect(0, 0, self.headerWidth, 15)];
-    [self.label setStringValue: self.labelText];
+    self.label = [[controlText alloc] initWithFrame: -1 andLabel: self.labelText];
     
     [self addSubview: self.label];
     
     _midiInput = [[deviceList alloc] initWithFrame: @"MIDI IN"];
-    [_midiInput setOrigin: NSMakePoint(5, 20)];
+    [_midiInput setOrigin: NSMakePoint(0, 16)];
     
     [self addSubview: _midiInput];
     
     _midiOutput = [[deviceList alloc] initWithFrame: @"MIDI OUT"];
-    [_midiOutput setOrigin: NSMakePoint(5, 40)];
+    [_midiOutput setOrigin: NSMakePoint(0, 32)];
     
     [self bind:@"deviceOut" toObject:_midiOutput withKeyPath:@"selectedValue" options:nil];
     
@@ -92,6 +91,7 @@
 
 -(void)setData:(NSDictionary*)data {
     self.labelText = [data objectForKey: @"label"];
+    NSLog(@"Label yo%@", self.labelText);
     self.tag = [[data objectForKey:@"ID"] integerValue];
     _data = data;
 }

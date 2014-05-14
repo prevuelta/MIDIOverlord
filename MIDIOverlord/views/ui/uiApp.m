@@ -25,7 +25,7 @@
     [bgPath closePath];
     [bgPath fill];
     
-    controlText *appTitle = [[controlText alloc] initWithFrame: -1 andLabel: @"MIDI OVERLORD"];
+    controlText *appTitle = [[controlText alloc] initWithFrame: -1 andLabel: @"MIDI OVERLORD PROTOTYPE V.001"];
     
     [appTitle setOrigin:NSMakePoint(0, 30)];
     

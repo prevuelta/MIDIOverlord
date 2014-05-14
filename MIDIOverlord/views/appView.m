@@ -70,6 +70,7 @@ int _xLoc;
         // Create rack
         moduleRack *rack = [[moduleRack alloc] initWithFrame: NSMakeRect(0, 0, WINDOW_WIDTH, RACK_HEIGHT)];
         
+        
         [rack setOrigin:NSMakePoint(0, (row * RACK_HEIGHT) + TOOLBAR_HEIGHT)];
         
         [rack setData: rackData[row]];
@@ -91,7 +92,7 @@ int _xLoc;
     
         _xLoc = rack.headerWidth;
     
-        NSLog(@"Rack: %@", rack);
+        NSLog(@"RACK: %@", rack);
     
         for(int i = 0; i < [moduleData count]; i++) {
             

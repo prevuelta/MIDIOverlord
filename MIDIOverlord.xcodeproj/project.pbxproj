@@ -182,8 +182,8 @@
 			children = (
 				6E1F67E119074D9E00503521 /* deviceController.h */,
 				6E1F67E219074D9E00503521 /* deviceController.m */,
-				6E7C55F418EB94B30002F09B /* appModel.h */,
 				6E7C55F518EB94B30002F09B /* appModel.m */,
+				6E7C55F418EB94B30002F09B /* appModel.h */,
 				6E7C55F618EB94B30002F09B /* midiController.h */,
 				6E7C55F718EB94B30002F09B /* midiController.m */,
 			);
