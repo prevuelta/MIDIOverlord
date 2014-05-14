@@ -36,9 +36,9 @@
 @property int gridY;
 
 // Midi properties
-@property NSString *midiStatus;
 @property int midiV1;
 @property int midiV2;
+@property int midiV3;
 
 // Display options
 @property BOOL selected;

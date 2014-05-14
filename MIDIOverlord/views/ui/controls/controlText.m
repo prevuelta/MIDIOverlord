@@ -30,6 +30,8 @@ static NSPoint gridSystem[25];
     _charSizeX = (_gridCellSizeX * _gridCols ) + _gridPad2;
     _charSizeY = (_gridCellSizeY * _gridRows ) + _gridPad2;
     
+    _editable = NO;
+    
     [self setDefaults];
     
 //    NSLog(@"Char count: %@", [NSNumber numberWithInt:_charCount]);
@@ -159,9 +161,34 @@ static NSPoint gridSystem[25];
 }
 
 -(void)setValue: (int)value {
-    _value = value;
-    [self setNeedsDisplay:YES];
+    if(value >= 0 && value < 128) {
+        _value = value;
+        [self setNeedsDisplay:YES];
+    }
 }
+
+-(void)mouseDown:(NSEvent *)e {
+    if(self.editable) {
+        self.active = true;
+    }
+}
+
+- (void)mouseDragged:(NSEvent*)e {
+    if(self.active){
+        NSPoint location = [self convertPoint:[e locationInWindow] fromView:nil];
+        NSLog(@"%@", [NSNumber numberWithInt: location.y ]);
+        int newValue = location.y > 0 ? _value + 1 : _value - 1;
+        NSLog(@"%@", [NSNumber numberWithInt:_value]);
+        [self setValue: newValue];
+    }
+}
+
+-(void)mouseUp:(NSEvent *)e {
+    if(self.editable) {
+        self.active = false;
+    }
+}
+
 
 
 @end

@@ -14,7 +14,7 @@
 @synthesize tag = _tag;
 @synthesize data = _data;
 
-@synthesize midiV2 = _midiV2;
+@synthesize midiV3 = _midiV3;
 
 - (id)initWithFrame:(NSRect)frame {
     self = [super initWithFrame:frame];
@@ -25,9 +25,11 @@
     
     controlText *midiValueText = [[controlText alloc] initWithFrame: _midiV1 andLabel: @"CC"];
     
-    [midiValueText setOrigin:NSMakePoint(0, 100)];
+    [midiValueText setOrigin:NSMakePoint(0, MODULE_HEIGHT - 16)];
     
-//    [midiValueText bind:@"value" toObject:self withKeyPath:@"self.midiV1" options:nil];
+    [midiValueText setEditable:YES];
+    
+    [self bind:@"midiV2" toObject:midiValueText withKeyPath:@"value" options:nil];
     
     [self addSubview:midiValueText];
 
@@ -140,14 +142,14 @@
     _labelText = labelText;
 }
 
--(int)midiV2 {
-    return _midiV2;
+-(int)midiV3 {
+    return _midiV3;
 }
 
--(void)setMidiV2:(int)midiV2 {
+-(void)setMidiV3:(int)midiV3 {
 //    NSLog(@"Set midiv2 %@", [NSNumber numberWithInt:midiV2]);
-    [self.delegate midiData: @[self.midiStatus, [NSNumber numberWithInt: self.midiV1], [NSNumber numberWithInt: self.midiV2]]];
-    _midiV2 = midiV2;
+    [self.delegate midiData: @[[NSNumber numberWithInt: self.midiV1], [NSNumber numberWithInt: self.midiV2], [NSNumber numberWithInt: self.midiV3]]];
+    _midiV3 = midiV3;
 }
 
 @end

@@ -19,7 +19,9 @@
     
     if(!self) return nil;
     
-    self.midiStatus = @"0xB0";
+    self.midiV1 = 176;
+    self.midiV2 = 0;
+    self.midiV3 = 0;
     
     // Add UI buttons
     
@@ -27,10 +29,9 @@
     float sliderRGBA[] = UI_COLOR_PROT_3;
     NSColor* sliderColor = [utilities getNSColorFromRGB:sliderRGBA];
     
-    controlSlider *slider = [[controlSlider alloc] initWithFrame:NSMakePoint(self.width - 16, 80): NSMakePoint(8, 8): sliderColor :0 :127 ];
-    
-//      [_midiOutput bind:@"selectedValue" toObject:self withKeyPath:@"self.deviceOut" options:nil];
-    [self bind:@"midiV2" toObject:slider withKeyPath:@"value" options:nil];
+    controlSlider *slider = [[controlSlider alloc] initWithFrame:NSMakePoint(self.width - 16, 128): NSMakePoint(8, 8): sliderColor :0 :127 ];
+
+    [self bind:@"midiV3" toObject:slider withKeyPath:@"value" options:nil];
     
     [self addSubview: slider];
     

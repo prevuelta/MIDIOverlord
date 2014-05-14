@@ -28,6 +28,8 @@
 @property int charSizeX;
 @property int charSizeY;
 
+@property BOOL editable;
+
 -(id)initWithFrame:(int)value andLabel:(NSString*)label;
 
 @end

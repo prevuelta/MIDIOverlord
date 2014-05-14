@@ -23,9 +23,9 @@ Byte packetBuffer[128];
 //    [self getMidiDestinations];
     
     // Setup notifications
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotifications:) name:@"midiMessage" object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotifications:) name:@"midiMessage" object:nil];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotifications:) name:@"midiMessageToDevice" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sendMidiMessageToDevice:) name:@"midiMessageToDevice" object:nil];
     // Receive request for destinations
 //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(returnMidiDestinations:) name:@"getMidiDestinations" object:nil];
     
@@ -57,16 +57,15 @@ Byte packetBuffer[128];
 }
 
 
--(MIDIPacketList*)getMidiPacket:(char)status :(int)value2 :(int)value3 {
+-(MIDIPacketList*)getMidiPacket:(int)value1 :(int)value2 :(int)value3 {
     
     MIDIPacketList* packetList = (MIDIPacketList*)packetBuffer;
     MIDIPacket *packet;
     
-    Byte msg[3] = {status, (Byte)value2, (Byte)value3};
+    Byte msg[3] = {(Byte)value1, (Byte)value2, (Byte)value3};
     
     packet = MIDIPacketListInit(packetList);
     packet = MIDIPacketListAdd(packetList, 1024, packet, 0, 3, msg);
-    
     
     return packetList;
     
@@ -83,16 +82,60 @@ Byte packetBuffer[128];
     
 }
 
--(void)sendMidiMessageToDevice: (char)v1 :(int)v2 :(int)v3 :(NSArray*)device {
+-(void)sendMidiMessageToDevice:(NSNotification*)notification {
+    
+     NSLog(@"Got notified: %@", notification);
+    
+    NSDictionary *userInfo = notification.userInfo;
+    
+    NSArray *midiData = [userInfo objectForKey:@"data"];
+    NSNumber *deviceID = [userInfo objectForKey:@"device"];
+
+    NSLog(@"Devices: %@", _devices);
+    
+    NSArray *device = [_devices objectForKey: deviceID];
+
+    NSLog(@"Device array: %@", device);
     
     int dIndex = (int)[[device objectAtIndex:1] integerValue];
+//
+    NSLog(@"Status: %@", midiData);
     
-    MIDIPacketList *packetList = [self getMidiPacket: v1 : v2 : v3 ];
+//    MIDIPacketList *packetList = [self getMidiPacket: midiStatus: (int)[midiData[1] integerValue] : (int)[midiData[2] integerValue]];
     
-    MIDISend(_portRefs[dIndex], _endPointRefs[dIndex], packetList);
+    MIDIPacketList *packetList = [self getMidiPacket: [midiData[0] integerValue]: [midiData[1] integerValue] : [midiData[2] integerValue]];
+    
+   
+    MIDIObjectRef endPoint;
+    
+    MIDIObjectType foundObj;
+    
+    MIDIObjectFindByUniqueID([deviceID integerValue], &endPoint, &foundObj);
+    
+    MIDIEndpointRef endPointRef = (MIDIEndpointRef)endPoint;
+
+    MIDIPortRef outPort;
+
+    CFStringRef outPortName = (__bridge CFStringRef)[device[0] stringByAppendingFormat:@"%@", device[0]];
+//
+    MIDIOutputPortCreate([self newClient:outPortName], outPortName, &outPort);
+
+    
+    MIDIReceived(_appOutput, packetList);
+    
+    OSStatus result;
+    
+    result = MIDISend(outPort, endPointRef, packetList);
+
+    if(result != noErr) {
+        NSLog(@"Error sending midi: %s - %s",
+              GetMacOSStatusErrorString(result),
+              GetMacOSStatusCommentString(result));
+        return;
+    }
 }
 
--(void)sendMidiMessage: (char)v1 :(int)v2 :(int)v3 {
+-(void)sendMidiMessage: (int)v1 :(int)v2 :(int)v3 {
     NSLog(@"Sending midi...");
     MIDIPacketList *packetList = [self getMidiPacket: v1 : v2 : v3 ];
     MIDIReceived(_appOutput, packetList);

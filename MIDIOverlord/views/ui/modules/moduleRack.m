@@ -31,13 +31,13 @@
     
     self.subViews = [NSMutableArray new];
     
-    self.midiChannel = 10;
+    self.midiChannel = 0;
     
     NSLog(@"Sending");
     
     _midiChannelText = [[controlText alloc] initWithFrame: _midiChannel andLabel: @"CH"];
     
-    [_midiChannelText setOrigin:NSMakePoint(0, 120)];
+    [_midiChannelText setOrigin:NSMakePoint(0, MODULE_HEIGHT - 32)];
     
     [_midiChannelText bind:@"value" toObject:self withKeyPath:@"self.midiChannel" options:nil];
     
