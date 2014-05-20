@@ -33,6 +33,9 @@ int _xLoc;
 
 //    _rackData = rackData;
 
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resizeWinEvent:) name:@"resizeWindow" object:nil];
+    
+    
     // Setup main interface
     uiApp* globalUI = [[uiApp alloc ] initWithFrame: NSMakeRect(0, 0, WINDOW_WIDTH, TOOLBAR_HEIGHT )];
 
@@ -49,8 +52,13 @@ int _xLoc;
     return self;
 }
 
+-(void)resizeWinEvent:(NSNotification*)notification {
+    NSDictionary* userInfo = notification.userInfo;
+    NSInteger rackCount = [[userInfo objectForKey:@"rackCount"] intValue];
+    [self resizeWin:rackCount];
+}
 
--(void)resizeWin:(NSInteger)rackCount{
+-(void)resizeWin:(NSInteger)rackCount {
     
     NSRect frame = [_mainWin frame];
     

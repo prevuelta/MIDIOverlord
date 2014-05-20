@@ -18,9 +18,8 @@
 		6E7C562B18EB94B30002F09B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6E7C55FD18EB94B30002F09B /* InfoPlist.strings */; };
 		6E7C562C18EB94B30002F09B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E7C55FF18EB94B30002F09B /* Images.xcassets */; };
 		6E7C562D18EB94B30002F09B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C560018EB94B30002F09B /* main.m */; };
-		6E7C562F18EB94B30002F09B /* defaultState.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E7C560418EB94B30002F09B /* defaultState.json */; };
 		6E7C563018EB94B30002F09B /* skin.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E7C560518EB94B30002F09B /* skin.json */; };
-		6E7C563118EB94B30002F09B /* state.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E7C560618EB94B30002F09B /* state.json */; };
+		6E7C563118EB94B30002F09B /* stateDEMO.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E7C560618EB94B30002F09B /* stateDEMO.json */; };
 		6E7C563218EB94B30002F09B /* appView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C560918EB94B30002F09B /* appView.m */; };
 		6E7C563318EB94B30002F09B /* controlBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C560D18EB94B30002F09B /* controlBase.m */; };
 		6E7C563418EB94B30002F09B /* controlList.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C560F18EB94B30002F09B /* controlList.m */; };
@@ -38,6 +37,7 @@
 		6E7C564518ED04E60002F09B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7C564318ED04C60002F09B /* Foundation.framework */; };
 		6ECE40EF18FBA1C700E89424 /* deviceList.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECE40EE18FBA1C700E89424 /* deviceList.m */; };
 		6ECE40F218FBA40100E89424 /* controlOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECE40F118FBA40100E89424 /* controlOption.m */; };
+		6EDEA278192AE43700A4BE69 /* uiButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EDEA277192AE43700A4BE69 /* uiButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,9 +73,8 @@
 		6E7C560018EB94B30002F09B /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6E7C560118EB94B30002F09B /* MIDIOverlord-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MIDIOverlord-Info.plist"; sourceTree = "<group>"; };
 		6E7C560218EB94B30002F09B /* MIDIOverlord-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MIDIOverlord-Prefix.pch"; sourceTree = "<group>"; };
-		6E7C560418EB94B30002F09B /* defaultState.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = defaultState.json; sourceTree = "<group>"; };
 		6E7C560518EB94B30002F09B /* skin.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = skin.json; sourceTree = "<group>"; };
-		6E7C560618EB94B30002F09B /* state.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = state.json; sourceTree = "<group>"; };
+		6E7C560618EB94B30002F09B /* stateDEMO.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = stateDEMO.json; sourceTree = "<group>"; };
 		6E7C560818EB94B30002F09B /* appView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = appView.h; sourceTree = "<group>"; };
 		6E7C560918EB94B30002F09B /* appView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = appView.m; sourceTree = "<group>"; };
 		6E7C560C18EB94B30002F09B /* controlBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = controlBase.h; sourceTree = "<group>"; };
@@ -109,6 +108,8 @@
 		6ECE40EE18FBA1C700E89424 /* deviceList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = deviceList.m; path = MIDIOverlord/views/ui/controls/deviceList.m; sourceTree = SOURCE_ROOT; };
 		6ECE40F018FBA40100E89424 /* controlOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = controlOption.h; sourceTree = "<group>"; };
 		6ECE40F118FBA40100E89424 /* controlOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = controlOption.m; sourceTree = "<group>"; };
+		6EDEA276192AE43700A4BE69 /* uiButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uiButton.h; sourceTree = "<group>"; };
+		6EDEA277192AE43700A4BE69 /* uiButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uiButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,8 +183,8 @@
 			children = (
 				6E1F67E119074D9E00503521 /* deviceController.h */,
 				6E1F67E219074D9E00503521 /* deviceController.m */,
-				6E7C55F518EB94B30002F09B /* appModel.m */,
 				6E7C55F418EB94B30002F09B /* appModel.h */,
+				6E7C55F518EB94B30002F09B /* appModel.m */,
 				6E7C55F618EB94B30002F09B /* midiController.h */,
 				6E7C55F718EB94B30002F09B /* midiController.m */,
 			);
@@ -202,9 +203,8 @@
 		6E7C560318EB94B30002F09B /* resources */ = {
 			isa = PBXGroup;
 			children = (
-				6E7C560418EB94B30002F09B /* defaultState.json */,
 				6E7C560518EB94B30002F09B /* skin.json */,
-				6E7C560618EB94B30002F09B /* state.json */,
+				6E7C560618EB94B30002F09B /* stateDEMO.json */,
 			);
 			path = resources;
 			sourceTree = "<group>";
@@ -226,6 +226,8 @@
 				6E7C561618EB94B30002F09B /* modules */,
 				6E7C561F18EB94B30002F09B /* uiApp.h */,
 				6E7C562018EB94B30002F09B /* uiApp.m */,
+				6EDEA276192AE43700A4BE69 /* uiButton.h */,
+				6EDEA277192AE43700A4BE69 /* uiButton.m */,
 				6E7C562118EB94B30002F09B /* uiLabel.h */,
 				6E7C562218EB94B30002F09B /* uiLabel.m */,
 			);
@@ -345,11 +347,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E7C562C18EB94B30002F09B /* Images.xcassets in Resources */,
-				6E7C563118EB94B30002F09B /* state.json in Resources */,
+				6E7C563118EB94B30002F09B /* stateDEMO.json in Resources */,
 				6E7C562B18EB94B30002F09B /* InfoPlist.strings in Resources */,
 				6E7C563018EB94B30002F09B /* skin.json in Resources */,
 				6E7C562A18EB94B30002F09B /* Credits.rtf in Resources */,
-				6E7C562F18EB94B30002F09B /* defaultState.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,6 +371,7 @@
 				6ECE40F218FBA40100E89424 /* controlOption.m in Sources */,
 				6E7C563D18EB94B30002F09B /* uiLabel.m in Sources */,
 				6E7C563218EB94B30002F09B /* appView.m in Sources */,
+				6EDEA278192AE43700A4BE69 /* uiButton.m in Sources */,
 				6E1F67E319074D9E00503521 /* deviceController.m in Sources */,
 				6E7C563318EB94B30002F09B /* controlBase.m in Sources */,
 				6E7C562918EB94B30002F09B /* utilities.m in Sources */,

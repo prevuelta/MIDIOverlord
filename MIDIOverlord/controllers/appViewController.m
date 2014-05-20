@@ -18,15 +18,19 @@
     
     _mainView = [[appView alloc] initWithWin:mainWin];
     
-    [_data addRack: 0];
-    [_data addRack: 1];
+    [_data addRack];
+    [_data addRack];
     
     [_data addModule: 0 :0 :1 ];
     [_data addModule: 0 :0 :2 ];
-    [_data addModule: 1 :1 :2 ];
-    [_data addModule: 1 :1 :2 ];
-    [_data addModule: 1 :1 :2 ];
-    [_data addModule: 1 :1 :2 ];
+//    [_data addModule: 1 :1 :2 ];
+//    [_data addModule: 1 :1 :2 ];
+//    [_data addModule: 1 :1 :2 ];
+//    [_data addModule: 1 :1 :2 ];
+    
+//    [_data saveFile];
+    
+//    [_data loadFile];
     
     NSLog(@"New data: %@", [_data rackData]);
     

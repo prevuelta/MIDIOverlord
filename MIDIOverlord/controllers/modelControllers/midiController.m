@@ -28,11 +28,10 @@ Byte packetBuffer[128];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sendMidiMessageToDevice:) name:@"midiMessageToDevice" object:nil];
     // Receive request for destinations
 //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(returnMidiDestinations:) name:@"getMidiDestinations" object:nil];
+
     
     [self returnMidiDestinations];
-
-//    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:2.000 target:self selector:@selector(returnMidiDestinations) userInfo:nil repeats:YES];
-//    
+   
     return self;
 }
 
@@ -42,7 +41,7 @@ Byte packetBuffer[128];
     
     // Create midi client
     
-    MIDIClientCreate(CFSTR("MIDI Overlord Client"), NULL, NULL, &_appClient);
+    MIDIClientCreate(CFSTR("MIDI Overlord Client"), MyMIDINotifyProc, (__bridge void *)(self), &_appClient);
     
     // Create virtual source
     result = MIDISourceCreate(_appClient, CFSTR("MIDI Overlord Source"), &_appOutput);
@@ -56,6 +55,9 @@ Byte packetBuffer[128];
 
 }
 
+void MyMIDINotifyProc (const MIDINotification  *message, void *refCon) {
+     [(__bridge id) refCon returnMidiDestinations];
+}
 
 -(MIDIPacketList*)getMidiPacket:(int)value1 :(int)value2 :(int)value3 {
     

@@ -13,8 +13,12 @@
 
 - (id)init {
     self = [super init];
+    if(!self) return nil;
     
     [self setupData];
+    
+    // Add observers
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addRackEvent:) name:@"addRack" object:nil];
     
     return self;
 }
@@ -23,9 +27,7 @@
     
     NSLog(@"Setting up data...");
     
-    _appData = [NSMutableDictionary dictionaryWithDictionary: [self loadDefaultState]];
-    
-//    _appData = [NSMutableDictionary objec [self loadJSON: _currentFile], nil];
+    _appData = [self loadDefaultState];
     
     NSLog(@"App Data: %@", _appData);
     
@@ -49,50 +51,54 @@
 
 -(void)saveFile {
     [_state setObject:_rackData forKey: @"racks"];
-    
     [_appData setObject:_state forKey: @"state"];
+
+    BOOL success = [NSKeyedArchiver archiveRootObject: _appData toFile: @"/Users/pablo/test"];
+    NSAssert(success, @"archiveRootObject failed");
     
-    NSLog(@"Appdata: %@", _appData);
-    
-    [self saveJSON];
 }
 
-//-(NSMutableDictionary)loadState:(NSString*)path {
-//    
-//}
+-(void)loadFile {
+    [_state setObject:_rackData forKey: @"racks"];
+    [_appData setObject:_state forKey: @"state"];
+    
+    NSMutableDictionary *appdata = [NSKeyedUnarchiver unarchiveObjectWithFile: @"/Users/pablo/test"];
+    NSAssert(appdata, @"unarchiveObjectWithFile failed");
+    
+    NSLog(@"Loaded app data: %@", appdata);
+    
+}
+
 
 - (NSMutableDictionary*)loadDefaultState {
     
-    // Load json file
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"defaultState" ofType:@"json"];
+    NSDictionary *defaultState = @{@"global" :
+                                        @{
+                                            @"clock"  : @120,
+                                            @"devices"  : @[]
+                                            },
+                                    @"state"  :
+                                        @{
+                                            @"title" : @"Default State",
+                                            @"moduleID" : @0,
+                                            @"rackID"   : @0,
+                                            @"pages" : @[
+                                                @{
+                                                    @"title" : @"untitled",
+                                                    @"layout" : @[]
+                                                }
+                                            ],
+                                            @"racks" : @[],
+                                            @"modules" : @{}
+                                        }
+                                    
+                                    };
     
-    NSString *jsonString = [[NSString alloc] initWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:NULL];
-    
-    NSStringEncoding encoding = NSUTF8StringEncoding;
-    NSData * jsonData = [jsonString dataUsingEncoding:encoding];
-    NSError * error = nil;
-    
-    return (NSMutableDictionary*)[NSJSONSerialization JSONObjectWithData:jsonData options:kNilOptions error:&error];
+    return [NSMutableDictionary dictionaryWithDictionary:defaultState];
 }
 
 - (int)getIntFrom:(NSDictionary*)dictionary withKey:(NSString*)key {
     return [[dictionary objectForKey: key] intValue];
-}
-
--(void)saveJSON {
-    NSError *writeError = nil;
-    NSData *jsonData = [NSJSONSerialization
-        dataWithJSONObject: _appData
-        options:NSJSONWritingPrettyPrinted
-        error:&writeError];
-    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    NSLog(@"JSON output: %@", jsonString);
-    
-    if(!_currentFile) {
-        _currentFile = [utilities getSaveFileUrl];
-    }
-    
-    [jsonString writeToFile: _currentFile atomically: YES encoding:NSUTF8StringEncoding error:nil];
 }
 
 -(void)addPage {
@@ -105,15 +111,20 @@
     _currentPage = page;
 }
 
--(void)addRack:(int)pageIndex {
+-(void)addRackEvent:(NSNotification*)notification {
+    NSLog(@"Addrackeventreceveivec");
+    [self addRack];
+}
+
+-(void)addRack {
 
     _rackID++;
     
-    NSNumber *ID = [NSNumber numberWithInteger:_rackID];
+    NSNumber *ID = [NSNumber numberWithInteger: _rackID];
     
     NSDictionary* rack = @{
         @"ID" : ID,
-        @"page" : [NSNumber numberWithInt:pageIndex],
+        @"page" : [NSNumber numberWithInt: 0],
         @"label": [NSString stringWithFormat: @"RACK %@", ID],
         @"size": @0,
         @"channel": @0,
@@ -123,9 +134,13 @@
     
     [_rackData addObject:rack];
 
+    // Rack layout
     NSMutableArray *newLayout = [NSMutableArray new];
-    
     [_layout addObject: newLayout];
+    
+    NSInteger rackCount = [_rackData count];
+
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"resizeWindow" object:self userInfo: @{@"rackCount" : [NSNumber numberWithInt: rackCount]}];
     
 }
 
@@ -149,12 +164,10 @@
     
     [_moduleData setObject: module forKey: [NSNumber numberWithInteger: _moduleID]];
     
-//    NSLog(@"Layout: %@", _layout);
-    
     [_layout[rackIndex] addObject:[NSNumber numberWithInteger: _moduleID]];
     
     NSLog(@"Layout: %@", _layout);
-//    NSLog(@"M DTA: %@", _moduleData);
+
 }
 
 -(NSMutableArray*)getRackModules: (int)layoutIndex {

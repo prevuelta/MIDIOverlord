@@ -26,6 +26,8 @@
     
     [self updateValues];
     
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"closeOpen" object:self userInfo: nil];
+    
 }
 
 //-(void)updateOptions {

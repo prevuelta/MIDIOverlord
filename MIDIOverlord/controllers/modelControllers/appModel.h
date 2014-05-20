@@ -33,14 +33,14 @@
 -(id)init;
 -(void)setupData;
 
--(NSMutableDictionary*)loadState:(NSString*)path;
 -(NSMutableDictionary*)loadDefaultState;
 
--(void)openFile;
+-(void)loadFile;
 -(void)saveFile;
 
 // Public function
--(void)addRack:(int)pageIndex;
+-(void)addRack:(NSNotification*)notification;
+-(void)addRack;
 -(void)addModule:(int)pageIndex :(int)rackIndex :(int)type;
 
 -(NSMutableArray*)getRackModules: (int)layoutIndex;

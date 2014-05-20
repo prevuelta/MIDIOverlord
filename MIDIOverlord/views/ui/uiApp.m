@@ -14,6 +14,19 @@
     self = [super initWithFrame:frame];
     if(!self) return nil;
     
+    controlText *appTitle = [[controlText alloc] initWithFrame: -1 andLabel: @"MIDI OVERLORD PROTOTYPE V.001"];
+    
+    [appTitle setOrigin:NSMakePoint(0, 30)];
+    
+    [self addSubview: appTitle];
+    
+    // UI Buttons
+    
+    uiButton *addRack = [[uiButton alloc] initWithFrame];
+    [addRack setEvent: @"addRack"];
+    
+    [self addSubview: addRack];
+    
     return self;
 }
 
@@ -25,11 +38,6 @@
     [bgPath closePath];
     [bgPath fill];
     
-    controlText *appTitle = [[controlText alloc] initWithFrame: -1 andLabel: @"MIDI OVERLORD PROTOTYPE V.001"];
-    
-    [appTitle setOrigin:NSMakePoint(0, 30)];
-    
-    [self addSubview: appTitle];
     
 }
 
