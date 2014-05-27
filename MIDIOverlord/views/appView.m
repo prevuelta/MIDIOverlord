@@ -8,13 +8,12 @@
 
 #import "appView.h"
 
-int _xLoc;
+int _yLoc;
 
 @implementation appView
 
 - (id)initWithWin:(NSWindow*)mainWin {
     
-//}andRackData:(NSMutableArray*)rackData andModuleData:(NSDictionary*)moduleData andLayout:(NSMutableArray*)layout {
     self = [super initWithFrame:[mainWin frame]];
     
     if(!self) return nil;
@@ -22,23 +21,10 @@ int _xLoc;
     NSLog(@"Init main view");
     
     _mainWin = mainWin;
-
-//    _layout = layout;
-//
-//    _rackCount = (int) [_layout count];
-
-//    NSLog(@"Rack count: %d", _rackCount);
-
-//    _moduleData = moduleData;
-
-//    _rackData = rackData;
-
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resizeWinEvent:) name:@"resizeWindow" object:nil];
     
-    
+
     // Setup main interface
-    uiApp* globalUI = [[uiApp alloc ] initWithFrame: NSMakeRect(0, 0, WINDOW_WIDTH, TOOLBAR_HEIGHT )];
-
+    uiApp* globalUI = [[uiApp alloc ] initWithFrame: NSMakeRect(0, 0, RACK_WIDTH * 4, TOOLBAR_HEIGHT )];
     [self addSubview:globalUI];
     
     // Set grey background
@@ -52,20 +38,15 @@ int _xLoc;
     return self;
 }
 
--(void)resizeWinEvent:(NSNotification*)notification {
-    NSDictionary* userInfo = notification.userInfo;
-    NSInteger rackCount = [[userInfo objectForKey:@"rackCount"] intValue];
-    [self resizeWin:rackCount];
-}
 
--(void)resizeWin:(NSInteger)rackCount {
+-(void)resizeWin:(int)rackCount {
     
     NSRect frame = [_mainWin frame];
     
-    frame.size.width = WINDOW_WIDTH;
-    frame.size.height = (RACK_HEIGHT * rackCount) + TOOLBAR_HEIGHT + 22;
+    frame.size.width = RACK_WIDTH * rackCount;
+    frame.size.height = WINDOW_HEIGHT + TOOLBAR_HEIGHT + 22;
     
-    NSLog(@"Frame height: %@", [NSNumber numberWithInt:frame.size.height]);
+    NSLog(@"Frame height: %@, %@", [NSNumber numberWithInt:frame.size.height], [NSNumber numberWithInt:rackCount]);
     
     [_mainWin setFrame:frame display:NO animate:NO];
     
@@ -76,10 +57,9 @@ int _xLoc;
     for(int row = 0; row < [layout count]; row++) {
         
         // Create rack
-        moduleRack *rack = [[moduleRack alloc] initWithFrame: NSMakeRect(0, 0, WINDOW_WIDTH, RACK_HEIGHT)];
+        moduleRack *rack = [[moduleRack alloc] initWithFrame: NSMakeRect(0, 0, RACK_WIDTH * 4, WINDOW_HEIGHT)];
         
-        
-        [rack setOrigin:NSMakePoint(0, (row * RACK_HEIGHT) + TOOLBAR_HEIGHT)];
+        [rack setOrigin:NSMakePoint(row * RACK_WIDTH, TOOLBAR_HEIGHT)];
         
         [rack setData: rackData[row]];
         
@@ -90,6 +70,8 @@ int _xLoc;
         [self addSubview:rack];
         
     }
+    
+//    [self resizeWin:[layout count]];
 }
 
 -(void)updateRackModules:(NSInteger)rackID :(NSMutableArray*)moduleData {
@@ -98,7 +80,7 @@ int _xLoc;
     
         moduleRack *rack = [self viewWithTag: rackID];
     
-        _xLoc = rack.headerWidth;
+        _yLoc = rack.headerHeight;
     
         NSLog(@"RACK: %@", rack);
     
@@ -112,9 +94,9 @@ int _xLoc;
             
             [module setData: moduleData[i]];
             
-            [module setOrigin: NSMakePoint(_xLoc, RACK_HEIGHT - MODULE_HEIGHT)];
+            [module setOrigin: NSMakePoint(0, _yLoc)];
             
-            _xLoc += module.width;
+            _yLoc += module.height;
             
             module.delegate = rack;
 //            

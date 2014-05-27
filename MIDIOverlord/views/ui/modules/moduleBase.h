@@ -57,6 +57,7 @@
 -(void)drawRect:(NSRect)rect;
 -(void)drawBg:(NSRect)rect;
 -(void)drawModule:(NSRect)rect;
+-(void)addCCField;
 
 -(void)deselect:(NSNotification*)notification ;
 

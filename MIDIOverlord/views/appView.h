@@ -37,7 +37,7 @@
 //andRackData:(NSMutableArray*)rackData andModuleData:(NSDictionary*)moduleData andLayout:(NSMutableArray*)layout;
 
 -(void)resizeWinEvent:(NSNotification*)notification;
--(void)resizeWin:(NSInteger)rackCount;
+-(void)resizeWin:(int)rackCount;
 
 -(void)drawRect:(NSRect)rect;
 

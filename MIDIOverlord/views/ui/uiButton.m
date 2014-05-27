@@ -33,6 +33,12 @@
     return self;
 }
 
+-(void)setOrigin:(NSPoint)origin {
+    NSRect f = self.frame;
+    f.origin = origin;
+    [self setFrame:f];
+}
+
 - (void)drawRect:(NSRect)dirtyRect{
     
     if(!self.active) {

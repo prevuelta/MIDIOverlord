@@ -30,21 +30,20 @@
 @property NSInteger moduleID;
 @property NSInteger rackID;
 
+@property int rackCount;
+
 -(id)init;
--(void)setupData;
+-(void)setupData:(NSMutableDictionary*)data;
 
 -(NSMutableDictionary*)loadDefaultState;
 
--(void)loadFile;
--(void)saveFile;
-
 // Public function
--(void)addRack:(NSNotification*)notification;
 -(void)addRack;
 -(void)addModule:(int)pageIndex :(int)rackIndex :(int)type;
 
 -(NSMutableArray*)getRackModules: (int)layoutIndex;
 
 -(NSInteger)getRackID:(int)index;
+
 
 @end

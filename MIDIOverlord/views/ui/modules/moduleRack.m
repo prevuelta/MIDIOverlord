@@ -17,11 +17,11 @@
     self = [super initWithFrame:frame];
     if(!self) return nil;
     
-    self.width = WINDOW_WIDTH;
+    self.width = RACK_WIDTH;
     
-    self.height = RACK_HEIGHT;
+    self.height = WINDOW_HEIGHT;
     
-    self.headerWidth = 100;
+    self.headerHeight = 100;
     
     [self addRackTitle];
     
@@ -35,9 +35,11 @@
     
     NSLog(@"Sending");
     
-    _midiChannelText = [[controlText alloc] initWithFrame: _midiChannel andLabel: @"CH"];
+    _midiChannelText = [[controlText alloc] initWithFrame: _midiChannel andLabel: @"CH" andMaxVal: 16];
     
-    [_midiChannelText setOrigin:NSMakePoint(0, MODULE_HEIGHT - 32)];
+    [_midiChannelText setOrigin:NSMakePoint(0, 24)];
+    
+    [_midiChannelText setEditable: YES];
     
     [_midiChannelText bind:@"value" toObject:self withKeyPath:@"self.midiChannel" options:nil];
     
@@ -50,17 +52,17 @@
 
 -(void)addRackTitle {
 
-    self.label = [[controlText alloc] initWithFrame: -1 andLabel: self.labelText];
+    self.label = [[controlText alloc] initWithFrame: -1 andLabel: self.labelText andMaxVal: 0];
     
     [self addSubview: self.label];
     
     _midiInput = [[deviceList alloc] initWithFrame: @"MIDI IN"];
-    [_midiInput setOrigin: NSMakePoint(0, 16)];
+    [_midiInput setOrigin: NSMakePoint(0, 36)];
     
     [self addSubview: _midiInput];
     
     _midiOutput = [[deviceList alloc] initWithFrame: @"MIDI OUT"];
-    [_midiOutput setOrigin: NSMakePoint(0, 32)];
+    [_midiOutput setOrigin: NSMakePoint(0, 48)];
     
     [self bind:@"deviceOut" toObject:_midiOutput withKeyPath:@"selectedValue" options:nil];
     
@@ -116,15 +118,15 @@
         [self.bgColor set];
     }
     
-    [bgPath appendBezierPathWithRect:NSMakeRect(0, 0, self.headerWidth, RACK_HEIGHT)];
+    [bgPath appendBezierPathWithRect:NSMakeRect(0, 0, RACK_WIDTH, self.headerHeight)];
     
     [bgPath closePath];
     [bgPath fill];
     
     [fgPath moveToPoint:NSMakePoint(halfStrokeWidth, halfStrokeWidth)];
     [fgPath lineToPoint:NSMakePoint(self.width - halfStrokeWidth, halfStrokeWidth)];
-    [fgPath lineToPoint:NSMakePoint(self.width - halfStrokeWidth, RACK_HEIGHT - halfStrokeWidth)];
-    [fgPath lineToPoint:NSMakePoint(halfStrokeWidth, RACK_HEIGHT - halfStrokeWidth)];
+    [fgPath lineToPoint:NSMakePoint(self.width - halfStrokeWidth, WINDOW_HEIGHT - halfStrokeWidth)];
+    [fgPath lineToPoint:NSMakePoint(halfStrokeWidth, WINDOW_HEIGHT - halfStrokeWidth)];
     [fgPath lineToPoint:NSMakePoint(halfStrokeWidth, halfStrokeWidth)];
     
     [fgPath closePath];

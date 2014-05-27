@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6E1F67E319074D9E00503521 /* deviceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1F67E219074D9E00503521 /* deviceController.m */; };
 		6E7C562318EB94B30002F09B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C55EA18EB94B30002F09B /* AppDelegate.m */; };
 		6E7C562518EB94B30002F09B /* appViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C55F018EB94B30002F09B /* appViewController.m */; };
 		6E7C562618EB94B30002F09B /* eventHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C55F218EB94B30002F09B /* eventHandler.m */; };
@@ -51,8 +50,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		6E1F67E119074D9E00503521 /* deviceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = deviceController.h; path = MIDIOverlord/controllers/modelControllers/deviceController.h; sourceTree = SOURCE_ROOT; };
-		6E1F67E219074D9E00503521 /* deviceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = deviceController.m; path = MIDIOverlord/controllers/modelControllers/deviceController.m; sourceTree = SOURCE_ROOT; };
 		6E7C55E918EB94B30002F09B /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6E7C55EA18EB94B30002F09B /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		6E7C55EC18EB94B30002F09B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -181,8 +178,6 @@
 		6E7C55F318EB94B30002F09B /* modelControllers */ = {
 			isa = PBXGroup;
 			children = (
-				6E1F67E119074D9E00503521 /* deviceController.h */,
-				6E1F67E219074D9E00503521 /* deviceController.m */,
 				6E7C55F418EB94B30002F09B /* appModel.h */,
 				6E7C55F518EB94B30002F09B /* appModel.m */,
 				6E7C55F618EB94B30002F09B /* midiController.h */,
@@ -372,7 +367,6 @@
 				6E7C563D18EB94B30002F09B /* uiLabel.m in Sources */,
 				6E7C563218EB94B30002F09B /* appView.m in Sources */,
 				6EDEA278192AE43700A4BE69 /* uiButton.m in Sources */,
-				6E1F67E319074D9E00503521 /* deviceController.m in Sources */,
 				6E7C563318EB94B30002F09B /* controlBase.m in Sources */,
 				6E7C562918EB94B30002F09B /* utilities.m in Sources */,
 				6E7C563418EB94B30002F09B /* controlList.m in Sources */,

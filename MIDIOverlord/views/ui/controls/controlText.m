@@ -14,16 +14,19 @@
 
 static NSPoint gridSystem[25];
 
--(id)initWithFrame:(int)value andLabel:(NSString*)label {
+int baseY;
+
+-(id)initWithFrame:(int)value andLabel:(NSString*)label andMaxVal:(int)max {
     
     _gridCellSizeX = 1;
     _gridCellSizeY = 2;
-    _gridPad = 2;
+    _gridPad = 1;
     _gridPad2 = _gridPad * 2;
     _gridCols = 5;
     _gridRows = 5;
     _label = label;
     _value = value;
+    _max = max;
     _valueCount = _value < 0 ? 0 : 3;
 //    NSLog(@"value count: %@", [NSNumber numberWithInt: _valueCount]);
     _charCount = (int)[_label length];
@@ -44,18 +47,10 @@ static NSPoint gridSystem[25];
 
     // NSPoint gridSystem[_gridRows * _gridCols];
     
-    for(int i = 0; i < _gridRows; i++) {
-        for(int j = 0; j < _gridCols; j++) {
-            float x = (j * _gridCellSizeX) + 0.5 + _gridPad;
-            float y = (i * _gridCellSizeY) + 0.5 + _gridPad;
-            NSPoint point =  NSMakePoint((CGFloat)x, (CGFloat)y);
-            // NSLog(@"First x: %@", [NSValue valueWithPoint:point]);
-            gridSystem[(i*_gridCols)+j] = point;
-        }
-    }
+    [self setupGridSystem];
     
     _numbers = @[
-       @[@0, @20, @24, @4, @0], // 0
+       @[@0, @20, @24, @4, @0, @24], // 0
        @[@20, @22, @2, @4, @0], // 1
        @[@20, @24, @14, @10, @0, @4], // 2
        @[@20, @23, @13, @10, @14, @4, @0], // 3
@@ -75,13 +70,16 @@ static NSPoint gridSystem[25];
        @"E" : @[@24, @20, @10, @12, @10, @0, @4],
        @"H" : @[@20, @0, @10, @14, @24, @4],
        @"I" : @[@20, @24, @22, @2, @0, @4],
+       @"J" : @[@20, @24, @22, @2, @0, @4],
+       @"K" : @[@20, @0, @10, @12, @4, @12, @24],
        @"L" : @[@20, @0, @4],
        @"M" : @[@0, @20, @22, @12, @22, @24, @4],
+       @"N" : @[@0, @20, @4, @24],
        @"O" : @[@0, @20, @24, @4, @0],
        @"P" : @[@0, @20, @24, @14, @10],
        @"R" : @[@14, @24, @20, @0, @10, @13, @3],
        @"T" : @[@20, @24, @22, @2],
-       @"U" : @[@14, @24, @20, @0, @10, @13, @3],
+       @"U" : @[@20, @0, @4, @24],
        @"V" : @[@20, @10, @2, @14, @24],
        @"W" : @[@20, @10, @2, @14, @24],
        @"X" : @[@20, @10, @2, @14, @24],
@@ -98,11 +96,23 @@ static NSPoint gridSystem[25];
     return self;
 }
 
+-(void)setupGridSystem {
+    
+    for(int i = 0; i < _gridRows; i++) {
+        for(int j = 0; j < _gridCols; j++) {
+            float x = (j * _gridCellSizeX) + 0.5 + _gridPad;
+            float y = (i * _gridCellSizeY) + 0.5 + _gridPad;
+            NSPoint point =  NSMakePoint((CGFloat)x, (CGFloat)y);
+            gridSystem[(i*_gridCols)+j] = point;
+        }
+    }
+}
+
 -(void)drawRect:(NSRect)dirtyRect{
     
-   [self.defaultColor setFill];
-    NSRectFill(dirtyRect);
-   [super drawRect:dirtyRect];
+//   [self.defaultColor setFill];
+//    NSRectFill(dirtyRect);
+//   [super drawRect:dirtyRect];
 
     // Drawing code here.
     // Draw letters
@@ -173,7 +183,7 @@ static NSPoint gridSystem[25];
 }
 
 -(void)setValue: (int)value {
-    if(value >= 0 && value < 128) {
+    if(value >= 0 && value <= _max) {
         _value = value;
         [self setNeedsDisplay:YES];
     }
@@ -181,6 +191,8 @@ static NSPoint gridSystem[25];
 
 -(void)mouseDown:(NSEvent *)e {
     if(self.editable) {
+        NSPoint location = [self convertPoint:[e locationInWindow] fromView:nil];
+        baseY = location.y;
         self.active = true;
     }
 }
@@ -189,9 +201,11 @@ static NSPoint gridSystem[25];
     if(self.active){
         NSPoint location = [self convertPoint:[e locationInWindow] fromView:nil];
         NSLog(@"%@", [NSNumber numberWithInt: location.y ]);
-        int newValue = location.y > 0 ? _value + 1 : _value - 1;
+//        int newValue = location.y > baseY ? _value + 1 : _value - 1;/
+        int newValue = _value + (location.y - baseY);
         NSLog(@"%@", [NSNumber numberWithInt:_value]);
         [self setValue: newValue];
+        baseY = location.y;
     }
 }
 

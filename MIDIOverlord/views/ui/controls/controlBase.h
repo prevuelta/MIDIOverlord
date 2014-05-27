@@ -26,6 +26,7 @@
 
 @property NSInteger tag;
 
+@property NSColor *blackColor;
 @property NSColor *defaultColor;
 @property NSColor *markerColor;
 @property NSColor *activeColor;

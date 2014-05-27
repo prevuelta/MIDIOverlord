@@ -13,27 +13,37 @@
 -(id)initWithFrame{
     
     self.value = 0;
-    self.width = 60;
+    self.height = 24;
 
-    self = [super initWithFrame:NSMakeRect(0, 0, self.width, MODULE_HEIGHT)];
+    self = [super initWithFrame:NSMakeRect(0, 0, RACK_WIDTH, self.height)];
     
     if(!self) return nil;
     
-    self.midiV1 = 176;
+    self.midiV1 = 0;
     self.midiV2 = 0;
     self.midiV3 = 0;
     
+    
+    
+    controlText *midiValueText = [[controlText alloc] initWithFrame: self.midiV1 andLabel: @"CC" andMaxVal:127];
+    
+    [midiValueText setOrigin:NSMakePoint(0, 12)];
+    
+    [midiValueText setEditable:YES];
+    
     // Add UI buttons
     
     // Add UI buttons
-    float sliderRGBA[] = UI_COLOR_PROT_3;
-    NSColor* sliderColor = [utilities getNSColorFromRGB:sliderRGBA];
     
-    controlSlider *slider = [[controlSlider alloc] initWithFrame:NSMakePoint(self.width, 128): NSMakePoint(0, 0): sliderColor :0 :127 ];
+    controlSlider *slider = [[controlSlider alloc] initWithFrame:NSMakePoint(self.width, 12): NSMakePoint(0, 0): 0 :127 ];
+    
+    [slider setOrigin:NSMakePoint(0, 0)];
 
     [self bind:@"midiV3" toObject:slider withKeyPath:@"value" options:nil];
     
     [self addSubview: slider];
+    
+    [self addCCField];
     
     return self;
 }

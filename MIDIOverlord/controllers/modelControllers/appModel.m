@@ -11,23 +11,22 @@
 
 @implementation appModel
 
+@synthesize appData = _appData;
+
 - (id)init {
     self = [super init];
     if(!self) return nil;
     
-    [self setupData];
-    
-    // Add observers
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addRackEvent:) name:@"addRack" object:nil];
+    [self setupData:[self loadDefaultState]];
     
     return self;
 }
 
-- (void)setupData{
+- (void)setupData:(NSMutableDictionary*)data{
     
     NSLog(@"Setting up data...");
     
-    _appData = [self loadDefaultState];
+    _appData = data;
     
     NSLog(@"App Data: %@", _appData);
     
@@ -39,7 +38,7 @@
     
     _layout = [NSMutableArray arrayWithArray: [page objectForKey: @"layout"]];
     
-    _rackData = [NSMutableArray arrayWithArray: [page objectForKey: @"racks"]];
+    _rackData = [NSMutableArray arrayWithArray: [_state objectForKey: @"racks"]];
     
     _moduleID =  [[_state objectForKey: @"moduleID"] integerValue];
     
@@ -47,28 +46,10 @@
     
     _moduleData = [NSMutableDictionary dictionaryWithDictionary:[_state objectForKey: @"modules"]];
 
-}
-
--(void)saveFile {
-    [_state setObject:_rackData forKey: @"racks"];
-    [_appData setObject:_state forKey: @"state"];
-
-    BOOL success = [NSKeyedArchiver archiveRootObject: _appData toFile: @"/Users/pablo/test"];
-    NSAssert(success, @"archiveRootObject failed");
+    _rackCount = [_rackData count];
+    
     
 }
-
--(void)loadFile {
-    [_state setObject:_rackData forKey: @"racks"];
-    [_appData setObject:_state forKey: @"state"];
-    
-    NSMutableDictionary *appdata = [NSKeyedUnarchiver unarchiveObjectWithFile: @"/Users/pablo/test"];
-    NSAssert(appdata, @"unarchiveObjectWithFile failed");
-    
-    NSLog(@"Loaded app data: %@", appdata);
-    
-}
-
 
 - (NSMutableDictionary*)loadDefaultState {
     
@@ -111,16 +92,13 @@
     _currentPage = page;
 }
 
--(void)addRackEvent:(NSNotification*)notification {
-    NSLog(@"Addrackeventreceveivec");
-    [self addRack];
-}
-
 -(void)addRack {
 
     _rackID++;
     
     NSNumber *ID = [NSNumber numberWithInteger: _rackID];
+    
+   [_state setObject: ID forKey: @"rackID"];
     
     NSDictionary* rack = @{
         @"ID" : ID,
@@ -138,10 +116,17 @@
     NSMutableArray *newLayout = [NSMutableArray new];
     [_layout addObject: newLayout];
     
-    NSInteger rackCount = [_rackData count];
-
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"resizeWindow" object:self userInfo: @{@"rackCount" : [NSNumber numberWithInt: rackCount]}];
+    _rackCount = [_rackData count];
     
+}
+
+-(NSMutableDictionary*)appData {
+    [_state setObject:_rackData forKey: @"racks"];
+    [_appData setObject:_state forKey: @"state"];
+    return _appData;
+}
+-(void)setAppData:(NSMutableDictionary *)appData {
+    [self setupData: appData];
 }
 
 -(NSInteger)getRackID:(int)index {

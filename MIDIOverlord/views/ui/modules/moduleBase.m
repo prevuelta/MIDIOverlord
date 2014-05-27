@@ -22,10 +22,25 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deselect:) name:@"deselectAll" object:nil];
     
+    self.width = RACK_WIDTH;
     
-    controlText *midiValueText = [[controlText alloc] initWithFrame: _midiV1 andLabel: @"CC"];
+    float bgRGBA[] = UI_COLOR_PROT_1;
+    float selectedRGBA[] = UI_COLOR_BLACK;
     
-    [midiValueText setOrigin:NSMakePoint(0, MODULE_HEIGHT - 16)];
+    self.bgColor = [utilities getNSColorFromRGB: bgRGBA];
+    self.selectedColor = [utilities getNSColorFromRGB: selectedRGBA];
+    
+    _selected = NO;
+    
+    self.labelText = @"MODULE TITLE";
+    
+    return self;
+}
+
+-(void)addCCField {
+    controlText *midiValueText = [[controlText alloc] initWithFrame: _midiV1 andLabel: @"CC" andMaxVal:127];
+    
+    [midiValueText setOrigin:NSMakePoint(0, 12)];
     
     [midiValueText setEditable:YES];
     
@@ -33,19 +48,6 @@
     
     [self addSubview:midiValueText];
 
-    self.height = MODULE_HEIGHT;
-    
-    float bgRGBA[] = UI_COLOR_PROT_1;
-    float selectedRGBA[] = UI_COLOR_HIGHLIGHT;
-    
-    self.bgColor = [utilities getNSColorFromRGB: bgRGBA];
-    self.selectedColor = [utilities getNSColorFromRGB: selectedRGBA];
-    
-    _selected = NO;
-    
-    self.labelText = @"UNTITLED";
-    
-    return self;
 }
 
 -(void)deselect:(NSNotification*)notification  {

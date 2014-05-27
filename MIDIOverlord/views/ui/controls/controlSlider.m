@@ -8,11 +8,15 @@
 
 #import "controlSlider.h"
 
+int base;
+int baseMarker;
+
 @implementation controlSlider
 
 @synthesize value = _value;
+@synthesize marker = _marker;
 
--(id)initWithFrame:(NSPoint)size :(NSPoint)offset :(NSColor*)sliderBg :(int)min :(int)max{
+-(id)initWithFrame:(NSPoint)size :(NSPoint)offset :(int)min :(int)max{
     
     self = [super initWithFrame:NSMakeRect(offset.x, offset.y, size.x, size.y)];
     if(!self) return nil;
@@ -30,9 +34,11 @@
     
     _marker = _value;
                 
-    _textVal = [[controlText alloc] initWithFrame: _value andLabel: @""];
+    _textVal = [[controlText alloc] initWithFrame: _value andLabel: @"" andMaxVal: _max];
     
     [_textVal bind:@"value" toObject:self withKeyPath:@"self.value" options: nil];
+
+    
 //    _textVal = [[NSTextField alloc] initWithFrame:NSMakeRect(0, 0 , 48, 32)];
 //    
 //    [_textVal setBezeled:NO];
@@ -61,17 +67,23 @@
     
     [self.markerColor set];
     
-    [markerPath appendBezierPathWithRect:NSMakeRect(0, 0, self.size.x, self.marker)];
+    [markerPath appendBezierPathWithRect:NSMakeRect(0, 0, self.marker, self.size.x)];
     [markerPath closePath];
     [markerPath fill];
     
 }
 
--(void)setValue:(int)yLoc {
-    float percent = yLoc / _size.y;
+-(void)setValue:(int)xLoc {
+    float percent = xLoc / _size.x;
     _value = percent < 0 ? _min : percent > 1 ? _max : (int) _range * percent;
-//    [self.delegate uiEvent:"sliderVal" withInt:(int)_value];
-//    [self.textVal setValue: _value];
+}
+
+-(int)marker {
+    return _marker;
+}
+
+-(void)setMarker:(int)marker {
+    _marker =marker;
 }
 
 -(int)value {
@@ -80,7 +92,7 @@
 
 -(void)mouseDown:(NSEvent *)e {
     self.active = true;
- [self updateControlFromEvent:e];
+    [self updateControlFromEvent:e];
 }
 
 - (void)timerFireMethod:(NSTimer *)timer {
@@ -99,12 +111,20 @@
 }
      
  -(void)updateControlFromEvent:(NSEvent*)e {
+     
      NSPoint location = [self convertPoint:[e locationInWindow] fromView:nil];
-     self.marker = location.y;
-     int newValue = location.y > 0 ? _marker + 1 : _marker - 1;
+     
+     int newValue = location.x;
+
+     
+     
+//     NSLog(@"%@, %@, %@ %@", [NSNumber numberWithInt: baseDiff], [NSNumber numberWithInt: newValue], [NSNumber numberWithInt: newValue], [NSNumber numberWithInt: _marker]);
+////     
      [self setMarker: newValue];
-     [self setNeedsDisplay:YES];
      [self setValue: newValue];
+     
+     [self setNeedsDisplay:YES];
+     
  }
 
 

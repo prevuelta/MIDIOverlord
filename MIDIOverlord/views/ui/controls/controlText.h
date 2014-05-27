@@ -28,8 +28,11 @@
 @property int charSizeX;
 @property int charSizeY;
 
+@property int max;
+
 @property BOOL editable;
 
--(id)initWithFrame:(int)value andLabel:(NSString*)label;
+-(id)initWithFrame:(int)value andLabel:(NSString*)label andMaxVal:(int)max;
+-(void)setupGridSystem;
 
 @end

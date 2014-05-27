@@ -16,5 +16,7 @@
 @property (strong, atomic) appModel *data;
 
 -(id)initWithWin:(NSWindow*)mainWin;
+-(void)addRack:(NSNotification*)notification;
+-(void)loadFile:(NSNotification*)notification;
 
 @end

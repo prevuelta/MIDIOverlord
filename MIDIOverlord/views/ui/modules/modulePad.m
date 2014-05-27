@@ -14,21 +14,21 @@
 
 - (id)initWithFrame{
     
-    int width = 80;
+    int height = 24;
     
-    NSRect frame = NSMakeRect(0, 0, width, MODULE_HEIGHT);
+    NSRect frame = NSMakeRect(0, 0, RACK_WIDTH, height);
     
     self = [super initWithFrame:frame];
     
     if(!self) return nil;
     
-    self.width = width;
+    self.height = height;
+    
+    [self addCCField];
     
     _midiV1 = 122;
     
-    controlTrigger *pad = [[controlTrigger alloc] initWithFrame:NSMakePoint(self.width - 16, self.width - 16): NSMakePoint(8, 8)];
-    
-//    pad.delegate = self;
+    controlTrigger *pad = [[controlTrigger alloc] initWithFrame:NSMakePoint(16, 16): NSMakePoint(RACK_WIDTH - 24, 4)];
     
     [self addSubview: pad];
     

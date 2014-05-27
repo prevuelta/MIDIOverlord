@@ -25,9 +25,13 @@
 
 @property midiController* midiController;
 @property (assign) IBOutlet NSWindow *mainWin;
-@property float windowPadding;
+
 @property eventHandler* events;
 
-- (IBAction)makeView:(id)sender;
+// Filehandling
+@property NSURL *currentFile;
+
+-(IBAction)openDocument:(id)sender;
+-(IBAction)saveDocument:(id)sender;
 
 @end

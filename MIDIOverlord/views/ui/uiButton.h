@@ -21,6 +21,7 @@
 
 @property NSString *event;
 
+-(void)setOrigin:(NSPoint)origin;
 -(id)initWithFrame;
 
 @end

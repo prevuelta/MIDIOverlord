@@ -26,12 +26,47 @@
     // MIDI
     _midiController = [[midiController alloc] init];
 
-
 }
 
-- (IBAction)makeView:(id)sender {
-    NSLog(@"Making view...");
+// Document handlers
 
-  }
+-(IBAction)openDocument:(id)sender {
+        
+        NSOpenPanel* openDlg = [NSOpenPanel openPanel];
+        
+        [openDlg setPrompt:@"Select"];
+        
+        // Enable the selection of files in the dialog.
+        [openDlg setCanChooseFiles:YES];
+        
+        // Enable the selection of directories in the dialog.
+        [openDlg setCanChooseDirectories:YES];
+        
+        NSArray* moFileTypes = [[NSArray alloc] initWithObjects:@"MOS", @"mos", @"MOM", @"mom", nil];
+
+        [openDlg setAllowedFileTypes:moFileTypes];
+    
+        [openDlg runModal];
+    
+        _currentFile = [openDlg URL];
+    
+        NSLog(@"File path: %@", [_currentFile absoluteString]);
+    
+        NSMutableDictionary *appData = [NSKeyedUnarchiver unarchiveObjectWithFile: @"/Users/pablo/test.mos"];
+        NSAssert(appData, @"unarchiveObjectWithFile failed");
+    
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"fileLoaded" object:self userInfo: @{@"data" : appData}];
+}
+
+-(IBAction)saveDocument:(id)sender {
+    
+    
+        NSMutableDictionary *appData = [_appViewControl.data appData];
+    
+        BOOL success = [NSKeyedArchiver archiveRootObject: appData toFile: @"/Users/pablo/test.mos"];
+        NSAssert(success, @"archiveRootObject failed");
+    
+}
+
 
 @end

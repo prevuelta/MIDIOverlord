@@ -18,32 +18,31 @@
     
     _mainView = [[appView alloc] initWithWin:mainWin];
     
-    [_data addRack];
-    [_data addRack];
+    // Add observers
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addRack:) name:@"addRack" object:nil];
     
-    [_data addModule: 0 :0 :1 ];
-    [_data addModule: 0 :0 :2 ];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadFile:) name:@"fileLoaded" object:nil];
+    
+//    [_data addModule: 0 :0 :1 ];
+//    [_data addModule: 0 :0 :2 ];
 //    [_data addModule: 1 :1 :2 ];
 //    [_data addModule: 1 :1 :2 ];
 //    [_data addModule: 1 :1 :2 ];
 //    [_data addModule: 1 :1 :2 ];
     
-//    [_data saveFile];
-    
-//    [_data loadFile];
     
     NSLog(@"New data: %@", [_data rackData]);
     
-    [_mainView updateRacks: _data.rackData :_data.layout];
+   
     
-    [_mainView updateRackModules:[_data getRackID:0] : [_data getRackModules:0]];
-    [_mainView updateRackModules:[_data getRackID:1] : [_data getRackModules:1]];
+//    [_mainView updateRackModules:[_data getRackID:0] : [_data getRackModules:0]];
+//    [_mainView updateRackModules:[_data getRackID:1] : [_data getRackModules:1]];
     
 //    [_mainView updateRackModules [_data getRackModules:rackData[0]]:[data layout[0]];
     
 //    [_mainView updateModules:[_data moduleData]:[_data layout]];
     
-    [_mainView resizeWin: [_data.layout count]];
+ 
     
     // Set grid origins
     //    CGRect frame = mainView.frame;
@@ -54,6 +53,40 @@
     return self;
 }
 
+-(void)loadFile:(NSNotification*)notification {
+    NSDictionary *userInfo = notification.userInfo;
+    [_data setupData:userInfo[@"data"]];
+    
+    [_mainView updateRacks: _data.rackData :_data.layout];
+    NSLog(@"Rack count: %@", [NSNumber numberWithInt: _data.rackCount]);
+    
+    [_mainView resizeWin: _data.rackCount];
+}
 
+-(void)addRack:(NSNotification*)notification {
+    [_data addRack];
+    
+    [_mainView updateRacks: _data.rackData :_data.layout];
+    [_mainView resizeWin: _data.rackCount];
+}
+
+-(void)addModile:(NSNotification*)notification {
+    
+    //    [_data addModule: 0 :0 :1 ];
+    //    [_data addModule: 0 :0 :2 ];
+    //    [_data addModule: 1 :1 :2 ];
+    //    [_data addModule: 1 :1 :2 ];
+    //    [_data addModule: 1 :1 :2 ];
+    //    [_data addModule: 1 :1 :2 ];
+    
+    
+    //    [_mainView updateRackModules:[_data getRackID:0] : [_data getRackModules:0]];
+    //    [_mainView updateRackModules:[_data getRackID:1] : [_data getRackModules:1]];
+    
+    //    [_mainView updateRackModules [_data getRackModules:rackData[0]]:[data layout[0]];
+    
+    //    [_mainView updateModules:[_data moduleData]:[_data layout]];
+       [_mainView resizeWin: [_data.layout count]];
+}
 
 @end

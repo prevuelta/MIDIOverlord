@@ -12,7 +12,7 @@
 
 @property NSDictionary* data;
 @property NSMutableArray* subViews;
-@property int headerWidth;
+@property int headerHeight;
 
 @property deviceList *midiInput;
 @property deviceList *midiOutput;

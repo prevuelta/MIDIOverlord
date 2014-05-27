@@ -22,7 +22,7 @@
 
 @property controlText *textVal;
 
--(id)initWithFrame:(NSPoint)size :(NSPoint)offset :(NSColor*)sliderBg :(int)min :(int)max;
+-(id)initWithFrame:(NSPoint)size :(NSPoint)offset :(int)min :(int)max;
 -(void)updateControlFromEvent:(NSEvent*)e;
 
 @end

@@ -48,23 +48,5 @@
     return [saver URL];
 }
 
-+(void)selectFileDialogue {
-   
-    NSOpenPanel* openDlg = [NSOpenPanel openPanel];
-    
-    [openDlg setPrompt:@"Select"];
-    
-    // Enable the selection of files in the dialog.
-    [openDlg setCanChooseFiles:YES];
-    
-    // Enable the selection of directories in the dialog.
-    [openDlg setCanChooseDirectories:YES];
-    
-    NSArray* imageTypes = [NSImage imageTypes];
-    
-    [openDlg setAllowedFileTypes:imageTypes];
-    
-    [openDlg runModal];
-}
 
 @end

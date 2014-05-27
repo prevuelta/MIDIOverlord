@@ -14,15 +14,23 @@
     self = [super initWithFrame:frame];
     if(!self) return nil;
     
-    controlText *appTitle = [[controlText alloc] initWithFrame: -1 andLabel: @"MIDI OVERLORD PROTOTYPE V.001"];
+    controlText *appTitle = [[controlText alloc] initWithFrame: -1 andLabel: @"MIDI OVERLORD PROTOTYPE V.001" andMaxVal: nil];
     
-    [appTitle setOrigin:NSMakePoint(0, 30)];
+    [appTitle setGridCellSizeY:3];
+    [appTitle setupGridSystem];
+    
+    [appTitle setNeedsDisplay:YES];
+    
+    [appTitle setOrigin:NSMakePoint(0, 0)];
     
     [self addSubview: appTitle];
     
     // UI Buttons
     
     uiButton *addRack = [[uiButton alloc] initWithFrame];
+    
+    [addRack setOrigin: NSMakePoint(0, 36)];
+    
     [addRack setEvent: @"addRack"];
     
     [self addSubview: addRack];
@@ -34,11 +42,14 @@
     
     NSBezierPath* bgPath = [NSBezierPath new];
     [[NSColor colorWithDeviceRed:83 green:83 blue:84 alpha:255] set];
-    [bgPath appendBezierPathWithRect:NSMakeRect(0, 0, WINDOW_WIDTH, TOOLBAR_HEIGHT)];
+    [bgPath appendBezierPathWithRect:NSMakeRect(0, 0, RACK_WIDTH * 4, TOOLBAR_HEIGHT)];
     [bgPath closePath];
     [bgPath fill];
-    
-    
+
+}
+
+-(BOOL)isFlipped {
+    return YES;
 }
 
 -(void)setOrigin:(NSPoint)origin {
