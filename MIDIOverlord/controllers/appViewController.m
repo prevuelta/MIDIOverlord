@@ -58,19 +58,22 @@
     [_data setupData:userInfo[@"data"]];
     
     [_mainView updateRacks: _data.rackData :_data.layout];
+    
     NSLog(@"Rack count: %@", [NSNumber numberWithInt: _data.rackCount]);
     
     [_mainView resizeWin: _data.rackCount];
 }
 
 -(void)addRack:(NSNotification*)notification {
+    
     [_data addRack];
     
     [_mainView updateRacks: _data.rackData :_data.layout];
+    
     [_mainView resizeWin: _data.rackCount];
 }
 
--(void)addModile:(NSNotification*)notification {
+-(void)addModule:(NSNotification*)notification {
     
     //    [_data addModule: 0 :0 :1 ];
     //    [_data addModule: 0 :0 :2 ];
@@ -86,7 +89,7 @@
     //    [_mainView updateRackModules [_data getRackModules:rackData[0]]:[data layout[0]];
     
     //    [_mainView updateModules:[_data moduleData]:[_data layout]];
-       [_mainView resizeWin: [_data.layout count]];
+//       [_mainView resizeWin: [_data.layout count]];
 }
 
 @end

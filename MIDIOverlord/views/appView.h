@@ -7,7 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "moduleRack.h"
+#import "rackControl.h"
 #import "moduleBase.h"
 #import "moduleSlider.h"
 #import "modulePad.h"

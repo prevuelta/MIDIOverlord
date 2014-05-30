@@ -29,7 +29,6 @@
 @property (nonatomic, assign) id delegate;
 
 // Canvas properties
-@property int padding;
 @property int width;
 @property int height;
 @property int gridX;

@@ -7,7 +7,6 @@
 //
 
 #import "appModel.h"
-#import "modulePad.h"
 
 @implementation appModel
 
@@ -36,7 +35,7 @@
     
     NSDictionary* page = [[_state objectForKey: @"pages"] objectAtIndex: 0];
     
-    _layout = [NSMutableArray arrayWithArray: [page objectForKey: @"layout"]];
+    _layout = [NSMutableArray arrayWithArray: [_state objectForKey: @"layout"]];
     
     _rackData = [NSMutableArray arrayWithArray: [_state objectForKey: @"racks"]];
     
@@ -63,12 +62,7 @@
                                             @"title" : @"Default State",
                                             @"moduleID" : @0,
                                             @"rackID"   : @0,
-                                            @"pages" : @[
-                                                @{
-                                                    @"title" : @"untitled",
-                                                    @"layout" : @[]
-                                                }
-                                            ],
+                                            @"layout" : @[],
                                             @"racks" : @[],
                                             @"modules" : @{}
                                         }
@@ -114,13 +108,14 @@
 
     // Rack layout
     NSMutableArray *newLayout = [NSMutableArray new];
-    [_layout addObject: newLayout];
     
+    [_layout addObject: newLayout];
     _rackCount = [_rackData count];
     
 }
 
 -(NSMutableDictionary*)appData {
+    [_state setObject:_layout forKey: @"layout"];
     [_state setObject:_rackData forKey: @"racks"];
     [_appData setObject:_state forKey: @"state"];
     return _appData;

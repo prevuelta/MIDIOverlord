@@ -21,7 +21,7 @@ int _yLoc;
     NSLog(@"Init main view");
     
     _mainWin = mainWin;
-    
+
 
     // Setup main interface
     uiApp* globalUI = [[uiApp alloc ] initWithFrame: NSMakeRect(0, 0, RACK_WIDTH * 4, TOOLBAR_HEIGHT )];
@@ -54,10 +54,12 @@ int _yLoc;
 
 -(void)updateRacks:(NSMutableArray*)rackData :(NSMutableArray*)layout {
     
+    NSLog(@"%@", layout);
+    
     for(int row = 0; row < [layout count]; row++) {
         
         // Create rack
-        moduleRack *rack = [[moduleRack alloc] initWithFrame: NSMakeRect(0, 0, RACK_WIDTH * 4, WINDOW_HEIGHT)];
+        rackControl *rack = [[rackControl alloc] initWithFrame: NSMakeRect(0, 0, RACK_WIDTH * 4, WINDOW_HEIGHT)];
         
         [rack setOrigin:NSMakePoint(row * RACK_WIDTH, TOOLBAR_HEIGHT)];
         
@@ -70,15 +72,13 @@ int _yLoc;
         [self addSubview:rack];
         
     }
-    
-//    [self resizeWin:[layout count]];
 }
 
 -(void)updateRackModules:(NSInteger)rackID :(NSMutableArray*)moduleData {
   
         NSLog(@"Updating module: %@", moduleData);
     
-        moduleRack *rack = [self viewWithTag: rackID];
+        rackControl *rack = [self viewWithTag: rackID];
     
         _yLoc = rack.headerHeight;
     
@@ -99,12 +99,10 @@ int _yLoc;
             _yLoc += module.height;
             
             module.delegate = rack;
-//            
+           
             [rack addSubview: module];
         }
-    
-//        [rack setSubviews: rack.subViews];
-    
+
         [rack setNeedsDisplay:YES];
 }
                             

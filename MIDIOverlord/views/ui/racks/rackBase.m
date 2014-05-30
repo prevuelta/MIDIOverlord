@@ -1,21 +1,32 @@
 //
-//  rack.m
+//  rackBase.m
 //  MIDIOverlord
 //
 //  Created by Pablo Revuelta on 21/03/14.
 //  Copyright (c) 2014 Midnight City. All rights reserved.
 //
 
-#import "moduleRack.h"
+#import "rackBase.h"
 
-@implementation moduleRack
+@implementation rackBase
 
 @synthesize data = _data;
 @synthesize subViews;
 
 -(id)initWithFrame:(NSRect)frame {
+    
     self = [super initWithFrame:frame];
     if(!self) return nil;
+    
+    float blackRGBA[] = UI_COLOR_BLACK;
+    float defaultRGBA[] = UI_COLOR_PROT_2;
+    float markerRGBA[] = UI_COLOR_HIGHLIGHT;
+    float activeRGBA[] = UI_COLOR_HIGHLIGHT_2;
+    
+    _defaultColor = [utilities getNSColorFromRGB:defaultRGBA];
+    _blackColor = [utilities getNSColorFromRGB:blackRGBA];
+    _markerColor = [utilities getNSColorFromRGB:markerRGBA];
+    _activeColor = [utilities getNSColorFromRGB:activeRGBA];
     
     self.width = RACK_WIDTH;
     
@@ -32,6 +43,8 @@
     self.subViews = [NSMutableArray new];
     
     self.midiChannel = 0;
+    
+    _selected = NO;
     
     NSLog(@"Sending");
     
@@ -102,6 +115,12 @@
     return YES;
 }
 
+-(void)setOrigin:(NSPoint)origin {
+    NSRect f = self.frame;
+    f.origin = origin;
+    [self setFrame:f];
+}
+
 -(void)drawBg:(NSRect)rect {
     
     // Draw background
@@ -145,5 +164,11 @@
         //        [utilities midiNotification: 0xB0 : self.midiValue :value];
 }
 
+-(void)mouseDown:(NSEvent *)theEvent {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"deselectAll" object:self userInfo: nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"closeOpen" object:self userInfo: nil];
+    _selected = YES;
+    [self setNeedsDisplay:YES];
+}
 
 @end

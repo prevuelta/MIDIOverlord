@@ -7,36 +7,40 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6E7C562318EB94B30002F09B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C55EA18EB94B30002F09B /* AppDelegate.m */; };
-		6E7C562518EB94B30002F09B /* appViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C55F018EB94B30002F09B /* appViewController.m */; };
-		6E7C562618EB94B30002F09B /* eventHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C55F218EB94B30002F09B /* eventHandler.m */; };
-		6E7C562718EB94B30002F09B /* appModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C55F518EB94B30002F09B /* appModel.m */; };
-		6E7C562818EB94B30002F09B /* midiController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C55F718EB94B30002F09B /* midiController.m */; };
-		6E7C562918EB94B30002F09B /* utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C55FA18EB94B30002F09B /* utilities.m */; };
-		6E7C562A18EB94B30002F09B /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 6E7C55FB18EB94B30002F09B /* Credits.rtf */; };
-		6E7C562B18EB94B30002F09B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6E7C55FD18EB94B30002F09B /* InfoPlist.strings */; };
-		6E7C562C18EB94B30002F09B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E7C55FF18EB94B30002F09B /* Images.xcassets */; };
-		6E7C562D18EB94B30002F09B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C560018EB94B30002F09B /* main.m */; };
-		6E7C563018EB94B30002F09B /* skin.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E7C560518EB94B30002F09B /* skin.json */; };
-		6E7C563118EB94B30002F09B /* stateDEMO.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E7C560618EB94B30002F09B /* stateDEMO.json */; };
-		6E7C563218EB94B30002F09B /* appView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C560918EB94B30002F09B /* appView.m */; };
-		6E7C563318EB94B30002F09B /* controlBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C560D18EB94B30002F09B /* controlBase.m */; };
-		6E7C563418EB94B30002F09B /* controlList.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C560F18EB94B30002F09B /* controlList.m */; };
-		6E7C563518EB94B30002F09B /* controlSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C561118EB94B30002F09B /* controlSlider.m */; };
-		6E7C563618EB94B30002F09B /* controlText.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C561318EB94B30002F09B /* controlText.m */; };
-		6E7C563718EB94B30002F09B /* controlTrigger.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C561518EB94B30002F09B /* controlTrigger.m */; };
-		6E7C563818EB94B30002F09B /* moduleBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C561818EB94B30002F09B /* moduleBase.m */; };
-		6E7C563918EB94B30002F09B /* modulePad.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C561A18EB94B30002F09B /* modulePad.m */; };
-		6E7C563A18EB94B30002F09B /* moduleRack.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C561C18EB94B30002F09B /* moduleRack.m */; };
-		6E7C563B18EB94B30002F09B /* moduleSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C561E18EB94B30002F09B /* moduleSlider.m */; };
-		6E7C563C18EB94B30002F09B /* uiApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C562018EB94B30002F09B /* uiApp.m */; };
-		6E7C563D18EB94B30002F09B /* uiLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C562218EB94B30002F09B /* uiLabel.m */; };
 		6E7C564018ED04A80002F09B /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7C563F18ED04A80002F09B /* CoreMIDI.framework */; };
 		6E7C564218ED04C10002F09B /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7C564118ED04C10002F09B /* Cocoa.framework */; };
 		6E7C564518ED04E60002F09B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7C564318ED04C60002F09B /* Foundation.framework */; };
-		6ECE40EF18FBA1C700E89424 /* deviceList.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECE40EE18FBA1C700E89424 /* deviceList.m */; };
-		6ECE40F218FBA40100E89424 /* controlOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECE40F118FBA40100E89424 /* controlOption.m */; };
-		6EDEA278192AE43700A4BE69 /* uiButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EDEA277192AE43700A4BE69 /* uiButton.m */; };
+		6EE4456B1936C86100C61171 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE4452A1936C86100C61171 /* AppDelegate.m */; };
+		6EE4456C1936C86100C61171 /* appViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE4452E1936C86100C61171 /* appViewController.m */; };
+		6EE4456D1936C86100C61171 /* eventHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE445301936C86100C61171 /* eventHandler.m */; };
+		6EE4456E1936C86100C61171 /* appModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE445331936C86100C61171 /* appModel.m */; };
+		6EE4456F1936C86100C61171 /* midiController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE445351936C86100C61171 /* midiController.m */; };
+		6EE445701936C86100C61171 /* utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE445381936C86100C61171 /* utilities.m */; };
+		6EE445711936C86100C61171 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 6EE445391936C86100C61171 /* Credits.rtf */; };
+		6EE445721936C86100C61171 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6EE4453B1936C86100C61171 /* InfoPlist.strings */; };
+		6EE445731936C86100C61171 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EE4453D1936C86100C61171 /* Images.xcassets */; };
+		6EE445741936C86100C61171 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE4453E1936C86100C61171 /* main.m */; };
+		6EE445751936C86100C61171 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EE4453F1936C86100C61171 /* MainMenu.xib */; };
+		6EE445761936C86100C61171 /* MIDIOverlord-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6EE445401936C86100C61171 /* MIDIOverlord-Info.plist */; };
+		6EE445771936C86100C61171 /* default.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EE445431936C86100C61171 /* default.png */; };
+		6EE445781936C86100C61171 /* skin.json in Resources */ = {isa = PBXBuildFile; fileRef = 6EE445441936C86100C61171 /* skin.json */; };
+		6EE445791936C86100C61171 /* stateDEMO.json in Resources */ = {isa = PBXBuildFile; fileRef = 6EE445451936C86100C61171 /* stateDEMO.json */; };
+		6EE4457A1936C86100C61171 /* appView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE445481936C86100C61171 /* appView.m */; };
+		6EE4457B1936C86100C61171 /* controlBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE4454C1936C86100C61171 /* controlBase.m */; };
+		6EE4457C1936C86100C61171 /* controlList.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE4454E1936C86100C61171 /* controlList.m */; };
+		6EE4457D1936C86100C61171 /* controlOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE445501936C86100C61171 /* controlOption.m */; };
+		6EE4457E1936C86100C61171 /* controlSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE445521936C86100C61171 /* controlSlider.m */; };
+		6EE4457F1936C86100C61171 /* controlText.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE445541936C86100C61171 /* controlText.m */; };
+		6EE445801936C86100C61171 /* controlTrigger.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE445561936C86100C61171 /* controlTrigger.m */; };
+		6EE445811936C86100C61171 /* deviceList.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE445581936C86100C61171 /* deviceList.m */; };
+		6EE445821936C86100C61171 /* moduleBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE4455B1936C86100C61171 /* moduleBase.m */; };
+		6EE445831936C86100C61171 /* modulePad.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE4455D1936C86100C61171 /* modulePad.m */; };
+		6EE445841936C86100C61171 /* moduleSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE4455F1936C86100C61171 /* moduleSlider.m */; };
+		6EE445851936C86100C61171 /* rackBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE445621936C86100C61171 /* rackBase.m */; };
+		6EE445861936C86100C61171 /* rackControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE445641936C86100C61171 /* rackControl.m */; };
+		6EE445871936C86100C61171 /* uiApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE445661936C86100C61171 /* uiApp.m */; };
+		6EE445881936C86100C61171 /* uiButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE445681936C86100C61171 /* uiButton.m */; };
+		6EE445891936C86100C61171 /* uiLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE4456A1936C86100C61171 /* uiLabel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,63 +54,66 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		6E7C55E918EB94B30002F09B /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		6E7C55EA18EB94B30002F09B /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		6E7C55EC18EB94B30002F09B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		6E7C55ED18EB94B30002F09B /* constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
-		6E7C55EF18EB94B30002F09B /* appViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = appViewController.h; sourceTree = "<group>"; };
-		6E7C55F018EB94B30002F09B /* appViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = appViewController.m; sourceTree = "<group>"; };
-		6E7C55F118EB94B30002F09B /* eventHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eventHandler.h; sourceTree = "<group>"; };
-		6E7C55F218EB94B30002F09B /* eventHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = eventHandler.m; sourceTree = "<group>"; };
-		6E7C55F418EB94B30002F09B /* appModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = appModel.h; sourceTree = "<group>"; };
-		6E7C55F518EB94B30002F09B /* appModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = appModel.m; sourceTree = "<group>"; };
-		6E7C55F618EB94B30002F09B /* midiController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = midiController.h; sourceTree = "<group>"; };
-		6E7C55F718EB94B30002F09B /* midiController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = midiController.m; sourceTree = "<group>"; };
-		6E7C55F918EB94B30002F09B /* utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utilities.h; sourceTree = "<group>"; };
-		6E7C55FA18EB94B30002F09B /* utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = utilities.m; sourceTree = "<group>"; };
-		6E7C55FC18EB94B30002F09B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		6E7C55FE18EB94B30002F09B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		6E7C55FF18EB94B30002F09B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		6E7C560018EB94B30002F09B /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		6E7C560118EB94B30002F09B /* MIDIOverlord-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MIDIOverlord-Info.plist"; sourceTree = "<group>"; };
-		6E7C560218EB94B30002F09B /* MIDIOverlord-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MIDIOverlord-Prefix.pch"; sourceTree = "<group>"; };
-		6E7C560518EB94B30002F09B /* skin.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = skin.json; sourceTree = "<group>"; };
-		6E7C560618EB94B30002F09B /* stateDEMO.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = stateDEMO.json; sourceTree = "<group>"; };
-		6E7C560818EB94B30002F09B /* appView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = appView.h; sourceTree = "<group>"; };
-		6E7C560918EB94B30002F09B /* appView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = appView.m; sourceTree = "<group>"; };
-		6E7C560C18EB94B30002F09B /* controlBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = controlBase.h; sourceTree = "<group>"; };
-		6E7C560D18EB94B30002F09B /* controlBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = controlBase.m; sourceTree = "<group>"; };
-		6E7C560E18EB94B30002F09B /* controlList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = controlList.h; sourceTree = "<group>"; };
-		6E7C560F18EB94B30002F09B /* controlList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = controlList.m; sourceTree = "<group>"; };
-		6E7C561018EB94B30002F09B /* controlSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = controlSlider.h; sourceTree = "<group>"; };
-		6E7C561118EB94B30002F09B /* controlSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = controlSlider.m; sourceTree = "<group>"; };
-		6E7C561218EB94B30002F09B /* controlText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = controlText.h; sourceTree = "<group>"; };
-		6E7C561318EB94B30002F09B /* controlText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = controlText.m; sourceTree = "<group>"; };
-		6E7C561418EB94B30002F09B /* controlTrigger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = controlTrigger.h; sourceTree = "<group>"; };
-		6E7C561518EB94B30002F09B /* controlTrigger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = controlTrigger.m; sourceTree = "<group>"; };
-		6E7C561718EB94B30002F09B /* moduleBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = moduleBase.h; sourceTree = "<group>"; };
-		6E7C561818EB94B30002F09B /* moduleBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = moduleBase.m; sourceTree = "<group>"; };
-		6E7C561918EB94B30002F09B /* modulePad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = modulePad.h; sourceTree = "<group>"; };
-		6E7C561A18EB94B30002F09B /* modulePad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = modulePad.m; sourceTree = "<group>"; };
-		6E7C561B18EB94B30002F09B /* moduleRack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = moduleRack.h; sourceTree = "<group>"; };
-		6E7C561C18EB94B30002F09B /* moduleRack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = moduleRack.m; sourceTree = "<group>"; };
-		6E7C561D18EB94B30002F09B /* moduleSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = moduleSlider.h; sourceTree = "<group>"; };
-		6E7C561E18EB94B30002F09B /* moduleSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = moduleSlider.m; sourceTree = "<group>"; };
-		6E7C561F18EB94B30002F09B /* uiApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uiApp.h; sourceTree = "<group>"; };
-		6E7C562018EB94B30002F09B /* uiApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uiApp.m; sourceTree = "<group>"; };
-		6E7C562118EB94B30002F09B /* uiLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uiLabel.h; sourceTree = "<group>"; };
-		6E7C562218EB94B30002F09B /* uiLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uiLabel.m; sourceTree = "<group>"; };
 		6E7C563E18EB94EC0002F09B /* MIDIOverlord.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MIDIOverlord.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E7C563F18ED04A80002F09B /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
 		6E7C564118ED04C10002F09B /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		6E7C564318ED04C60002F09B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6ECE40EC18FB9B2900E89424 /* MIDIOverlordTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MIDIOverlordTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6ECE40ED18FBA1C700E89424 /* deviceList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = deviceList.h; path = MIDIOverlord/views/ui/controls/deviceList.h; sourceTree = SOURCE_ROOT; };
-		6ECE40EE18FBA1C700E89424 /* deviceList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = deviceList.m; path = MIDIOverlord/views/ui/controls/deviceList.m; sourceTree = SOURCE_ROOT; };
-		6ECE40F018FBA40100E89424 /* controlOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = controlOption.h; sourceTree = "<group>"; };
-		6ECE40F118FBA40100E89424 /* controlOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = controlOption.m; sourceTree = "<group>"; };
-		6EDEA276192AE43700A4BE69 /* uiButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uiButton.h; sourceTree = "<group>"; };
-		6EDEA277192AE43700A4BE69 /* uiButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uiButton.m; sourceTree = "<group>"; };
+		6EE445291936C86100C61171 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		6EE4452A1936C86100C61171 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		6EE4452B1936C86100C61171 /* constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
+		6EE4452D1936C86100C61171 /* appViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = appViewController.h; sourceTree = "<group>"; };
+		6EE4452E1936C86100C61171 /* appViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = appViewController.m; sourceTree = "<group>"; };
+		6EE4452F1936C86100C61171 /* eventHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eventHandler.h; sourceTree = "<group>"; };
+		6EE445301936C86100C61171 /* eventHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = eventHandler.m; sourceTree = "<group>"; };
+		6EE445321936C86100C61171 /* appModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = appModel.h; sourceTree = "<group>"; };
+		6EE445331936C86100C61171 /* appModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = appModel.m; sourceTree = "<group>"; };
+		6EE445341936C86100C61171 /* midiController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = midiController.h; sourceTree = "<group>"; };
+		6EE445351936C86100C61171 /* midiController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = midiController.m; sourceTree = "<group>"; };
+		6EE445371936C86100C61171 /* utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utilities.h; sourceTree = "<group>"; };
+		6EE445381936C86100C61171 /* utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = utilities.m; sourceTree = "<group>"; };
+		6EE4453A1936C86100C61171 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		6EE4453C1936C86100C61171 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6EE4453D1936C86100C61171 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		6EE4453E1936C86100C61171 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6EE4453F1936C86100C61171 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
+		6EE445401936C86100C61171 /* MIDIOverlord-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MIDIOverlord-Info.plist"; sourceTree = "<group>"; };
+		6EE445411936C86100C61171 /* MIDIOverlord-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MIDIOverlord-Prefix.pch"; sourceTree = "<group>"; };
+		6EE445431936C86100C61171 /* default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default.png; sourceTree = "<group>"; };
+		6EE445441936C86100C61171 /* skin.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = skin.json; sourceTree = "<group>"; };
+		6EE445451936C86100C61171 /* stateDEMO.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = stateDEMO.json; sourceTree = "<group>"; };
+		6EE445471936C86100C61171 /* appView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = appView.h; sourceTree = "<group>"; };
+		6EE445481936C86100C61171 /* appView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = appView.m; sourceTree = "<group>"; };
+		6EE4454B1936C86100C61171 /* controlBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = controlBase.h; sourceTree = "<group>"; };
+		6EE4454C1936C86100C61171 /* controlBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = controlBase.m; sourceTree = "<group>"; };
+		6EE4454D1936C86100C61171 /* controlList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = controlList.h; sourceTree = "<group>"; };
+		6EE4454E1936C86100C61171 /* controlList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = controlList.m; sourceTree = "<group>"; };
+		6EE4454F1936C86100C61171 /* controlOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = controlOption.h; sourceTree = "<group>"; };
+		6EE445501936C86100C61171 /* controlOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = controlOption.m; sourceTree = "<group>"; };
+		6EE445511936C86100C61171 /* controlSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = controlSlider.h; sourceTree = "<group>"; };
+		6EE445521936C86100C61171 /* controlSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = controlSlider.m; sourceTree = "<group>"; };
+		6EE445531936C86100C61171 /* controlText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = controlText.h; sourceTree = "<group>"; };
+		6EE445541936C86100C61171 /* controlText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = controlText.m; sourceTree = "<group>"; };
+		6EE445551936C86100C61171 /* controlTrigger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = controlTrigger.h; sourceTree = "<group>"; };
+		6EE445561936C86100C61171 /* controlTrigger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = controlTrigger.m; sourceTree = "<group>"; };
+		6EE445571936C86100C61171 /* deviceList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = deviceList.h; sourceTree = "<group>"; };
+		6EE445581936C86100C61171 /* deviceList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = deviceList.m; sourceTree = "<group>"; };
+		6EE4455A1936C86100C61171 /* moduleBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = moduleBase.h; sourceTree = "<group>"; };
+		6EE4455B1936C86100C61171 /* moduleBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = moduleBase.m; sourceTree = "<group>"; };
+		6EE4455C1936C86100C61171 /* modulePad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = modulePad.h; sourceTree = "<group>"; };
+		6EE4455D1936C86100C61171 /* modulePad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = modulePad.m; sourceTree = "<group>"; };
+		6EE4455E1936C86100C61171 /* moduleSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = moduleSlider.h; sourceTree = "<group>"; };
+		6EE4455F1936C86100C61171 /* moduleSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = moduleSlider.m; sourceTree = "<group>"; };
+		6EE445611936C86100C61171 /* rackBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rackBase.h; sourceTree = "<group>"; };
+		6EE445621936C86100C61171 /* rackBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rackBase.m; sourceTree = "<group>"; };
+		6EE445631936C86100C61171 /* rackControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rackControl.h; sourceTree = "<group>"; };
+		6EE445641936C86100C61171 /* rackControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rackControl.m; sourceTree = "<group>"; };
+		6EE445651936C86100C61171 /* uiApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uiApp.h; sourceTree = "<group>"; };
+		6EE445661936C86100C61171 /* uiApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uiApp.m; sourceTree = "<group>"; };
+		6EE445671936C86100C61171 /* uiButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uiButton.h; sourceTree = "<group>"; };
+		6EE445681936C86100C61171 /* uiButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uiButton.m; sourceTree = "<group>"; };
+		6EE445691936C86100C61171 /* uiLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uiLabel.h; sourceTree = "<group>"; };
+		6EE4456A1936C86100C61171 /* uiLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uiLabel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,133 +143,144 @@
 				6E7C564318ED04C60002F09B /* Foundation.framework */,
 				6E7C564118ED04C10002F09B /* Cocoa.framework */,
 				6E7C563F18ED04A80002F09B /* CoreMIDI.framework */,
-				6E7C55E818EB94B30002F09B /* MIDIOverlord */,
 				6E7C563E18EB94EC0002F09B /* MIDIOverlord.app */,
 				6ECE40EC18FB9B2900E89424 /* MIDIOverlordTests.xctest */,
+				6EE445281936C86100C61171 /* MIDIOverlord */,
 			);
 			sourceTree = "<group>";
 		};
-		6E7C55E818EB94B30002F09B /* MIDIOverlord */ = {
+		6EE445281936C86100C61171 /* MIDIOverlord */ = {
 			isa = PBXGroup;
 			children = (
-				6E7C55E918EB94B30002F09B /* AppDelegate.h */,
-				6E7C55EA18EB94B30002F09B /* AppDelegate.m */,
-				6E7C55EB18EB94B30002F09B /* MainMenu.xib */,
-				6E7C55ED18EB94B30002F09B /* constants.h */,
-				6E7C55EE18EB94B30002F09B /* controllers */,
-				6E7C55FB18EB94B30002F09B /* Credits.rtf */,
-				6E7C55FD18EB94B30002F09B /* InfoPlist.strings */,
-				6E7C55FF18EB94B30002F09B /* Images.xcassets */,
-				6E7C560018EB94B30002F09B /* main.m */,
-				6E7C560118EB94B30002F09B /* MIDIOverlord-Info.plist */,
-				6E7C560218EB94B30002F09B /* MIDIOverlord-Prefix.pch */,
-				6E7C560318EB94B30002F09B /* resources */,
-				6E7C560718EB94B30002F09B /* views */,
+				6EE445291936C86100C61171 /* AppDelegate.h */,
+				6EE4452A1936C86100C61171 /* AppDelegate.m */,
+				6EE4452B1936C86100C61171 /* constants.h */,
+				6EE4452C1936C86100C61171 /* controllers */,
+				6EE445391936C86100C61171 /* Credits.rtf */,
+				6EE4453B1936C86100C61171 /* InfoPlist.strings */,
+				6EE4453D1936C86100C61171 /* Images.xcassets */,
+				6EE4453E1936C86100C61171 /* main.m */,
+				6EE4453F1936C86100C61171 /* MainMenu.xib */,
+				6EE445401936C86100C61171 /* MIDIOverlord-Info.plist */,
+				6EE445411936C86100C61171 /* MIDIOverlord-Prefix.pch */,
+				6EE445421936C86100C61171 /* resources */,
+				6EE445461936C86100C61171 /* views */,
 			);
 			path = MIDIOverlord;
 			sourceTree = "<group>";
 		};
-		6E7C55EE18EB94B30002F09B /* controllers */ = {
+		6EE4452C1936C86100C61171 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
-				6E7C55EF18EB94B30002F09B /* appViewController.h */,
-				6E7C55F018EB94B30002F09B /* appViewController.m */,
-				6E7C55F118EB94B30002F09B /* eventHandler.h */,
-				6E7C55F218EB94B30002F09B /* eventHandler.m */,
-				6E7C55F318EB94B30002F09B /* modelControllers */,
-				6E7C55F818EB94B30002F09B /* utilities */,
+				6EE4452D1936C86100C61171 /* appViewController.h */,
+				6EE4452E1936C86100C61171 /* appViewController.m */,
+				6EE4452F1936C86100C61171 /* eventHandler.h */,
+				6EE445301936C86100C61171 /* eventHandler.m */,
+				6EE445311936C86100C61171 /* modelControllers */,
+				6EE445361936C86100C61171 /* utilities */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
 		};
-		6E7C55F318EB94B30002F09B /* modelControllers */ = {
+		6EE445311936C86100C61171 /* modelControllers */ = {
 			isa = PBXGroup;
 			children = (
-				6E7C55F418EB94B30002F09B /* appModel.h */,
-				6E7C55F518EB94B30002F09B /* appModel.m */,
-				6E7C55F618EB94B30002F09B /* midiController.h */,
-				6E7C55F718EB94B30002F09B /* midiController.m */,
+				6EE445321936C86100C61171 /* appModel.h */,
+				6EE445331936C86100C61171 /* appModel.m */,
+				6EE445341936C86100C61171 /* midiController.h */,
+				6EE445351936C86100C61171 /* midiController.m */,
 			);
 			path = modelControllers;
 			sourceTree = "<group>";
 		};
-		6E7C55F818EB94B30002F09B /* utilities */ = {
+		6EE445361936C86100C61171 /* utilities */ = {
 			isa = PBXGroup;
 			children = (
-				6E7C55F918EB94B30002F09B /* utilities.h */,
-				6E7C55FA18EB94B30002F09B /* utilities.m */,
+				6EE445371936C86100C61171 /* utilities.h */,
+				6EE445381936C86100C61171 /* utilities.m */,
 			);
 			path = utilities;
 			sourceTree = "<group>";
 		};
-		6E7C560318EB94B30002F09B /* resources */ = {
+		6EE445421936C86100C61171 /* resources */ = {
 			isa = PBXGroup;
 			children = (
-				6E7C560518EB94B30002F09B /* skin.json */,
-				6E7C560618EB94B30002F09B /* stateDEMO.json */,
+				6EE445431936C86100C61171 /* default.png */,
+				6EE445441936C86100C61171 /* skin.json */,
+				6EE445451936C86100C61171 /* stateDEMO.json */,
 			);
 			path = resources;
 			sourceTree = "<group>";
 		};
-		6E7C560718EB94B30002F09B /* views */ = {
+		6EE445461936C86100C61171 /* views */ = {
 			isa = PBXGroup;
 			children = (
-				6E7C560818EB94B30002F09B /* appView.h */,
-				6E7C560918EB94B30002F09B /* appView.m */,
-				6E7C560A18EB94B30002F09B /* ui */,
+				6EE445471936C86100C61171 /* appView.h */,
+				6EE445481936C86100C61171 /* appView.m */,
+				6EE445491936C86100C61171 /* ui */,
 			);
 			path = views;
 			sourceTree = "<group>";
 		};
-		6E7C560A18EB94B30002F09B /* ui */ = {
+		6EE445491936C86100C61171 /* ui */ = {
 			isa = PBXGroup;
 			children = (
-				6E7C560B18EB94B30002F09B /* controls */,
-				6E7C561618EB94B30002F09B /* modules */,
-				6E7C561F18EB94B30002F09B /* uiApp.h */,
-				6E7C562018EB94B30002F09B /* uiApp.m */,
-				6EDEA276192AE43700A4BE69 /* uiButton.h */,
-				6EDEA277192AE43700A4BE69 /* uiButton.m */,
-				6E7C562118EB94B30002F09B /* uiLabel.h */,
-				6E7C562218EB94B30002F09B /* uiLabel.m */,
+				6EE4454A1936C86100C61171 /* controls */,
+				6EE445591936C86100C61171 /* modules */,
+				6EE445601936C86100C61171 /* racks */,
+				6EE445651936C86100C61171 /* uiApp.h */,
+				6EE445661936C86100C61171 /* uiApp.m */,
+				6EE445671936C86100C61171 /* uiButton.h */,
+				6EE445681936C86100C61171 /* uiButton.m */,
+				6EE445691936C86100C61171 /* uiLabel.h */,
+				6EE4456A1936C86100C61171 /* uiLabel.m */,
 			);
 			path = ui;
 			sourceTree = "<group>";
 		};
-		6E7C560B18EB94B30002F09B /* controls */ = {
+		6EE4454A1936C86100C61171 /* controls */ = {
 			isa = PBXGroup;
 			children = (
-				6E7C560C18EB94B30002F09B /* controlBase.h */,
-				6E7C560D18EB94B30002F09B /* controlBase.m */,
-				6ECE40F018FBA40100E89424 /* controlOption.h */,
-				6ECE40F118FBA40100E89424 /* controlOption.m */,
-				6ECE40ED18FBA1C700E89424 /* deviceList.h */,
-				6ECE40EE18FBA1C700E89424 /* deviceList.m */,
-				6E7C560E18EB94B30002F09B /* controlList.h */,
-				6E7C560F18EB94B30002F09B /* controlList.m */,
-				6E7C561018EB94B30002F09B /* controlSlider.h */,
-				6E7C561118EB94B30002F09B /* controlSlider.m */,
-				6E7C561218EB94B30002F09B /* controlText.h */,
-				6E7C561318EB94B30002F09B /* controlText.m */,
-				6E7C561418EB94B30002F09B /* controlTrigger.h */,
-				6E7C561518EB94B30002F09B /* controlTrigger.m */,
+				6EE4454B1936C86100C61171 /* controlBase.h */,
+				6EE4454C1936C86100C61171 /* controlBase.m */,
+				6EE4454D1936C86100C61171 /* controlList.h */,
+				6EE4454E1936C86100C61171 /* controlList.m */,
+				6EE4454F1936C86100C61171 /* controlOption.h */,
+				6EE445501936C86100C61171 /* controlOption.m */,
+				6EE445511936C86100C61171 /* controlSlider.h */,
+				6EE445521936C86100C61171 /* controlSlider.m */,
+				6EE445531936C86100C61171 /* controlText.h */,
+				6EE445541936C86100C61171 /* controlText.m */,
+				6EE445551936C86100C61171 /* controlTrigger.h */,
+				6EE445561936C86100C61171 /* controlTrigger.m */,
+				6EE445571936C86100C61171 /* deviceList.h */,
+				6EE445581936C86100C61171 /* deviceList.m */,
 			);
 			path = controls;
 			sourceTree = "<group>";
 		};
-		6E7C561618EB94B30002F09B /* modules */ = {
+		6EE445591936C86100C61171 /* modules */ = {
 			isa = PBXGroup;
 			children = (
-				6E7C561718EB94B30002F09B /* moduleBase.h */,
-				6E7C561818EB94B30002F09B /* moduleBase.m */,
-				6E7C561918EB94B30002F09B /* modulePad.h */,
-				6E7C561A18EB94B30002F09B /* modulePad.m */,
-				6E7C561B18EB94B30002F09B /* moduleRack.h */,
-				6E7C561C18EB94B30002F09B /* moduleRack.m */,
-				6E7C561D18EB94B30002F09B /* moduleSlider.h */,
-				6E7C561E18EB94B30002F09B /* moduleSlider.m */,
+				6EE4455A1936C86100C61171 /* moduleBase.h */,
+				6EE4455B1936C86100C61171 /* moduleBase.m */,
+				6EE4455C1936C86100C61171 /* modulePad.h */,
+				6EE4455D1936C86100C61171 /* modulePad.m */,
+				6EE4455E1936C86100C61171 /* moduleSlider.h */,
+				6EE4455F1936C86100C61171 /* moduleSlider.m */,
 			);
 			path = modules;
+			sourceTree = "<group>";
+		};
+		6EE445601936C86100C61171 /* racks */ = {
+			isa = PBXGroup;
+			children = (
+				6EE445611936C86100C61171 /* rackBase.h */,
+				6EE445621936C86100C61171 /* rackBase.m */,
+				6EE445631936C86100C61171 /* rackControl.h */,
+				6EE445641936C86100C61171 /* rackControl.m */,
+			);
+			path = racks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -341,11 +359,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6E7C562C18EB94B30002F09B /* Images.xcassets in Resources */,
-				6E7C563118EB94B30002F09B /* stateDEMO.json in Resources */,
-				6E7C562B18EB94B30002F09B /* InfoPlist.strings in Resources */,
-				6E7C563018EB94B30002F09B /* skin.json in Resources */,
-				6E7C562A18EB94B30002F09B /* Credits.rtf in Resources */,
+				6EE445731936C86100C61171 /* Images.xcassets in Resources */,
+				6EE445761936C86100C61171 /* MIDIOverlord-Info.plist in Resources */,
+				6EE445711936C86100C61171 /* Credits.rtf in Resources */,
+				6EE445721936C86100C61171 /* InfoPlist.strings in Resources */,
+				6EE445791936C86100C61171 /* stateDEMO.json in Resources */,
+				6EE445781936C86100C61171 /* skin.json in Resources */,
+				6EE445751936C86100C61171 /* MainMenu.xib in Resources */,
+				6EE445771936C86100C61171 /* default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,28 +384,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6ECE40F218FBA40100E89424 /* controlOption.m in Sources */,
-				6E7C563D18EB94B30002F09B /* uiLabel.m in Sources */,
-				6E7C563218EB94B30002F09B /* appView.m in Sources */,
-				6EDEA278192AE43700A4BE69 /* uiButton.m in Sources */,
-				6E7C563318EB94B30002F09B /* controlBase.m in Sources */,
-				6E7C562918EB94B30002F09B /* utilities.m in Sources */,
-				6E7C563418EB94B30002F09B /* controlList.m in Sources */,
-				6E7C562518EB94B30002F09B /* appViewController.m in Sources */,
-				6E7C563518EB94B30002F09B /* controlSlider.m in Sources */,
-				6E7C562818EB94B30002F09B /* midiController.m in Sources */,
-				6E7C563718EB94B30002F09B /* controlTrigger.m in Sources */,
-				6E7C563918EB94B30002F09B /* modulePad.m in Sources */,
-				6E7C563B18EB94B30002F09B /* moduleSlider.m in Sources */,
-				6ECE40EF18FBA1C700E89424 /* deviceList.m in Sources */,
-				6E7C562318EB94B30002F09B /* AppDelegate.m in Sources */,
-				6E7C562618EB94B30002F09B /* eventHandler.m in Sources */,
-				6E7C563818EB94B30002F09B /* moduleBase.m in Sources */,
-				6E7C562D18EB94B30002F09B /* main.m in Sources */,
-				6E7C563618EB94B30002F09B /* controlText.m in Sources */,
-				6E7C563C18EB94B30002F09B /* uiApp.m in Sources */,
-				6E7C563A18EB94B30002F09B /* moduleRack.m in Sources */,
-				6E7C562718EB94B30002F09B /* appModel.m in Sources */,
+				6EE445851936C86100C61171 /* rackBase.m in Sources */,
+				6EE4457A1936C86100C61171 /* appView.m in Sources */,
+				6EE4457B1936C86100C61171 /* controlBase.m in Sources */,
+				6EE4457D1936C86100C61171 /* controlOption.m in Sources */,
+				6EE445701936C86100C61171 /* utilities.m in Sources */,
+				6EE4457C1936C86100C61171 /* controlList.m in Sources */,
+				6EE445891936C86100C61171 /* uiLabel.m in Sources */,
+				6EE4456C1936C86100C61171 /* appViewController.m in Sources */,
+				6EE445811936C86100C61171 /* deviceList.m in Sources */,
+				6EE4457F1936C86100C61171 /* controlText.m in Sources */,
+				6EE445821936C86100C61171 /* moduleBase.m in Sources */,
+				6EE4457E1936C86100C61171 /* controlSlider.m in Sources */,
+				6EE445881936C86100C61171 /* uiButton.m in Sources */,
+				6EE4456F1936C86100C61171 /* midiController.m in Sources */,
+				6EE4456B1936C86100C61171 /* AppDelegate.m in Sources */,
+				6EE445801936C86100C61171 /* controlTrigger.m in Sources */,
+				6EE445861936C86100C61171 /* rackControl.m in Sources */,
+				6EE445871936C86100C61171 /* uiApp.m in Sources */,
+				6EE4456D1936C86100C61171 /* eventHandler.m in Sources */,
+				6EE445841936C86100C61171 /* moduleSlider.m in Sources */,
+				6EE445741936C86100C61171 /* main.m in Sources */,
+				6EE445831936C86100C61171 /* modulePad.m in Sources */,
+				6EE4456E1936C86100C61171 /* appModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,26 +428,18 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		6E7C55EB18EB94B30002F09B /* MainMenu.xib */ = {
+		6EE445391936C86100C61171 /* Credits.rtf */ = {
 			isa = PBXVariantGroup;
 			children = (
-				6E7C55EC18EB94B30002F09B /* Base */,
-			);
-			name = MainMenu.xib;
-			sourceTree = "<group>";
-		};
-		6E7C55FB18EB94B30002F09B /* Credits.rtf */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6E7C55FC18EB94B30002F09B /* en */,
+				6EE4453A1936C86100C61171 /* en */,
 			);
 			name = Credits.rtf;
 			sourceTree = "<group>";
 		};
-		6E7C55FD18EB94B30002F09B /* InfoPlist.strings */ = {
+		6EE4453B1936C86100C61171 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				6E7C55FE18EB94B30002F09B /* en */,
+				6EE4453C1936C86100C61171 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";

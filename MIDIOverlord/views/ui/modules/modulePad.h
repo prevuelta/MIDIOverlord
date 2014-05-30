@@ -8,7 +8,6 @@
 
 #import "moduleBase.h"
 
-
 @interface modulePad : moduleBase
 
 - (id)initWithFrame;

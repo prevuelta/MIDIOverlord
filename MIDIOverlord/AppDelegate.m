@@ -17,7 +17,9 @@
 //    
 //    [_data loadDefaultState];
     
+
     [_mainWin setHasShadow: NO];
+    
 //    [_mainWin setStyleMask: NSBorderlessWindowMask];
 
     _appViewControl = [[appViewController alloc] initWithWin: _mainWin];
