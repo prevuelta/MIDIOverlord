@@ -11,16 +11,17 @@
 
 @implementation uiButton
 
--(id)initWithFrame {
+-(id)initWithFrame:(int)size {
     
-    _width = 30;
-    _height = 30;
+    _width = size;
+    _height = size;
     
     self = [super initWithFrame: NSMakeRect(0, 0, _width, _height)];
     if (!self) return nil;
     
     self.event = @"";
 
+    self.eventData = @{};
     
     float defaultRGBA[] = UI_COLOR_PROT_3;
     float markerRGBA[] = UI_COLOR_PROT_4;
@@ -52,13 +53,18 @@
 	[super drawRect:NSMakeRect(0, 0, _width, _height)];
 }
 
--(void)mouseDown:(NSEvent *)theEvent {
+-(void)setEvent:(NSString*)event withData:(NSDictionary*)data {
+    [self setEvent: event];
+    [self setEventData: data];
+}
+
+-(void)mouseDown:(NSEvent*)theEvent {
     self.active = YES;
     [self setNeedsDisplay:YES];
     
     NSLog(@"%@", self.event);
     
-    [[NSNotificationCenter defaultCenter] postNotificationName: self.event object:self userInfo:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName: self.event object:self userInfo: self.eventData];
 }
 
 -(void)mouseUp:(NSEvent *)theEvent {

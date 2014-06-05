@@ -31,21 +31,15 @@
     
     _global = [_appData objectForKey: @"global"];
     
-    _state = [NSMutableDictionary dictionaryWithDictionary: [_appData objectForKey: @"state"]];
+    _state = [NSMutableDictionary dictionaryWithDictionary: _appData[@"state"]];
     
-    NSDictionary* page = [[_state objectForKey: @"pages"] objectAtIndex: 0];
+    _rackData = [NSMutableDictionary dictionaryWithDictionary: _state[@"rackData"]];
     
-    _layout = [NSMutableArray arrayWithArray: [_state objectForKey: @"layout"]];
-    
-    _rackData = [NSMutableArray arrayWithArray: [_state objectForKey: @"racks"]];
-    
-    _moduleID =  [[_state objectForKey: @"moduleID"] integerValue];
-    
-    _rackID = [[_state objectForKey: @"rackID"] integerValue];
-    
-    _moduleData = [NSMutableDictionary dictionaryWithDictionary:[_state objectForKey: @"modules"]];
+    _rackID = [_state objectForKey: @"rackID"];
 
     _rackCount = [_rackData count];
+    
+    _rackLayout = [NSMutableArray arrayWithArray:_state[@"rackLayout"]];
     
     
 }
@@ -60,11 +54,9 @@
                                     @"state"  :
                                         @{
                                             @"title" : @"Default State",
-                                            @"moduleID" : @0,
                                             @"rackID"   : @0,
-                                            @"layout" : @[],
-                                            @"racks" : @[],
-                                            @"modules" : @{}
+                                            @"rackData" : @{},
+                                            @"rackLayout" : @[]
                                         }
                                     
                                     };
@@ -76,87 +68,98 @@
     return [[dictionary objectForKey: key] intValue];
 }
 
--(void)addPage {
-    NSDictionary* page = @{
-      @"ID" : @1,
-      @"title" : @"Untitled",
-      @"layout" : [NSMutableArray new]
-    };
-    
-    _currentPage = page;
-}
-
 -(void)addRack {
 
-    _rackID++;
+    _rackID = @([_rackID intValue] + 1);
     
-    NSNumber *ID = [NSNumber numberWithInteger: _rackID];
+    NSLog(@"%@", _rackID);
     
-   [_state setObject: ID forKey: @"rackID"];
-    
-    NSDictionary* rack = @{
-        @"ID" : ID,
-        @"page" : [NSNumber numberWithInt: 0],
-        @"label": [NSString stringWithFormat: @"RACK %@", ID],
+    NSDictionary* rackBase = @{
+        @"rackID" : _rackID,
+        @"label": [NSString stringWithFormat: @"RACK %@", _rackID],
         @"size": @0,
         @"channel": @0,
         @"input": @0,
-        @"output": @0
+        @"output": @0,
+        @"moduleID" : @0
     };
     
-    [_rackData addObject:rack];
-
-    // Rack layout
-    NSMutableArray *newLayout = [NSMutableArray new];
+    NSMutableDictionary *rack = [NSMutableDictionary dictionaryWithDictionary: rackBase];
     
-    [_layout addObject: newLayout];
-    _rackCount = [_rackData count];
+    [rack setObject: [NSMutableDictionary new] forKey: @"modules"];
+    [rack setObject: [NSMutableArray new] forKey: @"moduleLayout"];
+    
+    // Add rack
+    [_rackData setObject: rack forKey: _rackID];
+//
+    [_rackLayout addObject: _rackID];
+//
+    _rackCount = (int)[_rackLayout count];
     
 }
+
+
+-(void)addModule:(NSNumber*)rackID :(NSNumber*)type; {
+    
+    NSLog(@"RID: %@ Type: %@", rackID, type);
+    
+    NSMutableDictionary* rack = [_rackData objectForKey: rackID];
+    
+    NSDictionary* module;
+
+    rack[@"moduleID"] = @([rack[@"moduleID"] intValue] + 1);
+
+    switch([type intValue]) {
+        case 1 :
+           module = @{
+             @"label" : @"Untitled",
+             @"type" : type,
+             @"val" : @60
+         };
+        case 2 :
+            module = @{
+               @"label" : @"Untitled",
+               @"type" : type,
+               @"val" : @60,
+               @"min" : @0,
+               @"max" : @127
+            };
+        break;
+    }
+
+    NSLog(@"Modules: %@", rack[@"modules"]);
+    
+    [rack[@"modules"] setObject: module forKey: rack[@"moduleID"]];
+
+    [rack[@"moduleLayout"] addObject: rack[@"moduleID"]];
+
+    [_rackData setObject: rack forKey: rackID];
+    
+}
+
 
 -(NSMutableDictionary*)appData {
-    [_state setObject:_layout forKey: @"layout"];
-    [_state setObject:_rackData forKey: @"racks"];
+    [_state setObject: _rackLayout forKey: @"rackLayout"];
+    [_state setObject: _rackData forKey: @"rackData"];
+    [_state setObject: _rackID forKey: @"rackID"];
+    
     [_appData setObject:_state forKey: @"state"];
+    
     return _appData;
 }
+
 -(void)setAppData:(NSMutableDictionary *)appData {
     [self setupData: appData];
 }
 
--(NSInteger)getRackID:(int)index {
-    return [[_rackData[index] objectForKey:@"ID"] integerValue];
-}
 
--(void)addModule:(int)pageIndex :(int)rackIndex :(int)type {
+//-(NSMutableArray*)getRackModules: (int)layoutIndex {
+//    
+//    NSMutableArray* modules = [NSMutableArray new];
+//
+//    for(id index in _layout[layoutIndex]) {
+//        [modules addObject:_moduleData[index]];
     
-    _moduleID = _moduleID + 1;
-    
-    NSDictionary* module = @{
-         @"label" : @"Untitled",
-         @"type" : [NSNumber numberWithInt:type],
-         @"val" : @60,
-         @"min" : @0,
-         @"max" : @127,
-         @"midiIN" : @0,
-         @"midiOUT" : @24
-    };
-    
-    [_moduleData setObject: module forKey: [NSNumber numberWithInteger: _moduleID]];
-    
-    [_layout[rackIndex] addObject:[NSNumber numberWithInteger: _moduleID]];
-    
-    NSLog(@"Layout: %@", _layout);
-
-}
-
--(NSMutableArray*)getRackModules: (int)layoutIndex {
-    
-    NSMutableArray* modules = [NSMutableArray new];
-    
-    for(id index in _layout[layoutIndex]) {
-        [modules addObject:_moduleData[index]];
-        
         
 //        NSMutableDictionary *module = _moduleData[index];
 //        NSLog(@"Module: %@", module);
@@ -169,12 +172,12 @@
 //            [modules addObject:module];
 //            NSLog(@"Done added module");
 //        }
-    }
-    
+//    }
+
 //    NSLog(@"Mdousldsd: %@", modules);
     
-    return modules;
-
-}
+//    return modules;
+//
+//}
 
 @end

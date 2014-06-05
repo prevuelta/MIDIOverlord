@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
+
 @interface uiButton : NSView
 
 @property int width;
@@ -20,8 +21,10 @@
 @property NSColor *activeColor;
 
 @property NSString *event;
+@property NSDictionary* eventData;
 
 -(void)setOrigin:(NSPoint)origin;
--(id)initWithFrame;
+-(id)initWithFrame:(int)size;
+-(void)setEvent:(NSString*)event withData:(NSDictionary*)data;
 
 @end

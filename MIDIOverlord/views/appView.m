@@ -8,8 +8,6 @@
 
 #import "appView.h"
 
-int _yLoc;
-
 @implementation appView
 
 - (id)initWithWin:(NSWindow*)mainWin {
@@ -52,65 +50,97 @@ int _yLoc;
     
 }
 
--(void)updateRacks:(NSMutableArray*)rackData :(NSMutableArray*)layout {
+-(void)updateRacks:(NSMutableDictionary*)rackData :(NSMutableArray*)layout {
     
     NSLog(@"%@", layout);
     
-    for(int row = 0; row < [layout count]; row++) {
+    for(int rI = 0; rI < [layout count]; rI++) {
+        
+        NSNumber *rackID = layout[rI];
+        
+        NSLog(@"Layout: %@", layout[rI]);
+        
+        NSMutableDictionary *data = [rackData objectForKey: rackID];
+        
+        NSMutableArray *moduleLayout = [data objectForKey: @"moduleLayout"];
         
         // Create rack
-        rackControl *rack = [[rackControl alloc] initWithFrame: NSMakeRect(0, 0, RACK_WIDTH * 4, WINDOW_HEIGHT)];
+        rackControl *rack = [[rackControl alloc] initWithFrame: NSMakeRect(0, 0, RACK_WIDTH, WINDOW_HEIGHT)andData: data];
         
-        [rack setOrigin:NSMakePoint(row * RACK_WIDTH, TOOLBAR_HEIGHT)];
+        [rack setOrigin:NSMakePoint(rI * RACK_WIDTH, TOOLBAR_HEIGHT)];
         
-        [rack setData: rackData[row]];
+        int yLoc = rack.headerHeight;
         
-        NSInteger rackID = [[rackData[row] objectForKey:@"ID"] integerValue];
-        
-        [rack setTag: rackID];
+        for(int mI = 0; mI < [data[@"moduleLayout"] count]; mI++) {
+            
+            NSLog(@"Updating modules");
+            
+            NSNumber *moduleID = data[@"moduleLayout"][mI];
+            
+            NSMutableDictionary *moduleData = [data[@"modules"] objectForKey: moduleID];
+            
+            NSLog(@"%@", moduleData);
+            
+            moduleBase *module = [self getModuleOfType: moduleData[@"type"]];
+            
+            [module setData: moduleData];
+            
+            [module setOrigin: NSMakePoint(0, yLoc)];
+            
+            module.delegate = rack;
+            
+            [rack addSubview: module];
+            
+            yLoc += module.height;
+            
+            NSLog(@"Height: %@", [NSNumber numberWithInt: yLoc]);
+            
+        }
         
         [self addSubview:rack];
         
     }
+    
+    [self resizeWin: [layout count]];
 }
 
--(void)updateRackModules:(NSInteger)rackID :(NSMutableArray*)moduleData {
+-(void)updateRackModules:(NSInteger)rackID :(NSMutableArray*)rackData {
   
-        NSLog(@"Updating module: %@", moduleData);
-    
-        rackControl *rack = [self viewWithTag: rackID];
-    
-        _yLoc = rack.headerHeight;
-    
-        NSLog(@"RACK: %@", rack);
-    
-        for(int i = 0; i < [moduleData count]; i++) {
-            
-            NSLog(@"Updating modul");
-            
-            NSInteger type = [[moduleData[i] objectForKey:@"type"] integerValue];
-            
-            moduleBase *module = [self getModuleOfType:type];
-            
-            [module setData: moduleData[i]];
-            
-            [module setOrigin: NSMakePoint(0, _yLoc)];
-            
-            _yLoc += module.height;
-            
-            module.delegate = rack;
-           
-            [rack addSubview: module];
-        }
-
-        [rack setNeedsDisplay:YES];
+//        NSLog(@"Updating module: %@", moduleData);
+//    
+//        rackControl *rack = [self viewWithTag: rackID];
+//    
+//
+//    
+//        NSLog(@"RACK: %@", rack);
+//    
+//        for(int i = 0; i < [moduleData count]; i++) {
+//            
+//            NSLog(@"Updating moduesl");
+//            
+//            NSInteger type = [[moduleData[i] objectForKey:@"type"] integerValue];
+//            
+//            moduleBase *module = [self getModuleOfType:type];
+//            
+//            [module setData: moduleData[i]];
+//            
+//            [module setOrigin: NSMakePoint(0, _yLoc)];
+//            
+//            _yLoc += module.height;
+//            
+//            module.delegate = rack;
+//           
+//            [rack addSubview: module];
+//        }
+//
+//        [rack setNeedsDisplay:YES];
 }
                             
--(moduleBase*)getModuleOfType:(NSInteger)type {
+-(moduleBase*)getModuleOfType:(NSNumber*)type {
     
     moduleBase *module;
 
-    switch(type) {
+    switch([type integerValue]) {
         case 1: {
             module = [[modulePad alloc] initWithFrame];
             NSLog(@"added pad");

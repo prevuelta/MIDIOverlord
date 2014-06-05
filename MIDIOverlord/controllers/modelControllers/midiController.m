@@ -26,6 +26,8 @@ Byte packetBuffer[128];
 //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotifications:) name:@"midiMessage" object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sendMidiMessageToDevice:) name:@"midiMessageToDevice" object:nil];
+    
+   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(returnMidiDestinations) name:@"getUpdatedDevices" object:nil];
     // Receive request for destinations
 //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(returnMidiDestinations:) name:@"getMidiDestinations" object:nil];
 
@@ -122,7 +124,6 @@ void MyMIDINotifyProc (const MIDINotification  *message, void *refCon) {
 //
     MIDIOutputPortCreate([self newClient:outPortName], outPortName, &outPort);
 
-    
     MIDIReceived(_appOutput, packetList);
     
     OSStatus result;

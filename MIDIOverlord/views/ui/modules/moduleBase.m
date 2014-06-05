@@ -38,7 +38,7 @@
 }
 
 -(void)addCCField {
-    controlText *midiValueText = [[controlText alloc] initWithFrame: _midiV1 andLabel: @"CC" andMaxVal:127];
+    controlText *midiValueText = [[controlText alloc] initWithFrame: _midiV2 andLabel: @"CC" andMaxVal:127];
     
     [midiValueText setOrigin:NSMakePoint(0, 12)];
     

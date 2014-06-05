@@ -8,7 +8,10 @@
 
 #import <Cocoa/Cocoa.h>
 #import "rackBase.h"
+#import "uiButton.h"
 
 @interface rackControl : rackBase
+
+-(void)createMidiDestinationsDeviceList:(NSNotification*)notification;
 
 @end

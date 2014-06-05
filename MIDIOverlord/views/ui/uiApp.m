@@ -16,10 +16,10 @@
     
     controlText *appTitle = [[controlText alloc] initWithFrame: -1 andLabel: @"MIDI OVERLORD PROTOTYPE V.001" andMaxVal: nil];
     
-    [appTitle setGridCellSizeY:3];
-    [appTitle setupGridSystem];
+//    [appTitle setGridCellSizeY:3];
+//    [appTitle setupGridSystem];
     
-    [appTitle setNeedsDisplay:YES];
+//    [appTitle setNeedsDisplay:YES];
     
     [appTitle setOrigin:NSMakePoint(0, 0)];
     
@@ -27,12 +27,11 @@
     
     // UI Buttons
     
-    uiButton *addRack = [[uiButton alloc] initWithFrame];
     
-    [addRack setOrigin: NSMakePoint(0, 36)];
-    
+    // Add rack
+    uiButton *addRack = [[uiButton alloc] initWithFrame: 30];
+    [addRack setOrigin: NSMakePoint(50, 0)];
     [addRack setEvent: @"addRack"];
-    
     [self addSubview: addRack];
     
     return self;

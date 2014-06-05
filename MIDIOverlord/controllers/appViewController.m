@@ -20,16 +20,8 @@
     
     // Add observers
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addRack:) name:@"addRack" object:nil];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addModule:) name:@"addModule" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadFile:) name:@"fileLoaded" object:nil];
-    
-//    [_data addModule: 0 :0 :1 ];
-//    [_data addModule: 0 :0 :2 ];
-//    [_data addModule: 1 :1 :2 ];
-//    [_data addModule: 1 :1 :2 ];
-//    [_data addModule: 1 :1 :2 ];
-//    [_data addModule: 1 :1 :2 ];
-    
     
     NSLog(@"New data: %@", [_data rackData]);
     
@@ -57,7 +49,7 @@
     NSDictionary *userInfo = notification.userInfo;
     [_data setupData:userInfo[@"data"]];
     
-    [_mainView updateRacks: _data.rackData :_data.layout];
+    [self updateRacks];
     
     NSLog(@"Rack count: %@", [NSNumber numberWithInt: _data.rackCount]);
     
@@ -68,28 +60,25 @@
     
     [_data addRack];
     
-    [_mainView updateRacks: _data.rackData :_data.layout];
-    
-    [_mainView resizeWin: _data.rackCount];
+    [_mainView updateRacks: _data.rackData : _data.rackLayout];
+
+   
 }
 
 -(void)addModule:(NSNotification*)notification {
     
-    //    [_data addModule: 0 :0 :1 ];
-    //    [_data addModule: 0 :0 :2 ];
-    //    [_data addModule: 1 :1 :2 ];
-    //    [_data addModule: 1 :1 :2 ];
-    //    [_data addModule: 1 :1 :2 ];
-    //    [_data addModule: 1 :1 :2 ];
+    NSLog(@"%@", notification);
     
+    NSDictionary *userInfo = notification.userInfo;
     
-    //    [_mainView updateRackModules:[_data getRackID:0] : [_data getRackModules:0]];
-    //    [_mainView updateRackModules:[_data getRackID:1] : [_data getRackModules:1]];
+    [_data addModule: userInfo[@"rackID"] : userInfo[@"type"]];
     
-    //    [_mainView updateRackModules [_data getRackModules:rackData[0]]:[data layout[0]];
+    [self updateRacks];
     
-    //    [_mainView updateModules:[_data moduleData]:[_data layout]];
-//       [_mainView resizeWin: [_data.layout count]];
+}
+
+-(void)updateRacks {
+    [_mainView updateRacks: _data.rackData :_data.rackLayout];
 }
 
 @end

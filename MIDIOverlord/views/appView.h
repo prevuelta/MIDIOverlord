@@ -43,7 +43,7 @@
 
 -(void)drawGrid;
 
--(void)updateRacks:(NSMutableArray*)rackData :(NSMutableArray*)layout;
+-(void)updateRacks:(NSMutableDictionary*)rackData :(NSMutableArray*)layout;
 
 -(void)updateRackModules:(NSInteger)rackID :(NSMutableArray*)moduleData;
 

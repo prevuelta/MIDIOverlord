@@ -10,16 +10,7 @@
 #import "uiLabel.h"
 #import "utilities.h"
 
-//@class controlBase;
-
-//@protocol controlBaseDelegate
-//    -(void)uiEvent:(char*)type;
-//    -(void)uiEvent:(char*)type withInt:(int)val;
-//@end
-
 @interface controlBase : NSView
-
-//@property (nonatomic, assign) id delegate;
 
 @property BOOL active;
 @property BOOL selected;

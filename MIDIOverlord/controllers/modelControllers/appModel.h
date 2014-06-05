@@ -15,9 +15,9 @@
 @property NSMutableDictionary* global;
 @property NSMutableDictionary* state;
 @property NSMutableDictionary* appData;
-@property NSMutableDictionary* moduleData;
-@property NSMutableArray* rackData;
-@property NSMutableArray* layout;
+
+@property NSMutableDictionary* rackData;
+@property NSMutableArray* rackLayout;
 
 @property NSString* currentFile;
 @property NSDictionary* currentPage;
@@ -27,10 +27,9 @@
 @property NSMutableArray* midiDestinations;
 
 // Data object
-@property NSInteger moduleID;
-@property NSInteger rackID;
+@property NSNumber* rackID;
 
-@property int rackCount;
+@property NSInteger rackCount;
 
 -(id)init;
 -(void)setupData:(NSMutableDictionary*)data;
@@ -39,11 +38,8 @@
 
 // Public function
 -(void)addRack;
--(void)addModule:(int)pageIndex :(int)rackIndex :(int)type;
+-(void)addModule:(NSNumber*)rackID :(NSNumber*)type;
 
--(NSMutableArray*)getRackModules: (int)layoutIndex;
-
--(NSInteger)getRackID:(int)index;
-
+//-(NSMutableArray*)getRackModules: (int)layoutIndex;
 
 @end

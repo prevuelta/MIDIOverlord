@@ -13,7 +13,7 @@
 @synthesize data = _data;
 @synthesize subViews;
 
--(id)initWithFrame:(NSRect)frame {
+-(id)initWithFrame:(NSRect)frame andData:(NSMutableDictionary*)data {
     
     self = [super initWithFrame:frame];
     if(!self) return nil;
@@ -34,19 +34,22 @@
     
     self.headerHeight = 100;
     
-    [self addRackTitle];
-    
-    float bgRGBA[] = UI_COLOR_PROT_0;
-    
-    self.bgColor = [utilities getNSColorFromRGB: bgRGBA];
-    
     self.subViews = [NSMutableArray new];
     
     self.midiChannel = 0;
     
+    self.labelText = @"Untititled";
+    
     _selected = NO;
     
-    NSLog(@"Sending");
+    self.labelText = [data objectForKey: @"label"];
+    
+    self.rackID = [data objectForKey: @"rackID"];
+    
+    NSLog(@"Rack id: %@", self.rackID);
+    
+    self.label = [[controlText alloc] initWithFrame: -1 andLabel: self.labelText andMaxVal: 0];
+    [self addSubview: self.label];
     
     _midiChannelText = [[controlText alloc] initWithFrame: _midiChannel andLabel: @"CH" andMaxVal: 16];
     
@@ -58,57 +61,24 @@
     
     [self addSubview: _midiChannelText];
     
+    [self addRackTitle];
+    
+    // Observers
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createMidiDestinationsDeviceList:) name:@"updateMidiDestinations" object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deselect:) name:@"deselectAll" object:nil];
+    
+    
+    
+   
     
     return self;
 }
 
 -(void)addRackTitle {
 
-    self.label = [[controlText alloc] initWithFrame: -1 andLabel: self.labelText andMaxVal: 0];
-    
-    [self addSubview: self.label];
-    
-    _midiInput = [[deviceList alloc] initWithFrame: @"MIDI IN"];
-    [_midiInput setOrigin: NSMakePoint(0, 36)];
-    
-    [self addSubview: _midiInput];
-    
-    _midiOutput = [[deviceList alloc] initWithFrame: @"MIDI OUT"];
-    [_midiOutput setOrigin: NSMakePoint(0, 48)];
-    
-    [self bind:@"deviceOut" toObject:_midiOutput withKeyPath:@"selectedValue" options:nil];
-    
-    [self addSubview: _midiOutput];
-    
-    [self setNeedsDisplay:YES];
-    
-}
+    // Overridden
 
-
--(void)createMidiDestinationsDeviceList:(NSNotification*)notification {
-  NSLog(@"Devices: %@", notification);
-    NSLog(@"%@", notification.userInfo);
-    //    NSDictionary data = @{notification.object[0]}
-    NSMutableArray *keyValues = [NSMutableArray new];
-    for(NSString* key in notification.userInfo) {
-        [keyValues addObject: [notification.userInfo objectForKey: key][0]];
-        [keyValues addObject: key];
-    }
-    NSLog(@"New device array %@", keyValues);
-    
-    [_midiOutput addOptions: keyValues];
-}
-
--(NSDictionary*)data {
-    return _data;
-}
-
--(void)setData:(NSDictionary*)data {
-    self.labelText = [data objectForKey: @"label"];
-    NSLog(@"Label yo%@", self.labelText);
-    self.tag = [[data objectForKey:@"ID"] integerValue];
-    _data = data;
 }
 
 -(BOOL)isFlipped {
@@ -121,7 +91,12 @@
     [self setFrame:f];
 }
 
--(void)drawBg:(NSRect)rect {
+-(void)deselect:(NSNotification*)notification  {
+    _selected = NO;
+    [self setNeedsDisplay:YES];
+}
+
+-(void)drawRect:(NSRect)rect {
     
     // Draw background
     
@@ -131,10 +106,10 @@
     int strokeWidth = 4;
     int halfStrokeWidth = strokeWidth / 2;
     
-    if(self.selected) {
-        [self.selectedColor set];
+    if(self.selected == YES) {
+        [self.activeColor set];
     } else {
-        [self.bgColor set];
+        [self.blackColor set];
     }
     
     [bgPath appendBezierPathWithRect:NSMakeRect(0, 0, RACK_WIDTH, self.headerHeight)];
@@ -165,9 +140,10 @@
 }
 
 -(void)mouseDown:(NSEvent *)theEvent {
+    NSLog(@"Slected");
     [[NSNotificationCenter defaultCenter] postNotificationName:@"deselectAll" object:self userInfo: nil];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"closeOpen" object:self userInfo: nil];
-    _selected = YES;
+    self.selected = YES;
     [self setNeedsDisplay:YES];
 }
 

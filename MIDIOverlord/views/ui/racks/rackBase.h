@@ -27,6 +27,7 @@
 @property controlText *midiChannelText;
 @property int midiChannel;
 
+@property NSNumber *rackID;
 
 // Canvas properties
 @property int width;
@@ -47,9 +48,6 @@
 @property controlText *label;
 @property NSString *labelText;
 
-@property NSColor *bgColor;
-@property NSColor *selectedColor;
-
 @property NSColor *blackColor;
 @property NSColor *defaultColor;
 @property NSColor *markerColor;
@@ -58,8 +56,8 @@
 // Notifications
 //@property NSNotificationCenter* center;
 
+-(id)initWithFrame:(NSRect)frame andData:(NSMutableDictionary*)data ;
 -(void)addRackTitle;
--(void)createMidiDestinationsDeviceList:(NSNotification*)notification;
 
 // Util functions
 -(void)setOrigin:(NSPoint)origin;
