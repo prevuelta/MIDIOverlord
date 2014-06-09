@@ -16,6 +16,8 @@ static NSPoint gridSystem[25];
 
 int baseY;
 
+NSImage * img;
+
 -(id)initWithFrame:(int)value andLabel:(NSString*)label andMaxVal:(int)max {
     
     _gridCellSizeX = 1;
@@ -47,7 +49,10 @@ int baseY;
 
     // NSPoint gridSystem[_gridRows * _gridCols];
     
+    
     [self setupGridSystem];
+    
+    NSLog(@"image is valid? %@", [img isValid] ? @"yes" : @"no");
     
     _numbers = @[
        @[@0, @20, @24, @4, @0, @24], // 0
@@ -112,7 +117,7 @@ int baseY;
     
 //   [self.defaultColor setFill];
 //    NSRectFill(dirtyRect);
-//   [super drawRect:dirtyRect];
+   [super drawRect:dirtyRect];
 
     // Drawing code here.
     // Draw letters
@@ -122,7 +127,6 @@ int baseY;
     [letterPath setLineWidth: 1];
     [numberPath setLineWidth: 1];
     
-
     int charOffset = 0;//_charSizeX * ((_charCount * _valueCount)-1);
     
     for(int c = 0; c < _charCount; c++) {
@@ -136,17 +140,19 @@ int baseY;
             point.x += charOffset;
             
             if(l == 0) {
-                [letterPath moveToPoint: point];
+//                [letterPath moveToPoint: point];
             } else {
-                [letterPath lineToPoint: point];
+//                [letterPath lineToPoint: point];
             }
         }
         
         charOffset += _charSizeX;
     }
     
+    [letterPath appendBezierPathWithRect:NSMakeRect(2, 2, 1, 1)];
+    
     [self.markerColor set];
-    [letterPath stroke];
+    [letterPath fill];
     
     for(int i = _valueCount-1 ; i >= 0; i--) {
         
@@ -163,16 +169,16 @@ int baseY;
             point.x += charOffset;
             
             if(j == 0) {
-                [numberPath moveToPoint: point];
+//                [numberPath moveToPoint: point];
             } else {
-                [numberPath lineToPoint: point];
+//                [numberPath lineToPoint: point];
             }
         }
 
         charOffset += _charSizeX;
         
     }
-
+     
     [self.activeColor set];
 
     [numberPath stroke];
