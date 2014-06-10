@@ -6,11 +6,12 @@
 //  Copyright (c) 2014 Midnight City. All rights reserved.
 //
 
+#import "uiBase.h"
 #import "moduleBase.h"
 #import "deviceList.h"
-#import "controlText.h"
+#import "uiText.h"
 
-@interface rackBase : NSView <moduleBaseDelegate>
+@interface rackBase : uiBase <moduleBaseDelegate>
 
 @property (nonatomic, assign) id delegate;
 
@@ -24,7 +25,7 @@
 @property int deviceIn;
 @property int deviceOut;
 
-@property controlText *midiChannelText;
+@property uiText *midiChannelText;
 @property int midiChannel;
 
 @property NSNumber *rackID;
@@ -32,26 +33,13 @@
 // Canvas properties
 @property int width;
 @property int height;
-//@property int gridX;
-//@property int gridY;
-
-// Midi properties
-//@property int midiV1;
-//@property int midiV2;
-//@property int midiV3;
 
 // Display options
-@property BOOL selected;
 @property NSInteger tag;
 
 // UI
-@property controlText *label;
+@property uiText *label;
 @property NSString *labelText;
-
-@property NSColor *blackColor;
-@property NSColor *defaultColor;
-@property NSColor *markerColor;
-@property NSColor *activeColor;
 
 // Notifications
 //@property NSNotificationCenter* center;
@@ -60,7 +48,6 @@
 -(void)addRackTitle;
 
 // Util functions
--(void)setOrigin:(NSPoint)origin;
 -(void)mouseDown:(NSEvent *)theEvent;
 
 

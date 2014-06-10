@@ -8,26 +8,14 @@
 
 #import <Cocoa/Cocoa.h>
 #import "utilities.h"
+#import "uiText.h"
 
-@interface controlBase : NSView
-
-@property BOOL active;
-@property BOOL selected;
+@interface controlBase : uiBase
 
 @property NSInteger tag;
 
-@property NSColor *blackColor;
-@property NSColor *defaultColor;
-@property NSColor *markerColor;
-@property NSColor *activeColor;
-
--(void)deselect:(NSNotification*)notification;
-
--(void)setDefaults;
 -(void)drawRect:(NSRect)rect;
 
--(void)setOrigin:(NSPoint)origin;
-
-- (void)mouseEntered:(NSEvent *)theEvent;
+-(void)mouseEntered:(NSEvent *)theEvent;
 
 @end

@@ -21,7 +21,7 @@
     
 //    [appTitle setNeedsDisplay:YES];
     
-    [appTitle setOrigin:NSMakePoint(0, 0)];
+//    [appTitle setOrigin:NSMakePoint(0, 0)];
     
     [self addSubview: appTitle];
     
@@ -49,12 +49,6 @@
 
 -(BOOL)isFlipped {
     return YES;
-}
-
--(void)setOrigin:(NSPoint)origin {
-    NSRect f = self.frame;
-    f.origin = origin;
-    [self setFrame:f];
 }
 
 @end

@@ -23,7 +23,7 @@
 @property NSColor* fgColor;
 @property NSString *labelText;
 
-@property uiLabel *selectedLabel;
+@property uiText *selectedLabel;
 
 @property int selectedValue;
 

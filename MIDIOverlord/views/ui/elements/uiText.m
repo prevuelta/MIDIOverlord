@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Midnight City. All rights reserved.
 //
 
-#import "controlText.h"
+#import "uiText.h"
 
-@implementation controlText
+@implementation uiText
 
 @synthesize value = _value;
 
@@ -40,9 +40,7 @@ NSImage * img;
     _charSizeY = (_gridCellSizeY * (_gridRows-1)) + (_padding * 2);
     
     _editable = NO;
-    
-    [self setDefaults];
-    
+
     int width = (_charSizeX * _charCount) + (_padding * 2);
     
     self = [super initWithFrame: NSMakeRect(0, 0, width, _charSizeY )];
@@ -159,7 +157,7 @@ NSImage * img;
     if(self.editable) {
         NSPoint location = [self convertPoint:[e locationInWindow] fromView:nil];
         baseY = location.y;
-        self.active = true;
+        [self setActive: YES];
     }
 }
 

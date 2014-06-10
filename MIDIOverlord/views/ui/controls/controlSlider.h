@@ -20,7 +20,7 @@
 @property NSPoint size;
 @property NSPoint offset;
 
-@property controlText *textVal;
+@property uiText *textVal;
 
 -(id)initWithFrame:(NSPoint)size :(NSPoint)offset :(int)min :(int)max;
 -(void)updateControlFromEvent:(NSEvent*)e;

@@ -7,9 +7,9 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "controlBase.h"
+#import "uiBase.h"
 
-@interface controlText : controlBase
+@interface uiText : uiBase
 
 @property NSString *label;
 @property int value;

@@ -18,16 +18,6 @@
     self = [super initWithFrame:frame];
     if(!self) return nil;
     
-    float blackRGBA[] = UI_COLOR_BLACK;
-    float defaultRGBA[] = UI_COLOR_PROT_2;
-    float markerRGBA[] = UI_COLOR_HIGHLIGHT;
-    float activeRGBA[] = UI_COLOR_HIGHLIGHT_2;
-    
-    _defaultColor = [utilities getNSColorFromRGB:defaultRGBA];
-    _blackColor = [utilities getNSColorFromRGB:blackRGBA];
-    _markerColor = [utilities getNSColorFromRGB:markerRGBA];
-    _activeColor = [utilities getNSColorFromRGB:activeRGBA];
-    
     self.width = RACK_WIDTH;
     
     self.height = WINDOW_HEIGHT;
@@ -40,7 +30,7 @@
     
     self.labelText = @"Untititled";
     
-    _selected = NO;
+    [self setSelected:NO];
     
     self.labelText = [data objectForKey: @"label"];
     
@@ -48,17 +38,17 @@
     
     NSLog(@"Rack id: %@", self.rackID);
     
-    self.label = [[controlText alloc] initWithString: self.labelText];
+//    self.label = [uiText initWithString: self.labelText];
     
-    [self addSubview: self.label];
+//    [self addSubview: self.label];
+//
+//    _midiChannelText = [uiText initWithString: @"CH000" andMaxLength: 5 andLabelLength: 2];
     
-    _midiChannelText = [[controlText alloc] initWithString: @"CH000" andMaxLength: 5 andLabelLength: 2];
+//    [_midiChannelText setOrigin:NSMakePoint(0, 24)];
     
-    [_midiChannelText setOrigin:NSMakePoint(0, 24)];
+//    [_midiChannelText setEditable: YES];
     
-    [_midiChannelText setEditable: YES];
-    
-    [_midiChannelText bind:@"value" toObject:self withKeyPath:@"self.midiChannel" options:nil];
+//    [_midiChannelText bind:@"value" toObject:self withKeyPath:@"self.midiChannel" options:nil];
     
     [self addSubview: _midiChannelText];
     
@@ -66,13 +56,7 @@
     
     // Observers
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createMidiDestinationsDeviceList:) name:@"updateMidiDestinations" object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deselect:) name:@"deselectAll" object:nil];
-    
-    
-    
-   
-    
+
     return self;
 }
 
@@ -84,17 +68,6 @@
 
 -(BOOL)isFlipped {
     return YES;
-}
-
--(void)setOrigin:(NSPoint)origin {
-    NSRect f = self.frame;
-    f.origin = origin;
-    [self setFrame:f];
-}
-
--(void)deselect:(NSNotification*)notification  {
-    _selected = NO;
-    [self setNeedsDisplay:YES];
 }
 
 -(void)drawRect:(NSRect)rect {

@@ -7,23 +7,16 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "uiBase.h"
 
-
-@interface uiButton : NSView
+@interface uiButton : uiBase
 
 @property int width;
 @property int height;
 
-@property BOOL active;
-
-@property NSColor *defaultColor;
-@property NSColor *markerColor;
-@property NSColor *activeColor;
-
 @property NSString *event;
 @property NSDictionary* eventData;
 
--(void)setOrigin:(NSPoint)origin;
 -(id)initWithFrame:(int)size;
 -(void)setEvent:(NSString*)event withData:(NSDictionary*)data;
 

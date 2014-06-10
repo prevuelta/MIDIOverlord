@@ -25,18 +25,15 @@
 
     _labelText = labelText;
     
-    [self setDefaults];
-    
 //    _optionData = keyValues;
 
     _optionData = [NSMutableArray new];
     
     [self addOptions];
     
-    _selectedLabel = [[uiLabel alloc] initWithFrame: NSMakeRect(0, 0, self.width, self.height)];
-    [_selectedLabel setStringValue: _labelText];
-    [_selectedLabel setDrawsBackground: NO];
-    [self addSubview:_selectedLabel];
+//    _selectedLabel = [uiText initWithString: _labelText];
+//    [_selectedLabel setDrawsBackground: NO];
+//    [self addSubview:_selectedLabel];
 
     _optionCount = [_optionData count] / 2;
     
@@ -148,7 +145,6 @@ NSComparisonResult compareViews(id firstView, id secondView, void *context) {
 -(void)setSelectedLabel:(NSString*)selectedLabel {
 // _selectedLabel = selectedLabel
      [_selectedLabel setStringValue: selectedLabel];
-     [_selectedLabel setNeedsDisplay: YES];
     ;
 }
 

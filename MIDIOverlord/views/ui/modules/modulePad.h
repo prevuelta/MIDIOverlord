@@ -10,6 +10,6 @@
 
 @interface modulePad : moduleBase
 
-- (id)initWithFrame;
+-(id)initWithFrame;
 
 @end

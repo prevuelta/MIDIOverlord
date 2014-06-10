@@ -10,10 +10,9 @@
 #import "uiText.h"
 #import "uiButton.h"
 
-@interface uiApp : NSView
+@interface uiApp : uiBase
 
 - (id)initWithFrame:(NSRect)frame;
 -(void)drawRect:(NSRect)dirtyRect;
--(void)setOrigin:(NSPoint)origin;
 
 @end

@@ -7,12 +7,15 @@
 //
 
 #import <Cocoa/Cocoa.h>
+
+#import "uiBase.h"
+
 #import "controlTrigger.h"
-#import "uiText.h"
 #import "controlSlider.h"
 #import "controlList.h"
+
 #import "deviceList.h"
-#import "uiLabel.h"
+#import "uiText.h"
 #import "utilities.h"
 
 @class moduleBase;
@@ -21,7 +24,7 @@
 -(void)midiData:(NSDictionary*)data;
 @end
 
-@interface moduleBase : NSView
+@interface moduleBase : uiBase
 
 //Data
 @property NSDictionary* data;
@@ -40,24 +43,17 @@
 @property int midiV3;
 
 // Display options
-@property BOOL selected;
 @property NSInteger tag;
 
 // UI
-@property controlText *label;
+@property uiText *label;
 @property NSString *labelText;
 
-@property NSColor *bgColor;
-@property NSColor *selectedColor;
-
 -(id)initWithFrame:(NSRect)frame;
--(void)setOrigin:(NSPoint)origin;
 -(void)mouseDown:(NSEvent *)theEvent;
 -(void)drawRect:(NSRect)rect;
 -(void)drawBg:(NSRect)rect;
 -(void)drawModule:(NSRect)rect;
 -(void)addCCField;
-
--(void)deselect:(NSNotification*)notification ;
 
 @end

@@ -14,8 +14,6 @@
     
     self = [super initWithFrame:NSMakeRect(offset.x, offset.y, size.x, size.y)];
     if(!self) return nil;
-
-    [self setDefaults];
     
     _size = size;
     _offset = offset;
@@ -34,7 +32,7 @@
     if(self.active) {
         [self.activeColor set];
     } else {
-        [self.defaultColor set];
+        [self.bgColor set];
     }
     
     [btnPath fill];

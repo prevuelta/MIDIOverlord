@@ -16,21 +16,13 @@
 
 @synthesize midiV3 = _midiV3;
 
-- (id)initWithFrame:(NSRect)frame {
+-(id)initWithFrame:(NSRect)frame {
     self = [super initWithFrame:frame];
     if (!self) return nil;
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deselect:) name:@"deselectAll" object:nil];
-    
     self.width = RACK_WIDTH - 8;
     
-    float bgRGBA[] = UI_COLOR_PROT_1;
-    float selectedRGBA[] = UI_COLOR_BLACK;
-    
-    self.bgColor = [utilities getNSColorFromRGB: bgRGBA];
-    self.selectedColor = [utilities getNSColorFromRGB: selectedRGBA];
-    
-    _selected = NO;
+    self.selected = NO;
     
     self.labelText = @"MODULE TITLE";
     
@@ -50,17 +42,6 @@
 
 }
 
--(void)deselect:(NSNotification*)notification  {
-    _selected = NO;
-    [self setNeedsDisplay:YES];
-}
-
--(void)setOrigin:(NSPoint)origin {
-    NSRect f = self.frame;
-    f.origin = origin;
-    [self setFrame:f];
-}
-
 -(NSDictionary*)data {
     return _data;
 }
@@ -72,7 +53,7 @@
 -(void)mouseDown:(NSEvent *)theEvent {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"deselectAll" object:self userInfo: nil];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"closeOpen" object:self userInfo: nil];
-    _selected = YES;
+    self.selected = YES;
     [self setNeedsDisplay:YES];
 }
 
@@ -121,17 +102,16 @@
     
     NSBezierPath* bgPath = [NSBezierPath new];
     
-    if(_selected) {
-         [self.selectedColor set];
+    if(self.selected) {
+         [self.defaultColor set];
     } else {
-        [self.bgColor set];
+        [self.blackColor set];
     }
+
     [bgPath appendBezierPathWithRect:NSMakeRect(0, 0, self.width, self.height)];
     [bgPath closePath];
     [bgPath fill];
-    
-    
-//    NSLog(@"Drawing");
+
 }
 
 -(NSString*)labelText {

@@ -19,16 +19,16 @@ int baseMarker;
 -(id)initWithFrame:(NSPoint)size :(NSPoint)offset :(int)min :(int)max{
     
     self = [super initWithFrame:NSMakeRect(offset.x, offset.y, size.x, size.y)];
-    if(!self) return nil;
     
-    [self setDefaults];
+    if(!self) return nil;
     
     _size = size;
     _offset = offset;
     _min = min;
     _max = max;
     _range = max - min;
-    self.active = false;
+    
+    [self setActive: NO];
     
     _value = _min;
     
