@@ -48,10 +48,11 @@
     
     NSLog(@"Rack id: %@", self.rackID);
     
-    self.label = [[controlText alloc] initWithFrame: -1 andLabel: self.labelText andMaxVal: 0];
+    self.label = [[controlText alloc] initWithString: self.labelText];
+    
     [self addSubview: self.label];
     
-    _midiChannelText = [[controlText alloc] initWithFrame: _midiChannel andLabel: @"CH" andMaxVal: 16];
+    _midiChannelText = [[controlText alloc] initWithString: @"CH000" andMaxLength: 5 andLabelLength: 2];
     
     [_midiChannelText setOrigin:NSMakePoint(0, 24)];
     

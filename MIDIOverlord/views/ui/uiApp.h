@@ -7,7 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "controlText.h"
+#import "uiText.h"
 #import "uiButton.h"
 
 @interface uiApp : NSView

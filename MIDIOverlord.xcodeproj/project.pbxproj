@@ -10,6 +10,8 @@
 		6E7C564018ED04A80002F09B /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7C563F18ED04A80002F09B /* CoreMIDI.framework */; };
 		6E7C564218ED04C10002F09B /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7C564118ED04C10002F09B /* Cocoa.framework */; };
 		6E7C564518ED04E60002F09B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7C564318ED04C60002F09B /* Foundation.framework */; };
+		6ECD89F61946BE7400CCBE97 /* uiButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECD89F21946BE7400CCBE97 /* uiButton.m */; };
+		6ECD89F71946BE7400CCBE97 /* uiText.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECD89F41946BE7400CCBE97 /* uiText.m */; };
 		6EE4456B1936C86100C61171 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE4452A1936C86100C61171 /* AppDelegate.m */; };
 		6EE4456C1936C86100C61171 /* appViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE4452E1936C86100C61171 /* appViewController.m */; };
 		6EE4456D1936C86100C61171 /* eventHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE445301936C86100C61171 /* eventHandler.m */; };
@@ -30,7 +32,6 @@
 		6EE4457C1936C86100C61171 /* controlList.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE4454E1936C86100C61171 /* controlList.m */; };
 		6EE4457D1936C86100C61171 /* controlOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE445501936C86100C61171 /* controlOption.m */; };
 		6EE4457E1936C86100C61171 /* controlSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE445521936C86100C61171 /* controlSlider.m */; };
-		6EE4457F1936C86100C61171 /* controlText.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE445541936C86100C61171 /* controlText.m */; };
 		6EE445801936C86100C61171 /* controlTrigger.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE445561936C86100C61171 /* controlTrigger.m */; };
 		6EE445811936C86100C61171 /* deviceList.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE445581936C86100C61171 /* deviceList.m */; };
 		6EE445821936C86100C61171 /* moduleBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE4455B1936C86100C61171 /* moduleBase.m */; };
@@ -39,8 +40,6 @@
 		6EE445851936C86100C61171 /* rackBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE445621936C86100C61171 /* rackBase.m */; };
 		6EE445861936C86100C61171 /* rackControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE445641936C86100C61171 /* rackControl.m */; };
 		6EE445871936C86100C61171 /* uiApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE445661936C86100C61171 /* uiApp.m */; };
-		6EE445881936C86100C61171 /* uiButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE445681936C86100C61171 /* uiButton.m */; };
-		6EE445891936C86100C61171 /* uiLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE4456A1936C86100C61171 /* uiLabel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +57,10 @@
 		6E7C563F18ED04A80002F09B /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
 		6E7C564118ED04C10002F09B /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		6E7C564318ED04C60002F09B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		6ECD89F11946BE7400CCBE97 /* uiButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uiButton.h; sourceTree = "<group>"; };
+		6ECD89F21946BE7400CCBE97 /* uiButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uiButton.m; sourceTree = "<group>"; };
+		6ECD89F31946BE7400CCBE97 /* uiText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uiText.h; sourceTree = "<group>"; };
+		6ECD89F41946BE7400CCBE97 /* uiText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uiText.m; sourceTree = "<group>"; };
 		6ECE40EC18FB9B2900E89424 /* MIDIOverlordTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MIDIOverlordTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EE445291936C86100C61171 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6EE4452A1936C86100C61171 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -92,8 +95,6 @@
 		6EE445501936C86100C61171 /* controlOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = controlOption.m; sourceTree = "<group>"; };
 		6EE445511936C86100C61171 /* controlSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = controlSlider.h; sourceTree = "<group>"; };
 		6EE445521936C86100C61171 /* controlSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = controlSlider.m; sourceTree = "<group>"; };
-		6EE445531936C86100C61171 /* controlText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = controlText.h; sourceTree = "<group>"; };
-		6EE445541936C86100C61171 /* controlText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = controlText.m; sourceTree = "<group>"; };
 		6EE445551936C86100C61171 /* controlTrigger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = controlTrigger.h; sourceTree = "<group>"; };
 		6EE445561936C86100C61171 /* controlTrigger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = controlTrigger.m; sourceTree = "<group>"; };
 		6EE445571936C86100C61171 /* deviceList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = deviceList.h; sourceTree = "<group>"; };
@@ -110,10 +111,6 @@
 		6EE445641936C86100C61171 /* rackControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rackControl.m; sourceTree = "<group>"; };
 		6EE445651936C86100C61171 /* uiApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uiApp.h; sourceTree = "<group>"; };
 		6EE445661936C86100C61171 /* uiApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uiApp.m; sourceTree = "<group>"; };
-		6EE445671936C86100C61171 /* uiButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uiButton.h; sourceTree = "<group>"; };
-		6EE445681936C86100C61171 /* uiButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uiButton.m; sourceTree = "<group>"; };
-		6EE445691936C86100C61171 /* uiLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uiLabel.h; sourceTree = "<group>"; };
-		6EE4456A1936C86100C61171 /* uiLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uiLabel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +144,17 @@
 				6ECE40EC18FB9B2900E89424 /* MIDIOverlordTests.xctest */,
 				6EE445281936C86100C61171 /* MIDIOverlord */,
 			);
+			sourceTree = "<group>";
+		};
+		6ECD89EE1946BE7400CCBE97 /* elements */ = {
+			isa = PBXGroup;
+			children = (
+				6ECD89F11946BE7400CCBE97 /* uiButton.h */,
+				6ECD89F21946BE7400CCBE97 /* uiButton.m */,
+				6ECD89F31946BE7400CCBE97 /* uiText.h */,
+				6ECD89F41946BE7400CCBE97 /* uiText.m */,
+			);
+			path = elements;
 			sourceTree = "<group>";
 		};
 		6EE445281936C86100C61171 /* MIDIOverlord */ = {
@@ -225,15 +233,12 @@
 		6EE445491936C86100C61171 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				6ECD89EE1946BE7400CCBE97 /* elements */,
 				6EE4454A1936C86100C61171 /* controls */,
 				6EE445591936C86100C61171 /* modules */,
 				6EE445601936C86100C61171 /* racks */,
 				6EE445651936C86100C61171 /* uiApp.h */,
 				6EE445661936C86100C61171 /* uiApp.m */,
-				6EE445671936C86100C61171 /* uiButton.h */,
-				6EE445681936C86100C61171 /* uiButton.m */,
-				6EE445691936C86100C61171 /* uiLabel.h */,
-				6EE4456A1936C86100C61171 /* uiLabel.m */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -249,8 +254,6 @@
 				6EE445501936C86100C61171 /* controlOption.m */,
 				6EE445511936C86100C61171 /* controlSlider.h */,
 				6EE445521936C86100C61171 /* controlSlider.m */,
-				6EE445531936C86100C61171 /* controlText.h */,
-				6EE445541936C86100C61171 /* controlText.m */,
 				6EE445551936C86100C61171 /* controlTrigger.h */,
 				6EE445561936C86100C61171 /* controlTrigger.m */,
 				6EE445571936C86100C61171 /* deviceList.h */,
@@ -390,17 +393,16 @@
 				6EE4457D1936C86100C61171 /* controlOption.m in Sources */,
 				6EE445701936C86100C61171 /* utilities.m in Sources */,
 				6EE4457C1936C86100C61171 /* controlList.m in Sources */,
-				6EE445891936C86100C61171 /* uiLabel.m in Sources */,
+				6ECD89F61946BE7400CCBE97 /* uiButton.m in Sources */,
 				6EE4456C1936C86100C61171 /* appViewController.m in Sources */,
 				6EE445811936C86100C61171 /* deviceList.m in Sources */,
-				6EE4457F1936C86100C61171 /* controlText.m in Sources */,
 				6EE445821936C86100C61171 /* moduleBase.m in Sources */,
 				6EE4457E1936C86100C61171 /* controlSlider.m in Sources */,
-				6EE445881936C86100C61171 /* uiButton.m in Sources */,
 				6EE4456F1936C86100C61171 /* midiController.m in Sources */,
 				6EE4456B1936C86100C61171 /* AppDelegate.m in Sources */,
 				6EE445801936C86100C61171 /* controlTrigger.m in Sources */,
 				6EE445861936C86100C61171 /* rackControl.m in Sources */,
+				6ECD89F71946BE7400CCBE97 /* uiText.m in Sources */,
 				6EE445871936C86100C61171 /* uiApp.m in Sources */,
 				6EE4456D1936C86100C61171 /* eventHandler.m in Sources */,
 				6EE445841936C86100C61171 /* moduleSlider.m in Sources */,

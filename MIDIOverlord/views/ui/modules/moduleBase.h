@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "controlTrigger.h"
-#import "controlText.h"
+#import "uiText.h"
 #import "controlSlider.h"
 #import "controlList.h"
 #import "deviceList.h"

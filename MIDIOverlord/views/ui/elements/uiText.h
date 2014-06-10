@@ -16,23 +16,27 @@
 
 @property int gridCellSizeX;
 @property int gridCellSizeY;
-@property int gridPad;
-@property int gridPad2;
+@property int letterSpacing;
+@property int padding;
 @property int gridCols;
 @property int gridRows;
-@property NSDictionary *letters;
-@property NSArray *numbers;
+
+@property NSDictionary *glyphs;
+
+@property NSString *stringValue;
 
 @property int charCount;
-@property int valueCount;
+
 @property int charSizeX;
 @property int charSizeY;
 
-@property int max;
+@property int maxLength;
 
 @property BOOL editable;
 
--(id)initWithFrame:(int)value andLabel:(NSString*)label andMaxVal:(int)max;
+-(id)initWithString:(NSString*)stringValue;
+
+-(id)initWithString:(NSString*)stringValue andMaxLength:(int)maxLength andLabelLength: (int)labelLength;
 -(void)setupGridSystem;
 
 @end

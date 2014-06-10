@@ -7,8 +7,7 @@
 //
 
 #import "controlBase.h"
-#import "uiLabel.h"
-#import "controlText.h"
+#import "uiText.h"
 
 @class controlOption;
 
@@ -20,7 +19,6 @@
 
 @property (nonatomic, assign) id delegate;
 
-@property uiLabel *label;
 @property NSArray* keyValue;
 
 -(void)setKeyValue:(NSArray*)arr;

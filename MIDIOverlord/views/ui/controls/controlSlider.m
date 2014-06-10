@@ -34,9 +34,9 @@ int baseMarker;
     
     _marker = _value;
                 
-    _textVal = [[controlText alloc] initWithFrame: _value andLabel: @"" andMaxVal: _max];
+//    _textVal = [[controlText alloc] initWithFrame: _value andLabel: @"" andMaxVal: _max];
     
-    [_textVal bind:@"value" toObject:self withKeyPath:@"self.value" options: nil];
+//    [_textVal bind:@"value" toObject:self withKeyPath:@"self.value" options: nil];
 
     
 //    _textVal = [[NSTextField alloc] initWithFrame:NSMakeRect(0, 0 , 48, 32)];

@@ -7,7 +7,6 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "uiLabel.h"
 #import "utilities.h"
 
 @interface controlBase : NSView

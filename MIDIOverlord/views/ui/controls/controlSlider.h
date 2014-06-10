@@ -7,7 +7,7 @@
 //
 
 #import "controlBase.h"
-#import "controlText.h"
+#import "uiText.h"
 
 @interface controlSlider : controlBase
 

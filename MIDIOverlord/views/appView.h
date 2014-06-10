@@ -45,7 +45,5 @@
 
 -(void)updateRacks:(NSMutableDictionary*)rackData :(NSMutableArray*)layout;
 
--(void)updateRackModules:(NSInteger)rackID :(NSMutableArray*)moduleData;
-
 
 @end

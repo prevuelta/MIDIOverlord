@@ -85,7 +85,7 @@
             
             [module setData: moduleData];
             
-            [module setOrigin: NSMakePoint(0, yLoc)];
+            [module setOrigin: NSMakePoint(4, yLoc)];
             
             module.delegate = rack;
             
@@ -103,39 +103,7 @@
     
     [self resizeWin: [layout count]];
 }
-
--(void)updateRackModules:(NSInteger)rackID :(NSMutableArray*)rackData {
-  
-//        NSLog(@"Updating module: %@", moduleData);
-//    
-//        rackControl *rack = [self viewWithTag: rackID];
-//    
-//
-//    
-//        NSLog(@"RACK: %@", rack);
-//    
-//        for(int i = 0; i < [moduleData count]; i++) {
-//            
-//            NSLog(@"Updating moduesl");
-//            
-//            NSInteger type = [[moduleData[i] objectForKey:@"type"] integerValue];
-//            
-//            moduleBase *module = [self getModuleOfType:type];
-//            
-//            [module setData: moduleData[i]];
-//            
-//            [module setOrigin: NSMakePoint(0, _yLoc)];
-//            
-//            _yLoc += module.height;
-//            
-//            module.delegate = rack;
-//           
-//            [rack addSubview: module];
-//        }
-//
-//        [rack setNeedsDisplay:YES];
-}
-                            
+                   
 -(moduleBase*)getModuleOfType:(NSNumber*)type {
     
     moduleBase *module;

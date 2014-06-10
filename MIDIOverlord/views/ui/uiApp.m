@@ -14,7 +14,7 @@
     self = [super initWithFrame:frame];
     if(!self) return nil;
     
-    controlText *appTitle = [[controlText alloc] initWithFrame: -1 andLabel: @"MIDI OVERLORD PROTOTYPE V.001" andMaxVal: nil];
+    uiText *appTitle = [[uiText alloc] initWithString: @"MIDI OVERLORD PROTOTYPE V.001"];
     
 //    [appTitle setGridCellSizeY:3];
 //    [appTitle setupGridSystem];

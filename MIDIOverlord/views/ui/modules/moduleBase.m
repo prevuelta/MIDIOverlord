@@ -22,7 +22,7 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deselect:) name:@"deselectAll" object:nil];
     
-    self.width = RACK_WIDTH;
+    self.width = RACK_WIDTH - 8;
     
     float bgRGBA[] = UI_COLOR_PROT_1;
     float selectedRGBA[] = UI_COLOR_BLACK;
@@ -38,15 +38,15 @@
 }
 
 -(void)addCCField {
-    controlText *midiValueText = [[controlText alloc] initWithFrame: _midiV2 andLabel: @"CC" andMaxVal:127];
+//    controlText *midiValueText = [[controlText alloc] initWithFrame: _midiV2 andLabel: @"CC" andMaxVal:127];
     
-    [midiValueText setOrigin:NSMakePoint(0, 12)];
+//    [midiValueText setOrigin:NSMakePoint(0, 12)];
     
-    [midiValueText setEditable:YES];
+//    [midiValueText setEditable:YES];
     
-    [self bind:@"midiV2" toObject:midiValueText withKeyPath:@"value" options:nil];
+//    [self bind:@"midiV2" toObject:midiValueText withKeyPath:@"value" options:nil];
     
-    [self addSubview:midiValueText];
+//    [self addSubview:midiValueText];
 
 }
 
