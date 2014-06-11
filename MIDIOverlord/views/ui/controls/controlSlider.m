@@ -34,9 +34,19 @@ int baseMarker;
     
     _marker = _value;
                 
-//    _textVal = [[controlText alloc] initWithFrame: _value andLabel: @"" andMaxVal: _max];
+    _textVal = [[uiText alloc] initWithString: [NSString stringWithFormat:@"%03d", _value]];
+    [_textVal setOrigin:NSMakePoint(RACK_WIDTH - 33, 2)];
     
-//    [_textVal bind:@"value" toObject:self withKeyPath:@"self.value" options: nil];
+    uiText *label = [[uiText alloc] initWithString: @"Resonance" andMaxLength: 4 andLabelLength: 2];
+    [label setOrigin:NSMakePoint(2, 2)];
+
+    // Setup cc
+//    uiText *label = [[uiText alloc] initWithString: @"Resonance" andMaxLength: 4 andLabelLength: 4];
+//    [label setOrigin:NSMakePoint(2, 2)];
+    
+    [self addSubview:label];
+    
+//    [_textVal bind:@"stringValue" toObject:self withKeyPath:@"self.value" options: nil];
 
     
 //    _textVal = [[NSTextField alloc] initWithFrame:NSMakeRect(0, 0 , 48, 32)];
@@ -76,6 +86,8 @@ int baseMarker;
 -(void)setValue:(int)xLoc {
     float percent = xLoc / _size.x;
     _value = percent < 0 ? _min : percent > 1 ? _max : (int) _range * percent;
+    [self.textVal setStringValue: [NSString stringWithFormat:@"%03d", _value]];
+    NSLog(@"%d", _value);
 }
 
 -(int)marker {

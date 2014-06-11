@@ -11,9 +11,6 @@
 
 @interface uiText : uiBase
 
-@property NSString *label;
-@property int value;
-
 @property int gridCellSizeX;
 @property int gridCellSizeY;
 @property int letterSpacing;
@@ -31,6 +28,7 @@
 @property int charSizeY;
 
 @property int maxLength;
+@property int labelLength;
 
 @property BOOL editable;
 

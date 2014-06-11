@@ -38,9 +38,9 @@
     
     NSLog(@"Rack id: %@", self.rackID);
     
-//    self.label = [uiText initWithString: self.labelText];
+    self.label = [[uiText alloc] initWithString: self.labelText];
     
-//    [self addSubview: self.label];
+    [self addSubview: self.label];
 //
 //    _midiChannelText = [uiText initWithString: @"CH000" andMaxLength: 5 andLabelLength: 2];
     

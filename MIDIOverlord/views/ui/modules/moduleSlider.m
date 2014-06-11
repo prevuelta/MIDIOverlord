@@ -13,7 +13,7 @@
 -(id)initWithFrame{
     
     self.value = 0;
-    self.height = 24;
+    self.height = 18;
 
     self = [super initWithFrame:NSMakeRect(0, 0, RACK_WIDTH, self.height)];
     
@@ -33,7 +33,7 @@
     
     // Add UI buttons
     
-    controlSlider *slider = [[controlSlider alloc] initWithFrame:NSMakePoint(self.width, 12): NSMakePoint(0, 0): 0 :127 ];
+    controlSlider *slider = [[controlSlider alloc] initWithFrame:NSMakePoint(self.width, 16): NSMakePoint(0, 0): 0 :127 ];
     
     [slider setOrigin:NSMakePoint(0, 0)];
 

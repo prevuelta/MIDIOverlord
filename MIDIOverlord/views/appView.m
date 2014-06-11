@@ -39,14 +39,14 @@
 
 -(void)resizeWin:(int)rackCount {
     
-    NSRect frame = [_mainWin frame];
-    
-    frame.size.width = RACK_WIDTH * rackCount;
-    frame.size.height = WINDOW_HEIGHT + TOOLBAR_HEIGHT + 22;
-    
-    NSLog(@"Frame height: %@, %@", [NSNumber numberWithInt:frame.size.height], [NSNumber numberWithInt:rackCount]);
-    
-    [_mainWin setFrame:frame display:NO animate:NO];
+//    NSRect frame = [_mainWin frame];
+//    
+//    frame.size.width = RACK_WIDTH * rackCount;
+//    frame.size.height = WINDOW_HEIGHT + TOOLBAR_HEIGHT + 22;
+//    
+//    NSLog(@"Frame height: %@, %@", [NSNumber numberWithInt:frame.size.height], [NSNumber numberWithInt:rackCount]);
+//    
+//    [_mainWin setFrame:frame display:NO animate:NO];
     
 }
 

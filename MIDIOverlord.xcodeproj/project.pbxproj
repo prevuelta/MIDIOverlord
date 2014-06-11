@@ -13,6 +13,7 @@
 		6E7C564518ED04E60002F09B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7C564318ED04C60002F09B /* Foundation.framework */; };
 		6ECD89F61946BE7400CCBE97 /* uiButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECD89F21946BE7400CCBE97 /* uiButton.m */; };
 		6ECD89F71946BE7400CCBE97 /* uiText.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECD89F41946BE7400CCBE97 /* uiText.m */; };
+		6ECD89FA1947C3EE00CCBE97 /* controlText.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECD89F91947C3EE00CCBE97 /* controlText.m */; };
 		6EE4456B1936C86100C61171 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE4452A1936C86100C61171 /* AppDelegate.m */; };
 		6EE4456C1936C86100C61171 /* appViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE4452E1936C86100C61171 /* appViewController.m */; };
 		6EE4456D1936C86100C61171 /* eventHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE445301936C86100C61171 /* eventHandler.m */; };
@@ -64,6 +65,8 @@
 		6ECD89F21946BE7400CCBE97 /* uiButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uiButton.m; sourceTree = "<group>"; };
 		6ECD89F31946BE7400CCBE97 /* uiText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uiText.h; sourceTree = "<group>"; };
 		6ECD89F41946BE7400CCBE97 /* uiText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uiText.m; sourceTree = "<group>"; };
+		6ECD89F81947C3EE00CCBE97 /* controlText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = controlText.h; path = MIDIOverlord/views/ui/controls/controlText.h; sourceTree = SOURCE_ROOT; };
+		6ECD89F91947C3EE00CCBE97 /* controlText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = controlText.m; path = MIDIOverlord/views/ui/controls/controlText.m; sourceTree = SOURCE_ROOT; };
 		6ECE40EC18FB9B2900E89424 /* MIDIOverlordTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MIDIOverlordTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EE445291936C86100C61171 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6EE4452A1936C86100C61171 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -156,6 +159,8 @@
 				6ECD89F21946BE7400CCBE97 /* uiButton.m */,
 				6ECD89F31946BE7400CCBE97 /* uiText.h */,
 				6ECD89F41946BE7400CCBE97 /* uiText.m */,
+				6ECD89F81947C3EE00CCBE97 /* controlText.h */,
+				6ECD89F91947C3EE00CCBE97 /* controlText.m */,
 			);
 			path = elements;
 			sourceTree = "<group>";
@@ -414,6 +419,7 @@
 				6EE445841936C86100C61171 /* moduleSlider.m in Sources */,
 				6EE445741936C86100C61171 /* main.m in Sources */,
 				6EE445831936C86100C61171 /* modulePad.m in Sources */,
+				6ECD89FA1947C3EE00CCBE97 /* controlText.m in Sources */,
 				6EE4456E1936C86100C61171 /* appModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
