@@ -11,7 +11,7 @@
 
 @interface controlSlider : controlBase
 
-@property (nonatomic) int value;
+@property NSNumber* value;
 @property int max;
 @property int min;
 @property int range;
@@ -23,6 +23,8 @@
 @property uiText *textVal;
 
 -(id)initWithFrame:(NSPoint)size :(NSPoint)offset :(int)min :(int)max;
+
 -(void)updateControlFromEvent:(NSEvent*)e;
+-(void)updateControlFromData:(NSNumber*)value;
 
 @end

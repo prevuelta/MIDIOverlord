@@ -30,14 +30,15 @@ int baseMarker;
     
     [self setActive: NO];
     
-    _value = _min;
+    _value = [NSNumber numberWithInt: _min];
     
-    _marker = _value;
+    _marker = [_value intValue];
                 
-    _textVal = [[uiText alloc] initWithString: [NSString stringWithFormat:@"%03d", _value]];
+    _textVal = [[uiText alloc] initWithString: [NSString stringWithFormat:@"%03d", [_value intValue]]];
     [_textVal setOrigin:NSMakePoint(RACK_WIDTH - 33, 2)];
     
     uiText *label = [[uiText alloc] initWithString: @"Resonance" andMaxLength: 4 andLabelLength: 2];
+    
     [label setOrigin:NSMakePoint(2, 2)];
 
     // Setup cc
@@ -83,11 +84,10 @@ int baseMarker;
     
 }
 
--(void)setValue:(int)xLoc {
-    float percent = xLoc / _size.x;
-    _value = percent < 0 ? _min : percent > 1 ? _max : (int) _range * percent;
-    [self.textVal setStringValue: [NSString stringWithFormat:@"%03d", _value]];
-    NSLog(@"%d", _value);
+-(void)setValue:(NSNumber*)value {
+    [self.textVal setStringValue: [NSString stringWithFormat:@"%03d", [value intValue]]];
+    _value = value;
+   
 }
 
 -(int)marker {
@@ -95,10 +95,10 @@ int baseMarker;
 }
 
 -(void)setMarker:(int)marker {
-    _marker =marker;
+    _marker = marker;
 }
 
--(int)value {
+-(NSNumber*)value {
     return _value;
 }
 
@@ -121,19 +121,22 @@ int baseMarker;
     self.active = false;
     [self updateControlFromEvent:e];
 }
-     
- -(void)updateControlFromEvent:(NSEvent*)e {
+
+-(void)updateControlFromData:(NSNumber*)value {
+    float percent = [value floatValue] / (float)_range;
+    NSLog(@"Percent: %@", [NSNumber numberWithFloat:percent]);
+    [self setMarker: _size.x * percent];
+    [self setValue: value];
+}
+-(void)updateControlFromEvent:(NSEvent*)e {
      
      NSPoint location = [self convertPoint:[e locationInWindow] fromView:nil];
-     
-     int newValue = location.x;
 
+     float percent = location.x / _size.x;
+     int newValue =  percent < 0 ? _min : percent > 1 ? _max : (int) _range * percent;
      
-     
-//     NSLog(@"%@, %@, %@ %@", [NSNumber numberWithInt: baseDiff], [NSNumber numberWithInt: newValue], [NSNumber numberWithInt: newValue], [NSNumber numberWithInt: _marker]);
-////     
-     [self setMarker: newValue];
-     [self setValue: newValue];
+     [self setMarker: location.x];
+     [self setValue: [NSNumber numberWithInt: newValue]];
      
      [self setNeedsDisplay:YES];
      

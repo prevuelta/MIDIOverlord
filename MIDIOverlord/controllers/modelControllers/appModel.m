@@ -41,6 +41,8 @@
     
     _rackLayout = [NSMutableArray arrayWithArray:_state[@"rackLayout"]];
     
+    // Observers
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateModule:) name:@"moduleUpdate" object:nil];
     
 }
 
@@ -74,7 +76,7 @@
     
     NSLog(@"%@", _rackID);
     
-    NSDictionary* rackBase = @{
+    NSMutableDictionary* rack = [@{
         @"rackID" : _rackID,
         @"label": [NSString stringWithFormat: @"RACK %@", _rackID],
         @"size": @0,
@@ -82,9 +84,7 @@
         @"input": @0,
         @"output": @0,
         @"moduleID" : @0
-    };
-    
-    NSMutableDictionary *rack = [NSMutableDictionary dictionaryWithDictionary: rackBase];
+    } mutableCopy];
     
     [rack setObject: [NSMutableDictionary new] forKey: @"modules"];
     [rack setObject: [NSMutableArray new] forKey: @"moduleLayout"];
@@ -105,28 +105,30 @@
     
     NSMutableDictionary* rack = [_rackData objectForKey: rackID];
     
-    NSDictionary* module;
+    NSMutableDictionary* module;
 
     rack[@"moduleID"] = @([rack[@"moduleID"] intValue] + 1);
 
     switch([type intValue]) {
         case 1 :
-           module = @{
+           module = [@{
+             @"moduleID" : rack[@"moduleID"],
              @"label" : @"Untitled",
              @"type" : type,
-             @"val" : @60
-         };
+             @"value" : @0
+         } mutableCopy];
         case 2 :
-            module = @{
+            module = [@{
+               @"moduleID" : rack[@"moduleID"],
                @"label" : @"Untitled",
                @"type" : type,
-               @"val" : @60,
+               @"value" : @0,
                @"min" : @0,
                @"max" : @127
-            };
+            } mutableCopy];
         break;
     }
-
+    
     NSLog(@"Modules: %@", rack[@"modules"]);
     
     [rack[@"modules"] setObject: module forKey: rack[@"moduleID"]];
@@ -150,6 +152,18 @@
 
 -(void)setAppData:(NSMutableDictionary *)appData {
     [self setupData: appData];
+}
+
+-(void)updateModule:(NSNotification*)notification {
+    NSDictionary* userInfo = notification.userInfo;
+    
+    NSNumber *moduleID = userInfo[@"data"][@"moduleID"];
+    
+    NSLog(@"Module id: %@", moduleID);
+    
+    [_rackData[userInfo[@"rackID"]][@"modules"] setObject: userInfo[@"data"] forKey: moduleID];
+    
+    NSLog(@"Updated rack data; %@", _rackData[userInfo[@"rackID"]][@"modules"]);
 }
 
 

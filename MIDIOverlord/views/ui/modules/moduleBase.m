@@ -42,19 +42,20 @@
 
 }
 
--(NSDictionary*)data {
+-(NSMutableDictionary*)data {
     return _data;
 }
 
--(void)setData:(NSDictionary*)data {
+-(void)setData:(NSMutableDictionary*)data {
+     NSLog(@"Data: %@", data);
     _data = data;
 }
 
 -(void)mouseDown:(NSEvent *)theEvent {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"deselectAll" object:self userInfo: nil];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"closeOpen" object:self userInfo: nil];
-    self.selected = YES;
-    [self setNeedsDisplay:YES];
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"deselectAll" object:self userInfo: nil];
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"closeOpen" object:self userInfo: nil];
+//    self.selected = YES;
+//    [self setNeedsDisplay:YES];
 }
 
 // Event handlers
@@ -124,14 +125,17 @@
     _labelText = labelText;
 }
 
--(int)midiV3 {
+-(NSNumber*)midiV3 {
     return _midiV3;
 }
 
--(void)setMidiV3:(int)midiV3 {
-//    NSLog(@"Set midiv2 %@", [NSNumber numberWithInt:midiV2]);
-    [self.delegate midiData: @[[NSNumber numberWithInt: self.midiV1], [NSNumber numberWithInt: self.midiV2], [NSNumber numberWithInt: self.midiV3]]];
+-(void)setMidiV3:(NSNumber*)midiV3 {
     _midiV3 = midiV3;
+}
+
+-(void)updateModel {
+    NSLog(@"Updating modle..");
+    [self.delegate moduleUpdateWithData: self.data];
 }
 
 @end

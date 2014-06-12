@@ -14,7 +14,7 @@
 
 - (id)initWithFrame{
     
-    int height = 60;
+    int height = 38;
     
     NSRect frame = NSMakeRect(0, 0, RACK_WIDTH, height);
     
@@ -26,7 +26,7 @@
     
     [self addCCField];
     
-    _midiV1 = 122;
+    _midiV1 = @122;
     
     int size = 32;
     NSPoint padSize = NSMakePoint(size, size);

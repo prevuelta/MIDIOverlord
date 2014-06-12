@@ -79,7 +79,7 @@
             
             NSMutableDictionary *moduleData = [data[@"modules"] objectForKey: moduleID];
             
-            NSLog(@"%@", moduleData);
+            NSLog(@"Module data:%@", moduleData);
             
             moduleBase *module = [self getModuleOfType: moduleData[@"type"]];
             

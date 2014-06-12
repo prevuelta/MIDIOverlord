@@ -13,5 +13,8 @@
 -(id)initWithFrame;
 
 @property int value;
+@property controlSlider *slider;
+
+-(void)setData:(NSDictionary*)data;
 
 @end

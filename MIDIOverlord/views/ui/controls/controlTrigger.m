@@ -18,6 +18,12 @@
     _size = size;
     _offset = offset;
     
+    uiText *label = [[uiText alloc] initWithString: @"C#1" andMaxLength: 3 andLabelLength: 3];
+    
+    [label setOrigin:NSMakePoint(2, 2)];
+    
+    [self addSubview: label];
+    
     return self;
 }
 

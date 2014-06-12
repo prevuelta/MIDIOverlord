@@ -21,13 +21,14 @@
 @class moduleBase;
 
 @protocol moduleBaseDelegate
--(void)midiData:(NSDictionary*)data;
+-(void)midiData:(NSArray*)data;
+-(void)moduleUpdateWithData: (NSDictionary*)data;
 @end
 
 @interface moduleBase : uiBase
 
 //Data
-@property NSDictionary* data;
+@property NSMutableDictionary* data;
 
 @property (nonatomic, assign) id delegate;
 
@@ -38,9 +39,9 @@
 @property int gridY;
 
 // Midi properties
-@property int midiV1;
-@property int midiV2;
-@property int midiV3;
+@property NSNumber *midiV1;
+@property NSNumber *midiV2;
+@property NSNumber *midiV3;
 
 // Display options
 @property NSInteger tag;
@@ -55,5 +56,6 @@
 -(void)drawBg:(NSRect)rect;
 -(void)drawModule:(NSRect)rect;
 -(void)addCCField;
+-(void)updateModel;
 
 @end

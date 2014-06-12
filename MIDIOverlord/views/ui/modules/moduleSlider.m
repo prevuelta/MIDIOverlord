@@ -10,6 +10,9 @@
 
 @implementation moduleSlider
 
+@synthesize midiV3 = _midiV3;
+@synthesize data = _data;
+
 -(id)initWithFrame{
     
     self.value = 0;
@@ -19,27 +22,27 @@
     
     if(!self) return nil;
     
-    self.midiV1 = 176;
-    self.midiV2 = 0;
-    self.midiV3 = 0;
+    self.midiV1 = @176;
+    self.midiV2 = @0;
+    self.midiV3 = @0;
     
-//    controlText *midiValueText = [[controlText alloc] initWithFrame: self.midiV2 andLabel: @"CC" andMaxVal:127];
-    
-//    [midiValueText setOrigin:NSMakePoint(0, 12)];
-    
-//    [midiValueText setEditable:YES];
-    
-    // Add UI buttons
+    // controlText *midiValueText = [[controlText alloc] initWithFrame: self.midiV2 andLabel: @"CC" andMaxVal:127];
+        
+    // [midiValueText setOrigin:NSMakePoint(0, 12)];
+        
+    // midiValueText setEditable:YES];
     
     // Add UI buttons
     
-    controlSlider *slider = [[controlSlider alloc] initWithFrame:NSMakePoint(self.width, 16): NSMakePoint(0, 0): 0 :127 ];
+    // Add UI buttons
     
-    [slider setOrigin:NSMakePoint(0, 0)];
+    _slider = [[controlSlider alloc] initWithFrame:NSMakePoint(self.width, 16): NSMakePoint(0, 0): 0 :127 ];
+    
+    [_slider setOrigin:NSMakePoint(0, 0)];
 
-    [self bind:@"midiV3" toObject:slider withKeyPath:@"value" options:nil];
+    [self bind:@"midiV3" toObject:_slider withKeyPath:@"value" options:nil];
     
-    [self addSubview: slider];
+    [self addSubview: _slider];
     
     [self addCCField];
     
@@ -47,10 +50,34 @@
 }
 
 -(void)drawModule:(NSRect)rect {
-    
-//    NSLog(@"Slide val: %@", [NSNumber numberWithInt:self.midiV2]);
-    
+    // NSLog(@"Slide val: %@", [NSNumber numberWithInt:self.midiV2]);
 }
 
+-(NSNumber*)midiV3 {
+    return _midiV3;
+}
+
+-(void)setMidiV3:(NSNumber*)midiV3 {
+    _midiV3 = midiV3;
+    [self.delegate midiData: @[self.midiV1, self.midiV2, self.midiV3]];
+    [self.data setObject:_midiV3 forKey:@"value"];
+    [self updateModel];
+}
+
+-(NSMutableDictionary*)data {
+    return _data;
+}
+
+-(void)setData:(NSMutableDictionary*)data {
+    NSLog(@"Data: %@", data);
+    [_slider updateControlFromData: data[@"value"]];
+    _data = data;
+}
+
+//-(void)setData:(NSMutableDictionary*)data {
+////    [_slider setValue: data[@"value"]];
+//    NSLog(@"Data: %@", data);
+//    self.data = data;
+//}
 
 @end

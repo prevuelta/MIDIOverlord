@@ -25,22 +25,17 @@
     
     NSLog(@"New data: %@", [_data rackData]);
     
-   
-    
 //    [_mainView updateRackModules:[_data getRackID:0] : [_data getRackModules:0]];
 //    [_mainView updateRackModules:[_data getRackID:1] : [_data getRackModules:1]];
     
 //    [_mainView updateRackModules [_data getRackModules:rackData[0]]:[data layout[0]];
     
 //    [_mainView updateModules:[_data moduleData]:[_data layout]];
-    
  
-    
     // Set grid origins
     //    CGRect frame = mainView.frame;
     //    frame.origin = CGPointMake(_windowPadding, _windowPadding);
     //    mainView.frame = frame;
-
     
     return self;
 }
@@ -60,9 +55,8 @@
     
     [_data addRack];
     
-    [_mainView updateRacks: _data.rackData : _data.rackLayout];
+    [self updateRacks];
 
-   
 }
 
 -(void)addModule:(NSNotification*)notification {
@@ -78,7 +72,7 @@
 }
 
 -(void)updateRacks {
-    [_mainView updateRacks: _data.rackData :_data.rackLayout];
+    [_mainView updateRacks: _data.rackData : _data.rackLayout];
 }
 
 @end

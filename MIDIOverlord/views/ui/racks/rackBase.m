@@ -32,9 +32,11 @@
     
     [self setSelected:NO];
     
-    self.labelText = [data objectForKey: @"label"];
+    self.labelText = data[@"label"];
     
-    self.rackID = [data objectForKey: @"rackID"];
+    self.rackID = data[@"rackID"];
+    
+    self.data = data;
     
     NSLog(@"Rack id: %@", self.rackID);
     
@@ -106,19 +108,25 @@
 //    NSLog(@"Drawing");
 }
 
--(void)midiData:(NSDictionary*)data {
+-(void)midiData:(NSArray*)data {
     NSDictionary *newData = @{@"device": [NSNumber numberWithInt: self.deviceOut], @"data" : data};
+    NSLog(@"Wht");
 //    [[NSNotificationCenter defaultCenter] postNotificationName:@"midiMessage" object:self userInfo: data];
-     [[NSNotificationCenter defaultCenter] postNotificationName:@"midiMessageToDevice" object:self userInfo: newData];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"midiMessageToDevice" object:self userInfo: newData];
         //        [utilities midiNotification: 0xB0 : self.midiValue :value];
 }
 
+-(void)moduleUpdateWithData: (NSDictionary*)data {
+    NSLog(@"Send Notification: %@", data);
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"moduleUpdate" object:self userInfo: @{@"rackID": self.rackID, @"data": data}];
+}
+
 -(void)mouseDown:(NSEvent *)theEvent {
-    NSLog(@"Slected");
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"deselectAll" object:self userInfo: nil];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"closeOpen" object:self userInfo: nil];
-    self.selected = YES;
-    [self setNeedsDisplay:YES];
+//    NSLog(@"Slected");
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"deselectAll" object:self userInfo: nil];
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"closeOpen" object:self userInfo: nil];
+//    self.selected = YES;
+//    [self setNeedsDisplay:YES];
 }
 
 @end

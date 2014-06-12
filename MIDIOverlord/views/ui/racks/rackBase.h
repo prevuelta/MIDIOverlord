@@ -15,7 +15,7 @@
 
 @property (nonatomic, assign) id delegate;
 
-@property NSDictionary* data;
+@property NSMutableDictionary* data;
 @property NSMutableArray* subViews;
 @property int headerHeight;
 
@@ -41,10 +41,13 @@
 @property uiText *label;
 @property NSString *labelText;
 
+// Modules
+@property NSMutableDictionary *moduleData;
+
 // Notifications
 //@property NSNotificationCenter* center;
 
--(id)initWithFrame:(NSRect)frame andData:(NSMutableDictionary*)data ;
+-(id)initWithFrame:(NSRect)frame andData:(NSMutableDictionary*)data;
 -(void)addRackTitle;
 
 // Util functions

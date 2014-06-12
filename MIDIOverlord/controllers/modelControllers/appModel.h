@@ -40,6 +40,7 @@
 -(void)addRack;
 -(void)addModule:(NSNumber*)rackID :(NSNumber*)type;
 
-//-(NSMutableArray*)getRackModules: (int)layoutIndex;
+// Update functions
+-(void)updateModule:(NSNotification*)notification;
 
 @end
