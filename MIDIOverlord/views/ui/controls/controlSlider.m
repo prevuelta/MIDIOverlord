@@ -40,27 +40,11 @@ int baseMarker;
     uiText *label = [[uiText alloc] initWithString: @"Resonance" andMaxLength: 4 andLabelLength: 2];
     
     [label setOrigin:NSMakePoint(2, 2)];
-
-    // Setup cc
-//    uiText *label = [[uiText alloc] initWithString: @"Resonance" andMaxLength: 4 andLabelLength: 4];
-//    [label setOrigin:NSMakePoint(2, 2)];
     
     [self addSubview:label];
     
-//    [_textVal bind:@"stringValue" toObject:self withKeyPath:@"self.value" options: nil];
-
-    
-//    _textVal = [[NSTextField alloc] initWithFrame:NSMakeRect(0, 0 , 48, 32)];
-//    
-//    [_textVal setBezeled:NO];
-//    [_textVal setDrawsBackground:NO];
-//    [_textVal setEditable:NO];
-//    [_textVal setSelectable:NO];
-//    
-//    [_textVal setIntValue: _value];
-//
     [self addSubview: _textVal];
-//
+    
     return self;
     
 }
@@ -78,7 +62,7 @@ int baseMarker;
     
     [self.markerColor set];
     
-    [markerPath appendBezierPathWithRect:NSMakeRect(0, 0, self.marker, self.size.x)];
+    [markerPath appendBezierPathWithRect:NSMakeRect(0, 0, self.marker, self.size.y)];
     [markerPath closePath];
     [markerPath fill];
     
@@ -95,6 +79,7 @@ int baseMarker;
 }
 
 -(void)setMarker:(int)marker {
+    NSLog(@"%@", [NSNumber numberWithInt: marker]);
     _marker = marker;
 }
 
@@ -105,10 +90,6 @@ int baseMarker;
 -(void)mouseDown:(NSEvent *)e {
     self.active = true;
     [self updateControlFromEvent:e];
-}
-
-- (void)timerFireMethod:(NSTimer *)timer {
-//      [self updateControlFromEvent:e];
 }
 
 - (void)mouseDragged:(NSEvent*)e {
@@ -125,7 +106,7 @@ int baseMarker;
 -(void)updateControlFromData:(NSNumber*)value {
     float percent = [value floatValue] / (float)_range;
     NSLog(@"Percent: %@", [NSNumber numberWithFloat:percent]);
-    [self setMarker: _size.x * percent];
+    [self setMarker: (int) _size.x * percent];
     [self setValue: value];
 }
 -(void)updateControlFromEvent:(NSEvent*)e {

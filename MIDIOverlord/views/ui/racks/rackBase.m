@@ -38,8 +38,6 @@
     
     self.data = data;
     
-    NSLog(@"Rack id: %@", self.rackID);
-    
     self.label = [[uiText alloc] initWithString: self.labelText];
     
     [self addSubview: self.label];
@@ -110,14 +108,13 @@
 
 -(void)midiData:(NSArray*)data {
     NSDictionary *newData = @{@"device": [NSNumber numberWithInt: self.deviceOut], @"data" : data};
-    NSLog(@"Wht");
 //    [[NSNotificationCenter defaultCenter] postNotificationName:@"midiMessage" object:self userInfo: data];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"midiMessageToDevice" object:self userInfo: newData];
         //        [utilities midiNotification: 0xB0 : self.midiValue :value];
 }
 
 -(void)moduleUpdateWithData: (NSDictionary*)data {
-    NSLog(@"Send Notification: %@", data);
+//    NSLog(@"Send Notification: %@", data);
     [[NSNotificationCenter defaultCenter] postNotificationName:@"moduleUpdate" object:self userInfo: @{@"rackID": self.rackID, @"data": data}];
 }
 

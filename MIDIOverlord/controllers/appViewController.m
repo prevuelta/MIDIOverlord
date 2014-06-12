@@ -23,7 +23,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addModule:) name:@"addModule" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadFile:) name:@"fileLoaded" object:nil];
     
-    NSLog(@"New data: %@", [_data rackData]);
+//    NSLog(@"New data: %@", [_data rackData]);
     
 //    [_mainView updateRackModules:[_data getRackID:0] : [_data getRackModules:0]];
 //    [_mainView updateRackModules:[_data getRackID:1] : [_data getRackModules:1]];
@@ -46,7 +46,7 @@
     
     [self updateRacks];
     
-    NSLog(@"Rack count: %@", [NSNumber numberWithInt: _data.rackCount]);
+//    NSLog(@"Rack count: %@", [NSNumber numberWithInt: _data.rackCount]);
     
     [_mainView resizeWin: _data.rackCount];
 }
@@ -61,7 +61,7 @@
 
 -(void)addModule:(NSNotification*)notification {
     
-    NSLog(@"%@", notification);
+//    NSLog(@"%@", notification);
     
     NSDictionary *userInfo = notification.userInfo;
     

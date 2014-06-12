@@ -69,7 +69,7 @@
 }
 
 -(void)setData:(NSMutableDictionary*)data {
-    NSLog(@"Data: %@", data);
+//    NSLog(@"Data: %@", data);
     [_slider updateControlFromData: data[@"value"]];
     _data = data;
 }

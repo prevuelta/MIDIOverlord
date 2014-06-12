@@ -47,7 +47,7 @@
 }
 
 -(void)setData:(NSMutableDictionary*)data {
-     NSLog(@"Data: %@", data);
+//     NSLog(@"Data: %@", data);
     _data = data;
 }
 

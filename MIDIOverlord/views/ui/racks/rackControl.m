@@ -44,15 +44,15 @@
 }
 
 -(void)createMidiDestinationsDeviceList:(NSNotification*)notification {
-    NSLog(@"Devices: %@", notification);
-    NSLog(@"%@", notification.userInfo);
+//    NSLog(@"Devices: %@", notification);
+//    NSLog(@"%@", notification.userInfo);
     //    NSDictionary data = @{notification.object[0]}
     NSMutableArray *keyValues = [NSMutableArray new];
     for(NSString* key in notification.userInfo) {
         [keyValues addObject: [notification.userInfo objectForKey: key][0]];
         [keyValues addObject: key];
     }
-    NSLog(@"New device array %@", keyValues);
+//    NSLog(@"New device array %@", keyValues);
     
     [_midiOutput addOptions: keyValues];
 }

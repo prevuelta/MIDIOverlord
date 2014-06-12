@@ -52,13 +52,13 @@
 
 -(void)updateRacks:(NSMutableDictionary*)rackData :(NSMutableArray*)layout {
     
-    NSLog(@"%@", layout);
+//    NSLog(@"%@", layout);
     
     for(int rI = 0; rI < [layout count]; rI++) {
         
         NSNumber *rackID = layout[rI];
         
-        NSLog(@"Layout: %@", layout[rI]);
+//        NSLog(@"Layout: %@", layout[rI]);
         
         NSMutableDictionary *data = [rackData objectForKey: rackID];
         
@@ -73,13 +73,13 @@
         
         for(int mI = 0; mI < [data[@"moduleLayout"] count]; mI++) {
             
-            NSLog(@"Updating modules");
+//            NSLog(@"Updating modules");
             
             NSNumber *moduleID = data[@"moduleLayout"][mI];
             
             NSMutableDictionary *moduleData = [data[@"modules"] objectForKey: moduleID];
             
-            NSLog(@"Module data:%@", moduleData);
+//            NSLog(@"Module data:%@", moduleData);
             
             moduleBase *module = [self getModuleOfType: moduleData[@"type"]];
             
@@ -93,7 +93,7 @@
             
             yLoc += module.height;
             
-            NSLog(@"Height: %@", [NSNumber numberWithInt: yLoc]);
+//            NSLog(@"Height: %@", [NSNumber numberWithInt: yLoc]);
             
         }
         
@@ -111,11 +111,11 @@
     switch([type integerValue]) {
         case 1: {
             module = [[modulePad alloc] initWithFrame];
-            NSLog(@"added pad");
+//            NSLog(@"added pad");
         } break;
         case 2: {
             module = [[moduleSlider alloc] initWithFrame];
-            NSLog(@"added slider");
+//            NSLog(@"added slider");
         } break;
     }
     
@@ -172,7 +172,7 @@
 }
 
 -(void)mouseDown:(NSEvent *)theEvent {
-    NSLog(@"Mainview clicked");
+//    NSLog(@"Mainview clicked");
     [[NSNotificationCenter defaultCenter] postNotificationName:@"closeOpen" object:self userInfo: nil];
 }
 
