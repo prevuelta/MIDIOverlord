@@ -29,8 +29,8 @@
     
     
     // Add rack
-    uiButton *addRack = [[uiButton alloc] initWithFrame: 30];
-    [addRack setOrigin: NSMakePoint(50, 0)];
+    uiButton *addRack = [[uiButton alloc] initWithFrame: 20];
+    [addRack setOrigin: NSMakePoint(50, 12)];
     [addRack setEvent: @"addRack"];
     [self addSubview: addRack];
     
