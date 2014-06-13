@@ -29,12 +29,12 @@
     
     // Add ui
     // Add Slider
-    uiButton *addPad = [[uiButton alloc] initWithFrame: 15];
-    [addPad setOrigin: NSMakePoint(20, self.headerHeight - 15)];
+    uiButton *addPad = [[uiButton alloc] initWithSize: 16];
+    [addPad setOrigin: NSMakePoint(20, self.headerHeight - 16)];
     [addPad setEvent: @"addModule" withData: @{@"type" : @1, @"rackID" : self.rackID }];
     
-    uiButton *addSlider = [[uiButton alloc] initWithFrame: 15];
-    [addSlider setOrigin: NSMakePoint(0, self.headerHeight - 15)];
+    uiButton *addSlider = [[uiButton alloc] initWithSize: 16];
+    [addSlider setOrigin: NSMakePoint(0, self.headerHeight - 16)];
     [addSlider setEvent: @"addModule" withData: @{@"type" : @2, @"rackID" : self.rackID }];
     
     [self addSubview: addPad];

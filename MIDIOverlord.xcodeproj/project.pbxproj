@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6E04ABCF1946FF4800B51D27 /* uiBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E04ABCE1946FF4800B51D27 /* uiBase.m */; };
+		6E29E52A194ABE9800F6BD4F /* global.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E29E529194ABE9800F6BD4F /* global.m */; };
 		6E7C564018ED04A80002F09B /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7C563F18ED04A80002F09B /* CoreMIDI.framework */; };
 		6E7C564218ED04C10002F09B /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7C564118ED04C10002F09B /* Cocoa.framework */; };
 		6E7C564518ED04E60002F09B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7C564318ED04C60002F09B /* Foundation.framework */; };
@@ -57,6 +58,8 @@
 /* Begin PBXFileReference section */
 		6E04ABCD1946FF4800B51D27 /* uiBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uiBase.h; sourceTree = "<group>"; };
 		6E04ABCE1946FF4800B51D27 /* uiBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uiBase.m; sourceTree = "<group>"; };
+		6E29E528194ABE9800F6BD4F /* global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = global.h; sourceTree = "<group>"; };
+		6E29E529194ABE9800F6BD4F /* global.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = global.m; sourceTree = "<group>"; };
 		6E7C563E18EB94EC0002F09B /* MIDIOverlord.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MIDIOverlord.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E7C563F18ED04A80002F09B /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
 		6E7C564118ED04C10002F09B /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -169,6 +172,8 @@
 				6EE445291936C86100C61171 /* AppDelegate.h */,
 				6EE4452A1936C86100C61171 /* AppDelegate.m */,
 				6EE4452B1936C86100C61171 /* constants.h */,
+				6E29E528194ABE9800F6BD4F /* global.h */,
+				6E29E529194ABE9800F6BD4F /* global.m */,
 				6EE4452C1936C86100C61171 /* controllers */,
 				6EE445391936C86100C61171 /* Credits.rtf */,
 				6EE4453B1936C86100C61171 /* InfoPlist.strings */,
@@ -254,10 +259,10 @@
 		6EE4454A1936C86100C61171 /* controls */ = {
 			isa = PBXGroup;
 			children = (
-				6ECD89F81947C3EE00CCBE97 /* controlText.h */,
-				6ECD89F91947C3EE00CCBE97 /* controlText.m */,
 				6EE4454B1936C86100C61171 /* controlBase.h */,
 				6EE4454C1936C86100C61171 /* controlBase.m */,
+				6ECD89F81947C3EE00CCBE97 /* controlText.h */,
+				6ECD89F91947C3EE00CCBE97 /* controlText.m */,
 				6EE4454D1936C86100C61171 /* controlList.h */,
 				6EE4454E1936C86100C61171 /* controlList.m */,
 				6EE4454F1936C86100C61171 /* controlOption.h */,
@@ -408,6 +413,7 @@
 				6EE4456C1936C86100C61171 /* appViewController.m in Sources */,
 				6EE445811936C86100C61171 /* deviceList.m in Sources */,
 				6EE445821936C86100C61171 /* moduleBase.m in Sources */,
+				6E29E52A194ABE9800F6BD4F /* global.m in Sources */,
 				6EE4457E1936C86100C61171 /* controlSlider.m in Sources */,
 				6EE4456F1936C86100C61171 /* midiController.m in Sources */,
 				6EE4456B1936C86100C61171 /* AppDelegate.m in Sources */,

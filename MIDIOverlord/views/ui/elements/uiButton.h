@@ -20,12 +20,10 @@
 @property NSString *event;
 @property NSDictionary* eventData;
 
-@property NSMutableArray *icon;
+@property NSPointArray *iconArray;
 
--(id)initWithFrame:(int)size;
+-(id)initWithSize:(int)size;
 
 -(void)setEvent:(NSString*)event withData:(NSDictionary*)data;
--(void)setOnEvent:(NSString*)event;
--(void)setOffEvent:(NSString*)event;
 
 @end

@@ -10,12 +10,17 @@
 
 @implementation controlText
 
-- (id)initWithFrame:(NSRect)frame
-{
+- (id)initWithString: (NSString*)stringValue {
+    NSRect frame = NSMakeRect(0, 0, 40, 24);
     self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code here.
-    }
+    if (!self) return nil;
+    
+    _stringValue = stringValue;
+    
+    _label = [[uiText alloc] initWithString: stringValue];
+    
+    [self addSubview: _label];
+    
     return self;
 }
 
@@ -38,11 +43,11 @@
 //}
 
 -(void)mouseDown:(NSEvent *)e {
-    if(self.editable) {
-        NSPoint location = [self convertPoint:[e locationInWindow] fromView:nil];
-//        baseY = location.y;
-        [self setActive: YES];
-    }
+//    if(self.editable) {
+//        NSPoint location = [self convertPoint:[e locationInWindow] fromView:nil];
+////        baseY = location.y;
+//        [self setActive: YES];
+//    }
 }
 
 - (void)mouseDragged:(NSEvent*)e {
@@ -58,9 +63,9 @@
 }
 
 -(void)mouseUp:(NSEvent *)e {
-    if(self.editable) {
-        self.active = false;
-    }
+//    if(self.editable) {
+//        self.active = false;
+//    }
 }
 
 

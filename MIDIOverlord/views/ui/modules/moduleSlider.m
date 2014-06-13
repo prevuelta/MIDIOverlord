@@ -26,11 +26,13 @@
     self.midiV2 = @0;
     self.midiV3 = @0;
     
-    // controlText *midiValueText = [[controlText alloc] initWithFrame: self.midiV2 andLabel: @"CC" andMaxVal:127];
+    controlText *midiV2Control = [[controlText alloc] initWithString: @"CC 000"];
     
-    // [midiValueText setOrigin:NSMakePoint(0, 12)];
-        
-    // midiValueText setIsInEdit:YES];
+    [midiV2Control setOrigin:NSMakePoint(0, 0)];
+    
+    [midiV2Control setInEditView:YES];
+    
+    [self addSubview: midiV2Control];
     
     // Add UI buttons
     

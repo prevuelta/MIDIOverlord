@@ -13,10 +13,11 @@
 #import "controlTrigger.h"
 #import "controlSlider.h"
 #import "controlList.h"
-
+#import "controlText.h"
 #import "deviceList.h"
 #import "uiText.h"
 #import "utilities.h"
+#import "uiButton.h"
 
 @class moduleBase;
 

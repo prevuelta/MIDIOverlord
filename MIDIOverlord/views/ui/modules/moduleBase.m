@@ -30,6 +30,15 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleEditMode:) name:@"editMode" object:nil];
 
+    uiButton *removeBtn = [[uiButton alloc] initWithSize: 24];
+    [removeBtn setOrigin: NSMakePoint(RACK_WIDTH - 24, 0)];
+    
+    NSarray removeBtnIcon
+    
+    [removeBtn setDrawArray: removeBtnIcon ];
+    
+    [self addSubview: removeBtn];
+    
     return self;
 }
 

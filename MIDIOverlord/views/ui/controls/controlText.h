@@ -7,7 +7,13 @@
 //
 
 #import "uiText.h"
+#import "controlBase.h"
 
-@interface controlText : uiText
+@interface controlText : controlBase;
+
+@property uiText *label;
+@property NSString* stringValue;
+
+-(id)initWithString: (NSString*)stringValue;
 
 @end
