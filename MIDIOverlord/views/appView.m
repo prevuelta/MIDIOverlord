@@ -33,6 +33,8 @@
      // Add grid
     [_mainWin setContentView: self];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleEditMode:) name:@"editMode" object:nil];
+    
     return self;
 }
 
@@ -84,6 +86,8 @@
             moduleBase *module = [self getModuleOfType: moduleData[@"type"]];
             
             [module setData: moduleData];
+            
+            [module setEditMode: _editMode];
             
             [module setOrigin: NSMakePoint(4, yLoc)];
             
@@ -174,6 +178,10 @@
 -(void)mouseDown:(NSEvent *)theEvent {
 //    NSLog(@"Mainview clicked");
     [[NSNotificationCenter defaultCenter] postNotificationName:@"closeOpen" object:self userInfo: nil];
+}
+
+-(void)handleEditMode:(NSNotification*)notification {
+   self.editMode = [notification.userInfo[@"isToggled"] boolValue];
 }
 
 @end

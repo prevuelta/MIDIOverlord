@@ -159,8 +159,6 @@
 				6ECD89F21946BE7400CCBE97 /* uiButton.m */,
 				6ECD89F31946BE7400CCBE97 /* uiText.h */,
 				6ECD89F41946BE7400CCBE97 /* uiText.m */,
-				6ECD89F81947C3EE00CCBE97 /* controlText.h */,
-				6ECD89F91947C3EE00CCBE97 /* controlText.m */,
 			);
 			path = elements;
 			sourceTree = "<group>";
@@ -256,6 +254,8 @@
 		6EE4454A1936C86100C61171 /* controls */ = {
 			isa = PBXGroup;
 			children = (
+				6ECD89F81947C3EE00CCBE97 /* controlText.h */,
+				6ECD89F91947C3EE00CCBE97 /* controlText.m */,
 				6EE4454B1936C86100C61171 /* controlBase.h */,
 				6EE4454C1936C86100C61171 /* controlBase.m */,
 				6EE4454D1936C86100C61171 /* controlList.h */,

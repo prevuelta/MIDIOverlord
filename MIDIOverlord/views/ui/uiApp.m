@@ -29,10 +29,19 @@
     
     
     // Add rack
-    uiButton *addRack = [[uiButton alloc] initWithFrame: 30];
-    [addRack setOrigin: NSMakePoint(50, 0)];
+    uiButton *addRack = [[uiButton alloc] initWithFrame: 24];
+//    [addRack setIcon: @[]];
+    [addRack setOrigin: NSMakePoint(0, 12)];
     [addRack setEvent: @"addRack"];
     [self addSubview: addRack];
+    
+    uiButton *editMode = [[uiButton alloc] initWithFrame: 24];
+    //    [addRack setIcon: @[]];
+    [editMode setIsToggle: YES];
+    [editMode setEvent: @"editMode"];
+    [editMode setOrigin: NSMakePoint(28, 12)];
+    
+    [self addSubview: editMode];
     
     return self;
 }

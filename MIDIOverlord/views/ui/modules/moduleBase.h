@@ -27,10 +27,13 @@
 
 @interface moduleBase : uiBase
 
+@property (nonatomic, assign) id delegate;
+
 //Data
 @property NSMutableDictionary* data;
 
-@property (nonatomic, assign) id delegate;
+// Edit mode
+@property BOOL editMode;
 
 // Canvas properties
 @property int width;
@@ -50,6 +53,8 @@
 @property uiText *label;
 @property NSString *labelText;
 
+
+// Methods
 -(id)initWithFrame:(NSRect)frame;
 -(void)mouseDown:(NSEvent *)theEvent;
 -(void)drawRect:(NSRect)rect;
@@ -57,5 +62,7 @@
 -(void)drawModule:(NSRect)rect;
 -(void)addCCField;
 -(void)updateModel;
+
+-(void)handleEditMode:(NSNotification*)notification;
 
 @end

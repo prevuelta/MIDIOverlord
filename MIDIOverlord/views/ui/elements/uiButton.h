@@ -14,10 +14,18 @@
 @property int width;
 @property int height;
 
+@property BOOL isToggle;
+@property BOOL toggled;
+
 @property NSString *event;
 @property NSDictionary* eventData;
 
+@property NSMutableArray *icon;
+
 -(id)initWithFrame:(int)size;
+
 -(void)setEvent:(NSString*)event withData:(NSDictionary*)data;
+-(void)setOnEvent:(NSString*)event;
+-(void)setOffEvent:(NSString*)event;
 
 @end

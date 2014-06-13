@@ -28,6 +28,8 @@
 
 @property NSWindow *mainWin;
 
+@property BOOL editMode;
+
 //@property NSMutableArray* layout;
 //@property NSMutableDictionary* modules;
 //@property NSDictionary* moduleData;

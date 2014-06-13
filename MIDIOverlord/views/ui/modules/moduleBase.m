@@ -13,6 +13,7 @@
 @synthesize labelText = _labelText;
 @synthesize tag = _tag;
 @synthesize data = _data;
+@synthesize editMode = _editMode;
 
 @synthesize midiV3 = _midiV3;
 
@@ -23,9 +24,12 @@
     self.width = RACK_WIDTH - 8;
     
     self.selected = NO;
+    self.editMode = NO;
     
     self.labelText = @"MODULE TITLE";
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleEditMode:) name:@"editMode" object:nil];
+
     return self;
 }
 
@@ -137,5 +141,23 @@
     NSLog(@"Updating modle..");
     [self.delegate moduleUpdateWithData: self.data];
 }
+
+-(void)handleEditMode:(NSNotification*)notification {
+    NSNumber *editMode = notification.userInfo[@"isToggled"];
+    [self setEditMode: [editMode boolValue]];
+
+}
+
+-(BOOL)editMode{
+    return _editMode;
+}
+
+-(void)setEditMode:(BOOL)editMode {
+    for(id control in self.subviews) {
+        BOOL hide = [control inEditView] == editMode ? NO : YES;
+        [control setHidden: hide];
+    }
+}
+
 
 @end

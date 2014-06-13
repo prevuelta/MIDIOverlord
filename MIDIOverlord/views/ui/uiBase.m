@@ -30,6 +30,8 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deselect:) name:@"deselectAll" object:nil];
     
+    self.inEditView = NO;
+    
     return self;
 }
 

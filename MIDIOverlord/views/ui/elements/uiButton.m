@@ -20,15 +20,15 @@
     if (!self) return nil;
     
     self.event = @"";
-
     self.eventData = @{};
+    self.isToggle = NO;
     
     return self;
 }
 
 - (void)drawRect:(NSRect)dirtyRect{
     
-    if(!self.active) {
+    if(!self.active && !self.toggled) {
         [self.defaultColor setFill];
     } else {
         [self.activeColor setFill];
@@ -48,7 +48,10 @@
     self.active = YES;
     [self setNeedsDisplay:YES];
     
-    NSLog(@"%@", self.event);
+    if(_isToggle) {
+        self.toggled = !self.toggled;
+        self.eventData = @{@"isToggled" : [NSNumber numberWithBool:self.toggled]};
+    }
     
     [[NSNotificationCenter defaultCenter] postNotificationName: self.event object:self userInfo: self.eventData];
 }

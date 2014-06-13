@@ -10,6 +10,18 @@
 
 @implementation controlBase
 
+
+- (id)initWithFrame:(NSRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (!self) return nil;
+
+    self.inEditView = NO;
+    
+    return self;
+}
+
+
 -(void)remove {
     NSLog(@"remove function");
 }

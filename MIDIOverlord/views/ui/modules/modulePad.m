@@ -29,6 +29,7 @@
     _midiV1 = @122;
     
     int size = 32;
+    
     NSPoint padSize = NSMakePoint(size, size);
     
     controlTrigger *pad1 = [[controlTrigger alloc] initWithFrame: padSize:

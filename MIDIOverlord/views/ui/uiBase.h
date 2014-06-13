@@ -14,6 +14,7 @@
 @property BOOL active;
 @property BOOL selected;
 @property BOOL disabled;
+@property BOOL inEditView;
 
 @property NSColor *blackColor;
 @property NSColor *defaultColor;
