@@ -15,6 +15,7 @@
 @property int value;
 @property controlSlider *slider;
 
--(void)setData:(NSDictionary*)data;
+//-(void)setData:(NSMutableDictionary*)data;
+-(id)initWithData:(NSMutableDictionary*)data;
 
 @end

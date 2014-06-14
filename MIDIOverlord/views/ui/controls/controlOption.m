@@ -12,22 +12,19 @@
 
 @synthesize keyValue = _keyValue;
 
-- (id)initWithFrame:(NSRect)frame
-{
+- (id)initWithFrame:(NSRect)frame andKeyValue: (NSArray*)keyValue {
     self = [super initWithFrame:frame];
     if (!self) return nil;
         // Initialization code here.
 
-//    _label = [[uiLabel alloc] initWithFrame:frame];
-//    [_label setBackgroundColor:self.defaultColor];
-//    [_label setDrawsBackground:YES];
-//    
-//    [self addSubview:_label];
+    _label = [[uiText alloc] initWithString: keyValue[0]];
+    [self addSubview:_label];
     
     NSTrackingAreaOptions mouseEnterExitOptions = NSTrackingActiveInActiveApp;
     mouseEnterExitOptions |= NSTrackingMouseEnteredAndExited;
     
     NSTrackingArea *trackRect = [[NSTrackingArea alloc] initWithRect:frame options:mouseEnterExitOptions owner:self userInfo: nil];
+    
     [self addTrackingArea: trackRect ];
     
     
@@ -46,14 +43,14 @@
 }
 
 -(void)mouseEntered:(NSEvent *)theEvent{
-//  [_label setBackgroundColor:self.activeColor];
-//  [_label setNeedsDisplay:YES];
+  [_label setDefaultColor:self.activeColor];
+  [_label setNeedsDisplay:YES];
 }
 
 -(void)mouseExited:(NSEvent *)theEvent {
 //    [_label setBackgroundColor: self.defaultColor];
-//    [_label setTextColor:self.markerColor];
-//    [_label setNeedsDisplay:YES];
+    [_label setActiveColor:self.markerColor];
+    [_label setNeedsDisplay:YES];
 }
 
 -(void)mouseDown:(NSEvent *)theEvent {
@@ -67,16 +64,6 @@
     [self.delegate optionSelectedWithKeyValue:self.keyValue];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"closeOpen" object:self userInfo: nil];
    
-}
-
--(NSArray*)keyValue {
-    return _keyValue;
-}
-
--(void)setKeyValue:(NSArray*)keyValue{
-//    NSLog("%@", str);
-    _keyValue = keyValue;
-//    [_label setStringValue: keyValue[0]];
 }
 
 @end

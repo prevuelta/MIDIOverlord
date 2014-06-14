@@ -12,7 +12,7 @@
 
 @synthesize midiV1= _midiV1;
 
-- (id)initWithFrame{
+-(id)initWithData: (NSMutableDictionary*)data{
     
     int height = 38;
     
@@ -23,6 +23,8 @@
     if(!self) return nil;
     
     self.height = height;
+    
+    self.data = data;
     
     [self addCCField];
     
@@ -48,6 +50,14 @@
     [self addSubview: pad2];
     [self addSubview: pad3];
     [self addSubview: pad4];
+    
+    uiButtonClose *removeBtn = [[uiButtonClose alloc] initWithSize: 16];
+    [removeBtn setEvent:@"removeModule" withData: @{@"rackID": self.data[@"rackID"], @"moduleID" : self.data[@"moduleID"]}];
+    [removeBtn setOrigin: NSMakePoint(RACK_WIDTH - 20, 0)];
+    [removeBtn setInEditView:YES];
+    
+    [self addSubview: removeBtn];
+
     
     return self;
 }

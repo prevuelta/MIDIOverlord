@@ -17,9 +17,11 @@
     if(!self) return nil;
     
     NSLog(@"Init main view");
+
     
     _mainWin = mainWin;
 
+    _racks = [NSMutableArray new];
 
     // Setup main interface
     uiApp* globalUI = [[uiApp alloc ] initWithFrame: NSMakeRect(0, 0, RACK_WIDTH * 4, TOOLBAR_HEIGHT )];
@@ -55,6 +57,11 @@
 -(void)updateRacks:(NSMutableDictionary*)rackData :(NSMutableArray*)layout {
     
 //    NSLog(@"%@", layout);
+    for(rackBase *rack in _racks) {
+        [rack removeFromSuperview];
+    }
+    
+    _racks = [NSMutableArray new];
     
     for(int rI = 0; rI < [layout count]; rI++) {
         
@@ -67,7 +74,7 @@
         NSMutableArray *moduleLayout = [data objectForKey: @"moduleLayout"];
         
         // Create rack
-        rackControl *rack = [[rackControl alloc] initWithFrame: NSMakeRect(0, 0, RACK_WIDTH, WINDOW_HEIGHT)andData: data];
+        rackControl *rack = [[rackControl alloc] initWithFrame: NSMakeRect(0, 0, RACK_WIDTH, _mainWin.frame.size.height)andData: data];
         
         [rack setOrigin:NSMakePoint(rI * RACK_WIDTH, TOOLBAR_HEIGHT)];
         
@@ -83,9 +90,7 @@
             
 //            NSLog(@"Module data:%@", moduleData);
             
-            moduleBase *module = [self getModuleOfType: moduleData[@"type"]];
-            
-            [module setData: moduleData];
+            moduleBase *module = [self getModuleWithData: moduleData];
             
             [module setEditMode: _editMode];
             
@@ -102,23 +107,24 @@
         }
         
         [self addSubview:rack];
+        [self.racks addObject: rack];
         
     }
     
     [self resizeWin: [layout count]];
 }
                    
--(moduleBase*)getModuleOfType:(NSNumber*)type {
+-(moduleBase*)getModuleWithData:(NSMutableDictionary*)moduleData{
     
     moduleBase *module;
 
-    switch([type integerValue]) {
+    switch([moduleData[@"type"] intValue]) {
         case 1: {
-            module = [[modulePad alloc] initWithFrame];
+            module = [[modulePad alloc] initWithData: moduleData];
 //            NSLog(@"added pad");
         } break;
         case 2: {
-            module = [[moduleSlider alloc] initWithFrame];
+            module = [[moduleSlider alloc] initWithData: moduleData];
 //            NSLog(@"added slider");
         } break;
     }

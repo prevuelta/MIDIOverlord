@@ -10,7 +10,7 @@
 #import "appView.h"
 #import "appModel.h"
 
-@interface appViewController : NSViewController <appViewDelegate>
+@interface appViewController : NSViewController
 
 @property (strong, atomic) appView *mainView;
 @property (strong, atomic) appModel *data;
@@ -20,5 +20,6 @@
 
 -(void)addRack:(NSNotification*)notification;
 -(void)addModule:(NSNotification*)notification;
+-(void)removeModule:(NSNotification*)notification;
 
 @end

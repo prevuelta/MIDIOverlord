@@ -14,6 +14,12 @@
 @property uiText *label;
 @property NSString* stringValue;
 
+@property int min;
+@property int max;
+@property int value;
+
+@property BOOL edit;
+
 -(id)initWithString: (NSString*)stringValue;
 
 @end

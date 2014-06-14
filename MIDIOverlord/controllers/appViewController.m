@@ -20,8 +20,14 @@
     
     // Add observers
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addRack:) name:@"addRack" object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleEditMode:) name:@"removeRack" object:nil];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addModule:) name:@"addModule" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeModule:) name:@"removeModule" object:nil];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadFile:) name:@"fileLoaded" object:nil];
+    
+
     
 //    NSLog(@"New data: %@", [_data rackData]);
     
@@ -61,14 +67,19 @@
 
 -(void)addModule:(NSNotification*)notification {
     
-//    NSLog(@"%@", notification);
-    
     NSDictionary *userInfo = notification.userInfo;
     
     [_data addModule: userInfo[@"rackID"] : userInfo[@"type"]];
     
     [self updateRacks];
     
+}
+
+-(void)removeModule:(NSNotification*)notification {
+    
+    NSDictionary *userInfo = notification.userInfo;
+    [_data removeModule: userInfo];
+    [self updateRacks];
 }
 
 -(void)updateRacks {

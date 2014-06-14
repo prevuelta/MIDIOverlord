@@ -18,7 +18,7 @@
 //    [_data loadDefaultState];
     
 
-    [_mainWin setHasShadow: NO];
+//    [_mainWin setHasShadow: NO];
     
 //    [_mainWin setStyleMask: NSBorderlessWindowMask];
 

@@ -29,15 +29,6 @@
     self.labelText = @"MODULE TITLE";
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleEditMode:) name:@"editMode" object:nil];
-
-    uiButton *removeBtn = [[uiButton alloc] initWithSize: 24];
-    [removeBtn setOrigin: NSMakePoint(RACK_WIDTH - 24, 0)];
-    
-    NSarray removeBtnIcon
-    
-    [removeBtn setDrawArray: removeBtnIcon ];
-    
-    [self addSubview: removeBtn];
     
     return self;
 }
@@ -60,7 +51,6 @@
 }
 
 -(void)setData:(NSMutableDictionary*)data {
-//     NSLog(@"Data: %@", data);
     _data = data;
 }
 
@@ -133,8 +123,6 @@
 }
 
 -(void)setLabelText:(NSString*)labelText {
-//    [self.label setStringValue: labelText];
-//    [self.label setNeedsDisplay:YES];
     _labelText = labelText;
 }
 
@@ -147,7 +135,6 @@
 }
 
 -(void)updateModel {
-    NSLog(@"Updating modle..");
     [self.delegate moduleUpdateWithData: self.data];
 }
 
@@ -166,6 +153,10 @@
         BOOL hide = [control inEditView] == editMode ? NO : YES;
         [control setHidden: hide];
     }
+}
+
+-(void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 

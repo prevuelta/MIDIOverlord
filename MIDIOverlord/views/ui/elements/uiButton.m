@@ -11,8 +11,6 @@
 
 @implementation uiButton
 
-@synthesize iconArray = _iconArray;
-
 -(id)initWithSize:(int)size {
     
     _width = size;
@@ -25,10 +23,6 @@
     self.eventData = @{};
     self.isToggle = NO;
     
-    NSPoint newIconArray[];
-    
-    self.iconArray = newIconArray;
-    
     return self;
 }
 
@@ -39,23 +33,14 @@
     } else {
         [self.activeColor setFill];
     }
+  
+    NSBezierPath *btnPath = [NSBezierPath new];
+    [btnPath appendBezierPathWithRoundedRect:dirtyRect xRadius: 2 yRadius:2];
+  
+    [btnPath fill];
     
-    if(_iconArray) {
-        NSBezierPath *iconPath = [NSBezierPath new];
-        [iconPath appendBezierPathWithPoints:_iconArray count:(int)[_iconArray count]];
-    }
-    
-    NSRectFill(dirtyRect);
-    
-	[super drawRect:NSMakeRect(0, 0, _width, _height)];
-}
-
--(NSPointArray*)iconArray {
-    return _iconArray;
-}
-
--(void)setIconArray:(NSPointArray*)iconArray {
-    _iconArray = iconArray;
+//    NSRectFill(dirtyRect);
+//	[super drawRect:NSMakeRect(0, 0, _width, _height)];
 }
 
 -(void)setEvent:(NSString*)event withData:(NSDictionary*)data {

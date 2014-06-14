@@ -10,24 +10,47 @@
 
 @implementation controlText
 
+@synthesize edit = _edit;
+
 - (id)initWithString: (NSString*)stringValue {
-    NSRect frame = NSMakeRect(0, 0, 40, 24);
-    self = [super initWithFrame:frame];
-    if (!self) return nil;
     
     _stringValue = stringValue;
-    
     _label = [[uiText alloc] initWithString: stringValue];
+    
+    NSRect frame = NSMakeRect(0, 0, _label.frame.size.width + 24, 12);
+    
+    self = [super initWithFrame: frame];
+    
+    if (!self) return nil;
+
     
     [self addSubview: _label];
     
     return self;
 }
 
-- (void)drawRect:(NSRect)dirtyRect
-{
+-(BOOL)edit {
+    return _edit;
+}
+
+-(void)setEdit:(BOOL)edit {
+    NSLog(@"setting edit");
+    _edit = edit;
+    [self setNeedsDisplay:YES];
+}
+
+- (void)drawRect:(NSRect)dirtyRect {
 	[super drawRect:dirtyRect];
 	
+    if(self.edit) {
+        [self.activeColor setStroke];
+    
+//        NSRectStroke(dirtyRect);
+        
+//        NSRectStroke(1);
+    
+        [super drawRect:NSMakeRect(0, 0, 20, 20)];
+    }
     // Drawing code here.
 }
 
@@ -43,7 +66,8 @@
 //}
 
 -(void)mouseDown:(NSEvent *)e {
-//    if(self.editable) {
+    [self setEdit:YES];
+    //    if(self.editable) {
 //        NSPoint location = [self convertPoint:[e locationInWindow] fromView:nil];
 ////        baseY = location.y;
 //        [self setActive: YES];

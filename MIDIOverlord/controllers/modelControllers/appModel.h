@@ -39,6 +39,7 @@
 // Public function
 -(void)addRack;
 -(void)addModule:(NSNumber*)rackID :(NSNumber*)type;
+-(void)removeModule:(NSDictionary*)ref;
 
 // Update functions
 -(void)updateModule:(NSNotification*)notification;

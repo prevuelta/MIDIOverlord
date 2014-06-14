@@ -9,7 +9,7 @@
 #import "uiBase.h"
 #import "moduleBase.h"
 #import "deviceList.h"
-#import "uiText.h"
+#import "uiEditText.h"
 
 @interface rackBase : uiBase <moduleBaseDelegate>
 
@@ -38,7 +38,7 @@
 @property NSInteger tag;
 
 // UI
-@property uiText *label;
+@property uiEditText *label;
 @property NSString *labelText;
 
 // Modules

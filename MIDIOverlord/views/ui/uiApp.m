@@ -14,7 +14,13 @@
     self = [super initWithFrame:frame];
     if(!self) return nil;
     
-    uiText *appTitle = [[uiText alloc] initWithString: @"MIDI OVERLORD PROTOTYPE V.001"];
+//    uiText *appTitle = [[uiText alloc] initWithString: @"ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890`~!@#$%^&*()-=_+[]\{}|;':\",./<>?"];
+    
+    uiText *appTitle = [[uiText alloc] initWithString: @"MIDI OVERLORD PROTOTYPE V.002" andSize: @[@3, @3]];
+    [appTitle setDefaultColor:[NSColor whiteColor]];
+    [appTitle setMarkerColor:[NSColor blackColor]];
+    [appTitle setGridCellSizeY:3];
+    [appTitle setOrigin:NSMakePoint(4, 4)];
     
 //    [appTitle setGridCellSizeY:3];
 //    [appTitle setupGridSystem];
@@ -30,16 +36,14 @@
     
     // Add rack
     uiButton *addRack = [[uiButton alloc] initWithSize: 24];
-//    [addRack setIcon: @[]];
-    [addRack setOrigin: NSMakePoint(0, 12)];
+    [addRack setOrigin: NSMakePoint(4, 20)];
     [addRack setEvent: @"addRack"];
     [self addSubview: addRack];
     
     uiButton *editMode = [[uiButton alloc] initWithSize: 24];
-    //    [addRack setIcon: @[]];
     [editMode setIsToggle: YES];
     [editMode setEvent: @"editMode"];
-    [editMode setOrigin: NSMakePoint(28, 12)];
+    [editMode setOrigin: NSMakePoint(32, 20)];
     
     [self addSubview: editMode];
     

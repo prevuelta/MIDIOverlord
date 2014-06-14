@@ -10,6 +10,6 @@
 
 @interface modulePad : moduleBase
 
--(id)initWithFrame;
+-(id)initWithData:(NSMutableDictionary*)data;
 
 @end

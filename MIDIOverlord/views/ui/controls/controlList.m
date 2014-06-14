@@ -15,7 +15,7 @@
 -(id)initWithFrame: (NSString*)labelText {
     
     self.width = 90;
-    self.height = 15;
+    self.height = 12;
     
     NSRect frame = NSMakeRect(0, 0, self.width, self.height);
     
@@ -31,9 +31,8 @@
     
     [self addOptions];
     
-//    _selectedLabel = [uiText initWithString: _labelText];
-//    [_selectedLabel setDrawsBackground: NO];
-//    [self addSubview:_selectedLabel];
+    _selectedLabel = [[uiText alloc] initWithString: _labelText];
+    [self addSubview:_selectedLabel];
 
     _optionCount = [_optionData count] / 2;
     
@@ -42,15 +41,6 @@
     _selectedValue = 0;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deselect:) name:@"closeOpen" object:nil];
-    
-//    float bgRGBA[] = UI_COLOR_PROT_2;
-//    float activeBgRGBA[] = UI_COLOR_PROT_3;
-//    float fgRGBA[] = UI_COLOR_PROT_4;
-//    
-//    _bgColor = [utilities getNSColorFromRGB:bgRGBA];
-//    _activeBgColor = [utilities getNSColorFromRGB:activeBgRGBA];
-//    _fgColor = [utilities getNSColorFromRGB:fgRGBA];
-//
 
     [self updateValues];
     
@@ -167,9 +157,8 @@ NSComparisonResult compareViews(id firstView, id secondView, void *context) {
             if(i % 2 == 0) {
                 NSLog(@"OPtion added");
                 NSArray *optionData = @[ _optionData[i], _optionData[i+1]];
-                controlOption *option = [[controlOption alloc] initWithFrame: NSMakeRect(0, 0, self.width, self.height)];
+                controlOption *option = [[controlOption alloc] initWithFrame: NSMakeRect(0, 0, self.width, self.height) andKeyValue: optionData];
                 [option setOrigin:NSMakePoint(0, currentOptionY)];
-                [option setKeyValue:optionData];
                 option.delegate = self;
                 [self addSubview:option];
                 currentOptionY += self.height;

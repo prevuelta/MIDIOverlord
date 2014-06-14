@@ -18,6 +18,7 @@
 #import "uiText.h"
 #import "utilities.h"
 #import "uiButton.h"
+#import "uiButtonClose.h"
 
 @class moduleBase;
 
@@ -63,7 +64,6 @@
 -(void)drawModule:(NSRect)rect;
 -(void)addCCField;
 -(void)updateModel;
-
 -(void)handleEditMode:(NSNotification*)notification;
 
 @end

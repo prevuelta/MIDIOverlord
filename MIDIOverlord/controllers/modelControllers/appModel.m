@@ -98,42 +98,42 @@
     
 }
 
+-(void)removeModule:(NSDictionary*)ref {
+    [_rackData[ref[@"rackID"]][@"modules"] removeObjectForKey:ref[@"moduleID"]];
+}
 
 -(void)addModule:(NSNumber*)rackID :(NSNumber*)type; {
     
     NSLog(@"RID: %@ Type: %@", rackID, type);
     
     NSMutableDictionary* rack = [_rackData objectForKey: rackID];
-    
-    NSMutableDictionary* module;
 
     rack[@"moduleID"] = @([rack[@"moduleID"] intValue] + 1);
 
+    NSMutableDictionary* module = [@{
+        @"moduleID" : rack[@"moduleID"],
+        @"rackID"   : rackID,
+        @"label" : @"Untitled",
+        @"type" : type,
+        @"value" : @0
+        } mutableCopy];
+    
     switch([type intValue]) {
         case 1 :
-           module = [@{
-             @"moduleID" : rack[@"moduleID"],
-             @"label" : @"Untitled",
-             @"type" : type,
-             @"value" : @0
-         } mutableCopy];
+            break;
         case 2 :
-            module = [@{
-               @"moduleID" : rack[@"moduleID"],
-               @"label" : @"Untitled",
-               @"type" : type,
-               @"value" : @0,
-               @"min" : @0,
-               @"max" : @127
-            } mutableCopy];
+            module[@"min"] = @0;
+            module[@"max"] = @127;
         break;
     }
     
-    NSLog(@"Modules: %@", rack[@"modules"]);
+   
     
     [rack[@"modules"] setObject: module forKey: rack[@"moduleID"]];
 
     [rack[@"moduleLayout"] addObject: rack[@"moduleID"]];
+    
+     NSLog(@"Modules: %@", rack[@"modules"]);
 
     [_rackData setObject: rack forKey: rackID];
     

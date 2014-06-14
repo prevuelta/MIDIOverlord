@@ -10,9 +10,6 @@
 
 @interface global : NSObject
 
-@property NSDictionary *glyphs;
-
-
 -(id)init;
 
 @end

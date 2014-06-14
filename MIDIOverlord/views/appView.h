@@ -13,30 +13,15 @@
 #import "modulePad.h"
 #import "uiApp.h"
 
-@class appView;
-
-@protocol appViewDelegate
-    -(void)addRack:(int)pageIndex;
-    -(void)updateRack;
-    -(void)removeRack:(int)ID;
-    -(void)addModule;
-    -(void)updateModule;
-    -(void)removeModule:(int)ID;
-@end
-
 @interface appView: NSView
 
 @property NSWindow *mainWin;
 
 @property BOOL editMode;
 
-//@property NSMutableArray* layout;
-//@property NSMutableDictionary* modules;
-//@property NSDictionary* moduleData;
-//@property NSMutableArray* rackData;
+@property NSMutableArray* racks;
 
 -(id)initWithWin:(NSWindow*)mainWin;
-//andRackData:(NSMutableArray*)rackData andModuleData:(NSDictionary*)moduleData andLayout:(NSMutableArray*)layout;
 
 -(void)resizeWinEvent:(NSNotification*)notification;
 -(void)resizeWin:(int)rackCount;
@@ -46,6 +31,7 @@
 -(void)drawGrid;
 
 -(void)updateRacks:(NSMutableDictionary*)rackData :(NSMutableArray*)layout;
+-(moduleBase*)getModuleWithData:(NSMutableDictionary*)moduleData;
 
 
 @end

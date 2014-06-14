@@ -60,7 +60,7 @@ int baseMarker;
     [bgPath closePath];
     [bgPath fill];
     
-    [self.markerColor set];
+    [self.activeColor set];
     
     [markerPath appendBezierPathWithRect:NSMakeRect(0, 0, self.marker, self.size.y)];
     [markerPath closePath];

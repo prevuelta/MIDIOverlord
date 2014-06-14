@@ -22,7 +22,7 @@
     
     self.height = WINDOW_HEIGHT;
     
-    self.headerHeight = 100;
+    self.headerHeight = 64;
     
     self.subViews = [NSMutableArray new];
     
@@ -38,9 +38,11 @@
     
     self.data = data;
     
-    self.label = [[uiText alloc] initWithString: self.labelText];
-    
+    self.label = [[uiEditText alloc] initWithString: self.labelText];
+    [self.label setIsEditable: YES];
     [self addSubview: self.label];
+    
+//    [self.data bind:@"stringValue" toObject: self withKeyPath:@:self.labelText options:nil];
 //
 //    _midiChannelText = [uiText initWithString: @"CH000" andMaxLength: 5 andLabelLength: 2];
     
@@ -50,12 +52,9 @@
     
 //    [_midiChannelText bind:@"value" toObject:self withKeyPath:@"self.midiChannel" options:nil];
     
-    [self addSubview: _midiChannelText];
+//    [self addSubview: _midiChannelText];
     
     [self addRackTitle];
-    
-    // Observers
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createMidiDestinationsDeviceList:) name:@"updateMidiDestinations" object:nil];
 
     return self;
 }

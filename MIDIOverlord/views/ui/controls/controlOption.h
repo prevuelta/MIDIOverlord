@@ -20,7 +20,9 @@
 @property (nonatomic, assign) id delegate;
 
 @property NSArray* keyValue;
+@property uiText *label;
 
+-(id)initWithFrame:(NSRect)frame andKeyValue: (NSArray*)keyValue;
 -(void)setKeyValue:(NSArray*)arr;
 
 @end

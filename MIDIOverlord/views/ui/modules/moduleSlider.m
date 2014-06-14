@@ -13,7 +13,7 @@
 @synthesize midiV3 = _midiV3;
 @synthesize data = _data;
 
--(id)initWithFrame{
+-(id)initWithData:(NSMutableDictionary*)data{
     
     self.value = 0;
     self.height = 18;
@@ -26,15 +26,15 @@
     self.midiV2 = @0;
     self.midiV3 = @0;
     
-    controlText *midiV2Control = [[controlText alloc] initWithString: @"CC 000"];
+    NSLog(@"Init with data");
+    
+    controlText *midiV2Control = [[controlText alloc] initWithString: @"CC000"];
     
     [midiV2Control setOrigin:NSMakePoint(0, 0)];
     
     [midiV2Control setInEditView:YES];
     
     [self addSubview: midiV2Control];
-    
-    // Add UI buttons
     
     // Add UI buttons
     
@@ -47,6 +47,15 @@
     [self addSubview: _slider];
     
     [self addCCField];
+
+    [self setData: data];
+    
+    uiButtonClose *removeBtn = [[uiButtonClose alloc] initWithSize: 16];
+    [removeBtn setEvent:@"removeModule" withData: @{@"rackID": self.data[@"rackID"], @"moduleID" : self.data[@"moduleID"]}];
+    [removeBtn setOrigin: NSMakePoint(RACK_WIDTH - 20, 0)];
+    [removeBtn setInEditView:YES];
+    
+    [self addSubview: removeBtn];
     
     return self;
 }
@@ -75,11 +84,5 @@
     [_slider updateControlFromData: data[@"value"]];
     _data = data;
 }
-
-//-(void)setData:(NSMutableDictionary*)data {
-////    [_slider setValue: data[@"value"]];
-//    NSLog(@"Data: %@", data);
-//    self.data = data;
-//}
 
 @end
