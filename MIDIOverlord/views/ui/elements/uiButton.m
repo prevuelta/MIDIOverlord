@@ -29,9 +29,9 @@
 - (void)drawRect:(NSRect)dirtyRect{
     
     if(!self.active && !self.toggled) {
-        [self.defaultColor setFill];
+        [[global sharedGlobalData].defaultColor setFill];
     } else {
-        [self.activeColor setFill];
+        [[global sharedGlobalData].activeColor setFill];
     }
   
     NSBezierPath *btnPath = [NSBezierPath new];

@@ -40,7 +40,7 @@
     
     _slider = [[controlSlider alloc] initWithFrame:NSMakePoint(self.width, 16): NSMakePoint(0, 0): 0 :127 ];
     
-    [_slider setOrigin:NSMakePoint(0, 0)];
+    [_slider setOrigin:NSMakePoint(0, 2)];
 
     [self bind:@"midiV3" toObject:_slider withKeyPath:@"value" options:nil];
     

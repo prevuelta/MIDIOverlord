@@ -129,7 +129,7 @@ static NSPoint gridSystem[54];
 
 -(void)drawRect:(NSRect)dirtyRect{
 
-   [self.defaultColor setFill];
+   [[global sharedGlobalData].defaultColor setFill];
     
     NSRectFill(dirtyRect);
     
@@ -168,7 +168,7 @@ static NSPoint gridSystem[54];
         }
     }
     
-    [self.markerColor set];
+    [[global sharedGlobalData].markerColor set];
     [glyphPath fill];
     
 }

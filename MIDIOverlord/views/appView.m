@@ -134,48 +134,11 @@
 }
 
 -(void)drawRect:(NSRect)rect {
-//    [self drawGrid];
-//    [self drawmodules];
+    [[NSColor colorWithPatternImage: [global sharedGlobalData].patternBg] set];
+    NSRectFill(rect);
 }
 
-//-(void)drawGrid{
-//    
-//    NSRect frame = self.frame;
-//
-////    NSLog(@"Drawing grid...");
-//    
-//    // Draw border & bg
-//    NSPoint bgSize = self.getSize;
-//    
-//    // Draw Grid
-//    NSBezierPath* path = [NSBezierPath bezierPath];
-//    [path setLineWidth: 0.5];
-//    
-//    int i = 0;
-//    
-//    while(i <= _rackCount) {
-//
-////        NSLog(@"go %i cols: %i", i, _cols);
-//        NSPoint colOrigin = {0.5, i * RACK_HEIGHT + 0.5};
-//        NSPoint colDestination = {WINDOW_WIDTH, i * RACK_HEIGHT + 0.5};
-//
-//        [path moveToPoint: colOrigin ];
-//        [path lineToPoint: colDestination ];
-//        
-//        i++;
-//        
-//    }
-//
-//    // Translate
-//    NSAffineTransform *translateTransform = [NSAffineTransform transform];
-//    [translateTransform translateXBy: 0 yBy:0];
-//    [path transformUsingAffineTransform: translateTransform];
-//    
-//    [path closePath];
-//    [[NSColor blackColor] set];
-//    [path stroke];
-//    
-//}
+
 
 -(BOOL)isFlipped {
     return YES;

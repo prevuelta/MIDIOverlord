@@ -54,13 +54,13 @@ int baseMarker;
     NSBezierPath* bgPath = [NSBezierPath new];
     NSBezierPath* markerPath = [NSBezierPath new];
     
-    [self.defaultColor set];
+    [[global sharedGlobalData].defaultColor set];
     
     [bgPath appendBezierPathWithRect:NSMakeRect(0, 0, self.size.x, self.size.y)];
     [bgPath closePath];
     [bgPath fill];
     
-    [self.activeColor set];
+    [[global sharedGlobalData].activeColor set];
     
     [markerPath appendBezierPathWithRect:NSMakeRect(0, 0, self.marker, self.size.y)];
     [markerPath closePath];

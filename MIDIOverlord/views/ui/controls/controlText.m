@@ -43,7 +43,7 @@
 	[super drawRect:dirtyRect];
 	
     if(self.edit) {
-        [self.activeColor setStroke];
+        [[global sharedGlobalData].activeColor setStroke];
     
 //        NSRectStroke(dirtyRect);
         

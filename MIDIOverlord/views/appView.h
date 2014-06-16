@@ -12,6 +12,7 @@
 #import "moduleSlider.h"
 #import "modulePad.h"
 #import "uiApp.h"
+#import "global.h"
 
 @interface appView: NSView
 
@@ -27,8 +28,6 @@
 -(void)resizeWin:(int)rackCount;
 
 -(void)drawRect:(NSRect)rect;
-
--(void)drawGrid;
 
 -(void)updateRacks:(NSMutableDictionary*)rackData :(NSMutableArray*)layout;
 -(moduleBase*)getModuleWithData:(NSMutableDictionary*)moduleData;

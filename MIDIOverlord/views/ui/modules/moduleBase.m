@@ -107,9 +107,9 @@
     NSBezierPath* bgPath = [NSBezierPath new];
     
     if(self.selected) {
-         [self.defaultColor set];
+         [[global sharedGlobalData].defaultColor set];
     } else {
-        [self.blackColor set];
+        [[global sharedGlobalData].blackColor set];
     }
 
     [bgPath appendBezierPathWithRect:NSMakeRect(0, 0, self.width, self.height)];

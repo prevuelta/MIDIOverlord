@@ -53,16 +53,16 @@
     NSBezierPath* fgPath = [NSBezierPath new];
     
     if(self.active) {
-        [self.activeColor set];
+        [[global sharedGlobalData].activeColor set];
     } else {
-        [self.defaultColor set];
+        [[global sharedGlobalData].defaultColor set];
     }
     
     [bgPath appendBezierPathWithRect:NSMakeRect(0, 0, self.width, self.height)];
     [bgPath closePath];
     [bgPath fill];
     
-    [self.markerColor set];
+    [[global sharedGlobalData].markerColor set];
     
     // Draw triangles
     [fgPath moveToPoint:NSMakePoint(self.width-15, 5)];

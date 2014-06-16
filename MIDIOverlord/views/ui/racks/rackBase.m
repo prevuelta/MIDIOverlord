@@ -80,9 +80,9 @@
     int halfStrokeWidth = strokeWidth / 2;
     
     if(self.selected == YES) {
-        [self.activeColor set];
+        [[global sharedGlobalData].activeColor set];
     } else {
-        [self.blackColor set];
+        [[global sharedGlobalData].blackColor set];
     }
     
     [bgPath appendBezierPathWithRect:NSMakeRect(0, 0, RACK_WIDTH, self.headerHeight)];
@@ -101,6 +101,13 @@
     [fgPath setLineWidth: strokeWidth];
     
     [fgPath stroke];
+    
+    uiButtonClose *removeBtn = [[uiButtonClose alloc] initWithSize: 8];
+    [removeBtn setEvent:@"removeRack" withData: @{@"rackID": self.rackID}];
+    [removeBtn setOrigin: NSMakePoint(RACK_WIDTH - 10, 2)];
+    [removeBtn setInEditView:YES];
+    
+    [self addSubview: removeBtn];
     
 //    NSLog(@"Drawing");
 }

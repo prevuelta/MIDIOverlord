@@ -17,6 +17,7 @@
 		6ECD89F61946BE7400CCBE97 /* uiButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECD89F21946BE7400CCBE97 /* uiButton.m */; };
 		6ECD89F71946BE7400CCBE97 /* uiText.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECD89F41946BE7400CCBE97 /* uiText.m */; };
 		6ECD89FA1947C3EE00CCBE97 /* controlText.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECD89F91947C3EE00CCBE97 /* controlText.m */; };
+		6EDA87C5194E77B7007BB3C8 /* patternBg.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6EDA87C4194E77B7007BB3C8 /* patternBg.gif */; };
 		6EE4456B1936C86100C61171 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE4452A1936C86100C61171 /* AppDelegate.m */; };
 		6EE4456C1936C86100C61171 /* appViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE4452E1936C86100C61171 /* appViewController.m */; };
 		6EE4456D1936C86100C61171 /* eventHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE445301936C86100C61171 /* eventHandler.m */; };
@@ -77,6 +78,7 @@
 		6ECD89F81947C3EE00CCBE97 /* controlText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = controlText.h; path = MIDIOverlord/views/ui/controls/controlText.h; sourceTree = SOURCE_ROOT; };
 		6ECD89F91947C3EE00CCBE97 /* controlText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = controlText.m; path = MIDIOverlord/views/ui/controls/controlText.m; sourceTree = SOURCE_ROOT; };
 		6ECE40EC18FB9B2900E89424 /* MIDIOverlordTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MIDIOverlordTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6EDA87C4194E77B7007BB3C8 /* patternBg.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = patternBg.gif; sourceTree = "<group>"; };
 		6EE445291936C86100C61171 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6EE4452A1936C86100C61171 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		6EE4452B1936C86100C61171 /* constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 		6EE445421936C86100C61171 /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				6EDA87C4194E77B7007BB3C8 /* patternBg.gif */,
 				6EE445431936C86100C61171 /* default.png */,
 				6EE445441936C86100C61171 /* skin.json */,
 				6EE445451936C86100C61171 /* stateDEMO.json */,
@@ -391,6 +394,7 @@
 				6EE445761936C86100C61171 /* MIDIOverlord-Info.plist in Resources */,
 				6EE445711936C86100C61171 /* Credits.rtf in Resources */,
 				6EE445721936C86100C61171 /* InfoPlist.strings in Resources */,
+				6EDA87C5194E77B7007BB3C8 /* patternBg.gif in Resources */,
 				6EE445791936C86100C61171 /* stateDEMO.json in Resources */,
 				6EE445781936C86100C61171 /* skin.json in Resources */,
 				6EE445751936C86100C61171 /* MainMenu.xib in Resources */,

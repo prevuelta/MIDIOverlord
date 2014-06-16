@@ -43,13 +43,13 @@
 }
 
 -(void)mouseEntered:(NSEvent *)theEvent{
-  [_label setDefaultColor:self.activeColor];
+//  [_label setDefaultColor:[global sharedGlobalData].activeColor];
   [_label setNeedsDisplay:YES];
 }
 
 -(void)mouseExited:(NSEvent *)theEvent {
 //    [_label setBackgroundColor: self.defaultColor];
-    [_label setActiveColor:self.markerColor];
+//    [_label setActiveColor:[global sharedGlobalData].markerColor];
     [_label setNeedsDisplay:YES];
 }
 

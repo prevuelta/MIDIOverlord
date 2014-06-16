@@ -42,7 +42,7 @@
         [outline lineToPoint:NSMakePoint(self.frame.size.width-1, 1)];
         [outline lineToPoint:NSMakePoint(0, 1)];
         
-        [self.activeColor set];
+        [[global sharedGlobalData].activeColor set];
         [outline fill];
     }
 }

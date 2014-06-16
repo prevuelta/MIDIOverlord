@@ -36,9 +36,9 @@
     [btnPath closePath];
     
     if(self.active) {
-        [self.activeColor set];
+        [[global sharedGlobalData].activeColor set];
     } else {
-        [self.bgColor set];
+        [[global sharedGlobalData].bgColor set];
     }
     
     [btnPath fill];

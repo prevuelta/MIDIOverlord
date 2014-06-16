@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "global.h"
+#import "utilities.h"
 
 @interface uiBase : NSView
 
@@ -16,12 +17,6 @@
 @property BOOL selected;
 @property BOOL disabled;
 @property BOOL inEditView;
-
-@property NSColor *blackColor;
-@property NSColor *defaultColor;
-@property NSColor *bgColor;
-@property NSColor *markerColor;
-@property NSColor *activeColor;
 
 -(id)initWithFrame:(NSRect)frame;
 -(void)setOrigin:(NSPoint)origin;

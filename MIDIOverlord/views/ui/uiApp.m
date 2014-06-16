@@ -17,8 +17,8 @@
 //    uiText *appTitle = [[uiText alloc] initWithString: @"ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890`~!@#$%^&*()-=_+[]\{}|;':\",./<>?"];
     
     uiText *appTitle = [[uiText alloc] initWithString: @"MIDI OVERLORD PROTOTYPE V.002" andSize: @[@3, @3]];
-    [appTitle setDefaultColor:[NSColor whiteColor]];
-    [appTitle setMarkerColor:[NSColor blackColor]];
+//    [appTitle setDefaultColor:[NSColor whiteColor]];
+//    [appTitle setMarkerColor:[NSColor blackColor]];
     [appTitle setGridCellSizeY:3];
     [appTitle setOrigin:NSMakePoint(4, 4)];
     
@@ -52,11 +52,11 @@
 
 -(void)drawRect:(NSRect)dirtyRect {
     
-    NSBezierPath* bgPath = [NSBezierPath new];
-    [[NSColor colorWithDeviceRed:83 green:83 blue:84 alpha:255] set];
-    [bgPath appendBezierPathWithRect:NSMakeRect(0, 0, RACK_WIDTH * 4, TOOLBAR_HEIGHT)];
-    [bgPath closePath];
-    [bgPath fill];
+//    NSBezierPath* bgPath = [NSBezierPath new];
+//    [[NSColor colorWithDeviceRed:83 green:83 blue:84 alpha:255] set];
+//    [bgPath appendBezierPathWithRect:NSMakeRect(0, 0, RACK_WIDTH * 4, TOOLBAR_HEIGHT)];
+//    [bgPath closePath];
+//    [bgPath fill];
 
 }
 

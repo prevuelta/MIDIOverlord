@@ -34,7 +34,7 @@ NSBezierPath *iconPath;
     [iconPath moveToPoint: NSMakePoint(self.frame.size.width, 0)];
     [iconPath lineToPoint: NSMakePoint(0, self.frame.size.height)];
     
-    [self.activeColor setStroke];
+    [[global sharedGlobalData].markerColor setStroke];
     [iconPath stroke];
     
 }
