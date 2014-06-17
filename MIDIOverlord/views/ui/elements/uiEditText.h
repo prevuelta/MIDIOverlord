@@ -14,5 +14,6 @@
 @property BOOL isEditing;
 
 -(void)handleDoubleClick:(NSEvent *)e;
-
+-(void)addCharacter:(NSString*)letter;
+-(void)removeCharacter;
 @end

@@ -12,6 +12,7 @@
 
 @synthesize data = _data;
 @synthesize subViews;
+@synthesize labelText = _labelText;
 
 -(id)initWithFrame:(NSRect)frame andData:(NSMutableDictionary*)data {
     
@@ -38,8 +39,11 @@
     
     self.data = data;
     
-    self.label = [[uiEditText alloc] initWithString: self.labelText];
+    self.label = [[uiEditText alloc] initWithString: self.labelText andMaxLength:14 andLabelLength:0];
     [self.label setIsEditable: YES];
+    
+    [self bind:@"labelText" toObject: _label withKeyPath:@"stringValue" options:nil];
+    
     [self addSubview: self.label];
     
 //    [self.data bind:@"stringValue" toObject: self withKeyPath:@:self.labelText options:nil];
@@ -60,13 +64,20 @@
 }
 
 -(void)addRackTitle {
-
     // Overridden
-
 }
 
 -(BOOL)isFlipped {
     return YES;
+}
+
+-(NSString*)labelText{
+    return _labelText;
+}
+
+-(void)setLabelText:(NSString*)labelText {
+    self.data[@"label"] = labelText;
+    _labelText = labelText;
 }
 
 -(void)drawRect:(NSRect)rect {
@@ -122,6 +133,7 @@
 -(void)moduleUpdateWithData: (NSDictionary*)data {
 //    NSLog(@"Send Notification: %@", data);
     [[NSNotificationCenter defaultCenter] postNotificationName:@"moduleUpdate" object:self userInfo: @{@"rackID": self.rackID, @"data": data}];
+    NSLog(@"Rack data %@", self.data);
 }
 
 -(void)mouseDown:(NSEvent *)theEvent {

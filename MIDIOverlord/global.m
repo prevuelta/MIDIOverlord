@@ -31,6 +31,13 @@ static global *_instance;
            _instance.bgColor = [utilities getNSColorFromRGB:bgRGBA];
            _instance.markerColor = [utilities getNSColorFromRGB:markerRGBA];
            _instance.activeColor = [utilities getNSColorFromRGB:activeRGBA];
+            
+            NSMutableCharacterSet *allowedCharacters = [NSMutableCharacterSet alphanumericCharacterSet];
+            
+            [allowedCharacters addCharactersInString: @" _!@#$%^&*()-=_+[]\{}|,./<>?:\"';"];
+            
+            _instance.invalidChars = [allowedCharacters invertedSet];
+            
         }
     }
     

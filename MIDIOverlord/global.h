@@ -19,6 +19,8 @@
 @property NSColor *markerColor;
 @property NSColor *activeColor;
 
+@property NSCharacterSet *invalidChars;
+
 +(global*)sharedGlobalData;
 +(void)deselectNotify;
 

@@ -42,7 +42,7 @@ static NSPoint gridSystem[54];
     _charSizeX = (_gridCellSizeX * (_gridCols-1)) + _letterSpacing;
     _charSizeY = (_gridCellSizeY * (_gridRows-1)) + (_padding * 2);
 
-    int width = (_charSizeX * MIN(_charCount, _maxLength)) + ((_padding * 2) - _letterSpacing);
+    int width = (_charSizeX * MAX(_charCount, _maxLength)) + ((_padding * 2) - _letterSpacing);
     
     self = [super initWithFrame: NSMakeRect(0, 0, width, _charSizeY )];
     
@@ -140,7 +140,7 @@ static NSPoint gridSystem[54];
     
     int charOffset = 0;//_charSizeX * ((_charCount * _valueCount)-1);
     
-    for(int i = 0; i < _charCount && i < _maxLength; i++) {
+    for(int i = 0; i < _charCount; i++) {
         NSString *key = [NSString stringWithFormat: @"%c", [_stringValue characterAtIndex:i]];
         NSArray *glyphArr = _glyphs[key];
         for(int j = 0; j < [glyphArr count]; j++) {

@@ -17,6 +17,8 @@
     }
     
     _isEditable = NO;
+
+    
     
     return self;
 }
@@ -62,12 +64,48 @@
     //    }
 }
 
--(void)keyUp:(NSEvent *)event {
+- (BOOL)acceptsFirstResponder {
+    return YES;
+}
+
+- (BOOL)performKeyEquivalent:(NSEvent *)event {
+    return YES;
+}
+
+-(void)keyDown:(NSEvent *)event {
         NSString *characters;
         characters = [event characters];
-        unichar character;
+    NSLog(@"Letter: %@", characters);
+    NSLog(@"KeyCode: %hu", [event keyCode]);
+    if([characters rangeOfCharacterFromSet:[global sharedGlobalData].invalidChars].location == NSNotFound) {
+        NSLog(@"Letter: %@", characters);
+        if([self.stringValue length] < self.maxLength) {
+            NSLog(@"addingletter");
+            [self addCharacter: characters];
+        }
+    }
     
+    if([event keyCode] == 51) {
+        [self removeCharacter];
+    }
+    if([event keyCode] == 36) {
+        [self deselect:nil];
+    }
+}
 
+-(void)addCharacter:(NSString*)letter {
+    self.stringValue  = [self.stringValue stringByAppendingString: letter];
+    [self setCharCount: (int)[self.stringValue length]];
+    
+    NSLog(@"%@", self.stringValue);
+    
+    [self setNeedsDisplay:YES];
+}
+
+-(void)removeCharacter {
+    self.stringValue = [self.stringValue substringToIndex:self.stringValue.length-(self.stringValue.length>0)];
+    [self setCharCount: (int)[self.stringValue length]];
+    [self setNeedsDisplay:YES];
 }
 
 -(void)deselect:(NSNotification*)notification  {
