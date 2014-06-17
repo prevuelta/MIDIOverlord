@@ -13,5 +13,6 @@
 @property BOOL isEditable;
 @property BOOL isEditing;
 
+-(void)handleDoubleClick:(NSEvent *)e;
 
 @end

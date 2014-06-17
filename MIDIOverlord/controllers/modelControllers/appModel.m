@@ -102,6 +102,11 @@
     [_rackData[ref[@"rackID"]][@"modules"] removeObjectForKey:ref[@"moduleID"]];
 }
 
+-(void)removeRack:(NSDictionary*)ref {
+    [_rackData removeObjectForKey:ref[@"rackID"]];
+    [_rackLayout removeObject:ref[@"rackID"]];
+}
+
 -(void)addModule:(NSNumber*)rackID :(NSNumber*)type; {
     
     NSLog(@"RID: %@ Type: %@", rackID, type);

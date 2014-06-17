@@ -10,10 +10,7 @@
 
 @implementation uiEditText
 
-
-
-- (id)initWithFrame:(NSRect)frame
-{
+- (id)initWithFrame:(NSRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code here.
@@ -24,8 +21,7 @@
     return self;
 }
 
-- (void)drawRect:(NSRect)dirtyRect
-{
+- (void)drawRect:(NSRect)dirtyRect {
     [super drawRect:dirtyRect];
     
     if(self.isEditing) {
@@ -47,10 +43,18 @@
     }
 }
 
--(void)mouseDown:(NSEvent *)e {
-    [self setIsEditing: YES];
+- (void)mouseUp:(NSEvent *)event {
+    NSInteger clickCount = [event clickCount];
+    if (2 == clickCount) [self handleDoubleClick:event];
+}
+
+-(void)handleDoubleClick:(NSEvent *)e {
+    [global deselectNotify];
     NSLog(@"Editing textg");
+    [self setIsEditing: YES];
     [self setNeedsDisplay: YES];
+//    [global setFirstResponder: self];
+    [self.window makeFirstResponder: self];
     //    if(self.editable) {
     //        NSPoint location = [self convertPoint:[e locationInWindow] fromView:nil];
     ////        baseY = location.y;
@@ -58,19 +62,20 @@
     //    }
 }
 
--(void)keyDown:(NSEvent *)event {
-    //    NSString *characters;
-    //    characters = [theEvent characters];
-    //    unichar character;
-    //
-    //    switch (character)
-    //    {
-    //        case 'd':
-    //            //do something;
-    //        default:
-    //            break;
-    //    }
+-(void)keyUp:(NSEvent *)event {
+        NSString *characters;
+        characters = [event characters];
+        unichar character;
+    
+
 }
+
+-(void)deselect:(NSNotification*)notification  {
+    [self.window makeFirstResponder:nil];
+    [self setIsEditing: NO];
+    [self setNeedsDisplay:YES];
+}
+
 
 
 @end

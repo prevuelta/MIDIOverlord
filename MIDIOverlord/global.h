@@ -20,6 +20,7 @@
 @property NSColor *activeColor;
 
 +(global*)sharedGlobalData;
++(void)deselectNotify;
 
 @end
 

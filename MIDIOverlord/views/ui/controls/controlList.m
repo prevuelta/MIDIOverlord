@@ -39,8 +39,6 @@
     _activeOption = [NSMutableArray arrayWithObjects:labelText, @0, nil];
     
     _selectedValue = 0;
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deselect:) name:@"closeOpen" object:nil];
 
     [self updateValues];
     
@@ -84,6 +82,8 @@
 
 -(void)mouseDown:(NSEvent*)theEvent {
     NSLog(@"Whats up");
+    [global deselectNotify];
+    
     if(self.selected) {
         [[NSNotificationCenter defaultCenter] postNotificationName:@"closeOpen" object:self userInfo: nil];
     } else {

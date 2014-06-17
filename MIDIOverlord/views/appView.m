@@ -37,6 +37,7 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleEditMode:) name:@"editMode" object:nil];
     
+    
     return self;
 }
 
@@ -138,19 +139,22 @@
     NSRectFill(rect);
 }
 
-
-
 -(BOOL)isFlipped {
     return YES;
 }
 
 -(void)mouseDown:(NSEvent *)theEvent {
-//    NSLog(@"Mainview clicked");
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"closeOpen" object:self userInfo: nil];
+    NSLog(@"Mainview clicked");
+    [global deselectNotify];
 }
 
 -(void)handleEditMode:(NSNotification*)notification {
    self.editMode = [notification.userInfo[@"isToggled"] boolValue];
 }
+
+-(void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 
 @end

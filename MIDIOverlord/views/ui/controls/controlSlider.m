@@ -88,6 +88,7 @@ int baseMarker;
 }
 
 -(void)mouseDown:(NSEvent *)e {
+    [global deselectNotify];
     self.active = true;
     [self updateControlFromEvent:e];
 }

@@ -9,6 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import "utilities.h"
 #import "uiText.h"
+#import "global.h"
 
 @interface controlBase : uiBase
 

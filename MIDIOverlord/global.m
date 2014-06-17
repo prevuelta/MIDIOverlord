@@ -37,4 +37,12 @@ static global *_instance;
     return _instance;
 }
 
++(void)deselectNotify {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"deselectAll" object:self userInfo: nil];
+}
+
+//+(void)setFirstSResponder:(id)obj {
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"setFirstResponder" object:self userInfo: @{@"obj" : obj }];
+//}
+
 @end

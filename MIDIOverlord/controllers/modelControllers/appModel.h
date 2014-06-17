@@ -38,6 +38,7 @@
 
 // Public function
 -(void)addRack;
+-(void)removeRack:(NSDictionary*)ref;
 -(void)addModule:(NSNumber*)rackID :(NSNumber*)type;
 -(void)removeModule:(NSDictionary*)ref;
 

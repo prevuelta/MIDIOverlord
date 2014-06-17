@@ -62,7 +62,7 @@
     NSLog(@"Sending delegate...");
 //    [_label setBackgroundColor:self.activeColor];
     [self.delegate optionSelectedWithKeyValue:self.keyValue];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"closeOpen" object:self userInfo: nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"deselectAll" object:self userInfo: nil];
    
 }
 
