@@ -28,7 +28,7 @@ static NSPoint gridSystem[54];
     _gridCellSizeX = 1;
     _gridCellSizeY = 1;
     _letterSpacing = 2;
-    _padding = 2;
+    _padding = 4;
     _gridCols = 6;
     _gridRows = 9;
     
@@ -41,8 +41,11 @@ static NSPoint gridSystem[54];
     
     _charSizeX = (_gridCellSizeX * (_gridCols-1)) + _letterSpacing;
     _charSizeY = (_gridCellSizeY * (_gridRows-1)) + (_padding * 2);
+    
+    _textColor = [global sharedGlobalData].markerColor;
+    _bgColor = [global sharedGlobalData].blackColor;
 
-    int width = (_charSizeX * MAX(_charCount, _maxLength)) + ((_padding * 2) - _letterSpacing);
+    int width = (_charSizeX * _maxLength) + ((_padding * 2) - _letterSpacing);
     
     self = [super initWithFrame: NSMakeRect(0, 0, width, _charSizeY )];
     
@@ -129,7 +132,7 @@ static NSPoint gridSystem[54];
 
 -(void)drawRect:(NSRect)dirtyRect{
 
-   [[global sharedGlobalData].defaultColor setFill];
+   [self.bgColor setFill];
     
     NSRectFill(dirtyRect);
     
@@ -168,7 +171,8 @@ static NSPoint gridSystem[54];
         }
     }
     
-    [[global sharedGlobalData].markerColor set];
+    [_textColor set];
+    
     [glyphPath fill];
     
 }

@@ -16,12 +16,12 @@
 -(void)addRackTitle {
 
     _midiInput = [[deviceList alloc] initWithFrame: @"MIDI IN"];
-    [_midiInput setOrigin: NSMakePoint(0, 12)];
+    [_midiInput setOrigin: NSMakePoint(4, 22)];
     
     [self addSubview: _midiInput];
     
     _midiOutput = [[deviceList alloc] initWithFrame: @"MIDI OUT"];
-    [_midiOutput setOrigin: NSMakePoint(0, 24)];
+    [_midiOutput setOrigin: NSMakePoint(4, 40)];
     
     [self bind:@"deviceOut" toObject:_midiOutput withKeyPath:@"selectedValue" options:nil];
     

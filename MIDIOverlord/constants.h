@@ -13,13 +13,13 @@
 #define UI_COLOR_PROT_1 {60, 60, 60, 255}
 #define UI_COLOR_PROT_2 {80, 80, 80, 255}
 #define UI_COLOR_PROT_3 {120, 120, 120, 150}
-#define UI_COLOR_PROT_4 {200, 200, 200, 255}
+#define MO_BROWN_WHITE {244, 244, 233, 255}
 
-#define UI_COLOR_HIGHLIGHT {121, 219, 255, 255}
-#define UI_COLOR_HIGHLIGHT_2 {255, 87, 54, 255}
+#define MO_BLUE {0, 169, 232, 255}
+#define MO_RED {241, 61, 57, 255}
 
 // Rack vars
 #define MODULE_HEIGHT 144
 #define RACK_WIDTH 158
-#define TOOLBAR_HEIGHT 48
+#define TOOLBAR_HEIGHT 52
 #define WINDOW_HEIGHT 800

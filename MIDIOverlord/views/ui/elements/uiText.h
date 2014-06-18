@@ -30,6 +30,9 @@
 @property int maxLength;
 @property int labelLength;
 
+@property NSColor* textColor;
+@property NSColor* bgColor;
+
 -(id)initWithString:(NSString*)stringValue;
 
 -(id)initWithString:(NSString*)stringValue andSize: (NSArray*)size;

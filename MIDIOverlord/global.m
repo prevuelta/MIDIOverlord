@@ -22,9 +22,9 @@ static global *_instance;
             
             float blackRGBA[] = UI_COLOR_BLACK;
             float defaultRGBA[] = UI_COLOR_PROT_1;
-            float bgRGBA[] = UI_COLOR_PROT_2;
-            float markerRGBA[] = UI_COLOR_HIGHLIGHT;
-            float activeRGBA[] = UI_COLOR_HIGHLIGHT_2;
+            float bgRGBA[] = MO_BROWN_WHITE;
+            float markerRGBA[] = MO_BLUE;
+            float activeRGBA[] = MO_RED;
             
            _instance.blackColor = [utilities getNSColorFromRGB:blackRGBA];
            _instance.defaultColor = [utilities getNSColorFromRGB:defaultRGBA];
@@ -48,8 +48,5 @@ static global *_instance;
     [[NSNotificationCenter defaultCenter] postNotificationName:@"deselectAll" object:self userInfo: nil];
 }
 
-//+(void)setFirstSResponder:(id)obj {
-//    [[NSNotificationCenter defaultCenter] postNotificationName:@"setFirstResponder" object:self userInfo: @{@"obj" : obj }];
-//}
 
 @end

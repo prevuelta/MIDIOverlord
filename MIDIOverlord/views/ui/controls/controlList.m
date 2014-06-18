@@ -15,7 +15,7 @@
 -(id)initWithFrame: (NSString*)labelText {
     
     self.width = 90;
-    self.height = 12;
+    self.height = 16;
     
     NSRect frame = NSMakeRect(0, 0, self.width, self.height);
     

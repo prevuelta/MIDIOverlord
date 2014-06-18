@@ -17,6 +17,8 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deselect:) name:@"deselectAll" object:nil];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(windowResizeHandler:) name:NSWindowDidResizeNotification object: nil];
+    
     self.inEditView = NO;
     
     return self;
@@ -45,5 +47,13 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+-(void)windowResizeHandler:(NSNotification*)notification {
+}
+
+-(void)resizeHeight:(int)newHeight {
+}
+
+-(void)resizeWidth:(int)newWidth {
+}
 
 @end

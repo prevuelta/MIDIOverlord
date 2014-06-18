@@ -13,6 +13,7 @@
 		6E7C564018ED04A80002F09B /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7C563F18ED04A80002F09B /* CoreMIDI.framework */; };
 		6E7C564218ED04C10002F09B /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7C564118ED04C10002F09B /* Cocoa.framework */; };
 		6E7C564518ED04E60002F09B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7C564318ED04C60002F09B /* Foundation.framework */; };
+		6E8A23C51951205000745214 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E8A23C41951205000745214 /* logo.png */; };
 		6EC836CF194AF7E400266F60 /* uiButtonClose.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC836CE194AF7E400266F60 /* uiButtonClose.m */; };
 		6ECD89F61946BE7400CCBE97 /* uiButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECD89F21946BE7400CCBE97 /* uiButton.m */; };
 		6ECD89F71946BE7400CCBE97 /* uiText.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECD89F41946BE7400CCBE97 /* uiText.m */; };
@@ -69,6 +70,7 @@
 		6E7C563F18ED04A80002F09B /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
 		6E7C564118ED04C10002F09B /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		6E7C564318ED04C60002F09B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		6E8A23C41951205000745214 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		6EC836CD194AF7E400266F60 /* uiButtonClose.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = uiButtonClose.h; path = MIDIOverlord/views/ui/elements/uiButtonClose.h; sourceTree = SOURCE_ROOT; };
 		6EC836CE194AF7E400266F60 /* uiButtonClose.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = uiButtonClose.m; path = MIDIOverlord/views/ui/elements/uiButtonClose.m; sourceTree = SOURCE_ROOT; };
 		6ECD89F11946BE7400CCBE97 /* uiButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uiButton.h; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 		6EE445421936C86100C61171 /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				6E8A23C41951205000745214 /* logo.png */,
 				6EDA87C4194E77B7007BB3C8 /* patternBg.gif */,
 				6EE445431936C86100C61171 /* default.png */,
 				6EE445441936C86100C61171 /* skin.json */,
@@ -396,6 +399,7 @@
 				6EE445721936C86100C61171 /* InfoPlist.strings in Resources */,
 				6EDA87C5194E77B7007BB3C8 /* patternBg.gif in Resources */,
 				6EE445791936C86100C61171 /* stateDEMO.json in Resources */,
+				6E8A23C51951205000745214 /* logo.png in Resources */,
 				6EE445781936C86100C61171 /* skin.json in Resources */,
 				6EE445751936C86100C61171 /* MainMenu.xib in Resources */,
 				6EE445771936C86100C61171 /* default.png in Resources */,

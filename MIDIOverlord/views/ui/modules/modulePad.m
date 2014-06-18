@@ -51,7 +51,7 @@
     [self addSubview: pad3];
     [self addSubview: pad4];
     
-    uiButtonClose *removeBtn = [[uiButtonClose alloc] initWithSize: 16];
+    uiButtonClose *removeBtn = [[uiButtonClose alloc] initWithSize: 8];
     [removeBtn setEvent:@"removeModule" withData: @{@"rackID": self.data[@"rackID"], @"moduleID" : self.data[@"moduleID"]}];
     [removeBtn setOrigin: NSMakePoint(RACK_WIDTH - 20, 0)];
     [removeBtn setInEditView:YES];

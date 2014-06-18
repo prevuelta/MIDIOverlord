@@ -21,9 +21,11 @@
     
     self.width = RACK_WIDTH;
     
-    self.height = WINDOW_HEIGHT;
+    self.height = frame.size.height - TOOLBAR_HEIGHT - 30;
     
-    self.headerHeight = 64;
+    NSLog(@"Height %@", [NSNumber numberWithInt:self.height]);
+    
+    self.headerHeight = 84;
     
     self.subViews = [NSMutableArray new];
     
@@ -41,6 +43,7 @@
     
     self.label = [[uiEditText alloc] initWithString: self.labelText andMaxLength:14 andLabelLength:0];
     [self.label setIsEditable: YES];
+    [self.label setOrigin:NSMakePoint(4, 4)];
     
     [self bind:@"labelText" toObject: _label withKeyPath:@"stringValue" options:nil];
     
@@ -57,6 +60,13 @@
 //    [_midiChannelText bind:@"value" toObject:self withKeyPath:@"self.midiChannel" options:nil];
     
 //    [self addSubview: _midiChannelText];
+    
+    uiButtonClose *removeBtn = [[uiButtonClose alloc] initWithSize: 8];
+    [removeBtn setEvent:@"removeRack" withData: @{@"rackID": self.rackID}];
+    [removeBtn setOrigin: NSMakePoint(RACK_WIDTH - 12, 4)];
+    [removeBtn setInEditView:YES];
+    
+    [self addSubview: removeBtn];
     
     [self addRackTitle];
 
@@ -84,7 +94,7 @@
     
     // Draw background
     
-    NSBezierPath* bgPath = [NSBezierPath new];
+    NSBezierPath* headerPath = [NSBezierPath new];
     NSBezierPath* fgPath = [NSBezierPath new];
     
     int strokeWidth = 4;
@@ -93,34 +103,47 @@
     if(self.selected == YES) {
         [[global sharedGlobalData].activeColor set];
     } else {
-        [[global sharedGlobalData].blackColor set];
+        [[global sharedGlobalData].bgColor set];
     }
     
-    [bgPath appendBezierPathWithRect:NSMakeRect(0, 0, RACK_WIDTH, self.headerHeight)];
+    [headerPath appendBezierPathWithRect:NSMakeRect(0, 0, RACK_WIDTH, self.headerHeight)];
     
-    [bgPath closePath];
-    [bgPath fill];
+    [headerPath closePath];
+    [headerPath fill];
     
-    [fgPath moveToPoint:NSMakePoint(halfStrokeWidth, halfStrokeWidth)];
-    [fgPath lineToPoint:NSMakePoint(self.width - halfStrokeWidth, halfStrokeWidth)];
-    [fgPath lineToPoint:NSMakePoint(self.width - halfStrokeWidth, WINDOW_HEIGHT - halfStrokeWidth)];
-    [fgPath lineToPoint:NSMakePoint(halfStrokeWidth, WINDOW_HEIGHT - halfStrokeWidth)];
-    [fgPath lineToPoint:NSMakePoint(halfStrokeWidth, halfStrokeWidth)];
+    [fgPath moveToPoint:NSZeroPoint];
+    [fgPath lineToPoint:NSMakePoint(0, self.headerHeight)];
+    [fgPath lineToPoint:NSMakePoint(0, self.height)];
+    [fgPath lineToPoint:NSMakePoint(RACK_WIDTH, self.height)];
+    [fgPath lineToPoint:NSMakePoint(RACK_WIDTH, self.headerHeight)];
+    [fgPath lineToPoint:NSMakePoint(RACK_WIDTH - 4, self.headerHeight)];
+    [fgPath lineToPoint:NSMakePoint(RACK_WIDTH - 4, self.height-4)];
+    [fgPath lineToPoint:NSMakePoint(4, self.height-4)];
+    [fgPath lineToPoint:NSMakePoint(4, 4)];
+    [fgPath lineToPoint:NSMakePoint(4, self.headerHeight)];
+    [fgPath lineToPoint:NSMakePoint(0, self.headerHeight)];
     
-    [fgPath closePath];
+    [fgPath fill];
     
-    [fgPath setLineWidth: strokeWidth];
-    
-    [fgPath stroke];
-    
-    uiButtonClose *removeBtn = [[uiButtonClose alloc] initWithSize: 8];
-    [removeBtn setEvent:@"removeRack" withData: @{@"rackID": self.rackID}];
-    [removeBtn setOrigin: NSMakePoint(RACK_WIDTH - 10, 2)];
-    [removeBtn setInEditView:YES];
-    
-    [self addSubview: removeBtn];
+
     
 //    NSLog(@"Drawing");
+}
+
+-(void)windowResizeHandler:(NSNotification*)notification {
+    //    int height = notification.object.Size.height;
+    NSLog(@"Window resize: %@", notification);
+    NSWindow *win = notification.object;
+    
+    [self resizeHeight: win.frame.size.height];
+}
+
+-(void)resizeHeight:(int)newHeight {
+    self.height = newHeight - TOOLBAR_HEIGHT - 30;
+    NSRect f = self.frame;
+    f.size.height = self.height;
+    [self setFrame:f];
+    [self setNeedsDisplay:YES];
 }
 
 -(void)midiData:(NSArray*)data {

@@ -16,7 +16,7 @@
 -(id)initWithData:(NSMutableDictionary*)data{
     
     self.value = 0;
-    self.height = 18;
+    self.height = 21;
 
     self = [super initWithFrame:NSMakeRect(0, 0, RACK_WIDTH, self.height)];
     
@@ -38,9 +38,9 @@
     
     // Add UI buttons
     
-    _slider = [[controlSlider alloc] initWithFrame:NSMakePoint(self.width, 16): NSMakePoint(0, 0): 0 :127 ];
+    _slider = [[controlSlider alloc] initWithFrame:NSMakePoint(self.width, 20): NSMakePoint(0, 0): 0 :127 ];
     
-    [_slider setOrigin:NSMakePoint(0, 2)];
+    [_slider setOrigin:NSMakePoint(0, 1)];
 
     [self bind:@"midiV3" toObject:_slider withKeyPath:@"value" options:nil];
     
@@ -50,9 +50,9 @@
 
     [self setData: data];
     
-    uiButtonClose *removeBtn = [[uiButtonClose alloc] initWithSize: 16];
+    uiButtonClose *removeBtn = [[uiButtonClose alloc] initWithSize: 8];
     [removeBtn setEvent:@"removeModule" withData: @{@"rackID": self.data[@"rackID"], @"moduleID" : self.data[@"moduleID"]}];
-    [removeBtn setOrigin: NSMakePoint(RACK_WIDTH - 20, 0)];
+    [removeBtn setOrigin: NSMakePoint(RACK_WIDTH - 20, 6)];
     [removeBtn setInEditView:YES];
     
     [self addSubview: removeBtn];
@@ -61,7 +61,18 @@
 }
 
 -(void)drawModule:(NSRect)rect {
-    // NSLog(@"Slide val: %@", [NSNumber numberWithInt:self.midiV2]);
+
+    NSBezierPath *bgPath = [NSBezierPath new];
+    
+    [bgPath moveToPoint: NSZeroPoint];
+    [bgPath lineToPoint: NSMakePoint(self.width, 0)];
+    [bgPath lineToPoint: NSMakePoint(self.width, 1)];
+    [bgPath lineToPoint: NSMakePoint(0, 1)];
+
+     [bgPath closePath];
+    
+    [[global sharedGlobalData].bgColor set];
+    [bgPath fill];
 }
 
 -(NSNumber*)midiV3 {

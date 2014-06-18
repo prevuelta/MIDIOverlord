@@ -24,7 +24,7 @@ NSBezierPath *iconPath;
 }
 
 - (void)drawRect:(NSRect)dirtyRect {
-    [super drawRect:dirtyRect];
+//    [super drawRect:dirtyRect];
     
     iconPath = [NSBezierPath new];
     

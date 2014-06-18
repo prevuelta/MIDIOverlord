@@ -24,4 +24,7 @@
 
 -(void)deselect:(NSNotification*)notification;
 
+-(void)resizeHeight:(int)newHeight;
+-(void)resizeWidth:(int)newWidth;
+
 @end

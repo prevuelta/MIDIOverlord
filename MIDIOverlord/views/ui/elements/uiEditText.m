@@ -24,6 +24,14 @@
 }
 
 - (void)drawRect:(NSRect)dirtyRect {
+    
+    if(self.isEditing) {
+        self.textColor = [global sharedGlobalData].activeColor;
+        self.bgColor = [global sharedGlobalData].defaultColor;
+    } else {
+        
+    }
+    
     [super drawRect:dirtyRect];
     
     if(self.isEditing) {
@@ -111,6 +119,7 @@
 -(void)deselect:(NSNotification*)notification  {
     [self.window makeFirstResponder:nil];
     [self setIsEditing: NO];
+    self.textColor = [global sharedGlobalData].markerColor;
     [self setNeedsDisplay:YES];
 }
 

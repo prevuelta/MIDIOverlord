@@ -22,15 +22,21 @@
 
 @property NSMutableArray* racks;
 
+@property uiApp* globalUI;
+
 -(id)initWithWin:(NSWindow*)mainWin;
 
--(void)resizeWinEvent:(NSNotification*)notification;
+//-(void)resizeWinEvent:(NSNotification*)notification;
 -(void)resizeWin:(int)rackCount;
+
+-(void)windowResizeHandler:(NSNotification*)notification;
 
 -(void)drawRect:(NSRect)rect;
 
 -(void)updateRacks:(NSMutableDictionary*)rackData :(NSMutableArray*)layout;
 -(moduleBase*)getModuleWithData:(NSMutableDictionary*)moduleData;
+
+
 
 
 @end

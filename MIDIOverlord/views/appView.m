@@ -12,7 +12,7 @@
 
 - (id)initWithWin:(NSWindow*)mainWin {
     
-    self = [super initWithFrame:[mainWin frame]];
+    self = [super initWithFrame:mainWin.frame];
     
     if(!self) return nil;
     
@@ -24,8 +24,8 @@
     _racks = [NSMutableArray new];
 
     // Setup main interface
-    uiApp* globalUI = [[uiApp alloc ] initWithFrame: NSMakeRect(0, 0, RACK_WIDTH * 4, TOOLBAR_HEIGHT )];
-    [self addSubview:globalUI];
+    _globalUI = [[uiApp alloc ] initWithFrame: NSMakeRect(0, 0, self.frame.size.width, TOOLBAR_HEIGHT )];
+    [self addSubview:_globalUI];
     
     // Set grey background
     float greyVal = 0.70;
@@ -37,10 +37,19 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleEditMode:) name:@"editMode" object:nil];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(windowResizeHandler:) name:NSWindowDidResizeNotification object: nil];
     
     return self;
 }
 
+
+-(void)windowResizeHandler:(NSNotification*)notification {
+//    int height = notification.object.Size.height;
+    NSLog(@"Window resize: %@", notification);
+    NSWindow *win = notification.object;
+
+    [_globalUI resizeWidth: win.frame.size.width];
+}
 
 -(void)resizeWin:(int)rackCount {
     
@@ -77,7 +86,7 @@
         // Create rack
         rackControl *rack = [[rackControl alloc] initWithFrame: NSMakeRect(0, 0, RACK_WIDTH, _mainWin.frame.size.height)andData: data];
         
-        [rack setOrigin:NSMakePoint(rI * RACK_WIDTH, TOOLBAR_HEIGHT)];
+        [rack setOrigin:NSMakePoint(rI * (RACK_WIDTH + 4) + 4, TOOLBAR_HEIGHT + 4)];
         
         int yLoc = rack.headerHeight;
         
