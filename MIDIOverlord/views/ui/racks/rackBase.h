@@ -34,6 +34,8 @@
 @property int width;
 @property int height;
 
+@property int modalHeight;
+
 // Display options
 @property NSInteger tag;
 

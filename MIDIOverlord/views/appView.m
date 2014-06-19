@@ -108,6 +108,8 @@
             
             module.delegate = rack;
             
+            rack.modalHeight += module.height;
+            
             [rack addSubview: module];
             
             yLoc += module.height;
