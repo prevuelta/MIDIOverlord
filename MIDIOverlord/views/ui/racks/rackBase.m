@@ -41,6 +41,12 @@
     
     self.data = data;
     
+    self.moduleView = [[scrollableView alloc] initWithFrame:NSMakeRect(0, 0, RACK_WIDTH - 8, self.height - self.headerHeight - 4)];
+    
+    [self.moduleView setOrigin: NSMakePoint(4, self.headerHeight)];
+//
+    [self addSubview: self.moduleView];
+    
     self.label = [[uiEditText alloc] initWithString: self.labelText andMaxLength:14 andLabelLength:0];
     [self.label setIsEditable: YES];
     [self.label setOrigin:NSMakePoint(4, 4)];
@@ -97,9 +103,6 @@
     NSBezierPath* headerPath = [NSBezierPath new];
     NSBezierPath* fgPath = [NSBezierPath new];
     
-    int strokeWidth = 4;
-    int halfStrokeWidth = strokeWidth / 2;
-    
     if(self.selected == YES) {
         [[global sharedGlobalData].activeColor set];
     } else {
@@ -134,8 +137,9 @@
     //    int height = notification.object.Size.height;
     NSLog(@"Window resize: %@", notification);
     NSWindow *win = notification.object;
-    
     [self resizeHeight: win.frame.size.height];
+    [self.moduleView resizeHeight: self.height - self.headerHeight - 4];
+    [self.moduleView.scrollBar resizeHeight: self.height - self.headerHeight - 4];
 }
 
 -(void)resizeHeight:(int)newHeight {
@@ -161,7 +165,7 @@
 
 -(void)mouseDown:(NSEvent *)theEvent {
 //    NSLog(@"Slected");
-//    [[NSNotificationCenter defaultCenter] postNotificationName:@"deselectAll" object:self userInfo: nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"deselectAll" object:self userInfo: nil];
 //    [[NSNotificationCenter defaultCenter] postNotificationName:@"closeOpen" object:self userInfo: nil];
 //    self.selected = YES;
 //    [self setNeedsDisplay:YES];

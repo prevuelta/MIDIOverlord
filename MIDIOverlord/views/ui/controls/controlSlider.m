@@ -35,7 +35,7 @@ int baseMarker;
     _marker = [_value intValue];
                 
     _textVal = [[uiText alloc] initWithString: [NSString stringWithFormat:@"%03d", [_value intValue]]];
-    [_textVal setOrigin:NSMakePoint(RACK_WIDTH - 33, 2)];
+    [_textVal setOrigin:NSMakePoint(RACK_WIDTH - 38 - SCROLLER_WIDTH, 2)];
     
     uiText *label = [[uiText alloc] initWithString: @"Resonance" andMaxLength: 6 andLabelLength: 2];
     

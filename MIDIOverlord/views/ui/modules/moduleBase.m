@@ -21,7 +21,7 @@
     self = [super initWithFrame:frame];
     if (!self) return nil;
     
-    self.width = RACK_WIDTH - 8;
+    self.width = RACK_WIDTH - 8 - SCROLLER_WIDTH;
     
     self.selected = NO;
     self.editMode = NO;

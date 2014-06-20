@@ -14,6 +14,8 @@
 		6E7C564218ED04C10002F09B /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7C564118ED04C10002F09B /* Cocoa.framework */; };
 		6E7C564518ED04E60002F09B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7C564318ED04C60002F09B /* Foundation.framework */; };
 		6E8A23C51951205000745214 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E8A23C41951205000745214 /* logo.png */; };
+		6E8DEB571953F60A0013CF96 /* scrollableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8DEB561953F60A0013CF96 /* scrollableView.m */; };
+		6E8DEB5A1953FB4F0013CF96 /* controlScrollBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8DEB591953FB4F0013CF96 /* controlScrollBar.m */; };
 		6EC836CF194AF7E400266F60 /* uiButtonClose.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC836CE194AF7E400266F60 /* uiButtonClose.m */; };
 		6ECD89F61946BE7400CCBE97 /* uiButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECD89F21946BE7400CCBE97 /* uiButton.m */; };
 		6ECD89F71946BE7400CCBE97 /* uiText.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECD89F41946BE7400CCBE97 /* uiText.m */; };
@@ -71,6 +73,10 @@
 		6E7C564118ED04C10002F09B /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		6E7C564318ED04C60002F09B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6E8A23C41951205000745214 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		6E8DEB551953F60A0013CF96 /* scrollableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = scrollableView.h; sourceTree = "<group>"; };
+		6E8DEB561953F60A0013CF96 /* scrollableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = scrollableView.m; sourceTree = "<group>"; };
+		6E8DEB581953FB4F0013CF96 /* controlScrollBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = controlScrollBar.h; sourceTree = "<group>"; };
+		6E8DEB591953FB4F0013CF96 /* controlScrollBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = controlScrollBar.m; sourceTree = "<group>"; };
 		6EC836CD194AF7E400266F60 /* uiButtonClose.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = uiButtonClose.h; path = MIDIOverlord/views/ui/elements/uiButtonClose.h; sourceTree = SOURCE_ROOT; };
 		6EC836CE194AF7E400266F60 /* uiButtonClose.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = uiButtonClose.m; path = MIDIOverlord/views/ui/elements/uiButtonClose.m; sourceTree = SOURCE_ROOT; };
 		6ECD89F11946BE7400CCBE97 /* uiButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uiButton.h; sourceTree = "<group>"; };
@@ -260,6 +266,8 @@
 		6EE445491936C86100C61171 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				6E8DEB551953F60A0013CF96 /* scrollableView.h */,
+				6E8DEB561953F60A0013CF96 /* scrollableView.m */,
 				6ECD89EE1946BE7400CCBE97 /* elements */,
 				6EE4454A1936C86100C61171 /* controls */,
 				6EE445591936C86100C61171 /* modules */,
@@ -287,6 +295,8 @@
 				6EE445521936C86100C61171 /* controlSlider.m */,
 				6EE445551936C86100C61171 /* controlTrigger.h */,
 				6EE445561936C86100C61171 /* controlTrigger.m */,
+				6E8DEB581953FB4F0013CF96 /* controlScrollBar.h */,
+				6E8DEB591953FB4F0013CF96 /* controlScrollBar.m */,
 				6EE445571936C86100C61171 /* deviceList.h */,
 				6EE445581936C86100C61171 /* deviceList.m */,
 			);
@@ -421,6 +431,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6EE445851936C86100C61171 /* rackBase.m in Sources */,
+				6E8DEB571953F60A0013CF96 /* scrollableView.m in Sources */,
 				6EE4457A1936C86100C61171 /* appView.m in Sources */,
 				6EE4457B1936C86100C61171 /* controlBase.m in Sources */,
 				6EE4457D1936C86100C61171 /* controlOption.m in Sources */,
@@ -441,6 +452,7 @@
 				6ECD89F71946BE7400CCBE97 /* uiText.m in Sources */,
 				6EE445871936C86100C61171 /* uiApp.m in Sources */,
 				6EE4456D1936C86100C61171 /* eventHandler.m in Sources */,
+				6E8DEB5A1953FB4F0013CF96 /* controlScrollBar.m in Sources */,
 				6EE445841936C86100C61171 /* moduleSlider.m in Sources */,
 				6E3126A5194C4D9F00D65716 /* uiEditText.m in Sources */,
 				6EE445741936C86100C61171 /* main.m in Sources */,

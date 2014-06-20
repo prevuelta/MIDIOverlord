@@ -51,6 +51,10 @@
 }
 
 -(void)resizeHeight:(int)newHeight {
+    NSRect f = self.frame;
+    f.size.height = newHeight;
+    [self setFrame:f];
+    [self setNeedsDisplay:YES];
 }
 
 -(void)resizeWidth:(int)newWidth {

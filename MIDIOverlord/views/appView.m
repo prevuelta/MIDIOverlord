@@ -88,7 +88,7 @@
         
         [rack setOrigin:NSMakePoint(rI * (RACK_WIDTH + 4) + 4, TOOLBAR_HEIGHT + 4)];
         
-        int yLoc = rack.headerHeight;
+        int yLoc = 0;
         
         for(int mI = 0; mI < [data[@"moduleLayout"] count]; mI++) {
             
@@ -104,13 +104,11 @@
             
             [module setEditMode: _editMode];
             
-            [module setOrigin: NSMakePoint(4, yLoc)];
+            [module setOrigin: NSMakePoint(0, yLoc)];
             
             module.delegate = rack;
             
-            rack.modalHeight += module.height;
-            
-            [rack addSubview: module];
+            [rack.moduleView addSubview: module];
             
             yLoc += module.height;
             

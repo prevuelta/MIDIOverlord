@@ -8,6 +8,7 @@
 
 #import "uiBase.h"
 #import "moduleBase.h"
+#import "scrollableView.h"
 #import "deviceList.h"
 #import "uiEditText.h"
 
@@ -34,10 +35,8 @@
 @property int width;
 @property int height;
 
-@property int modalHeight;
-
-// Display options
-@property NSInteger tag;
+// Display
+@property scrollableView *moduleView;
 
 // UI
 @property uiEditText *label;

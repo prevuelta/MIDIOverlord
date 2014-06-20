@@ -16,7 +16,7 @@
     
     int height = 38;
     
-    NSRect frame = NSMakeRect(0, 0, RACK_WIDTH, height);
+    NSRect frame = NSMakeRect(0, 0, RACK_WIDTH - SCROLLER_WIDTH, height);
     
     self = [super initWithFrame:frame];
     
@@ -53,7 +53,7 @@
     
     uiButtonClose *removeBtn = [[uiButtonClose alloc] initWithSize: 8];
     [removeBtn setEvent:@"removeModule" withData: @{@"rackID": self.data[@"rackID"], @"moduleID" : self.data[@"moduleID"]}];
-    [removeBtn setOrigin: NSMakePoint(RACK_WIDTH - 20, 0)];
+    [removeBtn setOrigin: NSMakePoint(RACK_WIDTH - 20 - SCROLLER_WIDTH, 0)];
     [removeBtn setInEditView:YES];
     
     [self addSubview: removeBtn];
