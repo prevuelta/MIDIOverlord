@@ -21,6 +21,8 @@
     
     self.inEditView = NO;
     
+    self.isFlipped = NO;
+    
     return self;
 }
 
@@ -37,6 +39,9 @@
     [self setFrame:f];
 }
 
+-(BOOL)isFlipped {
+    return _isFlipped;
+}
 
 -(void)deselect:(NSNotification*)notification  {
     _selected = NO;

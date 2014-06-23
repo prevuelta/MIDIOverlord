@@ -14,7 +14,11 @@
 
 @property int heightOfSubviews;
 @property controlScrollBar *scrollBar;
+@property uiBase *clippedView;
 
--(void)addScrollBar;
+-(void)activateScrollBar;
+-(void)deactivateScrollBar;
+
+-(void)addModuleView:(uiBase*)aView;
 
 @end
