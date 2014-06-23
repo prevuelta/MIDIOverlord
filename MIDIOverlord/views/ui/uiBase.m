@@ -26,8 +26,15 @@
     return self;
 }
 
-- (void)drawRect:(NSRect)dirtyRect
-{
+-(float)frameHeight {
+    return self.frame.size.height;
+}
+
+-(float)originY {
+    return self.frame.origin.y;
+}
+
+- (void)drawRect:(NSRect)dirtyRect{
     [super drawRect:dirtyRect];
     
     // Drawing code here.

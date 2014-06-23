@@ -20,7 +20,11 @@
 }
 
 -(void)drawRect:(NSRect)dirtyRect {
-    [[NSColor redColor] setFill];
+    if(!self.active) {
+        [[global sharedGlobalData].defaultColor setFill];
+    } else {
+        [[NSColor redColor] setFill];
+    }
     NSRectFill(dirtyRect);
     [super drawRect:dirtyRect];
 }

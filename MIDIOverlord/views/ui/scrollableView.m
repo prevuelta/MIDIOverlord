@@ -19,7 +19,7 @@
     
     _heightOfSubviews = 0;
     
-    _clippedView = [[uiBase alloc] initWithFrame: frame];
+    _clippedView = [[uiBase alloc] initWithFrame: NSMakeRect(0, 0, frame.size.width, 0)];
     
     _clippedView.isFlipped = YES;
     
@@ -34,6 +34,20 @@
     return self;
 }
 
+-(void)resizeHeight:(int)newHeight {
+    [super resizeHeight:newHeight];
+    [self checkScroll];
+}
+
+-(void)checkScroll {
+    if(_clippedView.frameHeight > self.frameHeight ||
+       _clippedView.frame.origin.y < 0 ) {
+        [self activateScrollBar];
+    } else {
+        [self deactivateScrollBar];
+    }
+}
+
 -(void)addModuleView:(NSView*)aView {
     [_clippedView addSubview: aView];
     _heightOfSubviews += aView.frame.size.height;
@@ -41,17 +55,16 @@
     [_clippedView resizeHeight: _heightOfSubviews];
     
     if(_heightOfSubviews > self.frame.size.height) {
-        //        [self addScrollbar];
-        NSLog(@"Adding scrollbar");
+        [self checkScroll];
     }
 }
 
 -(void)activateScrollBar {
-    
+    self.scrollBar.active = YES;
 }
 
 -(void)deactivateScrollBar {
-    
+    self.scrollBar.active = NO;
 }
 
 -(void)drawRect:(NSRect)dirtyRect {
@@ -60,22 +73,44 @@
     [super drawRect:dirtyRect];
 }
 
--(void)setOrigin:(NSPoint)origin {
-    [super setOrigin:origin];
-    self.originalLocation = origin;
-}
-
 - (void)scrollWheel:(NSEvent *)event {
     NSLog(@"Event: %@", [NSNumber numberWithFloat:event.deltaY]);
-    int newLocY = self.clippedView.frame.origin.y + (int)event.deltaY;
-    if(_clippedView.frame.size.height > self.frame.size.height ||
-       _clippedView.frame.origin.y < 0 ) {
-        if(event.deltaY >= 0) {
-            
-        } else {
+    
+    NSLog(@"Event deltaY: %@ FH: %@, CVFH: %@, CPO: %@",
+          [NSNumber numberWithFloat: event.deltaY],
+          [NSNumber numberWithFloat: self.frameHeight],
+          [NSNumber numberWithFloat: self.clippedView.frameHeight],
+          [NSNumber numberWithFloat: self.clippedView.frame.origin.y]);
+    
+//    if(self.clippedView.frame.origin.y <= 0 &&
+//        [self.clippedView frameHeight] > [self frameHeight] &&
+//       self.clippedView.frame.origin.y < -([self frameHeight] - [self.clippedView frameHeight]) ) {
+    
+    BOOL scrollUp = event.deltaY > 0 ? YES : NO;
+    BOOL scrollActive = self.scrollBar.active;
+    BOOL topAnchorReached = (self.clippedView.originY + event.deltaY) > 0 ? YES : NO;
+    BOOL bottomAnchorReached = (self.clippedView.originY + self.clippedView.frameHeight + event.deltaY) < self.frameHeight ? YES : NO;
+    
+    NSLog(@"%@, %@", [NSNumber numberWithBool: topAnchorReached], [NSNumber numberWithBool: bottomAnchorReached]);
+    
+    if(scrollActive) {
+        if(!topAnchorReached && !bottomAnchorReached ) {
+            float newLocY = self.clippedView.frame.origin.y + event.deltaY;
             [self.clippedView setOrigin:NSMakePoint(0, newLocY)];
         }
     }
+    
+//    if(self.scrollBar.active) {
+//        float newLocY = self.clippedView.frame.origin.y + event.deltaY;
+//        if(self.clippedView.frame.origin.y <= 0 && event.deltaY < 0) {
+//            NSLog(@"Scrolling up");
+//            [self.clippedView setOrigin:NSMakePoint(0, newLocY)];
+//        }
+//        if((self.clippedView.frame.origin.y + self.clippedView.frameHeight) > self.frameHeight) {
+//             NSLog(@"Scrolling Down");
+//            [self.clippedView setOrigin:NSMakePoint(0, newLocY)];
+//        }
+//    }
 }
 
 @end
