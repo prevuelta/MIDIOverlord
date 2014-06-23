@@ -109,7 +109,7 @@
             
             module.delegate = rack;
             
-            [rack.moduleView addSubview: module];
+            [rack.moduleView addModuleView: module];
             
             yLoc += module.height;
             
