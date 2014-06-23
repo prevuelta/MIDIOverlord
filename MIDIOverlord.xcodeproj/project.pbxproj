@@ -32,7 +32,6 @@
 		6EE445731936C86100C61171 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EE4453D1936C86100C61171 /* Images.xcassets */; };
 		6EE445741936C86100C61171 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE4453E1936C86100C61171 /* main.m */; };
 		6EE445751936C86100C61171 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EE4453F1936C86100C61171 /* MainMenu.xib */; };
-		6EE445761936C86100C61171 /* MIDIOverlord-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6EE445401936C86100C61171 /* MIDIOverlord-Info.plist */; };
 		6EE445771936C86100C61171 /* default.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EE445431936C86100C61171 /* default.png */; };
 		6EE445781936C86100C61171 /* skin.json in Resources */ = {isa = PBXBuildFile; fileRef = 6EE445441936C86100C61171 /* skin.json */; };
 		6EE445791936C86100C61171 /* stateDEMO.json in Resources */ = {isa = PBXBuildFile; fileRef = 6EE445451936C86100C61171 /* stateDEMO.json */; };
@@ -371,7 +370,7 @@
 		6E5A63DB184417F600C1CD8E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Midnight City";
 				TargetAttributes = {
 					6E5A6403184417F700C1CD8E = {
@@ -404,7 +403,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6EE445731936C86100C61171 /* Images.xcassets in Resources */,
-				6EE445761936C86100C61171 /* MIDIOverlord-Info.plist in Resources */,
 				6EE445711936C86100C61171 /* Credits.rtf in Resources */,
 				6EE445721936C86100C61171 /* InfoPlist.strings in Resources */,
 				6EDA87C5194E77B7007BB3C8 /* patternBg.gif in Resources */,

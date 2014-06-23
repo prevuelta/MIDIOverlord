@@ -27,6 +27,8 @@
     _globalUI = [[uiApp alloc ] initWithFrame: NSMakeRect(0, 0, self.frame.size.width, TOOLBAR_HEIGHT )];
     [self addSubview:_globalUI];
     
+
+    
     // Set grey background
     float greyVal = 0.70;
     NSColor *grey = [NSColor colorWithDeviceRed:greyVal green:greyVal blue:greyVal alpha: (float)1];
@@ -41,7 +43,6 @@
     
     return self;
 }
-
 
 -(void)windowResizeHandler:(NSNotification*)notification {
 //    int height = notification.object.Size.height;

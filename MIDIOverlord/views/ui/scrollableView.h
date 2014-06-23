@@ -14,6 +14,7 @@
 
 @property int heightOfSubviews;
 @property controlScrollBar *scrollBar;
+@property NSPoint originalLocation;
 
 -(void)addScrollBar;
 

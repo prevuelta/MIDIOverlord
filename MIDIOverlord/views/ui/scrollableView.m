@@ -17,7 +17,8 @@
     
     _heightOfSubviews = 0;
     
-    NSview = 
+    _originalLocation = NSZeroPoint;
+    NSView clippedView=
     
     _scrollBar = [[controlScrollBar alloc] initWithFrame: NSMakeRect(0, 0, SCROLLER_WIDTH, frame.size.height)];
     
@@ -51,10 +52,18 @@
     [super drawRect:dirtyRect];
 }
 
+-(void)setOrigin:(NSPoint)origin {
+    [super setOrigin:origin];
+    self.originalLocation = origin;
+}
+
 - (void)scrollWheel:(NSEvent *)event {
     NSLog(@"Event: %@", [NSNumber numberWithFloat:event.deltaY]);
     int newLocY = self.frame.origin.y + (int)event.deltaY;
-    [self setOrigin:NSMakePoint(0, newLocY)];
+    if(newLocY > self.originalLocation.y) {
+        [self setOrigin:NSMakePoint(4, newLocY)];
+        
+    }
 }
 
 @end
