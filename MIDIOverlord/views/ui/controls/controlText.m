@@ -10,86 +10,85 @@
 
 @implementation controlText
 
-@synthesize edit = _edit;
+
+int baseY;
+
+@synthesize value = _value;
 
 - (id)initWithString: (NSString*)stringValue {
     
     _stringValue = stringValue;
     _label = [[uiText alloc] initWithString: stringValue];
     
-    NSRect frame = NSMakeRect(0, 0, _label.frame.size.width + 24, 12);
+    NSRect frame = NSMakeRect(0, 0, _label.frame.size.width + 26, 16);
     
     self = [super initWithFrame: frame];
     
     if (!self) return nil;
 
+    uiButton *increase = [[uiButton alloc] initWithSize: 12];
+    uiButton *decrease = [[uiButton alloc] initWithSize: 12];
+    
+    [increase setOrigin:NSMakePoint(_label.frame.size.width, 2)];
+    [decrease setOrigin:NSMakePoint(_label.frame.size.width + 14, 2)];
+    
+    [self addSubview: increase];
+    [self addSubview: decrease];
     
     [self addSubview: _label];
     
     return self;
 }
 
--(BOOL)edit {
-    return _edit;
-}
-
--(void)setEdit:(BOOL)edit {
-    NSLog(@"setting edit");
-    _edit = edit;
-    [self setNeedsDisplay:YES];
-}
-
 - (void)drawRect:(NSRect)dirtyRect {
+    
+    [[global sharedGlobalData].markerColor setStroke];
+    
+    NSRectFill(dirtyRect);
+    
 	[super drawRect:dirtyRect];
 	
-    if(self.edit) {
-        [[global sharedGlobalData].activeColor setStroke];
-    
+    [[global sharedGlobalData].activeColor setStroke];
+
 //        NSRectStroke(dirtyRect);
-        
-//        NSRectStroke(1);
     
-        [super drawRect:NSMakeRect(0, 0, 20, 20)];
-    }
+//        NSRectStroke(1);
+
+//    [super drawRect:NSMakeRect(0, 0, 20, 20)];
+
     // Drawing code here.
 }
 
-//-(int)value {
-//    return _value;
-//}
-//
-//-(void)setValue: (int)value {
-//    if(value >= 0 && value <= _max) {
-//        _value = value;
-//        [self setNeedsDisplay:YES];
-//    }
-//}
-
--(void)mouseDown:(NSEvent *)e {
-    [self setEdit:YES];
-    //    if(self.editable) {
-//        NSPoint location = [self convertPoint:[e locationInWindow] fromView:nil];
-////        baseY = location.y;
-//        [self setActive: YES];
-//    }
+-(int)value {
+    return _value;
 }
 
-- (void)mouseDragged:(NSEvent*)e {
-    if(self.active){
-        NSPoint location = [self convertPoint:[e locationInWindow] fromView:nil];
-        NSLog(@"%@", [NSNumber numberWithInt: location.y ]);
-        //        int newValue = location.y > baseY ? _value + 1 : _value - 1;/
-//        int newValue = _value + (location.y - baseY);
-//        NSLog(@"%@", [NSNumber numberWithInt:_value]);
-//        [self setValue: newValue];
-//        baseY = location.y;
+
+-(void)setValue: (int)value {
+    if(value >= 0 && value <= _max) {
+        _value = value;
+        [self.label setStringValue: [NSString stringWithFormat:@"CC%@", [NSNumber numberWithInt: value]]];
+        [self setNeedsDisplay:YES];
     }
 }
 
+-(void)mouseDown:(NSEvent *)e {
+    NSPoint location = [self convertPoint:[e locationInWindow] fromView:nil];
+    baseY = location.y;
+}
+
+- (void)mouseDragged:(NSEvent*)e {
+        NSPoint location = [self convertPoint:[e locationInWindow] fromView:nil];
+        NSLog(@"%@", [NSNumber numberWithInt: location.y ]);
+//        int newValue = location.y > baseY ? _value + 1 : _value - 1;
+        int newValue = _value + (location.y - baseY);
+        NSLog(@"%@", [NSNumber numberWithInt:_value]);
+        [self setValue: newValue];
+        baseY = location.y;
+}
+
 -(void)mouseUp:(NSEvent *)e {
-//    if(self.editable) {
-//        self.active = false;
-//    }
+
 }
 
 

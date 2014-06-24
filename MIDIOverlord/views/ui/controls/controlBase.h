@@ -10,6 +10,7 @@
 #import "utilities.h"
 #import "uiText.h"
 #import "global.h"
+#import "uiButton.h"
 
 @interface controlBase : uiBase
 

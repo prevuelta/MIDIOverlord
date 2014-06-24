@@ -30,9 +30,11 @@
     
     controlText *midiV2Control = [[controlText alloc] initWithString: @"CC000"];
     
-    [midiV2Control setOrigin:NSMakePoint(0, 0)];
+    [midiV2Control setOrigin:NSMakePoint(2, 2)];
     
     [midiV2Control setInEditView:YES];
+    
+    [midiV2Control setMax:127];
     
     [self addSubview: midiV2Control];
     

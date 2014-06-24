@@ -40,8 +40,7 @@
 }
 
 -(void)checkScroll {
-    if(_clippedView.frameHeight > self.frameHeight ||
-       _clippedView.frame.origin.y < 0 ) {
+    if(_clippedView.frameHeight > self.frameHeight) {
         [self activateScrollBar];
     } else {
         [self deactivateScrollBar];
@@ -64,6 +63,7 @@
 }
 
 -(void)deactivateScrollBar {
+    [self.clippedView setOrigin:NSZeroPoint];
     self.scrollBar.active = NO;
 }
 
@@ -95,7 +95,7 @@
     
     if(scrollActive) {
         if(!topAnchorReached && !bottomAnchorReached ) {
-            float newLocY = self.clippedView.frame.origin.y + event.deltaY;
+            int newLocY = self.clippedView.frame.origin.y + event.deltaY;
             [self.clippedView setOrigin:NSMakePoint(0, newLocY)];
         }
     }
