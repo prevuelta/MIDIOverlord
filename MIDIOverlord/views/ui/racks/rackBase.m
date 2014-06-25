@@ -160,7 +160,7 @@
 -(void)moduleUpdateWithData: (NSDictionary*)data {
 //    NSLog(@"Send Notification: %@", data);
     [[NSNotificationCenter defaultCenter] postNotificationName:@"moduleUpdate" object:self userInfo: @{@"rackID": self.rackID, @"data": data}];
-    NSLog(@"Rack data %@", self.data);
+//    NSLog(@"Rack data %@", self.data);
 }
 
 -(void)mouseDown:(NSEvent *)theEvent {

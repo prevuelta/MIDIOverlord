@@ -13,6 +13,8 @@
 @property BOOL isEditable;
 @property BOOL isEditing;
 
+@property NSString *tempString;
+
 -(void)handleDoubleClick:(NSEvent *)e;
 -(void)addCharacter:(NSString*)letter;
 -(void)removeCharacter;

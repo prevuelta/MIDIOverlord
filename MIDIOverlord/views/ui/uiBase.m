@@ -30,6 +30,10 @@
     return self.frame.size.height;
 }
 
+-(float)frameWidth {
+    return self.frame.size.width;
+}
+
 -(float)originY {
     return self.frame.origin.y;
 }

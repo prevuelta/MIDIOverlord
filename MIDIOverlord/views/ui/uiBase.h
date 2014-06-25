@@ -29,6 +29,7 @@
 -(void)resizeWidth:(int)newWidth;
 
 -(float)frameHeight;
+-(float)frameWidth;
 -(float)originY;
 
 @end

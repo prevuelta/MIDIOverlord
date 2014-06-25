@@ -62,8 +62,12 @@ int baseMarker;
     
 }
 
+-(NSNumber*)value {
+    return _value;
+}
+
 -(void)setValue:(NSNumber*)value {
-    [self.textVal setStringValue: [NSString stringWithFormat:@"%03d", [value intValue]]];
+    [self.textVal setStringValue: [NSString stringWithFormat:@"%3@", value]];
     _value = value;
    
 }
@@ -77,9 +81,7 @@ int baseMarker;
     _marker = marker;
 }
 
--(NSNumber*)value {
-    return _value;
-}
+
 
 -(void)mouseDown:(NSEvent *)e {
     [global deselectNotify];

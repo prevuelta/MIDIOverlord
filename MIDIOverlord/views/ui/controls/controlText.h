@@ -16,7 +16,7 @@
 
 @property int min;
 @property int max;
-@property int value;
+@property NSNumber *value;
 
 -(id)initWithString: (NSString*)stringValue;
 

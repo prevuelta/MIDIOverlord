@@ -10,7 +10,7 @@
 
 @implementation modulePad
 
-@synthesize midiV1= _midiV1;
+@synthesize midiStatusByte= _midiStatusByte;
 
 -(id)initWithData: (NSMutableDictionary*)data{
     
@@ -25,10 +25,6 @@
     self.height = height;
     
     self.data = data;
-    
-    [self addCCField];
-    
-    _midiV1 = @122;
     
     int size = 32;
     

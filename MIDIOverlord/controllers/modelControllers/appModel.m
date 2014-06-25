@@ -118,17 +118,21 @@
     NSMutableDictionary* module = [@{
         @"moduleID" : rack[@"moduleID"],
         @"rackID"   : rackID,
-        @"label" : @"Untitled",
+        @"label" : @"Module Label",
         @"type" : type,
-        @"value" : @0
+        @"midiByte1" : @0,
+        @"midiByte2" : @0,
         } mutableCopy];
     
     switch([type intValue]) {
         case 1 :
+            module[@"midiStatusByte1"] = @176;
+            module[@"midiStatusByte2"] = @176;
             break;
         case 2 :
             module[@"min"] = @0;
             module[@"max"] = @127;
+            module[@"midiStatusByte"] = @176;
         break;
     }
     
@@ -163,40 +167,9 @@
     NSDictionary* userInfo = notification.userInfo;
     
     NSNumber *moduleID = userInfo[@"data"][@"moduleID"];
-    
-    NSLog(@"Module id: %@", moduleID);
-    
+
     [_rackData[userInfo[@"rackID"]][@"modules"] setObject: userInfo[@"data"] forKey: moduleID];
-    
-    NSLog(@"Updated rack data; %@", _rackData[userInfo[@"rackID"]][@"modules"]);
+
 }
-
-
-//-(NSMutableArray*)getRackModules: (int)layoutIndex {
-//    
-//    NSMutableArray* modules = [NSMutableArray new];
-//
-//    for(id index in _layout[layoutIndex]) {
-//        [modules addObject:_moduleData[index]];
-    
-        
-//        NSMutableDictionary *module = _moduleData[index];
-//        NSLog(@"Module: %@", module);
-//        NSNumber *ID = [module objectForKey:@"ID"];
-//        
-//        NSLog(@"%@, %@", _layout[layoutIndex], ID);
-//        NSLog([_layout[layoutIndex] containsObject: ID] ? @"YES" : @"NO");
-        
-//        if([_layout[layoutIndex] indexOfObject: ID]) {
-//            [modules addObject:module];
-//            NSLog(@"Done added module");
-//        }
-//    }
-
-//    NSLog(@"Mdousldsd: %@", modules);
-    
-//    return modules;
-//
-//}
 
 @end

@@ -15,7 +15,7 @@
 @synthesize data = _data;
 @synthesize editMode = _editMode;
 
-@synthesize midiV3 = _midiV3;
+@synthesize midiByte2 = _midiByte2;
 
 -(id)initWithFrame:(NSRect)frame {
     self = [super initWithFrame:frame];
@@ -31,19 +31,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleEditMode:) name:@"editMode" object:nil];
     
     return self;
-}
-
--(void)addCCField {
-//    controlText *midiValueText = [[controlText alloc] initWithFrame: _midiV2 andLabel: @"CC" andMaxVal:127];
-    
-//    [midiValueText setOrigin:NSMakePoint(0, 12)];
-    
-//    [midiValueText setEditable:YES];
-    
-//    [self bind:@"midiV2" toObject:midiValueText withKeyPath:@"value" options:nil];
-    
-//    [self addSubview:midiValueText];
-
 }
 
 -(NSMutableDictionary*)data {
@@ -126,12 +113,12 @@
     _labelText = labelText;
 }
 
--(NSNumber*)midiV3 {
-    return _midiV3;
+-(NSNumber*)midiByte2 {
+    return _midiByte2;
 }
 
--(void)setMidiV3:(NSNumber*)midiV3 {
-    _midiV3 = midiV3;
+-(void)setMidiByte2:(NSNumber*)midiByte2 {
+    _midiByte2 = midiByte2;
 }
 
 -(void)updateModel {

@@ -23,6 +23,8 @@
     self.eventData = @{};
     self.isToggle = NO;
     
+    _iconPoints = @[];
+    
     return self;
 }
 
@@ -38,9 +40,18 @@
     [btnPath appendBezierPathWithRoundedRect:dirtyRect xRadius: 2 yRadius:2];
   
     [btnPath fill];
+  
+    NSBezierPath *iconPath = [NSBezierPath new];
+
+    for(int i = 0; i < [_iconPoints count]; i++) {
+        if(i == 0) {
+            [iconPath moveToPoint:NSMakePoint(_iconPoints[0], _iconPoints[1])];
+        }
+        if(i % 2 == 0) {
+//            []
+        }
+    }
     
-//    NSRectFill(dirtyRect);
-//	[super drawRect:NSMakeRect(0, 0, _width, _height)];
 }
 
 -(void)setEvent:(NSString*)event withData:(NSDictionary*)data {

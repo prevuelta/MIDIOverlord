@@ -45,9 +45,9 @@
 @property int gridY;
 
 // Midi properties
-@property NSNumber *midiV1;
-@property NSNumber *midiV2;
-@property NSNumber *midiV3;
+@property NSNumber *midiStatusByte;
+@property NSNumber *midiByte1;
+@property NSNumber *midiByte2;
 
 // Display options
 @property NSInteger tag;

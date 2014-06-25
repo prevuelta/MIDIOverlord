@@ -36,6 +36,16 @@
     
     if(self.isEditing) {
         NSBezierPath *outline = [NSBezierPath new];
+        NSBezierPath *cursor = [NSBezierPath new];
+        
+        int offset1 = (self.charSizeX * self.charCount) + self.padding ;
+        int offset2 = (self.charSizeX * (self.charCount+1)) + self.padding - self.letterSpacing;
+        
+        [cursor moveToPoint: NSMakePoint(offset1, 2)];
+        [cursor lineToPoint: NSMakePoint(offset2, 2)];
+        [cursor lineToPoint: NSMakePoint(offset2, 3)];
+        [cursor lineToPoint: NSMakePoint(offset1, 3)];
+        
         
         [outline moveToPoint:NSZeroPoint];
         [outline lineToPoint:NSMakePoint(self.frame.size.width, 0)];
@@ -50,6 +60,7 @@
         
         [[global sharedGlobalData].activeColor set];
         [outline fill];
+        [cursor fill];
     }
 }
 
@@ -61,16 +72,12 @@
 -(void)handleDoubleClick:(NSEvent *)e {
     [global deselectNotify];
     NSLog(@"Editing textg");
+    _tempString = self.stringValue;
     self.stringValue = @"";
+
     [self setIsEditing: YES];
     [self setNeedsDisplay: YES];
-//    [global setFirstResponder: self];
     [self.window makeFirstResponder: self];
-    //    if(self.editable) {
-    //        NSPoint location = [self convertPoint:[e locationInWindow] fromView:nil];
-    ////        baseY = location.y;
-    //        [self setActive: YES];
-    //    }
 }
 
 - (BOOL)acceptsFirstResponder {
@@ -118,6 +125,9 @@
     [self.window makeFirstResponder:nil];
     [self setIsEditing: NO];
     self.textColor = [global sharedGlobalData].markerColor;
+    if([self.stringValue isEqual:@""]) {
+        self.stringValue = _tempString;
+    }
     [self setNeedsDisplay:YES];
 }
 

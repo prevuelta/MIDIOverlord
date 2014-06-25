@@ -59,15 +59,15 @@ int baseY;
     // Drawing code here.
 }
 
--(int)value {
+-(NSNumber*)value {
     return _value;
 }
 
 
--(void)setValue: (int)value {
-    if(value >= 0 && value <= _max) {
+-(void)setValue: (NSNumber*)value {
+    if([value intValue] >= 0 && [value intValue] <= _max) {
         _value = value;
-        [self.label setStringValue: [NSString stringWithFormat:@"CC%@", [NSNumber numberWithInt: value]]];
+        [self.label setStringValue: [NSString stringWithFormat:@"CC%@", value]];
         [self setNeedsDisplay:YES];
     }
 }
@@ -79,11 +79,11 @@ int baseY;
 
 - (void)mouseDragged:(NSEvent*)e {
         NSPoint location = [self convertPoint:[e locationInWindow] fromView:nil];
-        NSLog(@"%@", [NSNumber numberWithInt: location.y ]);
+//        NSLog(@"%@", [NSNumber numberWithInt: location.y ]);
 //        int newValue = location.y > baseY ? _value + 1 : _value - 1;
-        int newValue = _value + (location.y - baseY);
-        NSLog(@"%@", [NSNumber numberWithInt:_value]);
-        [self setValue: newValue];
+        int newValue = [_value intValue] + (location.y - baseY);
+        NSLog(@"%@", _value);
+        [self setValue: [NSNumber numberWithInt:newValue]];
         baseY = location.y;
 }
 
