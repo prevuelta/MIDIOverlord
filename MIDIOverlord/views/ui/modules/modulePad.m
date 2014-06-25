@@ -53,7 +53,7 @@
     
     uiButtonClose *removeBtn = [[uiButtonClose alloc] initWithSize: 8];
     [removeBtn setEvent:@"removeModule" withData: @{@"rackID": self.data[@"rackID"], @"moduleID" : self.data[@"moduleID"]}];
-    [removeBtn setOrigin: NSMakePoint(RACK_WIDTH - 20 - SCROLLER_WIDTH, 0)];
+    [removeBtn setOrigin: NSMakePoint(RACK_WIDTH - 20 - SCROLLER_WIDTH, 2)];
     [removeBtn setInEditView:YES];
     
     [self addSubview: removeBtn];

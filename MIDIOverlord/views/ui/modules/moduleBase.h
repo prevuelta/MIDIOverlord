@@ -16,6 +16,7 @@
 #import "controlText.h"
 #import "deviceList.h"
 #import "uiText.h"
+#import "uiEditText.h"
 #import "utilities.h"
 #import "uiButton.h"
 #import "uiButtonClose.h"

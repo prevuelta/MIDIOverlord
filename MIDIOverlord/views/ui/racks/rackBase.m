@@ -138,8 +138,8 @@
     NSLog(@"Window resize: %@", notification);
     NSWindow *win = notification.object;
     [self resizeHeight: win.frame.size.height];
-    [self.moduleView resizeHeight: self.height - self.headerHeight - 8];
-    [self.moduleView.scrollBar resizeHeight: self.height - self.headerHeight - 8];
+    [self.moduleView resizeHeight: self.height - self.headerHeight - 4];
+    [self.moduleView.scrollBar resizeHeight: self.height - self.headerHeight - 4];
 }
 
 -(void)resizeHeight:(int)newHeight {

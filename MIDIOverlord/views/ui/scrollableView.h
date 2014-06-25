@@ -20,5 +20,7 @@
 -(void)deactivateScrollBar;
 
 -(void)addModuleView:(uiBase*)aView;
+-(void)checkClippedViewPosition;
+-(void)anchorClippedViewToBottom;
 
 @end

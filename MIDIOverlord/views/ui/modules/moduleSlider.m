@@ -16,7 +16,7 @@
 -(id)initWithData:(NSMutableDictionary*)data{
     
     self.value = 0;
-    self.height = 21;
+    self.height = 40;
 
     self = [super initWithFrame:NSMakeRect(0, 0, RACK_WIDTH - SCROLLER_WIDTH, self.height)];
     
@@ -52,6 +52,14 @@
 
     [self setData: data];
     
+    uiEditText *label = [[uiEditText alloc] initWithString: @"Resonance" andMaxLength: 6 andLabelLength: 0];
+    
+    [label setOrigin:NSMakePoint(2, 22)];
+    
+    [self bind:@"labelText" toObject:label withKeyPath:@"stringValue" options:nil];
+    
+    [self addSubview:label];
+    
     uiButtonClose *removeBtn = [[uiButtonClose alloc] initWithSize: 8];
     [removeBtn setEvent:@"removeModule" withData: @{@"rackID": self.data[@"rackID"], @"moduleID" : self.data[@"moduleID"]}];
     [removeBtn setOrigin: NSMakePoint(RACK_WIDTH - 20 - SCROLLER_WIDTH, 6)];
@@ -64,17 +72,17 @@
 
 -(void)drawModule:(NSRect)rect {
 
-    NSBezierPath *bgPath = [NSBezierPath new];
+//    NSBezierPath *bgPath = [NSBezierPath new];
     
-    [bgPath moveToPoint: NSZeroPoint];
-    [bgPath lineToPoint: NSMakePoint(self.width, 0)];
-    [bgPath lineToPoint: NSMakePoint(self.width, 1)];
-    [bgPath lineToPoint: NSMakePoint(0, 1)];
+//    [bgPath moveToPoint: NSZeroPoint];
+//    [bgPath lineToPoint: NSMakePoint(self.width, 0)];
+//    [bgPath lineToPoint: NSMakePoint(self.width, 1)];
+//    [bgPath lineToPoint: NSMakePoint(0, 1)];
 
-     [bgPath closePath];
+//     [bgPath closePath];
     
-    [[global sharedGlobalData].bgColor set];
-    [bgPath fill];
+//    [[global sharedGlobalData].bgColor set];
+//    [bgPath fill];
 }
 
 -(NSNumber*)midiV3 {
@@ -87,6 +95,8 @@
     [self.data setObject:_midiV3 forKey:@"value"];
     [self updateModel];
 }
+
+
 
 -(NSMutableDictionary*)data {
     return _data;

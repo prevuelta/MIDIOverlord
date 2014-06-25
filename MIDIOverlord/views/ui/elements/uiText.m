@@ -31,13 +31,11 @@ static NSPoint gridSystem[54];
     _padding = 4;
     _gridCols = 6;
     _gridRows = 9;
-    
-    _stringValue = stringValue;
     _maxLength = maxLength;
     
+    [self setStringValue: stringValue];
+    
     _labelLength = labelLength;
-
-    _charCount = (int)[stringValue length];
     
     _charSizeX = (_gridCellSizeX * (_gridCols-1)) + _letterSpacing;
     _charSizeY = (_gridCellSizeY * (_gridRows-1)) + (_padding * 2);
@@ -80,8 +78,14 @@ static NSPoint gridSystem[54];
        @"Y" : @[@48, @18, @20, @2, @3, @21, @23, @53, @52, @28, @25, @49],
        @"Z" : @[@48, @53, @29, @28, @22, @19, @7, @11, @5, @0, @24, @28, @46, @42],
        // Lowercase
+       @"a" : @[@30, @35, @5, @0, @18, @22, @16, @13, @7, @10, @28, @24],
+       @"c" : @[@35, @30, @0, @5, @11, @7, @25, @29],
        @"e" : @[@11, @7, @13, @17, @35, @30, @18, @19, @25, @28, @22, @18, @0, @5],
+       @"m" : @[@0, @24, @29, @5, @4, @22, @21, @15, @14, @20, @19, @1],
+       @"n" : @[@0, @30, @35, @5, @4, @28, @25, @1],
+       @"o" : @[@35, @30, @0, @5, @29, @28, @10, @7, @25, @29],
        @"s" : @[@35, @30, @12, @16, @10, @6, @0, @5, @23, @19, @25, @29],
+       
        // Puncuation
        @"." : @[@1, @7, @8, @2],
        @"#" : @[@1, @7, @6, @12, @13, @25, @24, @30, @31, @37, @38, @32, @33, @39, @40, @34, @35, @29, @28, @16, @17, @11, @10, @4, @3, @9, @8, @14, @15, @27, @26, @2],
@@ -110,8 +114,7 @@ static NSPoint gridSystem[54];
 
 -(void)setStringValue:(NSString *)stringValue {
     _stringValue = stringValue;
-    _charCount = (int)[stringValue length];
-//    [self setNeedsDisplay:YES];
+    [self setCharCount: MIN((int)[_stringValue length], _maxLength)];
 }
 
 -(NSString*)stringValue {
@@ -163,12 +166,7 @@ static NSPoint gridSystem[54];
         }
 
         charOffset += _charSizeX;
-        
-        if(i < _labelLength) {
-            
-        } else {
-            
-        }
+
     }
     
     [_textColor set];

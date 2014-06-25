@@ -29,7 +29,7 @@
         self.textColor = [global sharedGlobalData].activeColor;
         self.bgColor = [global sharedGlobalData].defaultColor;
     } else {
-        
+         self.bgColor = [global sharedGlobalData].blackColor;
     }
     
     [super drawRect:dirtyRect];
@@ -61,6 +61,7 @@
 -(void)handleDoubleClick:(NSEvent *)e {
     [global deselectNotify];
     NSLog(@"Editing textg");
+    self.stringValue = @"";
     [self setIsEditing: YES];
     [self setNeedsDisplay: YES];
 //    [global setFirstResponder: self];
@@ -103,8 +104,6 @@
 
 -(void)addCharacter:(NSString*)letter {
     self.stringValue  = [self.stringValue stringByAppendingString: letter];
-    [self setCharCount: (int)[self.stringValue length]];
-    
     NSLog(@"%@", self.stringValue);
     
     [self setNeedsDisplay:YES];
@@ -112,7 +111,6 @@
 
 -(void)removeCharacter {
     self.stringValue = [self.stringValue substringToIndex:self.stringValue.length-(self.stringValue.length>0)];
-    [self setCharCount: (int)[self.stringValue length]];
     [self setNeedsDisplay:YES];
 }
 
