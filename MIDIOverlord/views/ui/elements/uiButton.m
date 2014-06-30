@@ -23,7 +23,7 @@
     self.eventData = @{};
     self.isToggle = NO;
     
-    _iconPoints = @[];
+//    _iconPoints = @[];
     
     return self;
 }
@@ -43,14 +43,14 @@
   
     NSBezierPath *iconPath = [NSBezierPath new];
 
-    for(int i = 0; i < [_iconPoints count]; i++) {
-        if(i == 0) {
-            [iconPath moveToPoint:NSMakePoint(_iconPoints[0], _iconPoints[1])];
-        }
-        if(i % 2 == 0) {
-//            []
-        }
-    }
+//    for(int i = 0; i < [_iconPoints count]; i++) {
+//        if(i == 0) {
+//            [iconPath moveToPoint:NSMakePoint(_iconPoints[0], _iconPoints[1])];
+//        }
+//        if(i % 2 == 0) {
+////            []
+//        }
+//    }
     
 }
 

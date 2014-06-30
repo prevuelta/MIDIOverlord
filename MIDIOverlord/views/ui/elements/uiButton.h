@@ -20,7 +20,7 @@
 @property NSString *event;
 @property NSDictionary* eventData;
 
-@property NSArray *iconPoints;
+@property int *iconPoints;
 
 -(id)initWithSize:(int)size;
 

@@ -10,7 +10,6 @@
 
 @implementation moduleBase
 
-@synthesize labelText = _labelText;
 @synthesize tag = _tag;
 @synthesize data = _data;
 @synthesize editMode = _editMode;
@@ -26,8 +25,6 @@
     self.selected = NO;
     self.editMode = NO;
     
-    self.labelText = @"MODULE TITLE";
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleEditMode:) name:@"editMode" object:nil];
     
     return self;
@@ -38,6 +35,7 @@
 }
 
 -(void)setData:(NSMutableDictionary*)data {
+    NSLog(@"setting data");
     _data = data;
 }
 
@@ -103,14 +101,6 @@
     [bgPath closePath];
     [bgPath fill];
 
-}
-
--(NSString*)labelText {
-    return _labelText;
-}
-
--(void)setLabelText:(NSString*)labelText {
-    _labelText = labelText;
 }
 
 -(NSNumber*)midiByte2 {

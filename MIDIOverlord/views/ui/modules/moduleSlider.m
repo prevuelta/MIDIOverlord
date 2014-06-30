@@ -29,33 +29,27 @@
     self.midiByte1 = [data objectForKey:@"midiByte1"];
     self.midiByte2 = [data objectForKey:@"midiByte2"];
     
-    self.labelText = [data objectForKey:@"label"];
-    
     NSLog(@"Init with data");
     
-    // Add UI buttons
-    
+    // Add Slider
     _slider = [[controlSlider alloc] initWithFrame:NSMakePoint(self.width, 20): NSMakePoint(0, 0): 0 :127 ];
-    
     [_slider setOrigin:NSMakePoint(0, 1)];
-
     [_slider updateControlFromData: data[@"midiByte2"]];
 
-    [self bind:@"midiByte2" toObject:_slider withKeyPath:@"value" options:nil];
+    [_data bind:@"midiByte2" toObject:_slider withKeyPath:@"value" options:nil];
     
     [self addSubview: _slider];
 
-    
+    // Add Label
     uiEditText *label = [[uiEditText alloc] initWithString: _data[@"label"] andMaxLength: 4 andLabelLength: 0];
-    
     [label setOrigin:NSMakePoint(2, 2)];
     [label setInEditView:YES];
     
-    [self bind:@"labelText" toObject:label withKeyPath:@"stringValue" options:nil];
-    [_data bind:@"label" toObject: self withKeyPath:@"labelText" options:nil];
+    [_data bind:@"label" toObject: label withKeyPath:@"stringValue" options:nil];
     
     [self addSubview:label];
     
+    // Add CC text field
     _midiByte1Control = [[controlText alloc] initWithString: @"CC000"];
     
     [_midiByte1Control setOrigin:NSMakePoint(label.frameWidth + 2, 2)];
@@ -63,11 +57,11 @@
     [_midiByte1Control setMax:127];
     [_midiByte1Control setValue: data[@"midiByte1"]];
     
-    [self bind:@"midiByte1" toObject: _midiByte1Control withKeyPath:@"value" options:nil];
-    [_data bind:@"midiByte1" toObject: self withKeyPath:@"midiByte1" options:nil];
+    [_data bind:@"midiByte1" toObject: _midiByte1Control withKeyPath:@"value" options:nil];
     
     [self addSubview: _midiByte1Control];
-    
+
+    // Add close button
     uiButtonClose *removeBtn = [[uiButtonClose alloc] initWithSize: 8];
     [removeBtn setEvent:@"removeModule" withData: @{@"rackID": self.data[@"rackID"], @"moduleID" : self.data[@"moduleID"]}];
     [removeBtn setOrigin: NSMakePoint(RACK_WIDTH - 20 - SCROLLER_WIDTH, 6)];
@@ -107,5 +101,6 @@
 -(NSMutableDictionary*)data {
     return _data;
 }
+
 
 @end

@@ -54,7 +54,6 @@
 
 // UI
 @property uiText *label;
-@property NSString *labelText;
 
 
 // Methods
