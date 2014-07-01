@@ -17,8 +17,6 @@
     }
     
     _isEditable = NO;
-
-    
     
     return self;
 }

@@ -50,13 +50,6 @@ int baseY;
 	
     [[global sharedGlobalData].activeColor setStroke];
 
-//        NSRectStroke(dirtyRect);
-    
-//        NSRectStroke(1);
-
-//    [super drawRect:NSMakeRect(0, 0, 20, 20)];
-
-    // Drawing code here.
 }
 
 -(NSNumber*)value {
@@ -78,9 +71,9 @@ int baseY;
 }
 
 - (void)mouseDragged:(NSEvent*)e {
+
         NSPoint location = [self convertPoint:[e locationInWindow] fromView:nil];
-//        NSLog(@"%@", [NSNumber numberWithInt: location.y ]);
-//        int newValue = location.y > baseY ? _value + 1 : _value - 1;
+    
         int newValue = [_value intValue] + (location.y - baseY);
         NSLog(@"%@", _value);
         [self setValue: [NSNumber numberWithInt:newValue]];

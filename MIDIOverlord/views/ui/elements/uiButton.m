@@ -11,7 +11,13 @@
 
 @implementation uiButton
 
+
+
 -(id)initWithSize:(int)size {
+    return [self initWithSize:size andIconArray:nil];
+}
+
+-(id)initWithSize:(int)size andIconArray:(NSArray*)iconArray  {
     
     _width = size;
     _height = size;
@@ -22,9 +28,10 @@
     self.event = @"";
     self.eventData = @{};
     self.isToggle = NO;
+    self.isFlipped = YES;
     
-//    _iconPoints = @[];
-    
+    _iconArray = iconArray;
+
     return self;
 }
 
@@ -42,15 +49,26 @@
     [btnPath fill];
   
     NSBezierPath *iconPath = [NSBezierPath new];
-
-//    for(int i = 0; i < [_iconPoints count]; i++) {
-//        if(i == 0) {
-//            [iconPath moveToPoint:NSMakePoint(_iconPoints[0], _iconPoints[1])];
-//        }
-//        if(i % 2 == 0) {
-////            []
-//        }
-//    }
+    
+    int count = (int)[_iconArray count] / 2;
+    
+    NSPoint iconPointArray[count];
+    
+    for(int i = 0; i < count; i++) {
+            
+            CGFloat x = [_iconArray[i*2] floatValue];
+            CGFloat y = [_iconArray[i*2+1] floatValue];
+            
+            iconPointArray[i] = NSMakePoint(x, y);
+    }
+   
+    [iconPath appendBezierPathWithPoints: iconPointArray count: count ];
+    
+    [[global sharedGlobalData].markerColor setFill];
+    
+    [iconPath closePath];
+    
+    [iconPath fill];
     
 }
 

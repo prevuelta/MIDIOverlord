@@ -41,13 +41,20 @@
     [self addSubview: _slider];
 
     // Add Label
-    uiEditText *label = [[uiEditText alloc] initWithString: _data[@"label"] andMaxLength: 4 andLabelLength: 0];
+    uiEditText *editLabel = [[uiEditText alloc] initWithString: _data[@"label"] andMaxLength: 4 andLabelLength: 0];
+    [editLabel setOrigin:NSMakePoint(2, 2)];
+    [editLabel setInEditView:YES];
+    
+    [_data bind:@"label" toObject: editLabel withKeyPath:@"stringValue" options:nil];
+    
+    [self addSubview:editLabel];
+    
+    uiText *label = [[uiText alloc] initWithString: _data[@"label"] andMaxLength: 4 andLabelLength: 0];
     [label setOrigin:NSMakePoint(2, 2)];
-    [label setInEditView:YES];
+
+    [label bind:@"stringValue" toObject: _data withKeyPath:@"label" options:nil];
     
-    [_data bind:@"label" toObject: label withKeyPath:@"stringValue" options:nil];
-    
-    [self addSubview:label];
+    [self addSubview: label];
     
     // Add CC text field
     _midiByte1Control = [[controlText alloc] initWithString: @"CC000"];

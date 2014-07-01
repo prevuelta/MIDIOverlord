@@ -18,22 +18,34 @@
 
 	    		var size = 40;
 
-	    		grid.css('height', (rows-1) * size);
-	    		grid.css('width', (cols-1) * size);
+          var mult = 0;
 
-	    		var gridCoords = [];
+          var gridCoords = [];
 
-	    		var letterCoords = [];
+           var letterCoords = [];
 
-	    		for(i = 0; i < rows; i++) {
-	    			for(j = 0; j < cols; j++) {
-	    				var el = $('<span/>');
-	    				el.css('left', j * size);
-	    				el.css('bottom', i * size);
-	    				el.data('ref', (i * cols ) + j);
-	    				grid.append(el);
-	    			}
-	    		}
+          updateGrid();
+
+          function updateGrid() {
+
+            gridCoords = [];
+            letterCoords = [];
+
+            grid.css('height', (rows-1) * size);
+            grid.css('width', (cols-1) * size);
+
+            grid.html('');
+
+  	    		for(i = 0; i < rows; i++) {
+  	    			for(j = 0; j < cols; j++) {
+  	    				var el = $('<span/>');
+  	    				el.css('left', j * size);
+  	    				el.css('bottom', i * size);
+  	    				el.data('ref', (i * cols ) + j);
+  	    				grid.append(el);
+  	    			}
+  	    		}
+          }
 
 	    		$('#grid span').on('click', function() {
 	    			var ref = $(this).data('ref');
@@ -49,6 +61,12 @@
             letterCoords = [];
             $('#grid span').css('background', '');
 	    		});
+
+          $('#update-grid').click(function() {
+              rows = parseInt($('#rows').val());
+              cols = parseInt($('#cols').val());
+              updateGrid();
+          });
 
 	    	});
 
@@ -88,11 +106,26 @@
     
 
     <body>
-    	<h1>Letter Creator</h1>
+    	<h1>Creator</h1>
+      <label>Cols
+        <input type="text" id="cols" value="0" />
+      </label>
+      <label>Rows
+        <input type="text" id="rows" value="0" />
+      </label>
+      <label>Multiplyer
+        <input type="text" id="mult" value="0" />
+      </label>
+      <button type="button" id="update-grid">Update Grid</button>
     	<div id="grid">
     	</div>
     	<textarea id="output">
     	</textarea>
     	<button type="button" id="btn-clear">Clear</button>
+
+      <div id="btn-grid">
+
+      </div>
+
     </body>
 </html>

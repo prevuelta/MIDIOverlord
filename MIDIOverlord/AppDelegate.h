@@ -26,7 +26,6 @@
 @property midiController* midiController;
 @property (assign) IBOutlet NSWindow *mainWin;
 
-@property eventHandler* events;
 
 // Filehandling
 @property NSURL *currentFile;

@@ -15,4 +15,6 @@
 - (id)initWithFrame:(NSRect)frame;
 -(void)drawRect:(NSRect)dirtyRect;
 
+
+
 @end

@@ -109,7 +109,6 @@
 //        [_clippedView frameHeight] > [self frameHeight] &&
 //       _clippedView.frame.origin.y < -([self frameHeight] - [_clippedView frameHeight]) ) {
     
-    BOOL scrollUp = event.deltaY > 0 ? YES : NO;
     BOOL scrollActive = self.scrollBar.active;
     
 //    NSLog(@"%@, %@", [NSNumber numberWithBool: topAnchorReached], [NSNumber numberWithBool: bottomAnchorReached]);
