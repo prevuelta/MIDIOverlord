@@ -12,12 +12,11 @@
 @implementation uiButton
 
 
-
 -(id)initWithSize:(int)size {
-    return [self initWithSize:size andIconArray:nil];
+    return [self initWithSize:size andEvent: nil];
 }
 
--(id)initWithSize:(int)size andIconArray:(NSArray*)iconArray  {
+-(id)initWithSize:(int)size andEvent:(NSString*)event {
     
     _width = size;
     _height = size;
@@ -30,8 +29,28 @@
     self.isToggle = NO;
     self.isFlipped = YES;
     
-    _iconArray = iconArray;
+    NSDictionary *iconTypes = @{
+         @"addRack" : @-48,
+         @"editMode" : @-72
+    };
+    
+    NSLog(@"Icontype: %@", iconTypes[event] );
+    
+    if([event length] != 0) {
+        [self setEvent: event];
+        
+        NSImage *icons = [NSImage imageNamed:@"icons.png"];
+        _iconView = [[NSImageView alloc] initWithFrame:NSMakeRect(0, 0, icons.size.width, icons.size.height)];
+        
+        [_iconView setImageScaling: NSImageScaleNone];
+        
+        [_iconView setImage:icons];
 
+        [self setIconViewOrigin: NSMakePoint([iconTypes[event] intValue], 0)];
+        
+        [self addSubview:_iconView];
+    }
+    
     return self;
 }
 
@@ -42,34 +61,18 @@
     } else {
         [[global sharedGlobalData].activeColor setFill];
     }
-  
-    NSBezierPath *btnPath = [NSBezierPath new];
+
+   NSBezierPath *btnPath = [NSBezierPath new];
     [btnPath appendBezierPathWithRoundedRect:dirtyRect xRadius: 2 yRadius:2];
   
     [btnPath fill];
-  
-    NSBezierPath *iconPath = [NSBezierPath new];
     
-    int count = (int)[_iconArray count] / 2;
-    
-    NSPoint iconPointArray[count];
-    
-    for(int i = 0; i < count; i++) {
-            
-            CGFloat x = [_iconArray[i*2] floatValue];
-            CGFloat y = [_iconArray[i*2+1] floatValue];
-            
-            iconPointArray[i] = NSMakePoint(x, y);
-    }
-   
-    [iconPath appendBezierPathWithPoints: iconPointArray count: count ];
-    
-    [[global sharedGlobalData].markerColor setFill];
-    
-    [iconPath closePath];
-    
-    [iconPath fill];
-    
+}
+
+-(void)setIconViewOrigin:(NSPoint)origin {
+    NSRect f = _iconView.frame;
+    f.origin = origin;
+    [_iconView setFrame:f];
 }
 
 -(void)setEvent:(NSString*)event withData:(NSDictionary*)data {

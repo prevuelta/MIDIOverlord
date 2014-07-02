@@ -14,17 +14,20 @@
 @property int width;
 @property int height;
 
+@property NSPoint iconOrigin;
+
 @property BOOL isToggle;
 @property BOOL toggled;
 
 @property NSString *event;
 @property NSDictionary* eventData;
 
-@property NSArray *iconArray;
+@property NSImageView *iconView;
 
 -(id)initWithSize:(int)size;
--(id)initWithSize:(int)size andIconArray:(NSArray*)iconArray;
+-(id)initWithSize:(int)size andEvent:(NSString*)event;
 
 -(void)setEvent:(NSString*)event withData:(NSDictionary*)data;
+-(void)setIconViewOrigin:(NSPoint)origin;
 
 @end

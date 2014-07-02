@@ -69,7 +69,7 @@ int baseMarker;
 -(void)setValue:(NSNumber*)value {
     [self.textVal setStringValue: [NSString stringWithFormat:@"%3@", value]];
     _value = value;
-   
+    [self updateMarker];
 }
 
 -(int)marker {
@@ -81,7 +81,11 @@ int baseMarker;
     _marker = marker;
 }
 
-
+-(void)updateMarker {
+    float percent = [_value floatValue] / (float)self.range;
+    int newValue = floor(_size.x * percent);
+    [self setMarker: newValue];
+}
 
 -(void)mouseDown:(NSEvent *)e {
     [global deselectNotify];
@@ -101,9 +105,6 @@ int baseMarker;
 }
 
 -(void)updateControlFromData:(NSNumber*)value {
-    float percent = [value floatValue] / (float)_range;
-    NSLog(@"Percent: %@", [NSNumber numberWithFloat:percent]);
-    [self setMarker: (int) _size.x * percent];
     [self setValue: value];
 }
 -(void)updateControlFromEvent:(NSEvent*)e {
@@ -111,11 +112,10 @@ int baseMarker;
      NSPoint location = [self convertPoint:[e locationInWindow] fromView:nil];
 
      float percent = location.x / _size.x;
-     int newValue =  percent < 0 ? _min : percent > 1 ? _max : (int) _range * percent;
-     
-     [self setMarker: location.x];
+     int newValue =  percent < 0 ? _min : percent > 1 ? _max : floor(_range * percent);
+    
      [self setValue: [NSNumber numberWithInt: newValue]];
-     
+
      [self setNeedsDisplay:YES];
      
  }

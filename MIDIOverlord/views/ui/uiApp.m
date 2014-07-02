@@ -34,20 +34,16 @@
     
     
     // Icon
-    NSArray *rackIcon = @[@2, @100, @1, @100, @5, @6, @10, @50, @155, @11];
     
     // Add rack
-    uiButton *addRack = [[uiButton alloc] initWithSize: 24 andIconArray: rackIcon];
+    uiButton *addRack = [[uiButton alloc] initWithSize: 24 andEvent: @"addRack"];
     [addRack setOrigin: NSMakePoint(81, 24)];
-    
-    [addRack setEvent: @"addRack"];
+
     [self addSubview: addRack];
     
-    NSArray *editIcon = @[@4, @20, @4, @16, @16, @4, @20, @8, @8, @20];
     
-    uiButton *editMode = [[uiButton alloc] initWithSize: 24 andIconArray: editIcon];
+    uiButton *editMode = [[uiButton alloc] initWithSize: 24 andEvent: @"editMode"];
     [editMode setIsToggle: YES];
-    [editMode setEvent: @"editMode"];
     [editMode setOrigin: NSMakePoint(109, 24)];
     
     
