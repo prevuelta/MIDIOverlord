@@ -11,5 +11,6 @@
 @interface modulePad : moduleBase
 
 -(id)initWithData:(NSMutableDictionary*)data;
+-(NSString*)noteString:(int)noteNum;
 
 @end

@@ -18,6 +18,9 @@
 @property int max;
 @property NSNumber *value;
 
--(id)initWithString: (NSString*)stringValue;
+@property NSString* stringLabel;
+
+- (id)initWithLabel: (NSString*)stringLabel;
+-(NSString*)labelPlusValue;
 
 @end

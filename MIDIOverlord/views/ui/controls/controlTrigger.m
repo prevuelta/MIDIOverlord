@@ -18,7 +18,7 @@
     _size = size;
     _offset = offset;
     
-    uiText *label = [[uiText alloc] initWithString: @"C#1" andMaxLength: 3 andLabelLength: 3];
+    uiText *label = [[uiText alloc] initWithString: @"---" andMaxLength: 3 andLabelLength: 3];
     
     [label setOrigin:NSMakePoint(2, 2)];
     
@@ -48,13 +48,11 @@
 -(void)mouseDown:(NSEvent *)theEvent {
     self.active = YES;
     [self setNeedsDisplay:YES];
-//    [self.delegate uiEvent:"noteOn"];
 }
 
 -(void)mouseUp:(NSEvent *)theEvent {
     self.active = NO;
     [self setNeedsDisplay:YES];
-//    [self.delegate uiEvent:"noteOff"];
 }
 
 @end

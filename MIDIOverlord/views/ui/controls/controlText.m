@@ -10,15 +10,20 @@
 
 @implementation controlText
 
-
 int baseY;
 
 @synthesize value = _value;
 
-- (id)initWithString: (NSString*)stringValue {
+- (id)initWithLabel: (NSString*)stringLabel {
     
-    _stringValue = stringValue;
-    _label = [[uiText alloc] initWithString: stringValue];
+    _value = @0;
+    
+    _max = 127;
+    
+    _stringLabel = stringLabel;
+    _stringValue = [self labelPlusValue];
+    
+    _label = [[uiText alloc] initWithString: _stringValue];
     
     NSRect frame = NSMakeRect(0, 0, _label.frame.size.width + 26, 16);
     
@@ -56,11 +61,16 @@ int baseY;
     return _value;
 }
 
+-(NSString*)labelPlusValue {
+   return  [NSString stringWithFormat:@"%@%03d", _stringLabel, [_value intValue]];
+}
+
 
 -(void)setValue: (NSNumber*)value {
     if([value intValue] >= 0 && [value intValue] <= _max) {
         _value = value;
-        [self.label setStringValue: [NSString stringWithFormat:@"CC%@", value]];
+         NSLog(@"%@", _value);
+        [self.label setStringValue: [self labelPlusValue]];
         [self setNeedsDisplay:YES];
     }
 }
@@ -71,11 +81,8 @@ int baseY;
 }
 
 - (void)mouseDragged:(NSEvent*)e {
-
         NSPoint location = [self convertPoint:[e locationInWindow] fromView:nil];
-    
         int newValue = [_value intValue] + (location.y - baseY);
-        NSLog(@"%@", _value);
         [self setValue: [NSNumber numberWithInt:newValue]];
         baseY = location.y;
 }

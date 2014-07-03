@@ -67,7 +67,7 @@ int baseMarker;
 }
 
 -(void)setValue:(NSNumber*)value {
-    [self.textVal setStringValue: [NSString stringWithFormat:@"%3@", value]];
+    [self.textVal setStringValue: [NSString stringWithFormat:@"%03d", [value intValue]]];
     _value = value;
     [self updateMarker];
 }

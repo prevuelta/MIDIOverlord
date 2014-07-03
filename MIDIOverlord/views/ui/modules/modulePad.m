@@ -16,7 +16,9 @@
     
     int height = 38;
     
-    NSRect frame = NSMakeRect(0, 0, RACK_WIDTH - SCROLLER_WIDTH, height);
+    int size = 32;
+    
+    NSRect frame = NSMakeRect(0, 0, 32, height);
     
     self = [super initWithFrame:frame];
     
@@ -26,26 +28,19 @@
     
     self.data = data;
     
-    int size = 32;
     
     NSPoint padSize = NSMakePoint(size, size);
     
-    controlTrigger *pad1 = [[controlTrigger alloc] initWithFrame: padSize:
-                            NSMakePoint(2, 2)];
+    controlTrigger *pad = [[controlTrigger alloc] initWithFrame: padSize:
+                            NSMakePoint(0, 0)];
     
-    controlTrigger *pad2 = [[controlTrigger alloc] initWithFrame:padSize:
-                            NSMakePoint(40, 2)];
- 
-    controlTrigger *pad3 = [[controlTrigger alloc] initWithFrame:padSize:
-                            NSMakePoint(78, 2)];
+    controlText *note = [[controlText alloc] initWithLabel:@""];
+    [note setValue: @34];
+    [note setInEditView: YES];
+    [self addSubview: note];
     
-    controlTrigger *pad4 = [[controlTrigger alloc] initWithFrame:padSize:
-                            NSMakePoint(116, 2)];
-    
-    [self addSubview: pad1];
-    [self addSubview: pad2];
-    [self addSubview: pad3];
-    [self addSubview: pad4];
+
+    [self addSubview: pad];
     
     uiButtonClose *removeBtn = [[uiButtonClose alloc] initWithSize: 8];
     [removeBtn setEvent:@"removeModule" withData: @{@"rackID": self.data[@"rackID"], @"moduleID" : self.data[@"moduleID"]}];
@@ -56,6 +51,13 @@
 
     
     return self;
+}
+
+-(NSString*)noteString:(int)noteNum {
+    int octave = noteNum / 12 - 1;
+    NSString *notes = @"C C#D D#E F F#G G#A A#B";
+    NSString *note = [[notes substringFromIndex:(noteNum % 12) * 2] substringToIndex: (noteNum % 12) * 2 + 2];
+    return [NSString stringWithFormat:@"%d%@", octave-1, note];
 }
 
 

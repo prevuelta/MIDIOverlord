@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "controlBase.h"
+#import "controlText.h"
 
 @interface controlTrigger : controlBase
 

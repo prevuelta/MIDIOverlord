@@ -126,8 +126,14 @@
     
     switch([type intValue]) {
         case 1 :
-            module[@"midiStatusByte1"] = @176;
-            module[@"midiStatusByte2"] = @176;
+            module[@"midiStatusByte1"] = @144;
+            module[@"midiStatusByte2"] = @128;
+            module[@"midiByte3"] = @0;
+            module[@"midiByte4"] = @0;
+            module[@"midiByte5"] = @0;
+            module[@"midiByte6"] = @0;
+            module[@"midiByte7"] = @0;
+            module[@"midiByte8"] = @0;
             break;
         case 2 :
             module[@"min"] = @0;

@@ -57,7 +57,7 @@
     [self addSubview: label];
     
     // Add CC text field
-    _midiByte1Control = [[controlText alloc] initWithString: @"CC000"];
+    _midiByte1Control = [[controlText alloc] initWithLabel: @"CC"];
     
     [_midiByte1Control setOrigin:NSMakePoint(label.frameWidth + 2, 2)];
     [_midiByte1Control setInEditView:YES];
