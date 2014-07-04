@@ -120,29 +120,31 @@
         @"rackID"   : rackID,
         @"label" : @"Module Label",
         @"type" : type,
-        @"midiByte1" : @0,
-        @"midiByte2" : @0,
         } mutableCopy];
     
     switch([type intValue]) {
         case 1 :
-            module[@"midiStatusByte1"] = @144;
-            module[@"midiStatusByte2"] = @128;
-            module[@"midiByte3"] = @0;
-            module[@"midiByte4"] = @0;
-            module[@"midiByte5"] = @0;
-            module[@"midiByte6"] = @0;
-            module[@"midiByte7"] = @0;
+            module[@"noteOnStatus"] = @144;
+            module[@"noteOffStatus"] = @128;
+            module[@"pad1note"] = @0;
+            module[@"pad1vel"] = @0;
+            module[@"pad2note"] = @0;
+            module[@"pad2vel"] = @0;
+            module[@"pad3note"] = @0;
+            module[@"pad3vel"] = @0;
+            module[@"pad4note"] = @0;
+            module[@"pad4vel"] = @0;
             module[@"midiByte8"] = @0;
             break;
         case 2 :
             module[@"min"] = @0;
             module[@"max"] = @127;
-            module[@"midiStatusByte"] = @176;
+            module[@"ccStatus"] = @176;
+            module[@"ccNumber"] = @0;
+            module[@"ccValue"] = @0;
         break;
     }
     
-   
     
     [rack[@"modules"] setObject: module forKey: rack[@"moduleID"]];
 

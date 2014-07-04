@@ -14,7 +14,6 @@
 #import "controlSlider.h"
 #import "controlList.h"
 #import "controlText.h"
-#import "deviceList.h"
 #import "uiText.h"
 #import "uiEditText.h"
 #import "utilities.h"

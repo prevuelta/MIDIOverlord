@@ -15,17 +15,19 @@
 
 -(void)addRackTitle {
 
-    _midiInput = [[deviceList alloc] initWithFrame: @"MIDI IN"];
+    _midiInput = [[controlList alloc] initWithOptions: [global sharedGlobalData].midiDestinations andOptionCount: [global sharedGlobalData].midiDestinationCount];
     [_midiInput setOrigin: NSMakePoint(4, 22)];
     
     [self addSubview: _midiInput];
     
-    _midiOutput = [[deviceList alloc] initWithFrame: @"MIDI OUT"];
-    [_midiOutput setOrigin: NSMakePoint(4, 40)];
+    NSLog(@"Destinations: %@", [global sharedGlobalData].midiDestinations);
     
-    [self bind:@"deviceOut" toObject:_midiOutput withKeyPath:@"selectedValue" options:nil];
+//    _midiOutput = [[deviceList alloc] initWithFrame: @"MIDI OUT"];
+//    [_midiOutput setOrigin: NSMakePoint(4, 40)];
     
-    [self addSubview: _midiOutput];
+//    [self bind:@"deviceOut" toObject:_midiOutput withKeyPath:@"selectedValue" options:nil];
+    
+//    [self addSubview: _midiOutput];
     
     // Add ui
     // Add Slider
@@ -43,7 +45,6 @@
     // Observers
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createMidiDestinationsDeviceList:) name:@"updateMidiDestinations" object:nil];
     
-    
 }
 
 -(void)createMidiDestinationsDeviceList:(NSNotification*)notification {
@@ -53,7 +54,7 @@
         [keyValues addObject: [notification.userInfo objectForKey: key][0]];
         [keyValues addObject: key];
     }
-    [_midiOutput addOptions: keyValues];
+//    [_midiOutput addOptions: keyValues];
 }
 
 -(void)dealloc {

@@ -9,7 +9,7 @@
 #import "uiBase.h"
 #import "moduleBase.h"
 #import "scrollableView.h"
-#import "deviceList.h"
+#import "controlList.h"
 #import "uiEditText.h"
 
 @interface rackBase : uiBase <moduleBaseDelegate>
@@ -20,8 +20,8 @@
 @property NSMutableArray* subViews;
 @property int headerHeight;
 
-@property deviceList *midiInput;
-@property deviceList *midiOutput;
+@property controlList *midiInput;
+@property controlList *midiOutput;
 
 @property int deviceIn;
 @property int deviceOut;

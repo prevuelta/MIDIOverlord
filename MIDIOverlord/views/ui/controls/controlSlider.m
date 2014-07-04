@@ -35,7 +35,7 @@ int baseMarker;
     _marker = [_value intValue];
                 
     _textVal = [[uiText alloc] initWithString: [NSString stringWithFormat:@"%03d", [_value intValue]]];
-    [_textVal setOrigin:NSMakePoint(RACK_WIDTH - 38 - SCROLLER_WIDTH, 2)];
+    [_textVal setOrigin:NSMakePoint(RACK_WIDTH - 40 - SCROLLER_WIDTH, 2)];
     
     [self addSubview: _textVal];
     

@@ -19,11 +19,10 @@ Byte packetBuffer[128];
     if(!self) return nil;
 
     [self createVirtualDeviceWithClient];
-    
-//    [self getMidiDestinations];
+
     
     // Setup notifications
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotifications:) name:@"midiMessage" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotifications:) name:@"midiMessage" object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sendMidiMessageToDevice:) name:@"midiMessageToDevice" object:nil];
     
@@ -31,8 +30,7 @@ Byte packetBuffer[128];
     // Receive request for destinations
 //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(returnMidiDestinations:) name:@"getMidiDestinations" object:nil];
 
-    
-    [self returnMidiDestinations];
+    [self updateMidiDestinations];
    
     return self;
 }
@@ -58,7 +56,7 @@ Byte packetBuffer[128];
 }
 
 void MyMIDINotifyProc (const MIDINotification  *message, void *refCon) {
-     [(__bridge id) refCon returnMidiDestinations];
+     [(__bridge id) refCon updateMidiDestinations];
 }
 
 -(MIDIPacketList*)getMidiPacket:(int)value1 :(int)value2 :(int)value3 {
@@ -77,10 +75,6 @@ void MyMIDINotifyProc (const MIDINotification  *message, void *refCon) {
 
 - (void)handleNotifications:(NSNotification*)notification {
     NSLog(@"Got notified: %@", notification);
-    
-//    char status = [[notification.userInfo objectForKey:@"status"] charValue];
-//    int v2 = (int)[[notification.userInfo objectForKey:@"v2"] integerValue];
-//    int v3 = (int)[[notification.userInfo objectForKey:@"v3"] integerValue];
     
 //    [self sendMidiMessage: status: v2: v3];
     
@@ -108,7 +102,6 @@ void MyMIDINotifyProc (const MIDINotification  *message, void *refCon) {
 //    MIDIPacketList *packetList = [self getMidiPacket: midiStatus: (int)[midiData[1] integerValue] : (int)[midiData[2] integerValue]];
     
     MIDIPacketList *packetList = [self getMidiPacket: [midiData[0] integerValue]: [midiData[1] integerValue] : [midiData[2] integerValue]];
-    
    
     MIDIObjectRef endPoint;
     
@@ -168,27 +161,20 @@ void MyMIDINotifyProc (const MIDINotification  *message, void *refCon) {
     return midiClient;
 }
 
--(void)returnMidiDestinations {
-    NSLog(@"Returning destinations");
-    [self getMidiDestinations];
-   
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"updateMidiDestinations" object:self userInfo: _devices];
-}
-
--(void)getMidiDestinations {
-    
-//    NSMutableArray *destinations = [NSMutableArray new];
+-(void)updateMidiDestinations {
     
     ItemCount destCount = MIDIGetNumberOfDestinations();
     
     NSLog(@"Destinationcount: %i", (int)destCount);
     
-    MIDIEndpointRef endPointRefs[destCount];
-    MIDIPortRef portRefs[destCount];
+//    MIDIEndpointRef endPointRefs[destCount];
+//    MIDIPortRef portRefs[destCount];/
     
-    _devices = [NSMutableDictionary new];
+    NSMutableDictionary *devices = [NSMutableDictionary new];
     
-    for (ItemCount i = 0 ; i < destCount ; ++i) {
+    int deviceCount = 0;
+    
+    for (ItemCount i = 0 ; i < destCount ; i++) {
         
         // Grab a reference to a destination endpoint
         
@@ -205,20 +191,21 @@ void MyMIDINotifyProc (const MIDINotification  *message, void *refCon) {
             CFStringRef outPortName = (__bridge CFStringRef)[deviceName stringByAppendingFormat:@"%@", deviceName];
         
             MIDIOutputPortCreate([self newClient:outPortName], outPortName, &outPort);
-            
-            endPointRefs[i] = endPointRef;
-            portRefs[i] = outPort;
+          
+//            endPointRefs[i] = endPointRef;
+//            portRefs[i] = outPort;
             
             NSArray *device = @[deviceName, [NSNumber numberWithInteger: i]];
             
-            [_devices setObject: device forKey: deviceID];
+            [devices setObject: deviceName forKey: deviceID];
             
+            deviceCount++;
         }
 
     }
     
-    _endPointRefs = endPointRefs;
-    _portRefs = portRefs;
+    [[global sharedGlobalData] setMidiDestinations: devices];
+    [[global sharedGlobalData] setMidiDestinationCount: deviceCount];
     
 }
 

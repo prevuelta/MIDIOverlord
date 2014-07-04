@@ -33,6 +33,8 @@ static NSPoint gridSystem[54];
     _gridRows = 9;
     _maxLength = maxLength;
     
+    _drawBg = YES;
+    
     [self setStringValue: stringValue];
     
     _labelLength = labelLength;
@@ -135,12 +137,14 @@ static NSPoint gridSystem[54];
 
 -(void)drawRect:(NSRect)dirtyRect{
 
-   [self.bgColor setFill];
+    if(_drawBg) {
+        [self.bgColor setFill];
     
-    NSRectFill(dirtyRect);
+        NSRectFill(dirtyRect);
     
-    [super drawRect:dirtyRect];
-
+        [super drawRect:dirtyRect];
+    }
+    
     // Draw Glyphs
     NSBezierPath* glyphPath = [NSBezierPath new];
     

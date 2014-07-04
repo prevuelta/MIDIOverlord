@@ -12,35 +12,26 @@
 
 @synthesize selectedValue = _selectedValue;
 
--(id)initWithFrame: (NSString*)labelText {
+-(id)initWithOptions:(NSMutableDictionary*)options andOptionCount: (int)optionCount {
     
-    self.width = 90;
-    self.height = 16;
+    self.width = 96;
+    self.height = 20;
     
     NSRect frame = NSMakeRect(0, 0, self.width, self.height);
     
     self = [super initWithFrame:frame];
     
     if(!self) return nil;
+    
+    _optionCount = optionCount;
 
-    _labelText = labelText;
+    _selectedLabel = [[uiText alloc] initWithString: @"OPTION"];
     
-//    _optionData = keyValues;
-
-    _optionData = [NSMutableArray new];
-    
-    [self addOptions];
-    
-    _selectedLabel = [[uiText alloc] initWithString: _labelText];
     [self addSubview:_selectedLabel];
-
-    _optionCount = [_optionData count] / 2;
     
-    _activeOption = [NSMutableArray arrayWithObjects:labelText, @0, nil];
+//    _activeOption = [NSMutableArray arrayWithObjects:labelText, @0, nil];
     
     _selectedValue = 0;
-
-    [self updateValues];
     
     return self;
 }
@@ -102,7 +93,7 @@
 }
 
 -(void)deselect:(NSNotification*)notification {
-//    NSLog(@"Close notifcation received");
+
     self.selected = NO;
     [self setTag: 0];
     NSRect f = self.frame;
@@ -133,9 +124,7 @@ NSComparisonResult compareViews(id firstView, id secondView, void *context) {
 
 
 -(void)setSelectedLabel:(NSString*)selectedLabel {
-// _selectedLabel = selectedLabel
      [_selectedLabel setStringValue: selectedLabel];
-    ;
 }
 
 -(void)setSelectedValue:(int)selectedValue {
@@ -144,8 +133,6 @@ NSComparisonResult compareViews(id firstView, id secondView, void *context) {
 
 // Hooks
 -(void)updateValues {
-    
-//    [_selectedLabel setStringValue: _labelText];
     
     _optionCount = [_optionData count] / 2;
 
@@ -172,9 +159,6 @@ NSComparisonResult compareViews(id firstView, id secondView, void *context) {
     [self setNeedsDisplay: YES];
 }
 
--(void)addOptions {
-    // Add options hook
-}
 
 -(void)optionSelectedWithKeyValue: (NSArray*)keyValue {
     NSLog(@"Delegate Received %@", keyValue);

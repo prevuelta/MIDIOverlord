@@ -12,6 +12,8 @@ static global *_instance;
 
 @implementation global
 
+@synthesize midiDestinations = _midiDestinations;
+
 +(global*)sharedGlobalData {
     
     @synchronized(self) {
@@ -47,6 +49,16 @@ static global *_instance;
 +(void)deselectNotify {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"deselectAll" object:self userInfo: nil];
 }
+
+-(void)setMidiDestinations:(NSMutableDictionary *)midiDestinations{
+    _midiDestinations = midiDestinations;
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"updateMidiDestinations" object:self userInfo: _midiDestinations];
+}
+
+-(NSMutableDictionary *)midiDestinations {
+    return _midiDestinations;
+}
+
 
 
 @end

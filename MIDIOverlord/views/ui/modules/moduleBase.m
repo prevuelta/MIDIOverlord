@@ -14,8 +14,6 @@
 @synthesize data = _data;
 @synthesize editMode = _editMode;
 
-@synthesize midiByte2 = _midiByte2;
-
 -(id)initWithFrame:(NSRect)frame {
     self = [super initWithFrame:frame];
     if (!self) return nil;
@@ -101,14 +99,6 @@
     [bgPath closePath];
     [bgPath fill];
 
-}
-
--(NSNumber*)midiByte2 {
-    return _midiByte2;
-}
-
--(void)setMidiByte2:(NSNumber*)midiByte2 {
-    _midiByte2 = midiByte2;
 }
 
 -(void)updateModel {

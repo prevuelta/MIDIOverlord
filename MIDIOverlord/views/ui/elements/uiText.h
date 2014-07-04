@@ -18,6 +18,8 @@
 @property int gridCols;
 @property int gridRows;
 
+@property BOOL drawBg;
+
 @property NSDictionary *glyphs;
 
 @property NSString *stringValue;

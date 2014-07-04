@@ -27,12 +27,13 @@
 
 @property int selectedValue;
 
--(id)initWithFrame: (NSString*)labelText;
+-(id)initWithOptions:(NSMutableDictionary*)options andOptionCount: (int)optionCount;
+
 -(void)deselect:(NSNotification*)notification;
 
--(void)addOptions:(NSArray*)keyValues;
-
--(void)updateValues;
+//-(void)addOptions:(NSArray*)keyValues;
+//
+//-(void)updateValues;
 
 -(void)setSelectedlabel:(NSString*)selectedLabel;
 

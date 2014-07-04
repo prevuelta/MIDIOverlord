@@ -21,6 +21,9 @@
 
 @property NSCharacterSet *invalidChars;
 
+@property NSMutableDictionary* midiDestinations;
+@property int midiDestinationCount;
+
 +(global*)sharedGlobalData;
 +(void)deselectNotify;
 

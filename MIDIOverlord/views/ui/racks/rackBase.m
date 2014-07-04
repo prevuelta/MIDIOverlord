@@ -154,7 +154,6 @@
     NSDictionary *newData = @{@"device": [NSNumber numberWithInt: self.deviceOut], @"data" : data};
 //    [[NSNotificationCenter defaultCenter] postNotificationName:@"midiMessage" object:self userInfo: data];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"midiMessageToDevice" object:self userInfo: newData];
-        //        [utilities midiNotification: 0xB0 : self.midiValue :value];
 }
 
 -(void)moduleUpdateWithData: (NSDictionary*)data {

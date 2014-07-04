@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreMIDI/CoreMIDI.h>
-//#import "eventHandler.h"
 #import "utilities.h"
+#import "global.h"
 
 @interface midiController : NSObject
 
@@ -38,7 +38,8 @@
 -(void)sendMidiMessageToDevice:(NSNotification*)notification;
 
 -(void)returnMidiDestinations:(NSNotification*)notification;
--(void)getMidiDestinations;
+
+-(NSMutableDictionary*)midiDestinations;
 
 -(NSMutableArray*)getMidiSource;
 -(NSString*)getDeviceName:(MIDIObjectRef)object;

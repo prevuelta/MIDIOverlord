@@ -42,14 +42,12 @@
 		6EE4457D1936C86100C61171 /* controlOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE445501936C86100C61171 /* controlOption.m */; };
 		6EE4457E1936C86100C61171 /* controlSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE445521936C86100C61171 /* controlSlider.m */; };
 		6EE445801936C86100C61171 /* controlTrigger.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE445561936C86100C61171 /* controlTrigger.m */; };
-		6EE445811936C86100C61171 /* deviceList.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE445581936C86100C61171 /* deviceList.m */; };
 		6EE445821936C86100C61171 /* moduleBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE4455B1936C86100C61171 /* moduleBase.m */; };
 		6EE445831936C86100C61171 /* modulePad.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE4455D1936C86100C61171 /* modulePad.m */; };
 		6EE445841936C86100C61171 /* moduleSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE4455F1936C86100C61171 /* moduleSlider.m */; };
 		6EE445851936C86100C61171 /* rackBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE445621936C86100C61171 /* rackBase.m */; };
 		6EE445861936C86100C61171 /* rackControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE445641936C86100C61171 /* rackControl.m */; };
 		6EE445871936C86100C61171 /* uiApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE445661936C86100C61171 /* uiApp.m */; };
-		6EF79EAD196516BB007B2832 /* modulePadGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF79EAC196516BB007B2832 /* modulePadGroup.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,8 +122,6 @@
 		6EE445521936C86100C61171 /* controlSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = controlSlider.m; sourceTree = "<group>"; };
 		6EE445551936C86100C61171 /* controlTrigger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = controlTrigger.h; sourceTree = "<group>"; };
 		6EE445561936C86100C61171 /* controlTrigger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = controlTrigger.m; sourceTree = "<group>"; };
-		6EE445571936C86100C61171 /* deviceList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = deviceList.h; sourceTree = "<group>"; };
-		6EE445581936C86100C61171 /* deviceList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = deviceList.m; sourceTree = "<group>"; };
 		6EE4455A1936C86100C61171 /* moduleBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = moduleBase.h; sourceTree = "<group>"; };
 		6EE4455B1936C86100C61171 /* moduleBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = moduleBase.m; sourceTree = "<group>"; };
 		6EE4455C1936C86100C61171 /* modulePad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = modulePad.h; sourceTree = "<group>"; };
@@ -138,8 +134,6 @@
 		6EE445641936C86100C61171 /* rackControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rackControl.m; sourceTree = "<group>"; };
 		6EE445651936C86100C61171 /* uiApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uiApp.h; sourceTree = "<group>"; };
 		6EE445661936C86100C61171 /* uiApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uiApp.m; sourceTree = "<group>"; };
-		6EF79EAB196516BB007B2832 /* modulePadGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = modulePadGroup.h; sourceTree = "<group>"; };
-		6EF79EAC196516BB007B2832 /* modulePadGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = modulePadGroup.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -302,8 +296,6 @@
 				6EE445561936C86100C61171 /* controlTrigger.m */,
 				6E8DEB581953FB4F0013CF96 /* controlScrollBar.h */,
 				6E8DEB591953FB4F0013CF96 /* controlScrollBar.m */,
-				6EE445571936C86100C61171 /* deviceList.h */,
-				6EE445581936C86100C61171 /* deviceList.m */,
 			);
 			path = controls;
 			sourceTree = "<group>";
@@ -315,8 +307,6 @@
 				6EE4455B1936C86100C61171 /* moduleBase.m */,
 				6EE4455C1936C86100C61171 /* modulePad.h */,
 				6EE4455D1936C86100C61171 /* modulePad.m */,
-				6EF79EAB196516BB007B2832 /* modulePadGroup.h */,
-				6EF79EAC196516BB007B2832 /* modulePadGroup.m */,
 				6EE4455E1936C86100C61171 /* moduleSlider.h */,
 				6EE4455F1936C86100C61171 /* moduleSlider.m */,
 			);
@@ -444,11 +434,9 @@
 				6EE4457D1936C86100C61171 /* controlOption.m in Sources */,
 				6EE445701936C86100C61171 /* utilities.m in Sources */,
 				6E04ABCF1946FF4800B51D27 /* uiBase.m in Sources */,
-				6EF79EAD196516BB007B2832 /* modulePadGroup.m in Sources */,
 				6EE4457C1936C86100C61171 /* controlList.m in Sources */,
 				6ECD89F61946BE7400CCBE97 /* uiButton.m in Sources */,
 				6EE4456C1936C86100C61171 /* appViewController.m in Sources */,
-				6EE445811936C86100C61171 /* deviceList.m in Sources */,
 				6EC836CF194AF7E400266F60 /* uiButtonClose.m in Sources */,
 				6EE445821936C86100C61171 /* moduleBase.m in Sources */,
 				6E29E52A194ABE9800F6BD4F /* global.m in Sources */,
