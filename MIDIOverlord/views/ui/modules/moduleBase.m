@@ -101,10 +101,6 @@
 
 }
 
--(void)updateModel {
-    [self.delegate moduleUpdateWithData: self.data];
-}
-
 -(void)handleEditMode:(NSNotification*)notification {
     NSNumber *editMode = notification.userInfo[@"isToggled"];
     [self setEditMode: [editMode boolValue]];

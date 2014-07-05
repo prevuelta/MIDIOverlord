@@ -24,7 +24,7 @@
     
     [self addSubview:logoView];
     
-    uiText *appTitle = [[uiText alloc] initWithString: @"MIDI OVERLORD PROTOTYPE V.002" andSize: @[@3, @3]];
+    uiText *appTitle = [[uiText alloc] initWithString: @"MIDI OVERLORD PROTOTYPE V.002"];
     [appTitle setGridCellSizeY:3];
     [appTitle setOrigin:NSMakePoint(81, 4)];
     [appTitle setDrawBg: NO];

@@ -12,18 +12,25 @@
 
 @synthesize keyValue = _keyValue;
 
-- (id)initWithFrame:(NSRect)frame andKeyValue: (NSArray*)keyValue {
-    self = [super initWithFrame:frame];
-    if (!self) return nil;
-        // Initialization code here.
-
+- (id)initWithKeyValue: (NSArray*)keyValue {
     _label = [[uiText alloc] initWithString: keyValue[0]];
+    
+    self = [super initWithFrame:_label.frame];
+    
+    if (!self) return nil;
+    
+    _keyValue = keyValue;
+    
+    NSLog(@"optionString: %@", keyValue[0]);
+    
+    [_label setDrawBg:YES];
+    
     [self addSubview:_label];
     
     NSTrackingAreaOptions mouseEnterExitOptions = NSTrackingActiveInActiveApp;
     mouseEnterExitOptions |= NSTrackingMouseEnteredAndExited;
     
-    NSTrackingArea *trackRect = [[NSTrackingArea alloc] initWithRect:frame options:mouseEnterExitOptions owner:self userInfo: nil];
+    NSTrackingArea *trackRect = [[NSTrackingArea alloc] initWithRect:_label.frame options:mouseEnterExitOptions owner:self userInfo: nil];
     
     [self addTrackingArea: trackRect ];
     
@@ -54,7 +61,7 @@
 }
 
 -(void)mouseDown:(NSEvent *)theEvent {
-//    [_label setBackgroundColor:self.activeColor];
+//    [_label setBackgroundColor: [global sharedGlobalData].activeColor];
     [self performSelector:@selector(selectOption) withObject:self afterDelay:0.150];
 }
 
@@ -62,7 +69,7 @@
     NSLog(@"Sending delegate...");
 //    [_label setBackgroundColor:self.activeColor];
     [self.delegate optionSelectedWithKeyValue:self.keyValue];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"deselectAll" object:self userInfo: nil];
+    [global deselectNotify];
    
 }
 

@@ -22,7 +22,6 @@
 @property NSArray* keyValue;
 @property uiText *label;
 
--(id)initWithFrame:(NSRect)frame andKeyValue: (NSArray*)keyValue;
--(void)setKeyValue:(NSArray*)arr;
+- (id)initWithKeyValue: (NSArray*)keyValue;
 
 @end

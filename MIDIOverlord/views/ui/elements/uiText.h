@@ -36,8 +36,8 @@
 @property NSColor* bgColor;
 
 -(id)initWithString:(NSString*)stringValue;
-
--(id)initWithString:(NSString*)stringValue andSize: (NSArray*)size;
+//
+//-(id)initWithString:(NSString*)stringValue andSize: (NSArray*)size;
 
 -(id)initWithString:(NSString*)stringValue andMaxLength:(int)maxLength andLabelLength: (int)labelLength;
 -(void)setupGridSystem;

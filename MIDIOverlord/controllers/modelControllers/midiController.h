@@ -20,7 +20,7 @@
 @property MIDIClientRef appClient;
 @property MIDIEndpointRef appOutput;
 
-@property NSMutableDictionary* devices;
+//@property NSMutableDictionary* devices;
 
 @property MIDIEndpointRef *endPointRefs;
 @property MIDIEndpointRef *portRefs;

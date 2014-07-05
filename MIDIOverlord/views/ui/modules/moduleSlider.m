@@ -10,13 +10,15 @@
 
 @implementation moduleSlider
 
-@synthesize midiByte2 = _midiByte2;
+@synthesize ccValue = _ccValue;
 @synthesize data = _data;
 
 -(id)initWithData:(NSMutableDictionary*)data {
     
-    _value = 0;
+    _ccValue = 0;
+    
     self.height = 24;
+    
     _data = data;
     
     self = [super initWithFrame:NSMakeRect(0, 0, RACK_WIDTH - SCROLLER_WIDTH, self.height)];
@@ -35,7 +37,8 @@
     _slider = [[controlSlider alloc] initWithFrame:NSMakePoint(self.width - 4, 20): NSMakePoint(0, 0): 0 :127 ];
     [_slider setOrigin:NSMakePoint(2, 2)];
     [_slider updateControlFromData: data[@"ccValue"]];
-
+    
+    [self bind:@"ccValue" toObject:_slider withKeyPath:@"value" options:nil];
     [_data bind:@"ccValue" toObject:_slider withKeyPath:@"value" options:nil];
     
     [self addSubview: _slider];
@@ -96,18 +99,14 @@
 }
 
 
--(NSNumber*)midiByte2 {
-    return _midiByte2;
+-(NSNumber*)ccValue {
+    return _ccValue;
 }
 
--(void)setMidiByte2:(NSNumber*)midiByte2 {
-    _midiByte2 = midiByte2;
+-(void)setCcValue:(NSNumber*)ccValue {
+    NSLog(@"Set ccValue");
+    _ccValue = ccValue;
     [self.delegate midiData: @[self.data[@"ccStatus"], self.data[@"ccNumber"], self.data[@"ccValue"]]];
-    [self updateModel];
-}
-
--(NSMutableDictionary*)data {
-    return _data;
 }
 
 

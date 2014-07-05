@@ -88,6 +88,7 @@
     
     [rack setObject: [NSMutableDictionary new] forKey: @"modules"];
     [rack setObject: [NSMutableArray new] forKey: @"moduleLayout"];
+    [rack setObject: [NSMutableArray new] forKey: @"midiDest"];
     
     // Add rack
     [_rackData setObject: rack forKey: _rackID];
@@ -172,11 +173,13 @@
 }
 
 -(void)updateModule:(NSNotification*)notification {
-    NSDictionary* userInfo = notification.userInfo;
     
-    NSNumber *moduleID = userInfo[@"data"][@"moduleID"];
-
-    [_rackData[userInfo[@"rackID"]][@"modules"] setObject: userInfo[@"data"] forKey: moduleID];
+//    NSLog(@"Updaeting model");
+//    NSDictionary* userInfo = notification.userInfo;
+//    
+//    NSNumber *moduleID = userInfo[@"data"][@"moduleID"];
+//
+//    [_rackData[userInfo[@"rackID"]][@"modules"] setObject: userInfo[@"data"] forKey: moduleID];
 
 }
 

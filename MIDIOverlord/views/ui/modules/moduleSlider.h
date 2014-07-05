@@ -10,13 +10,10 @@
 
 @interface moduleSlider : moduleBase
 
--(id)initWithFrame;
-
-@property int value;
+@property NSNumber* ccValue;
 @property controlSlider *slider;
 @property controlText *ccControl;
 
-//-(void)setData:(NSMutableDictionary*)data;
 -(id)initWithData:(NSMutableDictionary*)data;
 
 @end

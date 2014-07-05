@@ -76,7 +76,9 @@ void MyMIDINotifyProc (const MIDINotification  *message, void *refCon) {
 - (void)handleNotifications:(NSNotification*)notification {
     NSLog(@"Got notified: %@", notification);
     
-//    [self sendMidiMessage: status: v2: v3];
+    NSArray *midiData = notification.userInfo[@"data"];
+    
+    [self sendMidiMessage: [midiData[0] intValue ]: [midiData[1] intValue ]: [midiData[2] intValue]];
     
 }
 
@@ -87,19 +89,9 @@ void MyMIDINotifyProc (const MIDINotification  *message, void *refCon) {
     NSDictionary *userInfo = notification.userInfo;
     
     NSArray *midiData = [userInfo objectForKey:@"data"];
-    NSNumber *deviceID = [userInfo objectForKey:@"device"];
+    NSArray *device = [userInfo objectForKey:@"device"];
 
-    NSLog(@"Devices: %@", _devices);
-    
-    NSArray *device = [_devices objectForKey: deviceID];
-
-    NSLog(@"Device array: %@", device);
-    
-    int dIndex = (int)[[device objectAtIndex:1] integerValue];
-//
     NSLog(@"Status: %@", midiData);
-    
-//    MIDIPacketList *packetList = [self getMidiPacket: midiStatus: (int)[midiData[1] integerValue] : (int)[midiData[2] integerValue]];
     
     MIDIPacketList *packetList = [self getMidiPacket: [midiData[0] integerValue]: [midiData[1] integerValue] : [midiData[2] integerValue]];
    
@@ -107,7 +99,7 @@ void MyMIDINotifyProc (const MIDINotification  *message, void *refCon) {
     
     MIDIObjectType foundObj;
     
-    MIDIObjectFindByUniqueID([deviceID integerValue], &endPoint, &foundObj);
+    MIDIObjectFindByUniqueID([device[1] intValue], &endPoint, &foundObj);
     
     MIDIEndpointRef endPointRef = (MIDIEndpointRef)endPoint;
 
@@ -213,6 +205,7 @@ void MyMIDINotifyProc (const MIDINotification  *message, void *refCon) {
     // Returns the display name of a given MIDIObjectRef as an NSString
     CFStringRef name = nil;
     if (noErr != MIDIObjectGetStringProperty(object, kMIDIPropertyDisplayName, &name)) {
+        NSLog(@"Problem");
         return nil;
     }
     return (NSString*)CFBridgingRelease(name);

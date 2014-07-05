@@ -13,28 +13,19 @@
 
 @property int width;
 
-@property int activeOption;
-@property NSInteger optionCount;
-@property NSMutableArray *optionData;
+@property NSMutableDictionary *options;
+@property int optionCount;
+
+@property NSArray *selectedOption;
+
 @property int height;
-@property BOOL state;
-@property NSColor* bgColor;
-@property NSColor* activeBgColor;
-@property NSColor* fgColor;
+//@property BOOL state;
+
 @property NSString *labelText;
 
-@property uiText *selectedLabel;
-
-@property int selectedValue;
+@property uiText *label;
 
 -(id)initWithOptions:(NSMutableDictionary*)options andOptionCount: (int)optionCount;
-
 -(void)deselect:(NSNotification*)notification;
-
-//-(void)addOptions:(NSArray*)keyValues;
-//
-//-(void)updateValues;
-
--(void)setSelectedlabel:(NSString*)selectedLabel;
 
 @end

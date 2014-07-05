@@ -10,33 +10,38 @@
 
 @implementation controlList
 
-@synthesize selectedValue = _selectedValue;
+@synthesize selectedOption = _selectedOption;
+@synthesize options = _options;
+
 
 -(id)initWithOptions:(NSMutableDictionary*)options andOptionCount: (int)optionCount {
     
-    self.width = 96;
-    self.height = 20;
+    self.height = 16;
     
-    NSRect frame = NSMakeRect(0, 0, self.width, self.height);
+   _label = [[uiText alloc] initWithString: @"" andMaxLength:6 andLabelLength: 0];
+    
+    NSRect frame = NSMakeRect(0, 0, _label.frame.size.width + 20, self.height);
     
     self = [super initWithFrame:frame];
     
     if(!self) return nil;
     
     _optionCount = optionCount;
-
-    _selectedLabel = [[uiText alloc] initWithString: @"OPTION"];
     
-    [self addSubview:_selectedLabel];
+    [self setOptions: options];
     
-//    _activeOption = [NSMutableArray arrayWithObjects:labelText, @0, nil];
-    
-    _selectedValue = 0;
+    [self addSubview: _label];
     
     return self;
 }
 
--(void)drawRect:(NSRect)rect {
+-(void)drawRect:(NSRect)dirtyRect {
+    
+    [[global sharedGlobalData].blackColor setFill];
+    
+    NSRectFill(dirtyRect);
+    
+    [super drawRect:dirtyRect];
     
     NSBezierPath* bgPath = [NSBezierPath new];
     NSBezierPath* fgPath = [NSBezierPath new];
@@ -54,9 +59,9 @@
     [[global sharedGlobalData].markerColor set];
     
     // Draw triangles
-    [fgPath moveToPoint:NSMakePoint(self.width-15, 5)];
-    [fgPath lineToPoint:NSMakePoint(self.width-5, 5)];
-    [fgPath lineToPoint:NSMakePoint(self.width-10, 10)];
+    [fgPath moveToPoint:NSMakePoint(self.frame.size.width-15, 6)];
+    [fgPath lineToPoint:NSMakePoint(self.frame.size.width-5, 6)];
+    [fgPath lineToPoint:NSMakePoint(self.frame.size.width-10, 12)];
     
     [fgPath closePath];
     [fgPath fill];
@@ -76,17 +81,16 @@
     [global deselectNotify];
     
     if(self.selected) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"closeOpen" object:self userInfo: nil];
+//        [[NSNotificationCenter defaultCenter] postNotificationName:@"closeOpen" object:self userInfo: nil];
     } else {
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"closeOpen" object:self userInfo: nil];
+//        [[NSNotificationCenter defaultCenter] postNotificationName:@"closeOpen" object:self userInfo: nil];
+        NSLog(@"settgin selcted");
         self.selected = !self.selected;
         [self setTag: 20];
         NSRect f = self.frame;
         f.size.height = self.height * (_optionCount + 1);
         self.frame = f;
     }
-
-//    [self updateValues];
     
     [self.superview sortSubviewsUsingFunction: compareViews context: NULL];
     [self setNeedsDisplay:YES];
@@ -118,53 +122,46 @@ NSComparisonResult compareViews(id firstView, id secondView, void *context) {
     }
 }
 
--(int)selectedValue {
-    return _selectedValue;
+-(NSArray*)selectedOption {
+    return _selectedOption;
 }
 
 
--(void)setSelectedLabel:(NSString*)selectedLabel {
-     [_selectedLabel setStringValue: selectedLabel];
+-(void)setSelectedOption: (NSArray*)selectedOption {
+    [_label setStringValue: selectedOption[0]];
+    _selectedOption = selectedOption;
 }
 
--(void)setSelectedValue:(int)selectedValue {
-    _selectedValue = selectedValue;
+
+-(NSMutableDictionary*)options {
+    return _options;
 }
 
-// Hooks
--(void)updateValues {
+-(void)setOptions:(NSMutableDictionary*)options {
+
+    _options = options;
     
-    _optionCount = [_optionData count] / 2;
-
     NSInteger currentOptionY = self.height;
     
-    if([_optionData count] > 0){
-        for(int i = 0; i < [_optionData count]; i++ ) {
-            NSLog(@"Option data: %@", _optionData[i]);
-            if(i % 2 == 0) {
-                NSLog(@"OPtion added");
-                NSArray *optionData = @[ _optionData[i], _optionData[i+1]];
-                controlOption *option = [[controlOption alloc] initWithFrame: NSMakeRect(0, 0, self.width, self.height) andKeyValue: optionData];
-                [option setOrigin:NSMakePoint(0, currentOptionY)];
-                option.delegate = self;
-                [self addSubview:option];
-                currentOptionY += self.height;
-                NSLog(@"Current height: %d", currentOptionY);
-            } else {
-                
-            }
-        }
+    NSLog(@"Set options: %@", _options);
+    
+    for(NSNumber* key in _options) {
+        NSLog(@"key: %@", key);
+        NSArray *optionData = @[[_options objectForKey: key], key];
+        controlOption *option = [[controlOption alloc] initWithKeyValue: optionData];
+        [option setOrigin:NSMakePoint(0, currentOptionY)];
+         option.delegate = self;
+        [self addSubview:option];
+        currentOptionY += self.height;
     }
     
     [self setNeedsDisplay: YES];
 }
 
-
 -(void)optionSelectedWithKeyValue: (NSArray*)keyValue {
     NSLog(@"Delegate Received %@", keyValue);
-   [self setSelectedLabel: keyValue[0]];
-   [self setSelectedValue: (int)[keyValue[1] integerValue]];
-    NSLog(@"keyValue: %@", keyValue[1]);
+    [self setSelectedOption: keyValue];
+    NSLog(@"keyValue: %@", keyValue[0]);
 }
 
 

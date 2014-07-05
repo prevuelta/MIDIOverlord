@@ -10,17 +10,23 @@
 
 @implementation rackControl
 
-@synthesize midiOutput = _midiOutput;
-@synthesize midiInput = _midiInput;
-
 -(void)addRackTitle {
 
-    _midiInput = [[controlList alloc] initWithOptions: [global sharedGlobalData].midiDestinations andOptionCount: [global sharedGlobalData].midiDestinationCount];
-    [_midiInput setOrigin: NSMakePoint(4, 22)];
+     NSLog(@"Destinations: %@", [global sharedGlobalData].midiDestinations);
     
-    [self addSubview: _midiInput];
+    self.midiDestSelect = [[controlList alloc] initWithOptions: [global sharedGlobalData].midiDestinations andOptionCount: [global sharedGlobalData].midiDestinationCount];
     
-    NSLog(@"Destinations: %@", [global sharedGlobalData].midiDestinations);
+    [self.midiDestSelect setOrigin: NSMakePoint(4, 22)];
+    
+    if([self.data[@"midiDest"] count] > 0) {
+        [self.midiDestSelect setSelectedOption: self.data[@"midiDest"]];
+    }
+        
+    [self.data bind:@"midiDest" toObject: self.midiDestSelect withKeyPath:@"selectedOption" options:nil];
+    
+    [self addSubview: self.midiDestSelect];
+    
+    
     
 //    _midiOutput = [[deviceList alloc] initWithFrame: @"MIDI OUT"];
 //    [_midiOutput setOrigin: NSMakePoint(4, 40)];
@@ -43,19 +49,19 @@
     [self addSubview: addSlider];
     
     // Observers
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createMidiDestinationsDeviceList:) name:@"updateMidiDestinations" object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createMidiDestinationsDeviceList:) name:@"updateMidiDestinations" object:nil];
     
 }
 
--(void)createMidiDestinationsDeviceList:(NSNotification*)notification {
-    NSMutableArray *keyValues = [NSMutableArray new];
+//-(void)createMidiDestinationsDeviceList:(NSNotification*)notification {
+//    NSMutableArray *keyValues = [NSMutableArray new];
 //    NSLog(@"keyValues: %@", keyValues);
-    for(NSString* key in notification.userInfo) {
-        [keyValues addObject: [notification.userInfo objectForKey: key][0]];
-        [keyValues addObject: key];
-    }
+//    for(NSString* key in notification.userInfo) {
+//        [keyValues addObject: [notification.userInfo objectForKey: key][0]];
+//        [keyValues addObject: key];
+//    }
 //    [_midiOutput addOptions: keyValues];
-}
+//}
 
 -(void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];

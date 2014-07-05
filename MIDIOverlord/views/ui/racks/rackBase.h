@@ -20,11 +20,8 @@
 @property NSMutableArray* subViews;
 @property int headerHeight;
 
-@property controlList *midiInput;
-@property controlList *midiOutput;
-
-@property int deviceIn;
-@property int deviceOut;
+@property controlList *midiDestSelect;
+@property NSArray *midiDest;
 
 @property uiText *midiChannelText;
 @property int midiChannel;

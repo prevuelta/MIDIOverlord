@@ -39,6 +39,8 @@
     
     self.rackID = data[@"rackID"];
     
+    self.midiDest = data[@"midiDest"];
+    
     self.data = data;
     
     self.moduleView = [[scrollableView alloc] initWithFrame:NSMakeRect(0, 0, RACK_WIDTH - 8, self.height - self.headerHeight - 4)];
@@ -151,15 +153,13 @@
 }
 
 -(void)midiData:(NSArray*)data {
-    NSDictionary *newData = @{@"device": [NSNumber numberWithInt: self.deviceOut], @"data" : data};
-//    [[NSNotificationCenter defaultCenter] postNotificationName:@"midiMessage" object:self userInfo: data];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"midiMessageToDevice" object:self userInfo: newData];
-}
-
--(void)moduleUpdateWithData: (NSDictionary*)data {
-//    NSLog(@"Send Notification: %@", data);
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"moduleUpdate" object:self userInfo: @{@"rackID": self.rackID, @"data": data}];
-//    NSLog(@"Rack data %@", self.data);
+    NSLog(@"delegate recieved: %@", self.data);
+    if([self.data[@"midiDest"] count] > 0) {
+        NSDictionary *newData = @{@"device": self.data[@"midiDest"], @"data" : data};
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"midiMessageToDevice" object:self userInfo: newData];
+    } else {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"midiMessage" object:self userInfo:  @{@"data" : data}];
+    }
 }
 
 -(void)mouseDown:(NSEvent *)theEvent {

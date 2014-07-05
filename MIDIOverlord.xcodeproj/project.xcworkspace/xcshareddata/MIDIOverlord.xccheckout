@@ -5,34 +5,34 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>EF2AE494-5ED0-4412-8AC6-0EEB2E58E4E7</string>
+	<string>71C7552B-F58A-42D7-A9F7-CCFACA95F8F8</string>
 	<key>IDESourceControlProjectName</key>
 	<string>MIDIOverlord</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>63DE83F5-20AF-4EB8-9F38-F7719AD4E536</key>
-		<string>suspekt007@suspekt007.webfactional.com:~/webapps/git/repos/GeckoMIDI.git</string>
+		<key>D59ECC7A-4F5E-4EF9-B422-5E0075226B26</key>
+		<string>suspekt007@suspekt007.webfactional.com:/home/suspekt007/webapps/git/repos/GeckoMIDI.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>MIDIOverlord.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>63DE83F5-20AF-4EB8-9F38-F7719AD4E536</key>
+		<key>D59ECC7A-4F5E-4EF9-B422-5E0075226B26</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>suspekt007@suspekt007.webfactional.com:~/webapps/git/repos/GeckoMIDI.git</string>
+	<string>suspekt007@suspekt007.webfactional.com:/home/suspekt007/webapps/git/repos/GeckoMIDI.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>63DE83F5-20AF-4EB8-9F38-F7719AD4E536</string>
+	<string>D59ECC7A-4F5E-4EF9-B422-5E0075226B26</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>63DE83F5-20AF-4EB8-9F38-F7719AD4E536</string>
+			<string>D59ECC7A-4F5E-4EF9-B422-5E0075226B26</string>
 			<key>IDESourceControlWCCName</key>
 			<string>MIDIOverlord</string>
 		</dict>
