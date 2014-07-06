@@ -51,19 +51,14 @@
     [_data bind:@"label" toObject: editLabel withKeyPath:@"stringValue" options:nil];
     
     [self addSubview:editLabel];
-    
-    uiText *label = [[uiText alloc] initWithString: _data[@"label"] andMaxLength: 4 andLabelLength: 0];
-    [label setOrigin:NSMakePoint(4, 4)];
 
-    [label bind:@"stringValue" toObject: _data withKeyPath:@"label" options:nil];
-    
-    [self addSubview: label];
+    [_slider.label bind:@"stringValue" toObject: _data withKeyPath:@"label" options:nil];
     
     // Add CC text field
     
     _ccControl = [[controlText alloc] initWithLabel: @"CC"];
     
-    [_ccControl setOrigin:NSMakePoint(label.frameWidth + 4, 4)];
+    [_ccControl setOrigin:NSMakePoint(editLabel.frameWidth + 4, 4)];
     [_ccControl setInEditView:YES];
     [_ccControl setMax:127];
     [_ccControl setValue: data[@"ccNumber"]];
@@ -73,9 +68,9 @@
     [self addSubview: _ccControl ];
 
     // Add close button
-    uiButtonClose *removeBtn = [[uiButtonClose alloc] initWithSize: 8];
+    uiButtonClose *removeBtn = [[uiButtonClose alloc] initWithSize: 24];
     [removeBtn setEvent:@"removeModule" withData: @{@"rackID": self.data[@"rackID"], @"moduleID" : self.data[@"moduleID"]}];
-    [removeBtn setOrigin: NSMakePoint(RACK_WIDTH - 20 - SCROLLER_WIDTH, 8)];
+    [removeBtn setOrigin: NSMakePoint(RACK_WIDTH - 24 - SCROLLER_WIDTH -8, 0)];
     [removeBtn setInEditView:YES];
     
     [self addSubview: removeBtn];

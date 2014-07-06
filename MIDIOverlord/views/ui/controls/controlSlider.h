@@ -21,6 +21,7 @@
 @property NSPoint offset;
 
 @property uiText *textVal;
+@property uiText *label;
 
 -(id)initWithFrame:(NSPoint)size :(NSPoint)offset :(int)min :(int)max;
 

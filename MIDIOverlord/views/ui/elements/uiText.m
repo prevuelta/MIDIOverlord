@@ -42,7 +42,7 @@ static NSPoint gridSystem[54];
     _charSizeX = (_gridCellSizeX * (_gridCols-1)) + _letterSpacing;
     _charSizeY = (_gridCellSizeY * (_gridRows-1)) + (_padding * 2);
     
-    _textColor = [global sharedGlobalData].markerColor;
+    _textColor = [global sharedGlobalData].activeColor;
     _bgColor = [global sharedGlobalData].blackColor;
 
     int width = (_charSizeX * _maxLength) + ((_padding * 2) - _letterSpacing);

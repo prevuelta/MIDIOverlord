@@ -58,6 +58,8 @@
         NSAssert(appData, @"unarchiveObjectWithFile failed");
     
         [[NSNotificationCenter defaultCenter] postNotificationName:@"fileLoaded" object:self userInfo: @{@"data" : appData}];
+    
+        [_mainWin setTitle: appData[@"state"][@"title"]];
 }
 
 -(IBAction)saveDocument:(id)sender {

@@ -75,17 +75,17 @@ int baseY;
     }
 }
 
--(void)mouseDown:(NSEvent *)e {
-    NSPoint location = [self convertPoint:[e locationInWindow] fromView:nil];
-    baseY = location.y;
-}
-
-- (void)mouseDragged:(NSEvent*)e {
-        NSPoint location = [self convertPoint:[e locationInWindow] fromView:nil];
-        int newValue = [_value intValue] + (location.y - baseY);
-        [self setValue: [NSNumber numberWithInt:newValue]];
-        baseY = location.y;
-}
+//-(void)mouseDown:(NSEvent *)e {
+//    NSPoint location = [self convertPoint:[e locationInWindow] fromView:nil];
+//    baseY = location.y;
+//}
+//
+//- (void)mouseDragged:(NSEvent*)e {
+//        NSPoint location = [self convertPoint:[e locationInWindow] fromView:nil];
+//        int newValue = [_value intValue] + (location.y - baseY);
+//        [self setValue: [NSNumber numberWithInt:newValue]];
+//        baseY = location.y;
+//}
 
 -(void)mouseUp:(NSEvent *)e {
 

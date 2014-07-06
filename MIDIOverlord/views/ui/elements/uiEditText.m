@@ -67,7 +67,8 @@
     if (2 == clickCount) [self handleDoubleClick:event];
 }
 
--(void)handleDoubleClick:(NSEvent *)e {
+//-(void)handleDoubleClick:(NSEvent *)e {
+-(void)mouseDown:(NSEvent *)theEvent {
     [global deselectNotify];
     NSLog(@"Editing textg");
     _tempString = self.stringValue;

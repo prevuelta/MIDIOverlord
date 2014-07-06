@@ -51,6 +51,7 @@
     
     self.label = [[uiEditText alloc] initWithString: self.labelText andMaxLength:14 andLabelLength:0];
     [self.label setIsEditable: YES];
+    [self.label setDrawBg: NO];
     [self.label setOrigin:NSMakePoint(4, 4)];
     
     [self bind:@"labelText" toObject: _label withKeyPath:@"stringValue" options:nil];

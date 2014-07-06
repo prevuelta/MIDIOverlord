@@ -18,9 +18,10 @@
     
     NSLog(@"Init main view");
 
-    
     _mainWin = mainWin;
 
+    [_mainWin setTitle: @"Untitled"];
+    
     _racks = [NSMutableArray new];
 
     // Setup main interface
