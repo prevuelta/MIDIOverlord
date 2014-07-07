@@ -48,6 +48,12 @@ static global *_instance;
             
             _instance.invalidChars = [allowedCharacters invertedSet];
             
+            NSMutableCharacterSet *allowedNumbers = [NSMutableCharacterSet new];
+            
+            [allowedNumbers addCharactersInString: @"1234567890"];
+            
+            _instance.notNumbers = [allowedNumbers invertedSet];
+            
         }
     }
     

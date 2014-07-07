@@ -16,14 +16,13 @@ int baseMarker;
 @synthesize value = _value;
 @synthesize marker = _marker;
 
--(id)initWithFrame:(NSPoint)size :(NSPoint)offset :(int)min :(int)max{
+-(id)initWithFrame:(NSPoint)size :(int)min :(int)max{
     
-    self = [super initWithFrame:NSMakeRect(offset.x, offset.y, size.x, size.y)];
+    self = [super initWithFrame:NSMakeRect(0, 0, size.x, size.y)];
     
     if(!self) return nil;
     
     _size = size;
-    _offset = offset;
     _min = min;
     _max = max;
     _range = max - min;
@@ -35,8 +34,9 @@ int baseMarker;
     _marker = [_value intValue];
                 
     _textVal = [[uiText alloc] initWithString: [NSString stringWithFormat:@"%03d", [_value intValue]]];
-    [_textVal setOrigin:NSMakePoint(RACK_WIDTH - 40 - SCROLLER_WIDTH, 0)];
+    [_textVal setOrigin:NSMakePoint(RACK_WIDTH - 36 - SCROLLER_WIDTH, 0)];
     [_textVal setDrawBg: NO];
+    [_textVal setTextColor:[NSColor whiteColor]];
     [self addSubview: _textVal];
     
 //    _label = [[uiText alloc] initWithString: @"" andMaxLength: 4 andLabelLength: 0];
@@ -45,6 +45,14 @@ int baseMarker;
 //    [_label setDrawBg: NO];
 //    
 //    [self addSubview: _label];
+    
+    NSTrackingAreaOptions mouseEnterExitOptions = NSTrackingActiveInActiveApp;
+    mouseEnterExitOptions |= NSTrackingMouseEnteredAndExited;
+    
+
+//    _trackRect = [[NSTrackingArea alloc] initWithRect: NSMakeRect(-12, 0, 24, size.y) options:mouseEnterExitOptions owner:self userInfo: nil];
+    
+//    [self addTrackingArea: trackRect ];
     
     return self;
     
@@ -61,7 +69,7 @@ int baseMarker;
     [bgPath closePath];
     [bgPath fill];
     
-    [[global sharedGlobalData].defaultColor set];
+    [[global sharedGlobalData].markerColor set];
     
     [markerPath appendBezierPathWithRect:NSMakeRect(0, 0, self.marker, self.size.y)];
     [markerPath closePath];
@@ -86,6 +94,8 @@ int baseMarker;
 -(void)setMarker:(int)marker {
     NSLog(@"%@", [NSNumber numberWithInt: marker]);
     _marker = marker;
+//    [_trackRect setRect = NSMakeRect(_marker-12, 0, 24, _size.y);/
+//    _trackRect.rect =
 }
 
 -(void)updateMarker {
@@ -110,6 +120,19 @@ int baseMarker;
     self.active = false;
     [self updateControlFromEvent:e];
 }
+
+-(void)mouseEntered:(NSEvent *)theEvent{
+    NSLog(@"mouse entered");
+    //  [_label setDefaultColor:[global sharedGlobalData].activeColor];
+//    [_label setNeedsDisplay:YES];
+}
+
+-(void)mouseExited:(NSEvent *)theEvent {
+    //    [_label setBackgroundColor: self.defaultColor];
+    //    [_label setActiveColor:[global sharedGlobalData].markerColor];
+//    [_label setNeedsDisplay:YES];
+}
+
 
 -(void)updateControlFromData:(NSNumber*)value {
     [self setValue: value];

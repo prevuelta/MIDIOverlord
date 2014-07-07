@@ -109,11 +109,10 @@
     if(self.selected == YES) {
         [[global sharedGlobalData].activeColor set];
     } else {
-        [[global sharedGlobalData].black set];
+        [[global sharedGlobalData].darkestGrey set];
     }
     
     [headerPath appendBezierPathWithRoundedRect:NSMakeRect(0, 0, RACK_WIDTH, self.headerHeight) xRadius: 0 yRadius: 0];
-
     
     [headerPath closePath];
     [headerPath fill];

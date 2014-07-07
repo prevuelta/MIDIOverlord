@@ -24,6 +24,7 @@
 @property NSColor *activeColor;
 
 @property NSCharacterSet *invalidChars;
+@property NSCharacterSet *notNumbers;
 
 @property NSMutableDictionary* midiDestinations;
 @property int midiDestinationCount;

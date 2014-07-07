@@ -18,12 +18,13 @@
 @property int marker;
 
 @property NSPoint size;
-@property NSPoint offset;
+
+@property NSTrackingArea *trackRect;
 
 @property uiText *textVal;
 @property uiText *label;
 
--(id)initWithFrame:(NSPoint)size :(NSPoint)offset :(int)min :(int)max;
+-(id)initWithFrame:(NSPoint)size :(int)min :(int)max;
 
 -(void)updateControlFromEvent:(NSEvent*)e;
 -(void)updateControlFromData:(NSNumber*)value;

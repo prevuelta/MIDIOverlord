@@ -18,21 +18,27 @@
     
     _isEditable = NO;
     
+    _invalidChars = [global sharedGlobalData].invalidChars].location;
+    
     return self;
 }
 
 - (void)drawRect:(NSRect)dirtyRect {
     
+    
     if(self.isEditing) {
         self.textColor = [global sharedGlobalData].activeColor;
         self.bgColor = [global sharedGlobalData].black;
     } else {
-         self.bgColor = [global sharedGlobalData].defaultColor;
+        self.textColor = [global sharedGlobalData].markerColor;
+        self.bgColor = [global sharedGlobalData].defaultColor;
     }
     
     [super drawRect:dirtyRect];
     
     if(self.isEditing) {
+    
+        
         NSBezierPath *outline = [NSBezierPath new];
         NSBezierPath *cursor = [NSBezierPath new];
         
@@ -55,8 +61,9 @@
         [outline lineToPoint:NSMakePoint(self.frame.size.width-1, self.frame.size.height-1)];
         [outline lineToPoint:NSMakePoint(self.frame.size.width-1, 1)];
         [outline lineToPoint:NSMakePoint(0, 1)];
-        
-        [[global sharedGlobalData].activeColor set];
+//        
+//        [self.textColor set];
+//        
         [outline fill];
         [cursor fill];
     }
@@ -92,7 +99,7 @@
         characters = [event characters];
     NSLog(@"Letter: %@", characters);
     NSLog(@"KeyCode: %hu", [event keyCode]);
-    if([characters rangeOfCharacterFromSet:[global sharedGlobalData].invalidChars].location == NSNotFound) {
+    if([characters rangeOfCharacterFromSet:_invalidChars == NSNotFound) {
         NSLog(@"Letter: %@", characters);
         if([self.stringValue length] < self.maxLength) {
             NSLog(@"addingletter");

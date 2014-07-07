@@ -16,6 +16,6 @@
 +(NSColor*)getNSColorFromRGB:(float[])colors;
 
 // App file handling
-+(NSString*)getSaveFileUrl;
++(NSURL*)getSaveFileUrl;
 
 @end

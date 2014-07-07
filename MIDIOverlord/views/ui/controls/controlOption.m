@@ -50,6 +50,7 @@
 }
 
 -(void)mouseEntered:(NSEvent *)theEvent{
+    NSLog(@"Mouse entered");
 //  [_label setDefaultColor:[global sharedGlobalData].activeColor];
   [_label setNeedsDisplay:YES];
 }

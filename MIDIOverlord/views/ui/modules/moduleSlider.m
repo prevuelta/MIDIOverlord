@@ -34,7 +34,7 @@
     NSLog(@"Init with data");
     
     // Add Slider
-    _slider = [[controlSlider alloc] initWithFrame:NSMakePoint(self.width - 4, 16): NSMakePoint(0, 0): 0 :127 ];
+    _slider = [[controlSlider alloc] initWithFrame:NSMakePoint(self.width, 16): 0 :127 ];
     [_slider setOrigin:NSMakePoint(0, 0)];
     [_slider updateControlFromData: data[@"ccValue"]];
     

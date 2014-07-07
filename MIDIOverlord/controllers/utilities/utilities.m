@@ -38,7 +38,7 @@
     return [NSColor colorWithDeviceRed:red green:green blue:blue alpha:alpha];
 }
 
-+(NSString*)getSaveFileUrl {
++(NSURL*)getSaveFileUrl {
     
     NSSavePanel* saver = [NSSavePanel savePanel];
     [saver setPrompt:@"Save file as..."];
