@@ -24,6 +24,9 @@ int baseY;
     _stringValue = [self labelPlusValue];
     
     _label = [[uiEditText alloc] initWithString: _stringValue];
+    [_label setInvalidChars:[global sharedGlobalData].notNumbers];
+    
+    [_label bind:@"stringValue" toObject:self withKeyPath:@"stringValue" options:nil];
     
     NSRect frame = NSMakeRect(0, 0, _label.frame.size.width + 26, 16);
     
@@ -69,11 +72,17 @@ int baseY;
 -(void)setValue: (NSNumber*)value {
     if([value intValue] >= 0 && [value intValue] <= _max) {
         _value = value;
-         NSLog(@"%@", _value);
-        [self.label setStringValue: [self labelPlusValue]];
+         NSLog(@"Value: %@", _value);
+//        [self.label setStringValue: [self labelPlusValue]];
         [self setNeedsDisplay:YES];
     }
 }
+
+//-(void)deselect:(NSNotification*)notification {
+//    [super deselect:notification];
+//    NSLog(@"Int value: %@, %@", self.label.stringValue, [NSNumber numberWithInt:[self.label.stringValue intValue] ]);
+//    [self setValue: [NSNumber numberWithInt: [self.stringValue intValue]]];
+//}
 
 //-(void)mouseDown:(NSEvent *)e {
 //    NSPoint location = [self convertPoint:[e locationInWindow] fromView:nil];

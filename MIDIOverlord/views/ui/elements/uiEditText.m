@@ -10,22 +10,15 @@
 
 @implementation uiEditText
 
-- (id)initWithFrame:(NSRect)frame {
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code here.
-    }
-    
+-(id)initWithString:(NSString*)stringValue andMaxLength:(int)maxLength andLabelLength:(int)labelLength {
     _isEditable = NO;
-    
-    _invalidChars = [global sharedGlobalData].invalidChars].location;
-    
-    return self;
+    _invalidChars = [global sharedGlobalData].invalidChars;
+    return [super initWithString:stringValue andMaxLength:maxLength andLabelLength:labelLength];
 }
 
+
+
 - (void)drawRect:(NSRect)dirtyRect {
-    
-    
     if(self.isEditing) {
         self.textColor = [global sharedGlobalData].activeColor;
         self.bgColor = [global sharedGlobalData].black;
@@ -98,8 +91,9 @@
         NSString *characters;
         characters = [event characters];
     NSLog(@"Letter: %@", characters);
-    NSLog(@"KeyCode: %hu", [event keyCode]);
-    if([characters rangeOfCharacterFromSet:_invalidChars == NSNotFound) {
+    NSLog(@"KeyCode: %hu %@", [event keyCode], _invalidChars);
+//    _invalidChars = [global sharedGlobalData].invalidChars;
+    if([characters rangeOfCharacterFromSet: _invalidChars].location == NSNotFound) {
         NSLog(@"Letter: %@", characters);
         if([self.stringValue length] < self.maxLength) {
             NSLog(@"addingletter");
@@ -117,7 +111,7 @@
 
 -(void)addCharacter:(NSString*)letter {
     self.stringValue  = [self.stringValue stringByAppendingString: letter];
-    NSLog(@"%@", self.stringValue);
+    NSLog(@"String value: %@", self.stringValue);
     
     [self setNeedsDisplay:YES];
 }

@@ -15,6 +15,8 @@
 
 @property NSString *tempString;
 
+@property NSCharacterSet* invalidChars;
+
 -(void)handleDoubleClick:(NSEvent *)e;
 -(void)addCharacter:(NSString*)letter;
 -(void)removeCharacter;
