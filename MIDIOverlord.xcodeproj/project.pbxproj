@@ -16,7 +16,6 @@
 		6E8A23C51951205000745214 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E8A23C41951205000745214 /* logo.png */; };
 		6E8DEB571953F60A0013CF96 /* scrollableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8DEB561953F60A0013CF96 /* scrollableView.m */; };
 		6E8DEB5A1953FB4F0013CF96 /* controlScrollBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8DEB591953FB4F0013CF96 /* controlScrollBar.m */; };
-		6EC836CF194AF7E400266F60 /* uiButtonClose.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC836CE194AF7E400266F60 /* uiButtonClose.m */; };
 		6ECD89F61946BE7400CCBE97 /* uiButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECD89F21946BE7400CCBE97 /* uiButton.m */; };
 		6ECD89F71946BE7400CCBE97 /* uiText.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECD89F41946BE7400CCBE97 /* uiText.m */; };
 		6ECD89FA1947C3EE00CCBE97 /* controlText.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECD89F91947C3EE00CCBE97 /* controlText.m */; };
@@ -76,8 +75,6 @@
 		6E8DEB561953F60A0013CF96 /* scrollableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = scrollableView.m; sourceTree = "<group>"; };
 		6E8DEB581953FB4F0013CF96 /* controlScrollBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = controlScrollBar.h; sourceTree = "<group>"; };
 		6E8DEB591953FB4F0013CF96 /* controlScrollBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = controlScrollBar.m; sourceTree = "<group>"; };
-		6EC836CD194AF7E400266F60 /* uiButtonClose.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = uiButtonClose.h; path = MIDIOverlord/views/ui/elements/uiButtonClose.h; sourceTree = SOURCE_ROOT; };
-		6EC836CE194AF7E400266F60 /* uiButtonClose.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = uiButtonClose.m; path = MIDIOverlord/views/ui/elements/uiButtonClose.m; sourceTree = SOURCE_ROOT; };
 		6ECD89F11946BE7400CCBE97 /* uiButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uiButton.h; sourceTree = "<group>"; };
 		6ECD89F21946BE7400CCBE97 /* uiButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uiButton.m; sourceTree = "<group>"; };
 		6ECD89F31946BE7400CCBE97 /* uiText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uiText.h; sourceTree = "<group>"; };
@@ -172,8 +169,6 @@
 		6ECD89EE1946BE7400CCBE97 /* elements */ = {
 			isa = PBXGroup;
 			children = (
-				6EC836CD194AF7E400266F60 /* uiButtonClose.h */,
-				6EC836CE194AF7E400266F60 /* uiButtonClose.m */,
 				6ECD89F11946BE7400CCBE97 /* uiButton.h */,
 				6ECD89F21946BE7400CCBE97 /* uiButton.m */,
 				6ECD89F31946BE7400CCBE97 /* uiText.h */,
@@ -437,7 +432,6 @@
 				6EE4457C1936C86100C61171 /* controlList.m in Sources */,
 				6ECD89F61946BE7400CCBE97 /* uiButton.m in Sources */,
 				6EE4456C1936C86100C61171 /* appViewController.m in Sources */,
-				6EC836CF194AF7E400266F60 /* uiButtonClose.m in Sources */,
 				6EE445821936C86100C61171 /* moduleBase.m in Sources */,
 				6E29E52A194ABE9800F6BD4F /* global.m in Sources */,
 				6EE4457E1936C86100C61171 /* controlSlider.m in Sources */,

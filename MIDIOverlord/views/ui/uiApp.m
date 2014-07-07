@@ -56,11 +56,12 @@
 
 -(void)drawRect:(NSRect)dirtyRect {
     
-    NSBezierPath* bgPath = [NSBezierPath new];
-    [[global sharedGlobalData].bgColor set];
-    [bgPath appendBezierPathWithRect: self.frame];
-    [bgPath closePath];
-    [bgPath fill];
+//    NSBezierPath* bgPath = [NSBezierPath new];
+//    [[global sharedGlobalData].darkBrown set];
+//    [btnPath appendBezierPathWithRoundedRect:dirtyRect xRadius: 2 yRadius:2];
+//    [bgPath appendBezierPathWithRoundedRect: NSMakeRect(2, 2, self.frameWidth - 4, self.frameHeight - 2) xRadius: 2 yRadius: 2];
+//    [bgPath closePath];
+//    [bgPath fill];
 
 }
 

@@ -66,9 +66,9 @@
 //    }
 //}
 
--(void)drawRect:(NSRect)rect {
-    [self drawModule:rect];
-    [self drawBg:rect];
+-(void)drawRect:(NSRect)dirtyRect {
+    [self drawModule:dirtyRect];
+    [self drawBg:dirtyRect];
 }
 
 -(NSInteger)tag {
@@ -92,7 +92,7 @@
     if(self.selected) {
          [[global sharedGlobalData].defaultColor set];
     } else {
-        [[global sharedGlobalData].blackColor set];
+        [[global sharedGlobalData].black set];
     }
 
     [bgPath appendBezierPathWithRect:NSMakeRect(0, 0, self.width, self.height)];

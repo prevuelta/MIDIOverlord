@@ -22,13 +22,21 @@ static global *_instance;
             
             _instance.patternBg = [NSImage imageNamed: @"patternBg.gif"];
             
-            float blackRGBA[] = UI_COLOR_BLACK;
+            float blackRGBA[] = MO_BLACK;
+            float darkestGreyRGBA[] = MO_DARKEST_GREY;
+            float darkBrownRGBA[] = MO_DARK_BROWN;
+            float brownRGBA[] = MO_BROWN;
+            
             float defaultRGBA[] = UI_COLOR_PROT_1;
             float bgRGBA[] = MO_BROWN_WHITE;
             float markerRGBA[] = MO_BLUE;
             float activeRGBA[] = MO_RED;
             
-           _instance.blackColor = [utilities getNSColorFromRGB:blackRGBA];
+           _instance.black = [utilities getNSColorFromRGB:blackRGBA];
+            _instance.darkestGrey = [utilities getNSColorFromRGB:darkestGreyRGBA];
+            _instance.darkBrown = [utilities getNSColorFromRGB:darkBrownRGBA];
+            _instance.brown = [utilities getNSColorFromRGB:brownRGBA];
+            
            _instance.defaultColor = [utilities getNSColorFromRGB:defaultRGBA];
            _instance.bgColor = [utilities getNSColorFromRGB:bgRGBA];
            _instance.markerColor = [utilities getNSColorFromRGB:markerRGBA];

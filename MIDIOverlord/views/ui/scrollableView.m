@@ -91,9 +91,9 @@
 }
 
 -(void)drawRect:(NSRect)dirtyRect {
-   [[NSColor whiteColor] setFill];
-    NSRectFill(dirtyRect);
-    [super drawRect:dirtyRect];
+//   [[NSColor whiteColor] setFill];
+//    NSRectFill(dirtyRect);
+//    [super drawRect:dirtyRect];
 }
 
 - (void)scrollWheel:(NSEvent *)event {

@@ -15,8 +15,7 @@
 @property NSColor* upColor;
 @property NSColor* downColor;
 @property NSPoint size;
-@property NSPoint offset;
 
-- (id)initWithFrame:(NSPoint)size :(NSPoint)offset;
+- (id)initWithSize:(NSPoint)size;
 
 @end

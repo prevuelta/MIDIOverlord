@@ -6,12 +6,12 @@
 //  Copyright (c) 2014 Midnight City. All rights reserved.
 //
 
-#import "uiText.h"
+#import "uiEditText.h"
 #import "controlBase.h"
 
 @interface controlText : controlBase;
 
-@property uiText *label;
+@property uiEditText *label;
 @property NSString* stringValue;
 
 @property int min;

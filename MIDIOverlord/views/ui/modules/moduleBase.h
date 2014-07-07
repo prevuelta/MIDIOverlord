@@ -18,7 +18,6 @@
 #import "uiEditText.h"
 #import "utilities.h"
 #import "uiButton.h"
-#import "uiButtonClose.h"
 
 @class moduleBase;
 
@@ -58,7 +57,6 @@
 // Methods
 -(id)initWithFrame:(NSRect)frame;
 -(void)mouseDown:(NSEvent *)theEvent;
--(void)drawRect:(NSRect)rect;
 -(void)drawBg:(NSRect)rect;
 -(void)drawModule:(NSRect)rect;
 -(void)addCCField;

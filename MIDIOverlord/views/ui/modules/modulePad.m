@@ -14,11 +14,9 @@
 
 -(id)initWithData: (NSMutableDictionary*)data{
     
-    int height = 38;
+    int height = 40;
     
-    int size = 32;
-    
-    NSRect frame = NSMakeRect(0, 0, 32, height);
+    NSRect frame = NSMakeRect(0, 0, RACK_WIDTH, height);
     
     self = [super initWithFrame:frame];
     
@@ -28,11 +26,17 @@
     
     self.data = data;
     
+    NSPoint padSize = NSMakePoint(36, 36);
     
-    NSPoint padSize = NSMakePoint(size, size);
+    controlTrigger *pad1 = [[controlTrigger alloc] initWithSize: padSize];
+    controlTrigger *pad2 = [[controlTrigger alloc] initWithSize: padSize];
+    controlTrigger *pad3 = [[controlTrigger alloc] initWithSize: padSize];
+    controlTrigger *pad4 = [[controlTrigger alloc] initWithSize: padSize];
     
-    controlTrigger *pad = [[controlTrigger alloc] initWithFrame: padSize:
-                            NSMakePoint(0, 0)];
+    [pad1 setOrigin:NSMakePoint(2, 2)];
+    [pad2 setOrigin:NSMakePoint(42, 2)];
+    [pad3 setOrigin:NSMakePoint(82, 2)];
+    [pad4 setOrigin:NSMakePoint(122, 2)];
     
     controlText *note = [[controlText alloc] initWithLabel:@""];
     [note setValue: @34];
@@ -40,9 +44,12 @@
     [self addSubview: note];
     
 
-    [self addSubview: pad];
+    [self addSubview: pad1];
+    [self addSubview: pad2];
+    [self addSubview: pad3];
+    [self addSubview: pad4];
     
-    uiButtonClose *removeBtn = [[uiButtonClose alloc] initWithSize: 8];
+    uiButton *removeBtn = [[uiButton alloc] initWithSize: 8];
     [removeBtn setEvent:@"removeModule" withData: @{@"rackID": self.data[@"rackID"], @"moduleID" : self.data[@"moduleID"]}];
     [removeBtn setOrigin: NSMakePoint(RACK_WIDTH - 20 - SCROLLER_WIDTH, 2)];
     [removeBtn setInEditView:YES];
@@ -60,6 +67,9 @@
     return [NSString stringWithFormat:@"%d%@", octave-1, note];
 }
 
+-(void)drawRect:(NSRect)dirtyRect {
+    
+}
 
 
 @end

@@ -25,7 +25,7 @@
     
     if(self.isEditing) {
         self.textColor = [global sharedGlobalData].activeColor;
-        self.bgColor = [global sharedGlobalData].blackColor;
+        self.bgColor = [global sharedGlobalData].black;
     } else {
          self.bgColor = [global sharedGlobalData].defaultColor;
     }

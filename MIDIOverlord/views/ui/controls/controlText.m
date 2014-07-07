@@ -23,7 +23,7 @@ int baseY;
     _stringLabel = stringLabel;
     _stringValue = [self labelPlusValue];
     
-    _label = [[uiText alloc] initWithString: _stringValue];
+    _label = [[uiEditText alloc] initWithString: _stringValue];
     
     NSRect frame = NSMakeRect(0, 0, _label.frame.size.width + 26, 16);
     

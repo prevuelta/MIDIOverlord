@@ -10,13 +10,12 @@
 
 @implementation controlTrigger
 
-- (id)initWithFrame:(NSPoint)size :(NSPoint)offset {
+- (id)initWithSize:(NSPoint)size {
     
-    self = [super initWithFrame:NSMakeRect(offset.x, offset.y, size.x, size.y)];
+    self = [super initWithFrame:NSMakeRect(0, 0, size.x, size.y)];
     if(!self) return nil;
     
     _size = size;
-    _offset = offset;
     
     uiText *label = [[uiText alloc] initWithString: @"---" andMaxLength: 3 andLabelLength: 3];
     
@@ -31,7 +30,7 @@
     
     NSBezierPath* btnPath = [NSBezierPath new];
     
-    [btnPath appendBezierPathWithRect:NSMakeRect(0, 0, _size.x, _size.y)];
+    [btnPath appendBezierPathWithRoundedRect:NSMakeRect(0, 0, _size.x, _size.y) xRadius: 2 yRadius: 2];
     
     [btnPath closePath];
     

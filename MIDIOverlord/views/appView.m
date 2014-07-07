@@ -88,7 +88,7 @@
         // Create rack
         rackControl *rack = [[rackControl alloc] initWithFrame: NSMakeRect(0, 0, RACK_WIDTH, _mainWin.frame.size.height)andData: data];
         
-        [rack setOrigin:NSMakePoint(rI * (RACK_WIDTH + 4) + 4, TOOLBAR_HEIGHT + 4)];
+        [rack setOrigin:NSMakePoint(rI * (RACK_WIDTH + 2) + 2, TOOLBAR_HEIGHT + 2)];
         
         int yLoc = 0;
         
@@ -146,7 +146,9 @@
 }
 
 -(void)drawRect:(NSRect)rect {
-    [[NSColor colorWithPatternImage: [global sharedGlobalData].patternBg] set];
+//    [[NSColor colorWithPatternImage: [global sharedGlobalData].patternBg] set];
+    
+    [[global sharedGlobalData].black set];
     NSRectFill(rect);
 }
 

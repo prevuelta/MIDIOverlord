@@ -13,7 +13,11 @@
 
 @property NSImage *patternBg;
 
-@property NSColor *blackColor;
+@property NSColor *black;
+@property NSColor *darkestGrey;
+@property NSColor *darkBrown;
+@property NSColor *brown;
+
 @property NSColor *defaultColor;
 @property NSColor *bgColor;
 @property NSColor *markerColor;

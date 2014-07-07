@@ -17,7 +17,7 @@
     
     _ccValue = 0;
     
-    self.height = 24;
+    self.height = 32;
     
     _data = data;
     
@@ -34,8 +34,8 @@
     NSLog(@"Init with data");
     
     // Add Slider
-    _slider = [[controlSlider alloc] initWithFrame:NSMakePoint(self.width - 4, 20): NSMakePoint(0, 0): 0 :127 ];
-    [_slider setOrigin:NSMakePoint(2, 2)];
+    _slider = [[controlSlider alloc] initWithFrame:NSMakePoint(self.width - 4, 16): NSMakePoint(0, 0): 0 :127 ];
+    [_slider setOrigin:NSMakePoint(0, 0)];
     [_slider updateControlFromData: data[@"ccValue"]];
     
     [self bind:@"ccValue" toObject:_slider withKeyPath:@"value" options:nil];
@@ -45,8 +45,8 @@
 
     // Add Label
     uiEditText *editLabel = [[uiEditText alloc] initWithString: _data[@"label"] andMaxLength: 4 andLabelLength: 0];
-    [editLabel setOrigin:NSMakePoint(4, 4)];
-    [editLabel setInEditView:YES];
+    [editLabel setOrigin:NSMakePoint(0, 16)];
+//    [editLabel setInEditView:YES];
     
     [_data bind:@"label" toObject: editLabel withKeyPath:@"stringValue" options:nil];
     
@@ -58,8 +58,8 @@
     
     _ccControl = [[controlText alloc] initWithLabel: @"CC"];
     
-    [_ccControl setOrigin:NSMakePoint(editLabel.frameWidth + 4, 4)];
-    [_ccControl setInEditView:YES];
+    [_ccControl setOrigin:NSMakePoint(editLabel.frameWidth + 2, 16)];
+//    [_ccControl setInEditView:YES];
     [_ccControl setMax:127];
     [_ccControl setValue: data[@"ccNumber"]];
     
@@ -68,10 +68,10 @@
     [self addSubview: _ccControl ];
 
     // Add close button
-    uiButtonClose *removeBtn = [[uiButtonClose alloc] initWithSize: 24];
+    uiButton *removeBtn = [[uiButton alloc] initWithSize: 16];
     [removeBtn setEvent:@"removeModule" withData: @{@"rackID": self.data[@"rackID"], @"moduleID" : self.data[@"moduleID"]}];
-    [removeBtn setOrigin: NSMakePoint(RACK_WIDTH - 24 - SCROLLER_WIDTH -8, 0)];
-    [removeBtn setInEditView:YES];
+    [removeBtn setOrigin: NSMakePoint(RACK_WIDTH - 16 - SCROLLER_WIDTH -8, 16)];
+//    [removeBtn setInEditView:YES];
     
     [self addSubview: removeBtn];
     

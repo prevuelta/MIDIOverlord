@@ -7,7 +7,12 @@
 //
 
 // Skins
-#define UI_COLOR_BLACK {34, 34, 34, 255}
+#define MO_BLACK {34, 34, 34, 255}
+#define MO_DARKEST_GREY {42, 42, 42, 255}
+
+#define MO_DARK_BROWN {82, 86, 86, 255}
+#define MO_BROWN {149, 149, 122, 255}
+
 #define UI_COLOR_PROT_0 {200, 200, 200, 255}
 
 #define UI_COLOR_PROT_1 {60, 60, 60, 255}
@@ -22,5 +27,5 @@
 #define MODULE_HEIGHT 144
 #define RACK_WIDTH 174
 #define SCROLLER_WIDTH 4
-#define TOOLBAR_HEIGHT 32
+#define TOOLBAR_HEIGHT 30
 #define WINDOW_HEIGHT 800

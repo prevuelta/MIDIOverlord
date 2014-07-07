@@ -35,16 +35,16 @@ int baseMarker;
     _marker = [_value intValue];
                 
     _textVal = [[uiText alloc] initWithString: [NSString stringWithFormat:@"%03d", [_value intValue]]];
-    [_textVal setOrigin:NSMakePoint(RACK_WIDTH - 40 - SCROLLER_WIDTH, 2)];
+    [_textVal setOrigin:NSMakePoint(RACK_WIDTH - 40 - SCROLLER_WIDTH, 0)];
     [_textVal setDrawBg: NO];
     [self addSubview: _textVal];
     
-    _label = [[uiText alloc] initWithString: @"" andMaxLength: 4 andLabelLength: 0];
-    [_label setOrigin:NSMakePoint(2, 2)];
-    
-    [_label setDrawBg: NO];
-    
-    [self addSubview: _label];
+//    _label = [[uiText alloc] initWithString: @"" andMaxLength: 4 andLabelLength: 0];
+//    [_label setOrigin:NSMakePoint(0, 0)];
+//    
+//    [_label setDrawBg: NO];
+//    
+//    [self addSubview: _label];
     
     return self;
     
@@ -55,13 +55,13 @@ int baseMarker;
     NSBezierPath* bgPath = [NSBezierPath new];
     NSBezierPath* markerPath = [NSBezierPath new];
     
-    [[global sharedGlobalData].defaultColor set];
+    [[global sharedGlobalData].darkestGrey set];
     
     [bgPath appendBezierPathWithRect:NSMakeRect(0, 0, self.size.x, self.size.y)];
     [bgPath closePath];
     [bgPath fill];
     
-    [[global sharedGlobalData].markerColor set];
+    [[global sharedGlobalData].defaultColor set];
     
     [markerPath appendBezierPathWithRect:NSMakeRect(0, 0, self.marker, self.size.y)];
     [markerPath closePath];

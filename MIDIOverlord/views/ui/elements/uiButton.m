@@ -57,13 +57,14 @@
 - (void)drawRect:(NSRect)dirtyRect{
     
     if(!self.active && !self.toggled) {
-        [[global sharedGlobalData].defaultColor setFill];
+        [[global sharedGlobalData].darkBrown setFill];
     } else {
         [[global sharedGlobalData].activeColor setFill];
     }
 
    NSBezierPath *btnPath = [NSBezierPath new];
-    [btnPath appendBezierPathWithRoundedRect:dirtyRect xRadius: 2 yRadius:2];
+//    [btnPath appendBezierPathWithRoundedRect:dirtyRect xRadius: 2 yRadius:2];
+    [btnPath appendBezierPathWithRect:dirtyRect ];
   
     [btnPath fill];
     

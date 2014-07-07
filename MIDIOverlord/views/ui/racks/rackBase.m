@@ -70,7 +70,7 @@
     
 //    [self addSubview: _midiChannelText];
     
-    uiButtonClose *removeBtn = [[uiButtonClose alloc] initWithSize: 8];
+    uiButton *removeBtn = [[uiButton alloc] initWithSize: 8];
     [removeBtn setEvent:@"removeRack" withData: @{@"rackID": self.rackID}];
     [removeBtn setOrigin: NSMakePoint(RACK_WIDTH - 12, 4)];
     [removeBtn setInEditView:YES];
@@ -109,10 +109,11 @@
     if(self.selected == YES) {
         [[global sharedGlobalData].activeColor set];
     } else {
-        [[global sharedGlobalData].bgColor set];
+        [[global sharedGlobalData].black set];
     }
     
-    [headerPath appendBezierPathWithRect:NSMakeRect(0, 0, RACK_WIDTH, self.headerHeight)];
+    [headerPath appendBezierPathWithRoundedRect:NSMakeRect(0, 0, RACK_WIDTH, self.headerHeight) xRadius: 0 yRadius: 0];
+
     
     [headerPath closePath];
     [headerPath fill];
