@@ -17,7 +17,7 @@
     
     _size = size;
     
-    uiText *label = [[uiText alloc] initWithString: @"---" andMaxLength: 3 andLabelLength: 3];
+    uiTextField *label = [[uiTextField alloc] initWithString: @"---" andMaxLength: 3 ];
     
     [label setOrigin:NSMakePoint(2, 2)];
     

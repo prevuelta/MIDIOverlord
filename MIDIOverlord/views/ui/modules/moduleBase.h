@@ -14,8 +14,8 @@
 #import "controlSlider.h"
 #import "controlList.h"
 #import "controlText.h"
-#import "uiText.h"
-#import "uiEditText.h"
+#import "uiTextField.h"
+#import "uiEditableTextField.h"
 #import "utilities.h"
 #import "uiButton.h"
 
@@ -51,7 +51,7 @@
 @property NSInteger tag;
 
 // UI
-@property uiText *label;
+@property uiTextField *label;
 
 
 // Methods

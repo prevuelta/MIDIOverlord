@@ -1,22 +1,20 @@
 //
-//  uiEditText.m
+//  uiEditableTextField.m
 //  MIDIOverlord
 //
 //  Created by Pablo on 14/06/2014.
 //  Copyright (c) 2014 Midnight City. All rights reserved.
 //
 
-#import "uiEditText.h"
+#import "uiEditableTextField.h"
 
-@implementation uiEditText
+@implementation uiEditableTextField
 
--(id)initWithString:(NSString*)stringValue andMaxLength:(int)maxLength andLabelLength:(int)labelLength {
-    _isEditable = NO;
+-(id)initWithString:(NSString*)stringValue andMaxLength:(int)maxLength{
     _invalidChars = [global sharedGlobalData].invalidChars;
-    return [super initWithString:stringValue andMaxLength:maxLength andLabelLength:labelLength];
+    self.savedString = stringValue;
+    return [super initWithString:stringValue andMaxLength:maxLength];
 }
-
-
 
 - (void)drawRect:(NSRect)dirtyRect {
     if(self.isEditing) {
@@ -70,8 +68,11 @@
 //-(void)handleDoubleClick:(NSEvent *)e {
 -(void)mouseDown:(NSEvent *)theEvent {
     [global deselectNotify];
+
     NSLog(@"Editing textg");
+
     _tempString = self.stringValue;
+
     self.stringValue = @"";
 
     [self setIsEditing: YES];
@@ -88,13 +89,15 @@
 }
 
 -(void)keyDown:(NSEvent *)event {
-        NSString *characters;
-        characters = [event characters];
+    NSString *characters;
+    characters = [event characters];
+
     NSLog(@"Letter: %@", characters);
     NSLog(@"KeyCode: %hu %@", [event keyCode], _invalidChars);
-//    _invalidChars = [global sharedGlobalData].invalidChars;
+
     if([characters rangeOfCharacterFromSet: _invalidChars].location == NSNotFound) {
         NSLog(@"Letter: %@", characters);
+        NSLog(@"Strign length: %@", [NSNumber numberWithInt: [self.stringValue length]]);
         if([self.stringValue length] < self.maxLength) {
             NSLog(@"addingletter");
             [self addCharacter: characters];
@@ -104,15 +107,15 @@
     if([event keyCode] == 51) {
         [self removeCharacter];
     }
+
     if([event keyCode] == 36) {
-        [self deselect:nil];
+        [self deselect: nil];
     }
 }
 
 -(void)addCharacter:(NSString*)letter {
     self.stringValue  = [self.stringValue stringByAppendingString: letter];
     NSLog(@"String value: %@", self.stringValue);
-    
     [self setNeedsDisplay:YES];
 }
 
@@ -128,6 +131,9 @@
     if([self.stringValue isEqual:@""]) {
         self.stringValue = _tempString;
     }
+    
+    self.savedString = self.stringValue;
+    NSLog(@"Saved string: %@", self.savedString);
     [self setNeedsDisplay:YES];
 }
 

@@ -30,4 +30,5 @@
 -(void)setEvent:(NSString*)event withData:(NSDictionary*)data;
 -(void)setIconViewOrigin:(NSPoint)origin;
 
+
 @end

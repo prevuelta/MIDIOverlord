@@ -49,8 +49,7 @@
 //
     [self addSubview: self.moduleView];
     
-    self.label = [[uiEditText alloc] initWithString: self.labelText andMaxLength:14 andLabelLength:0];
-    [self.label setIsEditable: YES];
+    self.label = [[uiEditableTextField alloc] initWithString: self.labelText andMaxLength:14];
     [self.label setDrawBg: NO];
     [self.label setOrigin:NSMakePoint(4, 4)];
     
@@ -60,7 +59,7 @@
     
 //    [self.data bind:@"stringValue" toObject: self withKeyPath:@:self.labelText options:nil];
 //
-//    _midiChannelText = [uiText initWithString: @"CH000" andMaxLength: 5 andLabelLength: 2];
+//    _midiChannelText = [uiTextField initWithString: @"CH000" andMaxLength: 5 andLabelLength: 2];
     
 //    [_midiChannelText setOrigin:NSMakePoint(0, 24)];
     

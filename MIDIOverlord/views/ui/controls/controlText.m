@@ -14,36 +14,39 @@ int baseY;
 
 @synthesize value = _value;
 
-- (id)initWithLabel: (NSString*)stringLabel {
+- (id)initWithLabel: (NSString*)label andValue: (NSNumber*) value {
     
     _value = @0;
     
     _max = 127;
     
-    _stringLabel = stringLabel;
-    _stringValue = [self labelPlusValue];
+    _label = label;
     
-    _label = [[uiEditText alloc] initWithString: _stringValue];
-    [_label setInvalidChars:[global sharedGlobalData].notNumbers];
+    _labelTextField = [[uiTextField alloc] initWithString: _label];
     
-    [_label bind:@"stringValue" toObject:self withKeyPath:@"stringValue" options:nil];
+    [self addSubview: _labelTextField];
+
+    _valueNumberField = [[uiEditableNumberField alloc] initWithValue: value andLength: 3];
+
+    [_valueNumberField setOrigin: NSMakePoint(_labelTextField.frameWidth, 0)];
     
-    NSRect frame = NSMakeRect(0, 0, _label.frame.size.width + 26, 16);
-    
+    [self addSubview:_valueNumberField];
+
+    NSRect frame = NSMakeRect(0, 0, _labelTextField.frameWidth + _valueNumberField.frameWidth, 16);
     self = [super initWithFrame: frame];
     
     if (!self) return nil;
 
-    uiButton *increase = [[uiButton alloc] initWithSize: 12];
-    uiButton *decrease = [[uiButton alloc] initWithSize: 12];
+    // [self bind:@"value" toObject:_valueNumberField withKeyPath:@"value" options:nil];
+
+    // uiButton *increase = [[uiButton alloc] initWithSize: 12];
+    // uiButton *decrease = [[uiButton alloc] initWithSize: 12];
     
-    [increase setOrigin:NSMakePoint(_label.frame.size.width, 2)];
-    [decrease setOrigin:NSMakePoint(_label.frame.size.width + 14, 2)];
+    // [increase setOrigin:NSMakePoint(_label.frame.size.width, 2)];
+    // [decrease setOrigin:NSMakePoint(_label.frame.size.width + 14, 2)];
     
-    [self addSubview: increase];
-    [self addSubview: decrease];
-    
-    [self addSubview: _label];
+    // [self addSubview: increase];
+    // [self addSubview: decrease];
     
     return self;
 }
@@ -63,11 +66,6 @@ int baseY;
 -(NSNumber*)value {
     return _value;
 }
-
--(NSString*)labelPlusValue {
-   return  [NSString stringWithFormat:@"%@%03d", _stringLabel, [_value intValue]];
-}
-
 
 -(void)setValue: (NSNumber*)value {
     if([value intValue] >= 0 && [value intValue] <= _max) {

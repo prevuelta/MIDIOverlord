@@ -7,7 +7,7 @@
 //
 
 #import "controlBase.h"
-#import "uiText.h"
+#import "uiTextField.h"
 
 @interface controlSlider : controlBase
 
@@ -21,8 +21,8 @@
 
 @property NSTrackingArea *trackRect;
 
-@property uiText *textVal;
-@property uiText *label;
+@property uiTextField *textVal;
+@property uiTextField *label;
 
 -(id)initWithFrame:(NSPoint)size :(int)min :(int)max;
 

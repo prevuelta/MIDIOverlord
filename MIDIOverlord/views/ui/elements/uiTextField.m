@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Midnight City. All rights reserved.
 //
 
-#import "uiText.h"
+#import "uiTextField.h"
 
-@implementation uiText
+@implementation uiTextField
 
 @synthesize stringValue = _stringValue;
 
@@ -20,10 +20,10 @@ static NSPoint gridSystem[54];
 //}
 
 -(id)initWithString:(NSString*)stringValue {
-    return [self initWithString:stringValue andMaxLength:(int)[stringValue length] andLabelLength:0];
+    return [self initWithString:stringValue andMaxLength:(int)[stringValue length]];
 }
 
--(id)initWithString:(NSString*)stringValue andMaxLength:(int)maxLength andLabelLength:(int)labelLength {
+-(id)initWithString:(NSString*)stringValue andMaxLength:(int)maxLength {
     
     _gridCellSizeX = 1;
     _gridCellSizeY = 1;
@@ -36,8 +36,6 @@ static NSPoint gridSystem[54];
     _drawBg = YES;
     
     [self setStringValue: stringValue];
-    
-    _labelLength = labelLength;
     
     _charSizeX = (_gridCellSizeX * (_gridCols-1)) + _letterSpacing;
     _charSizeY = (_gridCellSizeY * (_gridRows-1)) + (_padding * 2);
@@ -115,14 +113,15 @@ static NSPoint gridSystem[54];
     return self;
 }
 
+-(NSString*)stringValue {
+    return _stringValue;
+}
+
 -(void)setStringValue:(NSString *)stringValue {
     _stringValue = stringValue;
     [self setCharCount: MIN((int)[_stringValue length], _maxLength)];
 }
 
--(NSString*)stringValue {
-    return _stringValue;
-}
 
 -(void)setupGridSystem {
     

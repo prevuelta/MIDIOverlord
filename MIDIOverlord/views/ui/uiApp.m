@@ -16,7 +16,7 @@
     
     if(!self) return nil;
     
-//    uiText *appTitle = [[uiText alloc] initWithString: @"ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890`~!@#$%^&*()-=_+[]\{}|;':\",./<>?"];
+//    uiTextField *appTitle = [[uiTextField alloc] initWithString: @"ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890`~!@#$%^&*()-=_+[]\{}|;':\",./<>?"];
 //    NSImage *logo = [NSImage imageNamed:@"logo.png"];
 //    NSImageView *logoView = [[NSImageView alloc] initWithFrame:NSMakeRect(4, 0, 70, 52)];
 //
@@ -24,7 +24,7 @@
     
 //    [self addSubview:logoView];
     
-//    uiText *appTitle = [[uiText alloc] initWithString: @"MIDI OVERLORD PROTOTYPE V.002"];
+//    uiTextField *appTitle = [[uiTextField alloc] initWithString: @"MIDI OVERLORD PROTOTYPE V.002"];
 //    [appTitle setGridCellSizeY:3];
 //    [appTitle setOrigin:NSMakePoint(81, 4)];
 //    [appTitle setDrawBg: NO];

@@ -33,13 +33,13 @@ int baseMarker;
     
     _marker = [_value intValue];
                 
-    _textVal = [[uiText alloc] initWithString: [NSString stringWithFormat:@"%03d", [_value intValue]]];
+    _textVal = [[uiTextField alloc] initWithString: [NSString stringWithFormat:@"%03d", [_value intValue]]];
     [_textVal setOrigin:NSMakePoint(RACK_WIDTH - 36 - SCROLLER_WIDTH, 0)];
     [_textVal setDrawBg: NO];
     [_textVal setTextColor:[NSColor whiteColor]];
     [self addSubview: _textVal];
     
-//    _label = [[uiText alloc] initWithString: @"" andMaxLength: 4 andLabelLength: 0];
+//    _label = [[uiTextField alloc] initWithString: @"" andMaxLength: 4 andLabelLength: 0];
 //    [_label setOrigin:NSMakePoint(0, 0)];
 //    
 //    [_label setDrawBg: NO];

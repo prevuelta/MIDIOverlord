@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "utilities.h"
-#import "uiText.h"
+#import "uiTextField.h"
 #import "global.h"
 #import "uiButton.h"
 

@@ -44,28 +44,26 @@
     [self addSubview: _slider];
 
     // Add Label
-    uiEditText *editLabel = [[uiEditText alloc] initWithString: _data[@"label"] andMaxLength: 4 andLabelLength: 0];
+    uiEditableTextField *editLabel = [[uiEditableTextField alloc] initWithString: _data[@"label"] andMaxLength: 8];
     [editLabel setOrigin:NSMakePoint(0, 16)];
 //    [editLabel setInEditView:YES];
     
-    [_data bind:@"label" toObject: editLabel withKeyPath:@"stringValue" options:nil];
+    [_data bind:@"label" toObject: editLabel withKeyPath:@"savedString" options:nil];
     
     [self addSubview:editLabel];
 
-    [_slider.label bind:@"stringValue" toObject: _data withKeyPath:@"label" options:nil];
+    // [_slider.label bind:@"stringValue" toObject: _data withKeyPath:@"label" options:nil];
     
     // Add CC text field
     
-    _ccControl = [[controlText alloc] initWithLabel: @"CC"];
+    _ccControl = [[controlText alloc] initWithLabel: @"CC" andValue: data[@"ccValue"]];
     
-    [_ccControl setOrigin:NSMakePoint(editLabel.frameWidth + 2, 16)];
-//    [_ccControl setInEditView:YES];
-    [_ccControl setMax:127];
-    [_ccControl setValue: data[@"ccNumber"]];
+   [_ccControl setOrigin:NSMakePoint(editLabel.frameWidth + 2, 16)];
+   [_ccControl setMax:127];
     
-    [_data bind:@"ccNumber" toObject: _ccControl withKeyPath:@"value" options:nil];
+   [_data bind:@"ccNumber" toObject: _ccControl withKeyPath:@"value" options:nil];
     
-    [self addSubview: _ccControl ];
+   [self addSubview: _ccControl ];
 
     // Add close button
     uiButton *removeBtn = [[uiButton alloc] initWithSize: 16];

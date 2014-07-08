@@ -7,7 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "uiText.h"
+#import "uiTextField.h"
 #import "uiButton.h"
 
 @interface uiApp : uiBase

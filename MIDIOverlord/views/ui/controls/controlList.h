@@ -23,7 +23,7 @@
 
 @property NSString *labelText;
 
-@property uiText *label;
+@property uiTextField *label;
 
 -(id)initWithOptions:(NSMutableDictionary*)options andOptionCount: (int)optionCount;
 -(void)deselect:(NSNotification*)notification;

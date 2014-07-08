@@ -18,7 +18,7 @@
     
     self.height = 16;
     
-   _label = [[uiText alloc] initWithString: @"" andMaxLength:6 andLabelLength: 0];
+   _label = [[uiTextField alloc] initWithString: @"" andMaxLength:6];
     
     NSRect frame = NSMakeRect(0, 0, _label.frame.size.width + 20, self.height);
     
@@ -37,12 +37,6 @@
 
 -(void)drawRect:(NSRect)dirtyRect {
     
-    [[global sharedGlobalData].black setFill];
-    
-    NSRectFill(dirtyRect);
-    
-    [super drawRect:dirtyRect];
-    
     NSBezierPath* bgPath = [NSBezierPath new];
     NSBezierPath* fgPath = [NSBezierPath new];
     
@@ -52,7 +46,7 @@
         [[global sharedGlobalData].defaultColor set];
     }
     
-    [bgPath appendBezierPathWithRect:NSMakeRect(0, 0, self.width, self.height)];
+    [bgPath appendBezierPathWithRoundedRect:NSMakeRect(0, 0, self.width, self.height) xRadius: 2 yRadius: 2 ];
     [bgPath closePath];
     [bgPath fill];
     

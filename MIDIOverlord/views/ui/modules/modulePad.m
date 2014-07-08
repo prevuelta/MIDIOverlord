@@ -38,10 +38,10 @@
     [pad3 setOrigin:NSMakePoint(82, 2)];
     [pad4 setOrigin:NSMakePoint(122, 2)];
     
-    controlText *note = [[controlText alloc] initWithLabel:@""];
-    [note setValue: @34];
-    [note setInEditView: YES];
-    [self addSubview: note];
+//    controlText *note = [[controlText alloc] initWithLabel:@""];
+//    [note setValue: @34];
+//    [note setInEditView: YES];
+//    [self addSubview: note];
     
 
     [self addSubview: pad1];

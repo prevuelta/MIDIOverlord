@@ -10,7 +10,7 @@
 #import "moduleBase.h"
 #import "scrollableView.h"
 #import "controlList.h"
-#import "uiEditText.h"
+#import "uiEditableTextField.h"
 
 @interface rackBase : uiBase <moduleBaseDelegate>
 
@@ -23,7 +23,7 @@
 @property controlList *midiDestSelect;
 @property NSArray *midiDest;
 
-@property uiText *midiChannelText;
+@property uiTextField *midiChannelText;
 @property int midiChannel;
 
 @property NSNumber *rackID;
@@ -36,7 +36,7 @@
 @property scrollableView *moduleView;
 
 // UI
-@property uiEditText *label;
+@property uiEditableTextField *label;
 @property NSString *labelText;
 
 // Modules

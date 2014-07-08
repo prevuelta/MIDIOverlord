@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import "uiBase.h"
 
-@interface uiText : uiBase
+@interface uiTextField : uiBase
 
 @property int gridCellSizeX;
 @property int gridCellSizeY;
@@ -30,16 +30,13 @@
 @property int charSizeY;
 
 @property int maxLength;
-@property int labelLength;
 
 @property NSColor* textColor;
 @property NSColor* bgColor;
 
 -(id)initWithString:(NSString*)stringValue;
-//
-//-(id)initWithString:(NSString*)stringValue andSize: (NSArray*)size;
 
--(id)initWithString:(NSString*)stringValue andMaxLength:(int)maxLength andLabelLength: (int)labelLength;
+-(id)initWithString:(NSString*)stringValue andMaxLength:(int)maxLength;
 -(void)setupGridSystem;
 
 @end

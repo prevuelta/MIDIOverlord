@@ -7,7 +7,7 @@
 //
 
 #import "controlBase.h"
-#import "uiText.h"
+#import "uiTextField.h"
 
 @class controlOption;
 
@@ -20,7 +20,7 @@
 @property (nonatomic, assign) id delegate;
 
 @property NSArray* keyValue;
-@property uiText *label;
+@property uiTextField *label;
 
 - (id)initWithKeyValue: (NSArray*)keyValue;
 

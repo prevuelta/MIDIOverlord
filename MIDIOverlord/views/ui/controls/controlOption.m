@@ -13,7 +13,7 @@
 @synthesize keyValue = _keyValue;
 
 - (id)initWithKeyValue: (NSArray*)keyValue {
-    _label = [[uiText alloc] initWithString: keyValue[0]];
+    _label = [[uiTextField alloc] initWithString: keyValue[0]];
     
     self = [super initWithFrame:_label.frame];
     
