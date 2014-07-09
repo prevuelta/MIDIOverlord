@@ -55,7 +55,6 @@
                                             },
                                     @"state"  :
                                         @{
-                                            @"title" : @"Default State",
                                             @"rackID"   : @0,
                                             @"rackData" : @{},
                                             @"rackLayout" : @[]

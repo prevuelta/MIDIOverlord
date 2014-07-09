@@ -10,22 +10,32 @@
 
 @implementation uiTitleBar
 
-- (id)initWithFrame:(NSRect)frame
-{
+NSPoint initialLocation;
+
+@synthesize title = _title;
+
+- (id)initWithFrame:(NSRect)frame {
     self = [super initWithFrame:frame];
     if (!self) return nil;
+    
+    uiTextField *appTitle = [[uiTextField alloc] initWithString: @"Untitled"];
+    
+    [appTitle setOrigin:NSMakePoint(2, 2)];
+    
+    [appTitle bind:@"stringValue" toObject:self withKeyPath: @"title" options: nil];
 
+    [self addSubview: appTitle];
     
     return self;
 }
 
 - (void)drawRect:(NSRect)dirtyRect {
     
-//    if([self.window ]) {
-        [[global sharedGlobalData].activeColor setFill];
-//    } else {
-//        [[global sharedGlobalData].bgColor setFill];
-//    }
+    if(self.active) {
+        [[global sharedGlobalData].darkBrown setFill];
+    } else {
+        [[global sharedGlobalData].darkestGrey setFill];
+    }
     NSRectFill(dirtyRect);
     
     [super drawRect:dirtyRect];
@@ -34,20 +44,68 @@
 }
 
 -(void)mouseDown:(NSEvent*)theEvent {
-    NSLog(@"Title bar clicked");
+    
+    self.selected = YES;
+    
+    NSRect  windowFrame = [[self window] frame];
+    
+    initialLocation = [NSEvent mouseLocation];
+    
+    initialLocation.x -= windowFrame.origin.x;
+    initialLocation.y -= windowFrame.origin.y;
+}
+
+- (void)mouseDragged:(NSEvent *)theEvent {
+    NSPoint currentLocation;
+    NSPoint newOrigin;
+    
+    NSRect  screenFrame = [[NSScreen mainScreen] visibleFrame];
+    NSRect  windowFrame = [self.window frame];
+    
+    currentLocation = [NSEvent mouseLocation];
+    newOrigin.x = currentLocation.x - initialLocation.x;
+    newOrigin.y = currentLocation.y - initialLocation.y;
+    
+    if( (newOrigin.y + windowFrame.size.height) > (screenFrame.origin.y + screenFrame.size.height ) ){
+        NSLog(@"Hitting menu");
+        newOrigin.y=screenFrame.origin.y + (screenFrame.size.height - windowFrame.size.height);
+    }
+    
+    [[self window] setFrameOrigin:newOrigin];
+    
+    //go ahead and move the window to the new location
+    
 }
 
 -(void)mouseUp:(NSEvent *)theEvent {
-
+    self.selected = NO;
 }
 
-//-(BOOL)mouseDownCanMoveWindow {
-//    return YES;
-//}
+-(BOOL)mouseDownCanMoveWindow {
+    return YES;
+}
 
 //-(BOOL)acceptsFirstMouse:(NSEvent *)theEvent {
 //    return YES;
 //}
+
+//-(void)mouseDown:(NSEvent*)theEvent {
+//    NSLog(@"Title bar clicked");
+//    [self.window setMovableByWindowBackground:YES];
+//}
+//
+//-(void)mouseUp:(NSEvent *)theEvent {
+//    [self.window setMovableByWindowBackground:NO];
+//}
+
+-(BOOL)acceptsFirstMouse:(NSEvent *)theEvent {
+    return YES;
+}
+
+- (BOOL) acceptsFirstResponder
+{
+    return YES;
+}
 
 
 @end

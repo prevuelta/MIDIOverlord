@@ -12,19 +12,8 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     
-    // APP
-//    _data = [[appModel alloc] init];
-//    
-//    [_data loadDefaultState];
-    
-
-//    [_mainWin setHasShadow: NO];
-    
-//    [_mainWin setStyleMask: NSBorderlessWindowMask];
-
     _appViewControl = [[appViewController alloc] initWithWin: _mainWin];
     
-
     // MIDI
     _midiController = [[midiController alloc] init];
 
@@ -34,32 +23,33 @@
 
 -(IBAction)openDocument:(id)sender {
         
-        NSOpenPanel* openDlg = [NSOpenPanel openPanel];
-        
-        [openDlg setPrompt:@"Select"];
-        
-        // Enable the selection of files in the dialog.
-        [openDlg setCanChooseFiles:YES];
-        
-        // Enable the selection of directories in the dialog.
-        [openDlg setCanChooseDirectories:YES];
-        
-        NSArray* moFileTypes = [[NSArray alloc] initWithObjects:@"MOS", @"mos", @"MOM", @"mom", nil];
+    NSOpenPanel* openDlg = [NSOpenPanel openPanel];
+    
+    [openDlg setPrompt:@"Select"];
+    
+    // Enable the selection of files in the dialog.
+    [openDlg setCanChooseFiles:YES];
+    
+    // Enable the selection of directories in the dialog.
+    [openDlg setCanChooseDirectories:YES];
+    
+    NSArray* moFileTypes = [[NSArray alloc] initWithObjects:@"MOS", @"mos", @"MOM", @"mom", nil];
 
-        [openDlg setAllowedFileTypes:moFileTypes];
-    
-        [openDlg runModal];
-    
-        _currentFile = [openDlg URL];
-    
+    [openDlg setAllowedFileTypes:moFileTypes];
+
+    if ([openDlg runModal] == NSFileHandlingPanelOKButton) {
+       _currentFile = [openDlg URL];
+        
         NSLog(@"File path: %@", [_currentFile absoluteString]);
-    
+        
         NSMutableDictionary *appData = [NSKeyedUnarchiver unarchiveObjectWithFile: @"/Users/pablo/test.mos"];
         NSAssert(appData, @"unarchiveObjectWithFile failed");
-    
+        
         [[NSNotificationCenter defaultCenter] postNotificationName:@"fileLoaded" object:self userInfo: @{@"data" : appData}];
-    
-        [_mainWin setTitle: appData[@"state"][@"title"]];
+        
+        [_appViewControl.mainView.titleBar setTitle: [[_currentFile absoluteString] lastPathComponent] ];
+        
+    }
 }
 
 -(IBAction)saveDocument:(id)sender {

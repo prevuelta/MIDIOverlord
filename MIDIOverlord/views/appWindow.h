@@ -1,16 +1,13 @@
 //
-//  uiTitleBar.h
+//  appWindow.h
 //  MIDIOverlord
 //
 //  Created by Pablo Revuelta on 9/07/14.
 //  Copyright (c) 2014 Midnight City. All rights reserved.
 //
 
-#import "uiBase.h"
-#import "uiTextField.h"
+#import <Cocoa/Cocoa.h>
 
-@interface uiTitleBar : uiBase
-
-@property NSString* title;
+@interface appWindow : NSWindow
 
 @end

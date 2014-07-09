@@ -19,16 +19,15 @@
     NSLog(@"Init main view");
 
     _mainWin = mainWin;
-    
-    [_mainWin setMovable: YES];
 
-//    [_mainWin setTitle: @"Untitled"];
     
     _racks = [NSMutableArray new];
 
     // Setup main interface
     
     _titleBar = [[uiTitleBar alloc ] initWithFrame: NSMakeRect(0, 0, self.frame.size.width, TITLE_BAR_HEIGHT )];
+    
+     [_titleBar setTitle: @"Untitled"];
     
     [self addSubview:_titleBar];
     

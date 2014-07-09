@@ -24,12 +24,7 @@
     
 //    [self addSubview:logoView];
     
-//    uiTextField *appTitle = [[uiTextField alloc] initWithString: @"MIDI OVERLORD PROTOTYPE V.002"];
-//    [appTitle setGridCellSizeY:3];
-//    [appTitle setOrigin:NSMakePoint(81, 4)];
-//    [appTitle setDrawBg: NO];
-//    
-//    [self addSubview: appTitle];
+
     
     // UI Buttons
     

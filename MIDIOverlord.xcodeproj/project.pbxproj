@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6E04ABCF1946FF4800B51D27 /* uiBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E04ABCE1946FF4800B51D27 /* uiBase.m */; };
+		6E2449C3196D0B29007CDABB /* appWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2449C2196D0B29007CDABB /* appWindow.m */; };
 		6E29E52A194ABE9800F6BD4F /* global.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E29E529194ABE9800F6BD4F /* global.m */; };
 		6E3126A5194C4D9F00D65716 /* uiEditableTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3126A4194C4D9F00D65716 /* uiEditableTextField.m */; };
 		6E7C38CE196CE36D00201195 /* uiTitleBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C38CD196CE36D00201195 /* uiTitleBar.m */; };
@@ -64,6 +65,8 @@
 /* Begin PBXFileReference section */
 		6E04ABCD1946FF4800B51D27 /* uiBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uiBase.h; sourceTree = "<group>"; };
 		6E04ABCE1946FF4800B51D27 /* uiBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uiBase.m; sourceTree = "<group>"; };
+		6E2449C1196D0B29007CDABB /* appWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = appWindow.h; sourceTree = "<group>"; };
+		6E2449C2196D0B29007CDABB /* appWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = appWindow.m; sourceTree = "<group>"; };
 		6E29E528194ABE9800F6BD4F /* global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = global.h; sourceTree = "<group>"; };
 		6E29E529194ABE9800F6BD4F /* global.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = global.m; sourceTree = "<group>"; };
 		6E3126A3194C4D9F00D65716 /* uiEditableTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uiEditableTextField.h; sourceTree = "<group>"; };
@@ -258,6 +261,8 @@
 		6EE445461936C86100C61171 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				6E2449C1196D0B29007CDABB /* appWindow.h */,
+				6E2449C2196D0B29007CDABB /* appWindow.m */,
 				6EE445471936C86100C61171 /* appView.h */,
 				6EE445481936C86100C61171 /* appView.m */,
 				6EE445491936C86100C61171 /* ui */,
@@ -441,6 +446,7 @@
 				6E04ABCF1946FF4800B51D27 /* uiBase.m in Sources */,
 				6EE4457C1936C86100C61171 /* controlList.m in Sources */,
 				6ECD89F61946BE7400CCBE97 /* uiButton.m in Sources */,
+				6E2449C3196D0B29007CDABB /* appWindow.m in Sources */,
 				6EE4456C1936C86100C61171 /* appViewController.m in Sources */,
 				6EE445821936C86100C61171 /* moduleBase.m in Sources */,
 				6E29E52A194ABE9800F6BD4F /* global.m in Sources */,

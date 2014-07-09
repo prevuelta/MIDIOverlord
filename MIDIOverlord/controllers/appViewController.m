@@ -51,11 +51,10 @@
 
 -(void)loadFile:(NSNotification*)notification {
     NSDictionary *userInfo = notification.userInfo;
+    
     [_data setupData:userInfo[@"data"]];
     
     [self updateRacks];
-    
-//    NSLog(@"Rack count: %@", [NSNumber numberWithInt: _data.rackCount]);
     
     [_mainView resizeWin: _data.rackCount];
 }
