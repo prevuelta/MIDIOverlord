@@ -45,7 +45,7 @@
     
     [self addSubview:editLabel];
 
-    _ccControl = [[controlText alloc] initWithLabel: @"CC" andValue: data[@"ccValue"]];
+    _ccControl = [[controlText alloc] initWithLabel: @"CC" andValue: data[@"ccNumber"]];
     
    [_ccControl setOrigin:NSMakePoint(editLabel.frameWidth + 2, 16)];
    [_ccControl setMax:127];

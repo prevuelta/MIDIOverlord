@@ -11,7 +11,8 @@
 #import "moduleBase.h"
 #import "moduleSlider.h"
 #import "modulePad.h"
-#import "uiApp.h"
+#import "uiToolBar.h"
+#import "uiTitleBar.h"
 #import "global.h"
 
 @interface appView: NSView
@@ -22,7 +23,8 @@
 
 @property NSMutableArray* racks;
 
-@property uiApp* globalUI;
+@property uiTitleBar* titleBar;
+@property uiToolBar* toolBar;
 
 -(id)initWithWin:(NSWindow*)mainWin;
 

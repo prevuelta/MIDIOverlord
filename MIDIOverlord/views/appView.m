@@ -19,14 +19,24 @@
     NSLog(@"Init main view");
 
     _mainWin = mainWin;
+    
+    [_mainWin setMovable: YES];
 
-    [_mainWin setTitle: @"Untitled"];
+//    [_mainWin setTitle: @"Untitled"];
     
     _racks = [NSMutableArray new];
 
     // Setup main interface
-    _globalUI = [[uiApp alloc ] initWithFrame: NSMakeRect(0, 0, self.frame.size.width, TOOLBAR_HEIGHT )];
-    [self addSubview:_globalUI];
+    
+    _titleBar = [[uiTitleBar alloc ] initWithFrame: NSMakeRect(0, 0, self.frame.size.width, TITLE_BAR_HEIGHT )];
+    
+    [self addSubview:_titleBar];
+    
+    _toolBar = [[uiToolBar alloc ] initWithFrame: NSMakeRect(0, 0, self.frame.size.width, TOOLBAR_HEIGHT )];
+    
+    [_toolBar setOrigin:NSMakePoint(0, TITLE_BAR_HEIGHT)];
+    
+    [self addSubview:_toolBar];
     
 
     
@@ -50,7 +60,8 @@
     NSLog(@"Window resize: %@", notification);
     NSWindow *win = notification.object;
 
-    [_globalUI resizeWidth: win.frame.size.width];
+    [_titleBar resizeWidth: win.frame.size.width];
+    [_toolBar resizeWidth: win.frame.size.width];
 }
 
 -(void)resizeWin:(int)rackCount {
@@ -86,9 +97,9 @@
         NSMutableArray *moduleLayout = [data objectForKey: @"moduleLayout"];
         
         // Create rack
-        rackControl *rack = [[rackControl alloc] initWithFrame: NSMakeRect(0, 0, RACK_WIDTH, _mainWin.frame.size.height)andData: data];
+        rackControl *rack = [[rackControl alloc] initWithFrame: NSMakeRect(0, 0, RACK_WIDTH, _mainWin.frame.size.height) andData: data];
         
-        [rack setOrigin:NSMakePoint(rI * (RACK_WIDTH + 2) + 2, TOOLBAR_HEIGHT + 2)];
+        [rack setOrigin:NSMakePoint(rI * (RACK_WIDTH + 2) + 2, TOOLBAR_HEIGHT + 2 + TITLE_BAR_HEIGHT)];
         
         int yLoc = 0;
         

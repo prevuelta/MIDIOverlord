@@ -10,7 +10,7 @@
 #import "uiTextField.h"
 #import "uiButton.h"
 
-@interface uiApp : uiBase
+@interface uiToolBar : uiBase
 
 - (id)initWithFrame:(NSRect)frame;
 -(void)drawRect:(NSRect)dirtyRect;

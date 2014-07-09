@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Midnight City. All rights reserved.
 //
 
-#import "uiApp.h"
+#import "uiToolBar.h"
 
-@implementation uiApp
+@implementation uiToolBar
 
 - (id)initWithFrame:(NSRect)frame {
     
@@ -67,13 +67,6 @@
 
 -(BOOL)isFlipped {
     return YES;
-}
-
--(void)resizeWidth:(int)newWidth {
-    NSRect f = self.frame;
-    f.size.width = newWidth;
-    [self setFrame:f];
-    [self setNeedsDisplay:YES];
 }
 
 
