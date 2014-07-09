@@ -97,7 +97,7 @@
 
     if([characters rangeOfCharacterFromSet: _invalidChars].location == NSNotFound) {
         NSLog(@"Letter: %@", characters);
-        NSLog(@"Strign length: %@", [NSNumber numberWithInt: [self.stringValue length]]);
+        NSLog(@"String length: %@", [NSNumber numberWithInt: [self.stringValue length]]);
         if([self.stringValue length] < self.maxLength) {
             NSLog(@"addingletter");
             [self addCharacter: characters];
@@ -114,7 +114,7 @@
 }
 
 -(void)addCharacter:(NSString*)letter {
-    self.stringValue  = [self.stringValue stringByAppendingString: letter];
+    [self setStringValue: [self.stringValue stringByAppendingString: letter]];
     NSLog(@"String value: %@", self.stringValue);
     [self setNeedsDisplay:YES];
 }
@@ -125,18 +125,26 @@
 }
 
 -(void)deselect:(NSNotification*)notification  {
-    [self.window makeFirstResponder:nil];
-    [self setIsEditing: NO];
-    self.textColor = [global sharedGlobalData].markerColor;
-    if([self.stringValue isEqual:@""]) {
-        self.stringValue = _tempString;
+    if(self.isEditing) {
+        [self.window makeFirstResponder:nil];
+        [self setIsEditing: NO];
+        self.textColor = [global sharedGlobalData].markerColor;
+        if([self.stringValue isEqual:@""]) {
+            self.stringValue = _tempString;
+        }
+        
+        self.savedString = self.stringValue;
+        NSLog(@"Saved string: %@", self.savedString);
+
+        [self deselectHook];
+
+        [self setNeedsDisplay:YES];
     }
-    
-    self.savedString = self.stringValue;
-    NSLog(@"Saved string: %@", self.savedString);
-    [self setNeedsDisplay:YES];
 }
 
+-(void)deselectHook {
+    // To be overwritten
+}
 
 
 @end

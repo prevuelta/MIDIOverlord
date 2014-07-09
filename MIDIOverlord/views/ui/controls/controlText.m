@@ -24,29 +24,19 @@ int baseY;
     
     _labelTextField = [[uiTextField alloc] initWithString: _label];
     
-    [self addSubview: _labelTextField];
-
     _valueNumberField = [[uiEditableNumberField alloc] initWithValue: value andLength: 3];
 
     [_valueNumberField setOrigin: NSMakePoint(_labelTextField.frameWidth, 0)];
     
-    [self addSubview:_valueNumberField];
 
     NSRect frame = NSMakeRect(0, 0, _labelTextField.frameWidth + _valueNumberField.frameWidth, 16);
     self = [super initWithFrame: frame];
     
     if (!self) return nil;
 
-    // [self bind:@"value" toObject:_valueNumberField withKeyPath:@"value" options:nil];
-
-    // uiButton *increase = [[uiButton alloc] initWithSize: 12];
-    // uiButton *decrease = [[uiButton alloc] initWithSize: 12];
-    
-    // [increase setOrigin:NSMakePoint(_label.frame.size.width, 2)];
-    // [decrease setOrigin:NSMakePoint(_label.frame.size.width + 14, 2)];
-    
-    // [self addSubview: increase];
-    // [self addSubview: decrease];
+    [self addSubview: _labelTextField];
+    [self addSubview:_valueNumberField];
+    [self bind:@"value" toObject:_valueNumberField withKeyPath:@"value" options:nil];
     
     return self;
 }

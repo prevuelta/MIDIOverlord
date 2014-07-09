@@ -21,5 +21,6 @@
 -(void)handleDoubleClick:(NSEvent *)e;
 -(void)addCharacter:(NSString*)letter;
 -(void)removeCharacter;
+-(void)deselectHook;
 
 @end

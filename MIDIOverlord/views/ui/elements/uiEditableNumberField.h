@@ -11,7 +11,10 @@
 @interface uiEditableNumberField : uiEditableTextField
 
 @property NSNumber* value;
+@property int min;
+@property int max;
 
 -(id)initWithValue:(NSNumber*)value andLength:(int)length;
+-(NSNumber*)checkRange:(int)intValue;
 
 @end

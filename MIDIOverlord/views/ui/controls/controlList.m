@@ -26,7 +26,7 @@
     
     if(!self) return nil;
     
-    _optionCount = optionCount;
+    _optionCount = optionCount + 1; // Add none option
     
     [self setOptions: options];
     
@@ -133,6 +133,8 @@ NSComparisonResult compareViews(id firstView, id secondView, void *context) {
 
 -(void)setOptions:(NSMutableDictionary*)options {
 
+    [options setObject:@"None" forKey: @1];
+    
     _options = options;
     
     NSInteger currentOptionY = self.height;
