@@ -16,13 +16,13 @@
 	    		var cols = 6;
 	    		var rows = 9;
 
-	    		var size = 40;
+	    		var size = 35;
 
           var mult = 0;
 
           var gridCoords = [];
 
-           var letterCoords = [];
+          var letterCoords = [];
 
           updateGrid();
 
@@ -90,8 +90,8 @@
 
    	 	#grid span {
    	 		background: black;
-   	 		height: 8px;
-   	 		width: 8px;
+   	 		height: 16px;
+   	 		width: 16px;
    	 		margin-left: -2px;
    	 		margin-top: -2px;
    	 		position: absolute;
@@ -107,16 +107,6 @@
 
     <body>
     	<h1>Creator</h1>
-      <label>Cols
-        <input type="text" id="cols" value="0" />
-      </label>
-      <label>Rows
-        <input type="text" id="rows" value="0" />
-      </label>
-      <label>Multiplyer
-        <input type="text" id="mult" value="0" />
-      </label>
-      <button type="button" id="update-grid">Update Grid</button>
     	<div id="grid">
     	</div>
     	<textarea id="output">

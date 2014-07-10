@@ -14,9 +14,16 @@
 
      NSLog(@"Destinations: %@", [global sharedGlobalData].midiDestinations);
     
+    uiTextField *label = [[uiTextField alloc] initWithString: @"Midi Out"];
+    
+    [label setDrawBg:NO];
+    [label setOrigin:NSMakePoint(4, 24)];
+    
+    [self addSubview: label];
+    
     self.midiDestSelect = [[controlList alloc] initWithOptions: [global sharedGlobalData].midiDestinations andOptionCount: [global sharedGlobalData].midiDestinationCount];
     
-    [self.midiDestSelect setOrigin: NSMakePoint(4, 22)];
+    [self.midiDestSelect setOrigin: NSMakePoint(label.frameWidth + 12, 24)];
     
     if([self.data[@"midiDest"] count] > 0) {
         [self.midiDestSelect setSelectedOption: self.data[@"midiDest"]];

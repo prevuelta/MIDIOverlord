@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6E04ABCF1946FF4800B51D27 /* uiBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E04ABCE1946FF4800B51D27 /* uiBase.m */; };
+		6E0E2D2E196E3C6B00806EF4 /* mo_logo.icns in Resources */ = {isa = PBXBuildFile; fileRef = 6E0E2D2D196E3C6B00806EF4 /* mo_logo.icns */; };
 		6E2449C3196D0B29007CDABB /* appWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2449C2196D0B29007CDABB /* appWindow.m */; };
 		6E29E52A194ABE9800F6BD4F /* global.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E29E529194ABE9800F6BD4F /* global.m */; };
 		6E3126A5194C4D9F00D65716 /* uiEditableTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3126A4194C4D9F00D65716 /* uiEditableTextField.m */; };
@@ -18,6 +19,7 @@
 		6E8A23C51951205000745214 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E8A23C41951205000745214 /* logo.png */; };
 		6E8DEB571953F60A0013CF96 /* scrollableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8DEB561953F60A0013CF96 /* scrollableView.m */; };
 		6E8DEB5A1953FB4F0013CF96 /* controlScrollBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8DEB591953FB4F0013CF96 /* controlScrollBar.m */; };
+		6EA47209196E0C5800F06963 /* rackMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA47208196E0C5800F06963 /* rackMap.m */; };
 		6ECD89F61946BE7400CCBE97 /* uiButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECD89F21946BE7400CCBE97 /* uiButton.m */; };
 		6ECD89F71946BE7400CCBE97 /* uiTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECD89F41946BE7400CCBE97 /* uiTextField.m */; };
 		6ECD89FA1947C3EE00CCBE97 /* controlText.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECD89F91947C3EE00CCBE97 /* controlText.m */; };
@@ -65,6 +67,7 @@
 /* Begin PBXFileReference section */
 		6E04ABCD1946FF4800B51D27 /* uiBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uiBase.h; sourceTree = "<group>"; };
 		6E04ABCE1946FF4800B51D27 /* uiBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uiBase.m; sourceTree = "<group>"; };
+		6E0E2D2D196E3C6B00806EF4 /* mo_logo.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = mo_logo.icns; sourceTree = "<group>"; };
 		6E2449C1196D0B29007CDABB /* appWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = appWindow.h; sourceTree = "<group>"; };
 		6E2449C2196D0B29007CDABB /* appWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = appWindow.m; sourceTree = "<group>"; };
 		6E29E528194ABE9800F6BD4F /* global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = global.h; sourceTree = "<group>"; };
@@ -82,6 +85,8 @@
 		6E8DEB561953F60A0013CF96 /* scrollableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = scrollableView.m; sourceTree = "<group>"; };
 		6E8DEB581953FB4F0013CF96 /* controlScrollBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = controlScrollBar.h; sourceTree = "<group>"; };
 		6E8DEB591953FB4F0013CF96 /* controlScrollBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = controlScrollBar.m; sourceTree = "<group>"; };
+		6EA47207196E0C5800F06963 /* rackMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rackMap.h; sourceTree = "<group>"; };
+		6EA47208196E0C5800F06963 /* rackMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rackMap.m; sourceTree = "<group>"; };
 		6ECD89F11946BE7400CCBE97 /* uiButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uiButton.h; sourceTree = "<group>"; };
 		6ECD89F21946BE7400CCBE97 /* uiButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uiButton.m; sourceTree = "<group>"; };
 		6ECD89F31946BE7400CCBE97 /* uiTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uiTextField.h; sourceTree = "<group>"; };
@@ -193,6 +198,7 @@
 		6EE445281936C86100C61171 /* MIDIOverlord */ = {
 			isa = PBXGroup;
 			children = (
+				6E0E2D2D196E3C6B00806EF4 /* mo_logo.icns */,
 				6EE445291936C86100C61171 /* AppDelegate.h */,
 				6EE4452A1936C86100C61171 /* AppDelegate.m */,
 				6EE4452B1936C86100C61171 /* constants.h */,
@@ -330,6 +336,8 @@
 				6EE445621936C86100C61171 /* rackBase.m */,
 				6EE445631936C86100C61171 /* rackControl.h */,
 				6EE445641936C86100C61171 /* rackControl.m */,
+				6EA47207196E0C5800F06963 /* rackMap.h */,
+				6EA47208196E0C5800F06963 /* rackMap.m */,
 			);
 			path = racks;
 			sourceTree = "<group>";
@@ -411,6 +419,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6EE445731936C86100C61171 /* Images.xcassets in Resources */,
+				6E0E2D2E196E3C6B00806EF4 /* mo_logo.icns in Resources */,
 				6EE445711936C86100C61171 /* Credits.rtf in Resources */,
 				6EE445721936C86100C61171 /* InfoPlist.strings in Resources */,
 				6EDA87C5194E77B7007BB3C8 /* patternBg.gif in Resources */,
@@ -466,6 +475,7 @@
 				6EE445741936C86100C61171 /* main.m in Sources */,
 				6EE445831936C86100C61171 /* modulePad.m in Sources */,
 				6ECD89FA1947C3EE00CCBE97 /* controlText.m in Sources */,
+				6EA47209196E0C5800F06963 /* rackMap.m in Sources */,
 				6EE4456E1936C86100C61171 /* appModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

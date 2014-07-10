@@ -16,15 +16,22 @@
 
 -(id)initWithOptions:(NSMutableDictionary*)options andOptionCount: (int)optionCount {
     
-    self.height = 16;
+    int height = 18;
     
-   _label = [[uiTextField alloc] initWithString: @"" andMaxLength:6];
+   _label = [[uiTextField alloc] initWithString: @"" andMaxLength:8];
     
-    NSRect frame = NSMakeRect(0, 0, _label.frame.size.width + 20, self.height);
+    _nullOption = @[@"None", @0];
+    
+    [_label setDrawBg:NO];
+    [_label setOrigin:NSMakePoint(1, 1)];
+    
+    NSRect frame = NSMakeRect(0, 0, _label.frame.size.width + 20, height);
     
     self = [super initWithFrame:frame];
     
     if(!self) return nil;
+    
+    self.height = height;
     
     _optionCount = optionCount + 1; // Add none option
     
@@ -46,7 +53,7 @@
         [[global sharedGlobalData].defaultColor set];
     }
     
-    [bgPath appendBezierPathWithRoundedRect:NSMakeRect(0, 0, self.width, self.height) xRadius: 2 yRadius: 2 ];
+    [bgPath appendBezierPathWithRoundedRect:NSMakeRect(0, 0, self.frameWidth, self.height) xRadius: 2 yRadius: 2 ];
     [bgPath closePath];
     [bgPath fill];
     
@@ -124,6 +131,7 @@ NSComparisonResult compareViews(id firstView, id secondView, void *context) {
 -(void)setSelectedOption: (NSArray*)selectedOption {
     [_label setStringValue: selectedOption[0]];
     _selectedOption = selectedOption;
+    [self setNeedsDisplay:YES];
 }
 
 
@@ -132,8 +140,10 @@ NSComparisonResult compareViews(id firstView, id secondView, void *context) {
 }
 
 -(void)setOptions:(NSMutableDictionary*)options {
-
-    [options setObject:@"None" forKey: @1];
+    
+    [options setObject: _nullOption[0] forKey: _nullOption[1] ];
+    
+    [self setSelectedOption: _nullOption ];
     
     _options = options;
     
@@ -143,11 +153,17 @@ NSComparisonResult compareViews(id firstView, id secondView, void *context) {
     
     for(NSNumber* key in _options) {
         NSLog(@"key: %@", key);
+        
         NSArray *optionData = @[[_options objectForKey: key], key];
+        
         controlOption *option = [[controlOption alloc] initWithKeyValue: optionData];
+        
         [option setOrigin:NSMakePoint(0, currentOptionY)];
+        
          option.delegate = self;
+        
         [self addSubview:option];
+        
         currentOptionY += self.height;
     }
     

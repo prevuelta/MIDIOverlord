@@ -31,7 +31,9 @@
     
     NSDictionary *iconTypes = @{
          @"addRack" : @-48,
-         @"editMode" : @-72
+         @"editMode" : @-72,
+         @"closeWindow" : @0,
+         @"closeRack"   : @0
     };
     
     NSLog(@"Icontype: %@", iconTypes[event] );

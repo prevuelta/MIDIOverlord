@@ -12,6 +12,6 @@
 
 @interface rackControl : rackBase
 
--(void)createMidiDestinationsDeviceList:(NSNotification*)notification;
+//-(void)createMidiDestinationsDeviceList:(NSNotification*)notification;
 
 @end

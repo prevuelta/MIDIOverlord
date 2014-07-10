@@ -10,4 +10,6 @@
 
 @interface appWindow : NSWindow
 
+-(void)closeWindow:(NSNotification*)notification;
+
 @end

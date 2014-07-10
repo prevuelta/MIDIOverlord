@@ -27,7 +27,7 @@
     
     _titleBar = [[uiTitleBar alloc ] initWithFrame: NSMakeRect(0, 0, self.frame.size.width, TITLE_BAR_HEIGHT )];
     
-     [_titleBar setTitle: @"Untitled"];
+//     [_titleBar setTitle: @"Untitled"];
     
     [self addSubview:_titleBar];
     
@@ -104,13 +104,9 @@
         
         for(int mI = 0; mI < [data[@"moduleLayout"] count]; mI++) {
             
-//            NSLog(@"Updating modules");
-            
             NSNumber *moduleID = data[@"moduleLayout"][mI];
             
             NSMutableDictionary *moduleData = [data[@"modules"] objectForKey: moduleID];
-            
-//            NSLog(@"Module data:%@", moduleData);
             
             moduleBase *module = [self getModuleWithData: moduleData];
             
@@ -123,8 +119,6 @@
             [rack.moduleView addModuleView: module];
             
             yLoc += module.height;
-            
-//            NSLog(@"Height: %@", [NSNumber numberWithInt: yLoc]);
             
         }
         

@@ -8,6 +8,7 @@
 
 #import "uiBase.h"
 #import "uiTextField.h"
+#import "uiButton.h"
 
 @interface uiTitleBar : uiBase
 

@@ -44,7 +44,7 @@ static global *_instance;
             
             NSMutableCharacterSet *allowedCharacters = [NSMutableCharacterSet alphanumericCharacterSet];
             
-            [allowedCharacters addCharactersInString: @" _!@#$%^&*()-=_+[]\{}|,./<>?:\"';"];
+            [allowedCharacters addCharactersInString: @" _!@#$%^&*()-=_+[]\\{}|,./<>?:\"';"];
             
             _instance.invalidChars = [allowedCharacters invertedSet];
             

@@ -9,13 +9,41 @@
 #import "appWindow.h"
 
 @implementation appWindow
-//
-//-(BOOL)isKeyWindow {
-//    return YES;
+
+-(id)initWithContentRect:(NSRect)contentRect styleMask:(NSUInteger)aStyle backing:(NSBackingStoreType)bufferingType defer:(BOOL)flag {
+    NSLog(@"is init");
+    self = [super initWithContentRect:contentRect styleMask:aStyle backing:bufferingType defer:flag];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(closeWindow:) name:@"closeWindow" object:nil];
+    //
+    return self;
+}
+
+//-(id)init {
+//    self = [super init];
+//    if(!self) return nil;
+//    
+//    NSLog(@"is init");
+//    
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(performClose:) name:@"closeWindow" object:nil];
+//    
+//    return self;
 //}
 
 -(BOOL)canBecomeKeyWindow {
     return YES;
+}
+
+
+-(void)closeWindow:(NSNotification*)notification {
+    NSLog(@"close win");
+    NSAlert* closeAlert = [[NSAlert alloc] init];
+    [closeAlert setMessageText:@"Are you sure you want to quit?"];
+    [closeAlert addButtonWithTitle:@"OK"];
+    [closeAlert addButtonWithTitle:@"Cancel"];
+    if ([closeAlert runModal] == NSAlertFirstButtonReturn) {
+        [self close];
+        [NSApp terminate:self];
+    }
 }
 
 @end

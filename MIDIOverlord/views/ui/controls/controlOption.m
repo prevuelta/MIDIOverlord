@@ -13,7 +13,7 @@
 @synthesize keyValue = _keyValue;
 
 - (id)initWithKeyValue: (NSArray*)keyValue {
-    _label = [[uiTextField alloc] initWithString: keyValue[0]];
+    _label = [[uiTextField alloc] initWithString: keyValue[0] andMaxLength: 12];
     
     self = [super initWithFrame:_label.frame];
     
@@ -63,7 +63,8 @@
 
 -(void)mouseDown:(NSEvent *)theEvent {
 //    [_label setBackgroundColor: [global sharedGlobalData].activeColor];
-    [self performSelector:@selector(selectOption) withObject:self afterDelay:0.150];
+//    [self performSelector:@selector(selectOption) withObject:self afterDelay:0.150];
+    [self selectOption];
 }
 
 -(void)selectOption {

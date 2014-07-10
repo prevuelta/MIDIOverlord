@@ -10,6 +10,8 @@
 
 @implementation uiEditableTextField
 
+BOOL firstKey = true;
+
 -(id)initWithString:(NSString*)stringValue andMaxLength:(int)maxLength{
     _invalidChars = [global sharedGlobalData].invalidChars;
     self.savedString = stringValue;
@@ -60,10 +62,10 @@
     }
 }
 
-- (void)mouseUp:(NSEvent *)event {
-    NSInteger clickCount = [event clickCount];
-    if (2 == clickCount) [self handleDoubleClick:event];
-}
+//- (void)mouseUp:(NSEvent *)event {
+//    NSInteger clickCount = [event clickCount];
+//    if (2 == clickCount) [self handleDoubleClick:event];
+//}
 
 //-(void)handleDoubleClick:(NSEvent *)e {
 -(void)mouseDown:(NSEvent *)theEvent {
@@ -73,7 +75,7 @@
 
     _tempString = self.stringValue;
 
-    self.stringValue = @"";
+//    self.stringValue = @"";
 
     [self setIsEditing: YES];
     [self setNeedsDisplay: YES];
@@ -89,6 +91,14 @@
 }
 
 -(void)keyDown:(NSEvent *)event {
+
+    if(firstKey) {
+         firstKey = false;
+        if([event keyCode] == 51) {
+            self.stringValue = @"";
+        }
+    }
+    
     NSString *characters;
     characters = [event characters];
 
@@ -129,6 +139,7 @@
         [self.window makeFirstResponder:nil];
         [self setIsEditing: NO];
         self.textColor = [global sharedGlobalData].markerColor;
+        
         if([self.stringValue isEqual:@""]) {
             self.stringValue = _tempString;
         }
@@ -136,6 +147,8 @@
         self.savedString = self.stringValue;
         NSLog(@"Saved string: %@", self.savedString);
 
+        firstKey = true;
+        
         [self deselectHook];
 
         [self setNeedsDisplay:YES];

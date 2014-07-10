@@ -17,6 +17,7 @@
 @property int optionCount;
 
 @property NSArray *selectedOption;
+@property NSArray *nullOption;
 
 @property int height;
 //@property BOOL state;
@@ -24,6 +25,7 @@
 @property NSString *labelText;
 
 @property uiTextField *label;
+@property uiTextField *selectLabel;
 
 -(id)initWithOptions:(NSMutableDictionary*)options andOptionCount: (int)optionCount;
 -(void)deselect:(NSNotification*)notification;

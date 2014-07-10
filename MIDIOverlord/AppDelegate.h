@@ -14,6 +14,7 @@
 //UI
 #import "appViewController.h"
 #import "eventHandler.h"
+#import "appWindow.h"
 
 // Utilites
 
@@ -24,11 +25,14 @@
 @property appViewController *appViewControl;
 
 @property midiController* midiController;
-@property (assign) IBOutlet NSWindow *mainWin;
+
+@property appWindow *mainWin;
 
 
 // Filehandling
 @property NSURL *currentFile;
+
+-(void)initApp;
 
 -(IBAction)openDocument:(id)sender;
 -(IBAction)saveDocument:(id)sender;
