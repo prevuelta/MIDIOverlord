@@ -48,7 +48,7 @@
     NSBezierPath* fgPath = [NSBezierPath new];
     
     if(self.active) {
-        [[global sharedGlobalData].activeColor set];
+        [[global sharedGlobalData].darkBrown set];
     } else {
         [[global sharedGlobalData].defaultColor set];
     }
@@ -81,12 +81,12 @@
     NSLog(@"Whats up");
     [global deselectNotify];
     
-    if(self.selected) {
-//        [[NSNotificationCenter defaultCenter] postNotificationName:@"closeOpen" object:self userInfo: nil];
+    if(self.active) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"deselectAll" object:self userInfo: nil];
     } else {
-//        [[NSNotificationCenter defaultCenter] postNotificationName:@"closeOpen" object:self userInfo: nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"deselectAll" object:self userInfo: nil];
         NSLog(@"settgin selcted");
-        self.selected = !self.selected;
+        self.active = !self.active;
         [self setTag: 20];
         NSRect f = self.frame;
         f.size.height = self.height * (_optionCount + 1);
@@ -98,8 +98,8 @@
 }
 
 -(void)deselect:(NSNotification*)notification {
-
-    self.selected = NO;
+    NSLog(@"List deselect");
+    self.active = NO;
     [self setTag: 0];
     NSRect f = self.frame;
     f.size.height = self.height;
@@ -164,7 +164,7 @@ NSComparisonResult compareViews(id firstView, id secondView, void *context) {
         
         [self addSubview:option];
         
-        currentOptionY += self.height;
+        currentOptionY += option.frameHeight;
     }
     
     [self setNeedsDisplay: YES];

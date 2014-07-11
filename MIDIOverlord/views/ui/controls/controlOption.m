@@ -13,7 +13,7 @@
 @synthesize keyValue = _keyValue;
 
 - (id)initWithKeyValue: (NSArray*)keyValue {
-    _label = [[uiTextField alloc] initWithString: keyValue[0] andMaxLength: 12];
+    _label = [[uiTextField alloc] initWithString: keyValue[0] andMaxLength: 11];
     
     self = [super initWithFrame:_label.frame];
     
@@ -51,13 +51,13 @@
 
 -(void)mouseEntered:(NSEvent *)theEvent{
     NSLog(@"Mouse entered");
-//  [_label setDefaultColor:[global sharedGlobalData].activeColor];
+  [_label setBgColor:[global sharedGlobalData].activeColor];
   [_label setNeedsDisplay:YES];
 }
 
 -(void)mouseExited:(NSEvent *)theEvent {
 //    [_label setBackgroundColor: self.defaultColor];
-//    [_label setActiveColor:[global sharedGlobalData].markerColor];
+    [_label setBgColor:[global sharedGlobalData].black];
     [_label setNeedsDisplay:YES];
 }
 
