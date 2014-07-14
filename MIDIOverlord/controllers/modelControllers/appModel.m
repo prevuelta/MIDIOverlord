@@ -71,6 +71,8 @@
 
 -(void)addRack {
 
+    [global deselectNotify];
+    
     _rackID = @([_rackID intValue] + 1);
     
     NSLog(@"%@", _rackID);
@@ -109,7 +111,7 @@
 
 -(void)addModule:(NSNumber*)rackID :(NSNumber*)type; {
     
-    NSLog(@"RID: %@ Type: %@", rackID, type);
+    [global deselectNotify];
     
     NSMutableDictionary* rack = [_rackData objectForKey: rackID];
 

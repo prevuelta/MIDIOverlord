@@ -13,6 +13,8 @@
 @property BOOL isEditable;
 @property BOOL isEditing;
 
+@property int cursorPosition;
+
 @property NSString *tempString;
 @property NSString *savedString;
 

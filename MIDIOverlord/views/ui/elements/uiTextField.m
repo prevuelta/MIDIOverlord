@@ -165,6 +165,7 @@ static NSPoint gridSystem[54];
 
 -(void)setStringValue:(NSString *)stringValue {
     _stringValue = stringValue;
+    NSLog(@"Setting string %@", stringValue);
     [self setCharCount: MIN((int)[_stringValue length], _maxLength)];
     [self setNeedsDisplay: YES];
 }
