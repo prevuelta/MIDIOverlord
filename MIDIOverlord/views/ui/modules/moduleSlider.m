@@ -15,22 +15,21 @@
 
 -(id)initWithData:(NSMutableDictionary*)data {
     
-    _ccValue = 0;
+    int height = 32;
     
-    self.height = 32;
-    
-    _data = data;
-    
-    self = [super initWithFrame:NSMakeRect(0, 0, RACK_WIDTH - SCROLLER_WIDTH, self.height)];
+    self = [super initWithHeight: height];
     
     if(!self) return nil;
+    
+    _ccValue = 0;
+    
+    _data = data;
     
     NSLog(@"Data received: %@", data);
     
     // Add Slider
-    _slider = [[controlSlider alloc] initWithFrame:NSMakePoint(self.width, 16): 0 :127 ];
+    _slider = [[controlSlider alloc] initWithSize:NSMakePoint(self.width, 16) andValue: data[@"ccValue"] andMinValue: 0 andMaxValue:127 ];
     [_slider setOrigin:NSMakePoint(0, 0)];
-    [_slider updateControlFromData: data[@"ccValue"]];
     
     [self bind:@"ccValue" toObject:_slider withKeyPath:@"value" options:nil];
     [_data bind:@"ccValue" toObject:_slider withKeyPath:@"value" options:nil];
@@ -54,9 +53,9 @@
     
    [self addSubview: _ccControl ];
 
-    uiButton *removeBtn = [[uiButton alloc] initWithSize: 16];
+    uiButton *removeBtn = [[uiButton alloc] initWithSize: 12];
     [removeBtn setEvent:@"removeModule" withData: @{@"rackID": self.data[@"rackID"], @"moduleID" : self.data[@"moduleID"]}];
-    [removeBtn setOrigin: NSMakePoint(RACK_WIDTH - 16 - SCROLLER_WIDTH -8, 16)];
+    [removeBtn setOrigin: NSMakePoint(RACK_WIDTH - 12 - SCROLLER_WIDTH - 8, 18)];
     
     [self addSubview: removeBtn];
     
@@ -68,9 +67,10 @@
 }
 
 -(void)setCcValue:(NSNumber*)ccValue {
-    NSLog(@"Set ccValue");
     _ccValue = ccValue;
-    [self.delegate midiData: @[self.data[@"ccStatus"], self.data[@"ccNumber"], self.data[@"ccValue"]]];
+    if([self.data[@"ccNumber"] isEqualToNumber:@-1]) {
+        [self.delegate midiData: @[self.data[@"ccStatus"], self.data[@"ccNumber"], self.data[@"ccValue"]]];
+    }
 }
 
 

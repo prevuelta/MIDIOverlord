@@ -28,7 +28,6 @@
     
     // UI Buttons
     
-    
     // Icon
     
     // Add rack
@@ -37,14 +36,12 @@
 
     [self addSubview: addRack];
     
-    
-    uiButton *editMode = [[uiButton alloc] initWithSize: 24 andEvent: @"editMode"];
-    [editMode setIsToggle: YES];
-    [editMode setOrigin: NSMakePoint(32, 4)];
-    
-    
-    
-    [self addSubview: editMode];
+//    uiButton *editMode = [[uiButton alloc] initWithSize: 24 andEvent: @"editMode"];
+//    [editMode setIsToggle: YES];
+//    [editMode setOrigin: NSMakePoint(32, 4)];
+//    
+//    
+//    [self addSubview: editMode];
     
     return self;
 }

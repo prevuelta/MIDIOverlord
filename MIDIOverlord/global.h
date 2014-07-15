@@ -23,6 +23,8 @@
 @property NSColor *markerColor;
 @property NSColor *activeColor;
 
+@property NSMutableDictionary *colors;
+
 @property NSCharacterSet *invalidChars;
 @property NSCharacterSet *notNumbers;
 

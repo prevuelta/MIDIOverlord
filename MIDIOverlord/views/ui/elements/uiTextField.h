@@ -24,7 +24,7 @@
 
 @property NSString *stringValue;
 
-@property int charCount;
+//@property int charCount;
 
 @property int charSizeX;
 @property int charSizeY;

@@ -110,15 +110,15 @@
             
             moduleBase *module = [self getModuleWithData: moduleData];
             
-            [module setEditMode: _editMode];
-            
             [module setOrigin: NSMakePoint(0, yLoc)];
             
             module.delegate = rack;
             
             [rack.moduleView addModuleView: module];
             
-            yLoc += module.height;
+            yLoc += module.frameHeight;
+            
+            NSLog(@"%d", yLoc);
             
         }
         

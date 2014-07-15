@@ -38,6 +38,18 @@
     return [NSColor colorWithDeviceRed:red green:green blue:blue alpha:alpha];
 }
 
++(NSColor*)getNSColorFromRGBAArray:(NSArray*)color {
+    
+    NSLog(@"Color: %@", color[1]);
+    
+    float red = [color[0] floatValue] / 255;
+    float green = [color[1] floatValue] / 255;
+    float blue = [color[2] floatValue] / 255;
+    float alpha = [color[3] floatValue] / 255;
+    
+    return [NSColor colorWithDeviceRed:red green:green blue:blue alpha:alpha];
+}
+
 +(NSURL*)getSaveFileUrl {
     
     NSSavePanel* saver = [NSSavePanel savePanel];

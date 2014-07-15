@@ -20,6 +20,8 @@
 
 @property NSCharacterSet* invalidChars;
 
+@property NSColor *editTextColor;
+
 //-(void)handleDoubleClick:(NSEvent *)e;
 -(void)addCharacter:(NSString*)letter;
 -(void)removeCharacter;

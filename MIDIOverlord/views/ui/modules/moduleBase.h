@@ -10,7 +10,7 @@
 
 #import "uiBase.h"
 
-#import "controlTrigger.h"
+#import "controlPad.h"
 #import "controlSlider.h"
 #import "controlList.h"
 #import "controlText.h"
@@ -23,7 +23,6 @@
 
 @protocol moduleBaseDelegate
 -(void)midiData:(NSArray*)data;
--(void)moduleUpdateWithData: (NSDictionary*)data;
 @end
 
 @interface moduleBase : uiBase
@@ -33,19 +32,11 @@
 //Data
 @property NSMutableDictionary* data;
 
-// Edit mode
-@property BOOL editMode;
-
 // Canvas properties
 @property int width;
 @property int height;
 @property int gridX;
 @property int gridY;
-
-// Midi properties
-@property NSNumber *midiStatusByte;
-@property NSNumber *midiByte1;
-@property NSNumber *midiByte2;
 
 // Display options
 @property NSInteger tag;
@@ -55,12 +46,7 @@
 
 
 // Methods
+-(id)initWithHeight:(int)height;
 -(id)initWithFrame:(NSRect)frame;
--(void)mouseDown:(NSEvent *)theEvent;
--(void)drawBg:(NSRect)rect;
--(void)drawModule:(NSRect)rect;
--(void)addCCField;
--(void)updateModel;
--(void)handleEditMode:(NSNotification*)notification;
 
 @end

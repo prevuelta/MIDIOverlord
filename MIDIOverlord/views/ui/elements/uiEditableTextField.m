@@ -17,23 +17,32 @@ BOOL firstKey = true;
 
 -(id)initWithString:(NSString*)stringValue andMaxLength:(int)maxLength{
     _invalidChars = [global sharedGlobalData].invalidChars;
+    
+    self = [super initWithString:stringValue andMaxLength:maxLength];
+    
     self.savedString = stringValue;
-    return [super initWithString:stringValue andMaxLength:maxLength];
+    self.textColor = [global sharedGlobalData].colors[@"brown"];
+    self.editTextColor = [global sharedGlobalData].colors[@"yellow"];
+    
+    return self;
+    
+
 }
 
 - (void)drawRect:(NSRect)dirtyRect {
     if(self.isEditing) {
-        self.textColor = [global sharedGlobalData].activeColor;
-        self.bgColor = [global sharedGlobalData].black;
+//        self.textColor = [global sharedGlobalData].colors[@"yellow"];
+//        self.bgColor = [global sharedGlobalData].black;
     } else {
-        self.textColor = [global sharedGlobalData].markerColor;
-        self.bgColor = [global sharedGlobalData].defaultColor;
+//        self.textColor = [global sharedGlobalData].colors[@"brown"];
+//        self.bgColor = [global sharedGlobalData].defaultColor;
     }
     
     [super drawRect:dirtyRect];
     
     if(self.isEditing) {
     
+        [self.editTextColor set];
         
         NSBezierPath *outline = [NSBezierPath new];
         NSBezierPath *cursor = [NSBezierPath new];
@@ -46,7 +55,6 @@ BOOL firstKey = true;
         [cursor lineToPoint: NSMakePoint(offset2, 3)];
         [cursor lineToPoint: NSMakePoint(offset1, 3)];
         
-        
         [outline moveToPoint:NSZeroPoint];
         [outline lineToPoint:NSMakePoint(self.frame.size.width, 0)];
         [outline lineToPoint:NSMakePoint(self.frame.size.width, self.frame.size.height)];
@@ -57,9 +65,7 @@ BOOL firstKey = true;
         [outline lineToPoint:NSMakePoint(self.frame.size.width-1, self.frame.size.height-1)];
         [outline lineToPoint:NSMakePoint(self.frame.size.width-1, 1)];
         [outline lineToPoint:NSMakePoint(0, 1)];
-//        
-//        [self.textColor set];
-//        
+       
         [outline fill];
         [cursor fill];
     }
@@ -112,10 +118,26 @@ BOOL firstKey = true;
 
 -(void)keyDown:(NSEvent *)event {
 
+    switch([event keyCode]) {
+        case 51 :
+            [self removeCharacter]; // Delete key
+            break;
+        case 36:
+            [self deselect: nil]; // Enter key
+            break;
+        case 124:
+            [self setCursorPosition: self.cursorPosition + 1]; // Right arrow key
+            firstKey = false;
+            break;
+        case 123:
+            [self setCursorPosition: self.cursorPosition - 1]; // Left arrow key
+            firstKey = false;
+            break;
+    }
     
     if(firstKey) {
         firstKey = false;
-        if([event keyCode] == 51) {
+        if([event keyCode] == 51 || [self.stringValue isEqualTo:@"---"]) {
             self.stringValue = @"";
             self.cursorPosition = 0;
         }
@@ -136,22 +158,7 @@ BOOL firstKey = true;
         }
     }
     
-    switch([event keyCode]) {
-        case 51 :
-             [self removeCharacter]; // Delete key
-        break;
-        case 36:
-             [self deselect: nil]; // Enter key
-        break;
-        case 124:
-             [self setCursorPosition: self.cursorPosition + 1]; // Right arrow key
-        break;
-        case 123:
-            [self setCursorPosition: self.cursorPosition - 1]; // Left arrow key
-        break;
-    }
-    
-     [self setNeedsDisplay:YES];
+    [self setNeedsDisplay:YES];
     
 //    NSLog(@"CPos: %@", self.cursorPosition);
 }
@@ -177,10 +184,10 @@ BOOL firstKey = true;
     if(self.isEditing) {
         [self.window makeFirstResponder:nil];
         [self setIsEditing: NO];
-        self.textColor = [global sharedGlobalData].markerColor;
         
         if([self.stringValue isEqual:@""]) {
-            self.stringValue = _tempString;
+//            self.stringValue = _tempString;
+            self.stringValue = @"---";
         }
         
         self.savedString = self.stringValue;

@@ -21,7 +21,7 @@
     
     self.inEditView = NO;
     
-    self.isFlipped = NO;
+    self.flipped = NO;
     
     return self;
 }
@@ -51,7 +51,7 @@
 }
 
 -(BOOL)isFlipped {
-    return _isFlipped;
+    return _flipped;
 }
 
 -(void)deselect:(NSNotification*)notification  {

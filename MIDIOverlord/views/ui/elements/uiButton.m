@@ -27,7 +27,7 @@
     self.event = @"";
     self.eventData = @{};
     self.isToggle = NO;
-    self.isFlipped = YES;
+    self.flipped = YES;
     
     NSDictionary *iconTypes = @{
          @"addRack" : @-48,

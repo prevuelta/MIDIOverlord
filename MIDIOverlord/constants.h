@@ -13,6 +13,8 @@
 #define MO_DARK_BROWN {82, 86, 86, 255}
 #define MO_BROWN {149, 149, 122, 255}
 
+#define MO_YELLOW {231, 229, 29, 255}
+
 #define UI_COLOR_PROT_0 {200, 200, 200, 255}
 
 #define UI_COLOR_PROT_1 {60, 60, 60, 255}

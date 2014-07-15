@@ -21,6 +21,6 @@
 @property int min;
 @property int max;
 
-- (id)initWithLabel: (NSString*)label andValue:(NSNumber*)value;
+-(id)initWithLabel: (NSString*)label andValue:(NSNumber*)value;
 
 @end

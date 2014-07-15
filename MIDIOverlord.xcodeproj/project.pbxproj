@@ -28,7 +28,6 @@
 		6EDA87C5194E77B7007BB3C8 /* patternBg.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6EDA87C4194E77B7007BB3C8 /* patternBg.gif */; };
 		6EE4456B1936C86100C61171 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE4452A1936C86100C61171 /* AppDelegate.m */; };
 		6EE4456C1936C86100C61171 /* appViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE4452E1936C86100C61171 /* appViewController.m */; };
-		6EE4456D1936C86100C61171 /* eventHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE445301936C86100C61171 /* eventHandler.m */; };
 		6EE4456E1936C86100C61171 /* appModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE445331936C86100C61171 /* appModel.m */; };
 		6EE4456F1936C86100C61171 /* midiController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE445351936C86100C61171 /* midiController.m */; };
 		6EE445701936C86100C61171 /* utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE445381936C86100C61171 /* utilities.m */; };
@@ -45,13 +44,14 @@
 		6EE4457C1936C86100C61171 /* controlList.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE4454E1936C86100C61171 /* controlList.m */; };
 		6EE4457D1936C86100C61171 /* controlOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE445501936C86100C61171 /* controlOption.m */; };
 		6EE4457E1936C86100C61171 /* controlSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE445521936C86100C61171 /* controlSlider.m */; };
-		6EE445801936C86100C61171 /* controlTrigger.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE445561936C86100C61171 /* controlTrigger.m */; };
+		6EE445801936C86100C61171 /* controlPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE445561936C86100C61171 /* controlPad.m */; };
 		6EE445821936C86100C61171 /* moduleBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE4455B1936C86100C61171 /* moduleBase.m */; };
 		6EE445831936C86100C61171 /* modulePad.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE4455D1936C86100C61171 /* modulePad.m */; };
 		6EE445841936C86100C61171 /* moduleSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE4455F1936C86100C61171 /* moduleSlider.m */; };
 		6EE445851936C86100C61171 /* rackBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE445621936C86100C61171 /* rackBase.m */; };
 		6EE445861936C86100C61171 /* rackControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE445641936C86100C61171 /* rackControl.m */; };
 		6EE445871936C86100C61171 /* uiToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE445661936C86100C61171 /* uiToolbar.m */; };
+		6EF2296E1974CCCC004CC127 /* controlRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF2296D1974CCCC004CC127 /* controlRecord.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,8 +103,6 @@
 		6EE4452B1936C86100C61171 /* constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
 		6EE4452D1936C86100C61171 /* appViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = appViewController.h; sourceTree = "<group>"; };
 		6EE4452E1936C86100C61171 /* appViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = appViewController.m; sourceTree = "<group>"; };
-		6EE4452F1936C86100C61171 /* eventHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eventHandler.h; sourceTree = "<group>"; };
-		6EE445301936C86100C61171 /* eventHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = eventHandler.m; sourceTree = "<group>"; };
 		6EE445321936C86100C61171 /* appModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = appModel.h; sourceTree = "<group>"; };
 		6EE445331936C86100C61171 /* appModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = appModel.m; sourceTree = "<group>"; };
 		6EE445341936C86100C61171 /* midiController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = midiController.h; sourceTree = "<group>"; };
@@ -131,8 +129,8 @@
 		6EE445501936C86100C61171 /* controlOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = controlOption.m; sourceTree = "<group>"; };
 		6EE445511936C86100C61171 /* controlSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = controlSlider.h; sourceTree = "<group>"; };
 		6EE445521936C86100C61171 /* controlSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = controlSlider.m; sourceTree = "<group>"; };
-		6EE445551936C86100C61171 /* controlTrigger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = controlTrigger.h; sourceTree = "<group>"; };
-		6EE445561936C86100C61171 /* controlTrigger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = controlTrigger.m; sourceTree = "<group>"; };
+		6EE445551936C86100C61171 /* controlPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = controlPad.h; sourceTree = "<group>"; };
+		6EE445561936C86100C61171 /* controlPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = controlPad.m; sourceTree = "<group>"; };
 		6EE4455A1936C86100C61171 /* moduleBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = moduleBase.h; sourceTree = "<group>"; };
 		6EE4455B1936C86100C61171 /* moduleBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = moduleBase.m; sourceTree = "<group>"; };
 		6EE4455C1936C86100C61171 /* modulePad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = modulePad.h; sourceTree = "<group>"; };
@@ -145,6 +143,8 @@
 		6EE445641936C86100C61171 /* rackControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rackControl.m; sourceTree = "<group>"; };
 		6EE445651936C86100C61171 /* uiToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uiToolBar.h; sourceTree = "<group>"; };
 		6EE445661936C86100C61171 /* uiToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uiToolbar.m; sourceTree = "<group>"; };
+		6EF2296C1974CCCC004CC127 /* controlRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = controlRecord.h; path = MIDIOverlord/views/ui/controls/controlRecord.h; sourceTree = SOURCE_ROOT; };
+		6EF2296D1974CCCC004CC127 /* controlRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = controlRecord.m; path = MIDIOverlord/views/ui/controls/controlRecord.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,8 +223,6 @@
 			children = (
 				6EE4452D1936C86100C61171 /* appViewController.h */,
 				6EE4452E1936C86100C61171 /* appViewController.m */,
-				6EE4452F1936C86100C61171 /* eventHandler.h */,
-				6EE445301936C86100C61171 /* eventHandler.m */,
 				6EE445311936C86100C61171 /* modelControllers */,
 				6EE445361936C86100C61171 /* utilities */,
 			);
@@ -300,6 +298,8 @@
 			children = (
 				6EE4454B1936C86100C61171 /* controlBase.h */,
 				6EE4454C1936C86100C61171 /* controlBase.m */,
+				6EF2296C1974CCCC004CC127 /* controlRecord.h */,
+				6EF2296D1974CCCC004CC127 /* controlRecord.m */,
 				6ECD89F81947C3EE00CCBE97 /* controlText.h */,
 				6ECD89F91947C3EE00CCBE97 /* controlText.m */,
 				6EE4454D1936C86100C61171 /* controlList.h */,
@@ -308,8 +308,8 @@
 				6EE445501936C86100C61171 /* controlOption.m */,
 				6EE445511936C86100C61171 /* controlSlider.h */,
 				6EE445521936C86100C61171 /* controlSlider.m */,
-				6EE445551936C86100C61171 /* controlTrigger.h */,
-				6EE445561936C86100C61171 /* controlTrigger.m */,
+				6EE445551936C86100C61171 /* controlPad.h */,
+				6EE445561936C86100C61171 /* controlPad.m */,
 				6E8DEB581953FB4F0013CF96 /* controlScrollBar.h */,
 				6E8DEB591953FB4F0013CF96 /* controlScrollBar.m */,
 			);
@@ -456,18 +456,18 @@
 				6EE4457C1936C86100C61171 /* controlList.m in Sources */,
 				6ECD89F61946BE7400CCBE97 /* uiButton.m in Sources */,
 				6E2449C3196D0B29007CDABB /* appWindow.m in Sources */,
+				6EF2296E1974CCCC004CC127 /* controlRecord.m in Sources */,
 				6EE4456C1936C86100C61171 /* appViewController.m in Sources */,
 				6EE445821936C86100C61171 /* moduleBase.m in Sources */,
 				6E29E52A194ABE9800F6BD4F /* global.m in Sources */,
 				6EE4457E1936C86100C61171 /* controlSlider.m in Sources */,
 				6EE4456F1936C86100C61171 /* midiController.m in Sources */,
 				6EE4456B1936C86100C61171 /* AppDelegate.m in Sources */,
-				6EE445801936C86100C61171 /* controlTrigger.m in Sources */,
+				6EE445801936C86100C61171 /* controlPad.m in Sources */,
 				6EE445861936C86100C61171 /* rackControl.m in Sources */,
 				6ECD89F71946BE7400CCBE97 /* uiTextField.m in Sources */,
 				6EE445871936C86100C61171 /* uiToolbar.m in Sources */,
 				6ED30FD9196BAE3700B7FF31 /* uiEditableNumberField.m in Sources */,
-				6EE4456D1936C86100C61171 /* eventHandler.m in Sources */,
 				6E8DEB5A1953FB4F0013CF96 /* controlScrollBar.m in Sources */,
 				6E7C38CE196CE36D00201195 /* uiTitleBar.m in Sources */,
 				6EE445841936C86100C61171 /* moduleSlider.m in Sources */,

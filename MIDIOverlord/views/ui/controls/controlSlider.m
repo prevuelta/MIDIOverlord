@@ -16,7 +16,7 @@ int baseMarker;
 @synthesize value = _value;
 @synthesize marker = _marker;
 
--(id)initWithFrame:(NSPoint)size :(int)min :(int)max{
+-(id)initWithSize:(NSPoint)size andValue: (NSNumber*)value andMinValue:(int)min andMaxValue:(int)max {
     
     self = [super initWithFrame:NSMakeRect(0, 0, size.x, size.y)];
     
@@ -29,7 +29,7 @@ int baseMarker;
     
     [self setActive: NO];
     
-    _value = [NSNumber numberWithInt: _min];
+    _value = value;
     
     _marker = [_value intValue];
                 

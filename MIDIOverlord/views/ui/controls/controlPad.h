@@ -10,12 +10,15 @@
 #import "controlBase.h"
 #import "controlText.h"
 
-@interface controlTrigger : controlBase
+@interface controlPad : controlBase
 
-@property NSColor* upColor;
-@property NSColor* downColor;
+@property NSNumber* value;
+@property int max;
+@property int min;
+@property int range;
+
 @property NSPoint size;
 
-- (id)initWithSize:(NSPoint)size;
+-(id)initWithSize:(NSPoint)size andValue: (NSNumber*)value andMinValue:(int)min andMaxValue:(int)max;
 
 @end

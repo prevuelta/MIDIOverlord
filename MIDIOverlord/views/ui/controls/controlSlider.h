@@ -24,7 +24,7 @@
 @property uiTextField *textVal;
 @property uiTextField *label;
 
--(id)initWithFrame:(NSPoint)size :(int)min :(int)max;
+-(id)initWithSize:(NSPoint)size andValue: (NSNumber*)value andMinValue:(int)min andMaxValue:(int)max;
 
 -(void)updateControlFromEvent:(NSEvent*)e;
 -(void)updateControlFromData:(NSNumber*)value;

@@ -14,12 +14,5 @@
 
 @interface controlBase : uiBase
 
-@property NSInteger tag;
-@property BOOL inEditView;
-
--(void)drawRect:(NSRect)rect;
-
--(void)mouseEntered:(NSEvent *)theEvent;
-
 
 @end

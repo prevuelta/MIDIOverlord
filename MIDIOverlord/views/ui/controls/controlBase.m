@@ -14,7 +14,6 @@
     self = [super initWithFrame:frame];
     if (!self) return nil;
 
-    self.inEditView = NO;
     
     return self;
 }

@@ -13,7 +13,6 @@
 #import "midiController.h"
 //UI
 #import "appViewController.h"
-#import "eventHandler.h"
 #import "appWindow.h"
 
 // Utilites

@@ -15,13 +15,13 @@
     self = [super initWithFrame:frame];
     if (!self) return nil;
     
-    self.isFlipped = YES;
+    self.flipped = YES;
     
     _heightOfSubviews = 0;
     
     _clippedView = [[uiBase alloc] initWithFrame: NSMakeRect(0, 0, frame.size.width, 0)];
     
-    _clippedView.isFlipped = YES;
+    _clippedView.flipped = YES;
     
     [self addSubview: _clippedView];
     

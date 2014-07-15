@@ -10,54 +10,46 @@
 
 @implementation modulePad
 
-@synthesize midiStatusByte= _midiStatusByte;
+@synthesize currentNote = _currentNote;
 
 -(id)initWithData: (NSMutableDictionary*)data{
     
-    int height = 40;
+    int height = 56;
     
-    NSRect frame = NSMakeRect(0, 0, RACK_WIDTH, height);
-    
-    self = [super initWithFrame:frame];
+    self = [super initWithHeight: height];
     
     if(!self) return nil;
     
-    self.height = height;
+    NSLog(@"Width: %d", self.width);
     
     self.data = data;
     
     NSPoint padSize = NSMakePoint(36, 36);
     
-    controlTrigger *pad1 = [[controlTrigger alloc] initWithSize: padSize];
-    controlTrigger *pad2 = [[controlTrigger alloc] initWithSize: padSize];
-    controlTrigger *pad3 = [[controlTrigger alloc] initWithSize: padSize];
-    controlTrigger *pad4 = [[controlTrigger alloc] initWithSize: padSize];
+    controlPad *pad1 = [[controlPad alloc] initWithSize: padSize andValue: @2 andMinValue:0 andMaxValue:127];
+    controlPad *pad2 = [[controlPad alloc] initWithSize: padSize andValue: @2 andMinValue:0 andMaxValue:127];
+    controlPad *pad3 = [[controlPad alloc] initWithSize: padSize andValue: @2 andMinValue:0 andMaxValue:127];
+    controlPad *pad4 = [[controlPad alloc] initWithSize: padSize andValue: @2 andMinValue:0 andMaxValue:127];
     
     [pad1 setOrigin:NSMakePoint(2, 2)];
     [pad2 setOrigin:NSMakePoint(42, 2)];
     [pad3 setOrigin:NSMakePoint(82, 2)];
     [pad4 setOrigin:NSMakePoint(122, 2)];
-    
-//    controlText *note = [[controlText alloc] initWithLabel:@""];
-//    [note setValue: @34];
-//    [note setInEditView: YES];
-//    [self addSubview: note];
-    
 
     [self addSubview: pad1];
     [self addSubview: pad2];
     [self addSubview: pad3];
     [self addSubview: pad4];
     
-    uiButton *removeBtn = [[uiButton alloc] initWithSize: 8];
+    uiButton *removeBtn = [[uiButton alloc] initWithSize: 12];
     [removeBtn setEvent:@"removeModule" withData: @{@"rackID": self.data[@"rackID"], @"moduleID" : self.data[@"moduleID"]}];
-    [removeBtn setOrigin: NSMakePoint(RACK_WIDTH - 20 - SCROLLER_WIDTH, 2)];
+    [removeBtn setOrigin: NSMakePoint(RACK_WIDTH - 20 - SCROLLER_WIDTH, 42)];
     [removeBtn setInEditView:YES];
     
     [self addSubview: removeBtn];
 
-    
     return self;
+    
 }
 
 -(NSString*)noteString:(int)noteNum {
@@ -67,8 +59,12 @@
     return [NSString stringWithFormat:@"%d%@", octave-1, note];
 }
 
--(void)drawRect:(NSRect)dirtyRect {
-    
+-(NSNumber*)currentNote {
+    return _currentNote;
+}
+
+-(void)setCurrentNote:(NSNumber*)currentNote {
+    _currentNote = currentNote;
 }
 
 

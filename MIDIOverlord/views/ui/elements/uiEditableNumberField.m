@@ -16,20 +16,30 @@
     
     _value = value;
     
-    self = [super initWithString: [value stringValue] andMaxLength: length];
-
+    if([value isEqualTo:@-1]) {
+        self = [super initWithString: @"---" andMaxLength: length];
+    } else {
+        self = [super initWithString: [value stringValue] andMaxLength: length];
+    }
+    
     _max = 127;
     _min = 0;
 
-    // self.invalidChars = [global sharedGlobalData].notNumbers;
+    self.textColor = [global sharedGlobalData].colors[@"red"];
+    
+    self.invalidChars = [global sharedGlobalData].notNumbers;
     
     return self;
 }
 
 -(void)deselectHook {
-	NSNumber *newValue = [self checkRange: [self.savedString intValue]];
-	[self setValue: newValue];
-	[self setStringValue: [newValue stringValue]];
+    if([self.savedString isEqualTo:@"---"]) {
+        [self setValue:@-1];
+    } else {
+       	NSNumber *newValue = [self checkRange: [self.savedString intValue]];
+        [self setValue: newValue];
+        [self setStringValue: [newValue stringValue]];
+    }
 }
 
 -(NSNumber*)checkRange:(int)intValue {

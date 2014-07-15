@@ -20,7 +20,8 @@
 @property NSArray *nullOption;
 
 @property int height;
-//@property BOOL state;
+
+@property NSInteger tag;
 
 @property NSString *labelText;
 

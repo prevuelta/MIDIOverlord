@@ -120,7 +120,7 @@
     NSMutableDictionary* module = [@{
         @"moduleID" : rack[@"moduleID"],
         @"rackID"   : rackID,
-        @"label" : @"Module Label",
+        @"label" : @"[label]",
         @"type" : type,
         } mutableCopy];
     
@@ -136,13 +136,12 @@
             module[@"pad3vel"] = @0;
             module[@"pad4note"] = @0;
             module[@"pad4vel"] = @0;
-            module[@"midiByte8"] = @0;
             break;
         case 2 :
             module[@"min"] = @0;
             module[@"max"] = @127;
             module[@"ccStatus"] = @176;
-            module[@"ccNumber"] = @0;
+            module[@"ccNumber"] = @-1;
             module[@"ccValue"] = @0;
         break;
     }

@@ -17,7 +17,7 @@
 @property BOOL selected;
 @property BOOL disabled;
 @property BOOL inEditView;
-@property BOOL isFlipped;
+@property BOOL flipped;
 
 -(id)initWithFrame:(NSRect)frame;
 -(void)setOrigin:(NSPoint)origin;

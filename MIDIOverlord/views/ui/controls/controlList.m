@@ -57,7 +57,7 @@
     [bgPath closePath];
     [bgPath fill];
     
-    [[global sharedGlobalData].markerColor set];
+    [[NSColor whiteColor] set];
     
     // Draw triangles
     [fgPath moveToPoint:NSMakePoint(self.frame.size.width-15, 6)];

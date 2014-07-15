@@ -10,6 +10,8 @@
 
 @interface modulePad : moduleBase
 
+@property NSNumber *currentNote;
+
 -(id)initWithData:(NSMutableDictionary*)data;
 -(NSString*)noteString:(int)noteNum;
 

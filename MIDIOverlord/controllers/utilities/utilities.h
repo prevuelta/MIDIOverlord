@@ -14,6 +14,7 @@
 //+(void)notify:(int)type;
 
 +(NSColor*)getNSColorFromRGB:(float[])colors;
++(NSColor*)getNSColorFromRGBAArray:(NSArray*)color;
 
 // App file handling
 +(NSURL*)getSaveFileUrl;

@@ -22,6 +22,27 @@ static global *_instance;
             
             _instance.patternBg = [NSImage imageNamed: @"patternBg.gif"];
             
+            NSDictionary *RGBAColorValues = @{
+                @"black" : @[@34, @34, @34, @255],
+                @"darkestGrey" : @[@42, @42, @42, @255],
+                @"darkBrown" : @[@82, @86, @86, @255],
+                @"brown" :  @[@149, @149, @122, @255],
+                @"lightestBrown" : @[@244, @244, @233, @255],
+                @"red" : @[@241, @61, @57, @255],
+                @"blue" : @[@0, @169, @232, @255],
+                @"yellow" : @[@231, @229, @29, @255]
+            };
+            
+            _instance.colors = [NSMutableDictionary new];
+            
+            for(NSString *key in RGBAColorValues) {
+                NSArray *RGBAArray = [RGBAColorValues objectForKey: key];
+                NSColor *color = [utilities getNSColorFromRGBAArray: RGBAArray ];
+                [_instance.colors setObject:color forKey: key];
+            }
+            
+            NSLog(@"NSCOLOR array: %@", _instance.colors);
+            
             float blackRGBA[] = MO_BLACK;
             float darkestGreyRGBA[] = MO_DARKEST_GREY;
             float darkBrownRGBA[] = MO_DARK_BROWN;
@@ -42,9 +63,9 @@ static global *_instance;
            _instance.markerColor = [utilities getNSColorFromRGB:markerRGBA];
            _instance.activeColor = [utilities getNSColorFromRGB:activeRGBA];
             
-            NSMutableCharacterSet *allowedCharacters = [NSMutableCharacterSet alphanumericCharacterSet];
+            NSMutableCharacterSet *allowedCharacters = [NSMutableCharacterSet new];
             
-            [allowedCharacters addCharactersInString: @" _!@#$%^&*()-=_+[]\\{}|,./<>?:\"';"];
+            [allowedCharacters addCharactersInString: @"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 _!@#$%^&*()-=_+[]\\{}|,./<>?:\"';"];
             
             _instance.invalidChars = [allowedCharacters invertedSet];
             

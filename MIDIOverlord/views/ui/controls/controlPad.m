@@ -6,22 +6,25 @@
 //  Copyright (c) 2013 Midnight City. All rights reserved.
 //
 
-#import "controlTrigger.h"
+#import "controlPad.h"
 
-@implementation controlTrigger
+@implementation controlPad
 
-- (id)initWithSize:(NSPoint)size {
-    
-    self = [super initWithFrame:NSMakeRect(0, 0, size.x, size.y)];
-    if(!self) return nil;
+-(id)initWithSize:(NSPoint)size andValue: (NSNumber*)value andMinValue:(int)min andMaxValue:(int)max {
     
     _size = size;
+    _min = min;
+    _max = max;
+    _range = max - min;
     
-    uiTextField *label = [[uiTextField alloc] initWithString: @"---" andMaxLength: 3 ];
+    controlText *padNote = [[controlText alloc] initWithLabel: @"|" andValue:@-1];
     
-    [label setOrigin:NSMakePoint(2, 2)];
+    self = [super initWithFrame:NSMakeRect(0, 0, size.x, size.y + padNote.frameHeight + 2)];
+    if(!self) return nil;
     
-    [self addSubview: label];
+    [padNote setOrigin:NSMakePoint(0, 38)];
+    
+    [self addSubview: padNote];
     
     return self;
 }
@@ -30,7 +33,7 @@
     
     NSBezierPath* btnPath = [NSBezierPath new];
     
-    [btnPath appendBezierPathWithRoundedRect:NSMakeRect(0, 0, _size.x, _size.y) xRadius: 2 yRadius: 2];
+    [btnPath appendBezierPathWithRoundedRect:NSMakeRect(0, 0, _size.x, _size.y) xRadius: 1 yRadius: 1];
     
     [btnPath closePath];
     

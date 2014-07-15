@@ -10,112 +10,39 @@
 
 @implementation moduleBase
 
-@synthesize tag = _tag;
-@synthesize data = _data;
-@synthesize editMode = _editMode;
+-(id)initWithHeight:(int)height {
+    self.width = RACK_WIDTH - SCROLLER_WIDTH;
+    self = [self initWithFrame:NSMakeRect(0, 0, self.width, height)];
+    self.height = height;
+    return self;
+}
 
 -(id)initWithFrame:(NSRect)frame {
+    
     self = [super initWithFrame:frame];
+    
     if (!self) return nil;
-    
-    self.width = RACK_WIDTH - 8 - SCROLLER_WIDTH;
-    
+
     self.selected = NO;
-    self.editMode = NO;
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleEditMode:) name:@"editMode" object:nil];
     
     return self;
 }
 
--(NSMutableDictionary*)data {
-    return _data;
-}
-
--(void)setData:(NSMutableDictionary*)data {
-    NSLog(@"setting data");
-    _data = data;
-}
-
--(void)mouseDown:(NSEvent *)theEvent {
-//    [[NSNotificationCenter defaultCenter] postNotificationName:@"deselectAll" object:self userInfo: nil];
-//    [[NSNotificationCenter defaultCenter] postNotificationName:@"closeOpen" object:self userInfo: nil];
-//    self.selected = YES;
-//    [self setNeedsDisplay:YES];
-}
-
-// Event handlers
--(void)uiEvent:(char*)type {
-//    [self uiEvent:type withInt:0];
-}
-
-//-(void)uiEvent:(char*)type withInt:(int)value {
-////    NSLog(@"Ui event with int: %d", value);
-//    
-//    if(strncmp(type, "noteOn", 6) == 0) {
-//        NSLog(@"Note on trigger");
-//        
-////        [utilities midiNotification: 0x90 : self.midiValue : 127 ];
-//    }
-//    if(strncmp(type, "noteOff", 6) == 0) {
-//        NSLog(@"Note off trigger");
-////        [utilities midiNotification: 0x80 : self.midiValue : 127 ];
-//    }
-//    if(strncmp(type, "sliderVal", 9) == 0) {
-//        [self.delegate midiData: @[@"0xB0", [NSNumber numberWithInt: self.midiValue], [NSNumber numberWithInt: value]]];
-//    }
-//}
-
 -(void)drawRect:(NSRect)dirtyRect {
-    [self drawModule:dirtyRect];
-    [self drawBg:dirtyRect];
-}
-
--(NSInteger)tag {
-    return _tag;
-}
-
--(void)setTag:(NSInteger)tag {
-    _tag = tag;
-}
-
--(void)drawModule:(NSRect)rect {
-    // Overwritten
-}
-
--(void)drawBg:(NSRect)rect {
-    
     // Draw background
     
     NSBezierPath* bgPath = [NSBezierPath new];
     
     if(self.selected) {
-         [[global sharedGlobalData].defaultColor set];
+        [[global sharedGlobalData].defaultColor set];
     } else {
         [[global sharedGlobalData].black set];
     }
-
+    
     [bgPath appendBezierPathWithRect:NSMakeRect(0, 0, self.width, self.height)];
     [bgPath closePath];
     [bgPath fill];
 
-}
-
--(void)handleEditMode:(NSNotification*)notification {
-    NSNumber *editMode = notification.userInfo[@"isToggled"];
-    [self setEditMode: [editMode boolValue]];
-
-}
-
--(BOOL)editMode{
-    return _editMode;
-}
-
--(void)setEditMode:(BOOL)editMode {
-    for(id control in self.subviews) {
-        BOOL hide = [control inEditView] == editMode ? NO : YES;
-        [control setHidden: hide];
-    }
 }
 
 -(void)dealloc {

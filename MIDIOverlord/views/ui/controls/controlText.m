@@ -12,30 +12,39 @@
 
 int baseY;
 
-@synthesize value = _value;
+//@synthesize value = _value;
 
 - (id)initWithLabel: (NSString*)label andValue: (NSNumber*) value {
     
-    _value = @0;
+    _value = value;
     
     _max = 127;
     
     _label = label;
     
-    _labelTextField = [[uiTextField alloc] initWithString: _label];
-    
     _valueNumberField = [[uiEditableNumberField alloc] initWithValue: value andLength: 3];
+    
+    int width = _valueNumberField.frameWidth;
+    
+    if(![_label isEqualTo:@""]) {
+        NSLog(@"Nolabel: %@", _label);
+        _labelTextField = [[uiTextField alloc] initWithString: _label];
+        width += _labelTextField.frameWidth;
+    }
 
     [_valueNumberField setOrigin: NSMakePoint(_labelTextField.frameWidth, 0)];
-    
 
-    NSRect frame = NSMakeRect(0, 0, _labelTextField.frameWidth + _valueNumberField.frameWidth, 16);
+    NSRect frame = NSMakeRect(0, 0, width, 16);
     self = [super initWithFrame: frame];
     
     if (!self) return nil;
 
-    [self addSubview: _labelTextField];
+    if(![_label isEqualTo:@""]) {
+        [self addSubview: _labelTextField];
+    }
+        
     [self addSubview:_valueNumberField];
+    
     [self bind:@"value" toObject:_valueNumberField withKeyPath:@"value" options:nil];
     
     return self;
@@ -53,18 +62,18 @@ int baseY;
 
 }
 
--(NSNumber*)value {
-    return _value;
-}
-
--(void)setValue: (NSNumber*)value {
-    if([value intValue] >= 0 && [value intValue] <= _max) {
-        _value = value;
-         NSLog(@"Value: %@", _value);
-//        [self.label setStringValue: [self labelPlusValue]];
-        [self setNeedsDisplay:YES];
-    }
-}
+//-(NSNumber*)value {
+//    return _value;
+//}
+//
+//-(void)setValue: (NSNumber*)value {
+//    if([value intValue] >= 0 && [value intValue] <= _max) {
+//        _value = value;
+//         NSLog(@"Value: %@", _value);
+////        [self.label setStringValue: [self labelPlusValue]];
+//        [self setNeedsDisplay:YES];
+//    }
+//}
 
 //-(void)deselect:(NSNotification*)notification {
 //    [super deselect:notification];
@@ -83,10 +92,6 @@ int baseY;
 //        [self setValue: [NSNumber numberWithInt:newValue]];
 //        baseY = location.y;
 //}
-
--(void)mouseUp:(NSEvent *)e {
-
-}
 
 
 @end
