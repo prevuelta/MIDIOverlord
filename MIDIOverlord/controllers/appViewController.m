@@ -19,7 +19,8 @@
     _mainView = [[appView alloc] initWithWin:mainWin];
     
     // Add observers
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addRack:) name:@"addRack" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addControlRack:) name:@"addControlRack" object:nil];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeRack:) name:@"removeRack" object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addModule:) name:@"addModule" object:nil];
@@ -56,12 +57,16 @@
     
     [self updateRacks];
     
-    [_mainView resizeWin: _data.rackCount];
+    [_mainView resizeWin: (int)_data.rackCount];
 }
 
--(void)addRack:(NSNotification*)notification {
-    
-    [_data addRack];
+-(void)addControlRack:(NSNotification*)notification  {
+    [self addRack: @1];
+}
+
+-(void)addRack:(NSNumber*)type {
+
+    [_data addRack: type];
     [self updateRacks];
 
 }

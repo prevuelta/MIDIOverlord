@@ -31,8 +31,9 @@ int baseMarker;
     
     _value = value;
     
-    _marker = [_value intValue];
-                
+    [self updateMarker];
+//    _marker = [_value intValue];
+    
     _textVal = [[uiTextField alloc] initWithString: [NSString stringWithFormat:@"%03d", [_value intValue]]];
     [_textVal setOrigin:NSMakePoint(RACK_WIDTH - 36 - SCROLLER_WIDTH, 0)];
     [_textVal setDrawBg: NO];
@@ -99,7 +100,8 @@ int baseMarker;
 }
 
 -(void)updateMarker {
-    float percent = [_value floatValue] / (float)self.range;
+    float percent = [_value floatValue] / (float) self.range;
+    NSLog(@"Slider value: %@ Percent: %f", _value, percent);
     int newValue = floor(_size.x * percent);
     [self setMarker: newValue];
 }

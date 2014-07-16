@@ -18,7 +18,9 @@
 
 @property MIDIDeviceListRef midiDevices;
 @property MIDIClientRef appClient;
+
 @property MIDIEndpointRef appOutput;
+@property MIDIEndpointRef appInput;
 
 //@property NSMutableDictionary* devices;
 

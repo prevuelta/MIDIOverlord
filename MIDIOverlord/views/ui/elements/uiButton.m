@@ -30,13 +30,14 @@
     self.flipped = YES;
     
     NSDictionary *iconTypes = @{
-         @"addRack" : @-48,
+         @"addControlRack" : @-48,
+         @"addMapRack" : @-48,
          @"editMode" : @-72,
          @"closeWindow" : @0,
          @"closeRack"   : @0
     };
     
-    NSLog(@"Icontype: %@", iconTypes[event] );
+//    NSLog(@"Icontype: %@", iconTypes[event] );
     
     if([event length] != 0) {
         [self setEvent: event];

@@ -9,10 +9,10 @@
 
 #import "midiController.h"
 
+@implementation midiController
 
 Byte packetBuffer[128];
 
-@implementation midiController
 
 -(id)init {
     self = [super init];
@@ -37,26 +37,27 @@ Byte packetBuffer[128];
 
 -(void)createVirtualDeviceWithClient {
     
-    OSStatus result;
+    OSStatus sourceCreateResult;
+    OSStatus destinationCreateResult;
     
     // Create midi client
     
-    MIDIClientCreate(CFSTR("MIDI Overlord Client"), MyMIDINotifyProc, (__bridge void *)(self), &_appClient);
+    MIDIClientCreate(CFSTR("MIDI Overlord Client"), deviceChangeNotify, (__bridge void *)(self), &_appClient);
     
-    // Create virtual source
-    result = MIDISourceCreate(_appClient, CFSTR("MIDI Overlord Source"), &_appOutput);
-    
-    if(result != noErr) {
-        NSLog(@"Error creating MIDI client: %s - %s",
-              GetMacOSStatusErrorString(result),
-              GetMacOSStatusCommentString(result));
-        return;
-    }
+    // Create virtual source / destination
+    sourceCreateResult = MIDISourceCreate(_appClient, CFSTR("MIDI Overlord Source"), &_appOutput);
+
+    destinationCreateResult = MIDIDestinationCreate(_appClient, CFSTR("MIDI Overlord Destination"), inputNotify, (__bridge void *)(self), &_appInput);
 
 }
 
-void MyMIDINotifyProc (const MIDINotification  *message, void *refCon) {
+void deviceChangeNotify (const MIDINotification  *message, void *refCon) {
      [(__bridge id) refCon updateMidiDestinations];
+}
+
+void inputNotify (const MIDIPacketList *list, void *procRef, void *srcRef) {
+    NSLog(@"Incomig midi message %@", list);
+//    [(__bridge id) refCon updateMidiDestinations];
 }
 
 -(MIDIPacketList*)getMidiPacket:(int)value1 :(int)value2 :(int)value3 {
@@ -106,10 +107,8 @@ void MyMIDINotifyProc (const MIDINotification  *message, void *refCon) {
     MIDIPortRef outPort;
 
     CFStringRef outPortName = (__bridge CFStringRef)[device[0] stringByAppendingFormat:@"%@", device[0]];
-//
-    MIDIOutputPortCreate([self newClient:outPortName], outPortName, &outPort);
 
-    MIDIReceived(_appOutput, packetList);
+    MIDIOutputPortCreate([self newClient:outPortName], outPortName, &outPort);
     
     OSStatus result;
     
@@ -178,14 +177,11 @@ void MyMIDINotifyProc (const MIDINotification  *message, void *refCon) {
             
             NSString *deviceName = [self getDeviceName: endPointRef];
             
-            MIDIPortRef outPort;
-            
-            CFStringRef outPortName = (__bridge CFStringRef)[deviceName stringByAppendingFormat:@"%@", deviceName];
-        
-            MIDIOutputPortCreate([self newClient:outPortName], outPortName, &outPort);
-          
-//            endPointRefs[i] = endPointRef;
-//            portRefs[i] = outPort;
+//            MIDIPortRef outPort;
+//            
+//            CFStringRef outPortName = (__bridge CFStringRef)[deviceName stringByAppendingFormat:@"%@", deviceName];
+//        
+//            MIDIOutputPortCreate([self newClient:outPortName], outPortName, &outPort);
             
             NSArray *device = @[deviceName, [NSNumber numberWithInteger: i]];
             

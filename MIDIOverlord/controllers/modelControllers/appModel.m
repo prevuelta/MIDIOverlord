@@ -48,19 +48,19 @@
 
 - (NSMutableDictionary*)loadDefaultState {
     
-    NSDictionary *defaultState = @{@"global" :
-                                        @{
-                                            @"clock"  : @120,
-                                            @"devices"  : @[]
-                                            },
-                                    @"state"  :
-                                        @{
-                                            @"rackID"   : @0,
-                                            @"rackData" : @{},
-                                            @"rackLayout" : @[]
-                                        }
-                                    
-                                    };
+    NSDictionary *defaultState = @{
+        @"global" :
+            @{
+                @"clock"  : @120,
+                @"devices"  : @[]
+                },
+        @"state"  :
+            @{
+                @"rackID"   : @0,
+                @"rackData" : @{},
+                @"rackLayout" : @[]
+            }
+    };
     
     return [NSMutableDictionary dictionaryWithDictionary:defaultState];
 }
@@ -69,13 +69,20 @@
     return [[dictionary objectForKey: key] intValue];
 }
 
--(void)addRack {
+-(void)addRack:(NSNumber*)type {
 
     [global deselectNotify];
     
     _rackID = @([_rackID intValue] + 1);
     
     NSLog(@"%@", _rackID);
+    
+    switch([type intValue]) {
+        case 1: // Control Rack
+        break;
+        case 2: // Map rack
+        break;
+    }
     
     NSMutableDictionary* rack = [@{
         @"rackID" : _rackID,

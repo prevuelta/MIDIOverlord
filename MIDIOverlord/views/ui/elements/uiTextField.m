@@ -139,7 +139,7 @@ static NSPoint gridSystem[54];
         @";" : @[@14, @8, @9, @3, @4, @16, @14, @32, @26, @27, @33],
 
         // Icons
-        @"|" : @[@17, @5, @3, @9, @8, @38, @37, @31, @30, @36, @37, @43, @44, @50, @51, @15], // Musical note
+        @"|" : @[@42, @44, @50, @51, @21, @23, @5, @2, @8, @38, @36], // Musical note
         
         // Numerals
         @"0" : @[@48, @0, @5, @53, @49, @43, @46, @10, @7, @49],
@@ -207,7 +207,6 @@ static NSPoint gridSystem[54];
     int charOffset = 0;//_charSizeX * ((_charCount * _valueCount)-1);
     
     for(int i = 0; i < [_stringValue length]; i++) {
-        NSLog(@"Char: %c", [_stringValue characterAtIndex:i]);
         NSString *key = [NSString stringWithFormat: @"%c", [_stringValue characterAtIndex:i]];
         NSArray *glyphArr = _glyphs[key];
         for(int j = 0; j < [glyphArr count]; j++) {

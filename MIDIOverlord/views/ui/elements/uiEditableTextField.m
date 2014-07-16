@@ -21,7 +21,7 @@ BOOL firstKey = true;
     self = [super initWithString:stringValue andMaxLength:maxLength];
     
     self.savedString = stringValue;
-    self.textColor = [global sharedGlobalData].colors[@"brown"];
+    self.textColor = [global sharedGlobalData].colors[@"blue"];
     self.editTextColor = [global sharedGlobalData].colors[@"yellow"];
     
     return self;
@@ -82,11 +82,11 @@ BOOL firstKey = true;
 }
 
 -(void)setCursorPosition:(int)cursorPosition {
-    NSLog(@"setting %@", [NSNumber numberWithInt: cursorPosition]);
-    NSLog(@"String %@", self.stringValue);
-    NSLog(@"String length %@", [NSNumber numberWithInt: [self.stringValue length]]);
+//    NSLog(@"setting %@", [NSNumber numberWithInt: cursorPosition]);
+//    NSLog(@"String %@", self.stringValue);
+//    NSLog(@"String length %@", [NSNumber numberWithInt: [self.stringValue length]]);
     _cursorPosition = cursorPosition < 0 ? 0 : cursorPosition >= [self.stringValue length] ? (int)[self.stringValue length] : cursorPosition;
-    NSLog(@"setting %@", [NSNumber numberWithInt: _cursorPosition]);
+//    NSLog(@"setting %@", [NSNumber numberWithInt: _cursorPosition]);
 }
 
 -(NSString*)stringValue {
@@ -94,14 +94,14 @@ BOOL firstKey = true;
 }
 
 -(void)setStringValue:(NSString *)stringValue {
-    NSLog(@"Setting in editable: %@", stringValue);
+//    NSLog(@"Setting in editable: %@", stringValue);
     [super setStringValue: stringValue];
 }
 
 -(void)mouseDown:(NSEvent *)theEvent {
     [global deselectNotify];
 
-    NSLog(@"Editing textg");
+//    NSLog(@"Editing textg");
 
     _tempString = self.stringValue;
 
@@ -168,7 +168,7 @@ BOOL firstKey = true;
     [newString insertString:letter atIndex:_cursorPosition];
    [self setStringValue: newString];
     self.cursorPosition++;
-    NSLog(@"String value at add: %@", self.stringValue);
+//    NSLog(@"String value at add: %@", self.stringValue);
     [self setNeedsDisplay:YES];
 }
 
@@ -191,7 +191,7 @@ BOOL firstKey = true;
         }
         
         self.savedString = self.stringValue;
-        NSLog(@"Saved string: %@", self.savedString);
+//        NSLog(@"Saved string: %@", self.savedString);
 
         firstKey = true;
         

@@ -14,7 +14,7 @@
 
      NSLog(@"Destinations: %@", [global sharedGlobalData].midiDestinations);
     
-    uiTextField *label = [[uiTextField alloc] initWithString: @"Midi Out"];
+    uiTextField *label = [[uiTextField alloc] initWithString: @"Send to:"];
     
     [label setDrawBg:NO];
     [label setOrigin:NSMakePoint(4, 24)];

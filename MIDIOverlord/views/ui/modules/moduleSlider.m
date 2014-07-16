@@ -38,7 +38,7 @@
 
     // Add Label
     uiEditableTextField *editLabel = [[uiEditableTextField alloc] initWithString: _data[@"label"] andMaxLength: 8];
-    [editLabel setOrigin:NSMakePoint(0, 16)];
+    [editLabel setOrigin:NSMakePoint(14, 16)];
     
     [_data bind:@"label" toObject: editLabel withKeyPath:@"savedString" options:nil];
     
@@ -46,7 +46,7 @@
 
     _ccControl = [[controlText alloc] initWithLabel: @"CC" andValue: data[@"ccNumber"]];
     
-   [_ccControl setOrigin:NSMakePoint(editLabel.frameWidth + 2, 16)];
+   [_ccControl setOrigin:NSMakePoint(editLabel.frameWidth + 16, 16)];
    [_ccControl setMax:127];
     
    [_data bind:@"ccNumber" toObject: _ccControl withKeyPath:@"value" options:nil];
@@ -55,9 +55,16 @@
 
     uiButton *removeBtn = [[uiButton alloc] initWithSize: 12];
     [removeBtn setEvent:@"removeModule" withData: @{@"rackID": self.data[@"rackID"], @"moduleID" : self.data[@"moduleID"]}];
-    [removeBtn setOrigin: NSMakePoint(RACK_WIDTH - 12 - SCROLLER_WIDTH - 8, 18)];
+    [removeBtn setOrigin: NSMakePoint(self.width - 20, 18)];
     
     [self addSubview: removeBtn];
+    
+    
+    uiButton *mapBtn = [[uiButton alloc] initWithSize: 12];
+    [mapBtn setEvent:@"removeModule" withData: @{@"rackID": self.data[@"rackID"], @"moduleID" : self.data[@"moduleID"]}];
+    [mapBtn setOrigin: NSMakePoint(0, 18)];
+    
+    [self addSubview: mapBtn];
     
     return self;
 }
@@ -68,7 +75,7 @@
 
 -(void)setCcValue:(NSNumber*)ccValue {
     _ccValue = ccValue;
-    if([self.data[@"ccNumber"] isEqualToNumber:@-1]) {
+    if(![self.data[@"ccNumber"] isEqualToNumber:@-1]) {
         [self.delegate midiData: @[self.data[@"ccStatus"], self.data[@"ccNumber"], self.data[@"ccValue"]]];
     }
 }

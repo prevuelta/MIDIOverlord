@@ -18,7 +18,10 @@
 -(id)initWithWin:(NSWindow*)mainWin;
 -(void)loadFile:(NSNotification*)notification;
 
--(void)addRack:(NSNotification*)notification;
+-(void)addControlRack:(NSNotification*)notification;
+-(void)addRack:(NSNumber*)type;
+
+
 -(void)addModule:(NSNotification*)notification;
 -(void)removeModule:(NSNotification*)notification;
 

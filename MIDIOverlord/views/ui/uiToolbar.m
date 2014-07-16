@@ -16,25 +16,16 @@
     
     if(!self) return nil;
     
-//    uiTextField *appTitle = [[uiTextField alloc] initWithString: @"ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890`~!@#$%^&*()-=_+[]\{}|;':\",./<>?"];
-//    NSImage *logo = [NSImage imageNamed:@"logo.png"];
-//    NSImageView *logoView = [[NSImageView alloc] initWithFrame:NSMakeRect(4, 0, 70, 52)];
-//
-//    [logoView setImage:logo];
-    
-//    [self addSubview:logoView];
-    
-
-    
-    // UI Buttons
-    
-    // Icon
-    
     // Add rack
-    uiButton *addRack = [[uiButton alloc] initWithSize: 24 andEvent: @"addRack"];
-    [addRack setOrigin: NSMakePoint(4, 4)];
+    uiButton *addControlRack = [[uiButton alloc] initWithSize: 24 andEvent: @"addControlRack"];
+    [addControlRack setOrigin: NSMakePoint(4, 4)];
 
-    [self addSubview: addRack];
+    [self addSubview: addControlRack];
+    
+    uiButton *addMapRack = [[uiButton alloc] initWithSize: 24 andEvent: @"addMapRack"];
+    [addMapRack setOrigin: NSMakePoint(32, 4)];
+    
+    [self addSubview: addMapRack];
     
 //    uiButton *editMode = [[uiButton alloc] initWithSize: 24 andEvent: @"editMode"];
 //    [editMode setIsToggle: YES];
