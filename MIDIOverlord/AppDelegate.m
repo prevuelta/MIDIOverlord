@@ -7,12 +7,15 @@
 //
 
 #import "AppDelegate.h"
+#import "MIKMIDI.h"
 
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     [self createWindow];
     [self initApp];
+    
+    NSLog(@"Devices: %@", [[MIKMIDIDeviceManager sharedDeviceManager] availableDevices]);
     
 }
 

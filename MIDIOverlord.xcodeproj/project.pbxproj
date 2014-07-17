@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		6E04ABCF1946FF4800B51D27 /* uiBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E04ABCE1946FF4800B51D27 /* uiBase.m */; };
-		6E0E2D2E196E3C6B00806EF4 /* mo_logo.icns in Resources */ = {isa = PBXBuildFile; fileRef = 6E0E2D2D196E3C6B00806EF4 /* mo_logo.icns */; };
 		6E2449C3196D0B29007CDABB /* appWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2449C2196D0B29007CDABB /* appWindow.m */; };
 		6E29E52A194ABE9800F6BD4F /* global.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E29E529194ABE9800F6BD4F /* global.m */; };
 		6E3126A5194C4D9F00D65716 /* uiEditableTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3126A4194C4D9F00D65716 /* uiEditableTextField.m */; };
@@ -67,7 +66,6 @@
 /* Begin PBXFileReference section */
 		6E04ABCD1946FF4800B51D27 /* uiBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uiBase.h; sourceTree = "<group>"; };
 		6E04ABCE1946FF4800B51D27 /* uiBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uiBase.m; sourceTree = "<group>"; };
-		6E0E2D2D196E3C6B00806EF4 /* mo_logo.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = mo_logo.icns; sourceTree = "<group>"; };
 		6E2449C1196D0B29007CDABB /* appWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = appWindow.h; sourceTree = "<group>"; };
 		6E2449C2196D0B29007CDABB /* appWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = appWindow.m; sourceTree = "<group>"; };
 		6E29E528194ABE9800F6BD4F /* global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = global.h; sourceTree = "<group>"; };
@@ -198,7 +196,6 @@
 		6EE445281936C86100C61171 /* MIDIOverlord */ = {
 			isa = PBXGroup;
 			children = (
-				6E0E2D2D196E3C6B00806EF4 /* mo_logo.icns */,
 				6EE445291936C86100C61171 /* AppDelegate.h */,
 				6EE4452A1936C86100C61171 /* AppDelegate.m */,
 				6EE4452B1936C86100C61171 /* constants.h */,
@@ -419,7 +416,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6EE445731936C86100C61171 /* Images.xcassets in Resources */,
-				6E0E2D2E196E3C6B00806EF4 /* mo_logo.icns in Resources */,
 				6EE445711936C86100C61171 /* Credits.rtf in Resources */,
 				6EE445721936C86100C61171 /* InfoPlist.strings in Resources */,
 				6EDA87C5194E77B7007BB3C8 /* patternBg.gif in Resources */,
@@ -589,6 +585,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MIDIOverlord/MIDIOverlord-Prefix.pch";
@@ -602,6 +599,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MIDIOverlord/MIDIOverlord-Prefix.pch";

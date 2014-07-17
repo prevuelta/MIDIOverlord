@@ -12,6 +12,8 @@
 	<dict>
 		<key>2C06E89F-2097-4F68-A178-A5D5E468C966</key>
 		<string>suspekt007@suspekt007.webfactional.com:~/webapps/git/repos/GeckoMIDI.git</string>
+		<key>BF552014-2732-41A8-A49E-7FF1947137B2</key>
+		<string>https://github.com/mixedinkey-opensource/MIKMIDI.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>MIDIOverlord.xcodeproj/project.xcworkspace</string>
@@ -19,6 +21,8 @@
 	<dict>
 		<key>2C06E89F-2097-4F68-A178-A5D5E468C966</key>
 		<string>../..</string>
+		<key>BF552014-2732-41A8-A49E-7FF1947137B2</key>
+		<string>../../../MIKMIDI</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>suspekt007@suspekt007.webfactional.com:~/webapps/git/repos/GeckoMIDI.git</string>
@@ -35,6 +39,14 @@
 			<string>2C06E89F-2097-4F68-A178-A5D5E468C966</string>
 			<key>IDESourceControlWCCName</key>
 			<string>MIDIOverlord</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>BF552014-2732-41A8-A49E-7FF1947137B2</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MIKMIDI</string>
 		</dict>
 	</array>
 </dict>
