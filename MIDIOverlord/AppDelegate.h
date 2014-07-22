@@ -7,6 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <MIKMIDI/MIKMIDI.h>
 
 //Data
 #import "appModel.h"

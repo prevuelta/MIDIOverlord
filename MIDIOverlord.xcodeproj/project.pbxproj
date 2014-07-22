@@ -18,6 +18,7 @@
 		6E8A23C51951205000745214 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E8A23C41951205000745214 /* logo.png */; };
 		6E8DEB571953F60A0013CF96 /* scrollableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8DEB561953F60A0013CF96 /* scrollableView.m */; };
 		6E8DEB5A1953FB4F0013CF96 /* controlScrollBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8DEB591953FB4F0013CF96 /* controlScrollBar.m */; };
+		6E98382F197E306D00886695 /* MIKMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E98382E197E306D00886695 /* MIKMIDI.framework */; };
 		6EA47209196E0C5800F06963 /* rackMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA47208196E0C5800F06963 /* rackMap.m */; };
 		6ECD89F61946BE7400CCBE97 /* uiButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECD89F21946BE7400CCBE97 /* uiButton.m */; };
 		6ECD89F71946BE7400CCBE97 /* uiTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECD89F41946BE7400CCBE97 /* uiTextField.m */; };
@@ -83,6 +84,8 @@
 		6E8DEB561953F60A0013CF96 /* scrollableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = scrollableView.m; sourceTree = "<group>"; };
 		6E8DEB581953FB4F0013CF96 /* controlScrollBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = controlScrollBar.h; sourceTree = "<group>"; };
 		6E8DEB591953FB4F0013CF96 /* controlScrollBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = controlScrollBar.m; sourceTree = "<group>"; };
+		6E98382B197E2FD800886695 /* MIDIOverlordTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = MIDIOverlordTests.xctest; path = /Users/pablo/MIDIOverlord/build/Debug/MIDIOverlordTests.xctest; sourceTree = "<absolute>"; };
+		6E98382E197E306D00886695 /* MIKMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MIKMIDI.framework; path = Frameworks/MIKMIDI.framework; sourceTree = "<group>"; };
 		6EA47207196E0C5800F06963 /* rackMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rackMap.h; sourceTree = "<group>"; };
 		6EA47208196E0C5800F06963 /* rackMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rackMap.m; sourceTree = "<group>"; };
 		6ECD89F11946BE7400CCBE97 /* uiButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uiButton.h; sourceTree = "<group>"; };
@@ -91,7 +94,6 @@
 		6ECD89F41946BE7400CCBE97 /* uiTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uiTextField.m; sourceTree = "<group>"; };
 		6ECD89F81947C3EE00CCBE97 /* controlText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = controlText.h; path = MIDIOverlord/views/ui/controls/controlText.h; sourceTree = SOURCE_ROOT; };
 		6ECD89F91947C3EE00CCBE97 /* controlText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = controlText.m; path = MIDIOverlord/views/ui/controls/controlText.m; sourceTree = SOURCE_ROOT; };
-		6ECE40EC18FB9B2900E89424 /* MIDIOverlordTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MIDIOverlordTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6ED30FD7196BAE3700B7FF31 /* uiEditableNumberField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uiEditableNumberField.h; sourceTree = "<group>"; };
 		6ED30FD8196BAE3700B7FF31 /* uiEditableNumberField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uiEditableNumberField.m; sourceTree = "<group>"; };
 		6ED57FAE1963938300D60B03 /* icons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icons.png; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				6E7C564518ED04E60002F09B /* Foundation.framework in Frameworks */,
 				6E7C564218ED04C10002F09B /* Cocoa.framework in Frameworks */,
 				6E7C564018ED04A80002F09B /* CoreMIDI.framework in Frameworks */,
+				6E98382F197E306D00886695 /* MIKMIDI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,11 +172,11 @@
 		6E5A63DA184417F600C1CD8E = {
 			isa = PBXGroup;
 			children = (
+				6E98382E197E306D00886695 /* MIKMIDI.framework */,
 				6E7C564318ED04C60002F09B /* Foundation.framework */,
 				6E7C564118ED04C10002F09B /* Cocoa.framework */,
 				6E7C563F18ED04A80002F09B /* CoreMIDI.framework */,
 				6E7C563E18EB94EC0002F09B /* MIDIOverlord.app */,
-				6ECE40EC18FB9B2900E89424 /* MIDIOverlordTests.xctest */,
 				6EE445281936C86100C61171 /* MIDIOverlord */,
 			);
 			sourceTree = "<group>";
@@ -374,7 +377,7 @@
 			);
 			name = MIDIOverlordTests;
 			productName = GeckoMIDITests;
-			productReference = 6ECE40EC18FB9B2900E89424 /* MIDIOverlordTests.xctest */;
+			productReference = 6E98382B197E2FD800886695 /* MIDIOverlordTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -585,11 +588,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CLANG_ENABLE_MODULES = NO;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/pablo/MIDIOverlord/MIDIOverlord/Frameworks/**",
+					/Users/pablo/MIDIOverlord/MIDIOverlord/Frameworks,
+					/Users/pablo/MIDIOverlord/Frameworks,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MIDIOverlord/MIDIOverlord-Prefix.pch";
 				INFOPLIST_FILE = "MIDIOverlord/MIDIOverlord-Info.plist";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = MIDIOverlord;
 				WRAPPER_EXTENSION = app;
 			};
@@ -599,11 +610,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CLANG_ENABLE_MODULES = NO;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/pablo/MIDIOverlord/MIDIOverlord/Frameworks/**",
+					/Users/pablo/MIDIOverlord/MIDIOverlord/Frameworks,
+					/Users/pablo/MIDIOverlord/Frameworks,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MIDIOverlord/MIDIOverlord-Prefix.pch";
 				INFOPLIST_FILE = "MIDIOverlord/MIDIOverlord-Info.plist";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = MIDIOverlord;
 				WRAPPER_EXTENSION = app;
 			};
