@@ -16,8 +16,10 @@
 @property NSMutableDictionary *options;
 @property int optionCount;
 
-@property NSArray *selectedOption;
-@property NSArray *nullOption;
+@property BOOL hasNull;
+
+@property NSMutableArray *content;
+@property NSNumber* selectedIndex;
 
 @property int height;
 
@@ -28,7 +30,8 @@
 @property uiTextField *label;
 @property uiTextField *selectLabel;
 
--(id)initWithOptions:(NSMutableDictionary*)options andOptionCount: (int)optionCount;
+-(id)initWithContent:(NSArray*)content andHasNull:(BOOL)hasNull;
+
 -(void)deselect:(NSNotification*)notification;
 
 @end

@@ -10,18 +10,21 @@
 
 @implementation controlList
 
-@synthesize selectedOption = _selectedOption;
-@synthesize options = _options;
+@synthesize content = _content;
+@synthesize selectedIndex = _selectedIndex;
 
-
--(id)initWithOptions:(NSMutableDictionary*)options andOptionCount: (int)optionCount {
+-(id)initWithContent:(NSArray*)content andHasNull:(BOOL)hasNull {
     
     int height = 18;
     
+    _hasNull = hasNull;
+    
+    if(hasNull) {
+        [_content addObject:@{@"name": @"None", @"value" : @0}];
+    }
+
    _label = [[uiTextField alloc] initWithString: @"" andMaxLength:8];
-    
-    _nullOption = @[@"None", @0];
-    
+        
     [_label setDrawBg:NO];
     [_label setOrigin:NSMakePoint(1, 1)];
     
@@ -29,13 +32,11 @@
     
     self = [super initWithFrame:frame];
     
+    [self setContent: [NSMutableArray arrayWithArray:content]];
+    
     if(!self) return nil;
     
     self.height = height;
-    
-    _optionCount = optionCount + 1; // Add none option
-    
-    [self setOptions: options];
     
     [self addSubview: _label];
     
@@ -123,58 +124,53 @@ NSComparisonResult compareViews(id firstView, id secondView, void *context) {
     }
 }
 
--(NSArray*)selectedOption {
-    return _selectedOption;
+-(NSNumber*)selectedIndex {
+    return _selectedIndex;
+}
+
+-(void)setSelectedIndex:(NSNumber *)selectedIndex {
+    [_label setStringValue: [_content[[selectedIndex intValue]] name]];
+    _selectedIndex = selectedIndex;
 }
 
 
--(void)setSelectedOption: (NSArray*)selectedOption {
-    [_label setStringValue: selectedOption[0]];
-    _selectedOption = selectedOption;
-    [self setNeedsDisplay:YES];
+-(NSMutableArray*)content {
+    return _content;
 }
 
-
--(NSMutableDictionary*)options {
-    return _options;
-}
-
--(void)setOptions:(NSMutableDictionary*)options {
+-(void)setContent:(NSMutableArray*)content {
     
-    [options setObject: _nullOption[0] forKey: _nullOption[1] ];
-    
-    [self setSelectedOption: _nullOption ];
-    
-    _options = options;
+    _content = content;
     
     NSInteger currentOptionY = self.height;
     
-    NSLog(@"Set options: %@", _options);
+    for(controlOption *option in self.subviews) {
+        [option removeFromSuperview];
+    }
     
-    for(NSNumber* key in _options) {
-        NSLog(@"key: %@", key);
+    for(int i = 0; i < [_content count]; i++) {
+//
+        NSLog(@"%@", [_content[i] name]);
         
-        NSArray *optionData = @[[_options objectForKey: key], key];
-        
-        controlOption *option = [[controlOption alloc] initWithKeyValue: optionData];
-        
+        NSArray *optionData = @[[NSNumber numberWithInt:i], [_content[i] name]];
+//
+        controlOption *option = [[controlOption alloc] initWithKeyValue: optionData]; 
+//
         [option setOrigin:NSMakePoint(0, currentOptionY)];
-        
-         option.delegate = self;
-        
+//
+        option.delegate = self;
+//
         [self addSubview:option];
-        
+
         currentOptionY += option.frameHeight;
     }
     
     [self setNeedsDisplay: YES];
 }
 
--(void)optionSelectedWithKeyValue: (NSArray*)keyValue {
-    NSLog(@"Delegate Received %@", keyValue);
-    [self setSelectedOption: keyValue];
-    NSLog(@"keyValue: %@", keyValue[0]);
-}
+//-(void)optionSelectedWithIndex:(NSNumber *)index {
+//    _selectedIndex = index;
+//}
 
 
 @end

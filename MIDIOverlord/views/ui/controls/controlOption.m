@@ -13,7 +13,7 @@
 @synthesize keyValue = _keyValue;
 
 - (id)initWithKeyValue: (NSArray*)keyValue {
-    _label = [[uiTextField alloc] initWithString: keyValue[0] andMaxLength: 11];
+    _label = [[uiTextField alloc] initWithString: keyValue[1] andMaxLength: 11];
     
     self = [super initWithFrame:_label.frame];
     
@@ -21,7 +21,7 @@
     
     _keyValue = keyValue;
     
-    NSLog(@"optionString: %@", keyValue[0]);
+    NSLog(@"optionString: %@", keyValue[1]);
     
     [_label setDrawBg:YES];
     
@@ -70,7 +70,7 @@
 -(void)selectOption {
     NSLog(@"Sending delegate...");
 //    [_label setBackgroundColor:self.activeColor];
-    [self.delegate optionSelectedWithKeyValue:self.keyValue];
+    [self.delegate setSelectedIndex: self.keyValue[0]];
     [global deselectNotify];
    
 }

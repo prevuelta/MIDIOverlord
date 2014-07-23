@@ -12,6 +12,8 @@
 
 @interface rackControl : rackBase
 
+@property NSArrayController *midiDeviceController;
+
 //-(void)createMidiDestinationsDeviceList:(NSNotification*)notification;
 
 @end

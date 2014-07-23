@@ -14,7 +14,9 @@
     [self createWindow];
     [self initApp];
     
-    NSLog(@"Devices: %@", [[MIKMIDIDeviceManager sharedDeviceManager] availableDevices]);
+    NSArray *devices = [[MIKMIDIDeviceManager sharedDeviceManager] virtualSources];
+    
+    NSLog(@"Devices: %@", devices);
     
 }
 

@@ -12,7 +12,7 @@
 @class controlOption;
 
 @protocol controlOptionDelegate
--(void)optionSelectedWithKeyValue: (NSArray*)keyValue;
+//-(void)setSelectedIndex: (NSNumber*)index;
 @end
 
 @interface controlOption : controlBase;

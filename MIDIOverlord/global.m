@@ -41,8 +41,6 @@ static global *_instance;
                 [_instance.colors setObject:color forKey: key];
             }
             
-            NSLog(@"NSCOLOR array: %@", _instance.colors);
-            
             float blackRGBA[] = MO_BLACK;
             float darkestGreyRGBA[] = MO_DARKEST_GREY;
             float darkBrownRGBA[] = MO_DARK_BROWN;
