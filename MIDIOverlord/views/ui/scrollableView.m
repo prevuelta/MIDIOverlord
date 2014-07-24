@@ -97,13 +97,13 @@
 }
 
 - (void)scrollWheel:(NSEvent *)event {
-    NSLog(@"Event: %@", [NSNumber numberWithFloat:event.deltaY]);
+//    NSLog(@"Event: %@", [NSNumber numberWithFloat:event.deltaY]);
     
-    NSLog(@"Event deltaY: %@ FH: %@, CVFH: %@, CPO: %@",
-          [NSNumber numberWithFloat: event.deltaY],
-          [NSNumber numberWithFloat: self.frameHeight],
-          [NSNumber numberWithFloat: _clippedView.frameHeight],
-          [NSNumber numberWithFloat: _clippedView.frame.origin.y]);
+//    NSLog(@"Event deltaY: %@ FH: %@, CVFH: %@, CPO: %@",
+//          [NSNumber numberWithFloat: event.deltaY],
+//          [NSNumber numberWithFloat: self.frameHeight],
+//          [NSNumber numberWithFloat: _clippedView.frameHeight],
+//          [NSNumber numberWithFloat: _clippedView.frame.origin.y]);
     
 //    if(_clippedView.frame.origin.y <= 0 &&
 //        [_clippedView frameHeight] > [self frameHeight] &&

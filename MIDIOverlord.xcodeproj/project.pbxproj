@@ -10,6 +10,7 @@
 		6E04ABCF1946FF4800B51D27 /* uiBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E04ABCE1946FF4800B51D27 /* uiBase.m */; };
 		6E11C2E9197F3B52008A825D /* MIKMIDI.framework in Resources */ = {isa = PBXBuildFile; fileRef = 6E11C2E7197F3B42008A825D /* MIKMIDI.framework */; };
 		6E11C2EA197F3B6F008A825D /* MIKMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E11C2E7197F3B42008A825D /* MIKMIDI.framework */; };
+		6E23E6F3198095DA006F6187 /* MIKMIDIDeviceManagerInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E23E6F2198095DA006F6187 /* MIKMIDIDeviceManagerInterface.m */; };
 		6E2449C3196D0B29007CDABB /* appWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2449C2196D0B29007CDABB /* appWindow.m */; };
 		6E29E52A194ABE9800F6BD4F /* global.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E29E529194ABE9800F6BD4F /* global.m */; };
 		6E3126A5194C4D9F00D65716 /* uiEditableTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3126A4194C4D9F00D65716 /* uiEditableTextField.m */; };
@@ -69,6 +70,8 @@
 		6E04ABCD1946FF4800B51D27 /* uiBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uiBase.h; sourceTree = "<group>"; };
 		6E04ABCE1946FF4800B51D27 /* uiBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uiBase.m; sourceTree = "<group>"; };
 		6E11C2E7197F3B42008A825D /* MIKMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MIKMIDI.framework; sourceTree = "<group>"; };
+		6E23E6F1198095DA006F6187 /* MIKMIDIDeviceManagerInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIKMIDIDeviceManagerInterface.h; sourceTree = "<group>"; };
+		6E23E6F2198095DA006F6187 /* MIKMIDIDeviceManagerInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIKMIDIDeviceManagerInterface.m; sourceTree = "<group>"; };
 		6E2449C1196D0B29007CDABB /* appWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = appWindow.h; sourceTree = "<group>"; };
 		6E2449C2196D0B29007CDABB /* appWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = appWindow.m; sourceTree = "<group>"; };
 		6E29E528194ABE9800F6BD4F /* global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = global.h; sourceTree = "<group>"; };
@@ -242,6 +245,8 @@
 		6EE445311936C86100C61171 /* modelControllers */ = {
 			isa = PBXGroup;
 			children = (
+				6E23E6F1198095DA006F6187 /* MIKMIDIDeviceManagerInterface.h */,
+				6E23E6F2198095DA006F6187 /* MIKMIDIDeviceManagerInterface.m */,
 				6EE445321936C86100C61171 /* appModel.h */,
 				6EE445331936C86100C61171 /* appModel.m */,
 				6EE445341936C86100C61171 /* midiController.h */,
@@ -471,6 +476,7 @@
 				6EE445821936C86100C61171 /* moduleBase.m in Sources */,
 				6E29E52A194ABE9800F6BD4F /* global.m in Sources */,
 				6EE4457E1936C86100C61171 /* controlSlider.m in Sources */,
+				6E23E6F3198095DA006F6187 /* MIKMIDIDeviceManagerInterface.m in Sources */,
 				6EE4456F1936C86100C61171 /* midiController.m in Sources */,
 				6EE4456B1936C86100C61171 /* AppDelegate.m in Sources */,
 				6EE445801936C86100C61171 /* controlPad.m in Sources */,

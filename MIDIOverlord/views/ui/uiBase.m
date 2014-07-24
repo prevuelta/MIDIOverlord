@@ -23,6 +23,8 @@
     
     self.flipped = NO;
     
+    self.disabled = false;
+    
     return self;
 }
 

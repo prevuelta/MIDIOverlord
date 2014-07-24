@@ -61,7 +61,8 @@
     
     
     uiButton *mapBtn = [[uiButton alloc] initWithSize: 12];
-    [mapBtn setEvent:@"removeModule" withData: @{@"rackID": self.data[@"rackID"], @"moduleID" : self.data[@"moduleID"]}];
+    [mapBtn setEvent:@"mapRecord" withData: @{@"rackID": self.data[@"rackID"], @"moduleID" : self.data[@"moduleID"]}];
+    [mapBtn setIsToggle: YES];
     [mapBtn setOrigin: NSMakePoint(0, 18)];
     
     [self addSubview: mapBtn];

@@ -17,13 +17,11 @@
     
     int height = 18;
     
-    _hasNull = hasNull;
-    
     if(hasNull) {
-        [_content addObject:@{@"name": @"None", @"value" : @0}];
+//        [_content addObject:@{@"name": @"None", @"value" : @0}];
     }
 
-   _label = [[uiTextField alloc] initWithString: @"" andMaxLength:8];
+    _label = [[uiTextField alloc] initWithString: @"None" andMaxLength:8];
         
     [_label setDrawBg:NO];
     [_label setOrigin:NSMakePoint(1, 1)];
@@ -32,11 +30,13 @@
     
     self = [super initWithFrame:frame];
     
-    [self setContent: [NSMutableArray arrayWithArray:content]];
-    
     if(!self) return nil;
     
+    _hasNull = hasNull;
+    
     self.height = height;
+    
+    [self setContent: [NSMutableArray arrayWithArray:content]];
     
     [self addSubview: _label];
     
@@ -61,12 +61,14 @@
     [[NSColor whiteColor] set];
     
     // Draw triangles
-    [fgPath moveToPoint:NSMakePoint(self.frame.size.width-15, 6)];
-    [fgPath lineToPoint:NSMakePoint(self.frame.size.width-5, 6)];
-    [fgPath lineToPoint:NSMakePoint(self.frame.size.width-10, 12)];
+    if(!self.disabled) {
+        [fgPath moveToPoint:NSMakePoint(self.frame.size.width-15, 6)];
+        [fgPath lineToPoint:NSMakePoint(self.frame.size.width-5, 6)];
+        [fgPath lineToPoint:NSMakePoint(self.frame.size.width-10, 12)];
     
-    [fgPath closePath];
-    [fgPath fill];
+        [fgPath closePath];
+        [fgPath fill];
+    }
 }
 
 -(void)uiEvent:(char*)type {
@@ -90,7 +92,7 @@
         self.active = !self.active;
         [self setTag: 20];
         NSRect f = self.frame;
-        f.size.height = self.height * (_optionCount + 1);
+        f.size.height = self.height * ([_content count] + 1);
         self.frame = f;
     }
     
@@ -129,6 +131,7 @@ NSComparisonResult compareViews(id firstView, id secondView, void *context) {
 }
 
 -(void)setSelectedIndex:(NSNumber *)selectedIndex {
+    NSLog(@"Setting index");
     [_label setStringValue: [_content[[selectedIndex intValue]] name]];
     _selectedIndex = selectedIndex;
 }
@@ -141,6 +144,10 @@ NSComparisonResult compareViews(id firstView, id secondView, void *context) {
 -(void)setContent:(NSMutableArray*)content {
     
     _content = content;
+
+    [self setDisabled: !(BOOL)[_content count]];
+
+    NSLog(@"Disabled: %d %@", (BOOL)[_content count], _content);
     
     NSInteger currentOptionY = self.height;
     
@@ -149,28 +156,26 @@ NSComparisonResult compareViews(id firstView, id secondView, void *context) {
     }
     
     for(int i = 0; i < [_content count]; i++) {
-//
+
         NSLog(@"%@", [_content[i] name]);
         
         NSArray *optionData = @[[NSNumber numberWithInt:i], [_content[i] name]];
-//
+
         controlOption *option = [[controlOption alloc] initWithKeyValue: optionData]; 
-//
+
         [option setOrigin:NSMakePoint(0, currentOptionY)];
-//
+
         option.delegate = self;
-//
+
         [self addSubview:option];
 
         currentOptionY += option.frameHeight;
+        
+        NSLog(@"Option y %d", currentOptionY);
     }
     
     [self setNeedsDisplay: YES];
 }
-
-//-(void)optionSelectedWithIndex:(NSNumber *)index {
-//    _selectedIndex = index;
-//}
 
 
 @end

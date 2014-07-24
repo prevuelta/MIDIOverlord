@@ -40,13 +40,6 @@ int baseMarker;
     [_textVal setTextColor:[NSColor whiteColor]];
     [self addSubview: _textVal];
     
-//    _label = [[uiTextField alloc] initWithString: @"" andMaxLength: 4 andLabelLength: 0];
-//    [_label setOrigin:NSMakePoint(0, 0)];
-//    
-//    [_label setDrawBg: NO];
-//    
-//    [self addSubview: _label];
-    
     NSTrackingAreaOptions mouseEnterExitOptions = NSTrackingActiveInActiveApp;
     mouseEnterExitOptions |= NSTrackingMouseEnteredAndExited;
     

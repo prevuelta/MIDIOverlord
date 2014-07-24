@@ -21,10 +21,16 @@
     
     [self addSubview: label];
     
-    NSArray *deviceArray = [[MIKMIDIDeviceManager sharedDeviceManager] virtualDestinations];
+    NSArray *deviceArray = [[MIKMIDIDeviceManagerInterface sharedDeviceManager] virtualSources];
     
     _midiDeviceController = [[NSArrayController alloc] initWithContent:deviceArray];
-//
+    
+//    [_midiDeviceController setAvoidsEmptySelection: NO];
+    
+//    [_midiDeviceController setSelectionIndex: NSNotFound];
+    
+//    _midiDeviceController addObject:@{"Name": "None"
+
 //    NSPopUpButton *popUpTest = [[NSPopUpButton alloc] initWithFrame:self.frame pullsDown:YES];
 //    
 //    [popUpTest bind:@"content" toObject:midiDeviceController withKeyPath:@"arrangedObjects" options:nil];
