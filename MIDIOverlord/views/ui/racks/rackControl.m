@@ -21,15 +21,15 @@
     
     [self addSubview: label];
     
-    NSArray *deviceArray = [[MIKMIDIDeviceManagerInterface sharedDeviceManager] virtualSources];
+    NSMutableArray *sourceArray = [[MIKMIDIDeviceManagerInterface sharedDeviceManager] virtualDestinations];
     
-    _midiDeviceController = [[NSArrayController alloc] initWithContent:deviceArray];
+    self.midiDeviceController = [[NSArrayController alloc] initWithContent: sourceArray ];
     
-//    [_midiDeviceController setAvoidsEmptySelection: NO];
+    [_midiDeviceController setAvoidsEmptySelection: NO];
+
+//    [_midiDeviceController addObject: @{@"Name": @"None", @"value" : @0}];
     
-//    [_midiDeviceController setSelectionIndex: NSNotFound];
-    
-//    _midiDeviceController addObject:@{"Name": "None"
+    NSLog(@"Controller: %@", _midiDeviceController.content[0]);
 
 //    NSPopUpButton *popUpTest = [[NSPopUpButton alloc] initWithFrame:self.frame pullsDown:YES];
 //    
@@ -42,9 +42,9 @@
 //    [self addSubview:popUpTest];
     
 //    NSLog(@"%@", [devices[0] name]);
-    
-    self.midiDestSelect = [[controlList alloc] initWithContent: deviceArray andHasNull:YES];
-    
+//    
+    self.midiDestSelect = [[controlList alloc] initWithContent: [_midiDeviceController content] andHasNull:YES];
+//
     [self.midiDestSelect bind:@"content" toObject:_midiDeviceController withKeyPath: @"arrangedObjects" options:nil];
     
     [self.midiDestSelect bind:@"selectedIndex" toObject:_midiDeviceController withKeyPath: @"selectionIndex" options:nil];
