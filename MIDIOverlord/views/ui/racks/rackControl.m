@@ -25,7 +25,7 @@
     
     self.midiDeviceController = [[NSArrayController alloc] initWithContent: sourceArray ];
     
-    [_midiDeviceController setAvoidsEmptySelection: NO];
+    [self.midiDeviceController setAvoidsEmptySelection: NO];
 
 //    [_midiDeviceController addObject: @{@"Name": @"None", @"value" : @0}];
     
@@ -46,9 +46,9 @@
     
     
     
-    self.midiDestSelect = [[controlList alloc] initWithContent: [_midiDeviceController content] andHasNull:YES];
+    self.midiDestSelect = [[controlList alloc] initWithContent: [self.midiDeviceController content] andHasNull:YES];
 //
-//    [self.midiDestSelect bind:@"content" toObject:_midiDeviceController withKeyPath: @"arrangedObjects" options:nil];
+    [self.midiDestSelect bind:@"content" toObject:self.midiDeviceController withKeyPath: @"arrangedObjects" options:nil];
     
 //    [self.midiDestSelect bind:@"selectedIndex" toObject:_midiDeviceController withKeyPath: @"selectionIndex" options:nil];
     

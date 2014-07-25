@@ -51,5 +51,8 @@
 // Util functions
 -(void)mouseDown:(NSEvent *)theEvent;
 
+// Midi
+@property NSArrayController *midiDeviceController;
+
 
 @end
