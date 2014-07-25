@@ -26,7 +26,7 @@
 #define MO_RED {241, 61, 57, 255}
 
 // Rack vars
-#define MODULE_HEIGHT 144
+#define MODULE_HEIGHT 160
 #define RACK_WIDTH 180
 #define SCROLLER_WIDTH 4
 #define TITLE_BAR_HEIGHT 20

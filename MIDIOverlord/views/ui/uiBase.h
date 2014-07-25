@@ -22,7 +22,9 @@
 @property BOOL flipped;
 
 -(id)initWithFrame:(NSRect)frame;
+-(void)setOriginWithX: (int)x andY: (int)y;
 -(void)setOrigin:(NSPoint)origin;
+
 -(void)drawRect:(NSRect)dirtyRect;
 
 -(void)deselect:(NSNotification*)notification;

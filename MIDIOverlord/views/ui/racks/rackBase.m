@@ -69,9 +69,9 @@
     
 //    [self addSubview: _midiChannelText];
     
-    uiButton *removeBtn = [[uiButton alloc] initWithSize: 8];
+    uiButton *removeBtn = [[uiButton alloc] initWithSize: 12];
     [removeBtn setEvent:@"removeRack" withData: @{@"rackID": self.rackID}];
-    [removeBtn setOrigin: NSMakePoint(RACK_WIDTH - 12, 4)];
+    [removeBtn setOrigin: NSMakePoint(RACK_WIDTH - 16, 4)];
     [removeBtn setInEditView:YES];
     
     [self addSubview: removeBtn];

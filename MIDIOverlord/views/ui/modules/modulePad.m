@@ -24,17 +24,17 @@
     
     self.data = data;
     
-    NSPoint padSize = NSMakePoint(36, 36);
+    NSPoint padSize = NSMakePoint(40, 40);
     
-    controlPad *pad1 = [[controlPad alloc] initWithSize: padSize andValue: @2 andMinValue:0 andMaxValue:127];
-    controlPad *pad2 = [[controlPad alloc] initWithSize: padSize andValue: @2 andMinValue:0 andMaxValue:127];
-    controlPad *pad3 = [[controlPad alloc] initWithSize: padSize andValue: @2 andMinValue:0 andMaxValue:127];
-    controlPad *pad4 = [[controlPad alloc] initWithSize: padSize andValue: @2 andMinValue:0 andMaxValue:127];
+    controlPad *pad1 = [[controlPad alloc] initWithSize: padSize andValue: @-1 andMinValue:0 andMaxValue:127];
+    controlPad *pad2 = [[controlPad alloc] initWithSize: padSize andValue: @-1 andMinValue:0 andMaxValue:127];
+    controlPad *pad3 = [[controlPad alloc] initWithSize: padSize andValue: @-1 andMinValue:0 andMaxValue:127];
+    controlPad *pad4 = [[controlPad alloc] initWithSize: padSize andValue: @-1 andMinValue:0 andMaxValue:127];
     
     [pad1 setOrigin:NSMakePoint(2, 2)];
-    [pad2 setOrigin:NSMakePoint(42, 2)];
-    [pad3 setOrigin:NSMakePoint(82, 2)];
-    [pad4 setOrigin:NSMakePoint(122, 2)];
+    [pad2 setOrigin:NSMakePoint(44, 2)];
+    [pad3 setOrigin:NSMakePoint(86, 2)];
+    [pad4 setOrigin:NSMakePoint(128, 2)];
 
     [self addSubview: pad1];
     [self addSubview: pad2];
@@ -50,13 +50,6 @@
 
     return self;
     
-}
-
--(NSString*)noteString:(int)noteNum {
-    int octave = noteNum / 12 - 1;
-    NSString *notes = @"C C#D D#E F F#G G#A A#B";
-    NSString *note = [[notes substringFromIndex:(noteNum % 12) * 2] substringToIndex: (noteNum % 12) * 2 + 2];
-    return [NSString stringWithFormat:@"%d%@", octave-1, note];
 }
 
 -(NSNumber*)currentNote {

@@ -61,5 +61,17 @@
     return [saver URL];
 }
 
++(NSString*)noteName:(int)val {
+    NSString *result = @"---";
+    if(val > 0) {
+        int octave = val / 12 - 1;
+        NSString *notes = @"C C#D D#E F F#G G#A A#B ";
+        int startIndex = (val % 12) * 2;
+        int stopIndex = 2;
+        NSString *note = [[notes substringFromIndex: startIndex] substringToIndex: stopIndex];
+        result = [NSString stringWithFormat:@"%@%d", note, octave-1];
+    }
+    return result;
+}
 
 @end

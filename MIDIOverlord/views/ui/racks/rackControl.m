@@ -29,7 +29,7 @@
 
 //    [_midiDeviceController addObject: @{@"Name": @"None", @"value" : @0}];
     
-    NSLog(@"Controller: %@", _midiDeviceController.content[0]);
+//    NSLog(@"Controller: %@", _midiDeviceController.content[0]);
 
 //    NSPopUpButton *popUpTest = [[NSPopUpButton alloc] initWithFrame:self.frame pullsDown:YES];
 //    
@@ -42,14 +42,21 @@
 //    [self addSubview:popUpTest];
     
 //    NSLog(@"%@", [devices[0] name]);
-//    
+//
+    
+    
+    
     self.midiDestSelect = [[controlList alloc] initWithContent: [_midiDeviceController content] andHasNull:YES];
 //
-    [self.midiDestSelect bind:@"content" toObject:_midiDeviceController withKeyPath: @"arrangedObjects" options:nil];
+//    [self.midiDestSelect bind:@"content" toObject:_midiDeviceController withKeyPath: @"arrangedObjects" options:nil];
     
-    [self.midiDestSelect bind:@"selectedIndex" toObject:_midiDeviceController withKeyPath: @"selectionIndex" options:nil];
+//    [self.midiDestSelect bind:@"selectedIndex" toObject:_midiDeviceController withKeyPath: @"selectionIndex" options:nil];
     
     [self.midiDestSelect setOrigin: NSMakePoint(label.frameWidth + 12, 24)];
+    
+    
+    
+    
     
 //    if([self.data[@"midiDest"] count] > 0) {
 //        [self.midiDestSelect setSelectedOption: self.data[@"midiDest"]];

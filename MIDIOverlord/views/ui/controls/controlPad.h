@@ -17,7 +17,10 @@
 @property int min;
 @property int range;
 
+@property NSString* noteName;
 @property NSPoint size;
+
+@property uiTextField* noteLabel;
 
 -(id)initWithSize:(NSPoint)size andValue: (NSNumber*)value andMinValue:(int)min andMaxValue:(int)max;
 

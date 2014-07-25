@@ -10,6 +10,8 @@
 
 @implementation controlPad
 
+@synthesize value = _value;
+
 -(id)initWithSize:(NSPoint)size andValue: (NSNumber*)value andMinValue:(int)min andMaxValue:(int)max {
     
     _size = size;
@@ -24,7 +26,18 @@
     
     [padNote setOrigin:NSMakePoint(0, 38)];
     
+    [self bind:@"value" toObject:padNote withKeyPath:@"value" options:nil];
+    
+    _noteLabel = [[uiTextField alloc] initWithString: @"---" andMaxLength: 5 ];
+    
+    [_noteLabel setOriginWithX: 0 andY: 4];
+    
+    [_noteLabel setDrawBg: NO];
+    
     [self addSubview: padNote];
+    [self addSubview: _noteLabel];
+
+    [self setValue: value];
     
     return self;
 }
@@ -45,6 +58,16 @@
     
     [btnPath fill];
     
+}
+
+-(NSNumber*)value {
+    return _value;
+}
+
+-(void)setValue:(NSNumber*)value {
+    _value = value;
+    [_noteLabel setStringValue: [utilities noteName: [_value intValue]]];
+
 }
 
 -(void)mouseDown:(NSEvent *)theEvent {

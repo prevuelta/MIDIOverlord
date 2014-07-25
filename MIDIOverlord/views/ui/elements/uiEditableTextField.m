@@ -101,7 +101,9 @@ BOOL firstKey = true;
 -(void)mouseDown:(NSEvent *)theEvent {
     [global deselectNotify];
 
-//    NSLog(@"Editing textg");
+    if([self.stringValue isEqualToString: @"---"])
+        [self setStringValue:@""];
+    
 
     _tempString = self.stringValue;
 
@@ -123,7 +125,10 @@ BOOL firstKey = true;
             [self removeCharacter]; // Delete key
             break;
         case 36:
+        case 76:
+            NSLog(@"Done di edit");
             [self deselect: nil]; // Enter key
+            return;
             break;
         case 124:
             [self setCursorPosition: self.cursorPosition + 1]; // Right arrow key
@@ -134,7 +139,7 @@ BOOL firstKey = true;
             firstKey = false;
             break;
     }
-    
+
     if(firstKey) {
         firstKey = false;
         if([event keyCode] == 51 || [self.stringValue isEqualTo:@"---"]) {
@@ -173,11 +178,13 @@ BOOL firstKey = true;
 }
 
 -(void)removeCharacter {
-    NSMutableString *newString = [self.stringValue mutableCopy];
-    [newString deleteCharactersInRange:NSMakeRange(_cursorPosition-1, 1)];
-    [self setStringValue: newString];
-    self.cursorPosition--;
-    [self setNeedsDisplay:YES];
+    if([self.stringValue length]) {
+        NSMutableString *newString = [self.stringValue mutableCopy];
+        [newString deleteCharactersInRange:NSMakeRange(_cursorPosition-1, 1)];
+        [self setStringValue: newString];
+        self.cursorPosition--;
+        [self setNeedsDisplay:YES];
+    }
 }
 
 -(void)deselect:(NSNotification*)notification  {
@@ -191,7 +198,7 @@ BOOL firstKey = true;
         }
         
         self.savedString = self.stringValue;
-//        NSLog(@"Saved string: %@", self.savedString);
+        NSLog(@"Saved string: %@", self.savedString);
 
         firstKey = true;
         

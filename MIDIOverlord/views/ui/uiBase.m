@@ -46,6 +46,10 @@
     // Drawing code here.
 }
 
+-(void)setOriginWithX: (int)x andY: (int)y {
+    return [self setOrigin:NSMakePoint(x, y)];
+}
+
 -(void)setOrigin:(NSPoint)origin {
     NSRect f = self.frame;
     f.origin = origin;
