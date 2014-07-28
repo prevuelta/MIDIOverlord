@@ -77,7 +77,7 @@
 -(void)setCcValue:(NSNumber*)ccValue {
     _ccValue = ccValue;
     if(![self.data[@"ccNumber"] isEqualToNumber:@-1]) {
-        [self.delegate midiData: @[self.data[@"ccStatus"], self.data[@"ccNumber"], self.data[@"ccValue"]]];
+        [self.delegate midiCommand: @[self.data[@"ccStatus"], self.data[@"ccNumber"], self.data[@"ccValue"]]];
     }
 }
 

@@ -10,7 +10,7 @@
 
 @implementation uiEditableNumberField
 
-// @synthesize stringValue = _stringValue;
+ @synthesize value = _value;
 
 -(id)initWithValue:(NSNumber*)value andLength:(int)length {
     
@@ -36,30 +36,55 @@
     if([self.savedString isEqualTo:@"---"]) {
         [self setValue:@-1];
     } else {
-       	NSNumber *newValue = [self checkRange: [self.savedString intValue]];
-        [self setValue: newValue];
-        [self setStringValue: [newValue stringValue]];
+        [self setValueFromString];
+        [self setStringFromValue];
     }
 }
 
--(NSNumber*)checkRange:(int)intValue {
+-(void)keyDown:(NSEvent *)event {
+    
+    switch([event keyCode]) {
+        case 126: // Arrow up
+            [self increment:YES];
+            return;
+        break;
+        case 125: // Arrow down
+            [self increment:NO];
+            return;
+        break;
+    }
+    
+    [super keyDown:event];
+
+    [self setValueFromString];
+}
+
+-(NSNumber*)value {
+    return _value;
+}
+
+-(void)setValue:(NSNumber*)value {
+    NSNumber* newValue = [self checkRange: value];
+    NSLog(@"New value %@", newValue);
+    _value = newValue;
+}
+
+-(NSNumber*)checkRange:(NSNumber*)number {
+    int intValue = [number intValue];
 	return [NSNumber numberWithInt: intValue > _max ? _max : intValue < _min ? _min : intValue];
 }
 
-// -(NSString*)stringvalue {
-// 	return _stringValue;
-// }
+-(void)increment:(BOOL)increment {
+    [self setValue: @([self.stringValue intValue] + (increment ? 1 : -1))];
+    [self setStringFromValue];
+}
 
-// -(void)setStringValue:(NSString*)stringValue {
-// 	[self setValue: [NSNumber numberWithInt: [self.stringValue intValue] ]];
-// 	_stringValue = stringValue;
-// }
+-(void)setValueFromString {
+    [self setValue: [NSNumber numberWithInt: [self.savedString intValue]]];
+}
 
-// -(void)setStringValue:(NSString *)stringValue {
-//     NSLog(@"Setting string... %@", stringValue);
-//     _stringValue = stringValue;
-//     [self setCharCount: MIN((int)[self.stringValue length], self.maxLength)];
-// }
-
+-(void)setStringFromValue {
+    [self setStringValue: [_value stringValue]];
+}
 
 @end

@@ -152,6 +152,26 @@
     [self setNeedsDisplay:YES];
 }
 
+-(void)midiCommand:(NSArray*)data {
+    NSLog(@"delegate recieved: %@", data);
+    if([[_midiDeviceController selectedObjects] count]) {
+         NSError *error = nil;
+        MIKMutableMIDIControlChangeCommand *command = [[MIKMutableMIDIControlChangeCommand alloc] init];
+        
+        [command setCommandType: [data[0] unsignedIntegerValue]];
+        [command setControllerNumber: [data[1] unsignedIntegerValue]];
+        [command setControllerValue: [data[2] unsignedIntegerValue]];
+        
+        NSLog(@"command: %@", command);
+        
+        NSArray *commands = @[command];
+        
+        MIKMIDIDestinationEndpoint *endpoint = [_midiDeviceController selectedObjects][0];
+        
+        [[MIKMIDIDeviceManager sharedDeviceManager] sendCommands: commands toEndpoint: endpoint error: &error ];
+    }
+}
+
 -(void)midiData:(NSArray*)data {
     NSLog(@"delegate recieved: %@", data);
     if([[_midiDeviceController selectedObjects] count]) {
@@ -159,7 +179,11 @@
         
         NSLog(@"Status byte: %d", [utilities getMidiPacket: data]);
 
-        MIKMIDICommand *command = [MIKMIDICommand commandWithMIDIPacket: &[utilities getMidiPacket: data]->packet[0]];
+        MIDIPacket midiPacket = [utilities getMidiPacket: data]->packet[0];
+        
+        MIKMutableMIDICommand *command = [[MIKMutableMIDICommand commandWithMIDIPacket: &midiPacket] mutableCopy];
+        
+        [command setDataByte1: midiPacket.data[1]];
         
         NSLog(@"command: %@", command);
         
@@ -171,11 +195,7 @@
         
         NSLog(@"Error: %@", [error localizedDescription]);
     }
-//        NSDictionary *newData = @{@"device": self.data[@"midiDest"], @"data" : data};
-//        [[NSNotificationCenter defaultCenter] postNotificationName:@"midiMessageToDevice" object:self userInfo: newData];
-//    } else {
-//        [[NSNotificationCenter defaultCenter] postNotificationName:@"midiMessage" object:self userInfo:  @{@"data" : data}];
-//    }
+
 }
 
 -(void)mouseDown:(NSEvent *)theEvent {

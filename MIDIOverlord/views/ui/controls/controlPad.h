@@ -10,18 +10,33 @@
 #import "controlBase.h"
 #import "controlText.h"
 
+@class controlPad;
+
+@protocol moduleBaseDelegates
+-(void)midiCommand:(NSArray*)data;
+@end
+
 @interface controlPad : controlBase
 
-@property NSNumber* value;
+@property (nonatomic, assign) id delegate;
+
+
+
+@property NSNumber* noteValue;
+@property NSNumber* velocity;
 @property int max;
 @property int min;
 @property int range;
 
+@property int marker;
+
 @property NSString* noteName;
 @property NSPoint size;
 
+@property controlText *padNote;
 @property uiTextField* noteLabel;
+@property uiTextField* velocityLabel;
 
--(id)initWithSize:(NSPoint)size andValue: (NSNumber*)value andMinValue:(int)min andMaxValue:(int)max;
+-(id)initWithSize:(NSPoint)size andNoteValue: (NSNumber*)noteValue andVelocity: (NSNumber *)velocity;
 
 @end

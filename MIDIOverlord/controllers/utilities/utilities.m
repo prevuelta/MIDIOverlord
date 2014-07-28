@@ -71,7 +71,7 @@ Byte packetBuffer[128];
         int startIndex = (val % 12) * 2;
         int stopIndex = 2;
         NSString *note = [[notes substringFromIndex: startIndex] substringToIndex: stopIndex];
-        result = [NSString stringWithFormat:@"%@%d", note, octave-1];
+        result = [[NSString stringWithFormat:@"%@%d", note, octave-1] stringByReplacingOccurrencesOfString:@" " withString: @""];
     }
     return result;
 }
@@ -81,7 +81,7 @@ Byte packetBuffer[128];
     MIDIPacketList* packetList = (MIDIPacketList*)packetBuffer;
     MIDIPacket *packet;
     
-    Byte msg[3] = {(Byte)data[0], (Byte)data[1], (Byte)data[2]};
+    Byte msg[3] = {0xbf, (Byte)data[1], (Byte)data[2]};
     
     packet = MIDIPacketListInit(packetList);
     packet = MIDIPacketListAdd(packetList, 1024, packet, 0, 3, msg);

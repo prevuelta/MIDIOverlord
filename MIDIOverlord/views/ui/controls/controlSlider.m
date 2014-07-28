@@ -32,21 +32,12 @@ int baseMarker;
     _value = value;
     
     [self updateMarker];
-//    _marker = [_value intValue];
     
     _textVal = [[uiTextField alloc] initWithString: [NSString stringWithFormat:@"%03d", [_value intValue]]];
     [_textVal setOrigin:NSMakePoint(RACK_WIDTH - 36 - SCROLLER_WIDTH, 0)];
     [_textVal setDrawBg: NO];
     [_textVal setTextColor:[NSColor whiteColor]];
     [self addSubview: _textVal];
-    
-    NSTrackingAreaOptions mouseEnterExitOptions = NSTrackingActiveInActiveApp;
-    mouseEnterExitOptions |= NSTrackingMouseEnteredAndExited;
-    
-
-//    _trackRect = [[NSTrackingArea alloc] initWithRect: NSMakeRect(-12, 0, 24, size.y) options:mouseEnterExitOptions owner:self userInfo: nil];
-    
-//    [self addTrackingArea: trackRect ];
     
     return self;
     
@@ -60,13 +51,11 @@ int baseMarker;
     [[global sharedGlobalData].darkestGrey set];
     
     [bgPath appendBezierPathWithRect:NSMakeRect(0, 0, self.size.x, self.size.y)];
-    [bgPath closePath];
     [bgPath fill];
     
     [[global sharedGlobalData].markerColor set];
     
     [markerPath appendBezierPathWithRect:NSMakeRect(0, 0, self.marker, self.size.y)];
-    [markerPath closePath];
     [markerPath fill];
     
 }
@@ -88,8 +77,6 @@ int baseMarker;
 -(void)setMarker:(int)marker {
     NSLog(@"%@", [NSNumber numberWithInt: marker]);
     _marker = marker;
-//    [_trackRect setRect = NSMakeRect(_marker-12, 0, 24, _size.y);/
-//    _trackRect.rect =
 }
 
 -(void)updateMarker {
@@ -118,13 +105,13 @@ int baseMarker;
 
 -(void)mouseEntered:(NSEvent *)theEvent{
     NSLog(@"mouse entered");
-    //  [_label setDefaultColor:[global sharedGlobalData].activeColor];
+//  [_label setDefaultColor:[global sharedGlobalData].activeColor];
 //    [_label setNeedsDisplay:YES];
 }
 
 -(void)mouseExited:(NSEvent *)theEvent {
-    //    [_label setBackgroundColor: self.defaultColor];
-    //    [_label setActiveColor:[global sharedGlobalData].markerColor];
+//    [_label setBackgroundColor: self.defaultColor];
+//    [_label setActiveColor:[global sharedGlobalData].markerColor];
 //    [_label setNeedsDisplay:YES];
 }
 

@@ -22,7 +22,7 @@
 #define UI_COLOR_PROT_3 {120, 120, 120, 150}
 #define MO_BROWN_WHITE {244, 244, 233, 255}
 
-#define MO_BLUE {0, 169, 232, 255}
+#define MO_BLUE {0, 169, 232, 120}
 #define MO_RED {241, 61, 57, 255}
 
 // Rack vars

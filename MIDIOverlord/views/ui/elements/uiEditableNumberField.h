@@ -15,6 +15,13 @@
 @property int max;
 
 -(id)initWithValue:(NSNumber*)value andLength:(int)length;
--(NSNumber*)checkRange:(int)intValue;
+-(NSNumber*)checkRange:(NSNumber*)number;
+
+-(void)setValueFromString;
+-(void)setStringFromValue;
+
+-(void)increment:(BOOL)increment;
+
+
 
 @end

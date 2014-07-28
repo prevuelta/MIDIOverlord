@@ -135,14 +135,14 @@
         case 1 :
             module[@"noteOnStatus"] = @144;
             module[@"noteOffStatus"] = @128;
-            module[@"pad1note"] = @0;
-            module[@"pad1vel"] = @0;
-            module[@"pad2note"] = @0;
-            module[@"pad2vel"] = @0;
-            module[@"pad3note"] = @0;
-            module[@"pad3vel"] = @0;
-            module[@"pad4note"] = @0;
-            module[@"pad4vel"] = @0;
+            module[@"pad1Note"] = @-1;
+            module[@"pad1Vel"] = @110;
+            module[@"pad2Note"] = @-1;
+            module[@"pad2Vel"] = @110;
+            module[@"pad3Note"] = @-1;
+            module[@"pad3Vel"] = @110;
+            module[@"pad4Note"] = @-1;
+            module[@"pad4Vel"] = @110;
             break;
         case 2 :
             module[@"min"] = @0;
@@ -179,15 +179,5 @@
     [self setupData: appData];
 }
 
--(void)updateModule:(NSNotification*)notification {
-    
-//    NSLog(@"Updaeting model");
-//    NSDictionary* userInfo = notification.userInfo;
-//    
-//    NSNumber *moduleID = userInfo[@"data"][@"moduleID"];
-//
-//    [_rackData[userInfo[@"rackID"]][@"modules"] setObject: userInfo[@"data"] forKey: moduleID];
-
-}
 
 @end

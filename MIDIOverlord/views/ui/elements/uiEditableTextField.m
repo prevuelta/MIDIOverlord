@@ -165,7 +165,6 @@ BOOL firstKey = true;
     
     [self setNeedsDisplay:YES];
     
-//    NSLog(@"CPos: %@", self.cursorPosition);
 }
 
 -(void)addCharacter:(NSString*)letter {

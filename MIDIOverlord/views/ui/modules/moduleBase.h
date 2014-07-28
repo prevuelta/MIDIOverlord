@@ -22,7 +22,7 @@
 @class moduleBase;
 
 @protocol moduleBaseDelegate
--(void)midiData:(NSArray*)data;
+-(void)midiCommand:(NSArray*)data;
 @end
 
 @interface moduleBase : uiBase
