@@ -153,15 +153,23 @@
 }
 
 -(void)midiData:(NSArray*)data {
-    NSLog(@"delegate recieved: %@", self.data);
+    NSLog(@"delegate recieved: %@", data);
     if([[_midiDeviceController selectedObjects] count]) {
         NSError *error = nil;
-        NSArray *commands = @[];
+        
+        NSLog(@"Status byte: %d", [utilities getMidiPacket: data]);
+
+        MIKMIDICommand *command = [MIKMIDICommand commandWithMIDIPacket: &[utilities getMidiPacket: data]->packet[0]];
+        
+        NSLog(@"command: %@", command);
+        
+        NSArray *commands = @[command];
         
         MIKMIDIDestinationEndpoint *endpoint = [_midiDeviceController selectedObjects][0];
         
         [[MIKMIDIDeviceManager sharedDeviceManager] sendCommands: commands toEndpoint: endpoint error: &error ];
         
+        NSLog(@"Error: %@", [error localizedDescription]);
     }
 //        NSDictionary *newData = @{@"device": self.data[@"midiDest"], @"data" : data};
 //        [[NSNotificationCenter defaultCenter] postNotificationName:@"midiMessageToDevice" object:self userInfo: newData];

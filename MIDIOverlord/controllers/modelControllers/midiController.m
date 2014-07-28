@@ -60,7 +60,7 @@ void inputNotify (const MIDIPacketList *list, void *procRef, void *srcRef) {
 //    [(__bridge id) refCon updateMidiDestinations];
 }
 
--(MIDIPacketList*)getMidiPacket:(int)value1 :(int)value2 :(int)value3 {
+-(MIDIPacketList*)getMidiPacketList:(int)value1 :(int)value2 :(int)value3 {
     
     MIDIPacketList* packetList = (MIDIPacketList*)packetBuffer;
     MIDIPacket *packet;
@@ -94,7 +94,7 @@ void inputNotify (const MIDIPacketList *list, void *procRef, void *srcRef) {
 
     NSLog(@"Status: %@", midiData);
     
-    MIDIPacketList *packetList = [self getMidiPacket: [midiData[0] integerValue]: [midiData[1] integerValue] : [midiData[2] integerValue]];
+    MIDIPacketList *packetList = [self getMidiPacketList: [midiData[0] integerValue]: [midiData[1] integerValue] : [midiData[2] integerValue]];
    
     MIDIObjectRef endPoint;
     
@@ -124,7 +124,7 @@ void inputNotify (const MIDIPacketList *list, void *procRef, void *srcRef) {
 
 -(void)sendMidiMessage: (int)v1 :(int)v2 :(int)v3 {
     NSLog(@"Sending midi...");
-    MIDIPacketList *packetList = [self getMidiPacket: v1 : v2 : v3 ];
+    MIDIPacketList *packetList = [self getMidiPacketList: v1 : v2 : v3 ];
     MIDIReceived(_appOutput, packetList);
 }
 

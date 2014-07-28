@@ -35,7 +35,7 @@
 -(void)sendControlChange:(int)cc :(int)value;
 
 -(void)midiNotification:(int)v1 :(int)v2 :(int)v3 :(NSInteger)deviceID;
--(MIDIPacketList*)getMidiPacket:(int)v1 :(int)v2 :(int)v3;
+-(MIDIPacketList*)getMidiPacketList:(int)v1 :(int)v2 :(int)v3;
 -(void)sendMidiMessage: (int)v1 :(int)v2 :(int)v3;
 -(void)sendMidiMessageToDevice:(NSNotification*)notification;
 

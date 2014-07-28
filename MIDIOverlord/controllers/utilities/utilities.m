@@ -10,6 +10,8 @@
 
 @implementation utilities
 
+Byte packetBuffer[128];
+
 //+(void)notify:(int)type {
 //    [self notifyWithData:type:nil];
 //}
@@ -72,6 +74,20 @@
         result = [NSString stringWithFormat:@"%@%d", note, octave-1];
     }
     return result;
+}
+
++(MIDIPacketList*)getMidiPacket:(NSArray*)data {
+    
+    MIDIPacketList* packetList = (MIDIPacketList*)packetBuffer;
+    MIDIPacket *packet;
+    
+    Byte msg[3] = {(Byte)data[0], (Byte)data[1], (Byte)data[2]};
+    
+    packet = MIDIPacketListInit(packetList);
+    packet = MIDIPacketListAdd(packetList, 1024, packet, 0, 3, msg);
+    
+    return packetList;
+    
 }
 
 @end

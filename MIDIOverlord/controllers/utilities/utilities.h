@@ -21,4 +21,6 @@
 // App file handling
 +(NSURL*)getSaveFileUrl;
 
++(MIDIPacketList*)getMidiPacket:(NSArray*)data;
+
 @end
