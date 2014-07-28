@@ -12,5 +12,6 @@
 
 @interface rackControl : rackBase
 
+-(void)updateMidiDestinations:(NSNotification*)notification;
 
 @end

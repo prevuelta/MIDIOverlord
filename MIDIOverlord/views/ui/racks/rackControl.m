@@ -56,8 +56,6 @@
     
     
     
-    
-    
 //    if([self.data[@"midiDest"] count] > 0) {
 //        [self.midiDestSelect setSelectedOption: self.data[@"midiDest"]];
 //    }
@@ -89,7 +87,17 @@
     [self addSubview: addSlider];
     
     // Observers
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createMidiDestinationsDeviceList:) name:@"updateMidiDestinations" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateMidiDestinations:) name:@"MIKMIDIDeviceWasAddedNotification" object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateMidiDestinations:) name:@"MIKMIDIVirtualEndpointWasAddedNotification" object:nil];
+    
+}
+
+-(void)updateMidiDestinations:(NSNotification*)notification {
+    NSLog(@"device added");
+    NSMutableArray *sourceArray = [[MIKMIDIDeviceManagerInterface sharedDeviceManager] virtualDestinations];
+//    [self.midiDeviceController setContent: sourceArray ];
+    [self.midiDeviceController setContent: nil];
     
 }
 

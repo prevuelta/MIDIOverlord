@@ -31,7 +31,7 @@
     [self bind:@"noteValue" toObject:_padNote withKeyPath:@"value" options:nil];
     
     _noteLabel = [[uiTextField alloc] initWithString: @"---" andMaxLength: 5 ];
-    _velocityLabel = [[uiTextField alloc] initWithString: @"0" andMaxLength: 3 ];
+    _velocityLabel = [[uiTextField alloc] initWithString: [_velocity stringValue] andMaxLength: 3 ];
     
     [_noteLabel setOriginWithX: 0 andY: 4];
     [_velocityLabel setOriginWithX: 0 andY: 20];
@@ -106,6 +106,7 @@
 -(void)setVelocity:(NSNumber *)velocity{
     _velocity = velocity;
     [self updateMarker];
+    [self.velocityLabel setStringValue:[_velocity stringValue]];
 }
 
 -(void)updateMarker {
