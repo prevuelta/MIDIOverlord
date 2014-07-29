@@ -18,7 +18,7 @@
 
 @property BOOL hasNull;
 
-@property NSMutableArray *content;
+@property NSArray *content;
 @property NSNumber* selectedIndex;
 
 @property int height;

@@ -36,7 +36,7 @@
     
     self.height = height;
     
-    [self setContent: [NSMutableArray arrayWithArray:content]];
+    [self setContent: content];
     
     [self addSubview: _label];
     
@@ -137,11 +137,13 @@ NSComparisonResult compareViews(id firstView, id secondView, void *context) {
 }
 
 
--(NSMutableArray*)content {
+-(NSArray*)content {
     return _content;
 }
 
--(void)setContent:(NSMutableArray*)content {
+-(void)setContent:(NSArray*)content {
+    
+    NSLog(@"Setting content");
     
     _content = content;
 
