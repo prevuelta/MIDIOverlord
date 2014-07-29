@@ -21,7 +21,7 @@
     
     [self addSubview: label];
     
-    _deviceArray = [[MIKMIDIDeviceManagerInterface sharedDeviceManager] virtualDestinations];
+    [self updateMidiDestinations: nil];
     
     self.midiDeviceController = [[NSArrayController alloc] initWithContent: _deviceArray];
     
@@ -37,7 +37,7 @@
 
     [self.midiDestSelect bind:@"content" toObject:self.midiDeviceController withKeyPath: @"arrangedObjects" options:nil];
     
-//   [self.midiDestSelect bind:@"selectedIndex" toObject:_midiDeviceController withKeyPath: @"selectionIndex" options:nil];
+//    [self.midiDestSelect bind:@"selectedIndex" toObject: self.midiDeviceController withKeyPath: @"selectionIndex" options:nil];
     
     [self.midiDestSelect setOrigin: NSMakePoint(label.frameWidth + 12, 24)];
     
@@ -74,16 +74,19 @@
     [self addSubview: addSlider];
     
     // Observers
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateMidiDestinations:) name:@"MIKMIDIDeviceWasAddedNotification" object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateMidiDestinations:) name:@"MIKMIDIVirtualEndpointWasAddedNotification" object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateMidiDestinations:) name:@"MIKMIDIVirtualEndpointWasRemovedNotification" object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateMidiDestinations:) name:@"MIKMIDIDeviceWasAddedNotification" object:nil];
+//    
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateMidiDestinations:) name:@"MIKMIDIVirtualEndpointWasAddedNotification" object:nil];
+//    
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateMidiDestinations:) name:@"MIKMIDIVirtualEndpointWasRemovedNotification" object:nil];
     
 }
 
 -(void)updateMidiDestinations:(NSNotification*)notification {
-    [self setDeviceArray: [[MIKMIDIDeviceManagerInterface sharedDeviceManager] virtualDestinations]];
+    NSMutableArray *allDestinations = [[[MIKMIDIDeviceManagerInterface sharedDeviceManager] virtualDestinations] mutableCopy];
+    [allDestinations addObjectsFromArray: [[MIKMIDIDeviceManagerInterface sharedDeviceManager] availableDevices]];
+    [allDestinations addObject: @{@"name": @"None", @"value" : @0}];
+    [self setDeviceArray: [allDestinations copy]];
 }
     
 -(void)dealloc {
