@@ -152,19 +152,24 @@
 
 -(void)midiCommand:(NSArray*)data {
     
-    NSLog(@"Delegate recieved: %@", _data[@"channel"]);
+    NSMutableArray *newData = [data mutableCopy];
+    
+    if([_data[@"channel"] intValue] > 0) {
+        NSNumber *newStatus = [NSNumber numberWithInt: [data[0] intValue] + [_data[@"channel"] intValue] - 1 ];
+        [newData replaceObjectAtIndex:0 withObject: newStatus];
+    }
+    
+    NSLog(@"New data: %@", newData);
+
     if([[_midiDeviceController selectedObjects] count]) {
-         NSError *error = nil;
+        NSError *error = nil;
         MIKMutableMIDIControlChangeCommand *command = [[MIKMutableMIDIControlChangeCommand alloc] init];
         
+        [command setCommandType: [newData[0] unsignedIntegerValue]];
+        [command setControllerNumber: [newData[1] unsignedIntegerValue]];
+        [command setControllerValue: [newData[2] unsignedIntegerValue]];
+        
 
-        [command setCommandType: [data[0] unsignedIntegerValue]];
-        [command setControllerNumber: [data[1] unsignedIntegerValue]];
-        [command setControllerValue: [data[2] unsignedIntegerValue]];
-        
-        [command setChannel: (Byte)[_data[@"channel"] unsignedShortValue]];
-        
-        
         NSLog(@"command: %@", command);
         
         NSArray *commands = @[command];

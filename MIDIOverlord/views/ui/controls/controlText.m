@@ -19,12 +19,14 @@ int baseY;
     _value = value;
     
     _max = 127;
+    _min = 0;
     
     _label = label;
     
     _valueNumberField = [[uiEditableNumberField alloc] initWithValue: value andLength: 3];
     
     [_valueNumberField bind:@"max" toObject:self withKeyPath:@"max" options:nil];
+    [_valueNumberField bind:@"min" toObject:self withKeyPath:@"min" options:nil];
     
     int width = _valueNumberField.frameWidth;
     

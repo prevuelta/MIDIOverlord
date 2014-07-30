@@ -88,7 +88,7 @@
         @"rackID" : _rackID,
         @"label": [NSString stringWithFormat: @"RACK %@", _rackID],
         @"size": @0,
-        @"channel": @0,
+        @"channel": @1,
         @"input": @0,
         @"output": @0,
         @"moduleID" : @0

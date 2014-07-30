@@ -36,7 +36,7 @@
 
     [self.midiDestSelect bind:@"content" toObject:self.midiDeviceController withKeyPath: @"arrangedObjects" options:nil];
     
-    [self.midiDestSelect bind:@"selectedIndex" toObject: self.midiDeviceController withKeyPath: @"selectionIndex" options:nil];
+//    [self.midiDestSelect bind:@"selectedIndex" toObject: self.midiDeviceController withKeyPath: @"selectionIndex" options:nil];
     
     [self.midiDestSelect setOrigin: NSMakePoint(label.frameWidth + 12, 24)];
     
@@ -48,6 +48,7 @@
     [self.midiChannelControl setOriginWithX: self.label.frameWidth + 4 andY: 4];
     
     [self.midiChannelControl setMax: 16];
+    [self.midiChannelControl setMin: 1];
     
     [self.data bind:@"channel" toObject: self.midiChannelControl withKeyPath:@"value" options:nil];
     
