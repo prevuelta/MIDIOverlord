@@ -49,7 +49,7 @@
     
     [self.midiChannelControl setMax: 16];
     
-    [self.data bind:@"midiChannel" toObject: self.midiChannelControl withKeyPath:@"value" options:nil];
+    [self.data bind:@"channel" toObject: self.midiChannelControl withKeyPath:@"value" options:nil];
     
     [self addSubview: self.midiChannelControl ];
     

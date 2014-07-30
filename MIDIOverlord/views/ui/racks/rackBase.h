@@ -24,7 +24,6 @@
 @property NSArray *midiDest;
 
 @property controlText *midiChannelControl;
-@property NSNumber *midiChannel;
 
 @property NSNumber *rackID;
 

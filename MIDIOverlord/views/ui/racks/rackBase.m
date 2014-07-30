@@ -29,8 +29,6 @@
     
     self.subViews = [NSMutableArray new];
     
-    self.midiChannel = 0;
-    
     self.labelText = @"Untititled";
     
     [self setSelected:NO];
@@ -153,14 +151,19 @@
 }
 
 -(void)midiCommand:(NSArray*)data {
-    NSLog(@"delegate recieved: %@", data);
+    
+    NSLog(@"Delegate recieved: %@", _data[@"channel"]);
     if([[_midiDeviceController selectedObjects] count]) {
          NSError *error = nil;
         MIKMutableMIDIControlChangeCommand *command = [[MIKMutableMIDIControlChangeCommand alloc] init];
         
+
         [command setCommandType: [data[0] unsignedIntegerValue]];
         [command setControllerNumber: [data[1] unsignedIntegerValue]];
         [command setControllerValue: [data[2] unsignedIntegerValue]];
+        
+        [command setChannel: (Byte)[_data[@"channel"] unsignedShortValue]];
+        
         
         NSLog(@"command: %@", command);
         
@@ -173,13 +176,6 @@
 }
 
 -(void)midiData:(NSArray*)data {
-    NSLog(@"delegate recieved: %@", data);
-    
-     NSNumber *status = data[0];
-    
-    [data replaceValueAtIndex: 0 inPropertyWithKey: withValue:<#(id)#>]
-    
-     [data= [NSNumber numberWithInt:[status intValue] + [_midiChannel intValue]];
     
     if([[_midiDeviceController selectedObjects] count]) {
         NSError *error = nil;
