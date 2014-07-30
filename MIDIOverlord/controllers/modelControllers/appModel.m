@@ -127,7 +127,7 @@
     NSMutableDictionary* module = [@{
         @"moduleID" : rack[@"moduleID"],
         @"rackID"   : rackID,
-        @"label" : @"[label]",
+        @"label" : @"<label>",
         @"type" : type,
         } mutableCopy];
     

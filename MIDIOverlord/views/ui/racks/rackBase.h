@@ -23,8 +23,8 @@
 @property controlList *midiDestSelect;
 @property NSArray *midiDest;
 
-@property uiTextField *midiChannelText;
-@property int midiChannel;
+@property controlText *midiChannelControl;
+@property NSNumber *midiChannel;
 
 @property NSNumber *rackID;
 

@@ -33,6 +33,8 @@
     _noteLabel = [[uiTextField alloc] initWithString: @"---" andMaxLength: 5 ];
     _velocityLabel = [[uiTextField alloc] initWithString: [_velocity stringValue] andMaxLength: 3 ];
     
+    [_velocityLabel setTextColor: [global sharedGlobalData].colors[@"black"] ];
+    
     [_noteLabel setOriginWithX: 0 andY: 4];
     [_velocityLabel setOriginWithX: 0 andY: 20];
     
@@ -48,6 +50,10 @@
 
     [self setNoteValue: noteValue];
     
+    // Colors
+    _activeColor = [global sharedGlobalData].colors[@"yellow"];
+    _defaultColor = [global sharedGlobalData].colors[@"lightestBrown"];
+    
     return self;
 }
 
@@ -60,14 +66,16 @@
     [markerPath appendBezierPathWithRoundedRect:NSMakeRect(0, 0, _size.x, _marker) xRadius: 1 yRadius: 1];
     
     if(self.active) {
-        [[global sharedGlobalData].activeColor set];
+        [self.activeColor set];
     } else {
-        [[global sharedGlobalData].bgColor set];
+        [self.defaultColor set];
     }
     
     [btnPath fill];
     
-    [[global sharedGlobalData].markerColor set];
+    NSColor *markerColor = [global sharedGlobalData].colors[@"lighterBrown"];
+    
+    [markerColor set];
     
     [markerPath fill];
 }

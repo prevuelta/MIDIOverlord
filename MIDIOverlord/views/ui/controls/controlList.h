@@ -30,7 +30,7 @@
 @property uiTextField *label;
 @property uiTextField *selectLabel;
 
--(id)initWithContent:(NSArray*)content andHasNull:(BOOL)hasNull;
+-(id)initWithContent:(NSArray*)content;
 
 -(void)deselect:(NSNotification*)notification;
 

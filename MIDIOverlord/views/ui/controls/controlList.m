@@ -13,13 +13,9 @@
 @synthesize content = _content;
 @synthesize selectedIndex = _selectedIndex;
 
--(id)initWithContent:(NSArray*)content andHasNull:(BOOL)hasNull {
+-(id)initWithContent:(NSArray*)content {
     
     int height = 18;
-    
-    if(hasNull) {
-//        [_content addObject:@{@"name": @"None", @"value" : @0}];
-    }
 
     _label = [[uiTextField alloc] initWithString: @"None" andMaxLength:8];
         
@@ -31,8 +27,6 @@
     self = [super initWithFrame:frame];
     
     if(!self) return nil;
-    
-    _hasNull = hasNull;
     
     self.height = height;
     

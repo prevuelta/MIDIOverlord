@@ -12,6 +12,9 @@
 
 #define MO_DARK_BROWN {82, 86, 86, 255}
 #define MO_BROWN {149, 149, 122, 255}
+#define MO_BROWN_WHITE {244, 244, 233, 255}
+#define MO_BLUE {0, 169, 232, 255}
+#define MO_RED {241, 61, 57, 255}
 
 #define MO_YELLOW {231, 229, 29, 255}
 
@@ -20,10 +23,8 @@
 #define UI_COLOR_PROT_1 {60, 60, 60, 255}
 #define UI_COLOR_PROT_2 {80, 80, 80, 255}
 #define UI_COLOR_PROT_3 {120, 120, 120, 150}
-#define MO_BROWN_WHITE {244, 244, 233, 255}
 
-#define MO_BLUE {0, 169, 232, 120}
-#define MO_RED {241, 61, 57, 255}
+
 
 // Rack vars
 #define MODULE_HEIGHT 160

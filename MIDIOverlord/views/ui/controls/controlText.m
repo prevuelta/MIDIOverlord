@@ -24,6 +24,8 @@ int baseY;
     
     _valueNumberField = [[uiEditableNumberField alloc] initWithValue: value andLength: 3];
     
+    [_valueNumberField bind:@"max" toObject:self withKeyPath:@"max" options:nil];
+    
     int width = _valueNumberField.frameWidth;
     
     if(![_label isEqualTo:@""]) {

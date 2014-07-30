@@ -174,6 +174,13 @@
 
 -(void)midiData:(NSArray*)data {
     NSLog(@"delegate recieved: %@", data);
+    
+     NSNumber *status = data[0];
+    
+    [data replaceValueAtIndex: 0 inPropertyWithKey: withValue:<#(id)#>]
+    
+     [data= [NSNumber numberWithInt:[status intValue] + [_midiChannel intValue]];
+    
     if([[_midiDeviceController selectedObjects] count]) {
         NSError *error = nil;
         

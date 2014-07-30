@@ -37,6 +37,9 @@
 @property uiTextField* noteLabel;
 @property uiTextField* velocityLabel;
 
+@property NSColor *defaultColor;
+@property NSColor *activeColor;
+
 -(id)initWithSize:(NSPoint)size andNoteValue: (NSNumber*)noteValue andVelocity: (NSNumber *)velocity;
 
 @end
