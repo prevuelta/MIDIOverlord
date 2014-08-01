@@ -23,39 +23,24 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeRack:) name:@"removeRack" object:nil];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addModule:) name:@"addModule" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addModule:) name:@"addSlider" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addModule:) name:@"addPads" object:nil];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeModule:) name:@"removeModule" object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadFile:) name:@"fileLoaded" object:nil];
 
     
-//    NSLog(@"New data: %@", [_data rackData]);
-    
-//    [_mainView updateRackModules:[_data getRackID:0] : [_data getRackModules:0]];
-//    [_mainView updateRackModules:[_data getRackID:1] : [_data getRackModules:1]];
-    
-//    [_mainView updateRackModules [_data getRackModules:rackData[0]]:[data layout[0]];
-    
-//    [_mainView updateModules:[_data moduleData]:[_data layout]];
- 
-    // Set grid origins
-    //    CGRect frame = mainView.frame;
-    //    frame.origin = CGPointMake(_windowPadding, _windowPadding);
-    //    mainView.frame = frame;
-    
     return self;
 }
-     
-//-(void)setFirstresponder:(NSNotification*)notification {
-//        [_mainWin resp]
-//}
+
 
 -(void)loadFile:(NSNotification*)notification {
     NSDictionary *userInfo = notification.userInfo;
     
     [_data setupData:userInfo[@"data"]];
     
-    [self updateRacks];
+    [_mainView createRacksWithData: _data.rackData andLayout: _data.rackLayout];
     
     [_mainView resizeWin: (int)_data.rackCount];
 }
@@ -66,8 +51,8 @@
 
 -(void)addRack:(NSNumber*)type {
 
-    [_data addRack: type];
-    [self updateRacks];
+    NSNumber *rackID = [_data addRack: type];
+    [_mainView addRackWithData: _data.rackData[rackID]];
 
 }
 
@@ -75,16 +60,19 @@
     
     NSDictionary *userInfo = notification.userInfo;
     [_data removeRack: userInfo];
-    [self updateRacks];
+    [_mainView removeRack: userInfo[@"rackID"]];
+
 }
 
 -(void)addModule:(NSNotification*)notification {
     
     NSDictionary *userInfo = notification.userInfo;
     
-    [_data addModule: userInfo[@"rackID"] : userInfo[@"type"]];
+    NSNumber *rackID = userInfo[@"rackID"];
     
-    [self updateRacks];
+    [_data addModuleOfType: userInfo[@"type"] toRack: rackID];
+    
+    [_mainView updateRackModules: rackID ];
     
 }
 
@@ -92,11 +80,13 @@
     
     NSDictionary *userInfo = notification.userInfo;
     [_data removeModule: userInfo];
-    [self updateRacks];
+    
+    [_mainView updateRackModules: userInfo[@"rackID"] ];
+    
 }
 
--(void)updateRacks {
-    [_mainView updateRacks: _data.rackData : _data.rackLayout];
-}
+//-(void)updateRackModules: (NSDictionary*)rackData {
+//    [_mainView updateRackModules: rackData];
+//}
 
 @end

@@ -18,11 +18,13 @@
 @property int marker;
 
 @property NSPoint size;
-
 @property NSTrackingArea *trackRect;
 
 @property uiTextField *textVal;
 @property uiTextField *label;
+
+@property NSColor *defaultColor;
+@property NSColor *markerColor;
 
 -(id)initWithSize:(NSPoint)size andValue: (NSNumber*)value andMinValue:(int)min andMaxValue:(int)max;
 

@@ -38,10 +38,12 @@
 -(NSMutableDictionary*)loadDefaultState;
 
 // Public function
--(void)addRack:(NSNumber*)type;
--(void)removeRack:(NSDictionary*)ref;
--(void)addModule:(NSNumber*)rackID :(NSNumber*)type;
+-(NSNumber*)addRack:(NSNumber*)type;
+
+-(void)addModuleOfType: (NSNumber*)type toRack: (NSNumber*)rackID;
+
 -(void)removeModule:(NSDictionary*)ref;
+-(void)removeRack:(NSDictionary*)ref;
 
 
 @end

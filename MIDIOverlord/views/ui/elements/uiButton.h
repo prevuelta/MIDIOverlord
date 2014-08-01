@@ -24,6 +24,10 @@
 
 @property NSImageView *iconView;
 
+@property NSColor *defaultColor;
+@property NSColor *activeColor;
+@property NSColor *toggleColor;
+
 -(id)initWithSize:(int)size;
 -(id)initWithSize:(int)size andEvent:(NSString*)event;
 

@@ -39,6 +39,7 @@
 
 @property NSColor *defaultColor;
 @property NSColor *activeColor;
+@property NSColor *markerColor;
 
 -(id)initWithSize:(NSPoint)size andNoteValue: (NSNumber*)noteValue andVelocity: (NSNumber *)velocity;
 

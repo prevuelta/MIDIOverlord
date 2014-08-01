@@ -75,14 +75,14 @@
 }
 
 -(void)mouseDown:(NSEvent*)theEvent {
-    NSLog(@"Whats up");
+//    NSLog(@"Whats up");
     [global deselectNotify];
     
     if(self.active) {
         [[NSNotificationCenter defaultCenter] postNotificationName:@"deselectAll" object:self userInfo: nil];
     } else {
         [[NSNotificationCenter defaultCenter] postNotificationName:@"deselectAll" object:self userInfo: nil];
-        NSLog(@"settgin selcted");
+//        NSLog(@"settgin selcted");
         self.active = !self.active;
         [self setTag: 20];
         NSRect f = self.frame;
@@ -95,7 +95,7 @@
 }
 
 -(void)deselect:(NSNotification*)notification {
-    NSLog(@"List deselect");
+//    NSLog(@"List deselect");
     self.active = NO;
     [self setTag: 0];
     NSRect f = self.frame;
@@ -137,13 +137,13 @@ NSComparisonResult compareViews(id firstView, id secondView, void *context) {
 
 -(void)setContent:(NSArray*)content {
     
-    NSLog(@"Setting content");
+//    NSLog(@"Setting content");
     
     _content = content;
 
     [self setDisabled: !(BOOL)[_content count]];
 
-    NSLog(@"Disabled: %d %@", (BOOL)[_content count], _content);
+//    NSLog(@"Disabled: %d %@", (BOOL)[_content count], _content);
     
     NSInteger currentOptionY = self.height;
     
@@ -153,7 +153,7 @@ NSComparisonResult compareViews(id firstView, id secondView, void *context) {
     
     for(int i = 0; i < [_content count]; i++) {
 
-        NSLog(@"%@", [_content[i] name]);
+//        NSLog(@"%@", [_content[i] name]);
         
         NSArray *optionData = @[[NSNumber numberWithInt:i], [_content[i] name]];
 
@@ -167,7 +167,7 @@ NSComparisonResult compareViews(id firstView, id secondView, void *context) {
 
         currentOptionY += option.frameHeight;
         
-        NSLog(@"Option y %d", currentOptionY);
+//        NSLog(@"Option y %d", currentOptionY);
     }
     
     [self setNeedsDisplay: YES];

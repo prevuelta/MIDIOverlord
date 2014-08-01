@@ -26,7 +26,7 @@
 		6ECD89F71946BE7400CCBE97 /* uiTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECD89F41946BE7400CCBE97 /* uiTextField.m */; };
 		6ECD89FA1947C3EE00CCBE97 /* controlText.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECD89F91947C3EE00CCBE97 /* controlText.m */; };
 		6ED30FD9196BAE3700B7FF31 /* uiEditableNumberField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED30FD8196BAE3700B7FF31 /* uiEditableNumberField.m */; };
-		6ED57FAF1963938300D60B03 /* icons.png in Resources */ = {isa = PBXBuildFile; fileRef = 6ED57FAE1963938300D60B03 /* icons.png */; };
+		6ED33A4B198B22F1000E9812 /* icons.png in Resources */ = {isa = PBXBuildFile; fileRef = 6ED33A4A198B22F1000E9812 /* icons.png */; };
 		6EDA87C5194E77B7007BB3C8 /* patternBg.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6EDA87C4194E77B7007BB3C8 /* patternBg.gif */; };
 		6EE4456B1936C86100C61171 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE4452A1936C86100C61171 /* AppDelegate.m */; };
 		6EE4456C1936C86100C61171 /* appViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE4452E1936C86100C61171 /* appViewController.m */; };
@@ -100,7 +100,7 @@
 		6ECD89F91947C3EE00CCBE97 /* controlText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = controlText.m; path = MIDIOverlord/views/ui/controls/controlText.m; sourceTree = SOURCE_ROOT; };
 		6ED30FD7196BAE3700B7FF31 /* uiEditableNumberField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uiEditableNumberField.h; sourceTree = "<group>"; };
 		6ED30FD8196BAE3700B7FF31 /* uiEditableNumberField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uiEditableNumberField.m; sourceTree = "<group>"; };
-		6ED57FAE1963938300D60B03 /* icons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icons.png; sourceTree = "<group>"; };
+		6ED33A4A198B22F1000E9812 /* icons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icons.png; sourceTree = "<group>"; };
 		6EDA87C4194E77B7007BB3C8 /* patternBg.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = patternBg.gif; sourceTree = "<group>"; };
 		6EE445291936C86100C61171 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6EE4452A1936C86100C61171 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -267,9 +267,9 @@
 		6EE445421936C86100C61171 /* resources */ = {
 			isa = PBXGroup;
 			children = (
-				6ED57FAE1963938300D60B03 /* icons.png */,
 				6E8A23C41951205000745214 /* logo.png */,
 				6EDA87C4194E77B7007BB3C8 /* patternBg.gif */,
+				6ED33A4A198B22F1000E9812 /* icons.png */,
 				6EE445431936C86100C61171 /* default.png */,
 				6EE445441936C86100C61171 /* skin.json */,
 				6EE445451936C86100C61171 /* stateDEMO.json */,
@@ -440,8 +440,8 @@
 				6EDA87C5194E77B7007BB3C8 /* patternBg.gif in Resources */,
 				6EE445791936C86100C61171 /* stateDEMO.json in Resources */,
 				6E8A23C51951205000745214 /* logo.png in Resources */,
-				6ED57FAF1963938300D60B03 /* icons.png in Resources */,
 				6EE445781936C86100C61171 /* skin.json in Resources */,
+				6ED33A4B198B22F1000E9812 /* icons.png in Resources */,
 				6EE445751936C86100C61171 /* MainMenu.xib in Resources */,
 				6EE445771936C86100C61171 /* default.png in Resources */,
 			);

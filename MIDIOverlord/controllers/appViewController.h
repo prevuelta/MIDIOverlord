@@ -21,8 +21,10 @@
 -(void)addControlRack:(NSNotification*)notification;
 -(void)addRack:(NSNumber*)type;
 
-
 -(void)addModule:(NSNotification*)notification;
 -(void)removeModule:(NSNotification*)notification;
+
+// Update view
+-(void)updateRackModules: (NSDictionary*)rackData;
 
 @end

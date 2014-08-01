@@ -29,15 +29,23 @@
     self.isToggle = NO;
     self.flipped = YES;
     
+    self.defaultColor = [global sharedGlobalData].colors[@"darkestGrey"];
+    self.activeColor =  [global sharedGlobalData].colors[@"darkerGrey"];
+    self.toggleColor = [global sharedGlobalData].colors[@"yellow"];
+
     NSDictionary *iconTypes = @{
          @"addControlRack" : @-48,
          @"addMapRack" : @-48,
          @"editMode" : @-72,
          @"closeWindow" : @0,
-         @"closeRack"   : @0
+         @"removeRack"   : @-136,
+         @"removeModule" : @-136,
+         @"addSlider"   : @-96,
+         @"addPads"     : @-116,
+         @"midiRecord"  : @-148
     };
     
-//    NSLog(@"Icontype: %@", iconTypes[event] );
+    NSLog(@"Icontype: Event: %@, %@", event, iconTypes[event] );
     
     if([event length] != 0) {
         [self setEvent: event];
@@ -59,15 +67,17 @@
 
 - (void)drawRect:(NSRect)dirtyRect{
     
-    if(!self.active && !self.toggled) {
-        [[global sharedGlobalData].darkBrown setFill];
+    if(self.active) {
+        [self.activeColor setFill];
+    } else if (self.toggled){
+        [self.toggleColor setFill];
     } else {
-        [[global sharedGlobalData].activeColor setFill];
+        [self.defaultColor setFill];
     }
 
-   NSBezierPath *btnPath = [NSBezierPath new];
-//    [btnPath appendBezierPathWithRoundedRect:dirtyRect xRadius: 2 yRadius:2];
-    [btnPath appendBezierPathWithRect:dirtyRect ];
+    NSBezierPath *btnPath = [NSBezierPath new];
+    
+    [btnPath appendBezierPathWithRoundedRect:dirtyRect xRadius: 1 yRadius:1];
   
     [btnPath fill];
     
@@ -87,18 +97,19 @@
 -(void)mouseDown:(NSEvent*)theEvent {
     self.active = YES;
     [self setNeedsDisplay:YES];
-    
+
+}
+
+-(void)mouseUp:(NSEvent *)theEvent {
+    self.active = NO;
+
     if(_isToggle) {
         self.toggled = !self.toggled;
         self.eventData = @{@"isToggled" : [NSNumber numberWithBool:self.toggled]};
     }
     
-    [[NSNotificationCenter defaultCenter] postNotificationName: self.event object:self userInfo: self.eventData];
-}
-
--(void)mouseUp:(NSEvent *)theEvent {
-    self.active = NO;
     [self setNeedsDisplay:YES];
+    [[NSNotificationCenter defaultCenter] postNotificationName: self.event object:self userInfo: self.eventData];
 }
 
 @end

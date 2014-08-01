@@ -51,8 +51,8 @@
         padPos += padSize.y + 2;
     }
 
-    uiButton *removeBtn = [[uiButton alloc] initWithSize: 12];
-    [removeBtn setEvent:@"removeModule" withData: @{@"rackID": self.data[@"rackID"], @"moduleID" : self.data[@"moduleID"]}];
+    uiButton *removeBtn = [[uiButton alloc] initWithSize: 12 andEvent: @"removeModule"];
+    [removeBtn setEventData: @{@"rackID": self.data[@"rackID"], @"moduleID" : self.data[@"moduleID"]}];
     [removeBtn setOrigin: NSMakePoint(RACK_WIDTH - 20 - SCROLLER_WIDTH, 42)];
     [removeBtn setInEditView:YES];
     

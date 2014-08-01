@@ -17,58 +17,35 @@
 -(id)initWithFrame:(NSRect)frame andData:(NSMutableDictionary*)data {
     
     self = [super initWithFrame:frame];
+    
     if(!self) return nil;
+    
+    [self setData: data];
     
     self.width = RACK_WIDTH;
     
     self.height = frame.size.height - TOOLBAR_HEIGHT - 30;
     
-    NSLog(@"Height %@", [NSNumber numberWithInt:self.height]);
-    
     self.headerHeight = 84;
     
-    self.subViews = [NSMutableArray new];
-    
-    self.labelText = @"Untititled";
-    
     [self setSelected:NO];
-    
-    self.labelText = data[@"label"];
-    
-    self.rackID = data[@"rackID"];
-    
-    self.midiDest = data[@"midiDest"];
-    
-    self.data = data;
     
     self.moduleView = [[scrollableView alloc] initWithFrame:NSMakeRect(0, 0, RACK_WIDTH - 8, self.height - self.headerHeight - 4)];
     
     [self.moduleView setOrigin: NSMakePoint(4, self.headerHeight)];
-//
+
     [self addSubview: self.moduleView];
     
     self.label = [[uiEditableTextField alloc] initWithString: self.labelText andMaxLength:14];
-    [self.label setDrawBg: NO];
+
     [self.label setOrigin:NSMakePoint(4, 4)];
     
     [self bind:@"labelText" toObject: _label withKeyPath:@"stringValue" options:nil];
     
     [self addSubview: self.label];
     
-//    [self.data bind:@"stringValue" toObject: self withKeyPath:@:self.labelText options:nil];
-//
-//    _midiChannelText = [uiTextField initWithString: @"CH000" andMaxLength: 5 andLabelLength: 2];
-    
-//    [_midiChannelText setOrigin:NSMakePoint(0, 24)];
-    
-//    [_midiChannelText setEditable: YES];
-    
-//    [_midiChannelText bind:@"value" toObject:self withKeyPath:@"self.midiChannel" options:nil];
-    
-//    [self addSubview: _midiChannelText];
-    
-    uiButton *removeBtn = [[uiButton alloc] initWithSize: 12];
-    [removeBtn setEvent:@"removeRack" withData: @{@"rackID": self.rackID}];
+    uiButton *removeBtn = [[uiButton alloc] initWithSize: 12 andEvent: @"removeRack"];
+    [removeBtn setEventData: @{@"rackID": self.rackID}];
     [removeBtn setOrigin: NSMakePoint(RACK_WIDTH - 16, 4)];
     [removeBtn setInEditView:YES];
     
@@ -77,6 +54,63 @@
     [self addRackTitle];
 
     return self;
+}
+
+-(NSMutableDictionary*)data {
+    return _data;
+}
+
+-(void)setData:(NSMutableDictionary *)data {
+    
+    self.labelText = data[@"label"];
+    
+    self.rackID = data[@"rackID"];
+    
+    self.midiDest = data[@"midiDest"];
+    
+    _data = data;
+    
+    [self updateModules];
+    
+    
+}
+
+-(void)updateModules {
+    
+    NSLog(@"Rack Data %@", _data);
+    
+    [self.moduleView emptyView];
+    
+    int yLoc = 0;
+    
+    for(int i = 0; i < [_data[@"moduleLayout"] count]; i++) {
+
+        NSNumber *moduleID = _data[@"moduleLayout"][i];
+
+        NSMutableDictionary *moduleData = [_data[@"modules"] objectForKey: moduleID];
+
+        moduleBase *module = [self getModuleWithData: moduleData];
+
+        [module setOrigin: NSMakePoint(0, yLoc)];
+
+        module.delegate = self;
+
+        [self.moduleView addModuleView: module];
+
+        yLoc += module.frameHeight;
+        
+        NSLog(@"%d", yLoc);
+        
+    }
+
+}
+
+-(moduleBase*)getModuleWithData:(NSMutableDictionary*)moduleData{
+    
+    moduleBase *module;
+    
+    return module;
+    
 }
 
 -(void)addRackTitle {
@@ -207,11 +241,7 @@
 }
 
 -(void)mouseDown:(NSEvent *)theEvent {
-//    NSLog(@"Slected");
     [[NSNotificationCenter defaultCenter] postNotificationName:@"deselectAll" object:self userInfo: nil];
-//    [[NSNotificationCenter defaultCenter] postNotificationName:@"closeOpen" object:self userInfo: nil];
-//    self.selected = YES;
-//    [self setNeedsDisplay:YES];
 }
 
 @end

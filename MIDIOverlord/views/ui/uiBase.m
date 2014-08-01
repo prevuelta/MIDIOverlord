@@ -46,6 +46,11 @@
     // Drawing code here.
 }
 
+-(void)setOriginWithX: (int)x {
+    return [self setOrigin:NSMakePoint(x, self.frame.origin.y)];
+}
+
+
 -(void)setOriginWithX: (int)x andY: (int)y {
     return [self setOrigin:NSMakePoint(x, y)];
 }

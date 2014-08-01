@@ -20,14 +20,9 @@
 
     _mainWin = mainWin;
 
-    
-    _racks = [NSMutableArray new];
-
-    // Setup main interface
+    _racks = [NSMutableDictionary new];
     
     _titleBar = [[uiTitleBar alloc ] initWithFrame: NSMakeRect(0, 0, self.frame.size.width, TITLE_BAR_HEIGHT )];
-    
-//     [_titleBar setTitle: @"Untitled"];
     
     [self addSubview:_titleBar];
     
@@ -36,9 +31,7 @@
     [_toolBar setOrigin:NSMakePoint(0, TITLE_BAR_HEIGHT)];
     
     [self addSubview:_toolBar];
-    
 
-    
     // Set grey background
     float greyVal = 0.70;
     NSColor *grey = [NSColor colorWithDeviceRed:greyVal green:greyVal blue:greyVal alpha: (float)1];
@@ -55,7 +48,7 @@
 }
 
 -(void)windowResizeHandler:(NSNotification*)notification {
-//    int height = notification.object.Size.height;
+    
     NSLog(@"Window resize: %@", notification);
     NSWindow *win = notification.object;
 
@@ -63,91 +56,81 @@
     [_toolBar resizeWidth: win.frame.size.width];
 }
 
--(void)resizeWin:(int)rackCount {
+-(void)updateRackModules:(NSNumber*)rackID {
+    [_racks[rackID] updateModules];
+}
+
+-(void)removeRack:(NSNumber*)rackID {
+    [_racks[rackID] removeFromSuperview];
+    [_racks removeObjectForKey:rackID];
+    [self arrangeRacks];
+}
+
+-(void)arrangeRacks {
     
-//    NSRect frame = [_mainWin frame];
-//    
-//    frame.size.width = RACK_WIDTH * rackCount;
-//    frame.size.height = WINDOW_HEIGHT + TOOLBAR_HEIGHT + 22;
-//    
-//    NSLog(@"Frame height: %@, %@", [NSNumber numberWithInt:frame.size.height], [NSNumber numberWithInt:rackCount]);
-//    
-//    [_mainWin setFrame:frame display:NO animate:NO];
+    int xLoc = 2;
+    
+    NSLog(@"Racks %@", _racks);
+    
+    for(rackBase *rackID in _racks) {
+        
+        rackBase* rack = [_racks objectForKey: rackID];
+        
+        [rack setOriginWithX: xLoc andY: TOOLBAR_HEIGHT + 2 + TITLE_BAR_HEIGHT];
+        
+        [rack setNeedsDisplay: YES];
+    
+        xLoc += RACK_WIDTH + 2;
+    }
     
 }
 
--(void)updateRacks:(NSMutableDictionary*)rackData :(NSMutableArray*)layout {
+/**
+ *  Add Rack
+ */
+
+-(void)addRackWithData:(NSMutableDictionary *)rackData {
     
-//    NSLog(@"%@", layout);
+    NSNumber *rackID = rackData[@"rackID"];
+    
+    rackControl *rack = [[rackControl alloc] initWithFrame: NSMakeRect(0, 0, RACK_WIDTH, _mainWin.frame.size.height) andData: rackData];
+    
+    [rack setOrigin:NSMakePoint([_racks count] * (RACK_WIDTH + 2) + 2, TOOLBAR_HEIGHT + 2 + TITLE_BAR_HEIGHT)];
+    
+    [_racks setObject: rack forKey: rackID];
+    
+    [self addSubview:rack];
+    
+}
+
+-(void)createRacksWithData:(NSMutableDictionary*)rackData andLayout:(NSMutableArray*)layout {
+    
     for(rackBase *rack in _racks) {
         [rack removeFromSuperview];
     }
     
-    _racks = [NSMutableArray new];
+    _racks = [NSMutableDictionary new];
     
     for(int rI = 0; rI < [layout count]; rI++) {
         
         NSNumber *rackID = layout[rI];
         
-//        NSLog(@"Layout: %@", layout[rI]);
-        
-        NSMutableDictionary *data = [rackData objectForKey: rackID];
-        
-        NSMutableArray *moduleLayout = [data objectForKey: @"moduleLayout"];
+        NSMutableDictionary *rackData = [rackData objectForKey: rackID];
         
         // Create rack
-        rackControl *rack = [[rackControl alloc] initWithFrame: NSMakeRect(0, 0, RACK_WIDTH, _mainWin.frame.size.height) andData: data];
+        rackControl *rack = [[rackControl alloc] initWithFrame: NSMakeRect(0, 0, RACK_WIDTH, _mainWin.frame.size.height) andData: rackData];
         
         [rack setOrigin:NSMakePoint(rI * (RACK_WIDTH + 2) + 2, TOOLBAR_HEIGHT + 2 + TITLE_BAR_HEIGHT)];
         
-        int yLoc = 0;
-        
-        for(int mI = 0; mI < [data[@"moduleLayout"] count]; mI++) {
-            
-            NSNumber *moduleID = data[@"moduleLayout"][mI];
-            
-            NSMutableDictionary *moduleData = [data[@"modules"] objectForKey: moduleID];
-            
-            moduleBase *module = [self getModuleWithData: moduleData];
-            
-            [module setOrigin: NSMakePoint(0, yLoc)];
-            
-            module.delegate = rack;
-            
-            [rack.moduleView addModuleView: module];
-            
-            yLoc += module.frameHeight;
-            
-            NSLog(@"%d", yLoc);
-            
-        }
+        [_racks setObject: rack forKey: rackID];
         
         [self addSubview:rack];
-        [self.racks addObject: rack];
         
     }
     
     [self resizeWin: [layout count]];
 }
-                   
--(moduleBase*)getModuleWithData:(NSMutableDictionary*)moduleData{
-    
-    moduleBase *module;
 
-    switch([moduleData[@"type"] intValue]) {
-        case 1: {
-            module = [[modulePad alloc] initWithData: moduleData];
-//            NSLog(@"added pad");
-        } break;
-        case 2: {
-            module = [[moduleSlider alloc] initWithData: moduleData];
-//            NSLog(@"added slider");
-        } break;
-    }
-    
-    return module;
-    
-}
 
 -(void)drawRect:(NSRect)rect {
 //    [[NSColor colorWithPatternImage: [global sharedGlobalData].patternBg] set];

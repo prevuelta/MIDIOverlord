@@ -23,4 +23,6 @@
 -(void)checkClippedViewPosition;
 -(void)anchorClippedViewToBottom;
 
+-(void)emptyView;
+
 @end

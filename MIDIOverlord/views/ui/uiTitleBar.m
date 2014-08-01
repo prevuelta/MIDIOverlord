@@ -18,7 +18,7 @@ NSPoint initialLocation;
     self = [super initWithFrame:frame];
     if (!self) return nil;
     
-    NSString* testString = @"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890 _!@#$%^&*()-=_+[]\{}|,./<>?:\"";
+    NSString* testString = @"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890_!@#$%^&*()-=_+[]\{}|,./<>?:\"";
     
 //    uiTextField *appTitle = [[uiTextField alloc] initWithString: @"Untitled"];
      uiTextField *appTitle = [[uiTextField alloc] initWithString: testString];

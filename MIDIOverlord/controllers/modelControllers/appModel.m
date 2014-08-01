@@ -69,7 +69,7 @@
     return [[dictionary objectForKey: key] intValue];
 }
 
--(void)addRack:(NSNumber*)type {
+-(NSNumber*)addRack:(NSNumber*)type {
 
     [global deselectNotify];
     
@@ -98,12 +98,14 @@
     [rack setObject: [NSMutableArray new] forKey: @"moduleLayout"];
     [rack setObject: [NSMutableArray new] forKey: @"midiDest"];
     
-    // Add rack
+    
     [_rackData setObject: rack forKey: _rackID];
-//
+
     [_rackLayout addObject: _rackID];
-//
+
     _rackCount = (int)[_rackLayout count];
+    
+    return _rackID;
     
 }
 
@@ -116,9 +118,11 @@
     [_rackLayout removeObject:ref[@"rackID"]];
 }
 
--(void)addModule:(NSNumber*)rackID :(NSNumber*)type; {
+-(void)addModuleOfType: (NSNumber*)type toRack: (NSNumber*)rackID {
     
     [global deselectNotify];
+    
+    NSLog(@"Rack data: %@", rackID);
     
     NSMutableDictionary* rack = [_rackData objectForKey: rackID];
 
@@ -135,13 +139,13 @@
         case 1 :
             module[@"noteOnStatus"] = @144;
             module[@"noteOffStatus"] = @128;
-            module[@"pad1Note"] = @-1;
+            module[@"pad1Note"] = @24;
             module[@"pad1Vel"] = @110;
-            module[@"pad2Note"] = @-1;
+            module[@"pad2Note"] = @24;
             module[@"pad2Vel"] = @110;
-            module[@"pad3Note"] = @-1;
+            module[@"pad3Note"] = @24;
             module[@"pad3Vel"] = @110;
-            module[@"pad4Note"] = @-1;
+            module[@"pad4Note"] = @24;
             module[@"pad4Vel"] = @110;
             break;
         case 2 :

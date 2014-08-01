@@ -8,9 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 #import "rackControl.h"
-#import "moduleBase.h"
-#import "moduleSlider.h"
-#import "modulePad.h"
 #import "uiToolBar.h"
 #import "uiTitleBar.h"
 #import "global.h"
@@ -21,24 +18,31 @@
 
 @property BOOL editMode;
 
-@property NSMutableArray* racks;
+@property NSMutableDictionary* racks;
 
 @property uiTitleBar* titleBar;
 @property uiToolBar* toolBar;
 
 -(id)initWithWin:(NSWindow*)mainWin;
 
-//-(void)resizeWinEvent:(NSNotification*)notification;
 -(void)resizeWin:(int)rackCount;
 
 -(void)windowResizeHandler:(NSNotification*)notification;
 
 -(void)drawRect:(NSRect)rect;
 
--(void)updateRacks:(NSMutableDictionary*)rackData :(NSMutableArray*)layout;
+
+
 -(moduleBase*)getModuleWithData:(NSMutableDictionary*)moduleData;
 
-
-
+// Create
+-(void)createRacksWithData:(NSMutableDictionary*)rackData andLayout:(NSMutableArray*)layout;
+-(void)addRackWithData: (NSMutableDictionary*)rackData;
+// Update
+-(void)updateRack:(NSMutableDictionary*)rackData;
+-(void)updateRackModules:(NSNumber*)rackID;
+// Remove
+-(void)removeRack:(NSNumber*)rackID;
+-(void)arrangeRacks;
 
 @end

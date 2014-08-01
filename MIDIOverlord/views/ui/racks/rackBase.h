@@ -8,6 +8,8 @@
 
 #import "uiBase.h"
 #import "moduleBase.h"
+#import "moduleSlider.h"
+#import "modulePad.h"
 #import "scrollableView.h"
 #import "controlList.h"
 #import "uiEditableTextField.h"
@@ -41,6 +43,9 @@
 // Modules
 @property NSMutableDictionary *moduleData;
 
+// Midi
+@property NSArrayController *midiDeviceController;
+
 // Notifications
 //@property NSNotificationCenter* center;
 
@@ -50,8 +55,9 @@
 // Util functions
 -(void)mouseDown:(NSEvent *)theEvent;
 
-// Midi
-@property NSArrayController *midiDeviceController;
+
+
+-(void)updateModules;
 
 
 @end

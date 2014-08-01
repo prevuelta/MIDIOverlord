@@ -53,18 +53,17 @@
     
    [self addSubview: _ccControl ];
 
-    uiButton *removeBtn = [[uiButton alloc] initWithSize: 12];
-    [removeBtn setEvent:@"removeModule" withData: @{@"rackID": self.data[@"rackID"], @"moduleID" : self.data[@"moduleID"]}];
+    uiButton *removeBtn = [[uiButton alloc] initWithSize: 12 andEvent: @"removeModule"];
+    [removeBtn setEventData: @{@"rackID": self.data[@"rackID"], @"moduleID" : self.data[@"moduleID"]}];
     [removeBtn setOrigin: NSMakePoint(self.width - 20, 18)];
-    
+
     [self addSubview: removeBtn];
-    
-    
-    uiButton *mapBtn = [[uiButton alloc] initWithSize: 12];
-    [mapBtn setEvent:@"mapRecord" withData: @{@"rackID": self.data[@"rackID"], @"moduleID" : self.data[@"moduleID"]}];
+
+    uiButton *mapBtn = [[uiButton alloc] initWithSize: 12 andEvent: @"midiRecord"];
+    [mapBtn setEventData: @{@"rackID": self.data[@"rackID"], @"moduleID" : self.data[@"moduleID"]}];
     [mapBtn setIsToggle: YES];
     [mapBtn setOrigin: NSMakePoint(0, 18)];
-    
+
     [self addSubview: mapBtn];
     
     return self;

@@ -37,7 +37,11 @@ int baseMarker;
     [_textVal setOrigin:NSMakePoint(RACK_WIDTH - 36 - SCROLLER_WIDTH, 0)];
     [_textVal setDrawBg: NO];
     [_textVal setTextColor:[NSColor whiteColor]];
+    
     [self addSubview: _textVal];
+    
+    self.defaultColor = [global sharedGlobalData].colors[@"darkestGrey"];
+    self.markerColor = [global sharedGlobalData].colors[@"darkGrey"];
     
     return self;
     
@@ -48,12 +52,12 @@ int baseMarker;
     NSBezierPath* bgPath = [NSBezierPath new];
     NSBezierPath* markerPath = [NSBezierPath new];
     
-    [[global sharedGlobalData].darkestGrey set];
+    [self.defaultColor set];
     
     [bgPath appendBezierPathWithRect:NSMakeRect(0, 0, self.size.x, self.size.y)];
     [bgPath fill];
     
-    [[global sharedGlobalData].markerColor set];
+    [self.markerColor set];
     
     [markerPath appendBezierPathWithRect:NSMakeRect(0, 0, self.marker, self.size.y)];
     [markerPath fill];

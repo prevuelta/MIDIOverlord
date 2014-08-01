@@ -14,7 +14,7 @@
 
      NSLog(@"Destinations: %@", [global sharedGlobalData].midiDestinations);
     
-    uiTextField *label = [[uiTextField alloc] initWithString: @"Send to:"];
+    uiTextField *label = [[uiTextField alloc] initWithString: @"send to:"];
     
     [label setDrawBg:NO];
     [label setOrigin:NSMakePoint(4, 24)];
@@ -30,7 +30,6 @@
     [self.midiDeviceController bind:@"content" toObject:self withKeyPath: @"deviceArray" options: nil];
     
     [self.midiDeviceController setAvoidsEmptySelection: NO];
-
     
     self.midiDestSelect = [[controlList alloc] initWithContent: _deviceArray];
 
@@ -45,7 +44,7 @@
     
     self.midiChannelControl = [[controlText alloc] initWithLabel: @"CH" andValue: self.data[@"channel"]];
     
-    [self.midiChannelControl setOriginWithX: self.label.frameWidth + 4 andY: 4];
+    [self.midiChannelControl setOriginWithX: self.label.frameWidth + 8 andY: 4];
     
     [self.midiChannelControl setMax: 16];
     [self.midiChannelControl setMin: 1];
@@ -57,13 +56,13 @@
     
     // Add ui
     // Add Slider
-    uiButton *addPad = [[uiButton alloc] initWithSize: 20];
+    uiButton *addPad = [[uiButton alloc] initWithSize: 20 andEvent: @"addPads"];
     [addPad setOrigin: NSMakePoint(28, self.headerHeight - 24)];
-    [addPad setEvent: @"addModule" withData: @{@"type" : @1, @"rackID" : self.rackID }];
+    [addPad setEventData: @{@"type" : @1, @"rackID" : self.rackID }];
     
-    uiButton *addSlider = [[uiButton alloc] initWithSize: 20];
+    uiButton *addSlider = [[uiButton alloc] initWithSize: 20 andEvent:@"addSlider"];
     [addSlider setOrigin: NSMakePoint(4, self.headerHeight - 24)];
-    [addSlider setEvent: @"addModule" withData: @{@"type" : @2, @"rackID" : self.rackID }];
+    [addSlider setEventData: @{@"type" : @2, @"rackID" : self.rackID }];
     
     [self addSubview: addPad];
     [self addSubview: addSlider];
@@ -87,6 +86,25 @@
     
 -(void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+-(moduleBase*)getModuleWithData:(NSMutableDictionary*)moduleData{
+    
+    moduleBase *module;
+    
+    switch([moduleData[@"type"] intValue]) {
+        case 1: {
+            module = [[modulePad alloc] initWithData: moduleData];
+            //            NSLog(@"added pad");
+        } break;
+        case 2: {
+            module = [[moduleSlider alloc] initWithData: moduleData];
+            //            NSLog(@"added slider");
+        } break;
+    }
+    
+    return module;
+    
 }
 
 
