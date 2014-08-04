@@ -10,9 +10,7 @@
 
 @implementation controlOption
 
-@synthesize keyValue = _keyValue;
-
-- (id)initWithName: (NSString*)name {
+- (id)initWithName: (NSString*)name andIndex:(int)index{
     _label = [[uiTextField alloc] initWithString: name andMaxLength: 11];
     
     self = [super initWithFrame:_label.frame];
@@ -22,6 +20,8 @@
     [_label setDrawBg:YES];
     
     [self addSubview:_label];
+    
+    _index = index;
     
     NSTrackingAreaOptions mouseEnterExitOptions = NSTrackingActiveInActiveApp;
     mouseEnterExitOptions |= NSTrackingMouseEnteredAndExited;
@@ -66,7 +66,7 @@
 -(void)selectOption {
     NSLog(@"Sending delegate...");
 //    [_label setBackgroundColor:self.activeColor];
-    [self.delegate setSelectedOption: self];
+    [self.delegate setSelectedIndex: [NSNumber numberWithInt: self.index]];
     [global deselectNotify];
    
 }

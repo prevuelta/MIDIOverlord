@@ -12,7 +12,7 @@
 
 @interface rackControl : rackBase
 
-@property NSMutableArray *deviceArray;
+@property NSArray *deviceArray;
 
 -(void)updateMidiDestinations:(NSNotification*)notification;
 

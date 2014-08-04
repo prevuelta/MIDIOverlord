@@ -9,19 +9,19 @@
 #import "controlBase.h"
 #import "uiTextField.h"
 
-//@class controlOption;
-//
-//@protocol controlOptionDelegate
-//-(void)setSelectedOption: (controlOption) option;
-//@end
+@class controlOption;
+
+@protocol controlOptionDelegate
+//-(void)setSelectedIndex: (int)index;
+@end
 
 @interface controlOption : controlBase;
 
 @property (nonatomic, assign) id delegate;
 
-@property NSArray* keyValue;
 @property uiTextField *label;
+@property int index;
 
-- (id)initWithName: (NSString*)name;
+- (id)initWithName: (NSString*)name andIndex:(int)index;
 
 @end

@@ -33,6 +33,5 @@
 
 -(void)deselect:(NSNotification*)notification;
 
--(controlOption*)optionWithName:(NSString*)name andYLoc: (int) yLoc;
 
 @end

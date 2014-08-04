@@ -76,7 +76,6 @@
 
 -(void)mouseDown:(NSEvent*)theEvent {
     
-
     if(self.active) {
         [global deselectNotify];
     } else {
@@ -144,19 +143,19 @@ NSComparisonResult compareViews(id firstView, id secondView, void *context) {
         
         NSString *optionName = [_content[i] name];
         
-        controlOption *option = [self optionWithName: optionName];
+        controlOption *option =  [[controlOption alloc] initWithName: optionName andIndex: i];
+
+        option.delegate = self;
         
         [option setOrigin:NSMakePoint(0, yLoc)];
 
-        // [self addSubview: ];
+        [self addSubview: option ];
         
         yLoc += 16;
 
     }
     
     [self setNeedsDisplay: YES];
-    
-    
 }
 
 -(void)removeOptions {
@@ -164,12 +163,5 @@ NSComparisonResult compareViews(id firstView, id secondView, void *context) {
         [option removeFromSuperview];
     }
 }
-
--(controlOption*)optionWithName:(NSString*)name {
-    controlOption *option = [[controlOption alloc] initWithName: name];
-    option.delegate = self;
-    return option;
-}
-
 
 @end

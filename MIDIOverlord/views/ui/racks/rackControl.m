@@ -29,7 +29,7 @@
     [self updateMidiDestinations: nil];
     
     self.midiSend = [[controlList alloc] initWithContent: _deviceArray];
-    self.midiListen = [[controlList alloc] initWithContent: _deviceArray];
+    self.midiListen = [[controlList alloc] initWithContent: [[MIKMIDIDeviceManager sharedDeviceManager] virtualSources]];
     
     [self.midiSend setOrigin: NSMakePoint(RACK_WIDTH - self.midiSend.frameWidth - 4, 44)];
     [self.midiListen setOrigin: NSMakePoint(RACK_WIDTH - self.midiSend.frameWidth - 4, 24)];
@@ -93,11 +93,12 @@
 }
 
 -(void)updateMidiDestinations:(NSNotification*)notification {
-    _deviceArray = [[MIKMIDIDeviceManagerInterface sharedDeviceManager] virtualDestinations];
+    [self setDeviceArray: [[MIKMIDIDeviceManagerInterface sharedDeviceManager] virtualDestinations]];
+
 //    [allDestinations addObjectsFromArray: [[MIKMIDIDeviceManagerInterface sharedDeviceManager] availableDevices]];
 //    [allDestinations addObject: @{@"name": @"None", @"value" : @0}];
 //    [self setDeviceArray: allDestinations];
-//    NSLog(@"updated destinations");
+//    NSLog(@"updated destinations %@", _deviceArray);
 }
     
 -(void)dealloc {
