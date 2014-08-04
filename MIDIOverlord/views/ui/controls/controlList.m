@@ -75,14 +75,12 @@
 }
 
 -(void)mouseDown:(NSEvent*)theEvent {
-//    NSLog(@"Whats up");
-    [global deselectNotify];
     
+
     if(self.active) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"deselectAll" object:self userInfo: nil];
+        [global deselectNotify];
     } else {
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"deselectAll" object:self userInfo: nil];
-//        NSLog(@"settgin selcted");
+        [global deselectNotify];
         self.active = !self.active;
         [self setTag: 20];
         NSRect f = self.frame;
@@ -157,6 +155,8 @@ NSComparisonResult compareViews(id firstView, id secondView, void *context) {
     }
     
     [self setNeedsDisplay: YES];
+    
+    
 }
 
 -(void)removeOptions {

@@ -26,7 +26,7 @@
     
     self.height = frame.size.height - TOOLBAR_HEIGHT - 30;
     
-    self.headerHeight = 84;
+    self.headerHeight = 96;
     
     [self setSelected:NO];
     
@@ -46,7 +46,7 @@
     
     uiButton *removeBtn = [[uiButton alloc] initWithSize: 12 andEvent: @"removeRack"];
     [removeBtn setEventData: @{@"rackID": self.rackID}];
-    [removeBtn setOrigin: NSMakePoint(RACK_WIDTH - 16, 4)];
+    [removeBtn setOrigin: NSMakePoint(RACK_WIDTH - 16, 2)];
     [removeBtn setInEditView:YES];
     
     [self addSubview: removeBtn];

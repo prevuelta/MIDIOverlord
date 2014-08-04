@@ -41,7 +41,7 @@ int baseMarker;
     [self addSubview: _textVal];
     
     self.defaultColor = [global sharedGlobalData].colors[@"darkestGrey"];
-    self.markerColor = [global sharedGlobalData].colors[@"darkGrey"];
+    self.markerColor = [global sharedGlobalData].colors[@"red"];
     
     return self;
     
@@ -59,7 +59,7 @@ int baseMarker;
     
     [self.markerColor set];
     
-    [markerPath appendBezierPathWithRect:NSMakeRect(0, 0, self.marker, self.size.y)];
+    [markerPath appendBezierPathWithRect:NSMakeRect(0, 4, self.marker, self.size.y -8)];
     [markerPath fill];
     
 }

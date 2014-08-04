@@ -12,34 +12,50 @@
 
 -(void)addRackTitle {
 
-     NSLog(@"Destinations: %@", [global sharedGlobalData].midiDestinations);
+    NSLog(@"Destinations: %@", [global sharedGlobalData].midiDestinations);
     
-    uiTextField *label = [[uiTextField alloc] initWithString: @"send to:"];
+    uiTextField *sendLabel = [[uiTextField alloc] initWithString: @"Send to:"];
+    uiTextField *listenLabel = [[uiTextField alloc] initWithString: @"Listen to:"];
     
-    [label setDrawBg:NO];
-    [label setOrigin:NSMakePoint(4, 24)];
+    [sendLabel setDrawBg:NO];
+    [listenLabel setDrawBg:NO];
     
-    [self addSubview: label];
+    [sendLabel setOrigin:NSMakePoint(4, 44)];
+    [listenLabel setOrigin:NSMakePoint(4, 24)];
+    
+    [self addSubview: sendLabel];
+    [self addSubview: listenLabel];
     
     [self updateMidiDestinations: nil];
     
-    self.midiDeviceController = [[NSArrayController alloc] initWithContent: _deviceArray];
+    self.midiSend = [[controlList alloc] initWithContent: _deviceArray];
+    self.midiListen = [[controlList alloc] initWithContent: _deviceArray];
     
-    [self.midiDeviceController addObserver:self forKeyPath:@"deviceArray" options: 0 context: NULL];
+    [self.midiSend setOrigin: NSMakePoint(RACK_WIDTH - self.midiSend.frameWidth - 4, 44)];
+    [self.midiListen setOrigin: NSMakePoint(RACK_WIDTH - self.midiSend.frameWidth - 4, 24)];
     
-    [self.midiDeviceController bind:@"content" toObject:self withKeyPath: @"deviceArray" options: nil];
+    [self addSubview: self.midiSend];
+    [self addSubview: self.midiListen];
     
-    [self.midiDeviceController setAvoidsEmptySelection: NO];
+//    self.midiDeviceController = [[NSArrayController alloc] initWithContent: _deviceArray];
+//    
+//    [self.midiDeviceController addObserver:self forKeyPath:@"deviceArray" options: 0 context: NULL];
+//
+    [self.midiSend bind:@"content" toObject: self withKeyPath:@"deviceArray" options: nil];
     
-    self.midiDestSelect = [[controlList alloc] initWithContent: _deviceArray];
-
-    [self.midiDestSelect bind:@"content" toObject:self.midiDeviceController withKeyPath: @"arrangedObjects" options:nil];
-    
-//    [self.midiDestSelect bind:@"selectedIndex" toObject: self.midiDeviceController withKeyPath: @"selectionIndex" options:nil];
-    
-    [self.midiDestSelect setOrigin: NSMakePoint(label.frameWidth + 12, 24)];
-    
-    [self addSubview: self.midiDestSelect];
+//    [self.midiSend bind:@"content" toObject:self withKeyPath: @"deviceArray" options: nil];
+//
+//    [self.midiDeviceController setAvoidsEmptySelection: NO];
+//    
+//    self.midiDestSelect = [[controlList alloc] initWithContent: _deviceArray];
+//
+//    [self.midiDestSelect bind:@"content" toObject:self.midiDeviceController withKeyPath: @"arrangedObjects" options:nil];
+//    
+////    [self.midiDestSelect bind:@"selectedIndex" toObject: self.midiDeviceController withKeyPath: @"selectionIndex" options:nil];
+//    
+//    [self.midiDestSelect setOrigin: NSMakePoint(label.frameWidth + 12, 24)];
+//    
+//    [self addSubview: self.midiDestSelect];
     
     
     self.midiChannelControl = [[controlText alloc] initWithLabel: @"CH" andValue: self.data[@"channel"]];
@@ -77,11 +93,11 @@
 }
 
 -(void)updateMidiDestinations:(NSNotification*)notification {
-    NSMutableArray *allDestinations = [[[MIKMIDIDeviceManagerInterface sharedDeviceManager] virtualDestinations] mutableCopy];
+    _deviceArray = [[MIKMIDIDeviceManagerInterface sharedDeviceManager] virtualDestinations];
 //    [allDestinations addObjectsFromArray: [[MIKMIDIDeviceManagerInterface sharedDeviceManager] availableDevices]];
 //    [allDestinations addObject: @{@"name": @"None", @"value" : @0}];
-    [self setDeviceArray: allDestinations];
-    NSLog(@"updated destinations");
+//    [self setDeviceArray: allDestinations];
+//    NSLog(@"updated destinations");
 }
     
 -(void)dealloc {
