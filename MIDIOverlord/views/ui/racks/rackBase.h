@@ -22,7 +22,9 @@
 @property NSMutableArray* subViews;
 @property int headerHeight;
 
-@property controlList *midiDestSelect;
+@property controlList *midiSend;
+@property controlList *midiListen;
+
 @property NSArray *midiDest;
 
 @property controlText *midiChannelControl;

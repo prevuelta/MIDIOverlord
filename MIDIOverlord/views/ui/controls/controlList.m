@@ -75,14 +75,12 @@
 }
 
 -(void)mouseDown:(NSEvent*)theEvent {
-//    NSLog(@"Whats up");
-    [global deselectNotify];
     
+
     if(self.active) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"deselectAll" object:self userInfo: nil];
+        [global deselectNotify];
     } else {
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"deselectAll" object:self userInfo: nil];
-//        NSLog(@"settgin selcted");
+        [global deselectNotify];
         self.active = !self.active;
         [self setTag: 20];
         NSRect f = self.frame;
@@ -137,25 +135,19 @@ NSComparisonResult compareViews(id firstView, id secondView, void *context) {
 
 -(void)setContent:(NSArray*)content {
     
-//    NSLog(@"Setting content");
+    NSLog(@"Updating content");
     
     _content = content;
 
-    [self setDisabled: !(BOOL)[_content count]];
-
-//    NSLog(@"Disabled: %d %@", (BOOL)[_content count], _content);
+    [self setDisabled: !(BOOL)[content count]];
     
     NSInteger currentOptionY = self.height;
     
-    for(controlOption *option in self.subviews) {
-        [option removeFromSuperview];
-    }
+    [self setSubviews: [NSArray array]];
     
-    for(int i = 0; i < [_content count]; i++) {
-
-//        NSLog(@"%@", [_content[i] name]);
+    for(int i = 0; i < [content count]; i++) {
         
-        NSArray *optionData = @[[NSNumber numberWithInt:i], [_content[i] name]];
+        NSArray *optionData = @[[NSNumber numberWithInt:i], [content[i] name]];
 
         controlOption *option = [[controlOption alloc] initWithKeyValue: optionData]; 
 
@@ -163,14 +155,14 @@ NSComparisonResult compareViews(id firstView, id secondView, void *context) {
 
         option.delegate = self;
 
-        [self addSubview:option];
+        [self addSubview: option];
 
         currentOptionY += option.frameHeight;
-        
-//        NSLog(@"Option y %d", currentOptionY);
     }
     
     [self setNeedsDisplay: YES];
+    
+    
 }
 
 
