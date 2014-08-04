@@ -13,8 +13,7 @@
 
 @property int width;
 
-@property NSMutableDictionary *options;
-@property int optionCount;
+@property NSMutableArray *optionViews;
 
 @property BOOL hasNull;
 
@@ -33,5 +32,7 @@
 -(id)initWithContent:(NSArray*)content;
 
 -(void)deselect:(NSNotification*)notification;
+
+-(controlOption*)optionWithName:(NSString*)name andYLoc: (int) yLoc;
 
 @end

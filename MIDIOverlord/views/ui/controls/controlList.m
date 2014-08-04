@@ -125,7 +125,6 @@ NSComparisonResult compareViews(id firstView, id secondView, void *context) {
 }
 
 -(void)setSelectedIndex:(NSNumber *)selectedIndex {
-    NSLog(@"Setting index");
     [_label setStringValue: [_content[[selectedIndex intValue]] name]];
     _selectedIndex = selectedIndex;
 }
@@ -137,40 +136,39 @@ NSComparisonResult compareViews(id firstView, id secondView, void *context) {
 
 -(void)setContent:(NSArray*)content {
     
-//    NSLog(@"Setting content");
-    
     _content = content;
 
     [self setDisabled: !(BOOL)[_content count]];
-
-//    NSLog(@"Disabled: %d %@", (BOOL)[_content count], _content);
     
-    NSInteger currentOptionY = self.height;
-    
-    for(controlOption *option in self.subviews) {
-        [option removeFromSuperview];
-    }
+    int yLoc = self.height;
     
     for(int i = 0; i < [_content count]; i++) {
-
-//        NSLog(@"%@", [_content[i] name]);
         
-        NSArray *optionData = @[[NSNumber numberWithInt:i], [_content[i] name]];
-
-        controlOption *option = [[controlOption alloc] initWithKeyValue: optionData]; 
-
-        [option setOrigin:NSMakePoint(0, currentOptionY)];
-
-        option.delegate = self;
-
-        [self addSubview:option];
-
-        currentOptionY += option.frameHeight;
+        NSString *optionName = [_content[i] name];
         
-//        NSLog(@"Option y %d", currentOptionY);
+        controlOption *option = [self optionWithName: optionName];
+        
+        [option setOrigin:NSMakePoint(0, yLoc)];
+
+        // [self addSubview: ];
+        
+        yLoc += 16;
+
     }
     
     [self setNeedsDisplay: YES];
+}
+
+-(void)removeOptions {
+    for(controlOption *option in self.subviews) {
+        [option removeFromSuperview];
+    }
+}
+
+-(controlOption*)optionWithName:(NSString*)name {
+    controlOption *option = [[controlOption alloc] initWithName: name];
+    option.delegate = self;
+    return option;
 }
 
 

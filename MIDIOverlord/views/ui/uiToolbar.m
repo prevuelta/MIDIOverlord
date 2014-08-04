@@ -18,7 +18,7 @@
     
     // Add rack
     uiButton *addControlRack = [[uiButton alloc] initWithSize: 24 andEvent: @"addControlRack"];
-    [addControlRack setOrigin: NSMakePoint(4, 4)];
+    [addControlRack setOrigin: NSMakePoint(2, 2)];
 
     [self addSubview: addControlRack];
     
@@ -39,12 +39,8 @@
 
 -(void)drawRect:(NSRect)dirtyRect {
     
-//    NSBezierPath* bgPath = [NSBezierPath new];
-//    [[global sharedGlobalData].darkBrown set];
-//    [btnPath appendBezierPathWithRoundedRect:dirtyRect xRadius: 2 yRadius:2];
-//    [bgPath appendBezierPathWithRoundedRect: NSMakeRect(2, 2, self.frameWidth - 4, self.frameHeight - 2) xRadius: 2 yRadius: 2];
-//    [bgPath closePath];
-//    [bgPath fill];
+    [[global sharedGlobalData].colors[@"lighterBrown"] setFill];
+    NSRectFill(dirtyRect);
 
 }
 

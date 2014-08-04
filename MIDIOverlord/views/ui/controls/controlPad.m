@@ -53,7 +53,7 @@
     // Colors
     _activeColor = [global sharedGlobalData].colors[@"red"];
     _defaultColor = [global sharedGlobalData].colors[@"darkestGrey"];
-    _markerColor = [global sharedGlobalData].colors[@"darkerGrey"];
+    _markerColor = [global sharedGlobalData].colors[@"blue"];
     
     return self;
 }
@@ -64,7 +64,7 @@
     NSBezierPath* markerPath = [NSBezierPath new];
     
     [btnPath appendBezierPathWithRoundedRect:NSMakeRect(0, 0, _size.x, _size.y) xRadius: 1 yRadius: 1];
-    [markerPath appendBezierPathWithRoundedRect:NSMakeRect(0, 0, _size.x, _marker) xRadius: 1 yRadius: 1];
+    [markerPath appendBezierPathWithRoundedRect:NSMakeRect(0, 0, _size.x, _size.y) xRadius: 1 yRadius: 1];
     
     if(self.active) {
         [self.activeColor set];
@@ -74,7 +74,9 @@
     
     [btnPath fill];
     
-    [[self.markerColor colorWithAlphaComponent:0.8] set];
+    if(self.active) return;
+    
+    [[self.markerColor colorWithAlphaComponent: [_velocity floatValue]  / 127] set];
     
     [markerPath fill];
 }

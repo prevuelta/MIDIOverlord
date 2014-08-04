@@ -18,10 +18,10 @@ NSPoint initialLocation;
     self = [super initWithFrame:frame];
     if (!self) return nil;
     
-    NSString* testString = @"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890_!@#$%^&*()-=_+[]\{}|,./<>?:\"";
+//    NSString* testString = @"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890_!@#$%^&*()-=_+[]\{}|,./<>?:\"";
     
-//    uiTextField *appTitle = [[uiTextField alloc] initWithString: @"Untitled"];
-     uiTextField *appTitle = [[uiTextField alloc] initWithString: testString];
+    uiTextField *appTitle = [[uiTextField alloc] initWithString: @"Untitled"];
+//     uiTextField *appTitle = [[uiTextField alloc] initWithString: testString];
     
     [appTitle setOrigin:NSMakePoint(20, 2)];
     
@@ -29,9 +29,8 @@ NSPoint initialLocation;
 
     [self addSubview: appTitle];
     
-    uiButton *closeWindow = [[uiButton alloc] initWithSize: 16];
-    [closeWindow setEvent:@"closeWindow"];
-    [closeWindow setOrigin: NSMakePoint(2, 2)];
+    uiButton *closeWindow = [[uiButton alloc] initWithSize: 12 andEvent:@"closeWindow"];
+    [closeWindow setOrigin: NSMakePoint(4, 4)];
     
     [self addSubview: closeWindow];
     

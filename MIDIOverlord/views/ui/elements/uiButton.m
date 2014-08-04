@@ -29,15 +29,15 @@
     self.isToggle = NO;
     self.flipped = YES;
     
-    self.defaultColor = [global sharedGlobalData].colors[@"darkestGrey"];
-    self.activeColor =  [global sharedGlobalData].colors[@"darkerGrey"];
+    self.defaultColor = [global sharedGlobalData].colors[@"darkerGrey"];
+    self.activeColor =  [global sharedGlobalData].colors[@"darkGrey"];
     self.toggleColor = [global sharedGlobalData].colors[@"yellow"];
 
     NSDictionary *iconTypes = @{
          @"addControlRack" : @-48,
          @"addMapRack" : @-48,
          @"editMode" : @-72,
-         @"closeWindow" : @0,
+         @"closeWindow" : @-136,
          @"removeRack"   : @-136,
          @"removeModule" : @-136,
          @"addSlider"   : @-96,
