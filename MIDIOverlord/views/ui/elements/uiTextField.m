@@ -14,11 +14,6 @@
 
 static NSPoint gridSystem[54];
 
-//-(id)initWithString:(NSString*)stringValue andSize:(NSArray*)size {
-//    return [self initWithString:stringValue andMaxLength:(int)[stringValue length] andLabelLength:0];
-//
-//}
-
 -(id)initWithString:(NSString*)stringValue {
     return [self initWithString:stringValue andMaxLength:(int)[stringValue length]];
 }

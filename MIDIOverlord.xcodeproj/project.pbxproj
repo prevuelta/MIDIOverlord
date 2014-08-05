@@ -14,6 +14,9 @@
 		6E2449C3196D0B29007CDABB /* appWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2449C2196D0B29007CDABB /* appWindow.m */; };
 		6E29E52A194ABE9800F6BD4F /* global.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E29E529194ABE9800F6BD4F /* global.m */; };
 		6E3126A5194C4D9F00D65716 /* uiEditableTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3126A4194C4D9F00D65716 /* uiEditableTextField.m */; };
+		6E64741119908DBA005E4BD9 /* modulePad.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E64741019908DBA005E4BD9 /* modulePad.m */; };
+		6E64741419908DED005E4BD9 /* controlDial.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E64741319908DED005E4BD9 /* controlDial.m */; };
+		6E6474171990A1B1005E4BD9 /* uiNoteField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6474161990A1B1005E4BD9 /* uiNoteField.m */; };
 		6E7C38CE196CE36D00201195 /* uiTitleBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C38CD196CE36D00201195 /* uiTitleBar.m */; };
 		6E7C564018ED04A80002F09B /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7C563F18ED04A80002F09B /* CoreMIDI.framework */; };
 		6E7C564218ED04C10002F09B /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7C564118ED04C10002F09B /* Cocoa.framework */; };
@@ -46,14 +49,13 @@
 		6EE4457C1936C86100C61171 /* controlList.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE4454E1936C86100C61171 /* controlList.m */; };
 		6EE4457D1936C86100C61171 /* controlOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE445501936C86100C61171 /* controlOption.m */; };
 		6EE4457E1936C86100C61171 /* controlSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE445521936C86100C61171 /* controlSlider.m */; };
-		6EE445801936C86100C61171 /* controlPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE445561936C86100C61171 /* controlPad.m */; };
+		6EE445801936C86100C61171 /* controlTrigger.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE445561936C86100C61171 /* controlTrigger.m */; };
 		6EE445821936C86100C61171 /* moduleBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE4455B1936C86100C61171 /* moduleBase.m */; };
-		6EE445831936C86100C61171 /* modulePad.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE4455D1936C86100C61171 /* modulePad.m */; };
+		6EE445831936C86100C61171 /* modulePads.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE4455D1936C86100C61171 /* modulePads.m */; };
 		6EE445841936C86100C61171 /* moduleSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE4455F1936C86100C61171 /* moduleSlider.m */; };
 		6EE445851936C86100C61171 /* rackBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE445621936C86100C61171 /* rackBase.m */; };
 		6EE445861936C86100C61171 /* rackControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE445641936C86100C61171 /* rackControl.m */; };
 		6EE445871936C86100C61171 /* uiToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE445661936C86100C61171 /* uiToolbar.m */; };
-		6EF2296E1974CCCC004CC127 /* controlRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF2296D1974CCCC004CC127 /* controlRecord.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +80,12 @@
 		6E29E529194ABE9800F6BD4F /* global.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = global.m; sourceTree = "<group>"; };
 		6E3126A3194C4D9F00D65716 /* uiEditableTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uiEditableTextField.h; sourceTree = "<group>"; };
 		6E3126A4194C4D9F00D65716 /* uiEditableTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uiEditableTextField.m; sourceTree = "<group>"; };
+		6E64740F19908DBA005E4BD9 /* modulePad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = modulePad.h; sourceTree = "<group>"; };
+		6E64741019908DBA005E4BD9 /* modulePad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = modulePad.m; sourceTree = "<group>"; };
+		6E64741219908DED005E4BD9 /* controlDial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = controlDial.h; sourceTree = "<group>"; };
+		6E64741319908DED005E4BD9 /* controlDial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = controlDial.m; sourceTree = "<group>"; };
+		6E6474151990A1B1005E4BD9 /* uiNoteField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uiNoteField.h; sourceTree = "<group>"; };
+		6E6474161990A1B1005E4BD9 /* uiNoteField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uiNoteField.m; sourceTree = "<group>"; };
 		6E7C38CC196CE36D00201195 /* uiTitleBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uiTitleBar.h; sourceTree = "<group>"; };
 		6E7C38CD196CE36D00201195 /* uiTitleBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uiTitleBar.m; sourceTree = "<group>"; };
 		6E7C563E18EB94EC0002F09B /* MIDIOverlord.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MIDIOverlord.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,12 +141,12 @@
 		6EE445501936C86100C61171 /* controlOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = controlOption.m; sourceTree = "<group>"; };
 		6EE445511936C86100C61171 /* controlSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = controlSlider.h; sourceTree = "<group>"; };
 		6EE445521936C86100C61171 /* controlSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = controlSlider.m; sourceTree = "<group>"; };
-		6EE445551936C86100C61171 /* controlPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = controlPad.h; sourceTree = "<group>"; };
-		6EE445561936C86100C61171 /* controlPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = controlPad.m; sourceTree = "<group>"; };
+		6EE445551936C86100C61171 /* controlTrigger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = controlTrigger.h; sourceTree = "<group>"; };
+		6EE445561936C86100C61171 /* controlTrigger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = controlTrigger.m; sourceTree = "<group>"; };
 		6EE4455A1936C86100C61171 /* moduleBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = moduleBase.h; sourceTree = "<group>"; };
 		6EE4455B1936C86100C61171 /* moduleBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = moduleBase.m; sourceTree = "<group>"; };
-		6EE4455C1936C86100C61171 /* modulePad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = modulePad.h; sourceTree = "<group>"; };
-		6EE4455D1936C86100C61171 /* modulePad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = modulePad.m; sourceTree = "<group>"; };
+		6EE4455C1936C86100C61171 /* modulePads.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = modulePads.h; sourceTree = "<group>"; };
+		6EE4455D1936C86100C61171 /* modulePads.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = modulePads.m; sourceTree = "<group>"; };
 		6EE4455E1936C86100C61171 /* moduleSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = moduleSlider.h; sourceTree = "<group>"; };
 		6EE4455F1936C86100C61171 /* moduleSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = moduleSlider.m; sourceTree = "<group>"; };
 		6EE445611936C86100C61171 /* rackBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rackBase.h; sourceTree = "<group>"; };
@@ -147,8 +155,6 @@
 		6EE445641936C86100C61171 /* rackControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rackControl.m; sourceTree = "<group>"; };
 		6EE445651936C86100C61171 /* uiToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uiToolBar.h; sourceTree = "<group>"; };
 		6EE445661936C86100C61171 /* uiToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uiToolbar.m; sourceTree = "<group>"; };
-		6EF2296C1974CCCC004CC127 /* controlRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = controlRecord.h; path = MIDIOverlord/views/ui/controls/controlRecord.h; sourceTree = SOURCE_ROOT; };
-		6EF2296D1974CCCC004CC127 /* controlRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = controlRecord.m; path = MIDIOverlord/views/ui/controls/controlRecord.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +208,8 @@
 				6ECD89F21946BE7400CCBE97 /* uiButton.m */,
 				6ECD89F31946BE7400CCBE97 /* uiTextField.h */,
 				6ECD89F41946BE7400CCBE97 /* uiTextField.m */,
+				6E6474151990A1B1005E4BD9 /* uiNoteField.h */,
+				6E6474161990A1B1005E4BD9 /* uiNoteField.m */,
 				6E3126A3194C4D9F00D65716 /* uiEditableTextField.h */,
 				6E3126A4194C4D9F00D65716 /* uiEditableTextField.m */,
 			);
@@ -313,8 +321,6 @@
 			children = (
 				6EE4454B1936C86100C61171 /* controlBase.h */,
 				6EE4454C1936C86100C61171 /* controlBase.m */,
-				6EF2296C1974CCCC004CC127 /* controlRecord.h */,
-				6EF2296D1974CCCC004CC127 /* controlRecord.m */,
 				6ECD89F81947C3EE00CCBE97 /* controlText.h */,
 				6ECD89F91947C3EE00CCBE97 /* controlText.m */,
 				6EE4454D1936C86100C61171 /* controlList.h */,
@@ -323,10 +329,12 @@
 				6EE445501936C86100C61171 /* controlOption.m */,
 				6EE445511936C86100C61171 /* controlSlider.h */,
 				6EE445521936C86100C61171 /* controlSlider.m */,
-				6EE445551936C86100C61171 /* controlPad.h */,
-				6EE445561936C86100C61171 /* controlPad.m */,
+				6EE445551936C86100C61171 /* controlTrigger.h */,
+				6EE445561936C86100C61171 /* controlTrigger.m */,
 				6E8DEB581953FB4F0013CF96 /* controlScrollBar.h */,
 				6E8DEB591953FB4F0013CF96 /* controlScrollBar.m */,
+				6E64741219908DED005E4BD9 /* controlDial.h */,
+				6E64741319908DED005E4BD9 /* controlDial.m */,
 			);
 			path = controls;
 			sourceTree = "<group>";
@@ -336,8 +344,10 @@
 			children = (
 				6EE4455A1936C86100C61171 /* moduleBase.h */,
 				6EE4455B1936C86100C61171 /* moduleBase.m */,
-				6EE4455C1936C86100C61171 /* modulePad.h */,
-				6EE4455D1936C86100C61171 /* modulePad.m */,
+				6EE4455C1936C86100C61171 /* modulePads.h */,
+				6EE4455D1936C86100C61171 /* modulePads.m */,
+				6E64740F19908DBA005E4BD9 /* modulePad.h */,
+				6E64741019908DBA005E4BD9 /* modulePad.m */,
 				6EE4455E1936C86100C61171 /* moduleSlider.h */,
 				6EE4455F1936C86100C61171 /* moduleSlider.m */,
 				6EDB087D19906E4C00D1B98B /* moduleMap.h */,
@@ -461,6 +471,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E6474171990A1B1005E4BD9 /* uiNoteField.m in Sources */,
 				6EE445851936C86100C61171 /* rackBase.m in Sources */,
 				6E8DEB571953F60A0013CF96 /* scrollableView.m in Sources */,
 				6EE4457A1936C86100C61171 /* appView.m in Sources */,
@@ -472,15 +483,16 @@
 				6EE4457C1936C86100C61171 /* controlList.m in Sources */,
 				6ECD89F61946BE7400CCBE97 /* uiButton.m in Sources */,
 				6E2449C3196D0B29007CDABB /* appWindow.m in Sources */,
-				6EF2296E1974CCCC004CC127 /* controlRecord.m in Sources */,
 				6EE4456C1936C86100C61171 /* appViewController.m in Sources */,
 				6EE445821936C86100C61171 /* moduleBase.m in Sources */,
 				6E29E52A194ABE9800F6BD4F /* global.m in Sources */,
 				6EE4457E1936C86100C61171 /* controlSlider.m in Sources */,
 				6E23E6F3198095DA006F6187 /* MIKMIDIDeviceManagerInterface.m in Sources */,
+				6E64741419908DED005E4BD9 /* controlDial.m in Sources */,
+				6E64741119908DBA005E4BD9 /* modulePad.m in Sources */,
 				6EE4456F1936C86100C61171 /* midiController.m in Sources */,
 				6EE4456B1936C86100C61171 /* AppDelegate.m in Sources */,
-				6EE445801936C86100C61171 /* controlPad.m in Sources */,
+				6EE445801936C86100C61171 /* controlTrigger.m in Sources */,
 				6EE445861936C86100C61171 /* rackControl.m in Sources */,
 				6ECD89F71946BE7400CCBE97 /* uiTextField.m in Sources */,
 				6EE445871936C86100C61171 /* uiToolbar.m in Sources */,
@@ -490,7 +502,7 @@
 				6EE445841936C86100C61171 /* moduleSlider.m in Sources */,
 				6E3126A5194C4D9F00D65716 /* uiEditableTextField.m in Sources */,
 				6EE445741936C86100C61171 /* main.m in Sources */,
-				6EE445831936C86100C61171 /* modulePad.m in Sources */,
+				6EE445831936C86100C61171 /* modulePads.m in Sources */,
 				6ECD89FA1947C3EE00CCBE97 /* controlText.m in Sources */,
 				6EE4456E1936C86100C61171 /* appModel.m in Sources */,
 			);

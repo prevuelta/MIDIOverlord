@@ -42,7 +42,8 @@
          @"removeModule" : @-136,
          @"addSlider"   : @-96,
          @"addPads"     : @-116,
-         @"midiRecord"  : @-148
+         @"midiListenRecord"  : @-148,
+         @"midiSendRecord"  : @-148
     };
     
     NSLog(@"Icontype: Event: %@, %@", event, iconTypes[event] );

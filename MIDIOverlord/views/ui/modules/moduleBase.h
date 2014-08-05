@@ -10,11 +10,12 @@
 
 #import "uiBase.h"
 
-#import "controlPad.h"
+#import "controlTrigger.h"
 #import "controlSlider.h"
 #import "controlList.h"
 #import "controlText.h"
 #import "uiTextField.h"
+#import "uiNoteField.h"
 #import "uiEditableTextField.h"
 #import "utilities.h"
 #import "uiButton.h"
@@ -46,7 +47,9 @@
 
 // Methods
 -(id)initWithHeight:(int)height;
+
 -(id)initWithFrame:(NSRect)frame;
+
 -(id)initWithData:(NSMutableDictionary*)data;
 
 @end

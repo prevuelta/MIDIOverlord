@@ -136,18 +136,15 @@
         } mutableCopy];
     
     switch([type intValue]) {
-        case 1 :
+        case 1 : {
             module[@"noteOnStatus"] = @144;
             module[@"noteOffStatus"] = @128;
-            module[@"pad1Note"] = @24;
-            module[@"pad1Vel"] = @110;
-            module[@"pad2Note"] = @24;
-            module[@"pad2Vel"] = @110;
-            module[@"pad3Note"] = @24;
-            module[@"pad3Vel"] = @110;
-            module[@"pad4Note"] = @24;
-            module[@"pad4Vel"] = @110;
-            break;
+            module[@"pads"] = [NSMutableArray new];
+            NSDictionary *pad = @{@"note": @24, @"velocity" : @127, @"inputNote" : @-1, @"inputNoteString" : @"----"};
+            for(int i = 0; i < 4; i++) {
+                [module[@"pads"] addObject: [pad mutableCopy]];
+            }
+        } break;
         case 2 :
             module[@"min"] = @0;
             module[@"max"] = @127;
@@ -167,7 +164,6 @@
     [_rackData setObject: rack forKey: rackID];
     
 }
-
 
 -(NSMutableDictionary*)appData {
     [_state setObject: _rackLayout forKey: @"rackLayout"];

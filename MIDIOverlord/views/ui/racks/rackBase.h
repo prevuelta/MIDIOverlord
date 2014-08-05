@@ -9,7 +9,7 @@
 #import "uiBase.h"
 #import "moduleBase.h"
 #import "moduleSlider.h"
-#import "modulePad.h"
+#import "modulePads.h"
 #import "moduleMap.h"
 #import "scrollableView.h"
 #import "controlList.h"

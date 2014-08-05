@@ -2,22 +2,24 @@
 //  modulePad.h
 //  MIDIOverlord
 //
-//  Created by Pablo Revuelta on 20/12/13.
-//  Copyright (c) 2013 Midnight City. All rights reserved.
+//  Created by Pablo Revuelta on 5/08/14.
+//  Copyright (c) 2014 Midnight City. All rights reserved.
 //
 
 #import "moduleBase.h"
 
 @interface modulePad : moduleBase
 
-@property NSNumber *currentNote;
+@property BOOL velocityIsLocked;
 
-@property BOOL pad1Active;
-@property BOOL pad2Active;
-@property BOOL pad3Active;
-@property BOOL pad4Active;
+@property int min;
+@property int max;
+@property int range;
+@property NSNumber *velocity;
 
--(NSString*)noteString:(int)noteNum;
+@property NSNumber *inputValue;
 
+@property NSNumber *noteValue;
+@property NSString *noteString;
 
 @end

@@ -25,7 +25,6 @@
     
     _data = data;
     
-    NSLog(@"Data received: %@", data);
     
     // Add Slider
     _slider = [[controlSlider alloc] initWithSize:NSMakePoint(self.width, 16) andValue: data[@"ccValue"] andMinValue: 0 andMaxValue:127 ];
@@ -47,7 +46,6 @@
     _ccControl = [[controlText alloc] initWithLabel: @"CC" andValue: data[@"ccNumber"]];
     
    [_ccControl setOrigin:NSMakePoint(editLabel.frameWidth + 16, 16)];
-   [_ccControl setMax:127];
     
    [_data bind:@"ccNumber" toObject: _ccControl withKeyPath:@"value" options:nil];
     
@@ -59,7 +57,7 @@
 
     [self addSubview: removeBtn];
 
-    uiButton *mapBtn = [[uiButton alloc] initWithSize: 12 andEvent: @"midiRecord"];
+    uiButton *mapBtn = [[uiButton alloc] initWithSize: 12 andEvent: @"midiListenRecord"];
     [mapBtn setEventData: @{@"rackID": self.data[@"rackID"], @"moduleID" : self.data[@"moduleID"]}];
     [mapBtn setIsToggle: YES];
     [mapBtn setOrigin: NSMakePoint(0, 18)];

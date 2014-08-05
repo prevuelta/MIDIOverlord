@@ -105,7 +105,7 @@
 
 }
 
--(moduleBase*)getModuleWithData:(NSMutableDictionary*)moduleData{
+-(moduleBase*)getModuleWithData:(NSMutableDictionary*)moduleData {
     
     moduleBase *module;
     

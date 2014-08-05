@@ -1,22 +1,21 @@
 //
-//  controlRecord.m
+//  controlDial.m
 //  MIDIOverlord
 //
-//  Created by Pablo Revuelta on 15/07/14.
+//  Created by Pablo Revuelta on 5/08/14.
 //  Copyright (c) 2014 Midnight City. All rights reserved.
 //
 
-#import "controlRecord.h"
+#import "controlDial.h"
 
-@implementation controlRecord
+@implementation controlDial
 
 - (id)initWithFrame:(NSRect)frame
 {
     self = [super initWithFrame:frame];
-    if (!self) return nil;
-    
-    
-    
+    if (self) {
+        // Initialization code here.
+    }
     return self;
 }
 

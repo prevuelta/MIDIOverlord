@@ -14,8 +14,8 @@
     
     /* Midi connections */
     
-    uiTextField *sendLabel = [[uiTextField alloc] initWithString: @"Send to:"];
     uiTextField *listenLabel = [[uiTextField alloc] initWithString: @"Listen to:"];
+    uiTextField *sendLabel = [[uiTextField alloc] initWithString: @"Speak to:"];
     
     [sendLabel setDrawBg:NO];
     [listenLabel setDrawBg:NO];
@@ -87,7 +87,7 @@
     
     switch([moduleData[@"type"] intValue]) {
         case 1: {
-            module = [[modulePad alloc] initWithData: moduleData];
+            module = [[modulePads alloc] initWithData: moduleData];
         } break;
         case 2: {
             module = [[moduleSlider alloc] initWithData: moduleData];
