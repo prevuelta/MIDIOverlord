@@ -10,6 +10,7 @@
 #import "moduleBase.h"
 #import "moduleSlider.h"
 #import "modulePad.h"
+#import "moduleMap.h"
 #import "scrollableView.h"
 #import "controlList.h"
 #import "uiEditableTextField.h"
@@ -18,14 +19,13 @@
 
 @property (nonatomic, assign) id delegate;
 
+@property int headerHeight;
+
 @property NSMutableDictionary* data;
 @property NSMutableArray* subViews;
-@property int headerHeight;
 
 @property controlList *midiSend;
 @property controlList *midiListen;
-
-@property NSArray *midiDest;
 
 @property controlText *midiChannelControl;
 
@@ -45,19 +45,18 @@
 // Modules
 @property NSMutableDictionary *moduleData;
 
-// Midi
-@property NSArrayController *midiDeviceController;
+/* Midi */
+//@property MIKMIDISourceEndpoint *listenEndpoint;
+//@property MIKMIDISourceEndpoint *sendEndpoint;
 
-// Notifications
-//@property NSNotificationCenter* center;
+/* Notifications */
 
 -(id)initWithFrame:(NSRect)frame andData:(NSMutableDictionary*)data;
 -(void)addRackTitle;
 
-// Util functions
+/* Util functions */
+
 -(void)mouseDown:(NSEvent *)theEvent;
-
-
 
 -(void)updateModules;
 

@@ -22,24 +22,12 @@
 
     [self addSubview: addControlRack];
     
-//    uiButton *addMapRack = [[uiButton alloc] initWithSize: 24 andEvent: @"addMapRack"];
-//    [addMapRack setOrigin: NSMakePoint(32, 4)];
-//    
-//    [self addSubview: addMapRack];
-    
-//    uiButton *editMode = [[uiButton alloc] initWithSize: 24 andEvent: @"editMode"];
-//    [editMode setIsToggle: YES];
-//    [editMode setOrigin: NSMakePoint(32, 4)];
-//    
-//    
-//    [self addSubview: editMode];
-    
     return self;
 }
 
 -(void)drawRect:(NSRect)dirtyRect {
     
-    [[global sharedGlobalData].colors[@"lighterBrown"] setFill];
+    [[global sharedGlobalData].colors[@"brown"] setFill];
     NSRectFill(dirtyRect);
 
 }

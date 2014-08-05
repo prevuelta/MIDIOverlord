@@ -20,11 +20,22 @@
     _max = 127;
     _range = _max;
     _velocity = velocity;
-    
-    _padNote = [[controlText alloc] initWithLabel: @"|" andValue: noteValue];
+
     
     self = [super initWithFrame:NSMakeRect(0, 0, size.x, size.y + _padNote.frameHeight + 2)];
+    
     if(!self) return nil;
+    
+    
+    /* Listen Values */
+    
+    uiButton *listenRecord = [[uiButton alloc] initWithSize: 16 andEvent: @"midiListenRecord"];
+    [listenRecord setOrigin: NSMakePoint(2, self.frameHeight - 18 )];
+    [listenRecord setInEditView:YES];
+    
+    [self addSubview: listenRecord];
+    
+    _padNote = [[controlText alloc] initWithLabel: @"" andValue: noteValue];
     
     [_padNote setOrigin:NSMakePoint(0, 41)];
     

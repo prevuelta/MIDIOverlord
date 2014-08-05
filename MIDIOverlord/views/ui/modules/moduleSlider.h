@@ -15,6 +15,4 @@
 @property controlText *ccControl;
 
 
--(id)initWithData:(NSMutableDictionary*)data;
-
 @end

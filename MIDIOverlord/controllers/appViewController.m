@@ -15,7 +15,7 @@
     if(!self) return nil;
     
     _data = [[appModel alloc] init];
-    
+
     _mainView = [[appView alloc] initWithWin:mainWin];
     
     // Add observers

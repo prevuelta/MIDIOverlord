@@ -44,9 +44,9 @@
 // UI
 @property uiTextField *label;
 
-
 // Methods
 -(id)initWithHeight:(int)height;
 -(id)initWithFrame:(NSRect)frame;
+-(id)initWithData:(NSMutableDictionary*)data;
 
 @end

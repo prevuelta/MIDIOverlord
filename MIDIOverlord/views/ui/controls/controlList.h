@@ -11,23 +11,19 @@
 
 @interface controlList : controlBase <controlOptionDelegate>
 
+@property int height;
 @property int width;
-
-@property NSMutableArray *optionViews;
-
-@property BOOL hasNull;
 
 @property NSArray *content;
 @property NSNumber* selectedIndex;
 
-@property int height;
+@property id selectedObject;
 
 @property NSInteger tag;
 
 @property NSString *labelText;
 
 @property uiTextField *label;
-@property uiTextField *selectLabel;
 
 -(id)initWithContent:(NSArray*)content;
 

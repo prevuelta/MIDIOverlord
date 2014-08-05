@@ -11,8 +11,8 @@
 @implementation rackControl
 
 -(void)addRackTitle {
-
-    NSLog(@"Destinations: %@", [global sharedGlobalData].midiDestinations);
+    
+    /* Midi connections */
     
     uiTextField *sendLabel = [[uiTextField alloc] initWithString: @"Send to:"];
     uiTextField *listenLabel = [[uiTextField alloc] initWithString: @"Listen to:"];
@@ -25,38 +25,21 @@
     
     [self addSubview: sendLabel];
     [self addSubview: listenLabel];
-    
-    [self updateMidiDestinations: nil];
-    
-    self.midiSend = [[controlList alloc] initWithContent: _deviceArray];
+   
+
     self.midiListen = [[controlList alloc] initWithContent: [[MIKMIDIDeviceManager sharedDeviceManager] virtualSources]];
+    self.midiSend = [[controlList alloc] initWithContent: [[MIKMIDIDeviceManager sharedDeviceManager] virtualDestinations]];
     
-    [self.midiSend setOrigin: NSMakePoint(RACK_WIDTH - self.midiSend.frameWidth - 4, 44)];
+    [self.midiListen bind: @"content" toObject: [MIKMIDIDeviceManager sharedDeviceManager] withKeyPath:@"virtualSources" options:nil];
+    [self.midiSend bind: @"content" toObject: [MIKMIDIDeviceManager sharedDeviceManager] withKeyPath:@"virtualDestinations" options:nil];
+    
     [self.midiListen setOrigin: NSMakePoint(RACK_WIDTH - self.midiSend.frameWidth - 4, 24)];
+    [self.midiSend setOrigin: NSMakePoint(RACK_WIDTH - self.midiSend.frameWidth - 4, 44)];
     
-    [self addSubview: self.midiSend];
     [self addSubview: self.midiListen];
-    
-//    self.midiDeviceController = [[NSArrayController alloc] initWithContent: _deviceArray];
-//    
-//    [self.midiDeviceController addObserver:self forKeyPath:@"deviceArray" options: 0 context: NULL];
-//
-    [self.midiSend bind:@"content" toObject: self withKeyPath:@"deviceArray" options: nil];
-    
-//    [self.midiSend bind:@"content" toObject:self withKeyPath: @"deviceArray" options: nil];
-//
-//    [self.midiDeviceController setAvoidsEmptySelection: NO];
-//    
-//    self.midiDestSelect = [[controlList alloc] initWithContent: _deviceArray];
-//
-//    [self.midiDestSelect bind:@"content" toObject:self.midiDeviceController withKeyPath: @"arrangedObjects" options:nil];
-//    
-////    [self.midiDestSelect bind:@"selectedIndex" toObject: self.midiDeviceController withKeyPath: @"selectionIndex" options:nil];
-//    
-//    [self.midiDestSelect setOrigin: NSMakePoint(label.frameWidth + 12, 24)];
-//    
-//    [self addSubview: self.midiDestSelect];
-    
+    [self addSubview: self.midiSend];
+ 
+    /* Channel control */
     
     self.midiChannelControl = [[controlText alloc] initWithLabel: @"CH" andValue: self.data[@"channel"]];
     
@@ -70,8 +53,8 @@
     [self addSubview: self.midiChannelControl ];
     
     
-    // Add ui
-    // Add Slider
+    /* UI buttons */
+    
     uiButton *addPad = [[uiButton alloc] initWithSize: 20 andEvent: @"addPads"];
     [addPad setOrigin: NSMakePoint(28, self.headerHeight - 24)];
     [addPad setEventData: @{@"type" : @1, @"rackID" : self.rackID }];
@@ -80,26 +63,19 @@
     [addSlider setOrigin: NSMakePoint(4, self.headerHeight - 24)];
     [addSlider setEventData: @{@"type" : @2, @"rackID" : self.rackID }];
     
+    uiButton *addMap = [[uiButton alloc] initWithSize: 20 andEvent:@"addMap"];
+    [addMap setOrigin: NSMakePoint(52, self.headerHeight - 24)];
+    [addMap setEventData: @{@"type" : @3, @"rackID" : self.rackID }];
+    
     [self addSubview: addPad];
     [self addSubview: addSlider];
+    [self addSubview: addMap];
     
-    // Observers
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateMidiDestinations:) name:@"MIKMIDIDeviceWasAddedNotification" object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateMidiDestinations:) name:@"MIKMIDIVirtualEndpointWasAddedNotification" object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateMidiDestinations:) name:@"MIKMIDIVirtualEndpointWasRemovedNotification" object:nil];
+    /* Observers */
+
     
 }
 
--(void)updateMidiDestinations:(NSNotification*)notification {
-    [self setDeviceArray: [[MIKMIDIDeviceManagerInterface sharedDeviceManager] virtualDestinations]];
-
-//    [allDestinations addObjectsFromArray: [[MIKMIDIDeviceManagerInterface sharedDeviceManager] availableDevices]];
-//    [allDestinations addObject: @{@"name": @"None", @"value" : @0}];
-//    [self setDeviceArray: allDestinations];
-//    NSLog(@"updated destinations %@", _deviceArray);
-}
     
 -(void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
@@ -112,11 +88,12 @@
     switch([moduleData[@"type"] intValue]) {
         case 1: {
             module = [[modulePad alloc] initWithData: moduleData];
-            //            NSLog(@"added pad");
         } break;
         case 2: {
             module = [[moduleSlider alloc] initWithData: moduleData];
-            //            NSLog(@"added slider");
+        } break;
+        case 3: {
+            module = [[moduleMap alloc] initWithData: moduleData];
         } break;
     }
     

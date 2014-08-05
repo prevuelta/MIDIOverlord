@@ -66,7 +66,7 @@
     
     self.rackID = data[@"rackID"];
     
-    self.midiDest = data[@"midiDest"];
+//    self.sendEndpoint = data[@"midiDest"];
     
     _data = data;
     
@@ -195,7 +195,7 @@
     
     NSLog(@"New data: %@", newData);
 
-    if([[_midiDeviceController selectedObjects] count]) {
+    if([self.midiSend selectedObject]) {
         NSError *error = nil;
         MIKMutableMIDIControlChangeCommand *command = [[MIKMutableMIDIControlChangeCommand alloc] init];
         
@@ -208,7 +208,7 @@
         
         NSArray *commands = @[command];
         
-        MIKMIDIDestinationEndpoint *endpoint = [_midiDeviceController selectedObjects][0];
+        MIKMIDIDestinationEndpoint *endpoint = [self.midiSend selectedObject];
         
         [[MIKMIDIDeviceManager sharedDeviceManager] sendCommands: commands toEndpoint: endpoint error: &error ];
     }
@@ -216,27 +216,27 @@
 
 -(void)midiData:(NSArray*)data {
     
-    if([[_midiDeviceController selectedObjects] count]) {
-        NSError *error = nil;
-        
-        NSLog(@"Status byte: %d", [utilities getMidiPacket: data]);
-
-        MIDIPacket midiPacket = [utilities getMidiPacket: data]->packet[0];
-        
-        MIKMutableMIDICommand *command = [[MIKMutableMIDICommand commandWithMIDIPacket: &midiPacket] mutableCopy];
-        
-        [command setDataByte1: midiPacket.data[1]];
-        
-        NSLog(@"command: %@", command);
-        
-        NSArray *commands = @[command];
-        
-        MIKMIDIDestinationEndpoint *endpoint = [_midiDeviceController selectedObjects][0];
-        
-        [[MIKMIDIDeviceManager sharedDeviceManager] sendCommands: commands toEndpoint: endpoint error: &error ];
-        
-        NSLog(@"Error: %@", [error localizedDescription]);
-    }
+//    if([[_midiDeviceController selectedObjects] count]) {
+//        NSError *error = nil;
+//        
+//        NSLog(@"Status byte: %d", [utilities getMidiPacket: data]);
+//
+//        MIDIPacket midiPacket = [utilities getMidiPacket: data]->packet[0];
+//        
+//        MIKMutableMIDICommand *command = [[MIKMutableMIDICommand commandWithMIDIPacket: &midiPacket] mutableCopy];
+//        
+//        [command setDataByte1: midiPacket.data[1]];
+//        
+//        NSLog(@"command: %@", command);
+//        
+//        NSArray *commands = @[command];
+//        
+//        MIKMIDIDestinationEndpoint *endpoint = [_midiDeviceController selectedObjects][0];
+//        
+//        [[MIKMIDIDeviceManager sharedDeviceManager] sendCommands: commands toEndpoint: endpoint error: &error ];
+//        
+//        NSLog(@"Error: %@", [error localizedDescription]);
+//    }
 
 }
 

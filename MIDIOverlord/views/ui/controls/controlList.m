@@ -65,11 +65,6 @@
     }
 }
 
--(void)uiEvent:(char*)type {
-    NSLog(@"uievetb");
-    //   [self uiEvent:type withInt:0];
-}
-
 -(BOOL)isFlipped {
     return YES;
 }
@@ -83,7 +78,7 @@
         self.active = !self.active;
         [self setTag: 20];
         NSRect f = self.frame;
-        f.size.height = self.height * ([_content count] + 1);
+        f.size.height = self.height * ([_content count] + 2);
         self.frame = f;
     }
     
@@ -92,7 +87,6 @@
 }
 
 -(void)deselect:(NSNotification*)notification {
-//    NSLog(@"List deselect");
     self.active = NO;
     [self setTag: 0];
     NSRect f = self.frame;
@@ -122,10 +116,14 @@ NSComparisonResult compareViews(id firstView, id secondView, void *context) {
 }
 
 -(void)setSelectedIndex:(NSNumber *)selectedIndex {
-    [_label setStringValue: [_content[[selectedIndex intValue]] name]];
+    if([selectedIndex intValue] < 0) {
+        [_label setStringValue: @"None"];
+    } else {
+         [_label setStringValue: [_content[[selectedIndex intValue]] name]];
+        _selectedObject = _content[[selectedIndex intValue]];
+    }
     _selectedIndex = selectedIndex;
 }
-
 
 -(NSArray*)content {
     return _content;
@@ -134,10 +132,24 @@ NSComparisonResult compareViews(id firstView, id secondView, void *context) {
 -(void)setContent:(NSArray*)content {
     
     _content = content;
+    
+    [self setSubviews: [NSArray array]];
 
     [self setDisabled: !(BOOL)[_content count]];
     
     int yLoc = self.height;
+    
+    /* None option */
+    
+    controlOption *option =  [[controlOption alloc] initWithName: @"None" andIndex: -1];
+    
+    option.delegate = self;
+    
+    [option setOrigin:NSMakePoint(0, yLoc)];
+    
+    [self addSubview: option ];
+    
+    yLoc += 16;
     
     for(int i = 0; i < [_content count]; i++) {
         
@@ -156,12 +168,6 @@ NSComparisonResult compareViews(id firstView, id secondView, void *context) {
     }
     
     [self setNeedsDisplay: YES];
-}
-
--(void)removeOptions {
-    for(controlOption *option in self.subviews) {
-        [option removeFromSuperview];
-    }
 }
 
 @end

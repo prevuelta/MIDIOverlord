@@ -17,7 +17,6 @@
 @property BOOL pad3Active;
 @property BOOL pad4Active;
 
--(id)initWithData:(NSMutableDictionary*)data;
 -(NSString*)noteString:(int)noteNum;
 
 
