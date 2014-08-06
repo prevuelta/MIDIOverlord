@@ -28,7 +28,8 @@
 
 // Rack vars
 #define MODULE_HEIGHT 160
-#define RACK_WIDTH 192
+#define RACK_WIDTH 190
+#define MODULE_WIDTH 182
 #define SCROLLER_WIDTH 4
 #define TITLE_BAR_HEIGHT 20
 #define TOOLBAR_HEIGHT 28

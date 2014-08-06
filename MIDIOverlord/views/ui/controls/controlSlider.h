@@ -12,12 +12,13 @@
 @interface controlSlider : controlBase
 
 @property NSNumber* value;
+
 @property int max;
 @property int min;
 @property int range;
 @property int marker;
 
-@property NSPoint size;
+@property NSSize size;
 @property NSTrackingArea *trackRect;
 
 @property uiTextField *textVal;
@@ -26,7 +27,9 @@
 @property NSColor *defaultColor;
 @property NSColor *markerColor;
 
--(id)initWithSize:(NSPoint)size andValue: (NSNumber*)value andMinValue:(int)min andMaxValue:(int)max;
+@property BOOL isVertical;
+
+-(id)initWithSize:(NSSize)size andValue: (NSNumber*)value andMinValue:(int)min andMaxValue:(int)max;
 
 -(void)updateControlFromEvent:(NSEvent*)e;
 -(void)updateControlFromData:(NSNumber*)value;

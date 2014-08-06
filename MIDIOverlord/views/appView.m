@@ -135,7 +135,7 @@
 -(void)drawRect:(NSRect)rect {
 //    [[NSColor colorWithPatternImage: [global sharedGlobalData].patternBg] set];
     
-    [[global sharedGlobalData].black set];
+    [[global sharedGlobalData].colors[@"white"] setFill];
     NSRectFill(rect);
 }
 

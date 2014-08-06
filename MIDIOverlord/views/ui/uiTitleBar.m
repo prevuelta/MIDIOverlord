@@ -18,10 +18,10 @@ NSPoint initialLocation;
     self = [super initWithFrame:frame];
     if (!self) return nil;
     
-//    NSString* testString = @"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890_!@#$%^&*()-=_+[]\{}|,./<>?:\"";
+    NSString* testString = @"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890_!@#$%^&*()-=_+[]\{}|,./<>?:\"";
     
-    uiTextField *appTitle = [[uiTextField alloc] initWithString: @"Untitled"];
-//     uiTextField *appTitle = [[uiTextField alloc] initWithString: testString];
+//    uiTextField *appTitle = [[uiTextField alloc] initWithString: @"Untitled"];
+     uiTextField *appTitle = [[uiTextField alloc] initWithString: testString];
     
     [appTitle setOrigin:NSMakePoint(20, 2)];
     
@@ -40,9 +40,9 @@ NSPoint initialLocation;
 - (void)drawRect:(NSRect)dirtyRect {
     
     if(self.active) {
-        [[global sharedGlobalData].darkBrown setFill];
+        [[global sharedGlobalData].colors[@"lighterGrey"] setFill];
     } else {
-        [[global sharedGlobalData].darkestGrey setFill];
+        [[global sharedGlobalData].colors[@"lightGrey"] setFill];
     }
     NSRectFill(dirtyRect);
     
@@ -64,22 +64,26 @@ NSPoint initialLocation;
 }
 
 - (void)mouseDragged:(NSEvent *)theEvent {
-    NSPoint currentLocation;
-    NSPoint newOrigin;
-    
-    NSRect  screenFrame = [[NSScreen mainScreen] visibleFrame];
-    NSRect  windowFrame = [self.window frame];
-    
-    currentLocation = [NSEvent mouseLocation];
-    newOrigin.x = currentLocation.x - initialLocation.x;
-    newOrigin.y = currentLocation.y - initialLocation.y;
-    
-    if( (newOrigin.y + windowFrame.size.height) > (screenFrame.origin.y + screenFrame.size.height ) ){
-        NSLog(@"Hitting menu");
-        newOrigin.y=screenFrame.origin.y + (screenFrame.size.height - windowFrame.size.height);
+    if(self.selected) {
+        
+        NSPoint currentLocation;
+        NSPoint newOrigin;
+        
+        NSRect  screenFrame = [[NSScreen mainScreen] visibleFrame];
+        NSRect  windowFrame = [self.window frame];
+        
+        currentLocation = [NSEvent mouseLocation];
+        newOrigin.x = currentLocation.x - initialLocation.x;
+        newOrigin.y = currentLocation.y - initialLocation.y;
+        
+        if( (newOrigin.y + windowFrame.size.height) > (screenFrame.origin.y + screenFrame.size.height ) ){
+            NSLog(@"Hitting menu");
+            newOrigin.y=screenFrame.origin.y + (screenFrame.size.height - windowFrame.size.height);
+        }
+        
+        [[self window] setFrameOrigin:newOrigin];
+        
     }
-    
-    [[self window] setFrameOrigin:newOrigin];
     
     //go ahead and move the window to the new location
     

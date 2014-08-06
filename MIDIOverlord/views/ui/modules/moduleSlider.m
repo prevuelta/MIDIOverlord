@@ -27,7 +27,8 @@
     
     
     // Add Slider
-    _slider = [[controlSlider alloc] initWithSize:NSMakePoint(self.width, 16) andValue: data[@"ccValue"] andMinValue: 0 andMaxValue:127 ];
+    _slider = [[controlSlider alloc] initWithSize:NSMakeSize(self.width, 16) andValue: data[@"ccValue"] andMinValue: 0 andMaxValue:127 ];
+    
     [_slider setOrigin:NSMakePoint(0, 0)];
     
     [self bind:@"ccValue" toObject:_slider withKeyPath:@"value" options:nil];
@@ -53,14 +54,14 @@
 
     uiButton *removeBtn = [[uiButton alloc] initWithSize: 12 andEvent: @"removeModule"];
     [removeBtn setEventData: @{@"rackID": self.data[@"rackID"], @"moduleID" : self.data[@"moduleID"]}];
-    [removeBtn setOrigin: NSMakePoint(self.width - 20, 18)];
+    [removeBtn setOrigin: NSMakePoint(self.width - 18, 18)];
 
     [self addSubview: removeBtn];
 
-    uiButton *mapBtn = [[uiButton alloc] initWithSize: 12 andEvent: @"midiListenRecord"];
+    uiButton *mapBtn = [[uiButton alloc] initWithSize: 16 andEvent: @"midiListenRecord"];
     [mapBtn setEventData: @{@"rackID": self.data[@"rackID"], @"moduleID" : self.data[@"moduleID"]}];
     [mapBtn setIsToggle: YES];
-    [mapBtn setOrigin: NSMakePoint(0, 18)];
+    [mapBtn setOrigin: NSMakePoint(0, 16)];
 
     [self addSubview: mapBtn];
     

@@ -47,13 +47,13 @@
 
 -(void)mouseEntered:(NSEvent *)theEvent{
     NSLog(@"Mouse entered");
-  [_label setBgColor:[global sharedGlobalData].activeColor];
-  [_label setNeedsDisplay:YES];
+    [_label setBgColor:[global sharedGlobalData].colors[@"red"]];
+    [_label setNeedsDisplay:YES];
 }
 
 -(void)mouseExited:(NSEvent *)theEvent {
 //    [_label setBackgroundColor: self.defaultColor];
-    [_label setBgColor:[global sharedGlobalData].black];
+    [_label setBgColor:[global sharedGlobalData].colors[@"lightGrey"]];
     [_label setNeedsDisplay:YES];
 }
 

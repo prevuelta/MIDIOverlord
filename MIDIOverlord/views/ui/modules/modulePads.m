@@ -21,7 +21,7 @@
 
 -(id)initWithData: (NSMutableDictionary*)data{
     
-    int height = 80;
+    int height = 88;
     
     self = [super initWithHeight: height];
     
@@ -35,12 +35,16 @@
     
     int padCount = 0;
     
+    uiTextField *label = [[uiTextField alloc] initWithString: @"Bank 1"];
+    [label setOriginWithX: 0 andY: 0];
+    [self addSubview: label];
+    
     for(NSMutableDictionary *padData in self.data[@"pads"]) {
         NSLog(@"Pad data: %@", padData);
         modulePad *pad = [[modulePad alloc] initWithData: padData];
         NSLog(@"Padcount: %i", padCount % 2);
 //        0, 1, 0, 1
-        [pad setOriginWithX: (padCount % 2 ? RACK_WIDTH / 2 :  0) andY: padCount > 1 ? pad.height : 0];
+        [pad setOriginWithX: (padCount % 2 ? MODULE_WIDTH / 2 :  0) andY: padCount > 1 ? pad.frameHeight + 16 : 16];
         [self addSubview: pad];
         padCount++;
     }
@@ -62,7 +66,7 @@
 
     uiButton *removeBtn = [[uiButton alloc] initWithSize: 12 andEvent: @"removeModule"];
     [removeBtn setEventData: @{@"rackID": self.data[@"rackID"], @"moduleID" : self.data[@"moduleID"]}];
-    [removeBtn setOrigin: NSMakePoint(RACK_WIDTH - 12, 0)];
+    [removeBtn setOrigin: NSMakePoint(MODULE_WIDTH - 14, 2)];
     [removeBtn setInEditView:YES];
     
     [self addSubview: removeBtn];

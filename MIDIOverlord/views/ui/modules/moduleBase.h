@@ -48,6 +48,8 @@
 // Methods
 -(id)initWithHeight:(int)height;
 
+-(id)initWithSize:(NSSize)size;
+
 -(id)initWithFrame:(NSRect)frame;
 
 -(id)initWithData:(NSMutableDictionary*)data;

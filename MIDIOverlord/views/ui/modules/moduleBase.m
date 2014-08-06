@@ -17,6 +17,10 @@
     return self;
 }
 
+-(id)initWithSize:(NSSize)size {
+    self = [self initWithFrame:NSMakeRect(0, 0, size.width, size.height)];
+    return self;
+}
 -(id)initWithFrame:(NSRect)frame {
     
     self = [super initWithFrame:frame];
@@ -33,10 +37,10 @@
     
     NSBezierPath* bgPath = [NSBezierPath new];
     
-    if(self.selected) {
-        [[global sharedGlobalData].defaultColor set];
+    if(!self.selected) {
+        [[global sharedGlobalData].colors[@"lightestGrey"] setFill];
     } else {
-        [[global sharedGlobalData].black set];
+        [[global sharedGlobalData].colors[@"red"] setFill];
     }
     
     [bgPath appendBezierPathWithRect:NSMakeRect(0, 0, self.width, self.height)];

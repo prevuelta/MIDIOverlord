@@ -21,6 +21,8 @@
 @property int min;
 @property int max;
 
+@property BOOL showNote;
+
 -(id)initWithLabel: (NSString*)label andValue:(NSNumber*)value;
 
 @end

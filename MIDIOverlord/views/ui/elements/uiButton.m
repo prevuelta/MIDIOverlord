@@ -29,8 +29,8 @@
     self.isToggle = NO;
     self.flipped = YES;
     
-    self.defaultColor = [global sharedGlobalData].colors[@"darkerGrey"];
-    self.activeColor =  [global sharedGlobalData].colors[@"darkGrey"];
+    self.defaultColor = [global sharedGlobalData].colors[@"white"];
+    self.activeColor =  [global sharedGlobalData].colors[@"lightestGrey"];
     self.toggleColor = [global sharedGlobalData].colors[@"yellow"];
 
     NSDictionary *iconTypes = @{

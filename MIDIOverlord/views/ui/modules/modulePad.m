@@ -14,9 +14,7 @@
 
 -(id)initWithData: (NSMutableDictionary*)data{
     
-    int height = 40;
-    
-    self = [super initWithHeight: height];
+    self = [super initWithSize: NSMakeSize( MODULE_WIDTH / 2, 36)];
     
     if(!self) return nil;
     
@@ -33,23 +31,22 @@
     
     /* Input */
     
-    uiButton *listenRecord = [[uiButton alloc] initWithSize: 12 andEvent: @"midiListenRecord"];
-    [listenRecord setOrigin: NSMakePoint(2, 2)];
+    uiButton *listenRecord = [[uiButton alloc] initWithSize: 16 andEvent: @"midiListenRecord"];
+    [listenRecord setOrigin: NSMakePoint(0, 0)];
     [listenRecord setIsToggle: YES];
     
     [self addSubview: listenRecord];
     
-    controlText *inputValue = [[controlText alloc] initWithLabel: @"" andValue: data[@"inputNote"]];
-    uiNoteField *inputNote = [[uiNoteField alloc] initWithString: self.data[@"inputNoteString"]];
+    controlText *inputValue = [[controlText alloc] initWithLabel: @"" andValue: data[@"inputValue"]];
+    uiNoteField *inputNote = [[uiNoteField alloc] initWithString: [utilities noteName: [data[@"inputValue"] intValue] ]];
     
-    [data bind:@"inputNote" toObject: inputValue withKeyPath: @"value" options: nil];
+    [data bind:@"inputValue" toObject: inputValue withKeyPath: @"value" options: nil];
     
     [inputNote bind:@"noteValue" toObject: inputValue withKeyPath: @"value" options: nil];
+    [inputNote bind:@"hidden" toObject: inputValue.valueNumberField withKeyPath: @"isEditing" options: nil];
     
-    [inputNote setDrawBg: NO];
-    
-    [inputValue setOriginWithX: 18 andY: 0];
-    [inputNote setOriginWithX: inputValue.frameWidth + 18 andY: 0];
+    [inputValue setOriginWithX: 16 andY: 0];
+    [inputNote setOriginWithX: 16 andY: 0];
     
     [self bind:@"inputValue" toObject:inputValue withKeyPath:@"value" options:nil];
     
@@ -58,23 +55,22 @@
     
     /* Output */
     
-    uiButton *sendRecord = [[uiButton alloc] initWithSize: 12 andEvent: @"midiListenRecord"];
-    [sendRecord setOrigin: NSMakePoint(2, 20)];
+    uiButton *sendRecord = [[uiButton alloc] initWithSize: 16 andEvent: @"midiListenRecord"];
+    [sendRecord setOrigin: NSMakePoint(0, 18)];
     [sendRecord setIsToggle: YES];
     
     [self addSubview: sendRecord];
     
-    controlText *noteValue = [[controlText alloc] initWithLabel: @"" andValue: data[@"note"]];
-    uiNoteField *note = [[uiNoteField alloc] initWithString: self.data[@"noteString"]];
+    controlText *noteValue = [[controlText alloc] initWithLabel: @"" andValue: data[@"outputValue"]];
+    uiNoteField *note = [[uiNoteField alloc] initWithString:  [utilities noteName: [data[@"outputNote"] intValue] ]];
     
-    [data bind:@"inputNote" toObject: inputValue withKeyPath: @"value" options: nil];
+    [data bind:@"outputValue" toObject: noteValue withKeyPath: @"value" options: nil];
     
     [note bind:@"noteValue" toObject: noteValue withKeyPath: @"value" options: nil];
+    [note bind:@"hidden" toObject: noteValue.valueNumberField withKeyPath: @"isEditing" options: nil];
     
-    [note setDrawBg: NO];
-    
-    [noteValue setOriginWithX: 18 andY: 18];
-    [note setOriginWithX: inputValue.frameWidth + 18 andY: 18];
+    [noteValue setOriginWithX: 16 andY: 18];
+    [note setOriginWithX: 16 andY: 18];
     
     [self bind:@"inputValue" toObject:inputValue withKeyPath:@"value" options:nil];
     
@@ -83,15 +79,25 @@
     
     /* Trigger */
     
-    NSSize padSize = NSMakeSize(RACK_WIDTH / 2, 10);
+    NSSize padSize = NSMakeSize(26, self.frameHeight - 4);
     
     controlTrigger *trigger = [[controlTrigger alloc] initWithSize: padSize andValue: self.data[@"velocity"]];
     
-    [trigger setOriginWithX: 0 andY: 20];
+    [trigger setOriginWithX: 52 andY: 2];
     
-//    [self addSubview: trigger];
+    [self addSubview: trigger];
     
     /* Velocity slider */
+    
+    controlSlider *velSlider = [[controlSlider alloc] initWithSize:NSMakeSize(8, self.frameHeight - 4) andValue: 0 andMinValue: 0 andMaxValue: 127];
+    
+    [velSlider setIsVertical: YES];
+    
+    NSLog(@"FW: %f", self.frameWidth);
+    
+    [velSlider setOriginWithX: 80 andY: 2];
+    
+    [self addSubview: velSlider];
     
     /* Lock veolocity */
     
@@ -139,5 +145,10 @@
     return self;
 }
 
+-(void)drawRect:(NSRect)dirtyRect {
+//       [[NSColor redColor] setFill];
+//       NSRectFill(dirtyRect);
+//      [super drawRect:dirtyRect];
+}
 
 @end

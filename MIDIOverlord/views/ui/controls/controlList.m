@@ -43,16 +43,16 @@
     NSBezierPath* fgPath = [NSBezierPath new];
     
     if(self.active) {
-        [[global sharedGlobalData].darkBrown set];
+        [[global sharedGlobalData].colors[@"grey"] setFill];
     } else {
-        [[global sharedGlobalData].defaultColor set];
+        [[global sharedGlobalData].colors[@"lightGrey"] setFill];
     }
     
     [bgPath appendBezierPathWithRoundedRect:NSMakeRect(0, 0, self.frameWidth, self.height) xRadius: 2 yRadius: 2 ];
     [bgPath closePath];
     [bgPath fill];
     
-    [[NSColor whiteColor] set];
+    [[global sharedGlobalData].colors[@"darkGrey"] setFill];
     
     // Draw triangles
     if(!self.disabled) {

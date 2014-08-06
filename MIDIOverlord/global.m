@@ -23,10 +23,14 @@ static global *_instance;
             _instance.patternBg = [NSImage imageNamed: @"patternBg.gif"];
             
             NSDictionary *RGBAColorValues = @{
-                @"black" : @[@32, @32, @32, @255],
-                @"darkestGrey" : @[@48, @48, @48, @255],
+                @"black" : @[@0, @0, @0, @255],
+                @"darkestGrey" : @[@32, @32, @32, @255],
                 @"darkerGrey" : @[@64, @64, @64, @255],
-                @"darkGrey" : @[@72, @72, @72, @255],
+                @"darkGrey" : @[@96, @96, @96, @255],
+                @"grey" : @[@128, @128, @128, @255],
+                @"lightGrey" : @[@160, @160, @160, @255],
+                @"lighterGrey" : @[@192, @192, @192, @255],
+                @"lightestGrey" : @[@224, @224, @224, @255],
                 @"white" : @[@255, @255, @255, @255],
                 @"darkBrown" : @[@82, @86, @86, @255],
                 @"brown" :  @[@149, @149, @122, @255],

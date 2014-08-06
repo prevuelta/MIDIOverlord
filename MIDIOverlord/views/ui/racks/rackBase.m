@@ -30,7 +30,7 @@
     
     [self setSelected:NO];
     
-    self.moduleView = [[scrollableView alloc] initWithFrame:NSMakeRect(0, 0, RACK_WIDTH - 8, self.height - self.headerHeight - 4)];
+    self.moduleView = [[scrollableView alloc] initWithFrame:NSMakeRect(0, 0, RACK_WIDTH - 4, self.height - self.headerHeight - 4)];
     
     [self.moduleView setOrigin: NSMakePoint(4, self.headerHeight)];
 
@@ -138,9 +138,9 @@
     NSBezierPath* fgPath = [NSBezierPath new];
     
     if(self.selected == YES) {
-        [[global sharedGlobalData].activeColor set];
+        [[global sharedGlobalData].colors[@"red"] setFill];
     } else {
-        [[global sharedGlobalData].darkestGrey set];
+        [[global sharedGlobalData].colors[@"lighterGrey"] setFill];
     }
     
     [headerPath appendBezierPathWithRoundedRect:NSMakeRect(0, 0, RACK_WIDTH, self.headerHeight) xRadius: 0 yRadius: 0];

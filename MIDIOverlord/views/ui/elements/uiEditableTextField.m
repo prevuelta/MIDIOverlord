@@ -22,11 +22,10 @@ BOOL firstKey = true;
     
     self.savedString = stringValue;
     self.textColor = [global sharedGlobalData].colors[@"blue"];
-    self.editTextColor = [global sharedGlobalData].colors[@"yellow"];
+    self.editTextColor = [global sharedGlobalData].colors[@"black"];
     
     return self;
     
-
 }
 
 - (void)drawRect:(NSRect)dirtyRect {
@@ -42,7 +41,7 @@ BOOL firstKey = true;
     
     if(self.isEditing) {
     
-        [self.editTextColor set];
+        [self.editTextColor setFill];
         
         NSBezierPath *outline = [NSBezierPath new];
         NSBezierPath *cursor = [NSBezierPath new];

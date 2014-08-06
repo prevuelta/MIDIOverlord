@@ -16,9 +16,9 @@ int baseMarker;
 @synthesize value = _value;
 @synthesize marker = _marker;
 
--(id)initWithSize:(NSPoint)size andValue: (NSNumber*)value andMinValue:(int)min andMaxValue:(int)max {
+-(id)initWithSize:(NSSize)size andValue: (NSNumber*)value andMinValue:(int)min andMaxValue:(int)max {
     
-    self = [super initWithFrame:NSMakeRect(0, 0, size.x, size.y)];
+    self = [super initWithFrame:NSMakeRect(0, 0, size.width, size.height)];
     
     if(!self) return nil;
     
@@ -26,6 +26,8 @@ int baseMarker;
     _min = min;
     _max = max;
     _range = max - min;
+    
+    _isVertical = NO;
     
     [self setActive: NO];
     
@@ -40,7 +42,7 @@ int baseMarker;
     
     [self addSubview: _textVal];
     
-    self.defaultColor = [global sharedGlobalData].colors[@"darkestGrey"];
+    self.defaultColor = [global sharedGlobalData].colors[@"lightGrey"];
     self.markerColor = [global sharedGlobalData].colors[@"red"];
     
     return self;
@@ -54,12 +56,16 @@ int baseMarker;
     
     [self.defaultColor set];
     
-    [bgPath appendBezierPathWithRect:NSMakeRect(0, 0, self.size.x, self.size.y)];
+    [bgPath appendBezierPathWithRect:NSMakeRect(0, 0, self.size.width, self.size.height)];
     [bgPath fill];
     
     [self.markerColor set];
     
-    [markerPath appendBezierPathWithRect:NSMakeRect(0, 4, self.marker, self.size.y -8)];
+    if(_isVertical) {
+        [markerPath appendBezierPathWithRect:NSMakeRect(0, 0, self.size.width, self.marker)];
+    } else {
+        [markerPath appendBezierPathWithRect:NSMakeRect(0, 2, self.marker, self.size.height - 4 )];
+    }
     [markerPath fill];
     
 }
@@ -86,7 +92,7 @@ int baseMarker;
 -(void)updateMarker {
     float percent = [_value floatValue] / (float) self.range;
     NSLog(@"Slider value: %@ Percent: %f", _value, percent);
-    int newValue = floor(_size.x * percent);
+    int newValue = floor((_isVertical ? _size.height : _size.width) * percent);
     [self setMarker: newValue];
 }
 
@@ -127,7 +133,7 @@ int baseMarker;
      
      NSPoint location = [self convertPoint:[e locationInWindow] fromView:nil];
 
-     float percent = location.x / _size.x;
+     float percent = _isVertical ? location.y / _size.height : location.x / _size.width;
      int newValue =  percent < 0 ? _min : percent > 1 ? _max : floor(_range * percent);
     
      [self setValue: [NSNumber numberWithInt: newValue]];
