@@ -15,6 +15,9 @@
     _size = size;
     _value = value;
     
+    _min = 0;
+    _max = 127;
+    
     self = [super initWithFrame:NSMakeRect(0, 0, size.width, size.height)];
     
     if(!self) return nil;
@@ -35,9 +38,9 @@
     [markerPath appendBezierPathWithRoundedRect:NSMakeRect(0, 0, _size.width, _size.height) xRadius: 3 yRadius: 3];
     
     if(self.active) {
-        [self.activeColor set];
+        [[self.activeColor colorWithAlphaComponent: [_value floatValue] / _max ] setFill];
     } else {
-        [self.defaultColor set];
+        [self.defaultColor setFill];
     }
     
     [btnPath fill];

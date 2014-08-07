@@ -22,7 +22,7 @@ BOOL firstKey = true;
     
     self.savedString = stringValue;
     self.textColor = [global sharedGlobalData].colors[@"blue"];
-    self.editTextColor = [global sharedGlobalData].colors[@"black"];
+    self.editTextColor = [global sharedGlobalData].colors[@"yellow"];
     
     return self;
     

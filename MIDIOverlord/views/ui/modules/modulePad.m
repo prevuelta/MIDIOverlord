@@ -55,7 +55,7 @@
     
     /* Output */
     
-    uiButton *sendRecord = [[uiButton alloc] initWithSize: 16 andEvent: @"midiListenRecord"];
+    uiButton *sendRecord = [[uiButton alloc] initWithSize: 16 andEvent: @"midiSendRecord"];
     [sendRecord setOrigin: NSMakePoint(0, 18)];
     [sendRecord setIsToggle: YES];
     
@@ -93,9 +93,9 @@
     
     [velSlider setIsVertical: YES];
     
-    NSLog(@"FW: %f", self.frameWidth);
-    
     [velSlider setOriginWithX: 80 andY: 2];
+    
+    [trigger bind:@"value" toObject: velSlider withKeyPath:@"value" options: nil];
     
     [self addSubview: velSlider];
     

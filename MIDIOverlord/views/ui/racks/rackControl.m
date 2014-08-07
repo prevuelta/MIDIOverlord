@@ -10,6 +10,8 @@
 
 @implementation rackControl
 
+@synthesize listenDevice = _listenDevice;
+
 -(void)addRackTitle {
     
     /* Midi connections */
@@ -32,6 +34,8 @@
     
     [self.midiListen bind: @"content" toObject: [MIKMIDIDeviceManager sharedDeviceManager] withKeyPath:@"virtualSources" options:nil];
     [self.midiSend bind: @"content" toObject: [MIKMIDIDeviceManager sharedDeviceManager] withKeyPath:@"virtualDestinations" options:nil];
+    
+    [self bind:@"listenDevice" toObject: self.midiListen withKeyPath: @"selectedObject" options: nil];
     
     [self.midiListen setOrigin: NSMakePoint(RACK_WIDTH - self.midiSend.frameWidth - 4, 24)];
     [self.midiSend setOrigin: NSMakePoint(RACK_WIDTH - self.midiSend.frameWidth - 4, 44)];
@@ -73,12 +77,7 @@
     
     /* Observers */
 
-    
-}
 
-    
--(void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 -(moduleBase*)getModuleWithData:(NSMutableDictionary*)moduleData{
@@ -101,5 +100,30 @@
     
 }
 
+-(void)midiListenHandler:(NSNotification*)notification {
+    
+    /* Setup mapping listener */
+    
+    NSError *mappingError;
+    
+    if(self.midiListen.selectedObject) {
+        
+        MIKMIDIMappingGenerator *inputMapper = [[MIKMIDIMappingGenerator alloc] initWithDevice: self.midiListen.selectedObject error: &mappingError];
+        
+    }
+}
+
+-(void)setListenDevice:(MIKMIDIEndpoint*)listenDevice {
+    NSLog(@"Set listening device:%@", listenDevice);
+    _listenDevice = listenDevice;
+}
+
+-(MIKMIDIEndpoint*)listenDevice {
+    return _listenDevice;
+}
+
+-(void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 @end

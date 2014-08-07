@@ -27,7 +27,7 @@
 
 -(void)drawRect:(NSRect)dirtyRect {
     
-    [[global sharedGlobalData].colors[@"grey"] setFill];
+    [[global sharedGlobalData].colors[@"darkGrey"] setFill];
     NSRectFill(dirtyRect);
 
 }

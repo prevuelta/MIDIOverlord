@@ -35,9 +35,11 @@
     
     int padCount = 0;
     
-    uiTextField *label = [[uiTextField alloc] initWithString: @"Bank 1"];
+    uiEditableTextField *label = [[uiEditableTextField alloc] initWithString: @"Bank 1" andMaxLength: 8];
     [label setOriginWithX: 0 andY: 0];
     [self addSubview: label];
+    
+    [_data bind:@"label" toObject: label withKeyPath:@"savedString" options:nil];
     
     for(NSMutableDictionary *padData in self.data[@"pads"]) {
         NSLog(@"Pad data: %@", padData);

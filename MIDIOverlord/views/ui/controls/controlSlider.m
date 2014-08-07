@@ -42,8 +42,8 @@ int baseMarker;
     
     [self addSubview: _textVal];
     
-    self.defaultColor = [global sharedGlobalData].colors[@"lightGrey"];
-    self.markerColor = [global sharedGlobalData].colors[@"red"];
+    self.defaultColor = [global sharedGlobalData].colors[@"darkGrey"];
+    self.markerColor = [global sharedGlobalData].colors[@"yellow"];
     
     return self;
     

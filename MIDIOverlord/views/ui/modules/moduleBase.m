@@ -38,7 +38,7 @@
     NSBezierPath* bgPath = [NSBezierPath new];
     
     if(!self.selected) {
-        [[global sharedGlobalData].colors[@"lightestGrey"] setFill];
+        [[global sharedGlobalData].colors[@"darkerGrey"] setFill];
     } else {
         [[global sharedGlobalData].colors[@"red"] setFill];
     }

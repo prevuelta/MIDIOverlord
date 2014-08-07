@@ -29,8 +29,8 @@
     self.isToggle = NO;
     self.flipped = YES;
     
-    self.defaultColor = [global sharedGlobalData].colors[@"white"];
-    self.activeColor =  [global sharedGlobalData].colors[@"lightestGrey"];
+    self.defaultColor = [global sharedGlobalData].colors[@"darkestGrey"];
+    self.activeColor =  [global sharedGlobalData].colors[@"darkerGrey"];
     self.toggleColor = [global sharedGlobalData].colors[@"yellow"];
 
     NSDictionary *iconTypes = @{
@@ -42,8 +42,8 @@
          @"removeModule" : @-136,
          @"addSlider"   : @-96,
          @"addPads"     : @-116,
-         @"midiListenRecord"  : @-148,
-         @"midiSendRecord"  : @-148
+         @"midiListenRecord"  : @-160,
+         @"midiSendRecord"  : @-176
     };
     
     NSLog(@"Icontype: Event: %@, %@", event, iconTypes[event] );
@@ -78,7 +78,7 @@
 
     NSBezierPath *btnPath = [NSBezierPath new];
     
-    [btnPath appendBezierPathWithRoundedRect:dirtyRect xRadius: 1 yRadius:1];
+    [btnPath appendBezierPathWithRoundedRect:dirtyRect xRadius: 2 yRadius:2];
   
     [btnPath fill];
     

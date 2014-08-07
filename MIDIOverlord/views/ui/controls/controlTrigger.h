@@ -21,6 +21,8 @@
 @property (nonatomic, assign) id delegate;
 
 @property NSNumber* value;
+@property int min;
+@property int max;
 
 @property NSSize size;
 

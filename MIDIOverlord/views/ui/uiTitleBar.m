@@ -40,9 +40,9 @@ NSPoint initialLocation;
 - (void)drawRect:(NSRect)dirtyRect {
     
     if(self.active) {
-        [[global sharedGlobalData].colors[@"lighterGrey"] setFill];
+        [[global sharedGlobalData].colors[@"darkGrey"] setFill];
     } else {
-        [[global sharedGlobalData].colors[@"lightGrey"] setFill];
+        [[global sharedGlobalData].colors[@"darkerGrey"] setFill];
     }
     NSRectFill(dirtyRect);
     

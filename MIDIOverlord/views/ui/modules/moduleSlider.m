@@ -37,8 +37,8 @@
     [self addSubview: _slider];
 
     // Add Label
-    uiEditableTextField *editLabel = [[uiEditableTextField alloc] initWithString: _data[@"label"] andMaxLength: 8];
-    [editLabel setOrigin:NSMakePoint(14, 16)];
+    uiEditableTextField *editLabel = [[uiEditableTextField alloc] initWithString: _data[@"label"] andMaxLength: 7];
+    [editLabel setOrigin:NSMakePoint(18, 16)];
     
     [_data bind:@"label" toObject: editLabel withKeyPath:@"savedString" options:nil];
     
@@ -46,7 +46,7 @@
 
     _ccControl = [[controlText alloc] initWithLabel: @"CC" andValue: data[@"ccNumber"]];
     
-   [_ccControl setOrigin:NSMakePoint(editLabel.frameWidth + 16, 16)];
+   [_ccControl setOrigin:NSMakePoint(editLabel.frameWidth + 34, 16)];
     
    [_data bind:@"ccNumber" toObject: _ccControl withKeyPath:@"value" options:nil];
     
@@ -58,12 +58,18 @@
 
     [self addSubview: removeBtn];
 
-    uiButton *mapBtn = [[uiButton alloc] initWithSize: 16 andEvent: @"midiListenRecord"];
-    [mapBtn setEventData: @{@"rackID": self.data[@"rackID"], @"moduleID" : self.data[@"moduleID"]}];
-    [mapBtn setIsToggle: YES];
-    [mapBtn setOrigin: NSMakePoint(0, 16)];
+    uiButton *inputRecord = [[uiButton alloc] initWithSize: 16 andEvent: @"midiListenRecord"];
+    [inputRecord setEventData: @{@"rackID": self.data[@"rackID"], @"moduleID" : self.data[@"moduleID"]}];
+    [inputRecord setIsToggle: YES];
+    [inputRecord setOrigin: NSMakePoint(0, 16)];
+    
+    uiButton *outputRecord = [[uiButton alloc] initWithSize: 16 andEvent: @"midiSendRecord"];
+    [outputRecord setEventData: @{@"rackID": self.data[@"rackID"], @"moduleID" : self.data[@"moduleID"]}];
+    [outputRecord setIsToggle: YES];
+    [outputRecord setOrigin: NSMakePoint(18, 16)];
 
-    [self addSubview: mapBtn];
+    [self addSubview: inputRecord];
+    [self addSubview: outputRecord];
     
     return self;
 }

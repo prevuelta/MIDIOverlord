@@ -12,6 +12,6 @@
 
 @interface rackControl : rackBase
 
--(void)updateMidiDestinations:(NSNotification*)notification;
+@property MIKMIDIEndpoint *listenDevice;
 
 @end

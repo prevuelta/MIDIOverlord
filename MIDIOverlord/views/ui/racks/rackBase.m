@@ -140,7 +140,7 @@
     if(self.selected == YES) {
         [[global sharedGlobalData].colors[@"red"] setFill];
     } else {
-        [[global sharedGlobalData].colors[@"lighterGrey"] setFill];
+        [[global sharedGlobalData].colors[@"darkGrey"] setFill];
     }
     
     [headerPath appendBezierPathWithRoundedRect:NSMakeRect(0, 0, RACK_WIDTH, self.headerHeight) xRadius: 0 yRadius: 0];
