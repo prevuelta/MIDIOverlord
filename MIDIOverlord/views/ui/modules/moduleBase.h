@@ -43,7 +43,7 @@
 @property NSInteger tag;
 
 // UI
-@property uiTextField *label;
+@property uiEditableTextField *label;
 
 // Methods
 -(id)initWithHeight:(int)height;

@@ -43,8 +43,8 @@
          @"addSlider"   : @-96,
          @"addPads"     : @-116,
          @"addMap"      : @-192,
-         @"midireceiveRecord"  : @-160,
-         @"midiSendRecord"  : @-176
+         @"receiveRecord"  : @-160,
+         @"sendRecord"  : @-176
     };
     
     if([event isEqualTo: @"closeWindow"]) {

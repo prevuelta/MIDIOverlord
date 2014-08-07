@@ -37,20 +37,27 @@
     [self addSubview: _slider];
 
     // Add Label
-    uiEditableTextField *editLabel = [[uiEditableTextField alloc] initWithString: _data[@"label"] andMaxLength: 7];
-    [editLabel setOrigin:NSMakePoint(18, 16)];
+    self.label = [[uiEditableTextField alloc] initWithString: _data[@"label"] andMaxLength: 7];
+    [self.label setOrigin:NSMakePoint(0, 16)];
     
-    [_data bind:@"label" toObject: editLabel withKeyPath:@"savedString" options:nil];
+    [_data bind:@"label" toObject: self.label withKeyPath:@"savedString" options:nil];
     
-    [self addSubview:editLabel];
+    [self addSubview: self.label];
+    
+    /* Setup input */
 
-    _ccControl = [[controlText alloc] initWithLabel: @"CC" andValue: data[@"ccNumber"]];
+    uiButton *inputRecord = [[uiButton alloc] initWithSize: 16 andEvent: @"receiveRecord"];
+    [inputRecord setEventData: @{@"rackID": self.data[@"rackID"], @"moduleID" : self.data[@"moduleID"]}];
+    [inputRecord setIsToggle: YES];
+    [inputRecord setOrigin: NSMakePoint(self.label.frameWidth + 2, 16)];
     
-   [_ccControl setOrigin:NSMakePoint(editLabel.frameWidth + 34, 16)];
+    [self addSubview: inputRecord];
     
-   [_data bind:@"ccNumber" toObject: _ccControl withKeyPath:@"value" options:nil];
+    controlText *receiveCC = [[controlText alloc] initWithLabel: @"CC" andValue: data[@"receiveCC"]];
+   [receiveCC setOrigin:NSMakePoint(self.label.frameWidth + 18, 16)];
+   [_data bind:@"receiveCC" toObject: receiveCC withKeyPath:@"value" options:nil];
     
-   [self addSubview: _ccControl ];
+   [self addSubview: receiveCC ];
 
     uiButton *removeBtn = [[uiButton alloc] initWithSize: 12 andEvent: @"removeModule"];
     [removeBtn setEventData: @{@"rackID": self.data[@"rackID"], @"moduleID" : self.data[@"moduleID"]}];
@@ -58,17 +65,12 @@
 
     [self addSubview: removeBtn];
 
-    uiButton *inputRecord = [[uiButton alloc] initWithSize: 16 andEvent: @"midireceiveRecord"];
-    [inputRecord setEventData: @{@"rackID": self.data[@"rackID"], @"moduleID" : self.data[@"moduleID"]}];
-    [inputRecord setIsToggle: YES];
-    [inputRecord setOrigin: NSMakePoint(0, 16)];
-    
-    uiButton *outputRecord = [[uiButton alloc] initWithSize: 16 andEvent: @"midiSendRecord"];
+    uiButton *outputRecord = [[uiButton alloc] initWithSize: 16 andEvent: @"sendRecord"];
     [outputRecord setEventData: @{@"rackID": self.data[@"rackID"], @"moduleID" : self.data[@"moduleID"]}];
     [outputRecord setIsToggle: YES];
-    [outputRecord setOrigin: NSMakePoint(18, 16)];
+    [outputRecord setOrigin: NSMakePoint(self.label.frameWidth + 20, 16)];
 
-    [self addSubview: inputRecord];
+    
     [self addSubview: outputRecord];
     
     return self;
@@ -81,8 +83,8 @@
 -(void)setCcValue:(NSNumber*)ccValue {
     NSLog(@"Changing...");
     _ccValue = ccValue;
-    if(![self.data[@"ccNumber"] isEqualToNumber:@-1]) {
-        [self.delegate midiCommand: @[self.data[@"ccStatus"], self.data[@"ccNumber"], self.data[@"ccValue"]]];
+    if(![self.data[@"sendCC"] isEqualToNumber:@-1]) {
+        [self.delegate midiCommand: @[self.data[@"ccStatus"], self.data[@"sendCC"], self.data[@"ccValue"]]];
     }
 }
 

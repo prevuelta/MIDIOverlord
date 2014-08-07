@@ -21,7 +21,7 @@
 
 -(id)initWithData: (NSMutableDictionary*)data{
     
-    int height = 88;
+    int height = 90;
     
     self = [super initWithHeight: height];
     
@@ -35,7 +35,7 @@
     
     int padCount = 0;
     
-    uiEditableTextField *label = [[uiEditableTextField alloc] initWithString: @"Bank 1" andMaxLength: 8];
+    uiEditableTextField *label = [[uiEditableTextField alloc] initWithString: _data[@"label"] andMaxLength: 8];
     [label setOriginWithX: 0 andY: 0];
     [self addSubview: label];
     
@@ -46,7 +46,7 @@
         modulePad *pad = [[modulePad alloc] initWithData: padData];
         NSLog(@"Padcount: %i", padCount % 2);
 //        0, 1, 0, 1
-        [pad setOriginWithX: (padCount % 2 ? MODULE_WIDTH / 2 :  0) andY: padCount > 1 ? pad.frameHeight + 16 : 16];
+        [pad setOriginWithX: (padCount % 2 ? MODULE_WIDTH / 2 :  0) andY: padCount > 1 ? pad.frameHeight + 18 : 18];
         [self addSubview: pad];
         padCount++;
     }

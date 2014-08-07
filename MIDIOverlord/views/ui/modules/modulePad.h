@@ -17,9 +17,9 @@
 @property int range;
 @property NSNumber *velocity;
 
-@property NSNumber *inputValue;
+//@property NSNumber *inputValue;
 
-@property NSNumber *noteValue;
-@property NSString *noteString;
+//@property NSNumber *noteValue;
+//@property NSString *noteString;
 
 @end

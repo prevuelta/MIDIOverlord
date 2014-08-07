@@ -115,9 +115,9 @@
     
     [_clippedView resizeHeight: _heightOfSubviews];
     
-    if(_heightOfSubviews > self.frame.size.height) {
+//    if(_heightOfSubviews > self.frame.size.height) {
         [self checkScroll];
-    }
+//    }
 }
 
 @end

@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Midnight City. All rights reserved.
 //
 
+#import <MIKMIDI/MIKMIDI.h>
 #import "uiBase.h"
 #import "moduleBase.h"
 #import "moduleSlider.h"

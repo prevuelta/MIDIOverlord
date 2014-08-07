@@ -24,7 +24,7 @@
     
     self.width = RACK_WIDTH;
     
-    self.height = frame.size.height - TOOLBAR_HEIGHT - 30;
+    self.height = frame.size.height - TOOLBAR_HEIGHT - TITLE_BAR_HEIGHT - 4;
     
     self.headerHeight = 96;
     
@@ -46,7 +46,7 @@
     
     uiButton *removeBtn = [[uiButton alloc] initWithSize: 12 andEvent: @"removeRack"];
     [removeBtn setEventData: @{@"rackID": self.rackID}];
-    [removeBtn setOrigin: NSMakePoint(RACK_WIDTH - 16, 2)];
+    [removeBtn setOrigin: NSMakePoint(RACK_WIDTH - 16, 4)];
     [removeBtn setInEditView:YES];
     
     [self addSubview: removeBtn];
@@ -71,7 +71,6 @@
     _data = data;
     
     [self updateModules];
-    
     
 }
 
@@ -177,7 +176,7 @@
 }
 
 -(void)resizeHeight:(int)newHeight {
-    self.height = newHeight - TOOLBAR_HEIGHT - 30;
+    self.height = newHeight - TOOLBAR_HEIGHT - TITLE_BAR_HEIGHT - 4;;
     NSRect f = self.frame;
     f.size.height = self.height;
     [self setFrame:f];

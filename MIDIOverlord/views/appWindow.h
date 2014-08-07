@@ -12,4 +12,6 @@
 
 -(void)closeWindow:(NSNotification*)notification;
 
+-(void)maxWindow:(NSNotification*)notification;
+
 @end

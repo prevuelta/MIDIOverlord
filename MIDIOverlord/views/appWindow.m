@@ -13,26 +13,19 @@
 -(id)initWithContentRect:(NSRect)contentRect styleMask:(NSUInteger)aStyle backing:(NSBackingStoreType)bufferingType defer:(BOOL)flag {
     NSLog(@"is init");
     self = [super initWithContentRect:contentRect styleMask:aStyle backing:bufferingType defer:flag];
+    
+    /* Observers */
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(closeWindow:) name:@"closeWindow" object:nil];
-    //
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(maxWindow:) name:@"maxWindow" object:nil];
+    
     return self;
 }
-
-//-(id)init {
-//    self = [super init];
-//    if(!self) return nil;
-//    
-//    NSLog(@"is init");
-//    
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(performClose:) name:@"closeWindow" object:nil];
-//    
-//    return self;
-//}
 
 -(BOOL)canBecomeKeyWindow {
     return YES;
 }
-
 
 -(void)closeWindow:(NSNotification*)notification {
     NSLog(@"close win");
@@ -45,5 +38,27 @@
         [NSApp terminate:self];
     }
 }
+
+-(void)maxWindow:(NSNotification*)notification {
+    NSRect screenFrame = [[NSScreen mainScreen] visibleFrame];
+    [self setFrame: screenFrame display: YES];
+}
+
+//NSPoint currentLocation;
+//NSPoint newOrigin;
+//
+//NSRect  screenFrame = [[NSScreen mainScreen] visibleFrame];
+//NSRect  windowFrame = [self.window frame];
+//
+//currentLocation = [NSEvent mouseLocation];
+//newOrigin.x = currentLocation.x - initialLocation.x;
+//newOrigin.y = currentLocation.y - initialLocation.y;
+//
+//if( (newOrigin.y + windowFrame.size.height) > (screenFrame.origin.y + screenFrame.size.height ) ){
+//    NSLog(@"Hitting menu");
+//    newOrigin.y=screenFrame.origin.y + (screenFrame.size.height - windowFrame.size.height);
+//}
+//
+//[[self window] setFrameOrigin:newOrigin];
 
 @end

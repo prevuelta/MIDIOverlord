@@ -16,8 +16,8 @@
     
     /* Midi connections */
     
-    uiTextField *receiveLabel = [[uiTextField alloc] initWithString: @"receive to:"];
-    uiTextField *sendLabel = [[uiTextField alloc] initWithString: @"Speak to:"];
+    uiTextField *receiveLabel = [[uiTextField alloc] initWithString: @"Receive From:"];
+    uiTextField *sendLabel = [[uiTextField alloc] initWithString: @"Send to:"];
     
     [sendLabel setDrawBg:NO];
     [receiveLabel setDrawBg:NO];

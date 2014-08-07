@@ -10,7 +10,7 @@
 
 @implementation modulePad
 
-@synthesize inputValue = _inputValue;
+//@synthesize inputValue = _inputValue;
 
 -(id)initWithData: (NSMutableDictionary*)data{
     
@@ -31,48 +31,48 @@
     
     /* Input */
     
-    uiButton *receiveRecord = [[uiButton alloc] initWithSize: 16 andEvent: @"midireceiveRecord"];
+    uiButton *receiveRecord = [[uiButton alloc] initWithSize: 16 andEvent: @"receiveRecord"];
     [receiveRecord setOrigin: NSMakePoint(0, 0)];
     [receiveRecord setIsToggle: YES];
     
     [self addSubview: receiveRecord];
     
-    controlText *inputValue = [[controlText alloc] initWithLabel: @"" andValue: data[@"inputValue"]];
-    uiNoteField *inputNote = [[uiNoteField alloc] initWithString: [utilities noteName: [data[@"inputValue"] intValue] ]];
+    controlText *receiveValue = [[controlText alloc] initWithLabel: @"" andValue: data[@"receiveNoteValue"]];
+    uiNoteField *receiveNote = [[uiNoteField alloc] initWithString: [utilities noteName: [data[@"receiveNoteValue"] intValue] ]];
     
-    [data bind:@"inputValue" toObject: inputValue withKeyPath: @"value" options: nil];
+    [data bind:@"receiveNoteValue" toObject: receiveValue withKeyPath: @"value" options: nil];
+
+    [receiveNote bind:@"noteValue" toObject: receiveValue withKeyPath: @"value" options: nil];
+    [receiveNote bind:@"hidden" toObject: receiveValue.valueNumberField withKeyPath: @"isEditing" options: nil];
+
+//    [self bind:@"receiveNotevalue" toObject:receiveValue withKeyPath:@"value" options:nil];
     
-    [inputNote bind:@"noteValue" toObject: inputValue withKeyPath: @"value" options: nil];
-    [inputNote bind:@"hidden" toObject: inputValue.valueNumberField withKeyPath: @"isEditing" options: nil];
+    [receiveValue setOriginWithX: 16 andY: 0];
+    [receiveNote setOriginWithX: 16 andY: 0];
     
-    [inputValue setOriginWithX: 16 andY: 0];
-    [inputNote setOriginWithX: 16 andY: 0];
-    
-    [self bind:@"inputValue" toObject:inputValue withKeyPath:@"value" options:nil];
-    
-    [self addSubview: inputValue ];
-    [self addSubview: inputNote ];
+    [self addSubview: receiveValue ];
+    [self addSubview: receiveNote ];
     
     /* Output */
     
-    uiButton *sendRecord = [[uiButton alloc] initWithSize: 16 andEvent: @"midiSendRecord"];
+    uiButton *sendRecord = [[uiButton alloc] initWithSize: 16 andEvent: @"sendRecord"];
     [sendRecord setOrigin: NSMakePoint(0, 18)];
     [sendRecord setIsToggle: YES];
     
     [self addSubview: sendRecord];
     
-    controlText *noteValue = [[controlText alloc] initWithLabel: @"" andValue: data[@"outputValue"]];
-    uiNoteField *note = [[uiNoteField alloc] initWithString:  [utilities noteName: [data[@"outputNote"] intValue] ]];
+    controlText *noteValue = [[controlText alloc] initWithLabel: @"" andValue: data[@"sendNoteValue"]];
+    uiNoteField *note = [[uiNoteField alloc] initWithString:  [utilities noteName: [data[@"sendNotevalue"] intValue] ]];
     
-    [data bind:@"outputValue" toObject: noteValue withKeyPath: @"value" options: nil];
-    
+    [data bind:@"sendNoteValue" toObject: noteValue withKeyPath: @"value" options: nil];
+    //
     [note bind:@"noteValue" toObject: noteValue withKeyPath: @"value" options: nil];
     [note bind:@"hidden" toObject: noteValue.valueNumberField withKeyPath: @"isEditing" options: nil];
+
+//    [self bind:@"sendNoteValue" toObject:receiveValue withKeyPath:@"value" options:nil];
     
     [noteValue setOriginWithX: 16 andY: 18];
     [note setOriginWithX: 16 andY: 18];
-    
-    [self bind:@"inputValue" toObject:inputValue withKeyPath:@"value" options:nil];
     
     [self addSubview: noteValue ];
     [self addSubview: note ];
@@ -106,49 +106,49 @@
     
     [lockVelocity setIsToggle: YES];
     
-//    [self addSubview: sendRecord];
-
-//    
-//
-//    
-//    self = [super initWithFrame:NSMakeRect(0, 0, size.width, size.height + _padNote.frameHeight + 2)];
-//    
-//    if(!self) return nil;
-//    
-//    _padNote = [[controlText alloc] initWithLabel: @"" andValue: noteValue];
-//    
-//    [_padNote setOrigin:NSMakePoint(0, 41)];
-//    
-//    [self bind:@"noteValue" toObject:_padNote withKeyPath:@"value" options:nil];
-//    
-//    _noteLabel = [[uiTextField alloc] initWithString: @"---" andMaxLength: 5 ];
-//    _velocityLabel = [[uiTextField alloc] initWithString: [_velocity stringValue] andMaxLength: 3 ];
-//    
-//    [_velocityLabel setTextColor: [global sharedGlobalData].colors[@"white"] ];
-//    
-//    [_noteLabel setOriginWithX: 0 andY: 4];
-//    [_velocityLabel setOriginWithX: 0 andY: 20];
-//    
-//    [_noteLabel setDrawBg: NO];
-//    [_velocityLabel setDrawBg: NO];
-//    
-//    [self addSubview: _padNote];
-//    
-//    [self addSubview: _noteLabel];
-//    [self addSubview: _velocityLabel];
-//    
-//    [self updateMarker];
-//    
-//    [self setNoteValue: noteValue];
+    //    [self addSubview: sendRecord];
+    
+    //
+    //
+    //
+    //    self = [super initWithFrame:NSMakeRect(0, 0, size.width, size.height + _padNote.frameHeight + 2)];
+    //
+    //    if(!self) return nil;
+    //
+    //    _padNote = [[controlText alloc] initWithLabel: @"" andValue: noteValue];
+    //
+    //    [_padNote setOrigin:NSMakePoint(0, 41)];
+    //
+    //    [self bind:@"noteValue" toObject:_padNote withKeyPath:@"value" options:nil];
+    //
+    //    _noteLabel = [[uiTextField alloc] initWithString: @"---" andMaxLength: 5 ];
+    //    _velocityLabel = [[uiTextField alloc] initWithString: [_velocity stringValue] andMaxLength: 3 ];
+    //
+    //    [_velocityLabel setTextColor: [global sharedGlobalData].colors[@"white"] ];
+    //
+    //    [_noteLabel setOriginWithX: 0 andY: 4];
+    //    [_velocityLabel setOriginWithX: 0 andY: 20];
+    //
+    //    [_noteLabel setDrawBg: NO];
+    //    [_velocityLabel setDrawBg: NO];
+    //
+    //    [self addSubview: _padNote];
+    //
+    //    [self addSubview: _noteLabel];
+    //    [self addSubview: _velocityLabel];
+    //
+    //    [self updateMarker];
+    //
+    //    [self setNoteValue: noteValue];
     
     
     return self;
 }
 
 -(void)drawRect:(NSRect)dirtyRect {
-//       [[NSColor redColor] setFill];
-//       NSRectFill(dirtyRect);
-//      [super drawRect:dirtyRect];
+    //       [[NSColor redColor] setFill];
+    //       NSRectFill(dirtyRect);
+    //      [super drawRect:dirtyRect];
 }
 
 @end

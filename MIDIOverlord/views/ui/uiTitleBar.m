@@ -23,16 +23,23 @@ NSPoint initialLocation;
 //    uiTextField *appTitle = [[uiTextField alloc] initWithString: @"Untitled"];
      uiTextField *appTitle = [[uiTextField alloc] initWithString: testString];
     
-    [appTitle setOrigin:NSMakePoint(20, 2)];
+    [appTitle setOrigin:NSMakePoint(34, 2)];
     
 //    [appTitle bind:@"stringValue" toObject:self withKeyPath: @"title" options: nil];
 
     [self addSubview: appTitle];
     
+    /* Window management */
+    
     uiButton *closeWindow = [[uiButton alloc] initWithSize: 12 andEvent:@"closeWindow"];
     [closeWindow setOrigin: NSMakePoint(4, 4)];
     
     [self addSubview: closeWindow];
+    
+    uiButton *fillWindow = [[uiButton alloc] initWithSize: 12 andEvent:@"maxWindow"];
+    [fillWindow setOrigin: NSMakePoint(20, 4)];
+    
+    [self addSubview: fillWindow];
     
     return self;
 }

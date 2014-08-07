@@ -111,6 +111,7 @@
 
 -(void)removeModule:(NSDictionary*)ref {
     [_rackData[ref[@"rackID"]][@"modules"] removeObjectForKey:ref[@"moduleID"]];
+    [_rackData[ref[@"rackID"]][@"moduleLayout"] removeObjectIdenticalTo:ref[@"moduleID"]];
 }
 
 -(void)removeRack:(NSDictionary*)ref {
@@ -140,7 +141,7 @@
             module[@"noteOnStatus"] = @144;
             module[@"noteOffStatus"] = @128;
             module[@"pads"] = [NSMutableArray new];
-            NSDictionary *pad = @{@"outputNote": @24, @"velocity" : @127, @"inputValue" : @-1};
+            NSDictionary *pad = @{@"sendNoteValue": @24, @"velocity" : @127, @"receiveNoteValue" : @-1};
             for(int i = 0; i < 4; i++) {
                 [module[@"pads"] addObject: [pad mutableCopy]];
             }
@@ -149,7 +150,8 @@
             module[@"min"] = @0;
             module[@"max"] = @127;
             module[@"ccStatus"] = @176;
-            module[@"ccNumber"] = @-1;
+            module[@"receiveCC"] = @-1;
+            module[@"sendCC"] = @-1;
             module[@"ccValue"] = @0;
         break;
         case 3:

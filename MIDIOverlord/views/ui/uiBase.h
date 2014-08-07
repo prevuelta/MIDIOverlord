@@ -8,7 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 //#import <MIKMIDI/MIKMIDI.h>
-#import "MIKMIDIDeviceManagerInterface.h"
 #import "global.h"
 #import "utilities.h"
 
