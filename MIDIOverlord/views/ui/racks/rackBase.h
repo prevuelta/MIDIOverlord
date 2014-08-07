@@ -25,7 +25,7 @@
 @property NSMutableArray* subViews;
 
 @property controlList *midiSend;
-@property controlList *midiListen;
+@property controlList *midireceive;
 
 @property controlText *midiChannelControl;
 
@@ -46,7 +46,7 @@
 @property NSMutableDictionary *moduleData;
 
 /* Midi */
-//@property MIKMIDISourceEndpoint *listenEndpoint;
+//@property MIKMIDISourceEndpoint *receiveEndpoint;
 //@property MIKMIDISourceEndpoint *sendEndpoint;
 
 /* Notifications */

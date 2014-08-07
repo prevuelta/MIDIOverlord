@@ -152,6 +152,10 @@
             module[@"ccNumber"] = @-1;
             module[@"ccValue"] = @0;
         break;
+        case 3:
+            module[@"receiveStatus"] = @-1;
+            module[@"sendStatus"] = @-1;
+        break;
     }
     
     

@@ -19,6 +19,8 @@
 @property BOOL isToggle;
 @property BOOL toggled;
 
+@property BOOL hasBg;
+
 @property NSString *event;
 @property NSDictionary* eventData;
 

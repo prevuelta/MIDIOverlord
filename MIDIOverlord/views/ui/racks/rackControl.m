@@ -10,37 +10,37 @@
 
 @implementation rackControl
 
-@synthesize listenDevice = _listenDevice;
+@synthesize receiveDevice = _receiveDevice;
 
 -(void)addRackTitle {
     
     /* Midi connections */
     
-    uiTextField *listenLabel = [[uiTextField alloc] initWithString: @"Listen to:"];
+    uiTextField *receiveLabel = [[uiTextField alloc] initWithString: @"receive to:"];
     uiTextField *sendLabel = [[uiTextField alloc] initWithString: @"Speak to:"];
     
     [sendLabel setDrawBg:NO];
-    [listenLabel setDrawBg:NO];
+    [receiveLabel setDrawBg:NO];
     
     [sendLabel setOrigin:NSMakePoint(4, 44)];
-    [listenLabel setOrigin:NSMakePoint(4, 24)];
+    [receiveLabel setOrigin:NSMakePoint(4, 24)];
     
     [self addSubview: sendLabel];
-    [self addSubview: listenLabel];
+    [self addSubview: receiveLabel];
    
 
-    self.midiListen = [[controlList alloc] initWithContent: [[MIKMIDIDeviceManager sharedDeviceManager] virtualSources]];
+    self.midireceive = [[controlList alloc] initWithContent: [[MIKMIDIDeviceManager sharedDeviceManager] virtualSources]];
     self.midiSend = [[controlList alloc] initWithContent: [[MIKMIDIDeviceManager sharedDeviceManager] virtualDestinations]];
     
-    [self.midiListen bind: @"content" toObject: [MIKMIDIDeviceManager sharedDeviceManager] withKeyPath:@"virtualSources" options:nil];
+    [self.midireceive bind: @"content" toObject: [MIKMIDIDeviceManager sharedDeviceManager] withKeyPath:@"virtualSources" options:nil];
     [self.midiSend bind: @"content" toObject: [MIKMIDIDeviceManager sharedDeviceManager] withKeyPath:@"virtualDestinations" options:nil];
     
-    [self bind:@"listenDevice" toObject: self.midiListen withKeyPath: @"selectedObject" options: nil];
+    [self bind:@"receiveDevice" toObject: self.midireceive withKeyPath: @"selectedObject" options: nil];
     
-    [self.midiListen setOrigin: NSMakePoint(RACK_WIDTH - self.midiSend.frameWidth - 4, 24)];
+    [self.midireceive setOrigin: NSMakePoint(RACK_WIDTH - self.midiSend.frameWidth - 4, 24)];
     [self.midiSend setOrigin: NSMakePoint(RACK_WIDTH - self.midiSend.frameWidth - 4, 44)];
     
-    [self addSubview: self.midiListen];
+    [self addSubview: self.midireceive];
     [self addSubview: self.midiSend];
  
     /* Channel control */
@@ -59,13 +59,13 @@
     
     /* UI buttons */
     
-    uiButton *addPad = [[uiButton alloc] initWithSize: 20 andEvent: @"addPads"];
-    [addPad setOrigin: NSMakePoint(28, self.headerHeight - 24)];
-    [addPad setEventData: @{@"type" : @1, @"rackID" : self.rackID }];
-    
-    uiButton *addSlider = [[uiButton alloc] initWithSize: 20 andEvent:@"addSlider"];
+    uiButton *addSlider = [[uiButton alloc] initWithSize: 20 andEvent:@"addPads"];
     [addSlider setOrigin: NSMakePoint(4, self.headerHeight - 24)];
-    [addSlider setEventData: @{@"type" : @2, @"rackID" : self.rackID }];
+    [addSlider setEventData: @{@"type" : @1, @"rackID" : self.rackID }];
+    
+    uiButton *addPad = [[uiButton alloc] initWithSize: 20 andEvent: @"addSlider"];
+    [addPad setOrigin: NSMakePoint(28, self.headerHeight - 24)];
+    [addPad setEventData: @{@"type" : @2, @"rackID" : self.rackID }];
     
     uiButton *addMap = [[uiButton alloc] initWithSize: 20 andEvent:@"addMap"];
     [addMap setOrigin: NSMakePoint(52, self.headerHeight - 24)];
@@ -92,6 +92,7 @@
             module = [[moduleSlider alloc] initWithData: moduleData];
         } break;
         case 3: {
+            NSLog(@"Map module");
             module = [[moduleMap alloc] initWithData: moduleData];
         } break;
     }
@@ -100,26 +101,26 @@
     
 }
 
--(void)midiListenHandler:(NSNotification*)notification {
+-(void)midireceiveHandler:(NSNotification*)notification {
     
-    /* Setup mapping listener */
+    /* Setup mapping receiveer */
     
     NSError *mappingError;
     
-    if(self.midiListen.selectedObject) {
+    if(self.midireceive.selectedObject) {
         
-        MIKMIDIMappingGenerator *inputMapper = [[MIKMIDIMappingGenerator alloc] initWithDevice: self.midiListen.selectedObject error: &mappingError];
+        MIKMIDIMappingGenerator *inputMapper = [[MIKMIDIMappingGenerator alloc] initWithDevice: self.midireceive.selectedObject error: &mappingError];
         
     }
 }
 
--(void)setListenDevice:(MIKMIDIEndpoint*)listenDevice {
-    NSLog(@"Set listening device:%@", listenDevice);
-    _listenDevice = listenDevice;
+-(void)setreceiveDevice:(MIKMIDIEndpoint*)receiveDevice {
+    NSLog(@"Set receiveing device:%@", receiveDevice);
+    _receiveDevice = receiveDevice;
 }
 
--(MIKMIDIEndpoint*)listenDevice {
-    return _listenDevice;
+-(MIKMIDIEndpoint*)receiveDevice {
+    return _receiveDevice;
 }
 
 -(void)dealloc {

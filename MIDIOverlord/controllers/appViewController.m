@@ -25,6 +25,7 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addModule:) name:@"addSlider" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addModule:) name:@"addPads" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addModule:) name:@"addMap" object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeModule:) name:@"removeModule" object:nil];
     

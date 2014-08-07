@@ -58,7 +58,7 @@
 
     [self addSubview: removeBtn];
 
-    uiButton *inputRecord = [[uiButton alloc] initWithSize: 16 andEvent: @"midiListenRecord"];
+    uiButton *inputRecord = [[uiButton alloc] initWithSize: 16 andEvent: @"midireceiveRecord"];
     [inputRecord setEventData: @{@"rackID": self.data[@"rackID"], @"moduleID" : self.data[@"moduleID"]}];
     [inputRecord setIsToggle: YES];
     [inputRecord setOrigin: NSMakePoint(0, 16)];
@@ -79,6 +79,7 @@
 }
 
 -(void)setCcValue:(NSNumber*)ccValue {
+    NSLog(@"Changing...");
     _ccValue = ccValue;
     if(![self.data[@"ccNumber"] isEqualToNumber:@-1]) {
         [self.delegate midiCommand: @[self.data[@"ccStatus"], self.data[@"ccNumber"], self.data[@"ccValue"]]];

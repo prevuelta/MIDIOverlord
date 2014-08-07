@@ -28,6 +28,7 @@
     self.eventData = @{};
     self.isToggle = NO;
     self.flipped = YES;
+    self.hasBg = YES;
     
     self.defaultColor = [global sharedGlobalData].colors[@"darkestGrey"];
     self.activeColor =  [global sharedGlobalData].colors[@"darkerGrey"];
@@ -36,15 +37,19 @@
     NSDictionary *iconTypes = @{
          @"addControlRack" : @-48,
          @"addMapRack" : @-48,
-         @"editMode" : @-72,
          @"closeWindow" : @-136,
          @"removeRack"   : @-136,
          @"removeModule" : @-136,
          @"addSlider"   : @-96,
          @"addPads"     : @-116,
-         @"midiListenRecord"  : @-160,
+         @"addMap"      : @-192,
+         @"midireceiveRecord"  : @-160,
          @"midiSendRecord"  : @-176
     };
+    
+    if([event isEqualTo: @"closeWindow"]) {
+        self.hasBg = NO;
+    }
     
     NSLog(@"Icontype: Event: %@, %@", event, iconTypes[event] );
     
@@ -76,12 +81,13 @@
         [self.defaultColor setFill];
     }
 
-    NSBezierPath *btnPath = [NSBezierPath new];
-    
-    [btnPath appendBezierPathWithRoundedRect:dirtyRect xRadius: 2 yRadius:2];
-  
-    [btnPath fill];
-    
+    if(_hasBg) {
+        NSBezierPath *btnPath = [NSBezierPath new];
+        
+        [btnPath appendBezierPathWithRoundedRect:dirtyRect xRadius: 2 yRadius:2];
+      
+        [btnPath fill];
+    }
 }
 
 -(void)setIconViewOrigin:(NSPoint)origin {

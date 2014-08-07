@@ -121,7 +121,7 @@ NSComparisonResult compareViews(id firstView, id secondView, void *context) {
     } else {
          [_label setStringValue: [_content[[selectedIndex intValue]] name]];
         NSLog(@"Setting selected object..");
-        _selectedObject = _content[[selectedIndex intValue]];
+        [self setSelectedObject: _content[[selectedIndex intValue]]];
     }
     _selectedIndex = selectedIndex;
 }

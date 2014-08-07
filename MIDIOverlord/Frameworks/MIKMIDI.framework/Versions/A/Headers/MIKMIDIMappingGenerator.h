@@ -96,7 +96,7 @@ typedef void(^MIKMIDIMappingGeneratorMappingCompletionBlock)(MIKMIDIMappingItem 
 #endif
 
 /**
- * The delegate for the mapping generator. Can be used to customize certain mapping behavior. Optional.
+ * The delegate for the mapping generator. Can be use/Users/pablo/MIKMIDI/Source/MIKMIDIMappingGenerator.md to customize certain mapping behavior. Optional.
  *
  * The delegate must implement the MIKMIDIMappingGeneratorDelegate protocol.
  */

@@ -12,9 +12,28 @@
 
 -(id)initWithData:(NSMutableDictionary*)data {
     
-    self = [super initWithFrame:NSMakeRect(0, 0, 0, 0)];
+    int height = 26;
+    
+    self = [super initWithHeight: height];
     
     if(!self) return nil;
+    
+    NSLog(@"Init map module");
+    
+    self.height = height;
+    self.flipped = YES;
+    self.width = MODULE_WIDTH;
+    
+    controlList *mappingReceive = [[controlList alloc] initWithContent: @[]];
+    
+    [mappingReceive setOriginWithX: 4 andY: 4];
+    
+    controlList *mappingSend = [[controlList alloc] initWithContent: @[]];
+    
+    [mappingSend setOriginWithX: self.width - mappingSend.frameWidth - 4 andY: 4];
+    
+    [self addSubview: mappingReceive];
+    [self addSubview: mappingSend];
     
     return self;
 }

@@ -12,6 +12,6 @@
 
 @interface rackControl : rackBase
 
-@property MIKMIDIEndpoint *listenDevice;
+@property MIKMIDIEndpoint *receiveDevice;
 
 @end

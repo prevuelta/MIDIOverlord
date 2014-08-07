@@ -31,11 +31,11 @@
     
     /* Input */
     
-    uiButton *listenRecord = [[uiButton alloc] initWithSize: 16 andEvent: @"midiListenRecord"];
-    [listenRecord setOrigin: NSMakePoint(0, 0)];
-    [listenRecord setIsToggle: YES];
+    uiButton *receiveRecord = [[uiButton alloc] initWithSize: 16 andEvent: @"midireceiveRecord"];
+    [receiveRecord setOrigin: NSMakePoint(0, 0)];
+    [receiveRecord setIsToggle: YES];
     
-    [self addSubview: listenRecord];
+    [self addSubview: receiveRecord];
     
     controlText *inputValue = [[controlText alloc] initWithLabel: @"" andValue: data[@"inputValue"]];
     uiNoteField *inputNote = [[uiNoteField alloc] initWithString: [utilities noteName: [data[@"inputValue"] intValue] ]];
