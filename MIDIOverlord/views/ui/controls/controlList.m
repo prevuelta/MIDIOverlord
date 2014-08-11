@@ -14,52 +14,52 @@
 @synthesize selectedIndex = _selectedIndex;
 
 -(id)initWithContent:(NSArray*)content {
-    
+
     int height = 18;
 
     _label = [[uiTextField alloc] initWithString: @"None" andMaxLength:8];
-        
+
     [_label setDrawBg:NO];
     [_label setOrigin:NSMakePoint(1, 1)];
-    
+
     NSRect frame = NSMakeRect(0, 0, _label.frame.size.width + 20, height);
-    
+
     self = [super initWithFrame:frame];
-    
+
     if(!self) return nil;
-    
+
     self.height = height;
-    
+
     [self setContent: content];
-    
+
     [self addSubview: _label];
-    
+
     return self;
 }
 
 -(void)drawRect:(NSRect)dirtyRect {
-    
+
     NSBezierPath* bgPath = [NSBezierPath new];
     NSBezierPath* fgPath = [NSBezierPath new];
-    
+
     if(self.active) {
         [[global sharedGlobalData].colors[@"grey"] setFill];
     } else {
         [[global sharedGlobalData].colors[@"lightGrey"] setFill];
     }
-    
+
     [bgPath appendBezierPathWithRoundedRect:NSMakeRect(0, 0, self.frameWidth, self.height) xRadius: 2 yRadius: 2 ];
     [bgPath closePath];
     [bgPath fill];
-    
+
     [[global sharedGlobalData].colors[@"darkGrey"] setFill];
-    
+
     // Draw triangles
     if(!self.disabled) {
         [fgPath moveToPoint:NSMakePoint(self.frame.size.width-15, 6)];
         [fgPath lineToPoint:NSMakePoint(self.frame.size.width-5, 6)];
         [fgPath lineToPoint:NSMakePoint(self.frame.size.width-10, 12)];
-    
+
         [fgPath closePath];
         [fgPath fill];
     }
@@ -70,7 +70,7 @@
 }
 
 -(void)mouseDown:(NSEvent*)theEvent {
-    
+
     if(self.active) {
         [global deselectNotify];
     } else {
@@ -81,7 +81,7 @@
         f.size.height = self.height * ([_content count] + 2);
         self.frame = f;
     }
-    
+
     [self.superview sortSubviewsUsingFunction: compareViews context: NULL];
     [self setNeedsDisplay:YES];
 }
@@ -96,10 +96,10 @@
 }
 
 NSComparisonResult compareViews(id firstView, id secondView, void *context) {
-    
+
     NSInteger firstTag = [firstView tag];
     NSInteger secondTag = [secondView tag];
-    
+
     if (firstTag == secondTag) {
         return NSOrderedSame;
     } else {
@@ -131,43 +131,43 @@ NSComparisonResult compareViews(id firstView, id secondView, void *context) {
 }
 
 -(void)setContent:(NSArray*)content {
-    
+
     _content = content;
-    
+
     [self setSubviews: [NSArray array]];
 
     [self setDisabled: !(BOOL)[_content count]];
-    
+
     int yLoc = self.height;
-    
+
     /* None option */
-    
+
     controlOption *option =  [[controlOption alloc] initWithName: @"None" andIndex: -1];
-    
+
     option.delegate = self;
-    
+
     [option setOrigin:NSMakePoint(0, yLoc)];
-    
+
     [self addSubview: option ];
-    
+
     yLoc += 16;
-    
+
     for(int i = 0; i < [_content count]; i++) {
-        
+
         NSString *optionName = [_content[i] name];
-        
+
         controlOption *option =  [[controlOption alloc] initWithName: optionName andIndex: i];
 
         option.delegate = self;
-        
+
         [option setOrigin:NSMakePoint(0, yLoc)];
 
         [self addSubview: option ];
-        
+
         yLoc += 16;
 
     }
-    
+
     [self setNeedsDisplay: YES];
 }
 
