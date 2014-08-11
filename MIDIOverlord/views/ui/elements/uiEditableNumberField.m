@@ -10,16 +10,22 @@
 
 @implementation uiEditableNumberField
 
- @synthesize value = _value;
+@synthesize value = _value;
 
 -(id)initWithValue:(NSNumber*)value andLength:(int)length {
+    return [self initWithValue: value andLength: length andNullString: @"---"];
+}
+
+-(id)initWithValue:(NSNumber*)value andLength:(int)length andNullString: (NSString*)nullString {
     
     _value = value;
     
-    if([value isEqualTo:@-1]) {
-        self = [super initWithString: @"---" andMaxLength: length];
+    self.nullString = nullString;
+    
+    if([value isEqualTo: @-1]) {
+        self = [super initWithString: self.nullString andMaxLength: length andNullString: nullString];
     } else {
-        self = [super initWithString: [value stringValue] andMaxLength: length];
+        self = [super initWithString: [value stringValue] andMaxLength: length andNullString: nullString];
     }
     
     _max = 127;
@@ -33,8 +39,8 @@
 }
 
 -(void)deselectHook {
-    if([self.savedString isEqualTo:@"---"]) {
-        [self setValue:@-1];
+    if([self.savedString isEqualTo: self.nullString]) {
+        [self setValue: @-1];
     } else {
         [self setValueFromString];
         [self setStringFromValue];
@@ -57,6 +63,7 @@
     [super keyDown:event];
 
     [self setValueFromString];
+    
 }
 
 -(NSNumber*)value {
@@ -65,7 +72,6 @@
 
 -(void)setValue:(NSNumber*)value {
     NSNumber* newValue = [self checkRange: value];
-    NSLog(@"New value %@", newValue);
     _value = newValue;
 }
 

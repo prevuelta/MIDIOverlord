@@ -88,7 +88,8 @@
         @"rackID" : _rackID,
         @"label": [NSString stringWithFormat: @"RACK %@", _rackID],
         @"size": @0,
-        @"channel": @1,
+        @"receiveChannel": @-1,
+        @"sendChannel": @-1,
         @"input": @0,
         @"output": @0,
         @"moduleID" : @0,
@@ -133,7 +134,7 @@
     NSMutableDictionary* module = [@{
         @"moduleID" : rack[@"moduleID"],
         @"rackID"   : rackID,
-        @"label" : @"<label>",
+        @"label" : @"<Label>",
         @"type" : type,
         } mutableCopy];
 

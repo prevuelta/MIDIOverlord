@@ -22,9 +22,13 @@
 
 @property NSColor *editTextColor;
 
+@property NSString *nullString;
+
 //-(void)handleDoubleClick:(NSEvent *)e;
 -(void)addCharacter:(NSString*)letter;
 -(void)removeCharacter;
 -(void)deselectHook;
+
+-(id)initWithString:(NSString*)stringValue andMaxLength:(int)maxLength andNullString:(NSString*)nullString;
 
 @end

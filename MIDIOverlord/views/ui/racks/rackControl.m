@@ -16,18 +16,17 @@
 
     /* Midi connections */
 
-    uiTextField *receiveLabel = [[uiTextField alloc] initWithString: @"Receive From:"];
-    uiTextField *sendLabel = [[uiTextField alloc] initWithString: @"Send to:"];
+    uiTextField *receiveLabel = [[uiTextField alloc] initWithString: @"Rec:"];
+    uiTextField *sendLabel = [[uiTextField alloc] initWithString: @"Send:"];
 
     [sendLabel setDrawBg:NO];
     [receiveLabel setDrawBg:NO];
 
-    [sendLabel setOrigin:NSMakePoint(4, 44)];
-    [receiveLabel setOrigin:NSMakePoint(4, 24)];
+    [sendLabel setOrigin:NSMakePoint(4, 45)];
+    [receiveLabel setOrigin:NSMakePoint(4, 25)];
 
     [self addSubview: sendLabel];
     [self addSubview: receiveLabel];
-
 
     self.midireceive = [[controlList alloc] initWithContent: [[MIKMIDIDeviceManager sharedDeviceManager] virtualSources]];
     self.midiSend = [[controlList alloc] initWithContent: [[MIKMIDIDeviceManager sharedDeviceManager] virtualDestinations]];
@@ -43,18 +42,27 @@
     [self addSubview: self.midireceive];
     [self addSubview: self.midiSend];
 
-    /* Channel control */
+    /* Channel controls */
 
-    self.midiChannelControl = [[controlText alloc] initWithLabel: @"CH" andValue: self.data[@"channel"]];
+    
+    self.receiveChannel = [[controlText alloc] initWithLabel: @"CH" andValue: self.data[@"receiveChannel"] andNullString: @"All"];
+    self.sendChannel = [[controlText alloc] initWithLabel: @"CH" andValue: self.data[@"sendChannel"] andNullString: @"All"];
 
-    [self.midiChannelControl setOriginWithX: self.label.frameWidth + 8 andY: 4];
+    [self.receiveChannel setOriginWithX: 52 andY: 25];
+    [self.sendChannel setOriginWithX: 52 andY: 45];
 
-    [self.midiChannelControl setMax: 16];
-    [self.midiChannelControl setMin: 1];
+    
+    [self.receiveChannel setMax: 16];
+    [self.receiveChannel setMin: 1];
 
-    [self.data bind:@"channel" toObject: self.midiChannelControl withKeyPath:@"value" options:nil];
+    [self.sendChannel setMax: 16];
+    [self.sendChannel setMin: 1];
 
-    [self addSubview: self.midiChannelControl ];
+    [self.data bind:@"receiveChannel" toObject: self.receiveChannel withKeyPath:@"value" options:nil];
+    [self.data bind:@"sendChannel" toObject: self.sendChannel withKeyPath:@"value" options:nil];
+
+    [self addSubview: self.receiveChannel ];
+    [self addSubview: self.sendChannel ];
 
 
     /* UI buttons */

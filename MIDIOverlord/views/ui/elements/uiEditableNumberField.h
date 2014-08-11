@@ -15,13 +15,13 @@
 @property int max;
 
 -(id)initWithValue:(NSNumber*)value andLength:(int)length;
+-(id)initWithValue:(NSNumber*)value andLength:(int)length andNullString: (NSString*)nullString;
 -(NSNumber*)checkRange:(NSNumber*)number;
 
 -(void)setValueFromString;
 -(void)setStringFromValue;
 
 -(void)increment:(BOOL)increment;
-
 
 
 @end

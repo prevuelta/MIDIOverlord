@@ -12,18 +12,24 @@
 
 int baseY;
 
-//@synthesize value = _value;
+//@synthesize nullString = _nullString;
 
-- (id)initWithLabel: (NSString*)label andValue: (NSNumber*) value {
+- (id)initWithLabel: (NSString*)label andValue: (NSNumber*) value{
+    return [self initWithLabel:label andValue: value andNullString: @"---"];
+}
+
+- (id)initWithLabel: (NSString*)label andValue: (NSNumber*) value andNullString:(NSString*)nullString {
     
     _value = value;
+    
+    [self setNullString: nullString];
     
     _max = 127;
     _min = 0;
     
     _label = label;
     
-    _valueNumberField = [[uiEditableNumberField alloc] initWithValue: value andLength: 3];
+    _valueNumberField = [[uiEditableNumberField alloc] initWithValue: value andLength: 3 andNullString: self.nullString];
     
     [_valueNumberField bind:@"max" toObject:self withKeyPath:@"max" options:nil];
     [_valueNumberField bind:@"min" toObject:self withKeyPath:@"min" options:nil];
@@ -46,7 +52,7 @@ int baseY;
     if(![_label isEqualTo:@""]) {
         [self addSubview: _labelTextField];
     }
-        
+    
     [self addSubview:_valueNumberField];
     
     [self bind:@"value" toObject:_valueNumberField withKeyPath:@"value" options:nil];
@@ -65,6 +71,14 @@ int baseY;
     [[global sharedGlobalData].activeColor setStroke];
 
 }
+
+//-(NSString*)nullString {
+//    return _nullString;
+//}
+//
+//-(void)setNullString:(NSString *)nullString {
+//    _nullString = nullString;
+//}
 
 //-(NSNumber*)value {
 //    return _value;

@@ -23,6 +23,9 @@
 
 @property BOOL showNote;
 
+@property NSString *nullString;
+
 -(id)initWithLabel: (NSString*)label andValue:(NSNumber*)value;
+-(id)initWithLabel: (NSString*)label andValue: (NSNumber*) value andNullString:(NSString*)nullString;
 
 @end

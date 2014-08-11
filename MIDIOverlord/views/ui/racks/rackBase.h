@@ -28,7 +28,8 @@
 @property controlList *midiSend;
 @property controlList *midireceive;
 
-@property controlText *midiChannelControl;
+@property controlText *receiveChannel;
+@property controlText *sendChannel;
 
 @property NSNumber *rackID;
 

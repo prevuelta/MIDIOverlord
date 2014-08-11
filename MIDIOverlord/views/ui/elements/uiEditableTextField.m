@@ -16,6 +16,12 @@
 BOOL firstKey = true;
 
 -(id)initWithString:(NSString*)stringValue andMaxLength:(int)maxLength{
+    return [self initWithString:stringValue andMaxLength:maxLength andNullString: @"---"];
+    
+}
+
+-(id)initWithString:(NSString*)stringValue andMaxLength:(int)maxLength andNullString:(NSString*)nullString {
+    
     _invalidChars = [global sharedGlobalData].invalidChars;
     
     self = [super initWithString:stringValue andMaxLength:maxLength];
@@ -24,8 +30,9 @@ BOOL firstKey = true;
     self.textColor = [global sharedGlobalData].colors[@"blue"];
     self.editTextColor = [global sharedGlobalData].colors[@"yellow"];
     
-    return self;
+    self.nullString = nullString;
     
+    return self;
 }
 
 - (void)drawRect:(NSRect)dirtyRect {
@@ -100,9 +107,8 @@ BOOL firstKey = true;
 -(void)mouseDown:(NSEvent *)theEvent {
     [global deselectNotify];
 
-    if([self.stringValue isEqualToString: @"---"])
+    if([self.stringValue isEqualToString: self.nullString])
         [self setStringValue:@""];
-    
 
     _tempString = self.stringValue;
 
@@ -141,7 +147,7 @@ BOOL firstKey = true;
 
     if(firstKey) {
         firstKey = false;
-        if([event keyCode] == 51 || [self.stringValue isEqualTo:@"---"]) {
+        if([event keyCode] == 51 || [self.stringValue isEqualTo: self.nullString]) {
             self.stringValue = @"";
             self.cursorPosition = 0;
         }
@@ -191,8 +197,7 @@ BOOL firstKey = true;
         [self setIsEditing: NO];
         
         if([self.stringValue isEqual:@""]) {
-//            self.stringValue = _tempString;
-            self.stringValue = @"---";
+            self.stringValue = self.nullString;
         }
         
         self.savedString = self.stringValue;

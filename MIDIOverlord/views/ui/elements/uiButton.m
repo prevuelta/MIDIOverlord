@@ -102,21 +102,29 @@
 }
 
 -(void)mouseDown:(NSEvent*)theEvent {
-    self.active = YES;
+    [global deselectNotify];
+    
+    if(_isToggle) {
+        self.toggled = !self.toggled;
+        self.eventData = @{@"isToggled" : [NSNumber numberWithBool:self.toggled]};
+    } else {
+        self.active = YES;
+    }
+    
     [self setNeedsDisplay:YES];
 
 }
 
 -(void)mouseUp:(NSEvent *)theEvent {
     self.active = NO;
-
-    if(_isToggle) {
-        self.toggled = !self.toggled;
-        self.eventData = @{@"isToggled" : [NSNumber numberWithBool:self.toggled]};
-    }
-    
     [self setNeedsDisplay:YES];
     [[NSNotificationCenter defaultCenter] postNotificationName: self.event object:self userInfo: self.eventData];
 }
+
+-(void)deselect:(NSNotification*)notification  {
+    self.toggled = NO;
+    [self setNeedsDisplay:YES];
+}
+
 
 @end
