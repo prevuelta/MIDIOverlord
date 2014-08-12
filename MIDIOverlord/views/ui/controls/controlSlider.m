@@ -94,6 +94,7 @@ int baseMarker;
     NSLog(@"Slider value: %@ Percent: %f", _value, percent);
     int newValue = floor((_isVertical ? _size.height : _size.width) * percent);
     [self setMarker: newValue];
+    [self setNeedsDisplay:YES];
 }
 
 -(void)mouseDown:(NSEvent *)e {

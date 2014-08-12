@@ -29,6 +29,8 @@
 
     self.selected = NO;
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleMIDICommand:) name:@"midiCommand" object: nil];
+    
     return self;
 }
 
@@ -51,6 +53,19 @@
 
 -(void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+-(void)receiveInit {
+   
+}
+//
+//-(void)receiveKill {
+//    
+//}
+
+-(void)handleMIDICommand:(NSNotification*)notification {
+//    if([self.receiveCommand
+//    NSLog(@"Command received to module %@", notification);
 }
 
 

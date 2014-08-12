@@ -10,7 +10,7 @@
 
 @implementation modulePad
 
-//@synthesize inputValue = _inputValue;
+@synthesize active = _active;
 
 -(id)initWithData: (NSMutableDictionary*)data{
     
@@ -25,7 +25,6 @@
     _min = 0;
     _max = 127;
     _range = _max;
-    _velocity = self.data[@"velocity"];
     
     NSLog(@"Self data: %@", self.data);
     
@@ -85,6 +84,8 @@
     
     [trigger setOriginWithX: 52 andY: 2];
     
+    [self bind:@"active" toObject: trigger withKeyPath:@"active" options: nil];
+    
     [self addSubview: trigger];
     
     /* Velocity slider */
@@ -96,6 +97,7 @@
     [velSlider setOriginWithX: 80 andY: 2];
     
     [trigger bind:@"value" toObject: velSlider withKeyPath:@"value" options: nil];
+    [velSlider bind:@"value" toObject: self withKeyPath:@"velocity" options: nil];
     
     [self addSubview: velSlider];
     
@@ -149,6 +151,38 @@
     //       [[NSColor redColor] setFill];
     //       NSRectFill(dirtyRect);
     //      [super drawRect:dirtyRect];
+}
+
+-(void)handleMIDICommand:(NSNotification*)notification {
+    
+     MIKMIDICommand *command = notification.userInfo[@"command"];
+    
+    [command commandType];
+    
+//    if() {
+//        
+//    }
+//    
+//   
+//    [self.data setObject: [NSNumber numberWithInt: [command velocity]] forKey: @"velocity"];
+//    [self setActive: YES];
+//    NSLog(@"Velocity %d", [command velocity]);
+}
+
+-(BOOL)active {
+    return _active;
+}
+
+-(void)setActive:(BOOL)active {
+    if(![self.data[@"sendNotevalue"] isEqualToNumber:@-1]) {
+        if(active) {
+            NSLog(@"Sending command");
+            [self.delegate midiCommand: @[self.data[@"noteOnStatus"], self.data[@"sendNoteValue"], self.data[@"velocity"]]];
+        } else {
+//            [self.delegate midiCommand: @[self.data[@"noteOffStatus"], self.data[@"sendNoteValue"], @0]];
+        }
+    }
+    _active = active;
 }
 
 @end

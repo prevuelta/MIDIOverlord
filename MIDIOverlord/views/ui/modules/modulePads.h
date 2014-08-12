@@ -10,14 +10,8 @@
 
 @interface modulePads : moduleBase
 
-@property NSNumber *currentNote;
+//-(NSString*)noteString:(int)noteNum;
 
-@property BOOL pad1Active;
-@property BOOL pad2Active;
-@property BOOL pad3Active;
-@property BOOL pad4Active;
-
--(NSString*)noteString:(int)noteNum;
-
+@property NSMutableArray *pads;
 
 @end

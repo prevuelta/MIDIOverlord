@@ -10,16 +10,10 @@
 
 @implementation modulePads
 
-@synthesize currentNote = _currentNote;
-
 @synthesize data = _data;
+@synthesize delegate = _delegate;
 
-@synthesize pad1Active = _pad1Active;
-@synthesize pad2Active = _pad2Active;
-@synthesize pad3Active = _pad3Active;;
-@synthesize pad4Active = _pad4Active;
-
--(id)initWithData: (NSMutableDictionary*)data{
+-(id)initWithData: (NSMutableDictionary*)data {
     
     int height = 90;
     
@@ -30,6 +24,8 @@
     NSLog(@"Width: %d", self.width);
     
     self.data = data;
+    
+    _pads = [NSMutableArray new];
     
     [self setFlipped: YES];
     
@@ -42,12 +38,16 @@
     [_data bind:@"label" toObject: label withKeyPath:@"savedString" options:nil];
     
     for(NSMutableDictionary *padData in self.data[@"pads"]) {
+        
         NSLog(@"Pad data: %@", padData);
+        
         modulePad *pad = [[modulePad alloc] initWithData: padData];
+        
         NSLog(@"Padcount: %i", padCount % 2);
 //        0, 1, 0, 1
         [pad setOriginWithX: (padCount % 2 ? MODULE_WIDTH / 2 :  0) andY: padCount > 1 ? pad.frameHeight + 18 : 18];
         [self addSubview: pad];
+        [_pads addObject: pad];
         padCount++;
     }
     
@@ -77,14 +77,15 @@
     
 }
 
--(NSNumber*)currentNote {
-    return _currentNote;
+
+
+-(void)setDelegate:(id)delegate {
+    for(modulePad *pad in self.pads) {
+        [pad setDelegate: delegate];
+    }
+    _delegate = delegate;
 }
 
--(void)setCurrentNote:(NSNumber*)currentNote {
-    _currentNote = currentNote;
-}
-//
 //-(BOOL)pad1Active {
 //    return _pad1Active;
 //}

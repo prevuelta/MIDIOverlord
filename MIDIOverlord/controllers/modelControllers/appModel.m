@@ -143,7 +143,7 @@
             module[@"noteOnStatus"] = @144;
             module[@"noteOffStatus"] = @128;
             module[@"pads"] = [NSMutableArray new];
-            NSDictionary *pad = @{@"sendNoteValue": @24, @"velocity" : @127, @"receiveNoteValue" : @-1};
+            NSDictionary *pad = @{@"noteOnStatus":@144, @"sendNoteValue": @24, @"velocity" : @127, @"receiveNoteValue" : @-1};
             for(int i = 0; i < 4; i++) {
                 [module[@"pads"] addObject: [pad mutableCopy]];
             }

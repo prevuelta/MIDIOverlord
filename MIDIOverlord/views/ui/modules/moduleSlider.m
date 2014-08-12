@@ -53,12 +53,18 @@
     
     [self addSubview: inputRecord];
     
-    controlText *receiveCC = [[controlText alloc] initWithLabel: @"CC" andValue: data[@"receiveCC"]];
-   [receiveCC setOrigin:NSMakePoint(self.label.frameWidth + 18, 16)];
-   [_data bind:@"receiveCC" toObject: receiveCC withKeyPath:@"value" options:nil];
+//    controlText *receiveCC = [[controlText alloc] initWithLabel: @"CC" andValue: data[@"receiveCC"]];
+//   [receiveCC setOrigin:NSMakePoint(self.label.frameWidth + 18, 16)];
+//   [_data bind:@"receiveCC" toObject: receiveCC withKeyPath:@"value" options:nil];
+//    
+//   [self addSubview: receiveCC ];
     
-   [self addSubview: receiveCC ];
-
+    controlText *sendCC = [[controlText alloc] initWithLabel: @"CC" andValue: data[@"sendCC"]];
+    [sendCC setOrigin:NSMakePoint(self.label.frameWidth + 18, 16)];
+    [_data bind:@"sendCC" toObject: sendCC withKeyPath:@"value" options:nil];
+    
+    [self addSubview: sendCC ];
+    
     uiButton *removeBtn = [[uiButton alloc] initWithSize: 12 andEvent: @"removeModule"];
     [removeBtn setEventData: @{@"rackID": self.data[@"rackID"], @"moduleID" : self.data[@"moduleID"]}];
     [removeBtn setOrigin: NSMakePoint(self.width - 18, 18)];

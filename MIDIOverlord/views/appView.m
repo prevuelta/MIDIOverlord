@@ -22,6 +22,8 @@
 
     _racks = [NSMutableDictionary new];
     
+    _rackLayout = [NSMutableArray new];
+    
     _titleBar = [[uiTitleBar alloc ] initWithFrame: NSMakeRect(0, 0, self.frame.size.width, TITLE_BAR_HEIGHT )];
     
     [self addSubview:_titleBar];
@@ -63,6 +65,7 @@
 -(void)removeRack:(NSNumber*)rackID {
     [_racks[rackID] removeFromSuperview];
     [_racks removeObjectForKey:rackID];
+    [_rackLayout removeObject: rackID];
     [self arrangeRacks];
 }
 
@@ -70,9 +73,9 @@
     
     int xLoc = 2;
     
-    NSLog(@"Racks %@", _racks);
+    NSLog(@"Racks %@ and Layout: %@", _racks, _rackLayout);
     
-    for(rackBase *rackID in _racks) {
+    for(NSString *rackID in _rackLayout) {
         
         rackBase* rack = [_racks objectForKey: rackID];
         
@@ -98,6 +101,8 @@
     [rack setOrigin:NSMakePoint([_racks count] * (RACK_WIDTH + 2) + 2, TOOLBAR_HEIGHT + 2 + TITLE_BAR_HEIGHT)];
     
     [_racks setObject: rack forKey: rackID];
+    
+    [_rackLayout addObject: rackID];
     
     [self addSubview:rack];
     

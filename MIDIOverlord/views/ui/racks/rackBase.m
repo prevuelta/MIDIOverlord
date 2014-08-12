@@ -240,7 +240,7 @@
 }
 
 -(void)mouseDown:(NSEvent *)theEvent {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"deselectAll" object:self userInfo: nil];
+    [global deselectNotify];
 }
 
 @end

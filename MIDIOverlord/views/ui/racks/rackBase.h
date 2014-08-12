@@ -48,8 +48,8 @@
 @property NSMutableDictionary *moduleData;
 
 /* Midi */
-//@property MIKMIDISourceEndpoint *receiveEndpoint;
-//@property MIKMIDISourceEndpoint *sendEndpoint;
+@property MIKMIDISourceEndpoint *receiveDevice;
+@property MIKMIDIDestinationEndpoint *sendDevice;
 
 /* Notifications */
 

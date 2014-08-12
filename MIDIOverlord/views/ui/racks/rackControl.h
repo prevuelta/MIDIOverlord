@@ -12,8 +12,6 @@
 
 @interface rackControl : rackBase
 
-@property MIKMIDIEndpoint *receiveDevice;
-
 -(void)receiveHandler:(NSNotification*)notification;
 
 @end

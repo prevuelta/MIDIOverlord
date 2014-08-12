@@ -19,6 +19,7 @@
 @property BOOL editMode;
 
 @property NSMutableDictionary* racks;
+@property NSMutableArray *rackLayout;
 
 @property uiTitleBar* titleBar;
 @property uiToolBar* toolBar;
@@ -30,7 +31,6 @@
 -(void)windowResizeHandler:(NSNotification*)notification;
 
 -(void)drawRect:(NSRect)rect;
-
 
 
 -(moduleBase*)getModuleWithData:(NSMutableDictionary*)moduleData;

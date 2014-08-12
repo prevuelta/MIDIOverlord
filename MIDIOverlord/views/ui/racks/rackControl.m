@@ -44,7 +44,6 @@
 
     /* Channel controls */
 
-    
     self.receiveChannel = [[controlText alloc] initWithLabel: @"CH" andValue: self.data[@"receiveChannel"] andNullString: @"All"];
     self.sendChannel = [[controlText alloc] initWithLabel: @"CH" andValue: self.data[@"sendChannel"] andNullString: @"All"];
 
@@ -121,13 +120,17 @@
 
                for (MIKMIDICommand *command in commands) {
                     NSLog(@"Incoming MIDI: %@", command);
+                   [[NSNotificationCenter defaultCenter] postNotificationName:@"midiCommand" object:self userInfo: @{@"command" : command}];
                    // [self routeIncomingMIDICommand:command];
                }
                
            }];
 
-           // if (success) self.device = device;
+//    if (success) self.device = device;
 }
+
+
+
  //       - (void)routeIncomingMIDICommand:
  // *      {
  // *          MIKMIDIDevice *controller = self.device; // The connected MIKMIDIDevice instance
@@ -147,13 +150,13 @@
 
     //     MIKMIDIMappingGenerator *inputMapper = [[MIKMIDIMappingGenerator alloc] initWithDevice: self.midireceive.selectedObject error: &mappingError];
 
--(void)setReceiveDevice:(MIKMIDIEndpoint*)receiveDevice {
+-(void)setReceiveDevice:(MIKMIDISourceEndpoint*)receiveDevice {
     NSLog(@"Set receiveing device:%@", receiveDevice);
     _receiveDevice = receiveDevice;
     [self receiveHandler: nil];
 }
 
--(MIKMIDIEndpoint*)receiveDevice {
+-(MIKMIDISourceEndpoint*)receiveDevice {
     return _receiveDevice;
 }
 

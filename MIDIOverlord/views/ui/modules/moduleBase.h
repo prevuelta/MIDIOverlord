@@ -7,6 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <MIKMIDI/MIKMIDI.h>
 
 #import "uiBase.h"
 
@@ -42,10 +43,13 @@
 // Display options
 @property NSInteger tag;
 
+// Midi
+@property MIKMIDICommand *receiveCommand;
+
 // UI
 @property uiEditableTextField *label;
 
-// Methods
+/* Init Methods */
 -(id)initWithHeight:(int)height;
 
 -(id)initWithSize:(NSSize)size;
@@ -53,5 +57,10 @@
 -(id)initWithFrame:(NSRect)frame;
 
 -(id)initWithData:(NSMutableDictionary*)data;
+
+/* Midi */
+-(void)receiveInit;
+
+-(void)handleMIDICommand:(NSNotification*)notification;
 
 @end
