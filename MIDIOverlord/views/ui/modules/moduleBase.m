@@ -29,7 +29,11 @@
 
     self.selected = NO;
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleMIDICommand:) name:@"midiCommand" object: nil];
+    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleMIDICommand:) name:@"midiCommand" object: nil];
+    
+    [NSApp registerMIDIResponder: self];
+    
+    NSLog(@"Unique ident %@", self.MIDIIdentifier);
     
     return self;
 }
@@ -58,14 +62,19 @@
 -(void)receiveInit {
    
 }
+
+-(NSString*)MIDIIdentifier {
+    return @"What";
+}
+
 //
 //-(void)receiveKill {
 //    
 //}
 
--(void)handleMIDICommand:(NSNotification*)notification {
+-(void)handleMIDICommand:(MIKMIDICommand*)command {
 //    if([self.receiveCommand
-//    NSLog(@"Command received to module %@", notification);
+    NSLog(@"Command received to module %@", command);
 }
 
 

@@ -153,12 +153,12 @@
     //      [super drawRect:dirtyRect];
 }
 
--(void)handleMIDICommand:(NSNotification*)notification {
-    
-     MIKMIDICommand *command = notification.userInfo[@"command"];
-    
-    [command commandType];
-    
+//-(void)handleMIDICommand:(NSNotification*)notification {
+//    
+//     MIKMIDICommand *command = notification.userInfo[@"command"];
+//    
+//    [command commandType];
+
 //    if() {
 //        
 //    }
@@ -167,7 +167,7 @@
 //    [self.data setObject: [NSNumber numberWithInt: [command velocity]] forKey: @"velocity"];
 //    [self setActive: YES];
 //    NSLog(@"Velocity %d", [command velocity]);
-}
+//}
 
 -(BOOL)active {
     return _active;
@@ -179,7 +179,7 @@
             NSLog(@"Sending command");
             [self.delegate midiCommand: @[self.data[@"noteOnStatus"], self.data[@"sendNoteValue"], self.data[@"velocity"]]];
         } else {
-//            [self.delegate midiCommand: @[self.data[@"noteOffStatus"], self.data[@"sendNoteValue"], @0]];
+            [self.delegate midiCommand: @[self.data[@"noteOffStatus"], self.data[@"sendNoteValue"], @0]];
         }
     }
     _active = active;

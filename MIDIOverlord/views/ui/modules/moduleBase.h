@@ -27,7 +27,7 @@
 -(void)midiCommand:(NSArray*)data;
 @end
 
-@interface moduleBase : uiBase
+@interface moduleBase : uiBase <MIKMIDIResponder>
 
 @property (nonatomic, assign) id delegate;
 

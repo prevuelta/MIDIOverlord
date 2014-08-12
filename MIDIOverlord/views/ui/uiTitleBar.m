@@ -36,10 +36,10 @@ NSPoint initialLocation;
     
     [self addSubview: closeWindow];
     
-    uiButton *fillWindow = [[uiButton alloc] initWithSize: 12 andEvent:@"maxWindow"];
-    [fillWindow setOrigin: NSMakePoint(20, 4)];
+    uiButton *maximiseWindow = [[uiButton alloc] initWithSize: 12 andEvent:@"maxWindow"];
+    [maximiseWindow setOrigin: NSMakePoint(20, 4)];
     
-    [self addSubview: fillWindow];
+    [self addSubview: maximiseWindow];
     
     return self;
 }

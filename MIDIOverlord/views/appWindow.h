@@ -10,8 +10,10 @@
 
 @interface appWindow : NSWindow
 
--(void)closeWindow:(NSNotification*)notification;
+@property BOOL isMaxed;
+@property NSRect originalFrame;
 
+-(void)closeWindow:(NSNotification*)notification;
 -(void)maxWindow:(NSNotification*)notification;
 
 @end

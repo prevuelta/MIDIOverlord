@@ -120,7 +120,11 @@
 
                for (MIKMIDICommand *command in commands) {
                     NSLog(@"Incoming MIDI: %@", command);
-                   [[NSNotificationCenter defaultCenter] postNotificationName:@"midiCommand" object:self userInfo: @{@"command" : command}];
+//                   [[NSNotificationCenter defaultCenter] postNotificationName:@"midiCommand" object:self userInfo: @{@"command" : command}];
+                  id<MIKMIDIResponder> responder = [NSApp MIDIResponderWithIdentifier: @"What"];
+                   if ([responder respondsToMIDICommand:command]) {
+//                        [responder handleMIDICommand:command];
+                   }
                    // [self routeIncomingMIDICommand:command];
                }
                

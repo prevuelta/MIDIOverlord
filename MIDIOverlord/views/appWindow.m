@@ -10,9 +10,10 @@
 
 @implementation appWindow
 
--(id)initWithContentRect:(NSRect)contentRect styleMask:(NSUInteger)aStyle backing:(NSBackingStoreType)bufferingType defer:(BOOL)flag {
-    NSLog(@"is init");
+-(id)initWithContentRect:(NSRect)contentRect styleMask:(NSUInteger)aStyle backing:(NSBackingStoreType)bufferingType defer:(BOOL)flag{
     self = [super initWithContentRect:contentRect styleMask:aStyle backing:bufferingType defer:flag];
+    
+    [self setIsMaxed: NO];
     
     /* Observers */
     
@@ -40,8 +41,14 @@
 }
 
 -(void)maxWindow:(NSNotification*)notification {
-    NSRect screenFrame = [[NSScreen mainScreen] visibleFrame];
-    [self setFrame: screenFrame display: YES];
+    self.isMaxed = !self.isMaxed;
+    if(self.isMaxed) {
+        self.originalFrame = self.frame;
+        NSRect screenFrame = [[NSScreen mainScreen] visibleFrame];
+        [self setFrame: screenFrame display: YES];
+    } else {
+       [self setFrame: self.originalFrame display: YES];
+    }
 }
 
 //NSPoint currentLocation;
