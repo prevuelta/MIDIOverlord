@@ -8,7 +8,7 @@
 
 #import "moduleBase.h"
 
-@interface moduleSlider : moduleBase
+@interface moduleSlider : moduleBase <MIKMIDIResponder>
 
 @property NSNumber* ccValue;
 @property controlSlider *slider;

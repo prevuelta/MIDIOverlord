@@ -25,9 +25,10 @@
 
 @protocol moduleBaseDelegate
 -(void)midiCommand:(NSArray*)data;
+-(void)startRecord:(NSString*)MIDIIdentifier;
 @end
 
-@interface moduleBase : uiBase <MIKMIDIResponder>
+@interface moduleBase : uiBase
 
 @property (nonatomic, assign) id delegate;
 
@@ -45,6 +46,8 @@
 
 // Midi
 @property MIKMIDICommand *receiveCommand;
+@property NSString *MIDIIdentifier;
+@property BOOL isRecording;
 
 // UI
 @property uiEditableTextField *label;
@@ -59,8 +62,8 @@
 -(id)initWithData:(NSMutableDictionary*)data;
 
 /* Midi */
--(void)receiveInit;
 
+-(BOOL)respondsToMIDICommand:command;
 -(void)handleMIDICommand:(NSNotification*)notification;
 
 @end

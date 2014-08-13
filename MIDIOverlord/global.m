@@ -105,6 +105,12 @@ static global *_instance;
     return _midiDestinations;
 }
 
++(NSString *)uuid {
+    CFUUIDRef uuidRef = CFUUIDCreate(NULL);
+    CFStringRef uuidStringRef = CFUUIDCreateString(NULL, uuidRef);
+    CFRelease(uuidRef);
+    return (__bridge NSString *)uuidStringRef;
+}
 
 
 @end

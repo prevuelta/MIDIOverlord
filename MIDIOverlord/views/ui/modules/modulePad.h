@@ -8,7 +8,7 @@
 
 #import "moduleBase.h"
 
-@interface modulePad : moduleBase
+@interface modulePad : moduleBase <MIKMIDIResponder>
 
 @property BOOL velocityIsLocked;
 

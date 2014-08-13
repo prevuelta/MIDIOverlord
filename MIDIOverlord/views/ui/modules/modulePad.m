@@ -11,6 +11,7 @@
 @implementation modulePad
 
 @synthesize active = _active;
+@synthesize isRecording = _isRecording;
 
 -(id)initWithData: (NSMutableDictionary*)data{
     
@@ -32,7 +33,10 @@
     
     uiButton *receiveRecord = [[uiButton alloc] initWithSize: 16 andEvent: @"receiveRecord"];
     [receiveRecord setOrigin: NSMakePoint(0, 0)];
+    [receiveRecord setSendsEvent: NO];
     [receiveRecord setIsToggle: YES];
+    
+    [self bind:@"isRecording" toObject:receiveRecord withKeyPath:@"toggled" options:nil];
     
     [self addSubview: receiveRecord];
     
@@ -169,8 +173,19 @@
 //    NSLog(@"Velocity %d", [command velocity]);
 //}
 
+
 -(BOOL)active {
     return _active;
+}
+
+-(BOOL)isRecording {
+    return _isRecording;
+}
+
+-(void)setIsRecording:(BOOL)isRecording {
+    NSLog(@"Binding received");
+    [self.delegate startRecord: self.MIDIIdentifier];
+    _isRecording = isRecording;
 }
 
 -(void)setActive:(BOOL)active {

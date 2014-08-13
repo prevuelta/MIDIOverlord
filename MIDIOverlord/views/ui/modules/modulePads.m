@@ -43,6 +43,12 @@
         
         modulePad *pad = [[modulePad alloc] initWithData: padData];
         
+        [pad setDelegate: self.superview];
+        
+        [NSApp registerMIDIResponder: pad];
+        
+        NSLog(@"Unique ident %@", pad.MIDIIdentifier);
+        
         NSLog(@"Padcount: %i", padCount % 2);
 //        0, 1, 0, 1
         [pad setOriginWithX: (padCount % 2 ? MODULE_WIDTH / 2 :  0) andY: padCount > 1 ? pad.frameHeight + 18 : 18];

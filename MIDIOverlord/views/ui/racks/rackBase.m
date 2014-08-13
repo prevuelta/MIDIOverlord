@@ -202,7 +202,6 @@
         [command setControllerNumber: [newData[1] unsignedIntegerValue]];
         [command setControllerValue: [newData[2] unsignedIntegerValue]];
         
-
         NSLog(@"command: %@", command);
         
         NSArray *commands = @[command];
@@ -241,6 +240,10 @@
 
 -(void)mouseDown:(NSEvent *)theEvent {
     [global deselectNotify];
+}
+
+-(void)startRecord:(NSString *)MIDIIdentifier {
+    NSLog(@"Delegate received: %@", MIDIIdentifier);
 }
 
 @end

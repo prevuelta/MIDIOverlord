@@ -12,6 +12,7 @@
 
 @interface rackControl : rackBase
 
--(void)receiveHandler:(NSNotification*)notification;
+-(void)initReceiveHandler;
+-(void)killReceiveHandler;
 
 @end

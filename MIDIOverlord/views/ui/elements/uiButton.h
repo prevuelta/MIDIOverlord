@@ -21,6 +21,8 @@
 
 @property BOOL hasBg;
 
+@property BOOL sendsEvent;
+
 @property NSString *event;
 @property NSDictionary* eventData;
 

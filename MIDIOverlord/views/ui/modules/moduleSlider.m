@@ -25,6 +25,7 @@
     
     _data = data;
     
+    self.MIDIIdentifier = data[@"moduleID"];
     
     // Add Slider
     _slider = [[controlSlider alloc] initWithSize:NSMakeSize(self.width, 16) andValue: data[@"ccValue"] andMinValue: 0 andMaxValue:127 ];

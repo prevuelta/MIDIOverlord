@@ -29,6 +29,7 @@
     self.isToggle = NO;
     self.flipped = YES;
     self.hasBg = YES;
+    self.sendsEvent = YES;
     
     self.defaultColor = [global sharedGlobalData].colors[@"lightGrey"];
     self.activeColor =  [global sharedGlobalData].colors[@"darkGrey"];
@@ -119,7 +120,9 @@
 -(void)mouseUp:(NSEvent *)theEvent {
     self.active = NO;
     [self setNeedsDisplay:YES];
-    [[NSNotificationCenter defaultCenter] postNotificationName: self.event object:self userInfo: self.eventData];
+    if(self.sendsEvent) {
+        [[NSNotificationCenter defaultCenter] postNotificationName: self.event object:self userInfo: self.eventData];
+    }
 }
 
 -(void)deselect:(NSNotification*)notification  {

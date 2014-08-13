@@ -51,6 +51,8 @@
 @property MIKMIDISourceEndpoint *receiveDevice;
 @property MIKMIDIDestinationEndpoint *sendDevice;
 
+@property NSMutableSet * mappings;
+
 /* Notifications */
 
 -(id)initWithFrame:(NSRect)frame andData:(NSMutableDictionary*)data;
@@ -62,5 +64,8 @@
 
 -(void)updateModules;
 
+/* Midi */
+
+-(void)startRecord:(NSString *)MIDIIdentifier;
 
 @end

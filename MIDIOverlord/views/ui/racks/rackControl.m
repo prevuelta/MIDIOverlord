@@ -108,7 +108,7 @@
 
 }
 
--(void)receiveHandler:(NSNotification*)notification {
+-(void)initReceiveHandler {
 
     /* Setup mapping receiveer */
 
@@ -121,9 +121,10 @@
                for (MIKMIDICommand *command in commands) {
                     NSLog(@"Incoming MIDI: %@", command);
 //                   [[NSNotificationCenter defaultCenter] postNotificationName:@"midiCommand" object:self userInfo: @{@"command" : command}];
-                  id<MIKMIDIResponder> responder = [NSApp MIDIResponderWithIdentifier: @"What"];
+                  id<MIKMIDIResponder> responder = [NSApp MIDIResponderWithIdentifier: @"1-0"];
+                   NSLog(@"Responder: %@", responder);
                    if ([responder respondsToMIDICommand:command]) {
-//                        [responder handleMIDICommand:command];
+                        [responder handleMIDICommand:command];
                    }
                    // [self routeIncomingMIDICommand:command];
                }
@@ -154,10 +155,26 @@
 
     //     MIKMIDIMappingGenerator *inputMapper = [[MIKMIDIMappingGenerator alloc] initWithDevice: self.midireceive.selectedObject error: &mappingError];
 
+-(void)killReceiveHandler {
+    MIKMIDIDeviceManager *manager = [MIKMIDIDeviceManager sharedDeviceManager];
+   
+    NSError *error;
+    
+    [manager disconnectInput:self.receiveDevice forConnectionToken: error];
+    
+}
+
 -(void)setReceiveDevice:(MIKMIDISourceEndpoint*)receiveDevice {
     NSLog(@"Set receiveing device:%@", receiveDevice);
-    _receiveDevice = receiveDevice;
-    [self receiveHandler: nil];
+    
+    if(!receiveDevice) {
+        [self killReceiveHandler];
+         _receiveDevice = receiveDevice;
+    } else {
+         _receiveDevice = receiveDevice;
+        [self initReceiveHandler];
+    }
+   
 }
 
 -(MIKMIDISourceEndpoint*)receiveDevice {
@@ -166,6 +183,10 @@
 
 -(void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+-(void)startRecord:(NSString *)MIDIIdentifier {
+    NSLog(@"Delegate received: %@", MIDIIdentifier);
 }
 
 @end
