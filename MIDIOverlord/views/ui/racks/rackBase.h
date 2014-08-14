@@ -53,6 +53,10 @@
 
 @property NSMutableSet * mappings;
 
+@property BOOL isRecording;
+
+@property NSString *currentMIDIIdentifier;
+
 /* Notifications */
 
 -(id)initWithFrame:(NSRect)frame andData:(NSMutableDictionary*)data;

@@ -108,7 +108,7 @@
 
 }
 
--(void)initReceiveHandler {
+-(void)startListening {
 
     /* Setup mapping receiveer */
 
@@ -119,8 +119,21 @@
     BOOL success = [manager connectInput: self.receiveDevice  error: &error eventHandler:^(MIKMIDISourceEndpoint *source, NSArray *commands) {
 
                for (MIKMIDICommand *command in commands) {
+                   
+                   /* Add mapping item */
+                   
+                   if(self.isRecording) {
+                       [global deselectNotify];
+                       [self setIsRecording: NO];
+                       [self.mappings addObject: [[MIKMIDIMappingItem alloc] initWithMIDIResponderIdentifier:self.currentMIDIIdentifier andCommandIdentifier:@"commandID"]];
+                       [global stopRecordingNotify];
+                   }
+                   
                     NSLog(@"Incoming MIDI: %@", command);
-//                   [[NSNotificationCenter defaultCenter] postNotificationName:@"midiCommand" object:self userInfo: @{@"command" : command}];
+
+                [global stopRecordingNotify];
+                   
+                   
                   id<MIKMIDIResponder> responder = [NSApp MIDIResponderWithIdentifier: @"1-0"];
                    NSLog(@"Responder: %@", responder);
                    if ([responder respondsToMIDICommand:command]) {
@@ -155,7 +168,7 @@
 
     //     MIKMIDIMappingGenerator *inputMapper = [[MIKMIDIMappingGenerator alloc] initWithDevice: self.midireceive.selectedObject error: &mappingError];
 
--(void)killReceiveHandler {
+-(void)stopListening {
     MIKMIDIDeviceManager *manager = [MIKMIDIDeviceManager sharedDeviceManager];
    
     NSError *error;
@@ -167,12 +180,13 @@
 -(void)setReceiveDevice:(MIKMIDISourceEndpoint*)receiveDevice {
     NSLog(@"Set receiveing device:%@", receiveDevice);
     
+    
     if(!receiveDevice) {
-        [self killReceiveHandler];
-         _receiveDevice = receiveDevice;
+        [self stopListening];
+         _receiveDevice = nil;
     } else {
          _receiveDevice = receiveDevice;
-        [self initReceiveHandler];
+        [self startListening];
     }
    
 }
@@ -185,8 +199,12 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
--(void)startRecord:(NSString *)MIDIIdentifier {
+-(void)startRecording:(NSString *)MIDIIdentifier {
+    [self setIsRecording: YES];
+    self.currentMIDIIdentifier = MIDIIdentifier;
     NSLog(@"Delegate received: %@", MIDIIdentifier);
 }
+
+
 
 @end

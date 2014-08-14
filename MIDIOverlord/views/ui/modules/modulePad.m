@@ -31,14 +31,14 @@
     
     /* Input */
     
-    uiButton *receiveRecord = [[uiButton alloc] initWithSize: 16 andEvent: @"receiveRecord"];
-    [receiveRecord setOrigin: NSMakePoint(0, 0)];
-    [receiveRecord setSendsEvent: NO];
-    [receiveRecord setIsToggle: YES];
+    self.receiveRecordBtn = [[uiButton alloc] initWithSize: 16 andEvent: @"receiveRecord"];
+    [self.receiveRecordBtn setOrigin: NSMakePoint(0, 0)];
+    [self.receiveRecordBtn setSendsEvent: NO];
+    [self.receiveRecordBtn setIsToggle: YES];
     
-    [self bind:@"isRecording" toObject:receiveRecord withKeyPath:@"toggled" options:nil];
+    [self bind:@"isRecording" toObject:self.receiveRecordBtn withKeyPath:@"toggled" options:nil];
     
-    [self addSubview: receiveRecord];
+    [self addSubview: self.receiveRecordBtn];
     
     controlText *receiveValue = [[controlText alloc] initWithLabel: @"" andValue: data[@"receiveNoteValue"]];
     uiNoteField *receiveNote = [[uiNoteField alloc] initWithString: [utilities noteName: [data[@"receiveNoteValue"] intValue] ]];
@@ -186,6 +186,11 @@
     NSLog(@"Binding received");
     [self.delegate startRecord: self.MIDIIdentifier];
     _isRecording = isRecording;
+}
+
+-(void)stopRecording:(NSNotification*)notification {
+    NSLog(@"Stopping recording");
+    [self.receiveRecordBtn setToggled: NO];
 }
 
 -(void)setActive:(BOOL)active {

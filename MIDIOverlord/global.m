@@ -96,6 +96,11 @@ static global *_instance;
     [[NSNotificationCenter defaultCenter] postNotificationName:@"deselectAll" object:self userInfo: nil];
 }
 
+
++(void)stopRecordingNotify {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"stopRecording" object:self userInfo: nil];
+}
+
 -(void)setMidiDestinations:(NSMutableDictionary *)midiDestinations{
     _midiDestinations = midiDestinations;
     [[NSNotificationCenter defaultCenter] postNotificationName:@"updateMidiDestinations" object:self userInfo: _midiDestinations];

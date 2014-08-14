@@ -12,7 +12,9 @@
 
 @interface rackControl : rackBase
 
--(void)initReceiveHandler;
--(void)killReceiveHandler;
+-(void)startListening;
+-(void)stopListening;
+
+-(void)startRecording:(NSString*)MIDIIdentifier;
 
 @end

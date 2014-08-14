@@ -48,6 +48,7 @@
 @property MIKMIDICommand *receiveCommand;
 @property NSString *MIDIIdentifier;
 @property BOOL isRecording;
+@property uiButton *receiveRecordBtn;
 
 // UI
 @property uiEditableTextField *label;

@@ -33,6 +33,7 @@
 
 +(global*)sharedGlobalData;
 +(void)deselectNotify;
++(void)stopRecordingNotify;
 +(NSString *)uuid;
 
 @end

@@ -11,6 +11,7 @@
 
 @implementation uiButton
 
+@synthesize toggled = _toggled;
 
 -(id)initWithSize:(int)size {
     return [self initWithSize:size andEvent: nil];
@@ -34,6 +35,7 @@
     self.defaultColor = [global sharedGlobalData].colors[@"lightGrey"];
     self.activeColor =  [global sharedGlobalData].colors[@"darkGrey"];
     self.toggleColor = [global sharedGlobalData].colors[@"yellow"];
+    self.disabledColor = [global sharedGlobalData].colors[@"white"];
 
     NSDictionary *iconTypes = @{
          @"addControlRack" : @-48,
@@ -79,6 +81,8 @@
         [self.activeColor setFill];
     } else if (self.toggled){
         [self.toggleColor setFill];
+    } else if (self.disabled) {
+        [self.disabledColor setFill];
     } else {
         [self.defaultColor setFill];
     }
@@ -126,7 +130,7 @@
 }
 
 -(void)deselect:(NSNotification*)notification  {
-    self.toggled = NO;
+//    self.toggled = NO;
     [self setNeedsDisplay:YES];
 }
 

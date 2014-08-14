@@ -31,6 +31,8 @@
 @property NSColor *defaultColor;
 @property NSColor *activeColor;
 @property NSColor *toggleColor;
+@property NSColor *disabledColor;
+
 
 -(id)initWithSize:(int)size;
 -(id)initWithSize:(int)size andEvent:(NSString*)event;
