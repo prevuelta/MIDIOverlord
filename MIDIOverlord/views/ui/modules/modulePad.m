@@ -15,7 +15,7 @@
 
 -(id)initWithData: (NSMutableDictionary*)data{
     
-    self = [super initWithSize: NSMakeSize( MODULE_WIDTH / 2, 36)];
+    self = [super initWithSize: NSMakeSize( MODULE_WIDTH / 2, 40)];
     
     if(!self) return nil;
     
@@ -31,8 +31,8 @@
     
     /* Input */
     
-    self.receiveRecordBtn = [[uiButton alloc] initWithSize: 16 andEvent: @"receiveRecord"];
-    [self.receiveRecordBtn setOrigin: NSMakePoint(0, 0)];
+    self.receiveRecordBtn = [[uiButton alloc] initWithSize: 12 andEvent: @"receiveRecord"];
+    [self.receiveRecordBtn setOrigin: NSMakePoint(0, 2)];
     [self.receiveRecordBtn setSendsEvent: NO];
     [self.receiveRecordBtn setIsToggle: YES];
     
@@ -58,8 +58,8 @@
     
     /* Output */
     
-    uiButton *sendRecord = [[uiButton alloc] initWithSize: 16 andEvent: @"sendRecord"];
-    [sendRecord setOrigin: NSMakePoint(0, 18)];
+    uiButton *sendRecord = [[uiButton alloc] initWithSize: 12 andEvent: @"sendRecord"];
+    [sendRecord setOrigin: NSMakePoint(0, 20)];
     [sendRecord setIsToggle: YES];
     
     [self addSubview: sendRecord];
@@ -80,9 +80,21 @@
     [self addSubview: noteValue ];
     [self addSubview: note ];
     
+    /* Velocity slider */
+    
+    controlSlider *velSlider = [[controlSlider alloc] initWithSize:NSMakeSize(12, self.frameHeight - 4) andValue: 0 andMinValue: 0 andMaxValue: 127];
+    
+    [velSlider setIsVertical: YES];
+    
+    [velSlider setOriginWithX: 38 andY: 2];
+    
+    [velSlider bind:@"value" toObject: self withKeyPath:@"velocity" options: nil];
+    
+    [self addSubview: velSlider];
+    
     /* Trigger */
     
-    NSSize padSize = NSMakeSize(26, self.frameHeight - 4);
+    NSSize padSize = NSMakeSize(40, 40);
     
     controlTrigger *trigger = [[controlTrigger alloc] initWithSize: padSize andValue: self.data[@"velocity"]];
     
@@ -90,20 +102,9 @@
     
     [self bind:@"active" toObject: trigger withKeyPath:@"active" options: nil];
     
-    [self addSubview: trigger];
-    
-    /* Velocity slider */
-    
-    controlSlider *velSlider = [[controlSlider alloc] initWithSize:NSMakeSize(8, self.frameHeight - 4) andValue: 0 andMinValue: 0 andMaxValue: 127];
-    
-    [velSlider setIsVertical: YES];
-    
-    [velSlider setOriginWithX: 80 andY: 2];
-    
     [trigger bind:@"value" toObject: velSlider withKeyPath:@"value" options: nil];
-    [velSlider bind:@"value" toObject: self withKeyPath:@"velocity" options: nil];
     
-    [self addSubview: velSlider];
+    [self addSubview: trigger];
     
     /* Lock veolocity */
     

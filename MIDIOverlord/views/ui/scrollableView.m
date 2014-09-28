@@ -92,9 +92,9 @@
 }
 
 -(void)drawRect:(NSRect)dirtyRect {
-//   [[NSColor whiteColor] setFill];
-//    NSRectFill(dirtyRect);
-//    [super drawRect:dirtyRect];
+   [[global sharedGlobalData].colors[@"lightGrey"] setFill];
+    NSRectFill(dirtyRect);
+    [super drawRect:dirtyRect];
 }
 
 - (void)scrollWheel:(NSEvent *)event {

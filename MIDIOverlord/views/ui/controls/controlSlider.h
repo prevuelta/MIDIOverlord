@@ -25,6 +25,7 @@
 @property uiTextField *label;
 
 @property NSColor *defaultColor;
+@property NSColor *highlightColor;
 @property NSColor *markerColor;
 
 @property BOOL isVertical;

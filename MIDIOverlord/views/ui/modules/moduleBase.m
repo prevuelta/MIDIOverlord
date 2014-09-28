@@ -38,18 +38,18 @@
 
 -(void)drawRect:(NSRect)dirtyRect {
     // Draw background
-    
-    NSBezierPath* bgPath = [NSBezierPath new];
-    
-    if(!self.selected) {
-        [[global sharedGlobalData].colors[@"darkerGrey"] setFill];
-    } else {
-        [[global sharedGlobalData].colors[@"red"] setFill];
-    }
-    
-    [bgPath appendBezierPathWithRect:NSMakeRect(0, 0, self.width, self.height)];
-    [bgPath closePath];
-    [bgPath fill];
+//    
+//    NSBezierPath* bgPath = [NSBezierPath new];
+//    
+//    if(!self.selected) {
+//        [[global sharedGlobalData].colors[@"darkestGrey"] setFill];
+//    } else {
+//        [[global sharedGlobalData].colors[@"red"] setFill];
+//    }
+//    
+//    [bgPath appendBezierPathWithRect:NSMakeRect(0, 0, self.width, self.height)];
+//    [bgPath closePath];
+//    [bgPath fill];
 
 }
 

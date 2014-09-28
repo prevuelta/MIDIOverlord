@@ -27,8 +27,8 @@ BOOL firstKey = true;
     self = [super initWithString:stringValue andMaxLength:maxLength];
     
     self.savedString = stringValue;
-    self.textColor = [global sharedGlobalData].colors[@"blue"];
-    self.editTextColor = [global sharedGlobalData].colors[@"yellow"];
+//    self.textColor = [global sharedGlobalData].colors[@"blue"];
+    self.editTextColor = [global sharedGlobalData].colors[@"red"];
     
     self.nullString = nullString;
     

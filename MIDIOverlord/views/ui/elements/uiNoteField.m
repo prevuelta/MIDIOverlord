@@ -14,7 +14,7 @@
 
 -(id)initWithString:(NSString*)stringValue {
     
-    self = [super initWithString: stringValue andMaxLength: 4];
+    self = [super initWithString: stringValue andMaxLength: 3];
     
     if (!self) return nil;
     

@@ -24,7 +24,7 @@
     
     self.width = RACK_WIDTH;
     
-    self.height = frame.size.height - TOOLBAR_HEIGHT - TITLE_BAR_HEIGHT - 4;
+    self.height = frame.size.height - TOOLBAR_HEIGHT - TITLE_BAR_HEIGHT - 12;
     
     self.headerHeight = 96;
     
@@ -32,7 +32,7 @@
     
     self.moduleView = [[scrollableView alloc] initWithFrame:NSMakeRect(0, 0, RACK_WIDTH - 4, self.height - self.headerHeight - 4)];
     
-    [self.moduleView setOrigin: NSMakePoint(4, self.headerHeight)];
+    [self.moduleView setOrigin: NSMakePoint(0, self.headerHeight)];
 
     [self addSubview: self.moduleView];
     
@@ -139,7 +139,7 @@
     if(self.selected == YES) {
         [[global sharedGlobalData].colors[@"red"] setFill];
     } else {
-        [[global sharedGlobalData].colors[@"darkGrey"] setFill];
+        [[global sharedGlobalData].colors[@"grey"] setFill];
     }
     
     [headerPath appendBezierPathWithRoundedRect:NSMakeRect(0, 0, RACK_WIDTH, self.headerHeight) xRadius: 0 yRadius: 0];
@@ -147,19 +147,19 @@
     [headerPath closePath];
     [headerPath fill];
     
-    [fgPath moveToPoint:NSZeroPoint];
-    [fgPath lineToPoint:NSMakePoint(0, self.headerHeight)];
-    [fgPath lineToPoint:NSMakePoint(0, self.height)];
-    [fgPath lineToPoint:NSMakePoint(RACK_WIDTH, self.height)];
-    [fgPath lineToPoint:NSMakePoint(RACK_WIDTH, self.headerHeight)];
-    [fgPath lineToPoint:NSMakePoint(RACK_WIDTH - 4, self.headerHeight)];
-    [fgPath lineToPoint:NSMakePoint(RACK_WIDTH - 4, self.height-4)];
-    [fgPath lineToPoint:NSMakePoint(4, self.height-4)];
-    [fgPath lineToPoint:NSMakePoint(4, 4)];
-    [fgPath lineToPoint:NSMakePoint(4, self.headerHeight)];
-    [fgPath lineToPoint:NSMakePoint(0, self.headerHeight)];
-    
-    [fgPath fill];
+//    [fgPath moveToPoint:NSZeroPoint];
+//    [fgPath lineToPoint:NSMakePoint(0, self.headerHeight)];
+//    [fgPath lineToPoint:NSMakePoint(0, self.height)];
+//    [fgPath lineToPoint:NSMakePoint(RACK_WIDTH, self.height)];
+//    [fgPath lineToPoint:NSMakePoint(RACK_WIDTH, self.headerHeight)];
+//    [fgPath lineToPoint:NSMakePoint(RACK_WIDTH - 4, self.headerHeight)];
+//    [fgPath lineToPoint:NSMakePoint(RACK_WIDTH - 4, self.height-4)];
+//    [fgPath lineToPoint:NSMakePoint(4, self.height-4)];
+//    [fgPath lineToPoint:NSMakePoint(4, 4)];
+//    [fgPath lineToPoint:NSMakePoint(4, self.headerHeight)];
+//    [fgPath lineToPoint:NSMakePoint(0, self.headerHeight)];
+//    
+//    [fgPath fill];
     
 
     

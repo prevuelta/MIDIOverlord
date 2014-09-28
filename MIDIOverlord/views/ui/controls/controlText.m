@@ -39,12 +39,13 @@ int baseY;
     if(![_label isEqualTo:@""]) {
         NSLog(@"Nolabel: %@", _label);
         _labelTextField = [[uiTextField alloc] initWithString: _label];
+        [_labelTextField setBgColor: [global sharedGlobalData].colors[@"darkPaleBlue"] ];
         width += _labelTextField.frameWidth;
     }
 
     [_valueNumberField setOrigin: NSMakePoint(_labelTextField.frameWidth, 0)];
 
-    NSRect frame = NSMakeRect(0, 0, width, 16);
+    NSRect frame = NSMakeRect(0, 0, width, 12);
     self = [super initWithFrame: frame];
     
     if (!self) return nil;

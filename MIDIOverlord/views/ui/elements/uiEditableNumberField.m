@@ -31,7 +31,7 @@
     _max = 127;
     _min = 0;
 
-    self.textColor = [global sharedGlobalData].colors[@"red"];
+//    self.textColor = [global sharedGlobalData].colors[@"red"];
     
     self.invalidChars = [global sharedGlobalData].notNumbers;
     

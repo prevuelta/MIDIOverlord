@@ -23,7 +23,7 @@ NSPoint initialLocation;
 //    uiTextField *appTitle = [[uiTextField alloc] initWithString: @"Untitled"];
      uiTextField *appTitle = [[uiTextField alloc] initWithString: testString];
     
-    [appTitle setOrigin:NSMakePoint(34, 2)];
+    [appTitle setOrigin:NSMakePoint(34, 6)];
     
 //    [appTitle bind:@"stringValue" toObject:self withKeyPath: @"title" options: nil];
 
@@ -32,12 +32,12 @@ NSPoint initialLocation;
     /* Window management */
     
     uiButton *closeWindow = [[uiButton alloc] initWithSize: 12 andEvent:@"closeWindow"];
-    [closeWindow setOrigin: NSMakePoint(4, 4)];
+    [closeWindow setOrigin: NSMakePoint(4, 6)];
     
     [self addSubview: closeWindow];
     
     uiButton *maximiseWindow = [[uiButton alloc] initWithSize: 12 andEvent:@"maxWindow"];
-    [maximiseWindow setOrigin: NSMakePoint(20, 4)];
+    [maximiseWindow setOrigin: NSMakePoint(20, 6)];
     
     [self addSubview: maximiseWindow];
     
@@ -47,9 +47,9 @@ NSPoint initialLocation;
 - (void)drawRect:(NSRect)dirtyRect {
     
     if(self.active) {
-        [[global sharedGlobalData].colors[@"darkGrey"] setFill];
+        [[global sharedGlobalData].colors[@"pink"] setFill];
     } else {
-        [[global sharedGlobalData].colors[@"darkerGrey"] setFill];
+        [[global sharedGlobalData].colors[@"grey"] setFill];
     }
     NSRectFill(dirtyRect);
     
@@ -62,7 +62,7 @@ NSPoint initialLocation;
     
     self.selected = YES;
     
-    NSRect  windowFrame = [[self window] frame];
+    NSRect windowFrame = [[self window] frame];
     
     initialLocation = [NSEvent mouseLocation];
     

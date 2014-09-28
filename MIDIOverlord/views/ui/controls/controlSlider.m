@@ -36,13 +36,14 @@ int baseMarker;
     [self updateMarker];
     
     _textVal = [[uiTextField alloc] initWithString: [NSString stringWithFormat:@"%03d", [_value intValue]]];
-    [_textVal setOrigin:NSMakePoint(RACK_WIDTH - 36 - SCROLLER_WIDTH, 0)];
+    [_textVal setOrigin:NSMakePoint(RACK_WIDTH - 36 - SCROLLER_WIDTH, 1)];
     [_textVal setDrawBg: NO];
     [_textVal setTextColor:[NSColor whiteColor]];
     
     [self addSubview: _textVal];
     
-    self.defaultColor = [global sharedGlobalData].colors[@"darkGrey"];
+    self.defaultColor = [global sharedGlobalData].colors[@"grey"];
+    self.highlightColor = [global sharedGlobalData].colors[@"lighterGrey"];
     self.markerColor = [global sharedGlobalData].colors[@"yellow"];
     
     return self;
@@ -61,11 +62,16 @@ int baseMarker;
     
     [self.markerColor set];
     
+    NSRect markerRect;
+    
     if(_isVertical) {
-        [markerPath appendBezierPathWithRect:NSMakeRect(0, 0, self.size.width, self.marker)];
+        markerRect = NSMakeRect(0, 0, self.size.width, self.marker);
     } else {
-        [markerPath appendBezierPathWithRect:NSMakeRect(0, 2, self.marker, self.size.height - 4 )];
+        markerRect = NSMakeRect(0, 0, self.marker, self.size.height );
     }
+    
+    [markerPath appendBezierPathWithRect: markerRect];
+    
     [markerPath fill];
     
 }

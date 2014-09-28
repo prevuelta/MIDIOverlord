@@ -49,7 +49,6 @@
 
     [self.receiveChannel setOriginWithX: 52 andY: 25];
     [self.sendChannel setOriginWithX: 52 andY: 45];
-
     
     [self.receiveChannel setMax: 16];
     [self.receiveChannel setMin: 1];

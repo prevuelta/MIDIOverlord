@@ -15,7 +15,7 @@
 
 -(id)initWithData:(NSMutableDictionary*)data {
     
-    int height = 32;
+    int height = 36;
     
     self = [super initWithHeight: height];
     
@@ -28,57 +28,68 @@
     self.MIDIIdentifier = data[@"moduleID"];
     
     // Add Slider
-    _slider = [[controlSlider alloc] initWithSize:NSMakeSize(self.width, 16) andValue: data[@"ccValue"] andMinValue: 0 andMaxValue:127 ];
+    _slider = [[controlSlider alloc] initWithSize:NSMakeSize(self.width - 8, 18) andValue: data[@"ccValue"] andMinValue: 0 andMaxValue:127 ];
     
-    [_slider setOrigin:NSMakePoint(0, 0)];
+    [_slider setOrigin:NSMakePoint(2, 2)];
     
     [self bind:@"ccValue" toObject:_slider withKeyPath:@"value" options:nil];
     [_data bind:@"ccValue" toObject:_slider withKeyPath:@"value" options:nil];
     
     [self addSubview: _slider];
 
+    int controlY = 0;
+    
     // Add Label
     self.label = [[uiEditableTextField alloc] initWithString: _data[@"label"] andMaxLength: 7];
-    [self.label setOrigin:NSMakePoint(0, 16)];
+    [self.label setOrigin:NSMakePoint(0, 20)];
     
     [_data bind:@"label" toObject: self.label withKeyPath:@"savedString" options:nil];
     
     [self addSubview: self.label];
     
+    controlY += self.label.frameWidth + 2;
+    
     /* Setup input */
 
-    uiButton *inputRecord = [[uiButton alloc] initWithSize: 16 andEvent: @"receiveRecord"];
+    uiButton *inputRecord = [[uiButton alloc] initWithSize: 12 andEvent: @"receiveRecord"];
     [inputRecord setEventData: @{@"rackID": self.data[@"rackID"], @"moduleID" : self.data[@"moduleID"]}];
     [inputRecord setIsToggle: YES];
-    [inputRecord setOrigin: NSMakePoint(self.label.frameWidth + 2, 16)];
+    [inputRecord setOrigin: NSMakePoint(controlY, 22)];
     
     [self addSubview: inputRecord];
     
-//    controlText *receiveCC = [[controlText alloc] initWithLabel: @"CC" andValue: data[@"receiveCC"]];
-//   [receiveCC setOrigin:NSMakePoint(self.label.frameWidth + 18, 16)];
-//   [_data bind:@"receiveCC" toObject: receiveCC withKeyPath:@"value" options:nil];
-//    
-//   [self addSubview: receiveCC ];
+    controlY += inputRecord.frameWidth + 2;
     
-    controlText *sendCC = [[controlText alloc] initWithLabel: @"CC" andValue: data[@"sendCC"]];
-    [sendCC setOrigin:NSMakePoint(self.label.frameWidth + 18, 16)];
+    controlText *receiveCC = [[controlText alloc] initWithLabel: @"IN" andValue: data[@"receiveCC"]];
+   [receiveCC setOrigin:NSMakePoint(controlY, 20)];
+   [_data bind:@"receiveCC" toObject: receiveCC withKeyPath:@"value" options:nil];
+    
+   [self addSubview: receiveCC ];
+    
+    /* Setup output */
+    
+    controlY += receiveCC.frameWidth + 2;
+    
+    uiButton *outputRecord = [[uiButton alloc] initWithSize: 12 andEvent: @"sendRecord"];
+    [outputRecord setEventData: @{@"rackID": self.data[@"rackID"], @"moduleID" : self.data[@"moduleID"]}];
+    [outputRecord setIsToggle: YES];
+    [outputRecord setOrigin: NSMakePoint(controlY, 22)];
+    
+    [self addSubview: outputRecord];
+    
+    controlY += outputRecord.frameWidth + 2;
+    
+    controlText *sendCC = [[controlText alloc] initWithLabel: @"OU" andValue: data[@"sendCC"]];
+    [sendCC setOrigin:NSMakePoint(controlY, 20)];
     [_data bind:@"sendCC" toObject: sendCC withKeyPath:@"value" options:nil];
     
     [self addSubview: sendCC ];
     
     uiButton *removeBtn = [[uiButton alloc] initWithSize: 12 andEvent: @"removeModule"];
     [removeBtn setEventData: @{@"rackID": self.data[@"rackID"], @"moduleID" : self.data[@"moduleID"]}];
-    [removeBtn setOrigin: NSMakePoint(self.width - 18, 18)];
+    [removeBtn setOrigin: NSMakePoint(self.width - 18, 22)];
 
     [self addSubview: removeBtn];
-
-    uiButton *outputRecord = [[uiButton alloc] initWithSize: 16 andEvent: @"sendRecord"];
-    [outputRecord setEventData: @{@"rackID": self.data[@"rackID"], @"moduleID" : self.data[@"moduleID"]}];
-    [outputRecord setIsToggle: YES];
-    [outputRecord setOrigin: NSMakePoint(self.label.frameWidth + 20, 16)];
-
-    
-    [self addSubview: outputRecord];
     
     return self;
 }

@@ -21,7 +21,7 @@
 
 -(void)drawRect:(NSRect)dirtyRect {
     if(!self.active) {
-        [[global sharedGlobalData].defaultColor setFill];
+        [[global sharedGlobalData].colors[@"black"] setFill];
     } else {
         [[NSColor redColor] setFill];
     }

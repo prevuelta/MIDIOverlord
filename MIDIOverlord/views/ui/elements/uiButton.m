@@ -32,8 +32,8 @@
     self.hasBg = YES;
     self.sendsEvent = YES;
     
-    self.defaultColor = [global sharedGlobalData].colors[@"lightGrey"];
-    self.activeColor =  [global sharedGlobalData].colors[@"darkGrey"];
+    self.defaultColor = [global sharedGlobalData].colors[@"black"];
+    self.activeColor =  [global sharedGlobalData].colors[@"pink"];
     self.toggleColor = [global sharedGlobalData].colors[@"yellow"];
     self.disabledColor = [global sharedGlobalData].colors[@"white"];
 
@@ -90,7 +90,8 @@
     if(_hasBg) {
         NSBezierPath *btnPath = [NSBezierPath new];
         
-        [btnPath appendBezierPathWithRoundedRect:dirtyRect xRadius: 2 yRadius:2];
+//        [btnPath appendBezierPathWithRoundedRect:dirtyRect xRadius: 2 yRadius:2];
+        [btnPath appendBezierPathWithRect:dirtyRect ];
       
         [btnPath fill];
     }
@@ -108,6 +109,7 @@
 }
 
 -(void)mouseDown:(NSEvent*)theEvent {
+    
     [global deselectNotify];
     
     if(_isToggle) {

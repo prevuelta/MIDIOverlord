@@ -23,27 +23,30 @@
     if(!self) return nil;
     
     // Colors
-    _activeColor = [global sharedGlobalData].colors[@"red"];
-    _defaultColor = [global sharedGlobalData].colors[@"lightGrey"];
+    _activeColor = [global sharedGlobalData].colors[@"pink"];
+    _defaultColor = [global sharedGlobalData].colors[@"white"];
     
     return self;
 }
 
 - (void)drawRect:(NSRect)rect {
     
-    NSBezierPath* btnPath = [NSBezierPath new];
+    NSBezierPath* bgPath = [NSBezierPath new];
     NSBezierPath* markerPath = [NSBezierPath new];
     
-    [btnPath appendBezierPathWithRoundedRect:NSMakeRect(0, 0, _size.width, _size.height) xRadius: 3 yRadius: 3];
-    [markerPath appendBezierPathWithRoundedRect:NSMakeRect(0, 0, _size.width, _size.height) xRadius: 3 yRadius: 3];
+    [bgPath appendBezierPathWithRect:NSMakeRect(0, 0, _size.width, _size.height)];
     
-    if(self.active) {
+    [self.defaultColor setFill];
+    
+    [bgPath fill];
+    
+    [markerPath appendBezierPathWithOvalInRect: NSMakeRect(0, 0, _size.width, _size.height)];
+    
+//    if(self.active) {
         [[self.activeColor colorWithAlphaComponent: [_value floatValue] / _max ] setFill];
-    } else {
-        [self.defaultColor setFill];
-    }
-    
-    [btnPath fill];
+//    } else {
+//        [self.defaultColor setFill];
+//    }
     
     if(self.active) return;
     
