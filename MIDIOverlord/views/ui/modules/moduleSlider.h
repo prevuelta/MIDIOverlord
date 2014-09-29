@@ -12,6 +12,7 @@
 
 @property NSNumber* ccValue;
 @property controlSlider *slider;
+@property controlDial *dial;
 @property controlText *ccControl;
 
 

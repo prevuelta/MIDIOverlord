@@ -13,6 +13,7 @@
 
 #import "controlTrigger.h"
 #import "controlSlider.h"
+#import "controlDial.h"
 #import "controlList.h"
 #import "controlText.h"
 #import "uiTextField.h"
