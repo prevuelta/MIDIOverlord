@@ -136,5 +136,12 @@
     [self setNeedsDisplay:YES];
 }
 
+-(void)setToggled:(BOOL)toggled {
+    _toggled = toggled;
+    [self setNeedsDisplay:YES];
+}
+-(BOOL)toggled {
+    return _toggled;
+}
 
 @end

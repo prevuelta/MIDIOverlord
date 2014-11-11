@@ -32,7 +32,10 @@
 @property int maxLength;
 
 @property NSColor* textColor;
+@property NSColor* textColorInverted;
 @property NSColor* bgColor;
+
+@property BOOL isInverted;
 
 -(id)initWithString:(NSString*)stringValue;
 

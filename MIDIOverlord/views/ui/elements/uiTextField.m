@@ -27,6 +27,7 @@ static NSPoint gridSystem[54];
     _gridCols = 6;
     _gridRows = 9;
     _maxLength = maxLength;
+    _isInverted = NO;
     
     _drawBg = YES;
     
@@ -34,6 +35,7 @@ static NSPoint gridSystem[54];
     _charSizeY = (_gridCellSizeY * (_gridRows-1)) + (_padding * 2);
     
     _textColor = [global sharedGlobalData].colors[@"black"];
+    _textColorInverted = [global sharedGlobalData].colors[@"white"];
     
     _bgColor = [global sharedGlobalData].colors[@"paleBlue"];
 
@@ -193,8 +195,13 @@ static NSPoint gridSystem[54];
     
         [super drawRect:dirtyRect];
     }
+    
+     [_textColor setFill];
 
-    [_textColor set];
+    if([self isInverted]) {
+        [_textColorInverted setFill];
+    }
+   
     
     // Draw Glyphs
     NSBezierPath* glyphPath = [NSBezierPath new];

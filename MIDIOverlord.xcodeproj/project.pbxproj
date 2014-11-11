@@ -23,6 +23,8 @@
 		6E8A23C51951205000745214 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E8A23C41951205000745214 /* logo.png */; };
 		6E8DEB571953F60A0013CF96 /* scrollableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8DEB561953F60A0013CF96 /* scrollableView.m */; };
 		6E8DEB5A1953FB4F0013CF96 /* controlScrollBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8DEB591953FB4F0013CF96 /* controlScrollBar.m */; };
+		6E9A62D219DAB93D004E232B /* uiToggle.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9A62D119DAB93D004E232B /* uiToggle.m */; };
+		6EBBB0D919DFE27E0031C197 /* uiTextButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EBBB0D819DFE27E0031C197 /* uiTextButton.m */; };
 		6ECD89F61946BE7400CCBE97 /* uiButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECD89F21946BE7400CCBE97 /* uiButton.m */; };
 		6ECD89F71946BE7400CCBE97 /* uiTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECD89F41946BE7400CCBE97 /* uiTextField.m */; };
 		6ECD89FA1947C3EE00CCBE97 /* controlText.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECD89F91947C3EE00CCBE97 /* controlText.m */; };
@@ -94,6 +96,10 @@
 		6E8DEB561953F60A0013CF96 /* scrollableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = scrollableView.m; sourceTree = "<group>"; };
 		6E8DEB581953FB4F0013CF96 /* controlScrollBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = controlScrollBar.h; sourceTree = "<group>"; };
 		6E8DEB591953FB4F0013CF96 /* controlScrollBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = controlScrollBar.m; sourceTree = "<group>"; };
+		6E9A62D019DAB93D004E232B /* uiToggle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = uiToggle.h; path = MIDIOverlord/views/ui/elements/uiToggle.h; sourceTree = SOURCE_ROOT; };
+		6E9A62D119DAB93D004E232B /* uiToggle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = uiToggle.m; path = MIDIOverlord/views/ui/elements/uiToggle.m; sourceTree = SOURCE_ROOT; };
+		6EBBB0D719DFE27E0031C197 /* uiTextButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uiTextButton.h; sourceTree = "<group>"; };
+		6EBBB0D819DFE27E0031C197 /* uiTextButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uiTextButton.m; sourceTree = "<group>"; };
 		6EC55EBB197F32DC000D7E76 /* MIDIOverlordTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MIDIOverlordTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6ECD89F11946BE7400CCBE97 /* uiButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uiButton.h; sourceTree = "<group>"; };
 		6ECD89F21946BE7400CCBE97 /* uiButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uiButton.m; sourceTree = "<group>"; };
@@ -203,10 +209,14 @@
 				6ED30FD8196BAE3700B7FF31 /* uiEditableNumberField.m */,
 				6ECD89F11946BE7400CCBE97 /* uiButton.h */,
 				6ECD89F21946BE7400CCBE97 /* uiButton.m */,
+				6EBBB0D719DFE27E0031C197 /* uiTextButton.h */,
+				6EBBB0D819DFE27E0031C197 /* uiTextButton.m */,
 				6ECD89F31946BE7400CCBE97 /* uiTextField.h */,
 				6ECD89F41946BE7400CCBE97 /* uiTextField.m */,
 				6E6474151990A1B1005E4BD9 /* uiNoteField.h */,
 				6E6474161990A1B1005E4BD9 /* uiNoteField.m */,
+				6E9A62D019DAB93D004E232B /* uiToggle.h */,
+				6E9A62D119DAB93D004E232B /* uiToggle.m */,
 				6E3126A3194C4D9F00D65716 /* uiEditableTextField.h */,
 				6E3126A4194C4D9F00D65716 /* uiEditableTextField.m */,
 			);
@@ -470,11 +480,13 @@
 				6EE445851936C86100C61171 /* rackBase.m in Sources */,
 				6E8DEB571953F60A0013CF96 /* scrollableView.m in Sources */,
 				6EE4457A1936C86100C61171 /* appView.m in Sources */,
+				6EBBB0D919DFE27E0031C197 /* uiTextButton.m in Sources */,
 				6EE4457B1936C86100C61171 /* controlBase.m in Sources */,
 				6EE4457D1936C86100C61171 /* controlOption.m in Sources */,
 				6EDB087F19906E4C00D1B98B /* moduleMap.m in Sources */,
 				6EE445701936C86100C61171 /* utilities.m in Sources */,
 				6E04ABCF1946FF4800B51D27 /* uiBase.m in Sources */,
+				6E9A62D219DAB93D004E232B /* uiToggle.m in Sources */,
 				6EE4457C1936C86100C61171 /* controlList.m in Sources */,
 				6ECD89F61946BE7400CCBE97 /* uiButton.m in Sources */,
 				6E2449C3196D0B29007CDABB /* appWindow.m in Sources */,

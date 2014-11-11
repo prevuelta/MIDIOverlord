@@ -52,6 +52,10 @@
     [self addSubview: removeBtn];
     
     [self addRackTitle];
+    
+    /* Mappings */
+    
+    self.mappings = [MIKMIDIMapping new];
 
     return self;
 }

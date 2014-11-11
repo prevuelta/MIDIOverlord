@@ -15,12 +15,12 @@
 
 -(id)initWithContent:(NSArray*)content {
 
-    int height = 18;
+    int height = 12;
 
     _label = [[uiTextField alloc] initWithString: @"None" andMaxLength:8];
 
     [_label setDrawBg:NO];
-    [_label setOrigin:NSMakePoint(1, 1)];
+//    [_label setOrigin:NSMakePoint(1, 1)];
 
     NSRect frame = NSMakeRect(0, 0, _label.frame.size.width + 20, height);
 
@@ -43,12 +43,12 @@
     NSBezierPath* fgPath = [NSBezierPath new];
 
     if(self.active) {
-        [[global sharedGlobalData].colors[@"grey"] setFill];
+        [[global sharedGlobalData].colors[@"yellow"] setFill];
     } else {
         [[global sharedGlobalData].colors[@"lightGrey"] setFill];
     }
 
-    [bgPath appendBezierPathWithRoundedRect:NSMakeRect(0, 0, self.frameWidth, self.height) xRadius: 2 yRadius: 2 ];
+    [bgPath appendBezierPathWithRect:NSMakeRect(0, 0, self.frameWidth, self.height)];
     [bgPath closePath];
     [bgPath fill];
 
@@ -56,9 +56,9 @@
 
     // Draw triangles
     if(!self.disabled) {
-        [fgPath moveToPoint:NSMakePoint(self.frame.size.width-15, 6)];
-        [fgPath lineToPoint:NSMakePoint(self.frame.size.width-5, 6)];
-        [fgPath lineToPoint:NSMakePoint(self.frame.size.width-10, 12)];
+        [fgPath moveToPoint:NSMakePoint(self.frame.size.width-12, 4)];
+        [fgPath lineToPoint:NSMakePoint(self.frame.size.width-4, 4)];
+        [fgPath lineToPoint:NSMakePoint(self.frame.size.width-8, 8)];
 
         [fgPath closePath];
         [fgPath fill];
@@ -150,7 +150,7 @@ NSComparisonResult compareViews(id firstView, id secondView, void *context) {
 
     [self addSubview: option ];
 
-    yLoc += 16;
+    yLoc += self.height;
 
     for(int i = 0; i < [_content count]; i++) {
 
@@ -164,7 +164,7 @@ NSComparisonResult compareViews(id firstView, id secondView, void *context) {
 
         [self addSubview: option ];
 
-        yLoc += 16;
+        yLoc += self.height;
 
     }
 

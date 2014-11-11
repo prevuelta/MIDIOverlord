@@ -17,13 +17,15 @@
     /* Midi connections */
 
     uiTextField *receiveLabel = [[uiTextField alloc] initWithString: @"Rec:"];
+    [receiveLabel setIsInverted: YES];
     uiTextField *sendLabel = [[uiTextField alloc] initWithString: @"Send:"];
+    [sendLabel setIsInverted: YES];
 
     [sendLabel setDrawBg:NO];
     [receiveLabel setDrawBg:NO];
 
-    [sendLabel setOrigin:NSMakePoint(4, 45)];
-    [receiveLabel setOrigin:NSMakePoint(4, 25)];
+    [sendLabel setOrigin:NSMakePoint(4, 44)];
+    [receiveLabel setOrigin:NSMakePoint(4, 24)];
 
     [self addSubview: sendLabel];
     [self addSubview: receiveLabel];
@@ -36,8 +38,8 @@
 
     [self bind:@"receiveDevice" toObject: self.midireceive withKeyPath: @"selectedObject" options: nil];
 
-    [self.midireceive setOrigin: NSMakePoint(RACK_WIDTH - self.midiSend.frameWidth - 4, 24)];
-    [self.midiSend setOrigin: NSMakePoint(RACK_WIDTH - self.midiSend.frameWidth - 4, 44)];
+    [self.midireceive setOrigin: NSMakePoint(96, 24)];
+    [self.midiSend setOrigin: NSMakePoint(96, 44)];
 
     [self addSubview: self.midireceive];
     [self addSubview: self.midiSend];
@@ -45,10 +47,11 @@
     /* Channel controls */
 
     self.receiveChannel = [[controlText alloc] initWithLabel: @"CH" andValue: self.data[@"receiveChannel"] andNullString: @"All"];
+    
     self.sendChannel = [[controlText alloc] initWithLabel: @"CH" andValue: self.data[@"sendChannel"] andNullString: @"All"];
-
-    [self.receiveChannel setOriginWithX: 52 andY: 25];
-    [self.sendChannel setOriginWithX: 52 andY: 45];
+    
+    [self.receiveChannel setOriginWithX: 52 andY: 24];
+    [self.sendChannel setOriginWithX: 52 andY: 44];
     
     [self.receiveChannel setMax: 16];
     [self.receiveChannel setMin: 1];
@@ -83,7 +86,6 @@
 
     /* Observers */
 
-
 }
 
 -(moduleBase*)getModuleWithData:(NSMutableDictionary*)moduleData{
@@ -117,31 +119,53 @@
 
     BOOL success = [manager connectInput: self.receiveDevice  error: &error eventHandler:^(MIKMIDISourceEndpoint *source, NSArray *commands) {
 
-               for (MIKMIDICommand *command in commands) {
-                   
-                   /* Add mapping item */
-                   
-                   if(self.isRecording) {
-                       [global deselectNotify];
-                       [self setIsRecording: NO];
-                       [self.mappings addObject: [[MIKMIDIMappingItem alloc] initWithMIDIResponderIdentifier:self.currentMIDIIdentifier andCommandIdentifier:@"commandID"]];
-                       [global stopRecordingNotify];
-                   }
-                   
-                    NSLog(@"Incoming MIDI: %@", command);
+       for (MIKMIDICommand *command in commands) {
+           
+           /* Add mapping item */
+           
+           if(self.isRecording) {
 
-                [global stopRecordingNotify];
-                   
-                   
-                  id<MIKMIDIResponder> responder = [NSApp MIDIResponderWithIdentifier: @"1-0"];
-                   NSLog(@"Responder: %@", responder);
-                   if ([responder respondsToMIDICommand:command]) {
-                        [responder handleMIDICommand:command];
-                   }
-                   // [self routeIncomingMIDICommand:command];
-               }
+               NSLog(@"Setting mapping %i", self.isRecording);
+               [self setIsRecording: NO];
                
-           }];
+               [global deselectNotify];
+               
+//               [self.mappings addObject: @{command : @[self.currentMIDIIdentifier]}];
+               
+//               MIKMIDIMappingItem *mappingItem = [[self.MIDIMapping mappingItemsForMIDICommand:command] anyObject];
+               
+               MIKMIDIMappingItem *newMapping = [[MIKMIDIMappingItem alloc] initWithMIDIResponderIdentifier: self.currentMIDIIdentifier andCommandIdentifier: @"1-0"];
+               
+               [self.mappings addMappingItemsObject: newMapping ];
+               
+               [global stopRecordingNotify];
+           }
+           
+           // Check commands array
+           
+//           MIKMIDIMappingItem *mappingItem = [[self.MIDIMapping mappingItemsForMIDICommand:command] anyObject];
+           
+           NSLog(@"Mappings: %@", self.mappings);
+           
+           // Check status mapping
+           // If command is mapped
+            // Get module/s that are mapped
+           // Send command to modules
+           
+            NSLog(@"Incoming MIDI: %@", command);
+
+//        [global stopRecordingNotify];
+           
+           
+          id<MIKMIDIResponder> responder = [NSApp MIDIResponderWithIdentifier: @"1-0"];
+           NSLog(@"Responder: %@", responder);
+           if ([responder respondsToMIDICommand:command]) {
+                [responder handleMIDICommand:command];
+           }
+           // [self routeIncomingMIDICommand:command];
+       }
+        
+    }];
 
 //    if (success) self.device = device;
 }
@@ -177,7 +201,7 @@
 }
 
 -(void)setReceiveDevice:(MIKMIDISourceEndpoint*)receiveDevice {
-    NSLog(@"Set receiveing device:%@", receiveDevice);
+    NSLog(@"Set receiving device:%@", receiveDevice);
     
     
     if(!receiveDevice) {
@@ -198,10 +222,11 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
--(void)startRecording:(NSString *)MIDIIdentifier {
+-(void)startRecord:(NSString *)MIDIIdentifier {
+     self.currentMIDIIdentifier = MIDIIdentifier;
     [self setIsRecording: YES];
-    self.currentMIDIIdentifier = MIDIIdentifier;
-    NSLog(@"Delegate received: %@", MIDIIdentifier);
+   
+    NSLog(@"Delegate received: %@ Isrecording: %i", MIDIIdentifier, self.isRecording);
 }
 
 

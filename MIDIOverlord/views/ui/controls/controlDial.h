@@ -22,6 +22,8 @@
 @property int marker;
 @property int size;
 
+@property BOOL relative;
+
 @property NSPoint initialPoint;
 
 -(id)initWithSize:(int)size andValue: (NSNumber*)value;

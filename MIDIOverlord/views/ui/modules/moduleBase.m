@@ -57,7 +57,14 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+-(MIKMIDIResponderType)MIDIResponderTypeForCommandIdentifier:(NSString *)commandID {
+    return MIKMIDIResponderTypePressReleaseButton;
+}
 
+-(NSArray*)commandIdentifiers {
+    NSArray *cId = [NSArray new];
+    return cId;
+}
 
 -(void)stopRecording:(NSNotification*)notification {
     

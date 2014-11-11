@@ -26,6 +26,8 @@
     _range = max - min;
     _size = size;
     
+    _relative = NO;
+    
     return self;
 }
 
@@ -51,18 +53,18 @@
     
     NSPoint centerPoint = NSMakePoint(halfSize, halfSize);
     
-    [bgPath appendBezierPathWithArcWithCenter:centerPoint radius: halfSize startAngle: 360 endAngle: 0 clockwise:YES];
-    [bgPath appendBezierPathWithArcWithCenter:centerPoint radius: halfSize / 2 startAngle: 0 endAngle: 360 clockwise:NO];
+    [bgPath appendBezierPathWithArcWithCenter:centerPoint radius: halfSize startAngle: 300 endAngle: 240 clockwise:NO];
+    [bgPath appendBezierPathWithArcWithCenter:centerPoint radius: halfSize / 2 startAngle: 240 endAngle: 300 clockwise:YES];
     
     [bgPath fill];
     
     [self.markerColor setFill];
     
-    float valueAngle = ([self.value floatValue] / 127) * 360;
+    float valueAngle = ([self.value floatValue] / 127) * 300;
     
-    [markerPath appendBezierPathWithArcWithCenter:centerPoint radius: 10 startAngle: 270 endAngle: 270 - valueAngle clockwise:YES];
+    [markerPath appendBezierPathWithArcWithCenter:centerPoint radius: 10 startAngle: 240 endAngle: 240 - valueAngle clockwise:YES];
     
-    [markerPath appendBezierPathWithArcWithCenter:centerPoint radius: halfSize startAngle: 270 - valueAngle endAngle: 270 clockwise: NO];
+    [markerPath appendBezierPathWithArcWithCenter:centerPoint radius: halfSize startAngle: 240 - valueAngle endAngle: 240 clockwise: NO];
 
     
     [markerPath fill];
@@ -76,6 +78,7 @@
 
 -(void)setValue:(NSNumber*)value {
     _value = value;
+    NSLog(@"%@", value);
     [self setNeedsDisplay:YES];
 }
 
@@ -83,8 +86,10 @@
 -(void)mouseDown:(NSEvent *)e {
     [global deselectNotify];
     self.active = true;
-    self.initialPoint =  [self convertPoint:[e locationInWindow] fromView:nil];
-//    [self updateControlFromEvent:e];
+    if(!self.relative) {
+        self.initialPoint =  [self convertPoint:[e locationInWindow] fromView:nil];
+    }
+        //    [self updateControlFromEvent:e];
 }
 
 - (void)mouseDragged:(NSEvent*)e {
@@ -106,21 +111,27 @@
     
     NSPoint location = [self convertPoint:[e locationInWindow] fromView:nil];
     
-//    float percent = location.y / _size;
-//
-//    int newValue =  percent < 0 ? _min : percent > 1 ? _max : floor(_range * percent);
+    int newValue;
     
-    float difference = (location.y - self.initialPoint.y ) / 2;
+    if(self.relative) {
+
+        float percent = location.y / _size;
+        newValue =  percent < _min ? _min : percent > 1 ? _max : floor(_range * percent);
     
-    self.initialPoint = location;
+    } else {
+        
+        float difference = (location.y - self.initialPoint.y ) / 2;
+
+        NSLog(@"%f", difference);
+        
+        self.initialPoint = location;
+        
+        int newRaw = [self.value intValue] + difference;
+        
+        newValue = newRaw <= _min ? _min : newRaw >= _max ? _max : [self.value intValue] + difference;
+    }
     
-    NSLog(@"%f", difference);
-    
-    float newRaw = [self.value intValue] + difference;
-    
-    float newValue = newRaw < 0 ? _min : newRaw > _max ? _max : [self.value floatValue] + difference;
-    
-    [self setValue: [NSNumber numberWithFloat: newValue]];
+    [self setValue: [NSNumber numberWithInt: newValue]];
     
     [self setNeedsDisplay:YES];
     

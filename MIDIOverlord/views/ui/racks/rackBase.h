@@ -51,7 +51,7 @@
 @property MIKMIDISourceEndpoint *receiveDevice;
 @property MIKMIDIDestinationEndpoint *sendDevice;
 
-@property NSMutableSet * mappings;
+@property MIKMIDIMapping * mappings;
 
 @property BOOL isRecording;
 

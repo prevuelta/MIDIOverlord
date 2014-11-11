@@ -113,49 +113,11 @@
     
     [lockVelocity setIsToggle: YES];
     
-    //    [self addSubview: sendRecord];
-    
-    //
-    //
-    //
-    //    self = [super initWithFrame:NSMakeRect(0, 0, size.width, size.height + _padNote.frameHeight + 2)];
-    //
-    //    if(!self) return nil;
-    //
-    //    _padNote = [[controlText alloc] initWithLabel: @"" andValue: noteValue];
-    //
-    //    [_padNote setOrigin:NSMakePoint(0, 41)];
-    //
-    //    [self bind:@"noteValue" toObject:_padNote withKeyPath:@"value" options:nil];
-    //
-    //    _noteLabel = [[uiTextField alloc] initWithString: @"---" andMaxLength: 5 ];
-    //    _velocityLabel = [[uiTextField alloc] initWithString: [_velocity stringValue] andMaxLength: 3 ];
-    //
-    //    [_velocityLabel setTextColor: [global sharedGlobalData].colors[@"white"] ];
-    //
-    //    [_noteLabel setOriginWithX: 0 andY: 4];
-    //    [_velocityLabel setOriginWithX: 0 andY: 20];
-    //
-    //    [_noteLabel setDrawBg: NO];
-    //    [_velocityLabel setDrawBg: NO];
-    //
-    //    [self addSubview: _padNote];
-    //
-    //    [self addSubview: _noteLabel];
-    //    [self addSubview: _velocityLabel];
-    //
-    //    [self updateMarker];
-    //
-    //    [self setNoteValue: noteValue];
-    
-    
     return self;
 }
 
 -(void)drawRect:(NSRect)dirtyRect {
-    //       [[NSColor redColor] setFill];
-    //       NSRectFill(dirtyRect);
-    //      [super drawRect:dirtyRect];
+
 }
 
 //-(void)handleMIDICommand:(NSNotification*)notification {

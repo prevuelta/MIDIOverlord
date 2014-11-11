@@ -14,6 +14,6 @@
 @property controlSlider *slider;
 @property controlDial *dial;
 @property controlText *ccControl;
-
+@property uiTextField *valueField;
 
 @end

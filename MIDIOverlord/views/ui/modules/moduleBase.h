@@ -68,4 +68,7 @@
 -(BOOL)respondsToMIDICommand:command;
 -(void)handleMIDICommand:(NSNotification*)notification;
 
+-(MIKMIDIResponderType)MIDIResponderTypeForCommandIdentifier:(NSString *)commandID;
+-(NSArray*)commandIdentifiers;
+
 @end

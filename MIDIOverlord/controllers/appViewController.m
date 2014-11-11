@@ -18,6 +18,13 @@
 
     _mainView = [[appView alloc] initWithWin:mainWin];
     
+    [self addRack: @1];
+    
+    [_data addModuleOfType: @1 toRack: @1];
+    [_data addModuleOfType: @2 toRack: @1];
+    
+    [_mainView updateRackModules: @1 ];
+    
     // Add observers
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addControlRack:) name:@"addControlRack" object:nil];
     
@@ -51,10 +58,8 @@
 }
 
 -(void)addRack:(NSNumber*)type {
-
     NSNumber *rackID = [_data addRack: type];
     [_mainView addRackWithData: _data.rackData[rackID]];
-
 }
 
 -(void)removeRack:(NSNotification*)notification {

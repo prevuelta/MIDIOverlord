@@ -80,9 +80,12 @@
 
     [self addSubview: removeBtn];
     
-    uiTextField *velocity = [[uiTextField alloc] initWithString:@"123"];
-    [velocity setOriginWithY: 0];
-    [self addSubview: velocity];
+//    uiToggle *toggleRelative = [[uiToggle alloc]];
+    
+     _valueField = [[uiTextField alloc] initWithString:@"123"];
+    [_valueField setOriginWithX: 16];
+    
+    [self addSubview: _valueField];
     
     return self;
 }
@@ -92,8 +95,8 @@
 }
 
 -(void)setCcValue:(NSNumber*)ccValue {
-    NSLog(@"Changing...");
     _ccValue = ccValue;
+    [_valueField setStringValue: [self.ccValue stringValue]];
     if(![self.data[@"sendCC"] isEqualToNumber:@-1]) {
         [self.delegate midiCommand: @[self.data[@"ccStatus"], self.data[@"sendCC"], self.data[@"ccValue"]]];
     }
