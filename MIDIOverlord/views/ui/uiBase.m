@@ -10,6 +10,8 @@
 
 @implementation uiBase
 
+@synthesize flipped = _flipped;
+
 -(id)initWithFrame:(NSRect)frame {
     self = [super initWithFrame:frame];
     if (!self) return nil;
