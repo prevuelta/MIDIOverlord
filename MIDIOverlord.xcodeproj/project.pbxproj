@@ -628,10 +628,10 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/pablo/MIDIOverlord/MIDIOverlord/Frameworks/**",
-					/Users/pablo/MIDIOverlord/MIDIOverlord/Frameworks,
+					"/Users/prevuelta/MIDIOverlord/MIDIOverlord/Frameworks/**",
+					/Users/prevuelta/MIDIOverlord/MIDIOverlord/Frameworks,
 					"@loader_path/../Frameworks",
-					/Users/pablo/MIDIOverlord/Frameworks,
+					/Users/prevuelta/MIDIOverlord/Frameworks,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MIDIOverlord/MIDIOverlord-Prefix.pch";
@@ -655,10 +655,10 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/pablo/MIDIOverlord/MIDIOverlord/Frameworks/**",
-					/Users/pablo/MIDIOverlord/MIDIOverlord/Frameworks,
+					"/Users/prevuelta/MIDIOverlord/MIDIOverlord/Frameworks/**",
+					/Users/prevuelta/MIDIOverlord/MIDIOverlord/Frameworks,
 					"@loader_path/../Frameworks",
-					/Users/pablo/MIDIOverlord/Frameworks,
+					/Users/prevuelta/MIDIOverlord/Frameworks,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MIDIOverlord/MIDIOverlord-Prefix.pch";
