@@ -12,6 +12,7 @@
 
 @synthesize content = _content;
 @synthesize selectedIndex = _selectedIndex;
+@synthesize tag = _tag;
 
 -(id)initWithContent:(NSArray*)content {
 
@@ -88,7 +89,7 @@
 
 -(void)deselect:(NSNotification*)notification {
     self.active = NO;
-    [self setTag: 0];
+//    [self setTag: 0];
     NSRect f = self.frame;
     f.size.height = self.height;
     self.frame = f;

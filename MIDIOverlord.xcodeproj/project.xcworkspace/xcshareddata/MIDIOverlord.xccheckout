@@ -14,7 +14,7 @@
 		<string>suspekt007.webfactional.com:/home/suspekt007/webapps/git/repos/GeckoMIDI.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>MIDIOverlord.xcodeproj/project.xcworkspace</string>
+	<string>MIDIOverlord.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>2E3299752F0216FA9F4DCAFEED199E8DFF26E851</key>
