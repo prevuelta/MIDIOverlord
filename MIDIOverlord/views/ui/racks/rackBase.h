@@ -55,6 +55,8 @@
 
 @property BOOL isRecording;
 
+@property NSMutableDictionary *modulesInputRecord;
+
 @property NSString *currentMIDIIdentifier;
 
 /* Notifications */
@@ -70,6 +72,6 @@
 
 /* Midi */
 
--(void)startRecord:(NSString *)MIDIIdentifier;
+-(void)startRecord:(moduleBase *)module;
 
 @end

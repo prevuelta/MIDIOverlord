@@ -85,6 +85,8 @@
     [self addSubview: addMap];
 
     /* Observers */
+    
+    self.modulesInputRecord = @{};
 
 }
 
@@ -222,11 +224,12 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
--(void)startRecord:(NSString *)MIDIIdentifier {
-     self.currentMIDIIdentifier = MIDIIdentifier;
-    [self setIsRecording: YES];
+-(void)startRecord:(moduleBase *)module{
+//    self.currentMIDIIdentifier = MIDIIdentifier;
+    [self.modulesInputRecord setObject: module forKey: module.MIDIIdentifier];
+//    [self setIsRecording: YES];
    
-    NSLog(@"Delegate received: %@ Isrecording: %i", MIDIIdentifier, self.isRecording);
+//    NSLog(@"Delegate received: %@ Isrecording: %i", MIDIIdentifier, self.isRecording);
 }
 
 

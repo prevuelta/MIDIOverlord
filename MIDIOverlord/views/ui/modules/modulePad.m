@@ -147,7 +147,8 @@
 
 -(void)setIsRecording:(BOOL)isRecording {
     NSLog(@"Binding received");
-    [self.delegate startRecord: self.MIDIIdentifier];
+    // Dispatch recording event
+    [self.delegate startRecord: self];
     _isRecording = isRecording;
 }
 

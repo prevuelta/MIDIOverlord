@@ -36,6 +36,11 @@
     return self;
 }
 
+-(id)initWithData:(NSMutableDictionary*)data {
+    // Is overwritten in child classes
+    return self;
+}
+
 -(void)drawRect:(NSRect)dirtyRect {
     // Draw background
 //    
