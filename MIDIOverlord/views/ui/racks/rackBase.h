@@ -72,6 +72,6 @@
 
 /* Midi */
 
--(void)startRecord:(moduleBase *)module;
+-(void)startRecord:(NSDictionary*)mID;
 
 @end

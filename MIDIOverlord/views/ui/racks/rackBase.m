@@ -56,6 +56,8 @@
     /* Mappings */
     
     self.mappings = [MIKMIDIMapping new];
+    
+    self.modulesInputRecord = [NSMutableDictionary new];
 
     return self;
 }

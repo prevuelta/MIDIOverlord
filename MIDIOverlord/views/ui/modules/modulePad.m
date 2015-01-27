@@ -120,10 +120,21 @@
 
 }
 
-//-(void)handleMIDICommand:(NSNotification*)notification {
-//    
-//     MIKMIDICommand *command = notification.userInfo[@"command"];
-//    
+-(void)handleMIDICommand:(NSNotification*)notification {
+
+    
+     MIKMIDICommand *command = notification.userInfo[@"command"];
+  
+    NSLog(@"Command received %@", command);
+    
+    if([command isMemberOfClass: [MIKMIDINoteOnCommand class] ]) {
+        NSLog(@"This is a noteon");
+        // Check channel
+        [self.data setObject: [NSNumber numberWithInt: [command dataByte2]] forKey: @"velocity"];
+    }
+    
+//     NSLog(@"Command received %@");
+//
 //    [command commandType];
 
 //    if() {
@@ -134,7 +145,7 @@
 //    [self.data setObject: [NSNumber numberWithInt: [command velocity]] forKey: @"velocity"];
 //    [self setActive: YES];
 //    NSLog(@"Velocity %d", [command velocity]);
-//}
+}
 
 
 -(BOOL)active {
@@ -148,7 +159,7 @@
 -(void)setIsRecording:(BOOL)isRecording {
     NSLog(@"Binding received");
     // Dispatch recording event
-    [self.delegate startRecord: self];
+    [self.delegate startRecord: @{self.MIDIIdentifier : @"cc"}];
     _isRecording = isRecording;
 }
 

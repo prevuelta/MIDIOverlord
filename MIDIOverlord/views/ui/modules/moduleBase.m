@@ -33,6 +33,8 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stopRecording:) name:@"stopRecording" object:nil];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleMIDICommand:) name:@"midiCommand" object:nil];
+    
     return self;
 }
 
@@ -77,12 +79,13 @@
 
 -(BOOL)respondsToMIDICommand:command {
 //    [command comp]
+    
     return YES;
 }
 
--(void)handleMIDICommand:(MIKMIDICommand*)command {
+-(void)handleMIDICommand:(NSNotification*)notification {
 //    if([self.receiveCommand
-    NSLog(@"Command received to module %@", command);
+    NSLog(@"Command received to module");
 }
 
 

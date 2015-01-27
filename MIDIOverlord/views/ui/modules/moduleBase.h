@@ -26,7 +26,7 @@
 
 @protocol moduleBaseDelegate
 -(void)midiCommand:(NSArray*)data;
--(void)startRecord:(NSString*)MIDIIdentifier;
+-(void)startRecord:(NSDictionary*)mID;
 @end
 
 @interface moduleBase : uiBase
