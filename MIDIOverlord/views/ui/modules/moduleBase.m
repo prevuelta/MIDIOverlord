@@ -32,8 +32,7 @@
     _MIDIIdentifier = [global uuid];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stopRecording:) name:@"stopRecording" object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleMIDICommand:) name:@"midiCommand" object:nil];
+
     
     return self;
 }

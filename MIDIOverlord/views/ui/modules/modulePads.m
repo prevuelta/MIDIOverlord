@@ -15,7 +15,7 @@
 
 -(id)initWithData: (NSMutableDictionary*)data {
     
-    int height = 90;
+    int height = 84 + 14;
     
     self = [super initWithHeight: height];
     
@@ -39,7 +39,7 @@
     
     for(NSMutableDictionary *padData in self.data[@"pads"]) {
         
-        NSLog(@"Pad data: %@", padData);
+//        NSLog(@"Pad data: %@", padData);
         
         modulePad *pad = [[modulePad alloc] initWithData: padData];
         
@@ -51,7 +51,7 @@
         
         NSLog(@"Padcount: %i", padCount % 2);
 //        0, 1, 0, 1
-        [pad setOriginWithX: (padCount % 2 ? MODULE_WIDTH / 2 :  0) andY: padCount > 1 ? pad.frameHeight + 18 : 18];
+        [pad setOriginWithX: (padCount % 2 ? MODULE_WIDTH / 2 :  0) andY: padCount > 1 ? pad.frameHeight + 14 : 14];
         [self addSubview: pad];
         [_pads addObject: pad];
         padCount++;
@@ -60,7 +60,7 @@
 
     uiButton *removeBtn = [[uiButton alloc] initWithSize: 12 andEvent: @"removeModule"];
     [removeBtn setEventData: @{@"rackID": self.data[@"rackID"], @"moduleID" : self.data[@"moduleID"]}];
-    [removeBtn setOrigin: NSMakePoint(MODULE_WIDTH - 14, 2)];
+    [removeBtn setOrigin: NSMakePoint(MODULE_WIDTH - 12, 0)];
     [removeBtn setInEditView:YES];
     
     [self addSubview: removeBtn];

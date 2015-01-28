@@ -30,7 +30,7 @@
 
 @property BOOL isVertical;
 
--(id)initWithSize:(NSSize)size andValue: (NSNumber*)value andMinValue:(int)min andMaxValue:(int)max;
+-(id)initWithSize:(NSSize)size andValue: (NSNumber*)value andMinValue:(int)min andMaxValue:(int)max andIsVertical:(BOOL)isVertical;
 
 -(void)updateControlFromEvent:(NSEvent*)e;
 -(void)updateControlFromData:(NSNumber*)value;

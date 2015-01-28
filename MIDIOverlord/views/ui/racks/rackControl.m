@@ -124,7 +124,19 @@
            
            // Check type of command
            
-           NSLog(@"%d", command.commandType);
+           MIKMIDIChannelVoiceCommand *channelCommand = (MIKMIDIChannelVoiceCommand*)command;
+           
+           int receiveChannel = [self.data[@"receiveChannel"] intValue];
+           
+           NSLog(@"%i", receiveChannel);
+           
+           if(receiveChannel < 0 | channelCommand.channel == (receiveChannel-1)) {
+//
+               NSLog(@"Sending command");
+//
+              [[NSNotificationCenter defaultCenter] postNotificationName:NSStringFromClass([command class])  object:self userInfo: @{@"command":command}];
+//
+           }
            
            // Check channel
            
@@ -132,7 +144,7 @@
            
 //           }
            
-//           [[NSNotificationCenter defaultCenter] postNotificationName:@"midiCommand" object:self userInfo: @{@"command":command}];
+//
            
            /* Add mapping item */
 //           

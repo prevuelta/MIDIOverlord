@@ -17,9 +17,7 @@
 @property int range;
 @property NSNumber *velocity;
 
-//@property NSNumber *inputValue;
-
-//@property NSNumber *noteValue;
-//@property NSString *noteString;
+@property controlText *receiveValue;
+@property controlSlider *velocitySlider;
 
 @end

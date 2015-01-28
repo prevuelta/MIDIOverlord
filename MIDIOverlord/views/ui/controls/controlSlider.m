@@ -16,7 +16,7 @@ int baseMarker;
 @synthesize value = _value;
 @synthesize marker = _marker;
 
--(id)initWithSize:(NSSize)size andValue: (NSNumber*)value andMinValue:(int)min andMaxValue:(int)max {
+-(id)initWithSize:(NSSize)size andValue: (NSNumber*)value andMinValue:(int)min andMaxValue:(int)max andIsVertical:(BOOL)isVertical {
     
     self = [super initWithFrame:NSMakeRect(0, 0, size.width, size.height)];
     
@@ -27,7 +27,7 @@ int baseMarker;
     _max = max;
     _range = max - min;
     
-    _isVertical = NO;
+    _isVertical = isVertical;
     
     [self setActive: NO];
     
@@ -91,8 +91,9 @@ int baseMarker;
 }
 
 -(void)setMarker:(int)marker {
-    NSLog(@"%@", [NSNumber numberWithInt: marker]);
+    NSLog(@"Marker size: %@", [NSNumber numberWithInt: marker]);
     _marker = marker;
+    [self setNeedsDisplay:YES];
 }
 
 -(void)updateMarker {
@@ -100,7 +101,6 @@ int baseMarker;
     NSLog(@"Slider value: %@ Percent: %f", _value, percent);
     int newValue = floor((_isVertical ? _size.height : _size.width) * percent);
     [self setMarker: newValue];
-    [self setNeedsDisplay:YES];
 }
 
 -(void)mouseDown:(NSEvent *)e {

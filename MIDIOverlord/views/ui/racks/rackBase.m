@@ -30,7 +30,7 @@
     
     [self setSelected:NO];
     
-    self.moduleView = [[scrollableView alloc] initWithFrame:NSMakeRect(0, 0, RACK_WIDTH - 4, self.height - self.headerHeight - 4)];
+    self.moduleView = [[scrollableView alloc] initWithFrame:NSMakeRect(0, 0, RACK_WIDTH, self.height - self.headerHeight - 4)];
     
     [self.moduleView setOrigin: NSMakePoint(0, self.headerHeight)];
 
@@ -200,6 +200,8 @@
     
     NSLog(@"New data: %@", newData);
 
+    // Can be improved with [MIKMIDICommand commandType: ] // returns correct subclass
+    
     if([self.midiSend selectedObject]) {
         NSError *error = nil;
         MIKMutableMIDIControlChangeCommand *command = [[MIKMutableMIDIControlChangeCommand alloc] init];

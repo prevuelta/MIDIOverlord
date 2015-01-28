@@ -141,7 +141,13 @@
     switch([type intValue]) {
         case 1 : {
             module[@"pads"] = [NSMutableArray new];
-            NSDictionary *pad = @{@"noteOnStatus":@144, @"noteOffStatus": @128, @"sendNoteValue": @24, @"velocity" : @127, @"receiveNoteValue" : @-1};
+            NSDictionary *pad = @{
+                @"noteOnStatus":@144,
+                @"noteOffStatus": @128,
+                @"sendNoteValue": @24,
+                @"velocity" : @127,
+                @"receiveNoteValue" : @-1
+            };
             for(int i = 0; i < 4; i++) {
                 [module[@"pads"] addObject: [pad mutableCopy]];
             }
@@ -159,7 +165,6 @@
             module[@"sendStatus"] = @-1;
         break;
     }
-
 
     [rack[@"modules"] setObject: module forKey: rack[@"moduleID"]];
 

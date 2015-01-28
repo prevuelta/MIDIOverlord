@@ -71,7 +71,7 @@
 
 -(void)arrangeRacks {
     
-    int xLoc = 2;
+    int xLoc = 4;
     
     NSLog(@"Racks %@ and Layout: %@", _racks, _rackLayout);
     
@@ -79,7 +79,7 @@
         
         rackBase* rack = [_racks objectForKey: rackID];
         
-        [rack setOriginWithX: xLoc andY: TOOLBAR_HEIGHT + 2 + TITLE_BAR_HEIGHT];
+        [rack setOriginWithX: xLoc andY: TOOLBAR_HEIGHT + 12 + TITLE_BAR_HEIGHT];
         
         [rack setNeedsDisplay: YES];
     

@@ -10,6 +10,8 @@
 
 @implementation controlTrigger
 
+@synthesize value = _value;
+
 -(id)initWithSize:(NSSize)size andValue: (NSNumber *)value {
     
     _size = size;
@@ -53,6 +55,15 @@
     [markerPath fill];
 }
 
+-(void)setValue:(NSNumber *)value {
+    _value = value;
+    NSLog(@"setvalue");
+    [self setNeedsDisplay: YES];
+}
+
+-(NSNumber*)value {
+    return _value;
+}
 
 -(void)mouseDown:(NSEvent *)theEvent {
     self.active = YES;
