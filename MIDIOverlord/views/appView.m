@@ -34,11 +34,10 @@
     
     [self addSubview:_toolBar];
 
-    // Set grey background
-    float greyVal = 0.70;
-    NSColor *grey = [NSColor colorWithDeviceRed:greyVal green:greyVal blue:greyVal alpha: (float)1];
-    _mainWin.backgroundColor = grey;
-     
+//    _mainWin.backgroundColor = grey;
+//    _mainWin.backgroundColor = [global sharedGlobalData].colors[@"darkBrown"];
+
+    
      // Add grid
     [_mainWin setContentView: self];
     
@@ -138,9 +137,8 @@
 
 
 -(void)drawRect:(NSRect)rect {
-//    [[NSColor colorWithPatternImage: [global sharedGlobalData].patternBg] set];
     
-    [[global sharedGlobalData].colors[@"white"] setFill];
+    [[global sharedGlobalData].colors[@"darkBrown"] setFill];
     NSRectFill(rect);
 }
 

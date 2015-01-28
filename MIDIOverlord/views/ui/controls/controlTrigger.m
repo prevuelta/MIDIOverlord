@@ -25,7 +25,7 @@
     if(!self) return nil;
     
     // Colors
-    _activeColor = [global sharedGlobalData].colors[@"pink"];
+    _activeColor = [global sharedGlobalData].colors[@"red"];
     _defaultColor = [global sharedGlobalData].colors[@"white"];
     
     return self;

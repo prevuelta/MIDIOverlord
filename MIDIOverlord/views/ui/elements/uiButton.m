@@ -90,8 +90,8 @@
     if(_hasBg) {
         NSBezierPath *btnPath = [NSBezierPath new];
         
-//        [btnPath appendBezierPathWithRoundedRect:dirtyRect xRadius: 2 yRadius:2];
-        [btnPath appendBezierPathWithRect:dirtyRect ];
+        [btnPath appendBezierPathWithRoundedRect:dirtyRect xRadius: 2 yRadius:2];
+//        [btnPath appendBezierPathWithRect:dirtyRect ];
       
         [btnPath fill];
     }
