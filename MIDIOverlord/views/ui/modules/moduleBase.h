@@ -56,7 +56,7 @@
 @property uiEditableTextField *label;
 
 /* Init Methods */
--(id)initWithHeight:(int)height;
+-(id)initWithHeight:(int)height andUnitSize: (int)unitSize;
 
 -(id)initWithSize:(NSSize)size;
 

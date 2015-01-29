@@ -10,7 +10,8 @@
 
 @implementation moduleBase
 
--(id)initWithHeight:(int)height {
+-(id)initWithHeight:(int)height andUnitSize:(int)unitSize {
+    self.unitSize = unitSize;
     self.width = UNIT_WIDTH * self.unitSize;
     self = [self initWithFrame:NSMakeRect(0, 0, self.width, height)];
     self.height = height;

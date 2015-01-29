@@ -112,9 +112,9 @@
             NSLog(@"Added to row No. %d unitWidth: %d", rowCount, unitWidth);
             rowCount += module.unitSize;
             
+        } else if() {
         } else {
-
-            yLoc += module.frameHeight;
+            
             [module setOrigin: NSMakePoint(0, yLoc)];
             NSLog(@"Started new row at %d", yLoc);
             rowCount = module.unitSize;

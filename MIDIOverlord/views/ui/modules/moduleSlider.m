@@ -17,7 +17,7 @@
     
     int height = 56;
     
-    self = [super initWithHeight: height];
+    self = [super initWithHeight: height andUnitSize: [data[@"unitSize"] intValue]];
     
     if(!self) return nil;
     

@@ -136,17 +136,20 @@
         @"rackID"   : rackID,
         @"label" : @"<Label>",
         @"type" : type,
+        @"unitSize" : @1,
         } mutableCopy];
 
     switch([type intValue]) {
         case 1 : {
             module[@"pads"] = [NSMutableArray new];
+            module[@"unitSize"] = @4;
             NSDictionary *pad = @{
                 @"noteOnStatus":@144,
                 @"noteOffStatus": @128,
                 @"sendNoteValue": @24,
                 @"velocity" : @127,
-                @"receiveNoteValue" : @-1
+                @"receiveNoteValue" : @-1,
+                @"unitSize" : @1
             };
             for(int i = 0; i < 4; i++) {
                 [module[@"pads"] addObject: [pad mutableCopy]];

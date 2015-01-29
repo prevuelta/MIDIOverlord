@@ -27,9 +27,9 @@
     _max = 127;
     _range = _max;
     
-    self.unitSize = 1;
+    self.unitSize = [data[@"unitSize"] intValue];
     
-    NSLog(@"Self data: %@", data[@"velocity"]);
+//    NSLog(@"Self data: %@", data[@"velocity"]);
     
     /* Input */
     
@@ -108,7 +108,7 @@
     
     [self addSubview: trigger];
     
-     NSLog(@"Pad data: %@", data);
+//     NSLog(@"Pad data: %@", data);
 
     
     /* Lock veolocity */

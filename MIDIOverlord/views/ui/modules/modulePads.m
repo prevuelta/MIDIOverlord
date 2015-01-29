@@ -17,7 +17,7 @@
     
     int height = 84 + 14;
     
-    self = [super initWithHeight: height];
+    self = [super initWithHeight: height andUnitSize: [data[@"unitSize"] intValue]];
     
     if(!self) return nil;
     
@@ -49,9 +49,10 @@
         
         [NSApp registerMIDIResponder: pad];
         
-        NSLog(@"Unique ident %@", pad.MIDIIdentifier);
+//        NSLog(@"Unique ident %@", pad.MIDIIdentifier);
         
-        NSLog(@"Padcount: %i", padCount % 2);
+//        NSLog(@"Padcount: %i", padCount % 2);
+        NSLog(@"Padunitsize:%d", pad.unitSize);
 //        0, 1, 0, 1
         [pad setOriginWithX: (padCount % 2 ? [global getUnitWidth: pad.unitSize] :  0) andY: padCount > 1 ? pad.frameHeight + 14 : 14];
         [self addSubview: pad];
