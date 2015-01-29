@@ -44,6 +44,7 @@
 
 // Display options
 @property NSInteger tag;
+@property int unitSize;
 
 // Midi
 @property MIKMIDICommand *receiveCommand;

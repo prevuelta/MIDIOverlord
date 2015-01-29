@@ -22,7 +22,7 @@
     
     self.height = height;
     self.flipped = YES;
-    self.width = MODULE_WIDTH;
+    self.width = [global getUnitWidth: 2];
     
     controlList *mappingReceive = [[controlList alloc] initWithContent: @[]];
     

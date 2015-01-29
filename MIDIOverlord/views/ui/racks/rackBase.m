@@ -22,7 +22,10 @@
     
     [self setData: data];
     
-    self.width = RACK_WIDTH;
+    self.unitSize = 2;
+    
+    self.width = [global getUnitWidth: self.unitSize];
+    
     
     self.height = frame.size.height - TOOLBAR_HEIGHT - TITLE_BAR_HEIGHT - 12;
     
@@ -87,6 +90,9 @@
     [self.moduleView emptyView];
     
     int yLoc = 0;
+    int xLoc = 0;
+    
+    int rowCount = 0;
     
     for(int i = 0; i < [_data[@"moduleLayout"] count]; i++) {
 
@@ -96,15 +102,28 @@
 
         moduleBase *module = [self getModuleWithData: moduleData];
 
-        [module setOrigin: NSMakePoint(0, yLoc)];
+        // Gridlayout
+        
+        // If it can fit
+        if((rowCount + module.unitSize) <= self.unitSize) {
+            
+            [module setOrigin: NSMakePoint([global getUnitWidth:rowCount], yLoc)];
+            int unitWidth = [global getUnitWidth:rowCount];
+            NSLog(@"Added to row No. %d unitWidth: %d", rowCount, unitWidth);
+            rowCount += module.unitSize;
+            
+        } else {
+
+            yLoc += module.frameHeight;
+            [module setOrigin: NSMakePoint(0, yLoc)];
+            NSLog(@"Started new row at %d", yLoc);
+            rowCount = module.unitSize;
+            
+        }
 
         module.delegate = self;
 
         [self.moduleView addModuleView: module];
-
-        yLoc += module.frameHeight;
-        
-        NSLog(@"%d", yLoc);
         
     }
 

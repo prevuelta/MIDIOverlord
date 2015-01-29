@@ -15,7 +15,7 @@
 
 -(id)initWithData: (NSMutableDictionary*)data{
     
-    self = [super initWithSize: NSMakeSize( MODULE_WIDTH / 2, 42)];
+    self = [super initWithSize: NSMakeSize( [global getUnitWidth:1], 42)];
     
     if(!self) return nil;
     
@@ -26,6 +26,8 @@
     _min = 0;
     _max = 127;
     _range = _max;
+    
+    self.unitSize = 1;
     
     NSLog(@"Self data: %@", data[@"velocity"]);
     
@@ -140,7 +142,7 @@
         
         // Handle mapping
         [self.receiveValue setValue: [NSNumber numberWithInteger:[command note]]];
-        [self setVelocity: [NSNumber numberWithInteger: [command velocity]]];
+        [self.velocitySlider setValue: [NSNumber numberWithInteger: [command velocity]]];
         
         [self setIsRecording: NO];
         
@@ -148,7 +150,7 @@
 
     
         // Show/set velocity
-        [self setVelocity: [NSNumber numberWithInteger: [command velocity]]];
+        [self.velocitySlider setValue: [NSNumber numberWithInteger: [command velocity]]];
     
     }
     

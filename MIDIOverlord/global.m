@@ -120,5 +120,8 @@ static global *_instance;
     return (__bridge NSString *)uuidStringRef;
 }
 
++(int)getUnitWidth:(int)units {
+    return UNIT_WIDTH * units;
+}
 
 @end

@@ -15,13 +15,15 @@
 
 -(id)initWithData:(NSMutableDictionary*)data {
     
-    int height = 54;
+    int height = 56;
     
     self = [super initWithHeight: height];
     
     if(!self) return nil;
     
     _ccValue = 0;
+    
+    self.unitSize = 1;
     
     _data = data;
     
@@ -82,7 +84,7 @@
     
 //    uiToggle *toggleRelative = [[uiToggle alloc]];
     
-     _valueField = [[uiTextField alloc] initWithString:@"123"];
+    _valueField = [[uiTextField alloc] initWithString: [_data[@"ccValue"] stringValue] andMaxLength:3];
     [_valueField setOriginWithX: 16];
     
     [self addSubview: _valueField];

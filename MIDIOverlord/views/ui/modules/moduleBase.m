@@ -11,7 +11,7 @@
 @implementation moduleBase
 
 -(id)initWithHeight:(int)height {
-    self.width = RACK_WIDTH - SCROLLER_WIDTH;
+    self.width = UNIT_WIDTH * self.unitSize;
     self = [self initWithFrame:NSMakeRect(0, 0, self.width, height)];
     self.height = height;
     return self;

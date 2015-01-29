@@ -27,6 +27,8 @@
     
     _pads = [NSMutableArray new];
     
+    self.unitSize = 2;
+    
     [self setFlipped: YES];
     
     int padCount = 0;
@@ -51,16 +53,16 @@
         
         NSLog(@"Padcount: %i", padCount % 2);
 //        0, 1, 0, 1
-        [pad setOriginWithX: (padCount % 2 ? MODULE_WIDTH / 2 :  0) andY: padCount > 1 ? pad.frameHeight + 14 : 14];
+        [pad setOriginWithX: (padCount % 2 ? [global getUnitWidth: pad.unitSize] :  0) andY: padCount > 1 ? pad.frameHeight + 14 : 14];
         [self addSubview: pad];
         [_pads addObject: pad];
         padCount++;
     }
     
 
-    uiButton *removeBtn = [[uiButton alloc] initWithSize: 12 andEvent: @"removeModule"];
+    uiButton *removeBtn = [[uiButton alloc] initWithSize: 16 andEvent: @"removeModule"];
     [removeBtn setEventData: @{@"rackID": self.data[@"rackID"], @"moduleID" : self.data[@"moduleID"]}];
-    [removeBtn setOrigin: NSMakePoint(MODULE_WIDTH - 12, 0)];
+    [removeBtn setOrigin: NSMakePoint([global getUnitWidth: self.unitSize ] - 16, 0)];
     [removeBtn setInEditView:YES];
     
     [self addSubview: removeBtn];

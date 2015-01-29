@@ -39,6 +39,7 @@
 
 // Display
 @property scrollableView *moduleView;
+@property int unitSize;
 
 // UI
 @property uiEditableTextField *label;
