@@ -40,7 +40,8 @@
 @property int width;
 @property int height;
 @property int gridX;
-@property int gridY;
+@property int unitWidth;
+@property int unitHeight;
 
 // Display options
 @property NSInteger tag;
@@ -56,9 +57,7 @@
 @property uiEditableTextField *label;
 
 /* Init Methods */
--(id)initWithHeight:(int)height andUnitSize: (int)unitSize;
-
--(id)initWithSize:(NSSize)size;
+-(id)initWithUnitWidth:(int)unitWidth andUnitHeight:(int)unitHeight;
 
 -(id)initWithFrame:(NSRect)frame;
 
@@ -71,5 +70,10 @@
 
 -(MIKMIDIResponderType)MIDIResponderTypeForCommandIdentifier:(NSString *)commandID;
 -(NSArray*)commandIdentifiers;
+
+/* Helpers */
+
+-(int)getWidth;
+-(int)getHeight;
 
 @end

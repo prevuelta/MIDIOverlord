@@ -37,6 +37,9 @@
 @property int width;
 @property int height;
 
+@property int unitWidth;
+@property int unitHeight;
+
 // Display
 @property scrollableView *moduleView;
 @property int unitSize;
@@ -68,8 +71,10 @@
 /* Util functions */
 
 -(void)mouseDown:(NSEvent *)theEvent;
-
 -(void)updateModules;
+
+-(int)getWidth;
+-(int)getHeight;
 
 /* Midi */
 

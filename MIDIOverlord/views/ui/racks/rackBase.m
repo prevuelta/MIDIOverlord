@@ -24,7 +24,7 @@
     
     self.unitSize = 2;
     
-    self.width = [global getUnitWidth: self.unitSize];
+    self.width = [self getWidth] + SCROLLER_WIDTH;
     
     
     self.height = frame.size.height - TOOLBAR_HEIGHT - TITLE_BAR_HEIGHT - 12;
@@ -112,7 +112,7 @@
             NSLog(@"Added to row No. %d unitWidth: %d", rowCount, unitWidth);
             rowCount += module.unitSize;
             
-        } else if() {
+//        } else if() {
         } else {
             
             [module setOrigin: NSMakePoint(0, yLoc)];
@@ -272,5 +272,14 @@
 -(void)startRecord:(NSString *)MIDIIdentifier {
     NSLog(@"Delegate received: %@", MIDIIdentifier);
 }
+
+-(int)getWidth {
+    return UNIT_WIDTH * self.unitWidth;
+}
+
+-(int)getHeight {
+    return UNIT_HEIGHT * self.unitHeight;
+}
+
 
 @end

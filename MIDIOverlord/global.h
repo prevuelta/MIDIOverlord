@@ -35,6 +35,7 @@
 +(void)deselectNotify;
 +(void)stopRecordingNotify;
 +(NSString *)uuid;
+
 +(int)getUnitWidth:(int)units;
 
 @end
