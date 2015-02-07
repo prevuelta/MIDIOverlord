@@ -41,18 +41,18 @@
          @"addControlRack" : @-48,
          @"addMapRack" : @-48,
          @"closeWindow" : @-136,
-         @"maxWindow" : @-212,
+         @"maxWindow" : @-200,
          @"removeRack"   : @-136,
          @"removeModule" : @-136,
          @"addSlider"   : @-96,
          @"addPads"     : @-116,
-         @"addMap"      : @-192,
-         @"receiveRecord"  : @-160,
-         @"sendRecord"  : @-176
+         @"addMap"      : @-232,
+         @"receiveRecord"  : @-168,
+         @"sendRecord"  : @-184
     };
     
     if([event isEqualTo: @"closeWindow"]) {
-        self.hasBg = NO;
+//        self.hasBg = NO;
     }
     
     NSLog(@"Icontype: Event: %@, %@", event, iconTypes[event] );
@@ -60,7 +60,7 @@
     if([event length] != 0) {
         [self setEvent: event];
         
-        NSImage *icons = [NSImage imageNamed:@"icons.png"];
+        NSImage *icons = [NSImage imageNamed:@"sprite.png"];
         _iconView = [[NSImageView alloc] initWithFrame:NSMakeRect(0, 0, icons.size.width, icons.size.height)];
         
         [_iconView setImageScaling: NSImageScaleNone];

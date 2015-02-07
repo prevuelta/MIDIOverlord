@@ -21,6 +21,7 @@
 @property int range;
 @property int marker;
 @property int size;
+@property int strength;
 
 @property BOOL relative;
 

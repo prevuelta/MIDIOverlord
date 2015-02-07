@@ -15,7 +15,8 @@
 @property int width;
 
 @property NSArray *content;
-@property NSNumber* selectedIndex;
+@property NSMutableArray *controlOptions;
+@property int selectedIndex;
 
 @property id selectedObject;
 

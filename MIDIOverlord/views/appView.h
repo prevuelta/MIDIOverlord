@@ -32,15 +32,16 @@
 
 -(void)drawRect:(NSRect)rect;
 
-
--(moduleBase*)getModuleWithData:(NSMutableDictionary*)moduleData;
+//-(moduleBase*)getModuleWithData:(NSMutableDictionary*)moduleData;
 
 // Create
 -(void)createRacksWithData:(NSMutableDictionary*)rackData andLayout:(NSMutableArray*)layout;
 -(void)addRackWithData: (NSMutableDictionary*)rackData;
+
 // Update
--(void)updateRack:(NSMutableDictionary*)rackData;
+//-(void)updateRack:(NSMutableDictionary*)rackData;
 -(void)updateRackModules:(NSNumber*)rackID;
+
 // Remove
 -(void)removeRack:(NSNumber*)rackID;
 -(void)arrangeRacks;

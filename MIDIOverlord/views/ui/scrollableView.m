@@ -73,7 +73,8 @@
 -(void)addModuleView:(NSView*)aView {
     
     [_clippedView addSubview: aView];
-    _heightOfSubviews += aView.frame.size.height;
+    
+//    _heightOfSubviews += aView.frame.size.height;
     
     [_clippedView resizeHeight: _heightOfSubviews];
     

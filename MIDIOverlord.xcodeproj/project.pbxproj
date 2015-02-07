@@ -8,11 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		6E04ABCF1946FF4800B51D27 /* uiBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E04ABCE1946FF4800B51D27 /* uiBase.m */; };
-		6E11C2E9197F3B52008A825D /* MIKMIDI.framework in Resources */ = {isa = PBXBuildFile; fileRef = 6E11C2E7197F3B42008A825D /* MIKMIDI.framework */; };
-		6E11C2EA197F3B6F008A825D /* MIKMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E11C2E7197F3B42008A825D /* MIKMIDI.framework */; };
 		6E2449C3196D0B29007CDABB /* appWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2449C2196D0B29007CDABB /* appWindow.m */; };
 		6E29E52A194ABE9800F6BD4F /* global.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E29E529194ABE9800F6BD4F /* global.m */; };
 		6E3126A5194C4D9F00D65716 /* uiEditableTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3126A4194C4D9F00D65716 /* uiEditableTextField.m */; };
+		6E595DCC1A831B76004B3502 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E595DCB1A831B76004B3502 /* logo.png */; };
 		6E64741119908DBA005E4BD9 /* modulePad.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E64741019908DBA005E4BD9 /* modulePad.m */; };
 		6E64741419908DED005E4BD9 /* controlDial.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E64741319908DED005E4BD9 /* controlDial.m */; };
 		6E6474171990A1B1005E4BD9 /* uiNoteField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6474161990A1B1005E4BD9 /* uiNoteField.m */; };
@@ -20,7 +19,6 @@
 		6E7C564018ED04A80002F09B /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7C563F18ED04A80002F09B /* CoreMIDI.framework */; };
 		6E7C564218ED04C10002F09B /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7C564118ED04C10002F09B /* Cocoa.framework */; };
 		6E7C564518ED04E60002F09B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7C564318ED04C60002F09B /* Foundation.framework */; };
-		6E8A23C51951205000745214 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E8A23C41951205000745214 /* logo.png */; };
 		6E8DEB571953F60A0013CF96 /* scrollableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8DEB561953F60A0013CF96 /* scrollableView.m */; };
 		6E8DEB5A1953FB4F0013CF96 /* controlScrollBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8DEB591953FB4F0013CF96 /* controlScrollBar.m */; };
 		6E9A62D219DAB93D004E232B /* uiToggle.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9A62D119DAB93D004E232B /* uiToggle.m */; };
@@ -29,7 +27,9 @@
 		6ECD89F71946BE7400CCBE97 /* uiTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECD89F41946BE7400CCBE97 /* uiTextField.m */; };
 		6ECD89FA1947C3EE00CCBE97 /* controlText.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECD89F91947C3EE00CCBE97 /* controlText.m */; };
 		6ED30FD9196BAE3700B7FF31 /* uiEditableNumberField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED30FD8196BAE3700B7FF31 /* uiEditableNumberField.m */; };
-		6ED33A4B198B22F1000E9812 /* icons.png in Resources */ = {isa = PBXBuildFile; fileRef = 6ED33A4A198B22F1000E9812 /* icons.png */; };
+		6ED33A4B198B22F1000E9812 /* sprite.png in Resources */ = {isa = PBXBuildFile; fileRef = 6ED33A4A198B22F1000E9812 /* sprite.png */; };
+		6ED3ADE01A859CA1003EF5E8 /* MIKMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ED3ADDF1A859CA1003EF5E8 /* MIKMIDI.framework */; };
+		6ED3ADE31A85E91C003EF5E8 /* uiIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED3ADE21A85E91C003EF5E8 /* uiIndicator.m */; };
 		6EDA87C5194E77B7007BB3C8 /* patternBg.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6EDA87C4194E77B7007BB3C8 /* patternBg.gif */; };
 		6EDB087F19906E4C00D1B98B /* moduleMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EDB087E19906E4C00D1B98B /* moduleMap.m */; };
 		6EE4456B1936C86100C61171 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE4452A1936C86100C61171 /* AppDelegate.m */; };
@@ -72,13 +72,13 @@
 /* Begin PBXFileReference section */
 		6E04ABCD1946FF4800B51D27 /* uiBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uiBase.h; sourceTree = "<group>"; };
 		6E04ABCE1946FF4800B51D27 /* uiBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uiBase.m; sourceTree = "<group>"; };
-		6E11C2E7197F3B42008A825D /* MIKMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MIKMIDI.framework; sourceTree = "<group>"; };
 		6E2449C1196D0B29007CDABB /* appWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = appWindow.h; sourceTree = "<group>"; };
 		6E2449C2196D0B29007CDABB /* appWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = appWindow.m; sourceTree = "<group>"; };
 		6E29E528194ABE9800F6BD4F /* global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = global.h; sourceTree = "<group>"; };
 		6E29E529194ABE9800F6BD4F /* global.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = global.m; sourceTree = "<group>"; };
 		6E3126A3194C4D9F00D65716 /* uiEditableTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uiEditableTextField.h; sourceTree = "<group>"; };
 		6E3126A4194C4D9F00D65716 /* uiEditableTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uiEditableTextField.m; sourceTree = "<group>"; };
+		6E595DCB1A831B76004B3502 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		6E64740F19908DBA005E4BD9 /* modulePad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = modulePad.h; sourceTree = "<group>"; };
 		6E64741019908DBA005E4BD9 /* modulePad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = modulePad.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		6E64741219908DED005E4BD9 /* controlDial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = controlDial.h; sourceTree = "<group>"; };
@@ -91,7 +91,6 @@
 		6E7C563F18ED04A80002F09B /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
 		6E7C564118ED04C10002F09B /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		6E7C564318ED04C60002F09B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		6E8A23C41951205000745214 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		6E8DEB551953F60A0013CF96 /* scrollableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = scrollableView.h; sourceTree = "<group>"; };
 		6E8DEB561953F60A0013CF96 /* scrollableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = scrollableView.m; sourceTree = "<group>"; };
 		6E8DEB581953FB4F0013CF96 /* controlScrollBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = controlScrollBar.h; sourceTree = "<group>"; };
@@ -109,7 +108,10 @@
 		6ECD89F91947C3EE00CCBE97 /* controlText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = controlText.m; path = MIDIOverlord/views/ui/controls/controlText.m; sourceTree = SOURCE_ROOT; };
 		6ED30FD7196BAE3700B7FF31 /* uiEditableNumberField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uiEditableNumberField.h; sourceTree = "<group>"; };
 		6ED30FD8196BAE3700B7FF31 /* uiEditableNumberField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uiEditableNumberField.m; sourceTree = "<group>"; };
-		6ED33A4A198B22F1000E9812 /* icons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icons.png; sourceTree = "<group>"; };
+		6ED33A4A198B22F1000E9812 /* sprite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sprite.png; sourceTree = "<group>"; };
+		6ED3ADDF1A859CA1003EF5E8 /* MIKMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MIKMIDI.framework; sourceTree = "<group>"; };
+		6ED3ADE11A85E91C003EF5E8 /* uiIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = uiIndicator.h; path = MIDIOverlord/views/ui/elements/uiIndicator.h; sourceTree = SOURCE_ROOT; };
+		6ED3ADE21A85E91C003EF5E8 /* uiIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = uiIndicator.m; path = MIDIOverlord/views/ui/elements/uiIndicator.m; sourceTree = SOURCE_ROOT; };
 		6EDA87C4194E77B7007BB3C8 /* patternBg.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = patternBg.gif; sourceTree = "<group>"; };
 		6EDB087D19906E4C00D1B98B /* moduleMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = moduleMap.h; sourceTree = "<group>"; };
 		6EDB087E19906E4C00D1B98B /* moduleMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = moduleMap.m; sourceTree = "<group>"; };
@@ -165,8 +167,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6E11C2EA197F3B6F008A825D /* MIKMIDI.framework in Frameworks */,
 				6E7C564518ED04E60002F09B /* Foundation.framework in Frameworks */,
+				6ED3ADE01A859CA1003EF5E8 /* MIKMIDI.framework in Frameworks */,
 				6E7C564218ED04C10002F09B /* Cocoa.framework in Frameworks */,
 				6E7C564018ED04A80002F09B /* CoreMIDI.framework in Frameworks */,
 			);
@@ -185,7 +187,7 @@
 		6E11C2E0197F393A008A825D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6E11C2E7197F3B42008A825D /* MIKMIDI.framework */,
+				6ED3ADDF1A859CA1003EF5E8 /* MIKMIDI.framework */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";
@@ -219,6 +221,8 @@
 				6E9A62D119DAB93D004E232B /* uiToggle.m */,
 				6E3126A3194C4D9F00D65716 /* uiEditableTextField.h */,
 				6E3126A4194C4D9F00D65716 /* uiEditableTextField.m */,
+				6ED3ADE11A85E91C003EF5E8 /* uiIndicator.h */,
+				6ED3ADE21A85E91C003EF5E8 /* uiIndicator.m */,
 			);
 			path = elements;
 			sourceTree = "<group>";
@@ -280,9 +284,9 @@
 		6EE445421936C86100C61171 /* resources */ = {
 			isa = PBXGroup;
 			children = (
-				6E8A23C41951205000745214 /* logo.png */,
+				6E595DCB1A831B76004B3502 /* logo.png */,
 				6EDA87C4194E77B7007BB3C8 /* patternBg.gif */,
-				6ED33A4A198B22F1000E9812 /* icons.png */,
+				6ED33A4A198B22F1000E9812 /* sprite.png */,
 				6EE445431936C86100C61171 /* default.png */,
 				6EE445441936C86100C61171 /* skin.json */,
 				6EE445451936C86100C61171 /* stateDEMO.json */,
@@ -448,15 +452,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6E11C2E9197F3B52008A825D /* MIKMIDI.framework in Resources */,
 				6EE445731936C86100C61171 /* Images.xcassets in Resources */,
+				6E595DCC1A831B76004B3502 /* logo.png in Resources */,
 				6EE445711936C86100C61171 /* Credits.rtf in Resources */,
 				6EE445721936C86100C61171 /* InfoPlist.strings in Resources */,
 				6EDA87C5194E77B7007BB3C8 /* patternBg.gif in Resources */,
 				6EE445791936C86100C61171 /* stateDEMO.json in Resources */,
-				6E8A23C51951205000745214 /* logo.png in Resources */,
 				6EE445781936C86100C61171 /* skin.json in Resources */,
-				6ED33A4B198B22F1000E9812 /* icons.png in Resources */,
+				6ED33A4B198B22F1000E9812 /* sprite.png in Resources */,
 				6EE445751936C86100C61171 /* MainMenu.xib in Resources */,
 				6EE445771936C86100C61171 /* default.png in Resources */,
 			);
@@ -495,6 +498,7 @@
 				6E29E52A194ABE9800F6BD4F /* global.m in Sources */,
 				6EE4457E1936C86100C61171 /* controlSlider.m in Sources */,
 				6E64741419908DED005E4BD9 /* controlDial.m in Sources */,
+				6ED3ADE31A85E91C003EF5E8 /* uiIndicator.m in Sources */,
 				6E64741119908DBA005E4BD9 /* modulePad.m in Sources */,
 				6EE4456F1936C86100C61171 /* midiController.m in Sources */,
 				6EE4456B1936C86100C61171 /* AppDelegate.m in Sources */,
@@ -632,6 +636,8 @@
 					/Users/prevuelta/MIDIOverlord/MIDIOverlord/Frameworks,
 					"@loader_path/../Frameworks",
 					/Users/prevuelta/MIDIOverlord/Frameworks,
+					"/Users/pablo/MIDIOverlord/MIDIOverlord/Frameworks/**",
+					"$(PROJECT_DIR)/MIDIOverlord/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MIDIOverlord/MIDIOverlord-Prefix.pch";
@@ -659,6 +665,8 @@
 					/Users/prevuelta/MIDIOverlord/MIDIOverlord/Frameworks,
 					"@loader_path/../Frameworks",
 					/Users/prevuelta/MIDIOverlord/Frameworks,
+					"/Users/pablo/MIDIOverlord/MIDIOverlord/Frameworks/**",
+					"$(PROJECT_DIR)/MIDIOverlord/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MIDIOverlord/MIDIOverlord-Prefix.pch";

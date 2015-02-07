@@ -124,4 +124,8 @@ static global *_instance;
     return UNIT_WIDTH * units;
 }
 
++(int)getUnitHeight:(int)units {
+    return UNIT_HEIGHT * units;
+}
+
 @end

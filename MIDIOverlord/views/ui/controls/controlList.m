@@ -16,12 +16,13 @@
 
 -(id)initWithContent:(NSArray*)content {
 
-    int height = 12;
+    int height = 16;
 
     _label = [[uiTextField alloc] initWithString: @"None" andMaxLength:8];
+    
+    [self setSelectedIndex: @-1];
 
     [_label setDrawBg:NO];
-//    [_label setOrigin:NSMakePoint(1, 1)];
 
     NSRect frame = NSMakeRect(0, 0, _label.frame.size.width + 20, height);
 
@@ -57,9 +58,9 @@
 
     // Draw triangles
     if(!self.disabled) {
-        [fgPath moveToPoint:NSMakePoint(self.frame.size.width-12, 4)];
+        [fgPath moveToPoint:NSMakePoint(self.frame.size.width-16, 4)];
         [fgPath lineToPoint:NSMakePoint(self.frame.size.width-4, 4)];
-        [fgPath lineToPoint:NSMakePoint(self.frame.size.width-8, 8)];
+        [fgPath lineToPoint:NSMakePoint(self.frame.size.width-10, 10)];
 
         [fgPath closePath];
         [fgPath fill];
@@ -89,7 +90,7 @@
 
 -(void)deselect:(NSNotification*)notification {
     self.active = NO;
-//    [self setTag: 0];
+    [self setTag: 0];
     NSRect f = self.frame;
     f.size.height = self.height;
     self.frame = f;
@@ -112,19 +113,25 @@ NSComparisonResult compareViews(id firstView, id secondView, void *context) {
     }
 }
 
--(NSNumber*)selectedIndex {
+-(int)selectedIndex {
     return _selectedIndex;
 }
 
--(void)setSelectedIndex:(NSNumber *)selectedIndex {
-    if([selectedIndex intValue] < 0) {
+-(void)setSelectedIndex:(int)selectedIndex {
+    NSLog(@"Setting selected index %d", selectedIndex);
+    if(selectedIndex < 0) {
         [_label setStringValue: @"None"];
     } else {
-         [_label setStringValue: [_content[[selectedIndex intValue]] name]];
+         [_label setStringValue: [_content[selectedIndex] name]];
         NSLog(@"Setting selected object..");
-        [self setSelectedObject: _content[[selectedIndex intValue]]];
+        [self setSelectedObject: _content[selectedIndex]];
     }
     _selectedIndex = selectedIndex;
+    
+    for(controlOption *option in _controlOptions) {
+        [option setDisabled: NO];
+    }
+    [[_controlOptions objectAtIndex: selectedIndex + 1] setDisabled: YES];
 }
 
 -(NSArray*)content {
@@ -133,9 +140,13 @@ NSComparisonResult compareViews(id firstView, id secondView, void *context) {
 
 -(void)setContent:(NSArray*)content {
 
+    NSLog(@"setting content");
+    
+    self.controlOptions = [NSMutableArray new];
+    
     _content = content;
 
-    [self setSubviews: [NSArray array]];
+    [self setSubviews: @[_label]];
 
     [self setDisabled: !(BOOL)[_content count]];
 
@@ -143,16 +154,22 @@ NSComparisonResult compareViews(id firstView, id secondView, void *context) {
 
     /* None option */
 
-    controlOption *option =  [[controlOption alloc] initWithName: @"None" andIndex: -1];
+//    if(self.selectedIndex < 0) {
+    
+        controlOption *option =  [[controlOption alloc] initWithName: @"None" andIndex: -1];
 
-    option.delegate = self;
+        option.delegate = self;
 
-    [option setOrigin:NSMakePoint(0, yLoc)];
+        [option setOrigin:NSMakePoint(0, yLoc)];
 
-    [self addSubview: option ];
+        [self.controlOptions addObject: option];
+    
+        [self addSubview: option ];
 
-    yLoc += self.height;
+        yLoc += self.height;
 
+//    }
+    
     for(int i = 0; i < [_content count]; i++) {
 
         NSString *optionName = [_content[i] name];
@@ -162,13 +179,15 @@ NSComparisonResult compareViews(id firstView, id secondView, void *context) {
         option.delegate = self;
 
         [option setOrigin:NSMakePoint(0, yLoc)];
-
-        [self addSubview: option ];
+        
+        [self.controlOptions addObject: option];
+        
+        [self addSubview: option];
 
         yLoc += self.height;
 
     }
-
+    
     [self setNeedsDisplay: YES];
 }
 

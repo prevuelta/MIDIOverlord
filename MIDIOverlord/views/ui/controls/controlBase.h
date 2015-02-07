@@ -14,5 +14,9 @@
 
 @interface controlBase : uiBase
 
+@property NSColor *defaultColor;
+@property NSColor *activeColor;
+@property NSColor *toggleColor;
+@property NSColor *disabledColor;
 
 @end

@@ -37,6 +37,7 @@
 +(NSString *)uuid;
 
 +(int)getUnitWidth:(int)units;
++(int)getUnitHeight:(int)units;
 
 @end
 

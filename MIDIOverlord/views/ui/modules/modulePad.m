@@ -15,127 +15,134 @@
 
 -(id)initWithData: (NSMutableDictionary*)data{
     
-    self = [super initWithSize: NSMakeSize( [global getUnitWidth:1], 42)];
+    self = [super initWithUnitWidth: data[@"unitWidth"] andUnitHeight: data[@"unitHeight"]];
     
     if(!self) return nil;
     
     [self setFlipped: YES];
     
-//    data = data;
+    self.data = data;
     
     _min = 0;
     _max = 127;
     _range = _max;
     
-    self.unitSize = [data[@"unitSize"] intValue];
     
-//    NSLog(@"Self data: %@", data[@"velocity"]);
+    /* UI */
+    
+    uiButton *removeBtn = [[uiButton alloc] initWithSize: 16 andEvent: @"removeModule"];
+    [removeBtn setEventData: @{@"rackID": self.data[@"rackID"], @"moduleID" : self.data[@"moduleID"]}];
+    [removeBtn setOrigin: NSMakePoint([self getWidth] - 16, 0)];
+    [removeBtn setInEditView:YES];
+    
+    [self addSubview: removeBtn];
+    
+    /* Add Label */
+    
+    self.label = [[uiEditableTextField alloc] initWithString: self.data[@"label"] andMaxLength: 10];
+    [self.label setOrigin:NSMakePoint(0, 0)];
+    
+    [self.data bind:@"label" toObject: self.label withKeyPath:@"savedString" options:nil];
+    
+    [self addSubview: self.label];
     
     /* Input */
     
-    self.receiveRecordBtn = [[uiButton alloc] initWithSize: 12 andEvent: @"receiveRecord"];
-    [self.receiveRecordBtn setOriginWithY: 0];
+    self.receiveRecordBtn = [[uiButton alloc] initWithSize: 16 andEvent: @"receiveRecord"];
+    [self.receiveRecordBtn setOriginWithY: 16];
     [self.receiveRecordBtn setSendsEvent: NO];
     [self.receiveRecordBtn setIsToggle: YES];
     
     [self bind:@"isRecording" toObject:self.receiveRecordBtn withKeyPath:@"toggled" options:nil];
-    [self.receiveRecordBtn bind:@"toggled" toObject:self withKeyPath:@"isRecording" options:nil];
     
     [self addSubview: self.receiveRecordBtn];
+
+    self.receiveValue = [[controlText alloc] initWithLabel: @"" andValue: data[@"receiveNoteValue"]];
     
-    _receiveValue = [[controlText alloc] initWithLabel: @"" andValue: data[@"receiveNoteValue"]];
     uiNoteField *receiveNote = [[uiNoteField alloc] initWithString: [utilities noteName: [data[@"receiveNoteValue"] intValue] ]];
     
-    [data bind:@"receiveNoteValue" toObject: _receiveValue withKeyPath: @"value" options: nil];
+    [self.data bind:@"receiveNoteValue" toObject: _receiveValue withKeyPath: @"value" options: nil];
 
     [receiveNote bind:@"noteValue" toObject: _receiveValue withKeyPath: @"value" options: nil];
     [receiveNote bind:@"hidden" toObject: _receiveValue.valueNumberField withKeyPath: @"isEditing" options: nil];
 
-//    [self bind:@"receiveNotevalue" toObject:receiveValue withKeyPath:@"value" options:nil];
+    [self.receiveValue setOriginWithX: 16 andY: 16];
     
-    [_receiveValue setOriginWithX: 12 andY: 0];
-    [receiveNote setOriginWithX: 12 andY: 0];
-    
+    [receiveNote setOriginWithX: 16 andY: 16];
+
     [self addSubview: _receiveValue ];
     [self addSubview: receiveNote ];
-    
+
     /* Output */
     
-    uiButton *sendRecord = [[uiButton alloc] initWithSize: 12 andEvent: @"sendRecord"];
-    [sendRecord setOrigin: NSMakePoint(0, 14)];
+    uiButton *sendRecord = [[uiButton alloc] initWithSize: 16 andEvent: @"sendRecord"];
+    [sendRecord setOrigin: NSMakePoint(0, 32)];
     [sendRecord setIsToggle: YES];
     
     [self addSubview: sendRecord];
     
-    controlText *noteValue = [[controlText alloc] initWithLabel: @"" andValue: data[@"sendNoteValue"]];
-    uiNoteField *note = [[uiNoteField alloc] initWithString:  [utilities noteName: [data[@"sendNotevalue"] intValue] ]];
+//    controlText *noteValue = [[controlText alloc] initWithLabel: @"" andValue: data[@"sendNoteValue"]];
+//    uiNoteField *note = [[uiNoteField alloc] initWithString:  [utilities noteName: [data[@"sendNotevalue"] intValue] ]];
     
-    [data bind:@"sendNoteValue" toObject: noteValue withKeyPath: @"value" options: nil];
+//    [data bind:@"sendNoteValue" toObject: noteValue withKeyPath: @"value" options: nil];
     //
-    [note bind:@"noteValue" toObject: noteValue withKeyPath: @"value" options: nil];
-    [note bind:@"hidden" toObject: noteValue.valueNumberField withKeyPath: @"isEditing" options: nil];
+//    [note bind:@"noteValue" toObject: noteValue withKeyPath: @"value" options: nil];
+//    [note bind:@"hidden" toObject: noteValue.valueNumberField withKeyPath: @"isEditing" options: nil];
 
 //    [self bind:@"sendNoteValue" toObject:receiveValue withKeyPath:@"value" options:nil];
     
-    [noteValue setOriginWithX: 12 andY: 14];
-    [note setOriginWithX: 12 andY: 14];
-    
-    [self addSubview: noteValue ];
-    [self addSubview: note ];
-    
+//    [noteValue setOriginWithX: 16 andY: 32];
+//    [note setOriginWithX: 16 andY: 32];
+//    
+//    [self addSubview: noteValue ];
+//    [self addSubview: note ];
+//    
     /* Velocity */
     
-    _velocitySlider = [[controlSlider alloc] initWithSize:NSMakeSize(12, 40) andValue: data[@"velocity"] andMinValue: 0 andMaxValue: 127 andIsVertical: YES];
+    _velocitySlider = [[controlSlider alloc] initWithSize:NSMakeSize(12, 48) andValue: data[@"velocity"] andMinValue: 0 andMaxValue: 127 andIsVertical: YES];
     
-//    [_velocitySlider setIsVertical: YES];
-    [_velocitySlider setOriginWithX: 38 andY: 0];
+    [_velocitySlider setIsVertical: YES];
+    [_velocitySlider setOriginWithX: 44 andY: 16];
     
-    [data bind:@"velocity" toObject: _velocitySlider withKeyPath: @"value" options: nil];
+    [self.data bind:@"velocity" toObject: _velocitySlider withKeyPath: @"value" options: nil];
     
     [self addSubview: _velocitySlider];
+    
     
     /* Trigger */
     
     NSSize padSize = NSMakeSize(40, 40);
     
-    controlTrigger *trigger = [[controlTrigger alloc] initWithSize: padSize andValue: data[@"velocity"]];
+    _trigger = [[controlTrigger alloc] initWithSize: padSize andValue: data[@"velocity"]];
     
-    [trigger setOriginWithX: 50 andY: 0];
+    [_trigger setOriginWithX: 56 andY: 16];
     
-    [self bind:@"active" toObject: trigger withKeyPath:@"active" options: nil];
+    [self bind:@"active" toObject: _trigger withKeyPath:@"active" options: nil];
+    [_trigger bind:@"value" toObject: _velocitySlider withKeyPath:@"value" options: nil];
     
-    [trigger bind:@"value" toObject: _velocitySlider withKeyPath:@"value" options: nil];
-    
-    [self addSubview: trigger];
-    
-//     NSLog(@"Pad data: %@", data);
+    [self addSubview: _trigger];
 
     
     /* Lock veolocity */
     
-    uiButton *lockVelocity = [[uiButton alloc] initWithSize: 12 andEvent: @"lockVelocity"];
+//    uiButton *lockVelocity = [[uiButton alloc] initWithSize: 12 andEvent: @"lockVelocity"];
+//    
+//    [lockVelocity setOrigin: NSMakePoint(2, self.frameHeight - 12 )];
     
-    [lockVelocity setOrigin: NSMakePoint(2, self.frameHeight - 12 )];
-    
-    [lockVelocity setIsToggle: YES];
+//    [lockVelocity setIsToggle: YES];
     
     /* Observers */
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleMIDICommand:) name:@"MIKMIDINoteOnCommand" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleMIDINoteOnCommand:) name:@"MIKMIDINoteOnCommand" object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleMIDINoteOffCommand:) name:@"MIKMIDINoteOffCommand" object:nil];
     
     return self;
 }
 
--(void)drawRect:(NSRect)dirtyRect {
+-(void)handleMIDINoteOnCommand:(NSNotification*)notification {
 
-}
-
--(void)handleMIDICommand:(NSNotification*)notification {
-
-    
     MIKMIDINoteOnCommand *command = notification.userInfo[@"command"];
-  
-    NSLog(@"Command received %@", command);
     
     // Set note mapping if recording
     if(self.isRecording) {
@@ -147,31 +154,25 @@
         [self setIsRecording: NO];
         
     } else if([self.receiveValue.value integerValue] == [command note]) {
-
     
         // Show/set velocity
         [self.velocitySlider setValue: [NSNumber numberWithInteger: [command velocity]]];
+
+        [self setActive: YES];
     
     }
     
-    // If record
-    
-
-    
-//     NSLog(@"Command received %@");
-//
-//    [command commandType];
-
-//    if() {
-//        
-//    }
-//    
-//   
-//    [self.data setObject: [NSNumber numberWithInt: [command velocity]] forKey: @"velocity"];
-//    [self setActive: YES];
-//    NSLog(@"Velocity %d", [command velocity]);
 }
 
+-(void)handleMIDINoteOffCommand:(NSNotification*)notification {
+    
+    MIKMIDINoteOffCommand *command = notification.userInfo[@"command"];
+    
+    if([self.receiveValue.value integerValue] == [command note]) {
+        NSLog(@"Setting active to false");
+        [self setActive: NO];
+    }
+}
 
 -(BOOL)active {
     return _active;
@@ -184,6 +185,7 @@
 -(void)setIsRecording:(BOOL)isRecording {
     NSLog(@"Binding received");
     // Dispatch recording event
+    [self.receiveRecordBtn setToggled: isRecording];
     if(isRecording) {
         [self.delegate startRecord: @{self.MIDIIdentifier : @"cc"}];
     }
@@ -204,6 +206,8 @@
             [self.delegate midiCommand: @[self.data[@"noteOffStatus"], self.data[@"sendNoteValue"], @0]];
         }
     }
+    
+    [_trigger setActive: active];
     _active = active;
 }
 

@@ -36,7 +36,7 @@ int baseMarker;
     [self updateMarker];
     
     _textVal = [[uiTextField alloc] initWithString: [NSString stringWithFormat:@"%03d", [_value intValue]]];
-    [_textVal setOrigin:NSMakePoint(RACK_WIDTH - 36 - SCROLLER_WIDTH, 1)];
+    [_textVal setOrigin:NSMakePoint(0, 1)];
     [_textVal setDrawBg: NO];
     [_textVal setTextColor:[NSColor whiteColor]];
     

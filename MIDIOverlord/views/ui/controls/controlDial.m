@@ -26,6 +26,8 @@
     _range = max - min;
     _size = size;
     
+    _strength = 1;
+    
     _relative = NO;
     
     return self;
@@ -36,7 +38,15 @@
     if (!self) return nil;
     
     self.defaultColor = [global sharedGlobalData].colors[@"white"];
-    self.markerColor = [global sharedGlobalData].colors[@"pink"];
+    self.markerColor = [global sharedGlobalData].colors[@"red"];
+    
+    // Do test timer
+    
+//    [NSTimer scheduledTimerWithTimeInterval:0.1
+//                                     target:self
+//                                   selector:@selector(timerMethod)
+//                                   userInfo:nil
+//                                    repeats: YES];
     
     return self;
 }
@@ -53,7 +63,7 @@
     
     NSPoint centerPoint = NSMakePoint(halfSize, halfSize);
     
-    [bgPath appendBezierPathWithArcWithCenter:centerPoint radius: halfSize startAngle: 300 endAngle: 240 clockwise:NO];
+    [bgPath appendBezierPathWithArcWithCenter:centerPoint radius: halfSize - 4 startAngle: 300 endAngle: 240 clockwise:NO];
     [bgPath appendBezierPathWithArcWithCenter:centerPoint radius: halfSize / 2 startAngle: 240 endAngle: 300 clockwise:YES];
     
     [bgPath fill];
@@ -62,7 +72,7 @@
     
     float valueAngle = ([self.value floatValue] / 127) * 300;
     
-    [markerPath appendBezierPathWithArcWithCenter:centerPoint radius: 10 startAngle: 240 endAngle: 240 - valueAngle clockwise:YES];
+    [markerPath appendBezierPathWithArcWithCenter:centerPoint radius: 7 startAngle: 240 endAngle: 240 - valueAngle clockwise:YES];
     
     [markerPath appendBezierPathWithArcWithCenter:centerPoint radius: halfSize startAngle: 240 - valueAngle endAngle: 240 clockwise: NO];
 
@@ -70,7 +80,13 @@
     [markerPath fill];
 	
     // Drawing code here.
+
 }
+
+//-(void)timerMethod {
+//    int timerValue = [self.value intValue] < 127 ? [self.value intValue] + 1 : 0;
+//    self.value = [NSNumber numberWithInt: timerValue];
+//}
 
 -(NSNumber*)value {
     return _value;
@@ -78,7 +94,7 @@
 
 -(void)setValue:(NSNumber*)value {
     _value = value;
-    NSLog(@"%@", value);
+//    NSLog(@"%@", value);
     [self setNeedsDisplay:YES];
 }
 
@@ -89,7 +105,6 @@
     if(!self.relative) {
         self.initialPoint =  [self convertPoint:[e locationInWindow] fromView:nil];
     }
-        //    [self updateControlFromEvent:e];
 }
 
 - (void)mouseDragged:(NSEvent*)e {
@@ -120,7 +135,7 @@
     
     } else {
         
-        float difference = (location.y - self.initialPoint.y ) / 2;
+        float difference = (location.y - self.initialPoint.y ) / _strength;
 
         NSLog(@"%f", difference);
         

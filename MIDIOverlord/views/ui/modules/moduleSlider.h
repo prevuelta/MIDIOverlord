@@ -8,12 +8,14 @@
 
 #import "moduleBase.h"
 
-@interface moduleSlider : moduleBase <MIKMIDIResponder>
+@interface moduleSlider : moduleBase
 
 @property NSNumber* ccValue;
 @property controlSlider *slider;
 @property controlDial *dial;
 @property controlText *ccControl;
 @property uiTextField *valueField;
+
+-(void)handleMIDIControlChangeCommand:(NSNotification*)notification;
 
 @end

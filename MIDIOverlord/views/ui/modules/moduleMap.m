@@ -12,17 +12,17 @@
 
 -(id)initWithData:(NSMutableDictionary*)data {
     
-    int height = 26;
-    
     self = [super initWithUnitWidth:data[@"unitWidth"] andUnitHeight: data[@"unitHeight"]];
     
     if(!self) return nil;
     
     NSLog(@"Init map module");
     
-    self.height = height;
+    self.height = [self getHeight];
     self.flipped = YES;
-    self.width = [global getUnitWidth: 2];
+    self.width = [self getWidth];
+    
+    self.data = data;
     
     controlList *mappingReceive = [[controlList alloc] initWithContent: @[]];
     

@@ -11,6 +11,7 @@
 @implementation uiBase
 
 @synthesize flipped = _flipped;
+@synthesize disabled = _disabled;
 
 -(id)initWithFrame:(NSRect)frame {
     self = [super initWithFrame:frame];
@@ -62,7 +63,6 @@
 }
 
 
-
 -(void)setOrigin:(NSPoint)origin {
     NSRect f = self.frame;
     f.origin = origin;
@@ -71,6 +71,14 @@
 
 -(BOOL)isFlipped {
     return _flipped;
+}
+
+-(BOOL)disabled {
+    return _disabled;
+}
+-(void)setDisabled:(BOOL)disabled {
+    _disabled = disabled;
+    [self setNeedsDisplay: YES];
 }
 
 -(void)deselect:(NSNotification*)notification  {

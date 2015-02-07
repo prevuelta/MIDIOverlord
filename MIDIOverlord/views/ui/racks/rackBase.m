@@ -22,18 +22,17 @@
     
     [self setData: data];
     
-    self.unitSize = 2;
+    self.unitWidth = [data[@"unitWidth"] intValue];
     
     self.width = [self getWidth] + SCROLLER_WIDTH;
     
-    
-    self.height = frame.size.height - TOOLBAR_HEIGHT - TITLE_BAR_HEIGHT - 12;
+    self.height = frame.size.height - TOOLBAR_HEIGHT - TITLE_BAR_HEIGHT - 16;
     
     self.headerHeight = 96;
     
     [self setSelected:NO];
     
-    self.moduleView = [[scrollableView alloc] initWithFrame:NSMakeRect(0, 0, RACK_WIDTH, self.height - self.headerHeight - 4)];
+    self.moduleView = [[scrollableView alloc] initWithFrame:NSMakeRect(0, 0, [self getWidth] + SCROLLER_WIDTH, self.height - self.headerHeight - 4)];
     
     [self.moduleView setOrigin: NSMakePoint(0, self.headerHeight)];
 
@@ -41,15 +40,21 @@
     
     self.label = [[uiEditableTextField alloc] initWithString: self.labelText andMaxLength:14];
 
-    [self.label setOrigin:NSMakePoint(4, 4)];
+    [self.label setOrigin:NSMakePoint(2, 2)];
     
     [self bind:@"labelText" toObject: _label withKeyPath:@"stringValue" options:nil];
     
     [self addSubview: self.label];
     
-    uiButton *removeBtn = [[uiButton alloc] initWithSize: 12 andEvent: @"removeRack"];
+    _midiIndicator = [[uiIndicator alloc] init];
+    
+    [_midiIndicator setOriginWithX: self.label.frameWidth + 6 andY: 2];
+    
+    [self addSubview: _midiIndicator];
+    
+    uiButton *removeBtn = [[uiButton alloc] initWithSize: 16 andEvent: @"removeRack"];
     [removeBtn setEventData: @{@"rackID": self.rackID}];
-    [removeBtn setOrigin: NSMakePoint(RACK_WIDTH - 16, 4)];
+    [removeBtn setOrigin: NSMakePoint([self getWidth] - 18, 2)];
     [removeBtn setInEditView:YES];
     
     [self addSubview: removeBtn];
@@ -85,17 +90,19 @@
 
 -(void)updateModules {
     
-    NSLog(@"Rack Data %@", _data);
-    
     [self.moduleView emptyView];
     
-    int yLoc = 0;
-    int xLoc = 0;
+    NSLog(@"data layout %@", _data[@"moduleLayout"]);
     
-    int rowCount = 0;
+    int yLoc = 0;
+    
+    int colCount = 0;
+    int maxRowCount = 0;
     
     for(int i = 0; i < [_data[@"moduleLayout"] count]; i++) {
 
+        NSLog(@"Updating modules");
+        
         NSNumber *moduleID = _data[@"moduleLayout"][i];
 
         NSMutableDictionary *moduleData = [_data[@"modules"] objectForKey: moduleID];
@@ -105,20 +112,28 @@
         // Gridlayout
         
         // If it can fit
-        if((rowCount + module.unitSize) <= self.unitSize) {
+        if((colCount + module.unitWidth) <= self.unitWidth) {
             
-            [module setOrigin: NSMakePoint([global getUnitWidth:rowCount], yLoc)];
-            int unitWidth = [global getUnitWidth:rowCount];
-            NSLog(@"Added to row No. %d unitWidth: %d", rowCount, unitWidth);
-            rowCount += module.unitSize;
+            [module setOrigin: NSMakePoint([global getUnitWidth:colCount], yLoc)];
+            int unitWidth = [global getUnitWidth: colCount];
+            NSLog(@"Added to row No. %d unitWidth: %d", colCount, unitWidth);
+            colCount += module.unitWidth;
             
-//        } else if() {
+            if(module.unitHeight > maxRowCount) {
+                self.moduleView.heightOfSubviews += [global getUnitHeight: module.unitHeight - maxRowCount];
+            }
+            
+            maxRowCount = MAX(maxRowCount, module.unitHeight);
+            
+            
         } else {
             
+            yLoc += [global getUnitHeight: maxRowCount];
             [module setOrigin: NSMakePoint(0, yLoc)];
             NSLog(@"Started new row at %d", yLoc);
-            rowCount = module.unitSize;
-            
+            colCount = module.unitWidth;
+            maxRowCount = module.unitHeight;
+            self.moduleView.heightOfSubviews += [global getUnitHeight: maxRowCount];
         }
 
         module.delegate = self;
@@ -159,7 +174,6 @@
     // Draw background
     
     NSBezierPath* headerPath = [NSBezierPath new];
-    NSBezierPath* fgPath = [NSBezierPath new];
     
     if(self.selected == YES) {
         [[global sharedGlobalData].colors[@"red"] setFill];
@@ -167,26 +181,10 @@
         [[global sharedGlobalData].colors[@"grey"] setFill];
     }
     
-    [headerPath appendBezierPathWithRoundedRect:NSMakeRect(0, 0, RACK_WIDTH, self.headerHeight) xRadius: 0 yRadius: 0];
+    [headerPath appendBezierPathWithRoundedRect:NSMakeRect(0, 0, [self getWidth], self.headerHeight) xRadius: 0 yRadius: 0];
     
     [headerPath closePath];
     [headerPath fill];
-    
-//    [fgPath moveToPoint:NSZeroPoint];
-//    [fgPath lineToPoint:NSMakePoint(0, self.headerHeight)];
-//    [fgPath lineToPoint:NSMakePoint(0, self.height)];
-//    [fgPath lineToPoint:NSMakePoint(RACK_WIDTH, self.height)];
-//    [fgPath lineToPoint:NSMakePoint(RACK_WIDTH, self.headerHeight)];
-//    [fgPath lineToPoint:NSMakePoint(RACK_WIDTH - 4, self.headerHeight)];
-//    [fgPath lineToPoint:NSMakePoint(RACK_WIDTH - 4, self.height-4)];
-//    [fgPath lineToPoint:NSMakePoint(4, self.height-4)];
-//    [fgPath lineToPoint:NSMakePoint(4, 4)];
-//    [fgPath lineToPoint:NSMakePoint(4, self.headerHeight)];
-//    [fgPath lineToPoint:NSMakePoint(0, self.headerHeight)];
-//    
-//    [fgPath fill];
-    
-
     
 //    NSLog(@"Drawing");
 }
@@ -221,7 +219,7 @@
 
     // Can be improved with [MIKMIDICommand commandType: ] // returns correct subclass
     
-    if([self.midiSend selectedObject]) {
+//    if([self.midiSend selectedObject]) {
         NSError *error = nil;
         MIKMutableMIDIControlChangeCommand *command = [[MIKMutableMIDIControlChangeCommand alloc] init];
         
@@ -229,14 +227,14 @@
         [command setControllerNumber: [newData[1] unsignedIntegerValue]];
         [command setControllerValue: [newData[2] unsignedIntegerValue]];
         
-        NSLog(@"command: %@", command);
+        NSLog(@"Command: %@", command);
         
         NSArray *commands = @[command];
         
         MIKMIDIDestinationEndpoint *endpoint = [self.midiSend selectedObject];
         
         [[MIKMIDIDeviceManager sharedDeviceManager] sendCommands: commands toEndpoint: endpoint error: &error ];
-    }
+//    }
 }
 
 -(void)midiData:(NSArray*)data {
@@ -281,5 +279,10 @@
     return UNIT_HEIGHT * self.unitHeight;
 }
 
+-(void)dealloc {
+    NSLog(@"dealloc rack");
+    [self.moduleView emptyView];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 @end

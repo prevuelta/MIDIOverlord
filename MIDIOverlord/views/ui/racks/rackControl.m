@@ -18,30 +18,32 @@
 
     uiTextField *receiveLabel = [[uiTextField alloc] initWithString: @"Rec:"];
     [receiveLabel setIsInverted: YES];
+    
     uiTextField *sendLabel = [[uiTextField alloc] initWithString: @"Send:"];
     [sendLabel setIsInverted: YES];
 
     [sendLabel setDrawBg:NO];
     [receiveLabel setDrawBg:NO];
 
-    [sendLabel setOrigin:NSMakePoint(4, 44)];
     [receiveLabel setOrigin:NSMakePoint(4, 24)];
+    [sendLabel setOrigin:NSMakePoint(4, 44)];
+    
 
     [self addSubview: sendLabel];
     [self addSubview: receiveLabel];
 
-    self.midireceive = [[controlList alloc] initWithContent: [[MIKMIDIDeviceManager sharedDeviceManager] virtualSources]];
+    self.midiReceive = [[controlList alloc] initWithContent: [[MIKMIDIDeviceManager sharedDeviceManager] virtualSources]];
     self.midiSend = [[controlList alloc] initWithContent: [[MIKMIDIDeviceManager sharedDeviceManager] virtualDestinations]];
 
-    [self.midireceive bind: @"content" toObject: [MIKMIDIDeviceManager sharedDeviceManager] withKeyPath:@"virtualSources" options:nil];
+    [self.midiReceive bind: @"content" toObject: [MIKMIDIDeviceManager sharedDeviceManager] withKeyPath:@"virtualSources" options:nil];
     [self.midiSend bind: @"content" toObject: [MIKMIDIDeviceManager sharedDeviceManager] withKeyPath:@"virtualDestinations" options:nil];
 
-    [self bind:@"receiveDevice" toObject: self.midireceive withKeyPath: @"selectedObject" options: nil];
+    [self bind:@"receiveDevice" toObject: self.midiReceive withKeyPath: @"selectedObject" options: nil];
 
-    [self.midireceive setOrigin: NSMakePoint(96, 24)];
-    [self.midiSend setOrigin: NSMakePoint(96, 44)];
+    [self.midiReceive setOrigin: NSMakePoint(100, 24)];
+    [self.midiSend setOrigin: NSMakePoint(100, 44)];
 
-    [self addSubview: self.midireceive];
+    [self addSubview: self.midiReceive];
     [self addSubview: self.midiSend];
 
     /* Channel controls */
@@ -50,8 +52,8 @@
     
     self.sendChannel = [[controlText alloc] initWithLabel: @"CH" andValue: self.data[@"sendChannel"] andNullString: @"All"];
     
-    [self.receiveChannel setOriginWithX: 52 andY: 24];
-    [self.sendChannel setOriginWithX: 52 andY: 44];
+    [self.receiveChannel setOriginWithX: 50 andY: 24];
+    [self.sendChannel setOriginWithX: 50 andY: 44];
     
     [self.receiveChannel setMax: 16];
     [self.receiveChannel setMin: 1];
@@ -95,7 +97,7 @@
 
     switch([moduleData[@"type"] intValue]) {
         case 1: {
-            module = [[modulePads alloc] initWithData: moduleData];
+            module = [[modulePad alloc] initWithData: moduleData];
         } break;
         case 2: {
             module = [[moduleSlider alloc] initWithData: moduleData];
@@ -118,17 +120,20 @@
 
     NSError *error;
 
+    NSLog(@"Start listing");
+    
     BOOL success = [manager connectInput: self.receiveDevice  error: &error eventHandler:^(MIKMIDISourceEndpoint *source, NSArray *commands) {
 
        for (MIKMIDICommand *command in commands) {
            
-           // Check type of command
+           // Check type of command ** THIS HANDLING IS POO
+           [self.midiIndicator ping];
            
            MIKMIDIChannelVoiceCommand *channelCommand = (MIKMIDIChannelVoiceCommand*)command;
            
            int receiveChannel = [self.data[@"receiveChannel"] intValue];
            
-           NSLog(@"%i", receiveChannel);
+//           NSLog(@"%i", receiveChannel);
            
            if(receiveChannel < 0 | channelCommand.channel == (receiveChannel-1)) {
 //
@@ -137,6 +142,7 @@
               [[NSNotificationCenter defaultCenter] postNotificationName:NSStringFromClass([command class])  object:self userInfo: @{@"command":command}];
 //
            }
+        
            
            // Check channel
            
@@ -217,6 +223,7 @@
     //     MIKMIDIMappingGenerator *inputMapper = [[MIKMIDIMappingGenerator alloc] initWithDevice: self.midireceive.selectedObject error: &mappingError];
 
 -(void)stopListening {
+    
     MIKMIDIDeviceManager *manager = [MIKMIDIDeviceManager sharedDeviceManager];
    
     NSError *error;
@@ -227,7 +234,6 @@
 
 -(void)setReceiveDevice:(MIKMIDISourceEndpoint*)receiveDevice {
     NSLog(@"Set receiving device:%@", receiveDevice);
-    
     
     if(!receiveDevice) {
         [self stopListening];
@@ -241,10 +247,6 @@
 
 -(MIKMIDISourceEndpoint*)receiveDevice {
     return _receiveDevice;
-}
-
--(void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 -(void)startRecord:(NSDictionary*)mID{

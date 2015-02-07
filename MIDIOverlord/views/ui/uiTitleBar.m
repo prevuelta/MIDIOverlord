@@ -18,26 +18,45 @@ NSPoint initialLocation;
     self = [super initWithFrame:frame];
     if (!self) return nil;
     
+    self.flipped = YES;
+    
     NSString* testString = @"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890_!@#$%^&*()-=_+[]\{}|,./<>?:\"";
     
 //    uiTextField *appTitle = [[uiTextField alloc] initWithString: @"Untitled"];
      uiTextField *appTitle = [[uiTextField alloc] initWithString: testString];
     
-    [appTitle setOrigin:NSMakePoint(34, 6)];
+    [appTitle setOrigin:NSMakePoint(40, 4)];
     
 //    [appTitle bind:@"stringValue" toObject:self withKeyPath: @"title" options: nil];
 
     [self addSubview: appTitle];
     
+    
+    /* Logo */
+    
+    NSImage *logo = [NSImage imageNamed:@"logo.png"];
+    
+    NSImageView *logoView = [[NSImageView alloc] initWithFrame:NSMakeRect(0, 0, 282, 24)];
+    
+    [logoView setImageScaling: NSImageScaleNone];
+    
+    [logoView setImage:logo];
+    
+    NSRect f = logoView.frame;
+    f.origin = NSMakePoint(4, 30);
+    [logoView setFrame:f];
+    
+    [self addSubview: logoView];
+    
     /* Window management */
     
-    uiButton *closeWindow = [[uiButton alloc] initWithSize: 12 andEvent:@"closeWindow"];
-    [closeWindow setOrigin: NSMakePoint(4, 6)];
+    uiButton *closeWindow = [[uiButton alloc] initWithSize: 16 andEvent:@"closeWindow"];
+    [closeWindow setOrigin: NSMakePoint(4, 4)];
     
     [self addSubview: closeWindow];
     
-    uiButton *maximiseWindow = [[uiButton alloc] initWithSize: 12 andEvent:@"maxWindow"];
-    [maximiseWindow setOrigin: NSMakePoint(20, 6)];
+    uiButton *maximiseWindow = [[uiButton alloc] initWithSize: 16 andEvent:@"maxWindow"];
+    [maximiseWindow setOrigin: NSMakePoint(22, 4)];
     
     [self addSubview: maximiseWindow];
     

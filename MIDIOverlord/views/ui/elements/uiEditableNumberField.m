@@ -30,8 +30,6 @@
     
     _max = 127;
     _min = 0;
-
-//    self.textColor = [global sharedGlobalData].colors[@"red"];
     
     self.invalidChars = [global sharedGlobalData].notNumbers;
     
@@ -61,8 +59,6 @@
     }
     
     [super keyDown:event];
-
-    [self setValueFromString];
     
 }
 
@@ -72,7 +68,9 @@
 
 -(void)setValue:(NSNumber*)value {
     NSNumber* newValue = [self checkRange: value];
+    NSLog(@"Number field value setting: %@", value);
     _value = newValue;
+    [self setStringFromValue];
 }
 
 -(NSNumber*)checkRange:(NSNumber*)number {

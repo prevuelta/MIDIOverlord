@@ -22,6 +22,7 @@
     
     [_data addModuleOfType: @1 toRack: @1];
     [_data addModuleOfType: @2 toRack: @1];
+//    [_data addModuleOfType: @3 toRack: @1];
     
     [_mainView updateRackModules: @1 ];
     

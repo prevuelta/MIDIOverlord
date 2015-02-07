@@ -34,7 +34,7 @@
 @property (nonatomic, assign) id delegate;
 
 //Data
-@property NSMutableDictionary* data;
+@property (weak) NSMutableDictionary* data;
 
 // Canvas properties
 @property int width;
@@ -45,7 +45,6 @@
 
 // Display options
 @property NSInteger tag;
-@property int unitSize;
 
 // Midi
 @property MIKMIDICommand *receiveCommand;
@@ -57,7 +56,7 @@
 @property uiEditableTextField *label;
 
 /* Init Methods */
--(id)initWithUnitWidth:(int)unitWidth andUnitHeight:(int)unitHeight;
+-(id)initWithUnitWidth:(NSNumber*)unitWidth andUnitHeight:(NSNumber*)unitHeight;
 
 -(id)initWithFrame:(NSRect)frame;
 

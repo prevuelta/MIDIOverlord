@@ -28,6 +28,7 @@
 }
 
 -(void)dealloc {
+    NSLog(@"Dealloc control");
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 

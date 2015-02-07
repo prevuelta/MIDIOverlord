@@ -10,14 +10,16 @@
 
 @implementation moduleBase
 
+@synthesize tag = _tag;
+
 -(id)initWithData:(NSMutableDictionary*)data {
     // Is overwritten in child classes
     return self;
 }
 
--(id)initWithUnitWidth:(int)unitWidth andUnitHeight:(int)unitHeight {
-    _unitHeight = unitHeight;
-    _unitWidth = unitWidth;
+-(id)initWithUnitWidth:(NSNumber*)unitWidth andUnitHeight:(NSNumber*)unitHeight {
+    _unitHeight = [unitHeight intValue];
+    _unitWidth = [unitWidth intValue];
     self.width = [self getWidth];
     self.height = [self getHeight];
     self = [self initWithFrame:NSMakeRect(0, 0, self.width, self.height)];
@@ -52,22 +54,18 @@
 -(void)drawRect:(NSRect)dirtyRect {
     // Draw background
 //    
-//    NSBezierPath* bgPath = [NSBezierPath new];
-//    
-//    if(!self.selected) {
-//        [[global sharedGlobalData].colors[@"darkestGrey"] setFill];
-//    } else {
-//        [[global sharedGlobalData].colors[@"red"] setFill];
-//    }
-//    
-//    [bgPath appendBezierPathWithRect:NSMakeRect(0, 0, self.width, self.height)];
-//    [bgPath closePath];
-//    [bgPath fill];
+    NSBezierPath* bgPath = [NSBezierPath new];
+    
+    if(!self.selected) {
+        [[global sharedGlobalData].colors[@"brown"] setFill];
+    } else {
+        [[global sharedGlobalData].colors[@"brown"] setFill];
+    }
+    
+    [bgPath appendBezierPathWithRect:NSMakeRect(0, 0, self.width, self.height)];
+    [bgPath closePath];
+    [bgPath fill];
 
-}
-
--(void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 -(MIKMIDIResponderType)MIDIResponderTypeForCommandIdentifier:(NSString *)commandID {
@@ -84,8 +82,6 @@
 }
 
 -(BOOL)respondsToMIDICommand:command {
-//    [command comp]
-    
     return YES;
 }
 
@@ -94,5 +90,9 @@
     NSLog(@"Command received to module");
 }
 
+-(void)dealloc {
+    NSLog(@"Module dealloc: %@", self.data[@"type"]);
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 @end

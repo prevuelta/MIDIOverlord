@@ -18,7 +18,7 @@ Byte packetBuffer[128];
     self = [super init];
     if(!self) return nil;
 
-//    [self createVirtualDeviceWithClient];
+    [self createVirtualDeviceWithClient];
 
     
     // Setup notifications
@@ -56,7 +56,7 @@ void deviceChangeNotify (const MIDINotification  *message, void *refCon) {
 }
 
 void inputNotify (const MIDIPacketList *list, void *procRef, void *srcRef) {
-    NSLog(@"Incomig midi message %@", list);
+//    NSLog(@"Incomig midi message %@", list);
 //    [(__bridge id) refCon updateMidiDestinations];
 }
 
@@ -156,7 +156,7 @@ void inputNotify (const MIDIPacketList *list, void *procRef, void *srcRef) {
     
     ItemCount destCount = MIDIGetNumberOfDestinations();
     
-    NSLog(@"Destinationcount: %i", (int)destCount);
+    NSLog(@"Destination count: %i", (int)destCount);
     
 //    MIDIEndpointRef endPointRefs[destCount];
 //    MIDIPortRef portRefs[destCount];/

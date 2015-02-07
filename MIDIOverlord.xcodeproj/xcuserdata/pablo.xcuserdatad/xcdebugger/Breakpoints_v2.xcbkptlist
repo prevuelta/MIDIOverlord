@@ -136,11 +136,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MIDIOverlord/views/ui/controls/controlText.m"
-            timestampString = "433583621.891104"
+            timestampString = "444960123.203802"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
             landmarkName = "-initWithLabel:andValue:andNullString:"
             landmarkType = "5">
          </BreakpointContent>
@@ -152,11 +152,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MIDIOverlord/views/ui/modules/modulePads.m"
-            timestampString = "429599865.161831"
+            timestampString = "444698204.355097"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
             landmarkName = "-initWithData:"
             landmarkType = "5">
          </BreakpointContent>
@@ -167,13 +167,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MIDIOverlord/controllers/modelControllers/appModel.m"
-            timestampString = "429511701.904015"
+            filePath = "MIDIOverlord/views/ui/racks/rackBase.m"
+            timestampString = "444984258.75102"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "148"
-            endingLineNumber = "148"
-            landmarkName = "-addModuleOfType:toRack:"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "-initWithFrame:andData:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

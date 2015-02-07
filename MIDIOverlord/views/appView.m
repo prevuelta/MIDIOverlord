@@ -30,7 +30,7 @@
     
     _toolBar = [[uiToolBar alloc ] initWithFrame: NSMakeRect(0, 0, self.frame.size.width - 8, TOOLBAR_HEIGHT )];
     
-    [_toolBar setOrigin:NSMakePoint(4, TITLE_BAR_HEIGHT + 8)];
+    [_toolBar setOrigin:NSMakePoint(4, TITLE_BAR_HEIGHT + 4)];
     
     [self addSubview:_toolBar];
 
@@ -62,7 +62,9 @@
 }
 
 -(void)removeRack:(NSNumber*)rackID {
+
     [_racks[rackID] removeFromSuperview];
+
     [_racks removeObjectForKey:rackID];
     [_rackLayout removeObject: rackID];
     [self arrangeRacks];
@@ -82,22 +84,22 @@
         
         [rack setNeedsDisplay: YES];
     
-        xLoc += RACK_WIDTH + 2;
+        xLoc += [rack getWidth] + 2;
     }
     
 }
 
-/**
- *  Add Rack
- */
+/* Add rack */
 
 -(void)addRackWithData:(NSMutableDictionary *)rackData {
     
     NSNumber *rackID = rackData[@"rackID"];
     
-    rackControl *rack = [[rackControl alloc] initWithFrame: NSMakeRect(0, 0, RACK_WIDTH, _mainWin.frame.size.height) andData: rackData];
+    int rackWidth = [global getUnitWidth: [rackData[@"unitWidth"] intValue]];
     
-    [rack setOrigin:NSMakePoint([_racks count] * (RACK_WIDTH + 2) + 4, TOOLBAR_HEIGHT + 12 + TITLE_BAR_HEIGHT)];
+    rackControl *rack = [[rackControl alloc] initWithFrame: NSMakeRect(0, 0, rackWidth, _mainWin.frame.size.height) andData: rackData];
+    
+    [rack setOrigin:NSMakePoint([_racks count] * (rackWidth + 2) + 4, TOOLBAR_HEIGHT + 12 + TITLE_BAR_HEIGHT)];
     
     [_racks setObject: rack forKey: rackID];
     
@@ -121,10 +123,12 @@
         
         NSMutableDictionary *data = [rackData objectForKey: rackID];
         
-        // Create rack
-        rackControl *rack = [[rackControl alloc] initWithFrame: NSMakeRect(0, 0, RACK_WIDTH, _mainWin.frame.size.height) andData: data];
+        int rackWidth = [global getUnitWidth: [data[@"unitWidth"] intValue]];
         
-        [rack setOrigin:NSMakePoint(rI * (RACK_WIDTH + 2) + 4, TOOLBAR_HEIGHT + 12 + TITLE_BAR_HEIGHT)];
+        // Create rack
+        rackControl *rack = [[rackControl alloc] initWithFrame: NSMakeRect(0, 0, rackWidth, _mainWin.frame.size.height) andData: data];
+        
+        [rack setOrigin:NSMakePoint(rI * (rackWidth + 2) + 4, TOOLBAR_HEIGHT + 12 + TITLE_BAR_HEIGHT)];
         
         [_racks setObject: rack forKey: rackID];
         
@@ -138,7 +142,7 @@
 
 -(void)drawRect:(NSRect)rect {
     
-    [[global sharedGlobalData].colors[@"darkBrown"] setFill];
+    [[global sharedGlobalData].colors[@"black"] setFill];
     NSRectFill(rect);
 }
 

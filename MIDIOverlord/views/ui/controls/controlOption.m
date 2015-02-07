@@ -30,6 +30,9 @@
     
     [self addTrackingArea: trackRect ];
     
+    /* Colors */
+    
+    [self setDisabledColor: [global sharedGlobalData].colors[@"blue"]];
     
     return self;
 }
@@ -40,6 +43,11 @@
 //  [super drawRect:dirtyRect];
     if(self.selected) {
 //        [_label setBackgroundColor: self.activeColor];
+    }
+    
+    
+    if(self.disabled) {
+        [_label setBgColor: self.disabledColor];
     }
 
     // Drawing code here.
@@ -66,7 +74,7 @@
 -(void)selectOption {
     NSLog(@"Sending delegate...");
 //    [_label setBackgroundColor:self.activeColor];
-    [self.delegate setSelectedIndex: [NSNumber numberWithInt: self.index]];
+    [self.delegate setSelectedIndex: self.index];
     [global deselectNotify];
    
 }

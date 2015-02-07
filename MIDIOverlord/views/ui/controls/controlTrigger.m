@@ -11,6 +11,7 @@
 @implementation controlTrigger
 
 @synthesize value = _value;
+@synthesize active = _active;
 
 -(id)initWithSize:(NSSize)size andValue: (NSNumber *)value {
     
@@ -25,8 +26,8 @@
     if(!self) return nil;
     
     // Colors
-    _activeColor = [global sharedGlobalData].colors[@"red"];
-    _defaultColor = [global sharedGlobalData].colors[@"white"];
+    self.activeColor = [global sharedGlobalData].colors[@"red"];
+    self.defaultColor = [global sharedGlobalData].colors[@"black"];
     
     return self;
 }
@@ -36,7 +37,9 @@
     NSBezierPath* bgPath = [NSBezierPath new];
     NSBezierPath* markerPath = [NSBezierPath new];
     
-    [bgPath appendBezierPathWithRect:NSMakeRect(0, 0, _size.width, _size.height)];
+//    [bgPath appendBezierPathWithRect:NSMakeRect(0, 0, _size.width, _size.height)];
+    
+    [bgPath appendBezierPathWithRoundedRect:NSMakeRect(0, 0, _size.width, _size.height) xRadius: 2 yRadius: 2];
     
     [self.defaultColor setFill];
     
@@ -44,13 +47,11 @@
     
     [markerPath appendBezierPathWithOvalInRect: NSMakeRect(0, 0, _size.width, _size.height)];
     
-//    if(self.active) {
+    if(!self.active) {
         [[self.activeColor colorWithAlphaComponent: [_value floatValue] / _max ] setFill];
-//    } else {
-//        [self.defaultColor setFill];
-//    }
-    
-    if(self.active) return;
+    } else {
+        [self.defaultColor setFill];
+    }
     
     [markerPath fill];
 }
@@ -66,20 +67,20 @@
 }
 
 -(void)mouseDown:(NSEvent *)theEvent {
-    self.active = YES;
-    [self setNeedsDisplay:YES];
-}
-
--(void)mouseDragged:(NSEvent*)e {
-    NSLog(@"Dragged");
-    if(self.active){
-//        [self updateControlFromEvent:e];
-    }
+    [self setActive: YES];
 }
 
 -(void)mouseUp:(NSEvent *)theEvent {
-    self.active = NO;
-    [self setNeedsDisplay:YES];
+    [self setActive: NO];
+}
+
+-(BOOL)active {
+    return _active;
+}
+
+-(void)setActive:(BOOL)active {
+    _active = active;
+    [self setNeedsDisplay: YES];
 }
 
 

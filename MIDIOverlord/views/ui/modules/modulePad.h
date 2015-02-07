@@ -8,7 +8,7 @@
 
 #import "moduleBase.h"
 
-@interface modulePad : moduleBase <MIKMIDIResponder>
+@interface modulePad : moduleBase
 
 @property BOOL velocityIsLocked;
 
@@ -19,5 +19,10 @@
 
 @property controlText *receiveValue;
 @property controlSlider *velocitySlider;
+
+@property controlTrigger *trigger;
+
+-(void)handleMIDINoteOnCommand:(NSNotification*)notification;
+-(void)handleMIDINoteOffCommand:(NSNotification*)notification;
 
 @end

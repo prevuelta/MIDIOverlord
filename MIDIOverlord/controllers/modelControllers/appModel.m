@@ -93,7 +93,8 @@
         @"input": @0,
         @"output": @0,
         @"moduleID" : @0,
-        @"mappings":@[]
+        @"mappings":@[],
+        @"unitWidth" : @2
     } mutableCopy];
 
     [rack setObject: [NSMutableDictionary new] forKey: @"modules"];
@@ -136,24 +137,37 @@
         @"rackID"   : rackID,
         @"label" : @"<Label>",
         @"type" : type,
-        @"unitSize" : @1,
+        @"unitWidth" : @1,
+        @"unitHeight" : @1,
         } mutableCopy];
 
     switch([type intValue]) {
         case 1 : {
-            module[@"pads"] = [NSMutableArray new];
-            module[@"unitSize"] = @4;
-            NSDictionary *pad = @{
+//            module[@"pads"] = [NSMutableArray new];
+//            module[@"unitWidth"] = @4;
+//            module[@"unitHeight"] = @2;
+//            NSDictionary *pad = @{
+//                @"noteOnStatus":@144,
+//                @"noteOffStatus": @128,
+//                @"sendNoteValue": @24,
+//                @"velocity" : @127,
+//                @"receiveNoteValue" : @-1,
+//                @"unitHeight" : @1,
+//                @"unitWidth" : @1
+//            };
+//            for(int i = 0; i < 4; i++) {
+//                [module[@"pads"] addObject: [pad mutableCopy]];
+//            }
+            [module addEntriesFromDictionary: @{
                 @"noteOnStatus":@144,
                 @"noteOffStatus": @128,
                 @"sendNoteValue": @24,
                 @"velocity" : @127,
                 @"receiveNoteValue" : @-1,
-                @"unitSize" : @1
-            };
-            for(int i = 0; i < 4; i++) {
-                [module[@"pads"] addObject: [pad mutableCopy]];
-            }
+                @"unitHeight" : @1,
+                @"unitWidth" : @1
+            }];
+
         } break;
         case 2 :
             module[@"min"] = @0;
@@ -172,8 +186,6 @@
     [rack[@"modules"] setObject: module forKey: rack[@"moduleID"]];
 
     [rack[@"moduleLayout"] addObject: rack[@"moduleID"]];
-
-     NSLog(@"Modules: %@", rack[@"modules"]);
 
     [_rackData setObject: rack forKey: rackID];
 

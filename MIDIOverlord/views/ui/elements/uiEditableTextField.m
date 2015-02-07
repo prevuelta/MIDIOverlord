@@ -16,7 +16,7 @@
 BOOL firstKey = true;
 
 -(id)initWithString:(NSString*)stringValue andMaxLength:(int)maxLength{
-    return [self initWithString:stringValue andMaxLength:maxLength andNullString: @"---"];
+    return [self initWithString:stringValue andMaxLength:maxLength andNullString: @"+++"];
     
 }
 
@@ -175,9 +175,8 @@ BOOL firstKey = true;
 -(void)addCharacter:(NSString*)letter {
     NSMutableString *newString = [self.stringValue mutableCopy];
     [newString insertString:letter atIndex:_cursorPosition];
-   [self setStringValue: newString];
+    [self setStringValue: newString];
     self.cursorPosition++;
-//    NSLog(@"String value at add: %@", self.stringValue);
     [self setNeedsDisplay:YES];
 }
 

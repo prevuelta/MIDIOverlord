@@ -26,9 +26,6 @@
 
 @property NSSize size;
 
-@property NSColor *defaultColor;
-@property NSColor *activeColor;
-
 -(id)initWithSize:(NSSize)size andValue: (NSNumber *)value;
 
 @end

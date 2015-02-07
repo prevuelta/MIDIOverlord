@@ -15,6 +15,7 @@
 #import "scrollableView.h"
 #import "controlList.h"
 #import "uiEditableTextField.h"
+#import "uiIndicator.h"
 
 @interface rackBase : uiBase <moduleBaseDelegate>
 
@@ -26,7 +27,7 @@
 @property NSMutableArray* subViews;
 
 @property controlList *midiSend;
-@property controlList *midireceive;
+@property controlList *midiReceive;
 
 @property controlText *receiveChannel;
 @property controlText *sendChannel;
@@ -47,6 +48,8 @@
 // UI
 @property uiEditableTextField *label;
 @property NSString *labelText;
+
+@property uiIndicator *midiIndicator;
 
 // Modules
 @property NSMutableDictionary *moduleData;

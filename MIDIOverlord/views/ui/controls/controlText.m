@@ -13,6 +13,7 @@
 int baseY;
 
 //@synthesize nullString = _nullString;
+@synthesize value = _value;
 
 - (id)initWithLabel: (NSString*)label andValue: (NSNumber*) value{
     return [self initWithLabel:label andValue: value andNullString: @"---"];
@@ -45,7 +46,8 @@ int baseY;
 
     [_valueNumberField setOrigin: NSMakePoint(_labelTextField.frameWidth, 0)];
 
-    NSRect frame = NSMakeRect(0, 0, width, 12);
+    NSRect frame = NSMakeRect(0, 0, width, 16);
+    
     self = [super initWithFrame: frame];
     
     if (!self) return nil;
@@ -81,18 +83,15 @@ int baseY;
 //    _nullString = nullString;
 //}
 
-//-(NSNumber*)value {
-//    return _value;
-//}
-//
-//-(void)setValue: (NSNumber*)value {
-//    if([value intValue] >= 0 && [value intValue] <= _max) {
-//        _value = value;
-//         NSLog(@"Value: %@", _value);
-////        [self.label setStringValue: [self labelPlusValue]];
-//        [self setNeedsDisplay:YES];
-//    }
-//}
+-(NSNumber*)value {
+    return _value;
+}
+
+-(void)setValue: (NSNumber*)value {
+    _value = value;
+    [_valueNumberField setValue: value];
+    NSLog(@"Setting value: %@", _value);
+}
 
 //-(void)deselect:(NSNotification*)notification {
 //    [super deselect:notification];
