@@ -1,4 +1,6 @@
-# MIDIOverlord [Porject Site] (http://www.midioverlord.com)
+# MIDIOverlord 
+
+[Project Site - http://www.midioverlord.com ] (http://www.midioverlord.com)
 
 This is a MIDI mapping (and hopefully sequencing in the future) app currently in development for OSX.
 
