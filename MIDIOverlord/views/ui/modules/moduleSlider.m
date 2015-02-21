@@ -29,16 +29,16 @@
     
     /* Receive CC */
     
-    self.receiveRecordBtn = [[uiButton alloc] initWithSize: 16 andEvent: @"receiveRecord"];
+    self.receiveMap = [[uiButton alloc] initWithSize: 16 andEvent: @"receiveRecord"];
     
-    [self.receiveRecordBtn setOriginWithY: 16];
-    [self.receiveRecordBtn setSendsEvent: NO];
-    [self.receiveRecordBtn setIsToggle: YES];
+    [self.receiveMap setOriginWithY: 16];
+    [self.receiveMap setSendsEvent: NO];
+    [self.receiveMap setIsToggle: YES];
     
-    [self bind:@"isRecording" toObject:self.receiveRecordBtn withKeyPath:@"toggled" options:nil];
-    [self.receiveRecordBtn bind:@"toggled" toObject:self withKeyPath:@"isRecording" options:nil];
+    [self bind:@"isRecording" toObject:self.receiveMap withKeyPath:@"toggled" options:nil];
+    [self.receiveMap bind:@"toggled" toObject:self withKeyPath:@"isRecording" options:nil];
     
-    [self addSubview: self.receiveRecordBtn];
+    [self addSubview: self.receiveMap];
     
     controlText *receiveCC = [[controlText alloc] initWithLabel: @"" andValue: data[@"receiveCC"]];
     [receiveCC setOrigin:NSMakePoint(16, 16)];
@@ -122,11 +122,11 @@
 //    NSLog(@"Command received %@", command);
     
     // Set note mapping if recording
-    if(self.isRecording) {
+    if(self.isMapping) {
 
         // Handle mapping
 
-        [self setIsRecording: NO];
+        [self setIsMapping: NO];
         
     } else if([command controllerNumber] == [_data[@"receiveCC"] integerValue]) {
 
@@ -141,6 +141,8 @@
     
    
 }
+
+
 
 -(void)mouseDown:(NSEvent *)theEvent {
     

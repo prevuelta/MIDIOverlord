@@ -11,7 +11,6 @@
 @implementation modulePad
 
 @synthesize active = _active;
-@synthesize isRecording = _isRecording;
 
 -(id)initWithData: (NSMutableDictionary*)data{
     
@@ -48,14 +47,14 @@
     
     /* Input */
     
-    self.receiveRecordBtn = [[uiButton alloc] initWithSize: 16 andEvent: @"receiveRecord"];
-    [self.receiveRecordBtn setOriginWithY: 16];
-    [self.receiveRecordBtn setSendsEvent: NO];
-    [self.receiveRecordBtn setIsToggle: YES];
+    self.receiveMap = [[uiButton alloc] initWithSize: 16 andEvent: @"receiveRecord"];
+    [self.receiveMap setOriginWithY: 16];
+    [self.receiveMap setSendsEvent: NO];
+    [self.receiveMap setIsToggle: YES];
     
-    [self bind:@"isRecording" toObject:self.receiveRecordBtn withKeyPath:@"toggled" options:nil];
+    [self bind:@"isMapping" toObject:self.receiveMap withKeyPath:@"toggled" options:nil];
     
-    [self addSubview: self.receiveRecordBtn];
+    [self addSubview: self.receiveMap];
 
     self.receiveValue = [[controlText alloc] initWithLabel: @"" andValue: data[@"receiveNoteValue"]];
     
@@ -145,13 +144,13 @@
     MIKMIDINoteOnCommand *command = notification.userInfo[@"command"];
     
     // Set note mapping if recording
-    if(self.isRecording) {
+    if(self.isMapping) {
         
         // Handle mapping
         [self.receiveValue setValue: [NSNumber numberWithInteger:[command note]]];
         [self.velocitySlider setValue: [NSNumber numberWithInteger: [command velocity]]];
         
-        [self setIsRecording: NO];
+        [self setIsMapping: NO];
         
     } else if([self.receiveValue.value integerValue] == [command note]) {
     
@@ -178,23 +177,10 @@
     return _active;
 }
 
--(BOOL)isRecording {
-    return _isRecording;
-}
-
--(void)setIsRecording:(BOOL)isRecording {
-    NSLog(@"Binding received");
-    // Dispatch recording event
-    [self.receiveRecordBtn setToggled: isRecording];
-    if(isRecording) {
-        [self.delegate startRecord: @{self.MIDIIdentifier : @"cc"}];
-    }
-    _isRecording = isRecording;
-}
 
 -(void)stopRecording:(NSNotification*)notification {
     NSLog(@"Stopping recording");
-    [self.receiveRecordBtn setToggled: NO];
+    [self.receiveMap setToggled: NO];
 }
 
 -(void)setActive:(BOOL)active {

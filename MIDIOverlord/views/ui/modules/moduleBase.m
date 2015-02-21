@@ -11,6 +11,7 @@
 @implementation moduleBase
 
 @synthesize tag = _tag;
+@synthesize isMapping = _isMapping;
 
 -(id)initWithData:(NSMutableDictionary*)data {
     // Is overwritten in child classes
@@ -77,12 +78,20 @@
     return cId;
 }
 
--(void)stopRecording:(NSNotification*)notification {
-    
+-(BOOL)isMapping {
+    return _isMapping;
 }
 
--(BOOL)respondsToMIDICommand:command {
-    return YES;
+-(void)setIsMapping:(BOOL)isMapping {
+    
+    if(isMapping) {
+        [self.delegate startMap: @{self.MIDIIdentifier : @"note"}];
+    }
+    _isMapping = isMapping;
+}
+
+-(void)stopRecording:(NSNotification*)notification {
+    // Overwritten by sub-classes
 }
 
 -(void)handleMIDICommand:(NSNotification*)notification {

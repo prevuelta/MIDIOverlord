@@ -26,7 +26,7 @@
 
 @protocol moduleBaseDelegate
 -(void)midiCommand:(NSArray*)data;
--(void)startRecord:(NSDictionary*)mID;
+-(void)startMap:(NSDictionary*)mID;
 @end
 
 @interface moduleBase : uiBase
@@ -46,11 +46,16 @@
 // Display options
 @property NSInteger tag;
 
-// Midi
+/* MIDI Commands */
+
 @property MIKMIDICommand *receiveCommand;
 @property NSString *MIDIIdentifier;
-@property BOOL isRecording;
-@property uiButton *receiveRecordBtn;
+
+/* MIDI Mapping */
+
+@property BOOL isMapping;
+@property uiButton *receiveMap;
+@property uiButton *sendMap;
 
 // UI
 @property uiEditableTextField *label;
@@ -64,7 +69,6 @@
 
 /* Midi */
 
--(BOOL)respondsToMIDICommand:command;
 -(void)handleMIDICommand:(NSNotification*)notification;
 
 -(MIKMIDIResponderType)MIDIResponderTypeForCommandIdentifier:(NSString *)commandID;
