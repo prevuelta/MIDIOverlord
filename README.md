@@ -2,7 +2,7 @@
 
 [Project Site - http://www.midioverlord.com ] (http://www.midioverlord.com)
 
-This is a MIDI mapping (and hopefully sequencing in the future) app currently in development for OSX.
+This is a MIDI mapping & sequencing tool currently in development for OS X.
 
 It is my first Obj C project so the code is not the greatest - but will hopefully be improved over time.
 
