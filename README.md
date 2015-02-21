@@ -18,7 +18,7 @@ Also thanks to [Brad Frost](http://bradfrost.com/) for the inspiration to start 
 
 Contains midi control modules - note, control change etc.
 
-#### Sys-ex Rack TBC
+#### SysEx Rack TBC
 
 Racks for controling specific instruments - these will hopefully come in the form of free downloadable patches
 
