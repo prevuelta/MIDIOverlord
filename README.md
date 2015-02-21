@@ -12,25 +12,43 @@ Also thanks to [Brad Frost](http://bradfrost.com/) for the inspiration to start 
 
 ## The System
 
-### Racks
+### Rack types
 
-These contain different modules
+#### Control Rack
+
+Contains midi control modules - note, control change etc.
+
+#### Sys-ex Rack TBC
+
+Racks for controling specific instruments - these will hopefully come in the form of free downloadable patches
+
+#### Sequencer Rack
+
+TBC
+
+#### Transport Rack
+
+TBC
+
 
 ### Modules
 
-These are different midi controllers
+#### Pad Control
 
-#### Pad
 For a standard midi note on / note off command - a receive note can be mapped to multiple send notes eg. D1 to a chord (C, E, G) 
 
-#### Slider
+#### Slider Control
+
 For controlling a Midi control change - includes a velocity lock switch to ignore trigger's velocity.
 
-#### Mapper
+#### Mapper Control
+
 TBC - For mapping segments of your controller eg. Splitting keys, breath controllers, mod wheel etc.
 
-#### X/Y Controller and / or 4 corner controller
+#### X/Y Controller and / or 4 corner control
+
 TBC
 
-#### High-resolution Slider
+#### High-resolution Slider Control
+
 TBC
