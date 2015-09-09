@@ -28,7 +28,6 @@
 		6ECD89FA1947C3EE00CCBE97 /* controlText.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECD89F91947C3EE00CCBE97 /* controlText.m */; };
 		6ED30FD9196BAE3700B7FF31 /* uiEditableNumberField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED30FD8196BAE3700B7FF31 /* uiEditableNumberField.m */; };
 		6ED33A4B198B22F1000E9812 /* sprite.png in Resources */ = {isa = PBXBuildFile; fileRef = 6ED33A4A198B22F1000E9812 /* sprite.png */; };
-		6ED3ADE01A859CA1003EF5E8 /* MIKMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ED3ADDF1A859CA1003EF5E8 /* MIKMIDI.framework */; };
 		6ED3ADE31A85E91C003EF5E8 /* uiIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED3ADE21A85E91C003EF5E8 /* uiIndicator.m */; };
 		6EDA87C5194E77B7007BB3C8 /* patternBg.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6EDA87C4194E77B7007BB3C8 /* patternBg.gif */; };
 		6EDB087F19906E4C00D1B98B /* moduleMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EDB087E19906E4C00D1B98B /* moduleMap.m */; };
@@ -57,6 +56,7 @@
 		6EE445851936C86100C61171 /* rackBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE445621936C86100C61171 /* rackBase.m */; };
 		6EE445861936C86100C61171 /* rackControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE445641936C86100C61171 /* rackControl.m */; };
 		6EE445871936C86100C61171 /* uiToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE445661936C86100C61171 /* uiToolbar.m */; };
+		A41FB7171B9FC3B100098004 /* MIKMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A41FB7161B9FC3B100098004 /* MIKMIDI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,7 +109,6 @@
 		6ED30FD7196BAE3700B7FF31 /* uiEditableNumberField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uiEditableNumberField.h; sourceTree = "<group>"; };
 		6ED30FD8196BAE3700B7FF31 /* uiEditableNumberField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uiEditableNumberField.m; sourceTree = "<group>"; };
 		6ED33A4A198B22F1000E9812 /* sprite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sprite.png; sourceTree = "<group>"; };
-		6ED3ADDF1A859CA1003EF5E8 /* MIKMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MIKMIDI.framework; sourceTree = "<group>"; };
 		6ED3ADE11A85E91C003EF5E8 /* uiIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = uiIndicator.h; path = MIDIOverlord/views/ui/elements/uiIndicator.h; sourceTree = SOURCE_ROOT; };
 		6ED3ADE21A85E91C003EF5E8 /* uiIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = uiIndicator.m; path = MIDIOverlord/views/ui/elements/uiIndicator.m; sourceTree = SOURCE_ROOT; };
 		6EDA87C4194E77B7007BB3C8 /* patternBg.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = patternBg.gif; sourceTree = "<group>"; };
@@ -160,6 +159,7 @@
 		6EE445641936C86100C61171 /* rackControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = rackControl.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		6EE445651936C86100C61171 /* uiToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uiToolBar.h; sourceTree = "<group>"; };
 		6EE445661936C86100C61171 /* uiToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uiToolbar.m; sourceTree = "<group>"; };
+		A41FB7161B9FC3B100098004 /* MIKMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MIKMIDI.framework; path = Frameworks/MIKMIDI.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,9 +168,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E7C564518ED04E60002F09B /* Foundation.framework in Frameworks */,
-				6ED3ADE01A859CA1003EF5E8 /* MIKMIDI.framework in Frameworks */,
 				6E7C564218ED04C10002F09B /* Cocoa.framework in Frameworks */,
 				6E7C564018ED04A80002F09B /* CoreMIDI.framework in Frameworks */,
+				A41FB7171B9FC3B100098004 /* MIKMIDI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,17 +184,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6E11C2E0197F393A008A825D /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				6ED3ADDF1A859CA1003EF5E8 /* MIKMIDI.framework */,
-			);
-			path = Frameworks;
-			sourceTree = "<group>";
-		};
 		6E5A63DA184417F600C1CD8E = {
 			isa = PBXGroup;
 			children = (
+				A41FB7161B9FC3B100098004 /* MIKMIDI.framework */,
 				6E7C564318ED04C60002F09B /* Foundation.framework */,
 				6E7C564118ED04C10002F09B /* Cocoa.framework */,
 				6E7C563F18ED04A80002F09B /* CoreMIDI.framework */,
@@ -230,7 +223,6 @@
 		6EE445281936C86100C61171 /* MIDIOverlord */ = {
 			isa = PBXGroup;
 			children = (
-				6E11C2E0197F393A008A825D /* Frameworks */,
 				6EE445291936C86100C61171 /* AppDelegate.h */,
 				6EE4452A1936C86100C61171 /* AppDelegate.m */,
 				6EE4452B1936C86100C61171 /* constants.h */,
@@ -626,27 +618,17 @@
 		6E5A6415184417F700C1CD8E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = NO;
 				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Users/prevuelta/MIDIOverlord/MIDIOverlord/Frameworks/**",
-					/Users/prevuelta/MIDIOverlord/MIDIOverlord/Frameworks,
-					"@loader_path/../Frameworks",
-					/Users/prevuelta/MIDIOverlord/Frameworks,
-					"/Users/pablo/MIDIOverlord/MIDIOverlord/Frameworks/**",
-					"$(PROJECT_DIR)/MIDIOverlord/Frameworks",
-				);
+				FRAMEWORK_SEARCH_PATHS = "@loader_path/../Frameworks/**";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MIDIOverlord/MIDIOverlord-Prefix.pch";
 				INFOPLIST_FILE = "MIDIOverlord/MIDIOverlord-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"@loader_path/../Frameworks/**",
-					"$(PROJECT_DIR)/**",
-				);
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = MIDIOverlord;
 				WRAPPER_EXTENSION = app;
 			};
@@ -655,27 +637,17 @@
 		6E5A6416184417F700C1CD8E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = NO;
 				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Users/prevuelta/MIDIOverlord/MIDIOverlord/Frameworks/**",
-					/Users/prevuelta/MIDIOverlord/MIDIOverlord/Frameworks,
-					"@loader_path/../Frameworks",
-					/Users/prevuelta/MIDIOverlord/Frameworks,
-					"/Users/pablo/MIDIOverlord/MIDIOverlord/Frameworks/**",
-					"$(PROJECT_DIR)/MIDIOverlord/Frameworks",
-				);
+				FRAMEWORK_SEARCH_PATHS = "@loader_path/../Frameworks/**";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MIDIOverlord/MIDIOverlord-Prefix.pch";
 				INFOPLIST_FILE = "MIDIOverlord/MIDIOverlord-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"@loader_path/../Frameworks/**",
-					"$(PROJECT_DIR)/**",
-				);
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = MIDIOverlord;
 				WRAPPER_EXTENSION = app;
 			};
