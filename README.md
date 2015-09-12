@@ -1,6 +1,8 @@
 # MIDIOverlord 
 
-[Project Site - http://www.midioverlord.com ] (http://www.midioverlord.com)
+Project Site - [http://www.midioverlord.com ] (http://www.midioverlord.com)
+
+![alt MIDIOverlord]("https://github.com/prevuelta/MIDIOverlord/MIDIOverlord/Images.xcassets/AppIcon.appiconset/icon_128x128.png")
 
 This is a MIDI mapping & sequencing tool currently in development for OS X.
 
