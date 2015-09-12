@@ -2,7 +2,7 @@
 
 Project Site - [http://www.midioverlord.com ] (http://www.midioverlord.com)
 
-![alt text](https://github.com/prevuelta/MIDIOverlord/MIDIOverlord/resources/default.png "MIDIOverlord")
+![alt text](https://raw.githubusercontent.com/prevuelta/MIDIOverlord/dev/MIDIOverlord/resources/default.png "MIDIOverlord")
 
 This is a MIDI mapping & sequencing tool currently in development for OS X.
 
