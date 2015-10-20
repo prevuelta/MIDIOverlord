@@ -11,7 +11,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   MIKMIDI:
-    :commit: afa8caa0c083f365f6c92fb202a114d48a4de112
+    :commit: 6c8d0ee16099d34b6b679fe0e66662fb641a89bb
     :git: https://github.com/mixedinkey-opensource/MIKMIDI.git
 
 SPEC CHECKSUMS:
