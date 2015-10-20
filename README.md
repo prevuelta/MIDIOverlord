@@ -1,6 +1,8 @@
 # MIDIOverlord 
 
-[Project Site - http://www.midioverlord.com ] (http://www.midioverlord.com)
+Project Site - [http://www.midioverlord.com ] (http://www.midioverlord.com)
+
+![alt text](https://raw.githubusercontent.com/prevuelta/MIDIOverlord/dev/MIDIOverlord/resources/default.png "MIDIOverlord")
 
 This is a MIDI mapping & sequencing tool currently in development for OS X.
 
@@ -52,3 +54,9 @@ TBC
 #### High-resolution Slider Control
 
 TBC
+
+
+=============USAGE ====================
+
+pod install
+
