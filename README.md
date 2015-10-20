@@ -54,3 +54,9 @@ TBC
 #### High-resolution Slider Control
 
 TBC
+
+
+=============USAGE ====================
+
+pod install
+

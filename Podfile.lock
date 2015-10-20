@@ -1,0 +1,20 @@
+PODS:
+  - MIKMIDI (1.1.0)
+
+DEPENDENCIES:
+  - MIKMIDI (from `https://github.com/mixedinkey-opensource/MIKMIDI.git`, branch `1.1`)
+
+EXTERNAL SOURCES:
+  MIKMIDI:
+    :branch: '1.1'
+    :git: https://github.com/mixedinkey-opensource/MIKMIDI.git
+
+CHECKOUT OPTIONS:
+  MIKMIDI:
+    :commit: afa8caa0c083f365f6c92fb202a114d48a4de112
+    :git: https://github.com/mixedinkey-opensource/MIKMIDI.git
+
+SPEC CHECKSUMS:
+  MIKMIDI: 1a5e56e5a6c7cb8aa76277853379d3f21fdb35c9
+
+COCOAPODS: 0.39.0

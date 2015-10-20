@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		604A2B570DE6A7F5343C1EA8 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02D766BFE2D0C4B74BB4BDBA /* Pods.framework */; };
 		6E04ABCF1946FF4800B51D27 /* uiBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E04ABCE1946FF4800B51D27 /* uiBase.m */; };
 		6E2449C3196D0B29007CDABB /* appWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2449C2196D0B29007CDABB /* appWindow.m */; };
 		6E29E52A194ABE9800F6BD4F /* global.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E29E529194ABE9800F6BD4F /* global.m */; };
@@ -56,7 +57,6 @@
 		6EE445851936C86100C61171 /* rackBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE445621936C86100C61171 /* rackBase.m */; };
 		6EE445861936C86100C61171 /* rackControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE445641936C86100C61171 /* rackControl.m */; };
 		6EE445871936C86100C61171 /* uiToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE445661936C86100C61171 /* uiToolbar.m */; };
-		A41FB7171B9FC3B100098004 /* MIKMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A41FB7161B9FC3B100098004 /* MIKMIDI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +70,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		02D766BFE2D0C4B74BB4BDBA /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E04ABCD1946FF4800B51D27 /* uiBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uiBase.h; sourceTree = "<group>"; };
 		6E04ABCE1946FF4800B51D27 /* uiBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uiBase.m; sourceTree = "<group>"; };
 		6E2449C1196D0B29007CDABB /* appWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = appWindow.h; sourceTree = "<group>"; };
@@ -99,7 +100,7 @@
 		6E9A62D119DAB93D004E232B /* uiToggle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = uiToggle.m; path = MIDIOverlord/views/ui/elements/uiToggle.m; sourceTree = SOURCE_ROOT; };
 		6EBBB0D719DFE27E0031C197 /* uiTextButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uiTextButton.h; sourceTree = "<group>"; };
 		6EBBB0D819DFE27E0031C197 /* uiTextButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uiTextButton.m; sourceTree = "<group>"; };
-		6EC55EBB197F32DC000D7E76 /* MIDIOverlordTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MIDIOverlordTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6EC55EBB197F32DC000D7E76 /* MIDIOverlordTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = MIDIOverlordTests.xctest; path = /Users/johnpope/Documents/gitWorkspace/MIDIOverlord/build/Debug/MIDIOverlordTests.xctest; sourceTree = "<absolute>"; };
 		6ECD89F11946BE7400CCBE97 /* uiButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uiButton.h; sourceTree = "<group>"; };
 		6ECD89F21946BE7400CCBE97 /* uiButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uiButton.m; sourceTree = "<group>"; };
 		6ECD89F31946BE7400CCBE97 /* uiTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uiTextField.h; sourceTree = "<group>"; };
@@ -159,7 +160,8 @@
 		6EE445641936C86100C61171 /* rackControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = rackControl.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		6EE445651936C86100C61171 /* uiToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uiToolBar.h; sourceTree = "<group>"; };
 		6EE445661936C86100C61171 /* uiToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uiToolbar.m; sourceTree = "<group>"; };
-		A41FB7161B9FC3B100098004 /* MIKMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MIKMIDI.framework; path = Frameworks/MIKMIDI.framework; sourceTree = "<group>"; };
+		B0F206D239F5800C39E5BBC4 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		BC031831CCA2DBB5CA59AE56 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,7 +172,7 @@
 				6E7C564518ED04E60002F09B /* Foundation.framework in Frameworks */,
 				6E7C564218ED04C10002F09B /* Cocoa.framework in Frameworks */,
 				6E7C564018ED04A80002F09B /* CoreMIDI.framework in Frameworks */,
-				A41FB7171B9FC3B100098004 /* MIKMIDI.framework in Frameworks */,
+				604A2B570DE6A7F5343C1EA8 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,13 +189,10 @@
 		6E5A63DA184417F600C1CD8E = {
 			isa = PBXGroup;
 			children = (
-				A41FB7161B9FC3B100098004 /* MIKMIDI.framework */,
-				6E7C564318ED04C60002F09B /* Foundation.framework */,
-				6E7C564118ED04C10002F09B /* Cocoa.framework */,
-				6E7C563F18ED04A80002F09B /* CoreMIDI.framework */,
 				6E7C563E18EB94EC0002F09B /* MIDIOverlord.app */,
 				6EE445281936C86100C61171 /* MIDIOverlord */,
-				6EC55EBB197F32DC000D7E76 /* MIDIOverlordTests.xctest */,
+				F8739B057F4DFF751B000970 /* Pods */,
+				DA045D62E5CF3AC7DCF7C0D4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -368,6 +367,26 @@
 			path = racks;
 			sourceTree = "<group>";
 		};
+		DA045D62E5CF3AC7DCF7C0D4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6E7C564318ED04C60002F09B /* Foundation.framework */,
+				6E7C564118ED04C10002F09B /* Cocoa.framework */,
+				6E7C563F18ED04A80002F09B /* CoreMIDI.framework */,
+				02D766BFE2D0C4B74BB4BDBA /* Pods.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F8739B057F4DFF751B000970 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B0F206D239F5800C39E5BBC4 /* Pods.debug.xcconfig */,
+				BC031831CCA2DBB5CA59AE56 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -375,9 +394,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6E5A6414184417F700C1CD8E /* Build configuration list for PBXNativeTarget "MIDIOverlord" */;
 			buildPhases = (
+				1FD5BF6BCF1EC8F5C01DD937 /* Check Pods Manifest.lock */,
 				6E5A63DF184417F600C1CD8E /* Sources */,
 				6E5A63E0184417F600C1CD8E /* Frameworks */,
 				6E5A63E1184417F600C1CD8E /* Resources */,
+				EC30A6B3B5750376CBE88250 /* Embed Pods Frameworks */,
+				448EF7ACA7E27CFBBF024DA5 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -465,6 +487,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1FD5BF6BCF1EC8F5C01DD937 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		448EF7ACA7E27CFBBF024DA5 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EC30A6B3B5750376CBE88250 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6E5A63DF184417F600C1CD8E /* Sources */ = {
@@ -617,6 +687,7 @@
 		};
 		6E5A6415184417F700C1CD8E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B0F206D239F5800C39E5BBC4 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -628,7 +699,7 @@
 				GCC_PREFIX_HEADER = "MIDIOverlord/MIDIOverlord-Prefix.pch";
 				INFOPLIST_FILE = "MIDIOverlord/MIDIOverlord-Info.plist";
 				LIBRARY_SEARCH_PATHS = "";
-				OTHER_LDFLAGS = "";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = MIDIOverlord;
 				WRAPPER_EXTENSION = app;
 			};
@@ -636,6 +707,7 @@
 		};
 		6E5A6416184417F700C1CD8E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BC031831CCA2DBB5CA59AE56 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -647,7 +719,7 @@
 				GCC_PREFIX_HEADER = "MIDIOverlord/MIDIOverlord-Prefix.pch";
 				INFOPLIST_FILE = "MIDIOverlord/MIDIOverlord-Info.plist";
 				LIBRARY_SEARCH_PATHS = "";
-				OTHER_LDFLAGS = "";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = MIDIOverlord;
 				WRAPPER_EXTENSION = app;
 			};
