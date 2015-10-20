@@ -35,8 +35,8 @@
     [self.receiveMap setSendsEvent: NO];
     [self.receiveMap setIsToggle: YES];
     
-    [self bind:@"isRecording" toObject:self.receiveMap withKeyPath:@"toggled" options:nil];
-    [self.receiveMap bind:@"toggled" toObject:self withKeyPath:@"isRecording" options:nil];
+    [self bind:@"isMapping" toObject:self.receiveMap withKeyPath:@"toggled" options:nil];
+    [self.receiveMap bind:@"toggled" toObject:self withKeyPath:@"isMapping" options:nil];
     
     [self addSubview: self.receiveMap];
     

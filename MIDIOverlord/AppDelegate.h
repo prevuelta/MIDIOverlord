@@ -6,7 +6,6 @@
 //  Copyright (c) 2013 Midnight City. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
 #import <MIKMIDI/MIKMIDI.h>
 
 //Data

@@ -56,7 +56,7 @@
 		6EE445851936C86100C61171 /* rackBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE445621936C86100C61171 /* rackBase.m */; };
 		6EE445861936C86100C61171 /* rackControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE445641936C86100C61171 /* rackControl.m */; };
 		6EE445871936C86100C61171 /* uiToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE445661936C86100C61171 /* uiToolbar.m */; };
-		A41FB7171B9FC3B100098004 /* MIKMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A41FB7161B9FC3B100098004 /* MIKMIDI.framework */; };
+		A408FF121BA142250056E41C /* MIKMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A408FF111BA142250056E41C /* MIKMIDI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -159,7 +159,7 @@
 		6EE445641936C86100C61171 /* rackControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = rackControl.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		6EE445651936C86100C61171 /* uiToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uiToolBar.h; sourceTree = "<group>"; };
 		6EE445661936C86100C61171 /* uiToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uiToolbar.m; sourceTree = "<group>"; };
-		A41FB7161B9FC3B100098004 /* MIKMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MIKMIDI.framework; path = Frameworks/MIKMIDI.framework; sourceTree = "<group>"; };
+		A408FF111BA142250056E41C /* MIKMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MIKMIDI.framework; path = Frameworks/MIKMIDI.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,7 +170,7 @@
 				6E7C564518ED04E60002F09B /* Foundation.framework in Frameworks */,
 				6E7C564218ED04C10002F09B /* Cocoa.framework in Frameworks */,
 				6E7C564018ED04A80002F09B /* CoreMIDI.framework in Frameworks */,
-				A41FB7171B9FC3B100098004 /* MIKMIDI.framework in Frameworks */,
+				A408FF121BA142250056E41C /* MIKMIDI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,7 +187,7 @@
 		6E5A63DA184417F600C1CD8E = {
 			isa = PBXGroup;
 			children = (
-				A41FB7161B9FC3B100098004 /* MIKMIDI.framework */,
+				A408FF111BA142250056E41C /* MIKMIDI.framework */,
 				6E7C564318ED04C60002F09B /* Foundation.framework */,
 				6E7C564118ED04C10002F09B /* Cocoa.framework */,
 				6E7C563F18ED04A80002F09B /* CoreMIDI.framework */,
@@ -618,16 +618,16 @@
 		6E5A6415184417F700C1CD8E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = NO;
 				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = "@loader_path/../Frameworks/**";
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Frameworks/**";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MIDIOverlord/MIDIOverlord-Prefix.pch";
 				INFOPLIST_FILE = "MIDIOverlord/MIDIOverlord-Info.plist";
-				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/Frameworks";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = MIDIOverlord;
 				WRAPPER_EXTENSION = app;
@@ -637,16 +637,16 @@
 		6E5A6416184417F700C1CD8E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = NO;
 				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = "@loader_path/../Frameworks/**";
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Frameworks/**";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MIDIOverlord/MIDIOverlord-Prefix.pch";
 				INFOPLIST_FILE = "MIDIOverlord/MIDIOverlord-Info.plist";
-				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/Frameworks";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = MIDIOverlord;
 				WRAPPER_EXTENSION = app;
