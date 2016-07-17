@@ -22,9 +22,7 @@
 //@property appModel* data;
 
 @property appViewController *appViewControl;
-
 @property midiController* midiController;
-
 @property appWindow *mainWin;
 
 

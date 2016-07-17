@@ -47,8 +47,8 @@
          @"addSlider"   : @-96,
          @"addPads"     : @-116,
          @"addMap"      : @-232,
-         @"receiveRecord"  : @-168,
-         @"sendRecord"  : @-184
+         @"receiveMap"  : @-168,
+         @"sendMap"  : @-184
     };
     
     if([event isEqualTo: @"closeWindow"]) {

@@ -60,9 +60,9 @@
 
 @property MIKMIDIMapping * mappings;
 
-@property BOOL isRecording;
+@property BOOL isMapping;
 
-@property NSMutableDictionary *modulesInputRecord;
+@property NSMutableDictionary *modulesInputMap;
 
 @property NSString *currentMIDIIdentifier;
 
@@ -81,6 +81,6 @@
 
 /* Midi */
 
--(void)startRecord:(NSDictionary*)mID;
+-(void)startMap:(NSDictionary *)mID;
 
 @end

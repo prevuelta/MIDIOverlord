@@ -15,6 +15,4 @@
 -(void)startListening;
 -(void)stopListening;
 
--(void)startRecording:(NSString*)MIDIIdentifier;
-
 @end

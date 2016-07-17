@@ -34,7 +34,6 @@
 }
 
 -(void)fade {
-    NSLog(@"Faded");
     [self setActive: NO];
     [self setNeedsDisplay: YES];
 }

@@ -37,7 +37,7 @@
     
     _MIDIIdentifier = [global uuid];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stopRecording:) name:@"stopRecording" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stopMapping:) name:@"stopMapping" object:nil];
     
     
     return self;
@@ -83,14 +83,13 @@
 }
 
 -(void)setIsMapping:(BOOL)isMapping {
-    
     if(isMapping) {
         [self.delegate startMap: @{self.MIDIIdentifier : @"note"}];
     }
     _isMapping = isMapping;
 }
 
--(void)stopRecording:(NSNotification*)notification {
+-(void)stopMapping:(NSNotification*)notification {
     // Overwritten by sub-classes
 }
 

@@ -249,11 +249,11 @@
     return _receiveDevice;
 }
 
--(void)startRecord:(NSDictionary*)mID{
+-(void)startMap:(NSDictionary*)mID{
 //    self.currentMIDIIdentifier = MIDIIdentifier;'
     NSLog(@"Received event %@", mID);
     
-    [self.modulesInputRecord addEntriesFromDictionary: mID];
+    [self.modulesInputMap addEntriesFromDictionary: mID];
     
 //    NSLog(@"%@", self.modulesInputRecord);
     

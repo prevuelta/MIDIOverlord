@@ -47,7 +47,9 @@
     
     /* Input */
     
-    self.receiveMap = [[uiButton alloc] initWithSize: 16 andEvent: @"receiveRecord"];
+    /* Mapping button */
+    
+    self.receiveMap = [[uiButton alloc] initWithSize: 16 andEvent: @"receiveMap"];
     [self.receiveMap setOriginWithY: 16];
     [self.receiveMap setSendsEvent: NO];
     [self.receiveMap setIsToggle: YES];
@@ -56,6 +58,8 @@
     
     [self addSubview: self.receiveMap];
 
+    /* Receive value */
+    
     self.receiveValue = [[controlText alloc] initWithLabel: @"" andValue: data[@"receiveNoteValue"]];
     
     uiNoteField *receiveNote = [[uiNoteField alloc] initWithString: [utilities noteName: [data[@"receiveNoteValue"] intValue] ]];
@@ -74,7 +78,7 @@
 
     /* Output */
     
-    uiButton *sendRecord = [[uiButton alloc] initWithSize: 16 andEvent: @"sendRecord"];
+    uiButton *sendRecord = [[uiButton alloc] initWithSize: 16 andEvent: @"sendMap"];
     [sendRecord setOrigin: NSMakePoint(0, 32)];
     [sendRecord setIsToggle: YES];
     
@@ -178,7 +182,7 @@
 }
 
 
--(void)stopRecording:(NSNotification*)notification {
+-(void)stopMapping:(NSNotification*)notification {
     NSLog(@"Stopping recording");
     [self.receiveMap setToggled: NO];
 }

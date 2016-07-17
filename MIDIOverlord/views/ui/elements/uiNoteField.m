@@ -18,7 +18,6 @@
     
     if (!self) return nil;
     
-    
     return self;
 }
 

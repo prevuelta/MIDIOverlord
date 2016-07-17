@@ -65,7 +65,7 @@
     
     self.mappings = [MIKMIDIMapping new];
     
-    self.modulesInputRecord = [NSMutableDictionary new];
+    self.modulesInputMap = [NSMutableDictionary new];
 
     return self;
 }
@@ -267,7 +267,7 @@
     [global deselectNotify];
 }
 
--(void)startRecord:(NSString *)MIDIIdentifier {
+-(void)startMap:(NSString *)MIDIIdentifier {
     NSLog(@"Delegate received: %@", MIDIIdentifier);
 }
 

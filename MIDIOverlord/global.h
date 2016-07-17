@@ -25,6 +25,7 @@
 
 @property NSMutableDictionary *colors;
 
+@property NSDictionary *glyphs;
 @property NSCharacterSet *invalidChars;
 @property NSCharacterSet *notNumbers;
 
@@ -33,7 +34,7 @@
 
 +(global*)sharedGlobalData;
 +(void)deselectNotify;
-+(void)stopRecordingNotify;
++(void)stopMappingNotify;
 +(NSString *)uuid;
 
 +(int)getUnitWidth:(int)units;

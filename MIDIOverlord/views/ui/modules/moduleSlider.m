@@ -12,6 +12,7 @@
 
 @synthesize ccValue = _ccValue;
 @synthesize data = _data;
+@synthesize isMapping = _isMapping;
 
 -(id)initWithData:(NSMutableDictionary*)data {
     
@@ -29,7 +30,7 @@
     
     /* Receive CC */
     
-    self.receiveMap = [[uiButton alloc] initWithSize: 16 andEvent: @"receiveRecord"];
+    self.receiveMap = [[uiButton alloc] initWithSize: 16 andEvent: @"receiveMap"];
     
     [self.receiveMap setOriginWithY: 16];
     [self.receiveMap setSendsEvent: NO];
@@ -140,6 +141,13 @@
     }
     
    
+}
+
+-(void)setIsMapping:(BOOL)isMapping {
+    if(isMapping) {
+        [self.delegate startMap: @{self.MIDIIdentifier : @"controlchange"}];
+    }
+    _isMapping = isMapping;
 }
 
 
